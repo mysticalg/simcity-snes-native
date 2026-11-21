@@ -4,6 +4,7 @@ on:
     branches: [main]
   workflow_dispatch:
 permissions:
+  actions: read
   contents: read
   pages: write
   id-token: write
@@ -31,7 +32,10 @@ jobs:
                 owner: context.repo.owner, repo: context.repo.repo,
                 run_id: context.runId
               });
-              if (data.artifacts.some(a => a.name === 'github-pages' && !a.expired)) return;
+              if (data.artifacts.some(a => a.name === 'github-pages' && !a.expired)) {
+                await new Promise(resolve => setTimeout(resolve, 10000));
+                return;
+              }
               await new Promise(resolve => setTimeout(resolve, 2000));
             }
             core.setFailed('Uploaded github-pages artifact did not become visible within 60 seconds');
