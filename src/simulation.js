@@ -1,3 +1,4 @@
+import {residentialDemandScore, residentialLocalScore, decideResidentialUpdate} from './rom-growth.js';
 // Native simulation model. ROM-backed tables and direct translations are marked.
 // Monthly growth, coverage and disasters are provisional reconstructions, not yet
 // instruction-for-instruction ports of the SNES simulation (see research/STATUS.md).
@@ -152,6 +153,17 @@ export class City {
   else {const level=z.id<0x201?-1:Math.floor(((z.id-0x201)%36)/9);const next=clamp(level+direction,-1,3);top=next<0?0x1f4:0x1fd+next*9;}
   for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++)this.map[(z.y+dy)*W+z.x+dx]=top+(dy+1)*3+dx+1;
  }
+ updateResidentialTile(z,nextRandomWord=()=>this.random()){
+  const gateWord=nextRandomWord();
+  // CODE_0399D2's 0..255 lookup planes are represented by the model's
+  // approximate land-value field; demand and these local inputs remain provisional.
+  const localScore=residentialLocalScore(this.landValue[z.i]||0,0);
+  const score=residentialDemandScore(this.map[z.i],localScore,this.demand[0]);
+  const decision=decideResidentialUpdate({tileId:z.id,gateWord,score,population:this.zonePopulation(z),nextRandomWord});
+  if(decision.action==='grow')this.grow(z,1);
+  else if(decision.action==='decline')this.grow(z,-1);
+  return decision;
+ }
  budget(apply=false,taxRate=this.tax){
   // This gross-income estimate remains provisional; original budget tracing is incomplete.
   const income=Math.round((this.rci[0]+this.rci[1]*8+this.rci[2]*8)*taxRate*2);
@@ -172,6 +184,7 @@ export class City {
   const jobs=(this.rci[1]+this.rci[2])*8;
   this.demand=[clamp(700+(jobs-this.rci[0])*8-(this.tax-7)*90,-1500,1500),clamp(500+(this.rci[0]/5-this.rci[1])*15-(this.tax-7)*80,-1500,1500),clamp(450+(this.rci[0]/4-this.rci[2])*12-(this.tax-7)*70,-1500,1500)];
   for(const z of this.zones){if(z.type<5||z.type>7)continue;
+   if(z.type===5){this.updateResidentialTile(z);continue;}
    const connected=this.power[z.i]&&this.nearRoad(z);const chance=this.random()%100;
    if(connected&&this.demand[z.type-5]>0&&chance<40&&this.pollution[z.i]<(z.type===7?256:190))this.grow(z,1);
    else if((!connected||this.demand[z.type-5]<-400)&&chance<20)this.grow(z,-1);
