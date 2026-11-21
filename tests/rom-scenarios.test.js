@@ -1,5 +1,5 @@
 import test from 'node:test';import assert from 'node:assert/strict';
-import {scenarioOutcome,SCENARIO_DEADLINES,stepScenarioEvent} from '../src/rom-scenarios.js';
+import {scenarioOutcome,SCENARIO_DEADLINES,stepScenarioEvent,stepScenarioReminder,scenarioMeltdownSite} from '../src/rom-scenarios.js';
 test('ROM scenario deadlines require metropolis plus scenario-specific objective',()=>{
  for(const [id,deadline] of Object.entries(SCENARIO_DEADLINES)){
   const values={category:4,traffic:79,crime:59,score:500};
@@ -20,3 +20,12 @@ test('scripted disaster counters reproduce source boundaries',()=>{
  assert.equal(stepScenarioEvent('LasVegas',384,85000).event,'UFO');
 });
 
+
+test('reminder sequence advances once and Boston selects first nuclear center',()=>{
+ assert.deepEqual(stepScenarioReminder('Tokyo',1961,0),{stage:1,yearsLeft:5});
+ assert.deepEqual(stepScenarioReminder('Tokyo',1961,1),{stage:1,yearsLeft:null});
+ assert.deepEqual(stepScenarioReminder('Tokyo',1966,4),{stage:5,yearsLeft:1});
+ assert.equal(stepScenarioReminder('Tokyo',1966,5).yearsLeft,null);
+ assert.deepEqual(scenarioMeltdownSite([0,0x827c,0x27c],3),{x:1,y:0});
+ assert.equal(scenarioMeltdownSite([0,0]),null);
+});

@@ -16,3 +16,16 @@ export function stepScenarioEvent(id,remaining,population){
  else if(remaining>0&&(remaining&15)===0){if(id==='RioDeJaneiro')event='Flood';if(id==='LasVegas'&&population>=85000)event='UFO';}
  return {remaining:Math.max(0,remaining-1),event};
 }
+// CODE_03C50B..03C548 advances one reminder stage per invocation,
+// including when the current date has already passed a threshold.
+export function stepScenarioReminder(id,year,stage){
+ const deadline=SCENARIO_DEADLINES[id];
+ if(deadline===undefined||stage>=5)return {stage,yearsLeft:null};
+ const left=Math.max(0,deadline-year),threshold=5-stage;
+ return left<=threshold?{stage:stage+1,yearsLeft:threshold}:{stage,yearsLeft:null};
+}
+// CODE_03BAC1 scans row-major for the first nuclear plant center ($027C).
+export function scenarioMeltdownSite(map,width=120){
+ const i=map.findIndex(word=>(word&1023)===0x27c);
+ return i<0?null:{x:i%width,y:Math.floor(i/width)};
+}

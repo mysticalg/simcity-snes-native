@@ -1,4 +1,4 @@
-import {scenarioOutcome,SCENARIO_EVENT_COUNTS,stepScenarioEvent} from './rom-scenarios.js';
+import {scenarioOutcome,SCENARIO_EVENT_COUNTS,stepScenarioEvent,stepScenarioReminder,scenarioMeltdownSite} from './rom-scenarios.js';
 import {residentialDemandScore, residentialLocalScore, residentialDensityBand, residentialGrowthBase, residentialDeclineFootprint, decideResidentialUpdate, stampZoneFootprint, placeSmallHome, mergeResidentialZone} from './rom-growth.js';
 import {accumulateRomDemand} from './rom-demand.js';
 // Native simulation model. ROM-backed tables and direct translations are marked.
@@ -202,7 +202,8 @@ export class City {
  tick(){
   // CODE_038016 accrues tax once per base step; four steps make a month.
   this.taxAccumulator+=this.tax*4;
-  for(let step=0;step<4;step++){const e=stepScenarioEvent(this.scenario,this.scenarioRemaining,this.population);this.scenarioRemaining=e.remaining;if(e.event)this.disaster(e.event);}
+  for(let step=0;step<4;step++){const e=stepScenarioEvent(this.scenario,this.scenarioRemaining,this.population);this.scenarioRemaining=e.remaining;if(e.event==='Meltdown'){const site=scenarioMeltdownSite(this.map);if(site)this.disaster(e.event,site.x,site.y);}else if(e.event)this.disaster(e.event);}
+  const reminder=stepScenarioReminder(this.scenario,this.year,this.scenarioReminders.length);if(reminder.yearsLeft!==null){this.scenarioReminders.push(reminder.yearsLeft);this.message('Scenario deadline: '+reminder.yearsLeft+' years remaining.');}
   const oldCategory=this.category;this.updatePower();this.fields();
   const jobs=(this.rci[1]+this.rci[2])*8;
   const generatedDemand=[700+(jobs-this.rci[0])*8-(this.tax-7)*90,500+(this.rci[0]/5-this.rci[1])*15-(this.tax-7)*80,450+(this.rci[0]/4-this.rci[2])*12-(this.tax-7)*70];
@@ -243,6 +244,7 @@ export class City {
  serialize(){return JSON.stringify({version:1,scenarioRemaining:this.scenarioRemaining,scenarioResult:this.scenarioResult,scenarioReminders:this.scenarioReminders,scenarioDialogSeen:this.scenarioDialogSeen,map:Array.from(this.map),name:this.name,scenario:this.scenario,year:this.year,month:this.month,funds:this.funds,difficulty:this.difficulty,tax:this.tax,taxAccumulator:this.taxAccumulator,funding:this.funding,rngA:this.rngA,rngB:this.rngB,history:this.history,loan:this.loan,gifts:this.gifts});}
  static restore(text,build,flags){const s=JSON.parse(text);if(s.version!==1||!Array.isArray(s.map)||s.map.length!==12000||s.map.some(n=>!Number.isInteger(n)||n<0||n>65535))throw Error('This is not a supported city save.');const c=new City(s.map,build,flags,s);for(const k of ['scenarioRemaining','scenarioResult','scenarioReminders','scenarioDialogSeen','month','funds','tax','taxAccumulator','funding','rngA','rngB','history','loan','gifts'])if(s[k]!==undefined)c[k]=s[k];c.refresh();return c;}
 }
+
 
 
 
