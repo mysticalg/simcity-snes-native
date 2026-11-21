@@ -25,3 +25,5 @@ ROM identity is verified against the USA hash in the reference disassembly. The 
 ## Fidelity accounting
 
 `src/simulation.js` labels the model as provisional. Several visible features exist in the playable build, but are not asserted to be original-equivalent until traced and compared. A browser milestone or successful deployment does not constitute completion of the full port.
+
+Follow-up: corrected residential population lookup from `CODE_03842F` and added 5 passing Node tests for map assets, population band thresholds, save/restore and RNG determinism, budget shape/tax range, and corrupt-save rejection. This does not verify total-city population or growth equivalence.

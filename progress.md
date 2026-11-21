@@ -9,3 +9,5 @@ Reverse engineering: cloned Yoshifanatic1/SimCity-SNES-Disassembly at a6cc787f80
 Playable implementation milestone: native HTML/Canvas JavaScript in outputs/simcity, with original maps/graphics, scenario selection, construction, provisional power/growth/economy/disasters, save/load. Simulation, menus, scripted scenarios, audio playback, and comparison remain incomplete. See research/STATUS.md.
 
 Next: preview/runtime verification, improve simulation, initialize correct GitHub repository, publish Pages and verify URL. Continue full port afterward; do not claim complete.
+
+2026-11-21 follow-up: traced `CODE_03842F` and corrected residential tile population calculation: each nine-tile density band contributes 8, 16, 24, or 32 residents. Added Node tests for all nine ROM map lengths, residential/commercial/industrial tile bands, save/restore plus deterministic RNG, tax/budget data shape, and invalid saves. All five checks pass (`node --test tests/*.test.js`). Remaining city population aggregation, zone evaluation, growth, finance, scenario triggers, menu composition, and SPC playback are still not verified against original execution.
