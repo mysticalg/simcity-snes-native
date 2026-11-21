@@ -43,11 +43,12 @@ test('scenario census counts only ROM-flagged growth tiles',()=>{
   assert.ok(c.rci.every(Number.isFinite));
  }
 });
-test('city saves restore map, funds, difficulty, date, and RNG state',()=>{
+test('city saves restore map, funds, difficulty, date, tax accrual, and RNG state',()=>{
  const c=new City(map,build,flags,{name:'Testopolis',year:1954,difficulty:2});c.funds=12345;c.month=8;c.random();
+ c.taxAccumulator=137;
  const restored=City.restore(c.serialize(),build,flags);
  assert.equal(restored.name,c.name);assert.equal(restored.year,1954);assert.equal(restored.month,8);
- assert.equal(restored.funds,12345);assert.equal(restored.difficulty,2);assert.deepEqual([...restored.map],[...c.map]);assert.equal(restored.random(),c.random());
+ assert.equal(restored.funds,12345);assert.equal(restored.difficulty,2);assert.equal(restored.taxAccumulator,137);assert.deepEqual([...restored.map],[...c.map]);assert.equal(restored.random(),c.random());
 });
 test('tax rate stays within the original 0–20% range when applied',()=>{
  const c=new City(map,build,flags);c.tax=20;assert.equal(c.tax,20);
@@ -65,6 +66,14 @@ test('transport budget request follows the ROM difficulty Q8 factors and cap',()
  }
  city.difficulty=2;city.roadCount=20000;city.railCount=0;
  assert.equal(city.budget().requests[0],9999);
+});
+test('annual budget uses the 48-step ROM average tax rate',()=>{
+ const city=new City(Array(W*H).fill(0),build,flags);
+ city.month=12;city.tax=16;city.taxAccumulator=8*4*6+16*4*5;
+ city.tick();
+ assert.equal(city.lastBudget.taxRate,12);
+ assert.equal(city.taxAccumulator,0);
+ assert.equal(city.month,1);assert.equal(city.year,1901);
 });
 test('invalid map saves are rejected',()=>assert.throws(()=>City.restore('{"version":1,"map":[0]}',build,flags),/supported city save/));
 

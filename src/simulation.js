@@ -24,7 +24,7 @@ export class City {
   this.map=Uint16Array.from(map);this.build=build;this.flags=flags;
   this.name=opts.name||'New city';this.scenario=opts.scenario||'PracticeCity';this.year=opts.year||1900;this.month=1;
   this.difficulty=clamp(Math.trunc(opts.difficulty??0),0,2);this.funds=[20000,10000,5000][this.difficulty];this.tax=7;this.funding=[100,100,100];this.speed=1;
-  this.rngA=0x5cd6;this.rngB=0x1238;this.population=0;this.demand=[400,200,200];this.history=[];
+  this.rngA=0x5cd6;this.rngB=0x1238;this.population=0;this.demand=[400,200,200];this.history=[];this.taxAccumulator=opts.taxAccumulator||0;
   this.power=new Uint8Array(W*H);this.pollution=new Uint8Array(W*H);this.crime=new Uint8Array(W*H);this.landValue=new Uint8Array(W*H);this.traffic=new Uint8Array(W*H);
   this.zones=[];this.notices=[];this.disasters=[];this.loan=null;this.elapsed=0;this.category=0;this.gifts=[];this.giftChoice=16;this.lastBudget=null;
   this.refresh();
@@ -152,20 +152,22 @@ export class City {
   else {const level=z.id<0x201?-1:Math.floor(((z.id-0x201)%36)/9);const next=clamp(level+direction,-1,3);top=next<0?0x1f4:0x1fd+next*9;}
   for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++)this.map[(z.y+dy)*W+z.x+dx]=top+(dy+1)*3+dx+1;
  }
- budget(apply=false){
+ budget(apply=false,taxRate=this.tax){
   // This gross-income estimate remains provisional; original budget tracing is incomplete.
-  const income=Math.round((this.rci[0]+this.rci[1]*8+this.rci[2]*8)*this.tax*2);
+  const income=Math.round((this.rci[0]+this.rci[1]*8+this.rci[2]*8)*taxRate*2);
   // CODE_038E39 scales road + double rail count by a Q8 factor indexed by difficulty.
   const transportFactor=[0x00b3,0x00e6,0x0133][this.difficulty];
   const requests=[Math.min(9999,Math.floor((this.roadCount+2*this.railCount)*transportFactor/256)),Math.min(9999,this.counts[8]*100),Math.min(9999,this.counts[9]*100)];
   const expenses=requests.map((n,i)=>Math.round(n*this.funding[i]/100));let payment=this.loan?this.loan.payment:0;
   const net=income-expenses.reduce((a,b)=>a+b,0)-payment;
-  const result={income,requests,expenses,payment,net};
+  const result={income,requests,expenses,payment,net,taxRate};
   if(apply){this.funds=clamp(this.funds+net,0,999999);if(this.loan&&--this.loan.years<=0)this.loan=null;this.lastBudget=result;this.message(`Fiscal year ${this.year}: ${net>=0?'+':''}$${net.toLocaleString()}.`);}
   return result;
  }
  takeLoan(){if(this.loan){this.message('Repay the current loan before borrowing again.');return false;}this.loan={years:10,payment:600};this.funds=Math.min(999999,this.funds+5000);this.message('Bank loan received: $5,000; $600 annually for ten years. Provisional loan terms.');return true;}
  tick(){
+  // CODE_038016 accrues tax once per base step; four steps make a month.
+  this.taxAccumulator+=this.tax*4;
   const oldCategory=this.category;this.updatePower();this.fields();
   const jobs=(this.rci[1]+this.rci[2])*8;
   this.demand=[clamp(700+(jobs-this.rci[0])*8-(this.tax-7)*90,-1500,1500),clamp(500+(this.rci[0]/5-this.rci[1])*15-(this.tax-7)*80,-1500,1500),clamp(450+(this.rci[0]/4-this.rci[2])*12-(this.tax-7)*70,-1500,1500)];
@@ -177,7 +179,7 @@ export class City {
   this.updateDisasters();this.refresh();
   if(this.category>oldCategory){this.gifts.push(16);this.message(`Congratulations! ${this.name} is now a ${CATEGORIES[this.category].toLowerCase()}. A gift is available.`);}
   this.history.push({year:this.year,month:this.month,population:this.population,rci:[...this.rci],funds:this.funds,crime:this.meanCrime||0});if(this.history.length>240)this.history.shift();
-  if(++this.month>12){this.month=1;this.budget(true);this.year++;}
+  if(++this.month>12){this.month=1;this.budget(true,Math.floor(this.taxAccumulator/48));this.taxAccumulator=0;this.year++;}
  }
  advance(ms){this.elapsed+=ms*this.speed;while(this.elapsed>=3000){this.elapsed-=3000;this.tick();}}
  disaster(type,x=60,y=50){
@@ -199,6 +201,6 @@ export class City {
   }
   this.disasters=this.disasters.filter(d=>d.life>0);
  }
- serialize(){return JSON.stringify({version:1,map:Array.from(this.map),name:this.name,scenario:this.scenario,year:this.year,month:this.month,funds:this.funds,difficulty:this.difficulty,tax:this.tax,funding:this.funding,rngA:this.rngA,rngB:this.rngB,history:this.history,loan:this.loan,gifts:this.gifts});}
- static restore(text,build,flags){const s=JSON.parse(text);if(s.version!==1||!Array.isArray(s.map)||s.map.length!==12000||s.map.some(n=>!Number.isInteger(n)||n<0||n>65535))throw Error('This is not a supported city save.');const c=new City(s.map,build,flags,s);for(const k of ['month','funds','tax','funding','rngA','rngB','history','loan','gifts'])if(s[k]!==undefined)c[k]=s[k];c.refresh();return c;}
+ serialize(){return JSON.stringify({version:1,map:Array.from(this.map),name:this.name,scenario:this.scenario,year:this.year,month:this.month,funds:this.funds,difficulty:this.difficulty,tax:this.tax,taxAccumulator:this.taxAccumulator,funding:this.funding,rngA:this.rngA,rngB:this.rngB,history:this.history,loan:this.loan,gifts:this.gifts});}
+ static restore(text,build,flags){const s=JSON.parse(text);if(s.version!==1||!Array.isArray(s.map)||s.map.length!==12000||s.map.some(n=>!Number.isInteger(n)||n<0||n>65535))throw Error('This is not a supported city save.');const c=new City(s.map,build,flags,s);for(const k of ['month','funds','tax','taxAccumulator','funding','rngA','rngB','history','loan','gifts'])if(s[k]!==undefined)c[k]=s[k];c.refresh();return c;}
 }
