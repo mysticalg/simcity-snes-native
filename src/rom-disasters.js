@@ -15,3 +15,9 @@ export function applyRomMeltdown(map,flags,x,y,nextBounded,width=120,height=100)
  }
  return {attempts:200,radiationWrites};
 }
+// CODE_038336 -> CODE_03AA8B: one bounded 0..4000 draw per radiation tile.
+export function decayRomRadiation(map,nextBounded){
+ let cleared=0;
+ for(let i=0;i<map.length;i++)if((map[i]&1023)===0x364&&nextBounded(4000)===0){map[i]=0;cleared++;}
+ return cleared;
+}
