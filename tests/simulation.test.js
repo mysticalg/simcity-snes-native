@@ -19,6 +19,25 @@ test('ROM population band routines preserve their thresholds',()=>{
  assert.equal(c.zonePopulation({type:6,id:0x144}),1);
  assert.equal(c.zonePopulation({type:7,id:0x201}),1);
 });
+test('census matches CODE_038196 weighting across all developed tiles',()=>{
+ const empty=Array(W*H).fill(0);
+ empty[0]=0x99; // residential 8
+ empty[1]=0x144; // commercial 1
+ empty[2]=0x201; // industrial 1
+ const c=new City(empty,build,flags);
+ assert.deepEqual(c.rci,[8,1,1]);
+ assert.equal(c.population,20*(8*(1+1)+8));
+ assert.equal(c.population,480);
+ assert.equal(c.counts[5],1);assert.equal(c.counts[6],1);assert.equal(c.counts[7],1);
+});
+test('scenario census counts only ROM-flagged growth tiles',()=>{
+ for(const scenario of SCENARIOS){
+  const m=JSON.parse(fs.readFileSync(new URL(`../assets/maps/Map_${scenario.id}.json`,import.meta.url)));
+  const c=new City(m,build,flags);
+  assert.ok(c.population<1_500_000,`${scenario.id} census is outside the ROM population range`);
+  assert.ok(c.rci.every(Number.isFinite));
+ }
+});
 test('city saves restore map, funds, date, and RNG state',()=>{
  const c=new City(map,build,flags,{name:'Testopolis',year:1954});c.funds=12345;c.month=8;c.random();
  const restored=City.restore(c.serialize(),build,flags);

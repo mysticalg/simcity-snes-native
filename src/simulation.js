@@ -72,8 +72,19 @@ export class City {
  }
  census(){
   this.counts=Array(16).fill(0);this.rci=[0,0,0];let unpowered=0;
-  for(const z of this.zones){this.counts[z.type]++;if(z.type>=5&&z.type<=7){this.rci[z.type-5]+=this.zonePopulation(z);if(!this.power[z.i])unpowered++;}}
-  this.population=this.rci[0]*20;this.unpowered=unpowered;
+  // CODE_038297 scans all 120×100 tiles. Its residential, commercial and
+  // industrial routines add per-tile values to $0B8B, $0B93 and $0B8F.
+  for(let i=0;i<this.map.length;i++){
+   const id=this.map[i]&1023,type=this.classify(id);
+   // CODE_038297 dispatches only entries whose ROM tile flag has bit 0 set.
+   if(!(this.flags[id]&1))continue;
+   if(type<5||type>7)continue;
+   this.counts[type]++;
+   this.rci[type-5]+=this.zonePopulation({id,type});
+   if(!this.power[i])unpowered++;
+  }
+  // CODE_038196: population = 20 × (8 × (industrial + commercial) + residential).
+  this.population=20*(8*(this.rci[1]+this.rci[2])+this.rci[0]);this.unpowered=unpowered;
   this.category=LIMITS.filter(n=>this.population>=n).length;
   this.score=clamp(Math.round(500+this.population/400-unpowered*8-this.tax*4-(this.meanCrime||0)),0,1000);
  }

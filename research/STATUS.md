@@ -27,3 +27,5 @@ ROM identity is verified against the USA hash in the reference disassembly. The 
 `src/simulation.js` labels the model as provisional. Several visible features exist in the playable build, but are not asserted to be original-equivalent until traced and compared. A browser milestone or successful deployment does not constitute completion of the full port.
 
 Follow-up: corrected residential population lookup from `CODE_03842F` and added 5 passing Node tests for map assets, population band thresholds, save/restore and RNG determinism, budget shape/tax range, and corrupt-save rejection. This does not verify total-city population or growth equivalence.
+
+Population census is now source-derived: `CODE_038297` scan with `DATA_0384EB` bit-0 filtering accumulates per-tile residential/commercial/industrial counters; `CODE_038196` computes city population as `20 × (8 × (industrial + commercial) + residential)`. Scenario map census estimates are now 65,440–133,440 vs configured starts around 65k–152k. Seven focused Node checks pass. Values remain pending comparison against original runtime behavior.
