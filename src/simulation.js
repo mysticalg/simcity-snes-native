@@ -17,6 +17,7 @@ export const SCENARIOS=[
  {id:'LasVegas',name:'Las Vegas',year:2096,description:'The bonus city from the original cartridge. Scenario rules are pending.'}
 ];
 export function clamp(n,a,b){return Math.max(a,Math.min(b,n));}
+export function cityCategory(population){return LIMITS.filter(n=>population>=n).length;}
 export class City {
  constructor(map,build,flags,opts={}){
   if(map.length!==W*H)throw Error('Invalid map length');
@@ -85,7 +86,7 @@ export class City {
   }
   // CODE_038196: population = 20 × (8 × (industrial + commercial) + residential).
   this.population=20*(8*(this.rci[1]+this.rci[2])+this.rci[0]);this.unpowered=unpowered;
-  this.category=LIMITS.filter(n=>this.population>=n).length;
+  this.category=cityCategory(this.population);
   this.score=clamp(Math.round(500+this.population/400-unpowered*8-this.tax*4-(this.meanCrime||0)),0,1000);
  }
  footprint(tool,x,y){const b=this.build.buildings[tool];return b.tiles.map((id,i)=>({x:x+b.x[i],y:y+b.y[i],id}));}

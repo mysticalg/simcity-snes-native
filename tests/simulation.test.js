@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {City,SCENARIOS,W,H} from '../src/simulation.js';
+import {City,SCENARIOS,W,H,cityCategory} from '../src/simulation.js';
 import fs from 'node:fs';
 const build=JSON.parse(fs.readFileSync(new URL('../assets/tables/build.json',import.meta.url)));
 const flags=JSON.parse(fs.readFileSync(new URL('../assets/tables/city.json',import.meta.url))).flags;
@@ -29,6 +29,11 @@ test('census matches CODE_038196 weighting across all developed tiles',()=>{
  assert.equal(c.population,20*(8*(1+1)+8));
  assert.equal(c.population,480);
  assert.equal(c.counts[5],1);assert.equal(c.counts[6],1);assert.equal(c.counts[7],1);
+});
+test('city categories switch at ROM population thresholds',()=>{
+ for(const [population,category] of [[0,0],[1999,0],[2000,1],[9999,1],[10000,2],[50000,3],[100000,4],[500000,5]]){
+  assert.equal(cityCategory(population),category,`population ${population}`);
+ }
 });
 test('scenario census counts only ROM-flagged growth tiles',()=>{
  for(const scenario of SCENARIOS){
