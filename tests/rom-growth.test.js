@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {City,W,H} from '../src/simulation.js';
-import {decideResidentialUpdate,residentialDemandScore,residentialLocalScore,residentialUpdateGate} from '../src/rom-growth.js';
+import {decideResidentialUpdate,residentialDemandScore,residentialLocalScore,residentialUpdateGate,stampZoneFootprint} from '../src/rom-growth.js';
 import fs from 'node:fs';
 
 const build=JSON.parse(fs.readFileSync(new URL('../assets/tables/build.json',import.meta.url)));
@@ -51,4 +51,18 @@ test('city residential map changes only when injected ROM branches confirm growt
  words=[0,0x4000];
  assert.equal(city.updateResidentialTile(zone,()=>words.shift()).action,'grow');
  assert.notDeepEqual([...city.map],beforeThreshold);
+});
+
+test('CODE_039940 footprint rejects blocked sites and writes the marker bits exactly',()=>{
+ const map=Array(W*H).fill(0),x=60,y=50;
+ map[y*W+x]=0x8099;map[(y-1)*W+x-1]=0x8099;map[(y+1)*W+x+1]=0x8099;
+ assert.equal(stampZoneFootprint(map,x,y,0x95),true);
+ const topLeft=(y-1)*W+x-1,bottomRight=(y+1)*W+x+1;
+ assert.equal(map[topLeft],0x8095);
+ assert.equal(map[bottomRight],0xc09d);
+
+ const blocked=Array(W*H).fill(0);blocked[y*W+x+1]=0x0040;const before=[...blocked];
+ assert.equal(stampZoneFootprint(blocked,x,y,0x95),false);
+ assert.deepEqual(blocked,before);
+ assert.equal(stampZoneFootprint(blocked,0,y,0x95),false);
 });

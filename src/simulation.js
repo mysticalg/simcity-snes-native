@@ -1,4 +1,4 @@
-import {residentialDemandScore, residentialLocalScore, decideResidentialUpdate} from './rom-growth.js';
+import {residentialDemandScore, residentialLocalScore, decideResidentialUpdate, stampZoneFootprint} from './rom-growth.js';
 import {accumulateRomDemand} from './rom-demand.js';
 // Native simulation model. ROM-backed tables and direct translations are marked.
 // Monthly growth, coverage and disasters are provisional reconstructions, not yet
@@ -152,7 +152,7 @@ export class City {
   if(z.type===5){const level=z.id<0x99?-1:Math.floor(((z.id-0x99)%36)/9);const next=clamp(level+direction,-1,3);top=next<0?0x80:0x95+next*9;}
   else if(z.type===6){const level=z.id<0x144?-1:Math.floor(((z.id-0x144)%45)/9);const next=clamp(level+direction,-1,4);top=next<0?0x137:0x140+next*9;}
   else {const level=z.id<0x201?-1:Math.floor(((z.id-0x201)%36)/9);const next=clamp(level+direction,-1,3);top=next<0?0x1f4:0x1fd+next*9;}
-  for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++)this.map[(z.y+dy)*W+z.x+dx]=top+(dy+1)*3+dx+1;
+  return stampZoneFootprint(this.map,z.x,z.y,top,W,H);
  }
  updateResidentialTile(z,nextRandomWord=()=>this.random()){
   const gateWord=nextRandomWord();

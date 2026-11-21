@@ -4,6 +4,23 @@
 export const signed16 = value => (value << 16) >> 16;
 const word = value => value & 0xffff;
 
+// CODE_039940: reject blocked 3×3 sites, preserve each source map word's
+// sign/high bit, and mark only the final cell with $4000.
+export function stampZoneFootprint(map,x,y,baseTile,width=120,height=100){
+  const cells=[];
+  for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){
+    const cx=x+dx,cy=y+dy;
+    if(cx<0||cx>=width||cy<0||cy>=height)return false;
+    const i=cy*width+cx,id=map[i]&0x03ff;
+    if(id===0x007f||id===0x0364||id===0x0365||(id>=0x0028&&id<0x0080))return false;
+    cells.push({i,offset:(dy+1)*3+dx+1});
+  }
+  for(const {i,offset} of cells){
+    map[i]=(baseTile+offset)|(map[i]&0x8000)|(offset===8?0x4000:0);
+  }
+  return true;
+}
+
 function cmpNegative(a, b) {
   return ((word(a) - word(b)) & 0x8000) !== 0;
 }
