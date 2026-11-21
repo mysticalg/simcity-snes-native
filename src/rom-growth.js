@@ -4,6 +4,37 @@
 export const signed16 = value => (value << 16) >> 16;
 const word = value => value & 0xffff;
 
+// CODE_0397C9/03985A. The USA routine repeatedly reads the first direction
+// table entries (north); neither operand is indexed by X in CODE_03987F.
+export function placeSmallHome(map,x,y,density,nextWord,nextBelow3,width=120,height=100){
+  const offsets=[[-1,-1],[0,-1],[1,-1],[-1,0],[1,0],[-1,1],[0,1],[1,1]];
+  let best=0,selected=null;
+  for(const [dx,dy] of offsets){
+    const cx=x+dx,cy=y+dy;if(cx<0||cx>=width||cy<0||cy>=height)continue;
+    const id=map[cy*width+cx]&1023;if(id!==0&&(id<0x80||id>=0x89))continue;
+    const score=1+(cy>0&&(map[(cy-1)*width+cx]&1023)<0x60?4:0);
+    if(score<best)continue;
+    if(score===best&&(nextWord()&7)!==0)continue;
+    best=score;selected=cy*width+cx;
+  }
+  if(selected===null)return false;
+  map[selected]=0x89+3*(density&3)+nextBelow3();return true;
+}
+
+// CODE_039504: prefer the right-hand partner, then the lower partner.
+export function mergeResidentialZone(map,x,y,width=120,height=100){
+  if((map[y*width+x]&1023)!==0x120)return false;
+  if(x+3<width&&(map[y*width+x+3]&1023)===0x120){
+    const first=stampZoneFootprint(map,x,y,0x376,width,height);
+    const second=stampZoneFootprint(map,x+3,y,0x37f,width,height);return first||second;
+  }
+  if(y+3<height&&(map[(y+3)*width+x]&1023)===0x120){
+    const first=stampZoneFootprint(map,x,y,0x388,width,height);
+    const second=stampZoneFootprint(map,x,y+3,0x391,width,height);return first||second;
+  }
+  return false;
+}
+
 // CODE_039940: reject blocked 3×3 sites, preserve each source map word's
 // sign/high bit, and mark only the final cell with $4000.
 export function stampZoneFootprint(map,x,y,baseTile,width=120,height=100){

@@ -98,3 +98,21 @@ test('CODE_039659 turns 16 residents into a special house block and downgrades 8
  assert.equal(small[center-width-1],0x8080);
  assert.equal(small[center+width+1],0x8089);
 });
+
+ test('small-home placement and both merge orientations execute through City.grow',()=>{
+ const make=()=>new City(Array(W*H).fill(0),build,flags);
+ const c=make(),x=60,y=50,i=y*W+x;c.map[i]=0x84;c.landValue[i]=100;c.random=()=>1;
+ assert.equal(c.grow({x,y,i,id:0x84,type:5},1),true);
+ assert.equal(c.adjacentSmallHomeCount({x,y}),1);
+ assert.equal(c.map[i],0x84);
+ for(const [dx,dy,left,right] of [[3,0,0x37a,0x383],[0,3,0x38c,0x395]]){
+  const m=make();m.map[i]=0x8120;m.map[(y+dy)*W+x+dx]=0x8120;
+  assert.equal(m.grow({x,y,i,id:0x120,type:5},1),true);
+  assert.equal(m.map[i],0x8000|left);assert.equal(m.map[(y+dy)*W+x+dx],0x8000|right);
+  assert.ok(m.map[(y+1)*W+x+1]&0x4000);
+ }
+ const rejected=make();rejected.map[i]=0x120;const before=[...rejected.map];
+ assert.equal(rejected.grow({x,y,i,id:0x120,type:5},1),false);assert.deepEqual([...rejected.map],before);
+ const full=make();for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++)full.map[(y+dy)*W+x+dx]=0x30;full.map[i]=0x84;
+ assert.equal(full.grow({x,y,i,id:0x84,type:5},1),false);
+ });

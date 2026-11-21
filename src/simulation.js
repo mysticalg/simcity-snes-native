@@ -1,4 +1,4 @@
-import {residentialDemandScore, residentialLocalScore, residentialDensityBand, residentialGrowthBase, residentialDeclineFootprint, decideResidentialUpdate, stampZoneFootprint} from './rom-growth.js';
+import {residentialDemandScore, residentialLocalScore, residentialDensityBand, residentialGrowthBase, residentialDeclineFootprint, decideResidentialUpdate, stampZoneFootprint, placeSmallHome, mergeResidentialZone} from './rom-growth.js';
 import {accumulateRomDemand} from './rom-demand.js';
 // Native simulation model. ROM-backed tables and direct translations are marked.
 // Monthly growth, coverage and disasters are provisional reconstructions, not yet
@@ -154,8 +154,8 @@ export class City {
    if(direction>0&&this.pollution[z.i]>=0x81)return false;
    const density=residentialDensityBand(this.landValue[z.i]||0,this.pollution[z.i]||0);
    if(direction>0){
-    if(id===0x84){if(population<8||(this.landValue[z.i]||0)<0x41)return false;return stampZoneFootprint(this.map,z.x,z.y,residentialGrowthBase(8,density),W,H);}
-    return stampZoneFootprint(this.map,z.x,z.y,residentialGrowthBase(population,density),W,H);
+    if(id===0x84){if(population<8)return placeSmallHome(this.map,z.x,z.y,density,()=>this.random(),()=>this.random()%3,W,H);if((this.landValue[z.i]||0)<0x41)return false;return stampZoneFootprint(this.map,z.x,z.y,residentialGrowthBase(8,density),W,H);}
+    if(id===0x120||population>=40)return mergeResidentialZone(this.map,z.x,z.y,W,H);return stampZoneFootprint(this.map,z.x,z.y,residentialGrowthBase(population,density),W,H);
    }
    return residentialDeclineFootprint(this.map,z.x,z.y,population,density,()=>this.random()%3,W,H);
   }
@@ -239,3 +239,4 @@ export class City {
  serialize(){return JSON.stringify({version:1,map:Array.from(this.map),name:this.name,scenario:this.scenario,year:this.year,month:this.month,funds:this.funds,difficulty:this.difficulty,tax:this.tax,taxAccumulator:this.taxAccumulator,funding:this.funding,rngA:this.rngA,rngB:this.rngB,history:this.history,loan:this.loan,gifts:this.gifts});}
  static restore(text,build,flags){const s=JSON.parse(text);if(s.version!==1||!Array.isArray(s.map)||s.map.length!==12000||s.map.some(n=>!Number.isInteger(n)||n<0||n>65535))throw Error('This is not a supported city save.');const c=new City(s.map,build,flags,s);for(const k of ['month','funds','tax','taxAccumulator','funding','rngA','rngB','history','loan','gifts'])if(s[k]!==undefined)c[k]=s[k];c.refresh();return c;}
 }
+
