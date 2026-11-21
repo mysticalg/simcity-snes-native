@@ -1,0 +1,190 @@
+// Native simulation model. ROM-backed tables and direct translations are marked.
+// Monthly growth, coverage and disasters are provisional reconstructions, not yet
+// instruction-for-instruction ports of the SNES simulation (see research/STATUS.md).
+export const W=120,H=100;
+export const TOOLS=['Bulldozer','Road','Rail','Power line','Park','Residential','Commercial','Industrial','Police','Fire station','Stadium','Coal plant','Airport','Nuclear plant','Seaport','Gift'];
+export const LIMITS=[2000,10000,50000,100000,500000];
+export const CATEGORIES=['Village','Town','City','Capital','Metropolis','Megalopolis'];
+export const SCENARIOS=[
+ {id:'PracticeCity',name:'Practice city',year:1900,description:'Start a city on the original practice island.'},
+ {id:'FreeCity',name:'Free city',year:1991,description:'Build freely on the original open landscape.'},
+ {id:'SanFrancicso',name:'San Francisco',year:1906,description:'Rebuild after the earthquake. Original map; objective timing is still being reconstructed.'},
+ {id:'Bern',name:'Bern',year:1965,description:'Improve transport and traffic. Original map; victory rules are pending.'},
+ {id:'Tokyo',name:'Tokyo',year:1961,description:'A monster threatens Tokyo. Original map; scripted disaster timing is pending.'},
+ {id:'Detroit',name:'Detroit',year:1972,description:'Revive the city and reduce crime. Original map; victory rules are pending.'},
+ {id:'Boston',name:'Boston',year:2010,description:'Manage the aftermath of a nuclear accident. Original map; scripted events are pending.'},
+ {id:'RioDeJaneiro',name:'Rio de Janeiro',year:2047,description:'Protect the city from flooding. Original map; scenario rules are pending.'},
+ {id:'LasVegas',name:'Las Vegas',year:2096,description:'The bonus city from the original cartridge. Scenario rules are pending.'}
+];
+export function clamp(n,a,b){return Math.max(a,Math.min(b,n));}
+export class City {
+ constructor(map,build,flags,opts={}){
+  if(map.length!==W*H)throw Error('Invalid map length');
+  this.map=Uint16Array.from(map);this.build=build;this.flags=flags;
+  this.name=opts.name||'New city';this.scenario=opts.scenario||'PracticeCity';this.year=opts.year||1900;this.month=1;
+  this.funds=[20000,10000,5000][opts.difficulty||0];this.tax=7;this.funding=[100,100,100];this.speed=1;
+  this.rngA=0x5cd6;this.rngB=0x1238;this.population=0;this.demand=[400,200,200];this.history=[];
+  this.power=new Uint8Array(W*H);this.pollution=new Uint8Array(W*H);this.crime=new Uint8Array(W*H);this.landValue=new Uint8Array(W*H);this.traffic=new Uint8Array(W*H);
+  this.zones=[];this.notices=[];this.disasters=[];this.loan=null;this.elapsed=0;this.category=0;this.gifts=[];this.giftChoice=16;this.lastBudget=null;
+  this.refresh();
+ }
+ // CODE_00824F: additive RNG, including carry into the second 16-bit add.
+ random(){const old=this.rngA;let n=old+this.rngB;this.rngA=n&65535;this.rngB=(this.rngA+old+(n>65535?1:0))&65535;return this.rngA;}
+ id(x,y){return x>=0&&x<W&&y>=0&&y<H?this.map[y*W+x]&1023:0;}
+ flag(i){return this.flags[this.map[i]&1023]||0;}
+ neighbors(i){const x=i%W,y=Math.floor(i/W);return [x>0?i-1:-1,y>0?i-W:-1,x<W-1?i+1:-1,y<H-1?i+W:-1].filter(n=>n>=0);}
+ message(text){this.notices.unshift(text);this.notices.length=Math.min(8,this.notices.length);}
+ classify(id){
+  if(id>=0x80&&id<0x137)return 5;
+  if(id>=0x137&&id<0x1f4)return 6;
+  if(id>=0x1f4&&id<0x245)return 7;
+  if(id>=0x245&&id<0x24e)return 8;
+  if(id>=0x24e&&id<0x257)return 9;
+  if(id>=0x257&&id<0x267)return 10;
+  if(id>=0x267&&id<0x277)return 11;
+  if(id>=0x277&&id<0x287)return 13;
+  if(id>=0x287&&id<0x297)return 14;
+  if(id>=0x297&&id<0x2bb)return 12;
+  return 15;
+ }
+ refresh(){
+  this.zones=[];this.roadCount=0;this.railCount=0;
+  for(let i=0;i<this.map.length;i++){
+   const id=this.map[i]&1023,f=this.flags[id]||0;
+   if(f&1)this.zones.push({i,x:i%W,y:Math.floor(i/W),id,type:this.classify(id)});
+   if(f&0x40)this.roadCount++;if(f&0x20)this.railCount++;
+  }
+  this.updatePower();this.census();
+ }
+ updatePower(){
+  this.power.fill(0);const queue=[];let capacity=0;
+  for(const z of this.zones)if(z.type===11||z.type===13){queue.push(z.i);this.power[z.i]=1;capacity+=z.type===11?700:2000;}
+  let q=0;
+  while(q<queue.length&&q<capacity){const i=queue[q++];for(const n of this.neighbors(i))if(!this.power[n]&&(this.flag(n)&0x80)){this.power[n]=1;queue.push(n);}}
+  this.powerCapacity=capacity;this.powerUsed=q;
+ }
+ // Zone population bands follow CODE_03842F/038456/03847A; spatial desirability below is provisional.
+ zonePopulation(z){
+  if(z.type===5){if(z.id<0x99)return 0;return (Math.floor(((z.id-0x99)%36)/9)+2)*8;}
+  if(z.type===6)return z.id<0x144?0:Math.floor(((z.id-0x144)%45)/9)+1;
+  if(z.type===7)return z.id<0x201?0:Math.floor(((z.id-0x201)%36)/9)+1;
+  return 0;
+ }
+ census(){
+  this.counts=Array(16).fill(0);this.rci=[0,0,0];let unpowered=0;
+  for(const z of this.zones){this.counts[z.type]++;if(z.type>=5&&z.type<=7){this.rci[z.type-5]+=this.zonePopulation(z);if(!this.power[z.i])unpowered++;}}
+  this.population=this.rci[0]*20;this.unpowered=unpowered;
+  this.category=LIMITS.filter(n=>this.population>=n).length;
+  this.score=clamp(Math.round(500+this.population/400-unpowered*8-this.tax*4-(this.meanCrime||0)),0,1000);
+ }
+ footprint(tool,x,y){const b=this.build.buildings[tool];return b.tiles.map((id,i)=>({x:x+b.x[i],y:y+b.y[i],id}));}
+ canBuild(tool,x,y){
+  if(tool<0)return {ok:false,cost:0,reason:'Choose a construction tool.'};
+  if(tool===0){const id=this.id(x,y);return {ok:x>=0&&x<W&&y>=0&&y<H&&id>3,cost:1,reason:'There is nothing to clear here.'};}
+  const cells=this.footprint(tool,x,y);let cost=this.build.costs[Math.min(tool,15)]||100;
+  if(tool>=16){if(!this.gifts.includes(tool))return {ok:false,cost:0,reason:'This gift has not been awarded.'};cost=0;}
+  for(const c of cells){
+   if(c.x<0||c.x>=W||c.y<0||c.y>=H)return {ok:false,cost,reason:'The building must fit inside the map.'};
+   const id=this.id(c.x,c.y);
+   if(id===0)continue;
+   if(id>=4&&id<0x26){cost++;continue;}
+   if(tool<=3&&(id>=1&&id<=3)){cost=this.build.costs[tool]*2;continue;}
+   if(tool<=3&&id>=0x30&&id<0x80&&((this.flags[id]||0)&(tool===1?0x40:tool===2?0x20:0x10))===0)continue;
+   return {ok:false,cost,reason:'Clear this site before building.'};
+  }
+  return {ok:this.funds>=cost,cost,reason:this.funds>=cost?'':'Insufficient funds.'};
+ }
+ place(tool,x,y){
+  const check=this.canBuild(tool,x,y);if(!check.ok){this.message(check.reason);return false;}
+  this.funds-=check.cost;
+  if(tool===0){
+   const i=y*W+x,z=this.zones.find(z=>Math.abs(z.x-x)<=1&&Math.abs(z.y-y)<=1&&this.id(x,y)>=0x80);
+   if(z){const size=[10,11,13,14].includes(z.type)?4:z.type===12?6:3;for(let dy=0;dy<size;dy++)for(let dx=0;dx<size;dx++){const n=(z.y-1+dy)*W+z.x-1+dx;if(n>=0&&n<this.map.length)this.map[n]=0x2a;}}
+   else this.map[i]=0;
+  } else {
+   for(const c of this.footprint(tool,x,y))this.map[c.y*W+c.x]=c.id;
+   if(tool>=16)this.gifts=this.gifts.filter(g=>g!==tool);
+  }
+  for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++)this.connect(x+dx,y+dy);
+  this.refresh();return true;
+ }
+ connect(x,y){
+  if(x<0||x>=W||y<0||y>=H)return;
+  const i=y*W+x,id=this.map[i]&1023;let kind=id>=0x70&&id<=0x7c?2:id>=0x60&&id<=0x6c?3:id>=0x30&&id<=0x3c?1:0;
+  if(!kind)return;
+  const bit=kind===1?0x40:kind===2?0x20:0x10;
+  // DATA_018020, CODE_01B62F/645/65B. Bit directions follow CODE_01B6CC.
+  let mask=0;[[0,-1,1],[1,0,2],[0,1,4],[-1,0,8]].forEach(([dx,dy,b])=>{if((this.flags[this.id(x+dx,y+dy)]||0)&bit)mask|=b;});
+  const table=[2,3,2,5,2,6,2,10,3,3,4,9,7,11,8,12];this.map[i]=(kind===1?0x30:kind===2?0x70:0x60)+table[mask];
+ }
+ nearRoad(z){for(let dy=-2;dy<=2;dy++)for(let dx=-2;dx<=2;dx++)if((this.flags[this.id(z.x+dx,z.y+dy)]||0)&0x60)return true;return false;}
+ coverage(x,y,type){let n=0;for(const z of this.zones)if(z.type===type)n=Math.max(n,clamp(1-(Math.abs(z.x-x)+Math.abs(z.y-y))/24,0,1));return n*this.funding[type===8?1:2]/100;}
+ fields(){
+  this.pollution.fill(0);this.crime.fill(0);this.traffic.fill(0);
+  for(const z of this.zones){
+   const amount=z.type===7?90:z.type===11?160:0;
+   if(amount)for(let dy=-8;dy<=8;dy++)for(let dx=-8;dx<=8;dx++){const x=z.x+dx,y=z.y+dy,d=Math.abs(dx)+Math.abs(dy);if(x>=0&&x<W&&y>=0&&y<H&&d<9){const i=y*W+x;this.pollution[i]=clamp(this.pollution[i]+amount*(9-d)/9,0,255);}}
+  }
+  let crime=0;
+  for(let y=0;y<H;y++)for(let x=0;x<W;x++){
+   const i=y*W+x,t=this.map[i]&1023;this.landValue[i]=clamp(150-this.pollution[i]+(t>=4&&t<0x30?30:0),0,255);
+   this.crime[i]=t>=0x80?clamp(90+this.population/5000-this.coverage(x,y,8)*140,0,255):0;crime+=this.crime[i];
+   if(this.flags[t]&0x40)this.traffic[i]=clamp(this.population/300+this.zones.filter(z=>Math.abs(z.x-x)+Math.abs(z.y-y)<8).length*7,0,255);
+  }
+  this.meanCrime=crime/12000;
+ }
+ grow(z,direction){
+  let top;
+  if(z.type===5){const level=z.id<0x99?-1:Math.floor(((z.id-0x99)%36)/9);const next=clamp(level+direction,-1,3);top=next<0?0x80:0x95+next*9;}
+  else if(z.type===6){const level=z.id<0x144?-1:Math.floor(((z.id-0x144)%45)/9);const next=clamp(level+direction,-1,4);top=next<0?0x137:0x140+next*9;}
+  else {const level=z.id<0x201?-1:Math.floor(((z.id-0x201)%36)/9);const next=clamp(level+direction,-1,3);top=next<0?0x1f4:0x1fd+next*9;}
+  for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++)this.map[(z.y+dy)*W+z.x+dx]=top+(dy+1)*3+dx+1;
+ }
+ budget(apply=false){
+  // $64 annual station maintenance and $14 maximum tax are ROM constants.
+  const income=Math.round((this.rci[0]+this.rci[1]*8+this.rci[2]*8)*this.tax*2);
+  const requests=[Math.round(this.roadCount+this.railCount*2),Math.min(9999,this.counts[8]*100),Math.min(9999,this.counts[9]*100)];
+  const expenses=requests.map((n,i)=>Math.round(n*this.funding[i]/100));let payment=this.loan?this.loan.payment:0;
+  const net=income-expenses.reduce((a,b)=>a+b,0)-payment;
+  const result={income,requests,expenses,payment,net};
+  if(apply){this.funds=clamp(this.funds+net,0,999999);if(this.loan&&--this.loan.years<=0)this.loan=null;this.lastBudget=result;this.message(`Fiscal year ${this.year}: ${net>=0?'+':''}$${net.toLocaleString()}.`);}
+  return result;
+ }
+ takeLoan(){if(this.loan){this.message('Repay the current loan before borrowing again.');return false;}this.loan={years:10,payment:600};this.funds=Math.min(999999,this.funds+5000);this.message('Bank loan received: $5,000; $600 annually for ten years. Provisional loan terms.');return true;}
+ tick(){
+  const oldCategory=this.category;this.updatePower();this.fields();
+  const jobs=(this.rci[1]+this.rci[2])*8;
+  this.demand=[clamp(700+(jobs-this.rci[0])*8-(this.tax-7)*90,-1500,1500),clamp(500+(this.rci[0]/5-this.rci[1])*15-(this.tax-7)*80,-1500,1500),clamp(450+(this.rci[0]/4-this.rci[2])*12-(this.tax-7)*70,-1500,1500)];
+  for(const z of this.zones){if(z.type<5||z.type>7)continue;
+   const connected=this.power[z.i]&&this.nearRoad(z);const chance=this.random()%100;
+   if(connected&&this.demand[z.type-5]>0&&chance<40&&this.pollution[z.i]<(z.type===7?256:190))this.grow(z,1);
+   else if((!connected||this.demand[z.type-5]<-400)&&chance<20)this.grow(z,-1);
+  }
+  this.updateDisasters();this.refresh();
+  if(this.category>oldCategory){this.gifts.push(16);this.message(`Congratulations! ${this.name} is now a ${CATEGORIES[this.category].toLowerCase()}. A gift is available.`);}
+  this.history.push({year:this.year,month:this.month,population:this.population,rci:[...this.rci],funds:this.funds,crime:this.meanCrime||0});if(this.history.length>240)this.history.shift();
+  if(++this.month>12){this.month=1;this.budget(true);this.year++;}
+ }
+ advance(ms){this.elapsed+=ms*this.speed;while(this.elapsed>=3000){this.elapsed-=3000;this.tick();}}
+ disaster(type,x=60,y=50){
+  this.disasters.push({type,x,y,life:type==='Earthquake'?1:16});this.message(`${type} reported. Emergency services are responding.`);
+  if(type==='Fire')this.map[y*W+x]=0x2e;
+  this.updateDisasters();this.refresh();
+ }
+ updateDisasters(){
+  for(const d of this.disasters){
+   let radius=d.type==='Earthquake'?18:d.type==='Meltdown'?8:d.type==='Flood'?4:2;
+   for(let n=0;n<(d.type==='Earthquake'?100:12);n++){
+    const x=clamp(d.x+(this.random()%(radius*2+1))-radius,0,W-1),y=clamp(d.y+(this.random()%(radius*2+1))-radius,0,H-1),i=y*W+x,t=this.map[i]&1023;
+    if(d.type==='Flood'){if(t!==0&&t<0x26)this.map[i]=1;}
+    else if(t>3)this.map[i]=d.type==='Meltdown'?0x7f:d.type==='Fire'?0x2e:0x2a;
+   }
+   if(d.type==='Tornado'||d.type==='Monster'||d.type==='UFO'){d.x=clamp(d.x+(this.random()%7)-3,3,W-4);d.y=clamp(d.y+(this.random()%7)-3,3,H-4);}
+   if(d.type==='Fire'&&this.coverage(d.x,d.y,9)>.5)d.life-=3;
+   d.life--;
+  }
+  this.disasters=this.disasters.filter(d=>d.life>0);
+ }
+ serialize(){return JSON.stringify({version:1,map:Array.from(this.map),name:this.name,scenario:this.scenario,year:this.year,month:this.month,funds:this.funds,tax:this.tax,funding:this.funding,rngA:this.rngA,rngB:this.rngB,history:this.history,loan:this.loan,gifts:this.gifts});}
+ static restore(text,build,flags){const s=JSON.parse(text);if(s.version!==1||!Array.isArray(s.map)||s.map.length!==12000||s.map.some(n=>!Number.isInteger(n)||n<0||n>65535))throw Error('This is not a supported city save.');const c=new City(s.map,build,flags,s);for(const k of ['month','funds','tax','funding','rngA','rngB','history','loan','gifts'])if(s[k]!==undefined)c[k]=s[k];c.refresh();return c;}
+}

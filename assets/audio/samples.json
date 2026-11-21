@@ -1,0 +1,152 @@
+[
+  {
+    "name": "BRRSample00",
+    "samples": 96,
+    "seconds": 0.003,
+    "loop": true
+  },
+  {
+    "name": "BRRSample01",
+    "samples": 2000,
+    "seconds": 0.0625,
+    "loop": false
+  },
+  {
+    "name": "BRRSample02",
+    "samples": 96,
+    "seconds": 0.003,
+    "loop": true
+  },
+  {
+    "name": "BRRSample03",
+    "samples": 96,
+    "seconds": 0.003,
+    "loop": true
+  },
+  {
+    "name": "BRRSample04",
+    "samples": 4784,
+    "seconds": 0.1495,
+    "loop": true
+  },
+  {
+    "name": "BRRSample05",
+    "samples": 1088,
+    "seconds": 0.034,
+    "loop": true
+  },
+  {
+    "name": "BRRSample06",
+    "samples": 2288,
+    "seconds": 0.0715,
+    "loop": true
+  },
+  {
+    "name": "BRRSample07",
+    "samples": 6000,
+    "seconds": 0.1875,
+    "loop": false
+  },
+  {
+    "name": "BRRSample08",
+    "samples": 1952,
+    "seconds": 0.061,
+    "loop": true
+  },
+  {
+    "name": "BRRSample09",
+    "samples": 176,
+    "seconds": 0.0055,
+    "loop": true
+  },
+  {
+    "name": "BRRSample0A",
+    "samples": 3200,
+    "seconds": 0.1,
+    "loop": true
+  },
+  {
+    "name": "BRRSample0B",
+    "samples": 15392,
+    "seconds": 0.481,
+    "loop": false
+  },
+  {
+    "name": "BRRSample0C",
+    "samples": 848,
+    "seconds": 0.0265,
+    "loop": true
+  },
+  {
+    "name": "BRRSample0D",
+    "samples": 224,
+    "seconds": 0.007,
+    "loop": true
+  },
+  {
+    "name": "BRRSample0E",
+    "samples": 96,
+    "seconds": 0.003,
+    "loop": true
+  },
+  {
+    "name": "BRRSample0F",
+    "samples": 3392,
+    "seconds": 0.106,
+    "loop": true
+  },
+  {
+    "name": "BRRSample10",
+    "samples": 3728,
+    "seconds": 0.1165,
+    "loop": true
+  },
+  {
+    "name": "BRRSample11",
+    "samples": 2496,
+    "seconds": 0.078,
+    "loop": false
+  },
+  {
+    "name": "BRRSample12",
+    "samples": 1376,
+    "seconds": 0.043,
+    "loop": true
+  },
+  {
+    "name": "BRRSample13",
+    "samples": 144,
+    "seconds": 0.0045,
+    "loop": true
+  },
+  {
+    "name": "BRRSample14",
+    "samples": 2384,
+    "seconds": 0.0745,
+    "loop": true
+  },
+  {
+    "name": "BRRSample15",
+    "samples": 528,
+    "seconds": 0.0165,
+    "loop": true
+  },
+  {
+    "name": "BRRSample16",
+    "samples": 4000,
+    "seconds": 0.125,
+    "loop": false
+  },
+  {
+    "name": "BRRSample17",
+    "samples": 1888,
+    "seconds": 0.059,
+    "loop": false
+  },
+  {
+    "name": "BRRSample18",
+    "samples": 4384,
+    "seconds": 0.137,
+    "loop": false
+  }
+]
