@@ -78,3 +78,10 @@ test('annual budget uses the 48-step ROM average tax rate',()=>{
 test('invalid map saves are rejected',()=>assert.throws(()=>City.restore('{"version":1,"map":[0]}',build,flags),/supported city save/));
 
 
+test('scenario outcome and countdown survive city saves without duplicate outcomes',()=>{
+ const c=new City(map,build,flags,{scenario:'Tokyo'});c.scenarioRemaining=2;c.scenarioResult='won';c.scenarioDialogSeen=true;
+ const restored=City.restore(c.serialize(),build,flags);
+ assert.equal(restored.scenarioRemaining,2);assert.equal(restored.scenarioResult,'won');assert.equal(restored.scenarioDialogSeen,true);
+ restored.tick();assert.equal(restored.scenarioRemaining,0);assert.equal(restored.scenarioResult,'won');
+ assert.equal(restored.notices.filter(n=>n==='Scenario won.').length,0);
+});
