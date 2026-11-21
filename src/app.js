@@ -1,3 +1,5 @@
+import {RomSampleAudio} from './rom-audio.js';
+const romAudio=new RomSampleAudio();
 import{City,SCENARIOS,TOOLS,W,H,clamp}from'./simulation.js';
 const $=s=>document.querySelector(s),canvas=$('#game'),ctx=canvas.getContext('2d',{alpha:false});ctx.imageSmoothingEnabled=false;
 const files=await Promise.all([fetch('assets/tables/city.json').then(r=>r.json()),fetch('assets/tables/build.json').then(r=>r.json()),...['city-0.png','city-1.png','city-2.png','city-3.png'].map(n=>new Promise((ok,no)=>{const i=new Image;i.onload=()=>ok(i);i.onerror=no;i.src='assets/'+n})),...SCENARIOS.map(s=>fetch(`assets/maps/Map_${s.id}.json`).then(r=>r.json()))]);
@@ -24,4 +26,5 @@ async function load(e){try{city=City.restore(await e.target.files[0].text(),buil
 setup();modal('Welcome to SimCity','A native JavaScript reconstruction using graphics, palettes, construction tables, and all nine maps extracted from the matching USA SNES ROM. Choose a scenario to begin.','<p>This playable milestone is still in development. Scenario objectives and several simulation formulas remain approximations.</p>','CHOOSE A CITY',menu);
 let last=performance.now(),acc=0;function frame(now){const dt=Math.min(100,now-last);last=now;if(city&&!paused&&$('#modal').classList.contains('hidden')){city.advance(dt);acc+=dt;if(acc>150){acc=0;paint()}}requestAnimationFrame(frame)}requestAnimationFrame(frame);
 window.render_game_to_text=()=>JSON.stringify(city?{coordinates:'origin top-left; x right, y down; 120×100 tiles',mode:paused?'paused':'city',scenario:city.scenario,name:city.name,year:city.year,month:city.month,funds:city.funds,population:city.population,demand:city.demand,selectedTool:TOOLS[selected],cursor,populationBands:city.rci,powerCapacity:city.powerCapacity,powerUsed:city.powerUsed,disasters:city.disasters,notices:city.notices.slice(0,2)}:{mode:'menu'});window.advanceTime=ms=>{if(city&&!paused)city.advance(ms);paint()};
+
 

@@ -1,0 +1,227 @@
+[
+  {
+    "name": "BRRSample00",
+    "samples": 96,
+    "seconds": 0.003,
+    "loop": true,
+    "index": 0,
+    "start": 13824,
+    "loopAddress": 13851
+  },
+  {
+    "name": "BRRSample01",
+    "samples": 2000,
+    "seconds": 0.0625,
+    "loop": false,
+    "index": 1,
+    "start": 13878,
+    "loopAddress": 15003
+  },
+  {
+    "name": "BRRSample02",
+    "samples": 96,
+    "seconds": 0.003,
+    "loop": true,
+    "index": 2,
+    "start": 15003,
+    "loopAddress": 15030
+  },
+  {
+    "name": "BRRSample03",
+    "samples": 96,
+    "seconds": 0.003,
+    "loop": true,
+    "index": 3,
+    "start": 15057,
+    "loopAddress": 15084
+  },
+  {
+    "name": "BRRSample04",
+    "samples": 4784,
+    "seconds": 0.1495,
+    "loop": true,
+    "index": 4,
+    "start": 15111,
+    "loopAddress": 17775
+  },
+  {
+    "name": "BRRSample05",
+    "samples": 1088,
+    "seconds": 0.034,
+    "loop": true,
+    "index": 5,
+    "start": 17802,
+    "loopAddress": 18315
+  },
+  {
+    "name": "BRRSample06",
+    "samples": 2288,
+    "seconds": 0.0715,
+    "loop": true,
+    "index": 6,
+    "start": 18414,
+    "loopAddress": 19071
+  },
+  {
+    "name": "BRRSample07",
+    "samples": 6000,
+    "seconds": 0.1875,
+    "loop": false,
+    "index": 7,
+    "start": 19701,
+    "loopAddress": 23076
+  },
+  {
+    "name": "BRRSample08",
+    "samples": 1952,
+    "seconds": 0.061,
+    "loop": true,
+    "index": 8,
+    "start": 23076,
+    "loopAddress": 23634
+  },
+  {
+    "name": "BRRSample09",
+    "samples": 176,
+    "seconds": 0.0055,
+    "loop": true,
+    "index": 9,
+    "start": 24174,
+    "loopAddress": 24237
+  },
+  {
+    "name": "BRRSample0A",
+    "samples": 3200,
+    "seconds": 0.1,
+    "loop": true,
+    "index": 10,
+    "start": 24273,
+    "loopAddress": 25173
+  },
+  {
+    "name": "BRRSample0B",
+    "samples": 15392,
+    "seconds": 0.481,
+    "loop": false,
+    "index": 11,
+    "start": 26073,
+    "loopAddress": 34731
+  },
+  {
+    "name": "BRRSample0C",
+    "samples": 848,
+    "seconds": 0.0265,
+    "loop": true,
+    "index": 12,
+    "start": 34731,
+    "loopAddress": 35181
+  },
+  {
+    "name": "BRRSample0D",
+    "samples": 224,
+    "seconds": 0.007,
+    "loop": true,
+    "index": 13,
+    "start": 35208,
+    "loopAddress": 35271
+  },
+  {
+    "name": "BRRSample0E",
+    "samples": 96,
+    "seconds": 0.003,
+    "loop": true,
+    "index": 14,
+    "start": 35334,
+    "loopAddress": 35361
+  },
+  {
+    "name": "BRRSample0F",
+    "samples": 3392,
+    "seconds": 0.106,
+    "loop": true,
+    "index": 15,
+    "start": 35388,
+    "loopAddress": 37233
+  },
+  {
+    "name": "BRRSample10",
+    "samples": 3728,
+    "seconds": 0.1165,
+    "loop": true,
+    "index": 16,
+    "start": 37296,
+    "loopAddress": 39330
+  },
+  {
+    "name": "BRRSample11",
+    "samples": 2496,
+    "seconds": 0.078,
+    "loop": false,
+    "index": 17,
+    "start": 39393,
+    "loopAddress": 40797
+  },
+  {
+    "name": "BRRSample12",
+    "samples": 1376,
+    "seconds": 0.043,
+    "loop": true,
+    "index": 18,
+    "start": 40797,
+    "loopAddress": 41490
+  },
+  {
+    "name": "BRRSample13",
+    "samples": 144,
+    "seconds": 0.0045,
+    "loop": true,
+    "index": 19,
+    "start": 41571,
+    "loopAddress": 41625
+  },
+  {
+    "name": "BRRSample14",
+    "samples": 2384,
+    "seconds": 0.0745,
+    "loop": true,
+    "index": 20,
+    "start": 41652,
+    "loopAddress": 42966
+  },
+  {
+    "name": "BRRSample15",
+    "samples": 528,
+    "seconds": 0.0165,
+    "loop": true,
+    "index": 21,
+    "start": 42993,
+    "loopAddress": 43146
+  },
+  {
+    "name": "BRRSample16",
+    "samples": 4000,
+    "seconds": 0.125,
+    "loop": false,
+    "index": 22,
+    "start": 43290,
+    "loopAddress": 45540
+  },
+  {
+    "name": "BRRSample17",
+    "samples": 1888,
+    "seconds": 0.059,
+    "loop": false,
+    "index": 23,
+    "start": 45540,
+    "loopAddress": 46602
+  },
+  {
+    "name": "BRRSample18",
+    "samples": 4384,
+    "seconds": 0.137,
+    "loop": false,
+    "index": 24,
+    "start": 46602,
+    "loopAddress": 49068
+  }
+]
