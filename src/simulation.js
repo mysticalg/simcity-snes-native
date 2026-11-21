@@ -1,4 +1,5 @@
 import {residentialDemandScore, residentialLocalScore, decideResidentialUpdate} from './rom-growth.js';
+import {accumulateRomDemand} from './rom-demand.js';
 // Native simulation model. ROM-backed tables and direct translations are marked.
 // Monthly growth, coverage and disasters are provisional reconstructions, not yet
 // instruction-for-instruction ports of the SNES simulation (see research/STATUS.md).
@@ -182,7 +183,8 @@ export class City {
   this.taxAccumulator+=this.tax*4;
   const oldCategory=this.category;this.updatePower();this.fields();
   const jobs=(this.rci[1]+this.rci[2])*8;
-  this.demand=[clamp(700+(jobs-this.rci[0])*8-(this.tax-7)*90,-1500,1500),clamp(500+(this.rci[0]/5-this.rci[1])*15-(this.tax-7)*80,-1500,1500),clamp(450+(this.rci[0]/4-this.rci[2])*12-(this.tax-7)*70,-1500,1500)];
+  const generatedDemand=[700+(jobs-this.rci[0])*8-(this.tax-7)*90,500+(this.rci[0]/5-this.rci[1])*15-(this.tax-7)*80,450+(this.rci[0]/4-this.rci[2])*12-(this.tax-7)*70];
+  this.demand=generatedDemand.map((value,i)=>accumulateRomDemand(this.demand[i],value,this.tax,this.difficulty,i===0?2000:1500));
   for(const z of this.zones){if(z.type<5||z.type>7)continue;
    if(z.type===5){this.updateResidentialTile(z);continue;}
    const connected=this.power[z.i]&&this.nearRoad(z);const chance=this.random()%100;
