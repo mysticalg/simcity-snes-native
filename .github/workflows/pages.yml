@@ -22,5 +22,18 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .
+      - name: Wait for Pages artifact metadata
+        uses: actions/github-script@v7
+        with:
+          script: |
+            for (let attempt = 0; attempt < 30; attempt++) {
+              const {data} = await github.rest.actions.listWorkflowRunArtifacts({
+                owner: context.repo.owner, repo: context.repo.repo,
+                run_id: context.runId
+              });
+              if (data.artifacts.some(a => a.name === 'github-pages' && !a.expired)) return;
+              await new Promise(resolve => setTimeout(resolve, 2000));
+            }
+            core.setFailed('Uploaded github-pages artifact did not become visible within 60 seconds');
       - id: deployment
         uses: actions/deploy-pages@v4
