@@ -43,15 +43,28 @@ test('scenario census counts only ROM-flagged growth tiles',()=>{
   assert.ok(c.rci.every(Number.isFinite));
  }
 });
-test('city saves restore map, funds, date, and RNG state',()=>{
- const c=new City(map,build,flags,{name:'Testopolis',year:1954});c.funds=12345;c.month=8;c.random();
+test('city saves restore map, funds, difficulty, date, and RNG state',()=>{
+ const c=new City(map,build,flags,{name:'Testopolis',year:1954,difficulty:2});c.funds=12345;c.month=8;c.random();
  const restored=City.restore(c.serialize(),build,flags);
  assert.equal(restored.name,c.name);assert.equal(restored.year,1954);assert.equal(restored.month,8);
- assert.equal(restored.funds,12345);assert.deepEqual([...restored.map],[...c.map]);assert.equal(restored.random(),c.random());
+ assert.equal(restored.funds,12345);assert.equal(restored.difficulty,2);assert.deepEqual([...restored.map],[...c.map]);assert.equal(restored.random(),c.random());
 });
 test('tax rate stays within the original 0–20% range when applied',()=>{
  const c=new City(map,build,flags);c.tax=20;assert.equal(c.tax,20);
  const b=c.budget();assert.ok(Number.isFinite(b.net));assert.equal(b.expenses.length,3);
+});
+test('transport budget request follows the ROM difficulty Q8 factors and cap',()=>{
+ const city=new City(Array(W*H).fill(0),build,flags);
+ city.roadCount=100;city.railCount=20;city.counts[8]=2;city.counts[9]=3;
+ for(const [difficulty,factor,transport] of [[0,0x00b3,97],[1,0x00e6,125],[2,0x0133,167]]){
+  city.difficulty=difficulty;
+  const b=city.budget();
+  assert.equal(b.requests[0],Math.floor((100+2*20)*factor/256));
+  assert.equal(b.requests[0],transport);
+  assert.equal(b.requests[1],200);assert.equal(b.requests[2],300);
+ }
+ city.difficulty=2;city.roadCount=20000;city.railCount=0;
+ assert.equal(city.budget().requests[0],9999);
 });
 test('invalid map saves are rejected',()=>assert.throws(()=>City.restore('{"version":1,"map":[0]}',build,flags),/supported city save/));
 
