@@ -21,6 +21,64 @@ export function stampZoneFootprint(map,x,y,baseTile,width=120,height=100){
   return true;
 }
 
+// CODE_039468: density comes from the 8-bit difference between the two
+// half-resolution source planes, with thresholds $1E/$50/$96.
+export function residentialDensityBand(valueByte,penaltyByte){
+  const value=valueByte&0xff,penalty=penaltyByte&0xff;
+  if(value<penalty)return 0;
+  const difference=value-penalty;
+  if(difference<0x1e)return 0;
+  if(difference<0x50)return 1;
+  if(difference<0x96)return 2;
+  return 3;
+}
+
+// DATA_03992B is the byte sequence 0,9,18,...,180. CODE_0398B8 indexes
+// it with (density * 4 + populationBand). A zero-population residential tile
+// wraps the population band to $FF; its byte is the following ROM byte at
+// DATA_03992B+$FF (USA ROM CPU address $039A2A), not a JavaScript negative index.
+function residentialDensityOffset(population,density){
+  const band=((Math.trunc(population)/8|0)-1)&0xff;
+  const index=((density&0xff)*4+band)&0xff;
+  if(index===0xff)return 0x0a;
+  if(index<=20)return index*9;
+  throw new RangeError(`Unexpected CODE_0398B8 table index ${index}`);
+}
+
+export function residentialGrowthBase(population,density){
+  return 0x95+residentialDensityOffset(population,density);
+}
+
+export function residentialDeclineFootprint(map,x,y,population,density,nextRandomBelow3=()=>0,width=120,height=100){
+  const center=y*width+x;
+  if(population===0)return false;
+  if(population===16){
+    map[center]=0x84;
+    const homeBase=0x89+(density&3)*3;
+    for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){
+      if(dx===0&&dy===0)continue;
+      const i=(y+dy)*width+x+dx;
+      if(x+dx<0||x+dx>=width||y+dy<0||y+dy>=height)continue;
+      if((map[i]&0x03ff)===0x84)continue;
+      const variety=Math.max(0,Math.min(2,Math.trunc(nextRandomBelow3())));
+      map[i]=(map[i]&0xff00)|(homeBase+variety);
+    }
+    return true;
+  }
+  if(population>16){
+    const stage=Math.max(0,Math.floor((population-24)/8));
+    return stampZoneFootprint(map,x,y,0x95+9*((density&3)*4+stage),width,height);
+  }
+  let changed=false;
+  for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){
+    const cx=x+dx,cy=y+dy;
+    if(cx<0||cx>=width||cy<0||cy>=height)continue;
+    const i=cy*width+cx,id=map[i]&0xff;
+    if(id>=0x89&&id<0x95){map[i]=(map[i]&0xff00)|0x80+(dy+1)*3+dx+1;return true;}
+  }
+  return changed;
+}
+
 function cmpNegative(a, b) {
   return ((word(a) - word(b)) & 0x8000) !== 0;
 }

@@ -1,4 +1,4 @@
-import {residentialDemandScore, residentialLocalScore, decideResidentialUpdate, stampZoneFootprint} from './rom-growth.js';
+import {residentialDemandScore, residentialLocalScore, residentialDensityBand, residentialGrowthBase, residentialDeclineFootprint, decideResidentialUpdate, stampZoneFootprint} from './rom-growth.js';
 import {accumulateRomDemand} from './rom-demand.js';
 // Native simulation model. ROM-backed tables and direct translations are marked.
 // Monthly growth, coverage and disasters are provisional reconstructions, not yet
@@ -148,20 +148,40 @@ export class City {
   this.meanCrime=crime/12000;
  }
  grow(z,direction){
+  if(z.type===5){
+   const id=this.id(z.x,z.y),current={...z,id};
+   const population=id===0x84?this.adjacentSmallHomeCount(z):this.zonePopulation(current);
+   if(direction>0&&this.pollution[z.i]>=0x81)return false;
+   const density=residentialDensityBand(this.landValue[z.i]||0,this.pollution[z.i]||0);
+   if(direction>0){
+    if(id===0x84){if(population<8||(this.landValue[z.i]||0)<0x41)return false;return stampZoneFootprint(this.map,z.x,z.y,residentialGrowthBase(8,density),W,H);}
+    return stampZoneFootprint(this.map,z.x,z.y,residentialGrowthBase(population,density),W,H);
+   }
+   return residentialDeclineFootprint(this.map,z.x,z.y,population,density,()=>this.random()%3,W,H);
+  }
   let top;
-  if(z.type===5){const level=z.id<0x99?-1:Math.floor(((z.id-0x99)%36)/9);const next=clamp(level+direction,-1,3);top=next<0?0x80:0x95+next*9;}
-  else if(z.type===6){const level=z.id<0x144?-1:Math.floor(((z.id-0x144)%45)/9);const next=clamp(level+direction,-1,4);top=next<0?0x137:0x140+next*9;}
+  if(z.type===6){const level=z.id<0x144?-1:Math.floor(((z.id-0x144)%45)/9);const next=clamp(level+direction,-1,4);top=next<0?0x137:0x140+next*9;}
   else {const level=z.id<0x201?-1:Math.floor(((z.id-0x201)%36)/9);const next=clamp(level+direction,-1,3);top=next<0?0x1f4:0x1fd+next*9;}
   return stampZoneFootprint(this.map,z.x,z.y,top,W,H);
  }
+ adjacentSmallHomeCount(z){
+  let count=0;
+  for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){
+   if(dx===0&&dy===0)continue;
+   const id=this.id(z.x+dx,z.y+dy);if(id>=0x89&&id<0x95)count++;
+  }
+  return count;
+ }
  updateResidentialTile(z,nextRandomWord=()=>this.random()){
   const gateWord=nextRandomWord();
+  const current={...z,id:this.id(z.x,z.y)};
   // CODE_0399D2's 0..255 lookup planes are represented by the model's
   // approximate land-value field; demand and these local inputs remain provisional.
-  const localScore=residentialLocalScore(this.landValue[z.i]||0,0);
+  const localScore=residentialLocalScore(this.landValue[z.i]||0,this.pollution[z.i]||0);
   const score=residentialDemandScore(this.map[z.i],localScore,this.demand[0]);
-  const decision=decideResidentialUpdate({tileId:z.id,gateWord,score,population:this.zonePopulation(z),nextRandomWord});
-  if(decision.action==='grow')this.grow(z,1);
+  const population=current.id===0x84?this.adjacentSmallHomeCount(z):this.zonePopulation(current);
+  const decision=decideResidentialUpdate({tileId:current.id,gateWord,score,population,nextRandomWord});
+  if(decision.action==='grow')this.grow(current,1);
   else if(decision.action==='decline')this.grow(z,-1);
   return decision;
  }
