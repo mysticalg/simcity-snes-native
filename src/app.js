@@ -1,5 +1,5 @@
 import {AnimatedCityAtlas,cityAnimationState,advanceCityAnimation} from './city-graphics.js';
-import {drawPowerWarnings,unpoweredBuildings} from './power-warnings.js';
+import {drawPowerWarnings,unpoweredBuildings} from './power-warnings.js?v=power-visible-2';
 import {strokeCells} from './build-stroke.js';
 import {cityPaletteForMonth} from './rom-render.js';
 import {RomSampleAudio} from './rom-audio.js';
