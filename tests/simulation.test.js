@@ -114,3 +114,12 @@ test('construction power tools place matching ROM centers and provide capacity',
   assert.equal(c.id(61,51),center);assert.equal(c.powerCapacity,capacity);
  }
 });
+test('road and rail masks connect horizontal vertical corners and junctions',()=>{
+ for(const [tool,base] of [[1,0x30],[2,0x70]]){
+ const c=new City(Array(W*H).fill(0),build,flags),x=60,y=50;
+ for(const [dx,dy] of [[0,0],[1,0],[-1,0]])assert.equal(c.place(tool,x+dx,y+dy),true);
+ assert.equal(c.id(x,y),base+2);
+ c.place(tool,x,y-1);assert.equal(c.id(x,y),base+8);
+ c.place(tool,x,y+1);assert.equal(c.id(x,y),base+12);
+ }
+});

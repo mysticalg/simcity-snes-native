@@ -144,7 +144,7 @@ export class City {
   if(!kind)return;
   const bit=kind===1?0x40:kind===2?0x20:0x10;
   // DATA_018020, CODE_01B62F/645/65B. Bit directions follow CODE_01B6CC.
-  let mask=0;[[0,-1,1],[1,0,2],[0,1,4],[-1,0,8]].forEach(([dx,dy,b])=>{if((this.flags[this.id(x+dx,y+dy)]||0)&bit)mask|=b;});
+  let mask=0;[[0,-1,8],[1,0,2],[0,1,1],[-1,0,4]].forEach(([dx,dy,b])=>{if((this.flags[this.id(x+dx,y+dy)]||0)&bit)mask|=b;});
   const table=[2,3,2,5,2,6,2,10,3,3,4,9,7,11,8,12];this.map[i]=(kind===1?0x30:kind===2?0x70:0x60)+table[mask];
  }
  nearRoad(z){return findZoneTransport(this.map,z.x,z.y,W,H)!==null;}
@@ -273,6 +273,7 @@ export class City {
  serialize(){return JSON.stringify({version:1,simulationRng:this.simulationRng,traffic:Array.from(this.traffic),scenarioRemaining:this.scenarioRemaining,scenarioResult:this.scenarioResult,scenarioReminders:this.scenarioReminders,scenarioDialogSeen:this.scenarioDialogSeen,map:Array.from(this.map),name:this.name,scenario:this.scenario,year:this.year,month:this.month,funds:this.funds,difficulty:this.difficulty,tax:this.tax,taxAccumulator:this.taxAccumulator,funding:this.funding,rngA:this.rngA,rngB:this.rngB,history:this.history,loan:this.loan,gifts:this.gifts});}
  static restore(text,build,flags){const s=JSON.parse(text);if(s.version!==1||!Array.isArray(s.map)||s.map.length!==12000||s.map.some(n=>!Number.isInteger(n)||n<0||n>65535))throw Error('This is not a supported city save.');const c=new City(s.map,build,flags,s);for(const k of ['simulationRng','scenarioRemaining','scenarioResult','scenarioReminders','scenarioDialogSeen','month','funds','tax','taxAccumulator','funding','rngA','rngB','history','loan','gifts'])if(s[k]!==undefined)c[k]=s[k];if(Array.isArray(s.traffic)&&s.traffic.length===W*H)c.traffic=Uint8Array.from(s.traffic);c.refresh();return c;}
 }
+
 
 
 
