@@ -1,0 +1,110 @@
+{
+  "source": "DATA_02B8B4 / DATA_02BAD9; history indices 16..36",
+  "records": [
+    {
+      "id": 0,
+      "offset": 113,
+      "text": "New mayor elected"
+    },
+    {
+      "id": 1,
+      "offset": 131,
+      "text": "Population came to 30,000"
+    },
+    {
+      "id": 2,
+      "offset": 157,
+      "text": "Became town"
+    },
+    {
+      "id": 3,
+      "offset": 169,
+      "text": "Became city"
+    },
+    {
+      "id": 4,
+      "offset": 181,
+      "text": "Became capital"
+    },
+    {
+      "id": 5,
+      "offset": 196,
+      "text": "Became metropolis"
+    },
+    {
+      "id": 6,
+      "offset": 214,
+      "text": "Became megalopolis"
+    },
+    {
+      "id": 7,
+      "offset": 233,
+      "text": "A monster appeared"
+    },
+    {
+      "id": 8,
+      "offset": 253,
+      "text": "Nuclear melt down."
+    },
+    {
+      "id": 9,
+      "offset": 272,
+      "text": "A plane crashed."
+    },
+    {
+      "id": 10,
+      "offset": 289,
+      "text": "A tornado occurred."
+    },
+    {
+      "id": 11,
+      "offset": 309,
+      "text": "A fire occurred."
+    },
+    {
+      "id": 12,
+      "offset": 326,
+      "text": "A deluge occurred."
+    },
+    {
+      "id": 13,
+      "offset": 345,
+      "text": "Pollution warning."
+    },
+    {
+      "id": 14,
+      "offset": 364,
+      "text": "A big earthquake occurred."
+    },
+    {
+      "id": 15,
+      "offset": 391,
+      "text": "Crimnal warning."
+    },
+    {
+      "id": 16,
+      "offset": 408,
+      "text": "A shipwreck occurred."
+    },
+    {
+      "id": 17,
+      "offset": 430,
+      "text": "50th anniversary"
+    },
+    {
+      "id": 18,
+      "offset": 447,
+      "text": "Formation of a sister city"
+    },
+    {
+      "id": 19,
+      "offset": 475,
+      "text": "Population came to 600,000"
+    },
+    {
+      "id": 20,
+      "offset": 503,
+      "text": "UFO's attack."
+    }
+  ]
+}

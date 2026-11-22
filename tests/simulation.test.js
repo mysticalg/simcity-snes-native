@@ -5,6 +5,11 @@ import fs from 'node:fs';
 const build=JSON.parse(fs.readFileSync(new URL('../assets/tables/build.json',import.meta.url)));
 const flags=JSON.parse(fs.readFileSync(new URL('../assets/tables/city.json',import.meta.url))).flags;
 const map=JSON.parse(fs.readFileSync(new URL('../assets/maps/Map_PracticeCity.json',import.meta.url)));
+test('population promotions and 600000 milestone record original history IDs once',()=>{
+ const c=new City(Array(W*H).fill(0),build,flags,{scenario:'FreeCity'});c.population=600000;c.category=5;c.year=2000;c.month=3;
+ for(let n=0;n<6;n++)c.checkMilestones();assert.deepEqual(c.eventHistory.map(e=>e.id),[0,2,3,4,5,6,19]);
+ const restored=City.restore(c.serialize(),build,flags);restored.population=600000;restored.category=5;restored.checkMilestones();assert.equal(restored.eventHistory.filter(e=>e.id===19).length,1);
+});
 test('disaster history records original IDs and dates once and survives reload',()=>{
  const c=new City(Array(W*H).fill(0),build,flags);c.year=1957;c.month=6;c.disaster('Earthquake');c.disaster('Fire',20,20);
  assert.deepEqual(c.eventHistory.slice(-2),[{id:14,year:1957,month:6},{id:11,year:1957,month:6}]);

@@ -1,11 +1,11 @@
-import {HISTORY_LABELS} from './rom-history.js';
+import {HISTORY_LABELS} from './rom-history.js?v=history-3';
 import {AnimatedCityAtlas,cityAnimationState,advanceCityAnimation} from './city-graphics.js';
 import {drawPowerWarnings,unpoweredBuildings} from './power-warnings.js?v=power-visible-2';
 import {strokeCells} from './build-stroke.js';
 import {cityPaletteForMonth} from './rom-render.js';
 import {RomSampleAudio} from './rom-audio.js';
 const romAudio=new RomSampleAudio();
-import{City,SCENARIOS,TOOLS,W,H,clamp}from'./simulation.js?v=history-2';
+import{City,SCENARIOS,TOOLS,W,H,clamp}from'./simulation.js?v=history-3';
 const $=s=>document.querySelector(s),canvas=$('#game'),ctx=canvas.getContext('2d',{alpha:false});ctx.imageSmoothingEnabled=false;
 const files=await Promise.all([fetch('assets/tables/city.json').then(r=>r.json()),fetch('assets/tables/build.json').then(r=>r.json()),...['city-0.png','city-1.png','city-2.png','city-3.png'].map(n=>new Promise((ok,no)=>{const i=new Image;i.onload=()=>ok(i);i.onerror=no;i.src='assets/'+n})),...SCENARIOS.map(s=>fetch(`assets/maps/Map_${s.id}.json`).then(r=>r.json()))]);
 const[table,build,...rest]=files,atlases=rest.slice(0,4),maps=rest.slice(4),flags=table.flags;

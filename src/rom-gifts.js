@@ -22,9 +22,11 @@ export function enqueueRomGift(inventory,tool){if(inventory.length>=4)return fal
 // CODE_03C0FA runs population promotion before the gift-capacity gate.
 // CODE_03C131 emits Mayor's House message $2C once after first promotion.
 // CODE_03C405 then reserves one of the four inventory slots in a village.
-export function nextCoreMilestone({population,category,police,fire,rail,inventorySize},progress){
+export function nextCoreMilestone({population,category,police,fire,rail,inventorySize,practice=false},progress){
  const thresholds=[2000,10000,50000,100000,500000],stage=progress.population||0;
- if(stage<thresholds.length&&population>=thresholds[stage]){progress.population=stage+1;return {message:stage+1,text:`Population milestone: ${thresholds[stage].toLocaleString()}.`,gift:null};}
+ if(stage<thresholds.length&&population>=thresholds[stage]){progress.population=stage+1;return {message:stage+1,historyId:stage+2,text:`Population milestone: ${thresholds[stage].toLocaleString()}.`,gift:null};}
+ // CODE_03C3CD runs before the gift-capacity gate, using threshold table indices6/7.
+ if(!progress.highPopulation&&population>=(practice?100000:600000)){progress.highPopulation=true;return {message:practice?0x31:0x2f,historyId:practice?null:0x13,text:`Population milestone: ${(practice?100000:600000).toLocaleString()}.`,gift:null};}
  if(inventorySize>=(category===0?3:4))return null;
  if(!progress.mayorHouse&&(progress.population||0)>0){progress.mayorHouse=true;return {message:0x2c,text:'The Mayor’s House is available.',gift:15};}
  // Earlier unported Wright conditions can preempt these in the cartridge.
