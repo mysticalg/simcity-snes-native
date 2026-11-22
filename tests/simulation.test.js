@@ -108,3 +108,9 @@ test('power scan counts ROM coal/nuclear center IDs and writes map power markers
  assert.equal(c.map[0]&0x8000,0);
  c.map[i]=0;c.map[i+10]=0;c.refresh();assert.equal(c.powerCapacity,0);assert.equal(c.map[i+1]&0x8000,0);
 });
+test('construction power tools place matching ROM centers and provide capacity',()=>{
+ for(const [tool,center,capacity] of [[14,0x28c,700],[13,0x27c,2000],[11,0x26c,0]]){
+  const c=new City(Array(W*H).fill(0),build,flags);assert.equal(c.place(tool,60,50),true);
+  assert.equal(c.id(61,51),center);assert.equal(c.powerCapacity,capacity);
+ }
+});

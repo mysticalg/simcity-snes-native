@@ -8,7 +8,7 @@ import {accumulateRomDemand} from './rom-demand.js';
 // Monthly growth, coverage and disasters are provisional reconstructions, not yet
 // instruction-for-instruction ports of the SNES simulation (see research/STATUS.md).
 export const W=120,H=100;
-export const TOOLS=['Bulldozer','Road','Rail','Power line','Park','Residential','Commercial','Industrial','Police','Fire station','Stadium','Coal plant','Airport','Nuclear plant','Seaport','Gift'];
+export const TOOLS=['Bulldozer','Road','Rail','Power line','Park','Residential','Commercial','Industrial','Police','Fire station','Stadium','Seaport','Airport','Nuclear plant','Coal plant','Gift'];
 export const LIMITS=[2000,10000,50000,100000,500000];
 export const CATEGORIES=['Village','Town','City','Capital','Metropolis','Megalopolis'];
 export const SCENARIOS=[
@@ -149,7 +149,7 @@ export class City {
  fields(){
   this.pollution.fill(0);this.crime.fill(0);
   for(const z of this.zones){
-   const amount=z.type===7?90:z.type===11?160:0;
+   const amount=z.type===7?90:z.type===14?160:0;
    if(amount)for(let dy=-8;dy<=8;dy++)for(let dx=-8;dx<=8;dx++){const x=z.x+dx,y=z.y+dy,d=Math.abs(dx)+Math.abs(dy);if(x>=0&&x<W&&y>=0&&y<H&&d<9){const i=y*W+x;this.pollution[i]=clamp(this.pollution[i]+amount*(9-d)/9,0,255);}}
   }
   let crime=0;
