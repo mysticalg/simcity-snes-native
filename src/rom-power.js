@@ -3,9 +3,10 @@
 // CODE_03AFB0..03B0DC: row-major plant pushes, LIFO branch stack,
 // first two available N/E/S/W neighbors, follow the second and revisit
 // the junction. Every visit consumes capacity, including revisits.
-export function traceRomPower(map,flags,width=120,height=100,{capacity}={}){
+export function traceRomPower(map,flags,width=120,height=100,{capacity,extraSeeds=[],extraCapacity=0}={}){
  const power=new Uint8Array(map.length),stack=[];let generated=0;
  for(let i=0;i<map.length;i++){const id=map[i]&1023;if((flags[id]&1)&&(id===0x28c||id===0x27c)){generated+=id===0x28c?700:2000;if(stack.length<5000)stack.push(i);}}
+ for(const seed of extraSeeds)if(!stack.includes(seed))stack.push(seed);generated+=extraCapacity;
  const limit=capacity??generated;
  // CODE_03B0F8 reads scan register $0B89 (not the neighboring map word).
  // It remains the last tile scanned by CODE_038297 in this integration.
