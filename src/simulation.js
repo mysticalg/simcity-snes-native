@@ -1,3 +1,4 @@
+import {romPollutionField} from './rom-pollution.js';
 import {aggregateRomLandValue,romLandValue} from './rom-land-value.js';
 import {romAnnualRevenue} from './rom-finance.js';
 import {SIMULATION_SEED,nextSimulationWord,boundSimulationWord} from './rom-random.js';
@@ -149,11 +150,7 @@ export class City {
  nearRoad(z){return findZoneTransport(this.map,z.x,z.y,W,H)!==null;}
  coverage(x,y,type){let n=0;for(const z of this.zones)if(z.type===type)n=Math.max(n,clamp(1-(Math.abs(z.x-x)+Math.abs(z.y-y))/24,0,1));return n*this.funding[type===8?1:2]/100;}
  fields(){
-  this.pollution.fill(0);this.crime.fill(0);
-  for(const z of this.zones){
-   const amount=z.type===7?90:z.type===14?160:0;
-   if(amount)for(let dy=-8;dy<=8;dy++)for(let dx=-8;dx<=8;dx++){const x=z.x+dx,y=z.y+dy,d=Math.abs(dx)+Math.abs(dy);if(x>=0&&x<W&&y>=0&&y<H&&d<9){const i=y*W+x;this.pollution[i]=clamp(this.pollution[i]+amount*(9-d)/9,0,255);}}
-  }
+  this.pollution=romPollutionField(this.map,W,H);this.crime.fill(0);
   let crime=0,total=0,sumX=0,sumY=0;for(const z of this.zones){const weight=this.zonePopulation(z)*(z.type===5?1:8);if(weight){total+=weight;sumX+=z.x*weight;sumY+=z.y*weight;}}
   const centerX=total?Math.floor(sumX/total/2):30,centerY=total?Math.floor(sumY/total/2):25;
   for(let y=0;y<H;y++)for(let x=0;x<W;x++){
@@ -276,6 +273,7 @@ export class City {
  serialize(){return JSON.stringify({version:1,simulationRng:this.simulationRng,traffic:Array.from(this.traffic),scenarioRemaining:this.scenarioRemaining,scenarioResult:this.scenarioResult,scenarioReminders:this.scenarioReminders,scenarioDialogSeen:this.scenarioDialogSeen,map:Array.from(this.map),name:this.name,scenario:this.scenario,year:this.year,month:this.month,funds:this.funds,difficulty:this.difficulty,tax:this.tax,taxAccumulator:this.taxAccumulator,funding:this.funding,rngA:this.rngA,rngB:this.rngB,history:this.history,loan:this.loan,gifts:this.gifts});}
  static restore(text,build,flags){const s=JSON.parse(text);if(s.version!==1||!Array.isArray(s.map)||s.map.length!==12000||s.map.some(n=>!Number.isInteger(n)||n<0||n>65535))throw Error('This is not a supported city save.');const c=new City(s.map,build,flags,s);for(const k of ['simulationRng','scenarioRemaining','scenarioResult','scenarioReminders','scenarioDialogSeen','month','funds','tax','taxAccumulator','funding','rngA','rngB','history','loan','gifts'])if(s[k]!==undefined)c[k]=s[k];if(Array.isArray(s.traffic)&&s.traffic.length===W*H)c.traffic=Uint8Array.from(s.traffic);c.refresh();return c;}
 }
+
 
 
 
