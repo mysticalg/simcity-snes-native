@@ -73,6 +73,7 @@ export function stepRomShip(ship,map,nextMenuWord,{paused=false,blocked=false}={
   if(ship.turn)return events;
  }else if(!ship.offsetX&&!ship.offsetY){
   events.navigation=navigateRomShip(ship,map,nextMenuWord);ship.travelCountdown=8;
+  if(events.navigation==='collision')events.collision={x:ship.x,y:ship.y};
   if(ship.turn)return events;
  }
  const [dx,dy]=VECTORS[ship.direction];ship.pixelX=(ship.pixelX+dx)&65535;ship.pixelY=(ship.pixelY+dy)&65535;

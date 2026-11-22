@@ -5,12 +5,12 @@ import fs from 'node:fs';
 const build=JSON.parse(fs.readFileSync(new URL('../assets/tables/build.json',import.meta.url)));
 const flags=JSON.parse(fs.readFileSync(new URL('../assets/tables/city.json',import.meta.url))).flags;
 const map=JSON.parse(fs.readFileSync(new URL('../assets/maps/Map_PracticeCity.json',import.meta.url)));
-test('blocked live ship damages five cells and preserves damage through save/load',()=>{
- const c=new City(Array(W*H).fill(0x81),build,flags);Object.assign(c.ship,{active:true,x:60,y:50,pixelX:480,pixelY:400,direction:2,hornCountdown:100});
+test('blocked live ship damages five cells and preserves damage through save/load',()=>{for(let direction=0;direction<8;direction++){
+ const c=new City(Array(W*H).fill(0x81),build,flags);Object.assign(c.ship,{active:true,x:60,y:50,pixelX:480,pixelY:400,direction,hornCountdown:100});
  c.advanceVisualFrames(2);assert.equal(c.ship.active,false);
  const changed=[6060,5939,5941,6179,6181];for(const i of changed)assert.ok([0x7f,0x28].includes(c.map[i]&1023));assert.equal(c.map[6061]&1023,0x81);
  const restored=City.restore(c.serialize(),build,flags);for(const i of changed)assert.equal(restored.map[i],c.map[i]);assert.equal(restored.ship.active,false);
-});
+}});
 test('powered seaport spawns a saved ship and visual frames move it',()=>{
  const c=new City(Array(W*H).fill(2),build,flags);const i=50*W+60;c.map[i]=0x826c;c.scanCityTiles();
  assert.equal(c.ship.active,true);assert.equal(c.ship.initializing,true);assert.equal(c.ship.y,0);

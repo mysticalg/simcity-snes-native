@@ -1,5 +1,5 @@
 import {createRomTrain,spawnRomTrain,stepRomTrain} from './rom-train.js';
-import {createRomShip,spawnRomShip,stepRomShip} from './rom-ship.js';
+import {createRomShip,spawnRomShip,stepRomShip} from './rom-ship.js?v=collision-2';
 import {applyRomShipCollision,burnRomZone} from './rom-collision.js';
 import {romTransportFunding,updateRomTransportTile} from './rom-transport.js';
 import {traceRomPower} from './rom-power.js';
@@ -287,7 +287,7 @@ export class City {
  scanGrowthCaps(){const input={zones:this.counts.slice(5,8),roads:this.roadCount,rails:this.railCount,plants:this.zones.filter(z=>z.id===0x28c||z.id===0x27c).length,rci:this.rci,stadiums:this.counts[10],seaports:this.counts[11],airports:this.counts[12]};const advice=scanRomGrowthCaps(this.baseStep,input,this.growthCaps);if(advice>=6&&advice<=8)this.message(['A stadium is needed for further residential growth.','A seaport is needed for further industrial growth.','An airport is needed for further commercial growth.'][advice-6]);}
  checkMilestones(){const event=nextCoreMilestone({population:this.population,category:this.category,police:this.counts[8],fire:this.counts[9],rail:this.railCount,inventorySize:this.gifts.length},this.giftMilestones);if(event){this.message(event.text);if(event.gift!==null)enqueueRomGift(this.gifts,event.gift);}return event;}
  advance(ms){if(this.pendingBudget)return;this.elapsed+=ms*this.speed;while(this.elapsed>=750&&!this.pendingBudget){this.elapsed-=750;this.stepSimulation();}if(this.pendingBudget)this.elapsed=0;}
- advanceVisualFrames(frames,blocked=false){for(let n=0;n<frames;n++){if(this.quakeFrames){this.quakeFrames--;this.train.active=false;}if((this.quakePhase&7)===1){const event=stepRomShip(this.ship,this.map,()=>this.menuRandom(),{paused:blocked});if(event.navigation==='collision'){applyRomShipCollision(this.map,this.flags,this.ship.x,this.ship.y,()=>this.menuRandom());this.message('A ship collided.');this.refresh();}}if(!blocked&&(this.quakePhase&7)===6)stepRomTrain(this.train,this.map,()=>this.menuRandom(),W,H);this.quakePhase=(this.quakePhase+1)&255;}}
+ advanceVisualFrames(frames,blocked=false){for(let n=0;n<frames;n++){if(this.quakeFrames){this.quakeFrames--;this.train.active=false;}if((this.quakePhase&7)===1){const event=stepRomShip(this.ship,this.map,()=>this.menuRandom(),{paused:blocked});if(event.navigation==='collision'){applyRomShipCollision(this.map,this.flags,event.collision.x,event.collision.y,()=>this.menuRandom());this.message('A ship collided.');this.refresh();}}if(!blocked&&(this.quakePhase&7)===6)stepRomTrain(this.train,this.map,()=>this.menuRandom(),W,H);this.quakePhase=(this.quakePhase+1)&255;}}
  disaster(type,x=60,y=50){
   if(type==='Flood'){const result=startRomFlood(this.map,this.flags,max=>this.boundedRandom(max),W,H);if(result.started){this.floodRemaining=result.remaining;this.message('Flood reported.');this.refresh();}else this.message('No vulnerable shoreline found.');return result;}
   if(type==='Earthquake'){const result=applyRomEarthquake(this.map,this.flags,max=>this.boundedRandom(max),W,H);this.quakeFrames=result.attempts;this.message('Earthquake reported.');this.refresh();return result;}
