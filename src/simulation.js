@@ -1,3 +1,4 @@
+import {aggregateRomLandValue} from './rom-land-value.js';
 import {romAnnualRevenue} from './rom-finance.js';
 import {SIMULATION_SEED,nextSimulationWord,boundSimulationWord} from './rom-random.js';
 import {decayTraffic,addRouteTraffic} from './rom-traffic.js';
@@ -159,7 +160,7 @@ export class City {
    this.crime[i]=t>=0x80?clamp(90+this.population/5000-this.coverage(x,y,8)*140,0,255):0;crime+=this.crime[i];
 
   }
-  this.meanCrime=crime/12000;
+  this.meanCrime=crime/12000;this.meanLandValue=aggregateRomLandValue(this.map,this.landValue,W,H);
  }
  grow(z,direction){
   if(z.type===5){
@@ -210,7 +211,7 @@ export class City {
  budget(apply=false,taxRate=this.tax){
   // This gross-income estimate remains provisional; original budget tracing is incomplete.
   const units=Math.floor(this.rci[0]/8)+this.rci[1]+this.rci[2];
-  const meanLandValue=this.zones.length?Math.floor(this.zones.reduce((sum,z)=>sum+this.landValue[z.i],0)/this.zones.length):0;
+  const meanLandValue=this.meanLandValue||0;
   const income=romAnnualRevenue(units,meanLandValue,taxRate,this.difficulty);
   // CODE_038E39 scales road + double rail count by a Q8 factor indexed by difficulty.
   const transportFactor=[0x00b3,0x00e6,0x0133][this.difficulty];
@@ -273,6 +274,7 @@ export class City {
  serialize(){return JSON.stringify({version:1,simulationRng:this.simulationRng,traffic:Array.from(this.traffic),scenarioRemaining:this.scenarioRemaining,scenarioResult:this.scenarioResult,scenarioReminders:this.scenarioReminders,scenarioDialogSeen:this.scenarioDialogSeen,map:Array.from(this.map),name:this.name,scenario:this.scenario,year:this.year,month:this.month,funds:this.funds,difficulty:this.difficulty,tax:this.tax,taxAccumulator:this.taxAccumulator,funding:this.funding,rngA:this.rngA,rngB:this.rngB,history:this.history,loan:this.loan,gifts:this.gifts});}
  static restore(text,build,flags){const s=JSON.parse(text);if(s.version!==1||!Array.isArray(s.map)||s.map.length!==12000||s.map.some(n=>!Number.isInteger(n)||n<0||n>65535))throw Error('This is not a supported city save.');const c=new City(s.map,build,flags,s);for(const k of ['simulationRng','scenarioRemaining','scenarioResult','scenarioReminders','scenarioDialogSeen','month','funds','tax','taxAccumulator','funding','rngA','rngB','history','loan','gifts'])if(s[k]!==undefined)c[k]=s[k];if(Array.isArray(s.traffic)&&s.traffic.length===W*H)c.traffic=Uint8Array.from(s.traffic);c.refresh();return c;}
 }
+
 
 
 
