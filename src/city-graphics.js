@@ -31,9 +31,9 @@ export function cityTilePixel(gfx,word,x,y){
 }
 export class AnimatedCityAtlas{
  constructor(base,animated,palettes,table){this.base=base;this.animated=animated;this.palettes=palettes;this.table=table;this.canvas=document.createElement('canvas');this.canvas.width=256;this.canvas.height=240;this.ctx=this.canvas.getContext('2d');this.key='';}
- image(season,state){
-  const key=[season,...cityAnimationTransfers(state).map(t=>t.source)].join('/');if(key===this.key)return this.canvas;
-  const gfx=patchCityGraphics(this.base,this.animated,state),pal=this.palettes[season],image=this.ctx.createImageData(256,240),d=image.data;
+ image(season,state,paletteOverride=null,paletteKey=''){
+  const key=[season,paletteKey,...cityAnimationTransfers(state).map(t=>t.source)].join('/');if(key===this.key)return this.canvas;
+  const gfx=patchCityGraphics(this.base,this.animated,state),pal=paletteOverride||this.palettes[season],image=this.ctx.createImageData(256,240),d=image.data;
   for(let id=0;id<958;id++)for(let y=0;y<8;y++)for(let x=0;x<8;x++){
    const top=cityTilePixel(gfx,this.table.top[id],x,y),bottom=cityTilePixel(gfx,this.table.bottom[id],x,y),index=top||bottom,color=pal[index*2]|pal[index*2+1]<<8;
    const p=(((id>>5)*8+y)*256+(id%32)*8+x)*4;

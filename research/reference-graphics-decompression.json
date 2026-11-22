@@ -1,0 +1,45 @@
+{
+  "routine": "CODE_0090DD",
+  "romSHA256": "e9c0bc05511e05a0d7c3e7cc42e761e1e8e532d46f59b9854b6902e1a2e9dd0a",
+  "mesenSHA256": "d2eb03c2590c648bf329f127ebcfefd70130e7690a9e2ccdba8616faea1fe96b",
+  "bytesCompared": 55296,
+  "cases": [
+    {
+      "name": "GFX_Layer1_TitleScreen",
+      "category": "graphics",
+      "start": "07C9E0",
+      "end": "07E584",
+      "packed": true,
+      "stored": 7076,
+      "consumed": 7076,
+      "size": 12288,
+      "path": "assets/graphics/GFX_Layer1_TitleScreen.bin",
+      "sha256": "ef42e85b03feb55f2ce9055c2afee58494485624925fda2017c97e3f36da103c"
+    },
+    {
+      "name": "GFX_Layer1_CitySimulationTiles",
+      "category": "graphics",
+      "start": "07E584",
+      "end": "08C4DB",
+      "packed": true,
+      "stored": 24407,
+      "consumed": 24407,
+      "size": 32768,
+      "path": "assets/graphics/GFX_Layer1_CitySimulationTiles.bin",
+      "sha256": "071642fb308500fd4a745981f362292a97a18ef4719c346b97b6e49c3dd42fa8"
+    },
+    {
+      "name": "GFX_Layer3_CitySimulationTiles",
+      "category": "graphics",
+      "start": "09C0FB",
+      "end": "09D650",
+      "packed": true,
+      "stored": 5461,
+      "consumed": 5461,
+      "size": 10240,
+      "path": "assets/graphics/GFX_Layer3_CitySimulationTiles.bin",
+      "sha256": "710dc8d6ac9da566e5676eee8b4ec07b9d6f387b9c5313198c61d073e647d156"
+    }
+  ],
+  "exitCode": 0
+}
