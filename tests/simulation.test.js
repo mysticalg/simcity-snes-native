@@ -5,6 +5,19 @@ import fs from 'node:fs';
 const build=JSON.parse(fs.readFileSync(new URL('../assets/tables/build.json',import.meta.url)));
 const flags=JSON.parse(fs.readFileSync(new URL('../assets/tables/city.json',import.meta.url))).flags;
 const map=JSON.parse(fs.readFileSync(new URL('../assets/maps/Map_PracticeCity.json',import.meta.url)));
+test('special facility centers stay outside residential census and RCI scan path',()=>{
+ const m=Array(W*H).fill(0);m[20*W+20]=0x129;m[20*W+25]=0x132;const c=new City(m,build,flags);assert.deepEqual(c.facilityCounts,[1,1]);assert.equal(c.population,0);assert.equal(c.counts[5],0);
+ c.random=()=>{throw Error('facility entered residential RNG path');};c.scanCityTiles();assert.equal(c.map[20*W+20]&1023,0x129);assert.equal(c.map[20*W+25]&1023,0x132);
+});
+test('empty residential special branch creates a facility and retires excess using source draw',()=>{
+ const c=new City(Array(W*H).fill(0),build,flags),i=50*W+60;c.map[i]=0x8084;c.landValue[i]=255;c.demand[0]=2000;c.facilityDemand=[-1,0];const words=[0,44100,0];
+ const decision=c.updateResidentialTile({x:60,y:50,i,id:0x84,type:5},()=>words.shift());assert.equal(decision.action,'special');assert.equal(c.map[i]&1023,0x129);assert.deepEqual(c.facilityDemand,[0,0]);
+ c.refresh();assert.equal(c.population,0);assert.deepEqual(c.facilityCounts,[1,0]);c.facilityDemand=[-1,0];c.boundedRandom=max=>{assert.equal(max,20);return 0;};c.scanCityTiles();assert.equal(c.map[i]&1023,0x84);
+});
+test('annual assessment counts original infrastructure and excludes second facility kind',()=>{
+ const m=Array(W*H).fill(0);m[1210]=m[1211]=0x32;m[2420]=0x249;m[3630]=0x129;m[3635]=0x132;m[4840]=0x28c;m[6050]=0x99;const c=new City(m,build,flags);assert.equal(c.rci[0],16);assert.equal(c.population,320);
+ assert.equal(c.evaluateCity().assessedValue,4410);const saved=City.restore(c.serialize(),build,flags);assert.equal(saved.evaluation.assessedValue,4410);assert.deepEqual(saved.facilityDemand,c.facilityDemand);
+});
 test('annual evaluation settles once before score-dependent scenario outcome',()=>{
  const c=new City(Array(W*H).fill(0),build,flags,{scenario:'Boston',year:2015});c.population=100000;c.category=4;c.rci=[1000,100,100];c.score=499;c.pendingBudget={year:2015,taxRate:7,assessment:{income:0,giftIncome:0,requests:[0,0,0]}};
  c.updateScenarioOutcome();assert.equal(c.scenarioResult,null);c.settleAnnualBudget();assert.equal(c.score,713);assert.equal(c.scenarioResult,'won');assert.equal(c.evaluation.year,2015);const score=c.score;

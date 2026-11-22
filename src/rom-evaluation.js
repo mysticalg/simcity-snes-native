@@ -1,5 +1,11 @@
 const word=n=>n&65535;
 const q8=(a,b)=>Math.floor(word(a)*word(b)/256)&65535;
+// CODE_03B4AA: stored assessment units. CODE_02ADC5 shifts decimal
+// digits by two places when displaying the monetary value (units*100).
+export function romAssessedValue({roads=0,rails=0,facilityA=0,police=0,fire=0,stadiums=0,coal=0,seaports=0,nuclear=0,airports=0}){
+ const parts=[[roads,5],[rails,10],[facilityA,400],[word(police+fire),1000],[word(stadiums+coal),3000],[seaports,5000],[nuclear,6000],[airports,10000]];
+ return parts.reduce((sum,[count,price])=>(sum+word(count)*price)>>>0,0);
+}
 // CODE_03B708..03B823. Preserve unsigned word wrap and the fire-service
 // comparison against $1000 (4096), which differs from police's $03E8.
 export function romCityScore({previous=500,problems,caps=[false,false,false],transport=32,police=1000,fire=1000,demand=[0,0,0]}){

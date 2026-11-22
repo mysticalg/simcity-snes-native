@@ -1,9 +1,10 @@
+import {romFacilityDemand,placeRomFacility,updateRomFacility} from './rom-facilities.js';
 import {createRomTrain,spawnRomTrain,stepRomTrain} from './rom-train.js';
 import {createRomShip,spawnRomShip,stepRomShip} from './rom-ship.js?v=collision-2';
 import {applyRomShipCollision,burnRomZone} from './rom-collision.js';
 import {recordRomHistory} from './rom-history.js';
 import {romCommercialRate,commercialLocalScore,industrialLocalScore} from './rom-commercial.js';
-import {romCityProblems,romCityScore,pollRomProblems,pollRomApproval} from './rom-evaluation.js';
+import {romCityProblems,romCityScore,pollRomProblems,pollRomApproval,romAssessedValue} from './rom-evaluation.js?v=facilities-1';
 import {romTransportFunding,updateRomTransportTile} from './rom-transport.js';
 import {traceRomPower} from './rom-power.js';
 import {romFieldSchedule} from './rom-schedule.js';
@@ -45,7 +46,7 @@ export class City {
  constructor(map,build,flags,opts={}){
   if(map.length!==W*H)throw Error('Invalid map length');
   this.map=Uint16Array.from(map);this.build=build;this.flags=flags;
-  this.name=opts.name||'New city';this.scenario=opts.scenario||'PracticeCity';this.year=opts.year||1900;this.month=1;this.score=500;this.scoreChange=0;this.evaluation=null;this.fireCount=0;this.eventHistory=[];if(['PracticeCity','FreeCity'].includes(this.scenario))recordRomHistory(this.eventHistory,0,this.year,this.month);
+  this.name=opts.name||'New city';this.scenario=opts.scenario||'PracticeCity';this.year=opts.year||1900;this.month=1;this.score=500;this.scoreChange=0;this.evaluation=null;this.fireCount=0;this.facilityDemand=[0,0];this.facilityCounts=[0,0];this.facilityRepairPhase=0;this.eventHistory=[];if(['PracticeCity','FreeCity'].includes(this.scenario))recordRomHistory(this.eventHistory,0,this.year,this.month);
   this.difficulty=clamp(Math.trunc(opts.difficulty??0),0,2);this.funds=[20000,10000,5000][this.difficulty];this.tax=7;this.funding=[100,100,100];this.serviceStrengths=[1000,1000];this.transportStrength=32;this.ship=createRomShip();this.soundEvents=[];this.train=createRomTrain();this.allocatedFunding=null;this.speed=1;
   this.simulationRng=[...SIMULATION_SEED];this.rngA=0x5cd6;this.rngB=0x1238;this.population=0;this.demand=[400,200,200];this.history=[];this.taxAccumulator=opts.taxAccumulator||0;
   this.power=new Uint8Array(W*H);this.pollution=new Uint8Array(W*H);this.crime=new Uint8Array(W*H);this.landValue=new Uint8Array(W*H);this.traffic=new Uint8Array(W*H);
@@ -100,7 +101,7 @@ export class City {
   return 0;
  }
  census(){
-  this.counts=Array(16).fill(0);this.rci=[0,0,0];let unpowered=0;
+  this.facilityCounts=[0,0];this.counts=Array(16).fill(0);this.rci=[0,0,0];let unpowered=0;
   // CODE_038297 scans all 120×100 tiles. Its residential, commercial and
   // industrial routines add per-tile values to $0B8B, $0B93 and $0B8F.
   for(let i=0;i<this.map.length;i++){
@@ -112,7 +113,7 @@ export class City {
    if(id===0x25c||id===0x36b)this.counts[10]++;
    if(id===0x26c)this.counts[11]++;
    if(id===0x2a5)this.counts[12]++;
-   if(type<5||type>7)continue;
+   if(id===0x129||id===0x132){this.facilityCounts[id===0x129?0:1]++;continue;}if(type<5||type>7)continue;
    this.counts[type]++;
    this.rci[type-5]+=type===5&&id===0x84?this.adjacentSmallHomeCount({x:i%W,y:Math.floor(i/W)}):this.zonePopulation({id,type});
    if(!this.power[i])unpowered++;
@@ -218,7 +219,7 @@ export class City {
   const localScore=residentialLocalScore(this.landValue[z.i]||0,this.pollution[z.i]||0,transport!==0);
   const score=residentialDemandScore(this.map[z.i],localScore,this.demand[0]);
   const decision=decideResidentialUpdate({tileId:current.id,gateWord,score,population,nextRandomWord});
-  if(decision.action==='grow')this.grow(current,1);
+  if(decision.action==='special')placeRomFacility(this.map,z.x,z.y,this.facilityDemand,W,H);else if(decision.action==='grow')this.grow(current,1);
   else if(decision.action==='decline')this.grow(z,-1);
   return decision;
  }
@@ -240,14 +241,14 @@ export class City {
   return result;
  }
  takeLoan(){if(this.loan){this.message('Repay the current loan before borrowing again.');return false;}this.loan={years:21,payment:500};this.funds=Math.min(999999,this.funds+10000);this.message('Bank loan received: $10,000; 21 annual payments of $500.');return true;}
- cityEvaluationInputs(){return {population:this.population,problems:romCityProblems({crime:this.meanCrime||0,landValue:this.meanLandValue||0,pollution:this.pollution,traffic:this.traffic,landValues:this.landValue,tax:this.tax,rci:this.rci,fires:this.fireCount}),caps:[...this.growthCaps.suppressed],demand:[...this.demand]};}
+ cityEvaluationInputs(){return {assessedValue:romAssessedValue({roads:this.roadCount,rails:this.railCount,facilityA:this.facilityCounts[0],police:this.counts[8],fire:this.counts[9],stadiums:this.counts[10],coal:this.zones.filter(z=>z.id===0x28c).length,seaports:this.counts[11],nuclear:this.zones.filter(z=>z.id===0x27c).length,airports:this.counts[12]}),population:this.population,problems:romCityProblems({crime:this.meanCrime||0,landValue:this.meanLandValue||0,pollution:this.pollution,traffic:this.traffic,landValues:this.landValue,tax:this.tax,rci:this.rci,fires:this.fireCount}),caps:[...this.growthCaps.suppressed],demand:[...this.demand]};}
  evaluateCity(inputs=this.cityEvaluationInputs()){
-  if(!inputs.population){this.score=500;this.scoreChange=0;this.evaluation={year:this.year,score:500,change:0,problems:Array(7).fill(0),survey:null,approval:{approve:0,disapprove:0}};return this.evaluation;}
+  if(!inputs.population){this.score=500;this.scoreChange=0;this.evaluation={year:this.year,score:500,change:0,assessedValue:0,problems:Array(7).fill(0),survey:null,approval:{approve:0,disapprove:0}};return this.evaluation;}
   const problems=inputs.problems;
   const survey=pollRomProblems(problems,max=>this.boundedRandom(max));
   const result=romCityScore({previous:this.score,problems,caps:inputs.caps,transport:this.transportStrength,police:this.serviceStrengths[0],fire:this.serviceStrengths[1],demand:inputs.demand});
   const approval=pollRomApproval(result.score,max=>this.boundedRandom(max));
-  this.score=result.score;this.scoreChange=result.change;this.evaluation={year:this.year,problems,survey,approval,...result};return this.evaluation;
+  this.score=result.score;this.scoreChange=result.change;this.evaluation={year:this.year,assessedValue:inputs.assessedValue??0,problems,survey,approval,...result};return this.evaluation;
  }
  updateScenarioOutcome(){if(this.pendingBudget)return;const result=scenarioOutcome(this.scenario,this.year,{category:this.category,traffic:this.evaluation?.problems?.[4]??0,crime:this.meanCrime||0,score:this.score});if(result!=='active'&&!this.scenarioResult){this.scenarioResult=result;this.message('Scenario '+result+'.');}}
  settleAnnualBudget(){if(!this.pendingBudget)return null;const rate=this.pendingBudget.taxRate,inputs=this.pendingBudget.evaluationInputs;const result=this.budget(true,rate);this.pendingBudget=null;this.evaluateCity(inputs);this.updateScenarioOutcome();return result;}
@@ -268,7 +269,7 @@ export class City {
   this.updateDisasters(false);this.refresh();
   this.baseStep=(this.baseStep+1)&65535;
   if((this.baseStep&3)===0){
-   if(++this.month>12){this.month=1;this.year++;this.pendingBudget={year:this.year,taxRate:Math.floor(this.taxAccumulator/48)};const assessment=this.budget(false,this.pendingBudget.taxRate);this.pendingBudget.assessment={income:assessment.income,giftIncome:assessment.giftIncome,requests:[...assessment.requests]};this.pendingBudget.evaluationInputs=this.cityEvaluationInputs();this.taxAccumulator=0;if(this.autoBudget)this.settleAnnualBudget();}
+   if(++this.month>12){this.month=1;this.year++;}this.facilityDemand=romFacilityDemand(this.rci[0],this.facilityCounts);if(this.month===1){this.pendingBudget={year:this.year,taxRate:Math.floor(this.taxAccumulator/48)};const assessment=this.budget(false,this.pendingBudget.taxRate);this.pendingBudget.assessment={income:assessment.income,giftIncome:assessment.giftIncome,requests:[...assessment.requests]};this.pendingBudget.evaluationInputs=this.cityEvaluationInputs();this.taxAccumulator=0;if(this.autoBudget)this.settleAnnualBudget();}
    this.history.push({year:this.year,month:this.month,population:this.population,rci:[...this.rci],funds:this.funds,crime:this.meanCrime||0});if(this.history.length>240)this.history.shift();
   }
   this.scanGrowthCaps();
@@ -288,7 +289,7 @@ export class City {
    updateRomTransportTile(this.map,i,this.flags,this.transportStrength,this.traffic[i],()=>this.random(),{shipX:this.ship.x,shipY:this.ship.y},W,H);
    const id=this.map[i]&1023;if(!(this.flags[id]&1))continue;
    addRomServiceCenter(this.serviceInputs.police,this.map,i,this.serviceStrengths[0],'police',W,H);addRomServiceCenter(this.serviceInputs.fire,this.map,i,this.serviceStrengths[1],'fire',W,H);
-   const z={i,x:i%W,y:Math.floor(i/W),id,type:this.classify(id)};if(z.type<5||z.type>7)continue;
+   if(id===0x129||id===0x132){updateRomFacility(this.map,i%W,Math.floor(i/W),this.facilityDemand,max=>this.boundedRandom(max),{baseStep:this.baseStep,repairPhase:this.facilityRepairPhase,width:W,height:H});continue;}const z={i,x:i%W,y:Math.floor(i/W),id,type:this.classify(id)};if(z.type<5||z.type>7)continue;
    if(z.type===5){this.updateResidentialTile(z);continue;}
    let transport=1;if(this.boundedRandom(5)<this.zonePopulation(z)){const route=traceZoneTransport(this.map,z.x,z.y,z.type,()=>this.random(),W,H);transport=route.status;if(transport===1)addRouteTraffic(this.map,this.traffic,route.path,W,H);}
    if(transport===-1){this.grow(z,-1);continue;}
@@ -330,8 +331,8 @@ export class City {
   }
   this.disasters=this.disasters.filter(d=>d.life>0);
  }
- serialize(){return JSON.stringify({version:1,score:this.score,scoreChange:this.scoreChange,evaluation:this.evaluation,fireCount:this.fireCount,commercialRate:Array.from(this.commercialRate),eventHistory:this.eventHistory,train:this.train,transportStrength:this.transportStrength,ship:this.ship,floodRemaining:this.floodRemaining,disasters:this.disasters,quakeFrames:this.quakeFrames,quakePhase:this.quakePhase,autoBudget:this.autoBudget,pendingBudget:this.pendingBudget,lastBudget:this.lastBudget,serviceStrengths:this.serviceStrengths,allocatedFunding:this.allocatedFunding,serviceInputs:this.serviceInputs?{police:Array.from(this.serviceInputs.police),fire:Array.from(this.serviceInputs.fire)}:null,fieldState:Object.fromEntries(['terrain','pollution','crime','landValue','density','policeCoverage','fireCoverage'].map(k=>[k,Array.from(this[k])])),centerX:this.centerX,centerY:this.centerY,fieldEpochs:this.fieldEpochs,meanCrime:this.meanCrime,meanLandValue:this.meanLandValue,elapsed:this.elapsed,speed:this.speed,baseStep:this.baseStep,growthCaps:this.growthCaps,demand:this.demand,giftMilestones:this.giftMilestones,simulationRng:this.simulationRng,traffic:Array.from(this.traffic),scenarioRemaining:this.scenarioRemaining,scenarioResult:this.scenarioResult,scenarioReminders:this.scenarioReminders,scenarioDialogSeen:this.scenarioDialogSeen,map:Array.from(this.map),name:this.name,scenario:this.scenario,year:this.year,month:this.month,funds:this.funds,difficulty:this.difficulty,tax:this.tax,taxAccumulator:this.taxAccumulator,funding:this.funding,rngA:this.rngA,rngB:this.rngB,history:this.history,loan:this.loan,gifts:this.gifts});}
- static restore(text,build,flags){const s=JSON.parse(text);if(s.version!==1||!Array.isArray(s.map)||s.map.length!==12000||s.map.some(n=>!Number.isInteger(n)||n<0||n>65535))throw Error('This is not a supported city save.');const c=new City(s.map,build,flags,s);if(s.eventHistory===undefined)c.eventHistory=[];for(const k of ['score','scoreChange','evaluation','fireCount','eventHistory','train','transportStrength','ship','floodRemaining','disasters','quakeFrames','quakePhase','autoBudget','pendingBudget','lastBudget','serviceStrengths','allocatedFunding','centerX','centerY','fieldEpochs','meanCrime','meanLandValue','elapsed','speed','baseStep','growthCaps','demand','giftMilestones','simulationRng','scenarioRemaining','scenarioResult','scenarioReminders','scenarioDialogSeen','month','funds','tax','taxAccumulator','funding','rngA','rngB','history','loan','gifts'])if(s[k]!==undefined)c[k]=s[k];if(Array.isArray(s.traffic)&&s.traffic.length===W*H)c.traffic=Uint8Array.from(s.traffic);if(s.fieldState)for(const k of ['terrain','pollution','crime','landValue','density','policeCoverage','fireCoverage'])if(Array.isArray(s.fieldState[k])&&s.fieldState[k].length===W*H)c[k]=(k.endsWith('Coverage')?Uint16Array:Uint8Array).from(s.fieldState[k]);if(s.serviceInputs&&['police','fire'].every(k=>Array.isArray(s.serviceInputs[k])&&s.serviceInputs[k].length===195))c.serviceInputs={police:Uint16Array.from(s.serviceInputs.police),fire:Uint16Array.from(s.serviceInputs.fire)};if(Array.isArray(s.commercialRate)&&s.commercialRate.length===195)c.commercialRate=Int16Array.from(s.commercialRate);c.ship={...createRomShip(),...c.ship};c.refresh();return c;}
+ serialize(){return JSON.stringify({version:1,facilityDemand:this.facilityDemand,facilityRepairPhase:this.facilityRepairPhase,score:this.score,scoreChange:this.scoreChange,evaluation:this.evaluation,fireCount:this.fireCount,commercialRate:Array.from(this.commercialRate),eventHistory:this.eventHistory,train:this.train,transportStrength:this.transportStrength,ship:this.ship,floodRemaining:this.floodRemaining,disasters:this.disasters,quakeFrames:this.quakeFrames,quakePhase:this.quakePhase,autoBudget:this.autoBudget,pendingBudget:this.pendingBudget,lastBudget:this.lastBudget,serviceStrengths:this.serviceStrengths,allocatedFunding:this.allocatedFunding,serviceInputs:this.serviceInputs?{police:Array.from(this.serviceInputs.police),fire:Array.from(this.serviceInputs.fire)}:null,fieldState:Object.fromEntries(['terrain','pollution','crime','landValue','density','policeCoverage','fireCoverage'].map(k=>[k,Array.from(this[k])])),centerX:this.centerX,centerY:this.centerY,fieldEpochs:this.fieldEpochs,meanCrime:this.meanCrime,meanLandValue:this.meanLandValue,elapsed:this.elapsed,speed:this.speed,baseStep:this.baseStep,growthCaps:this.growthCaps,demand:this.demand,giftMilestones:this.giftMilestones,simulationRng:this.simulationRng,traffic:Array.from(this.traffic),scenarioRemaining:this.scenarioRemaining,scenarioResult:this.scenarioResult,scenarioReminders:this.scenarioReminders,scenarioDialogSeen:this.scenarioDialogSeen,map:Array.from(this.map),name:this.name,scenario:this.scenario,year:this.year,month:this.month,funds:this.funds,difficulty:this.difficulty,tax:this.tax,taxAccumulator:this.taxAccumulator,funding:this.funding,rngA:this.rngA,rngB:this.rngB,history:this.history,loan:this.loan,gifts:this.gifts});}
+ static restore(text,build,flags){const s=JSON.parse(text);if(s.version!==1||!Array.isArray(s.map)||s.map.length!==12000||s.map.some(n=>!Number.isInteger(n)||n<0||n>65535))throw Error('This is not a supported city save.');const c=new City(s.map,build,flags,s);if(s.eventHistory===undefined)c.eventHistory=[];for(const k of ['facilityDemand','facilityRepairPhase','score','scoreChange','evaluation','fireCount','eventHistory','train','transportStrength','ship','floodRemaining','disasters','quakeFrames','quakePhase','autoBudget','pendingBudget','lastBudget','serviceStrengths','allocatedFunding','centerX','centerY','fieldEpochs','meanCrime','meanLandValue','elapsed','speed','baseStep','growthCaps','demand','giftMilestones','simulationRng','scenarioRemaining','scenarioResult','scenarioReminders','scenarioDialogSeen','month','funds','tax','taxAccumulator','funding','rngA','rngB','history','loan','gifts'])if(s[k]!==undefined)c[k]=s[k];if(Array.isArray(s.traffic)&&s.traffic.length===W*H)c.traffic=Uint8Array.from(s.traffic);if(s.fieldState)for(const k of ['terrain','pollution','crime','landValue','density','policeCoverage','fireCoverage'])if(Array.isArray(s.fieldState[k])&&s.fieldState[k].length===W*H)c[k]=(k.endsWith('Coverage')?Uint16Array:Uint8Array).from(s.fieldState[k]);if(s.serviceInputs&&['police','fire'].every(k=>Array.isArray(s.serviceInputs[k])&&s.serviceInputs[k].length===195))c.serviceInputs={police:Uint16Array.from(s.serviceInputs.police),fire:Uint16Array.from(s.serviceInputs.fire)};if(Array.isArray(s.commercialRate)&&s.commercialRate.length===195)c.commercialRate=Int16Array.from(s.commercialRate);c.ship={...createRomShip(),...c.ship};c.refresh();return c;}
 }
 
 

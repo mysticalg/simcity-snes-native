@@ -1,5 +1,9 @@
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import {romCityProblems,romCityScore} from '../src/rom-evaluation.js';
 import {pollRomProblems,pollRomApproval} from '../src/rom-evaluation.js';import {nextSimulationWord,boundSimulationWord} from '../src/rom-random.js';
+import {romAssessedValue} from '../src/rom-evaluation.js';
+test('assessed infrastructure value matches 44 original-ROM executions',()=>{
+ const report=JSON.parse(fs.readFileSync(new URL('../research/reference-valuation.json',import.meta.url)));assert.equal(report.exitCode,0);assert.equal(report.cases.length,44);for(const c of report.cases)assert.equal(romAssessedValue(c.counts),c.expected);
+});
 test('annual polls and final RNG state match 32 original-ROM fixtures',()=>{
  const report=JSON.parse(fs.readFileSync(new URL('../research/reference-polls.json',import.meta.url)));assert.equal(report.exitCode,0);assert.equal(report.valuesCompared,800);
  for(const c of report.cases){const state=[...c.seed],next=max=>boundSimulationWord(nextSimulationWord(state),max);assert.deepEqual(pollRomProblems(c.problems,next),c.survey);assert.deepEqual(pollRomApproval(c.score,next),c.approval);assert.deepEqual(state,c.rng);}

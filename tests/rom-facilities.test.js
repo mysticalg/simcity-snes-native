@@ -1,0 +1,6 @@
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import {romFacilityDemand,placeRomFacility,updateRomFacility} from '../src/rom-facilities.js';import {nextSimulationWord,boundSimulationWord} from '../src/rom-random.js';
+test('facility creation/repair/retirement matches 80 original-ROM fixtures',()=>{
+ const report=JSON.parse(fs.readFileSync(new URL('../research/reference-facilities.json',import.meta.url)));assert.equal(report.exitCode,0);assert.equal(report.valuesCompared,1440);
+ for(const c of report.cases){const map=new Uint16Array(12000),demand=[...c.demand],state=[...c.seed];report.indices.forEach((i,n)=>map[i]=c.input[n]);if(c.kind==='spawn')placeRomFacility(map,60,50,demand);else updateRomFacility(map,60,50,demand,max=>boundSimulationWord(nextSimulationWord(state),max),{baseStep:c.baseStep,repairPhase:c.repairPhase});assert.deepEqual(report.indices.map(i=>map[i]),c.expected);assert.deepEqual(demand,c.flags);assert.deepEqual(state,c.rng);}
+});
+test('facility quota uses residential units shifted8 and distinct signed flags',()=>{assert.deepEqual(romFacilityDemand(512,[1,3]),[1,-1]);assert.deepEqual(romFacilityDemand(511,[1,1]),[0,0]);});

@@ -1,0 +1,668 @@
+{
+  "routine": "CODE_03B4AA",
+  "romSHA256": "e9c0bc05511e05a0d7c3e7cc42e761e1e8e532d46f59b9854b6902e1a2e9dd0a",
+  "mesenSHA256": "d2eb03c2590c648bf329f127ebcfefd70130e7690a9e2ccdba8616faea1fe96b",
+  "cases": [
+    {
+      "counts": {
+        "roads": 0,
+        "rails": 0,
+        "facilityA": 0,
+        "police": 0,
+        "fire": 0,
+        "stadiums": 0,
+        "coal": 0,
+        "seaports": 0,
+        "nuclear": 0,
+        "airports": 0
+      },
+      "expected": 0
+    },
+    {
+      "counts": {
+        "roads": 1,
+        "rails": 0,
+        "facilityA": 0,
+        "police": 0,
+        "fire": 0,
+        "stadiums": 0,
+        "coal": 0,
+        "seaports": 0,
+        "nuclear": 0,
+        "airports": 0
+      },
+      "expected": 5
+    },
+    {
+      "counts": {
+        "roads": 0,
+        "rails": 1,
+        "facilityA": 0,
+        "police": 0,
+        "fire": 0,
+        "stadiums": 0,
+        "coal": 0,
+        "seaports": 0,
+        "nuclear": 0,
+        "airports": 0
+      },
+      "expected": 10
+    },
+    {
+      "counts": {
+        "roads": 0,
+        "rails": 0,
+        "facilityA": 1,
+        "police": 0,
+        "fire": 0,
+        "stadiums": 0,
+        "coal": 0,
+        "seaports": 0,
+        "nuclear": 0,
+        "airports": 0
+      },
+      "expected": 400
+    },
+    {
+      "counts": {
+        "roads": 0,
+        "rails": 0,
+        "facilityA": 0,
+        "police": 1,
+        "fire": 0,
+        "stadiums": 0,
+        "coal": 0,
+        "seaports": 0,
+        "nuclear": 0,
+        "airports": 0
+      },
+      "expected": 1000
+    },
+    {
+      "counts": {
+        "roads": 0,
+        "rails": 0,
+        "facilityA": 0,
+        "police": 0,
+        "fire": 1,
+        "stadiums": 0,
+        "coal": 0,
+        "seaports": 0,
+        "nuclear": 0,
+        "airports": 0
+      },
+      "expected": 1000
+    },
+    {
+      "counts": {
+        "roads": 0,
+        "rails": 0,
+        "facilityA": 0,
+        "police": 0,
+        "fire": 0,
+        "stadiums": 1,
+        "coal": 0,
+        "seaports": 0,
+        "nuclear": 0,
+        "airports": 0
+      },
+      "expected": 3000
+    },
+    {
+      "counts": {
+        "roads": 0,
+        "rails": 0,
+        "facilityA": 0,
+        "police": 0,
+        "fire": 0,
+        "stadiums": 0,
+        "coal": 1,
+        "seaports": 0,
+        "nuclear": 0,
+        "airports": 0
+      },
+      "expected": 3000
+    },
+    {
+      "counts": {
+        "roads": 0,
+        "rails": 0,
+        "facilityA": 0,
+        "police": 0,
+        "fire": 0,
+        "stadiums": 0,
+        "coal": 0,
+        "seaports": 1,
+        "nuclear": 0,
+        "airports": 0
+      },
+      "expected": 5000
+    },
+    {
+      "counts": {
+        "roads": 0,
+        "rails": 0,
+        "facilityA": 0,
+        "police": 0,
+        "fire": 0,
+        "stadiums": 0,
+        "coal": 0,
+        "seaports": 0,
+        "nuclear": 1,
+        "airports": 0
+      },
+      "expected": 6000
+    },
+    {
+      "counts": {
+        "roads": 0,
+        "rails": 0,
+        "facilityA": 0,
+        "police": 0,
+        "fire": 0,
+        "stadiums": 0,
+        "coal": 0,
+        "seaports": 0,
+        "nuclear": 0,
+        "airports": 1
+      },
+      "expected": 10000
+    },
+    {
+      "counts": {
+        "roads": 65535,
+        "rails": 65535,
+        "facilityA": 65535,
+        "police": 65535,
+        "fire": 65535,
+        "stadiums": 65535,
+        "coal": 65535,
+        "seaports": 65535,
+        "nuclear": 65535,
+        "airports": 65535
+      },
+      "expected": 1665568025
+    },
+    {
+      "counts": {
+        "roads": 26022,
+        "rails": 16589,
+        "facilityA": 60360,
+        "police": 40071,
+        "fire": 45114,
+        "stadiums": 593,
+        "coal": 22396,
+        "seaports": 52395,
+        "nuclear": 31246,
+        "airports": 47637
+      },
+      "expected": 1038877000
+    },
+    {
+      "counts": {
+        "roads": 50288,
+        "rails": 36111,
+        "facilityA": 5922,
+        "police": 44057,
+        "fire": 42660,
+        "stadiums": 49587,
+        "coal": 7030,
+        "seaports": 23645,
+        "nuclear": 45592,
+        "airports": 36503
+      },
+      "expected": 950820350
+    },
+    {
+      "counts": {
+        "roads": 23306,
+        "rails": 36577,
+        "facilityA": 56012,
+        "police": 22459,
+        "fire": 59870,
+        "stadiums": 18341,
+        "coal": 21696,
+        "seaports": 49439,
+        "nuclear": 7154,
+        "airports": 51881
+      },
+      "expected": 968720100
+    },
+    {
+      "counts": {
+        "roads": 37876,
+        "rails": 44739,
+        "facilityA": 34118,
+        "police": 39917,
+        "fire": 19560,
+        "stadiums": 17575,
+        "coal": 63962,
+        "seaports": 32625,
+        "nuclear": 29212,
+        "airports": 59083
+      },
+      "expected": 1050990970
+    },
+    {
+      "counts": {
+        "roads": 36270,
+        "rails": 31029,
+        "facilityA": 14608,
+        "police": 14639,
+        "fire": 38082,
+        "stadiums": 52537,
+        "coal": 5444,
+        "seaports": 8147,
+        "nuclear": 41750,
+        "airports": 65405
+      },
+      "expected": 1178283840
+    },
+    {
+      "counts": {
+        "roads": 47800,
+        "rails": 48823,
+        "facilityA": 36010,
+        "police": 54273,
+        "fire": 7532,
+        "stadiums": 31195,
+        "coal": 25982,
+        "seaports": 20165,
+        "nuclear": 29024,
+        "airports": 62783
+      },
+      "expected": 1151266230
+    },
+    {
+      "counts": {
+        "roads": 33170,
+        "rails": 46025,
+        "facilityA": 10900,
+        "police": 5347,
+        "fire": 29926,
+        "stadiums": 34573,
+        "coal": 64776,
+        "seaports": 64711,
+        "nuclear": 4986,
+        "airports": 35985
+      },
+      "expected": 855019100
+    },
+    {
+      "counts": {
+        "roads": 56508,
+        "rails": 4331,
+        "facilityA": 29006,
+        "police": 51285,
+        "fire": 64944,
+        "stadiums": 62799,
+        "coal": 57954,
+        "seaports": 32345,
+        "nuclear": 54244,
+        "airports": 36339
+      },
+      "expected": 1078851250
+    },
+    {
+      "counts": {
+        "roads": 64182,
+        "rails": 12957,
+        "facilityA": 4952,
+        "police": 65239,
+        "fire": 36426,
+        "stadiums": 43297,
+        "coal": 45068,
+        "seaports": 44027,
+        "nuclear": 45342,
+        "airports": 58853
+      },
+      "expected": 1187764280
+    },
+    {
+      "counts": {
+        "roads": 56832,
+        "rails": 14687,
+        "facilityA": 46898,
+        "police": 11497,
+        "fire": 4404,
+        "stadiums": 35587,
+        "coal": 13446,
+        "seaports": 557,
+        "nuclear": 64936,
+        "airports": 50407
+      },
+      "expected": 1078661230
+    },
+    {
+      "counts": {
+        "roads": 64794,
+        "rails": 10673,
+        "facilityA": 38748,
+        "police": 19211,
+        "fire": 9454,
+        "stadiums": 42869,
+        "coal": 4688,
+        "seaports": 49519,
+        "nuclear": 2,
+        "airports": 49017
+      },
+      "expected": 925042900
+    },
+    {
+      "counts": {
+        "roads": 57988,
+        "rails": 3091,
+        "facilityA": 8790,
+        "police": 62909,
+        "fire": 48120,
+        "stadiums": 20215,
+        "coal": 24554,
+        "seaports": 3649,
+        "nuclear": 37548,
+        "airports": 60955
+      },
+      "expected": 1036719850
+    },
+    {
+      "counts": {
+        "roads": 52414,
+        "rails": 3333,
+        "facilityA": 39584,
+        "police": 36223,
+        "fire": 48338,
+        "stadiums": 13833,
+        "coal": 18388,
+        "seaports": 4387,
+        "nuclear": 50214,
+        "airports": 3405
+      },
+      "expected": 489086000
+    },
+    {
+      "counts": {
+        "roads": 20040,
+        "rails": 40199,
+        "facilityA": 46778,
+        "police": 22225,
+        "fire": 41468,
+        "stadiums": 38187,
+        "coal": 43150,
+        "seaports": 5781,
+        "nuclear": 30448,
+        "airports": 40335
+      },
+      "expected": 745252390
+    },
+    {
+      "counts": {
+        "roads": 60834,
+        "rails": 37017,
+        "facilityA": 16676,
+        "police": 39475,
+        "fire": 6646,
+        "stadiums": 18653,
+        "coal": 46232,
+        "seaports": 44823,
+        "nuclear": 394,
+        "airports": 865
+      },
+      "expected": 483249740
+    },
+    {
+      "counts": {
+        "roads": 50508,
+        "rails": 16443,
+        "facilityA": 47198,
+        "police": 50213,
+        "fire": 42816,
+        "stadiums": 61855,
+        "coal": 37490,
+        "seaports": 53033,
+        "nuclear": 52852,
+        "airports": 42819
+      },
+      "expected": 1158683170
+    },
+    {
+      "counts": {
+        "roads": 9158,
+        "rails": 43117,
+        "facilityA": 61160,
+        "police": 34087,
+        "fire": 16474,
+        "stadiums": 5105,
+        "coal": 64668,
+        "seaports": 61259,
+        "nuclear": 64558,
+        "airports": 5557
+      },
+      "expected": 837425960
+    },
+    {
+      "counts": {
+        "roads": 11152,
+        "rails": 35247,
+        "facilityA": 43842,
+        "police": 61881,
+        "fire": 61380,
+        "stadiums": 14419,
+        "coal": 57750,
+        "seaports": 11261,
+        "nuclear": 64824,
+        "airports": 7991
+      },
+      "expected": 620728030
+    },
+    {
+      "counts": {
+        "roads": 29482,
+        "rails": 34945,
+        "facilityA": 18412,
+        "police": 41563,
+        "fire": 29694,
+        "stadiums": 2885,
+        "coal": 992,
+        "seaports": 26047,
+        "nuclear": 14354,
+        "airports": 63561
+      },
+      "expected": 877182660
+    },
+    {
+      "counts": {
+        "roads": 42260,
+        "rails": 19811,
+        "facilityA": 21350,
+        "police": 54157,
+        "fire": 57224,
+        "stadiums": 32071,
+        "coal": 39418,
+        "seaports": 24849,
+        "nuclear": 42812,
+        "airports": 22891
+      },
+      "expected": 682680410
+    },
+    {
+      "counts": {
+        "roads": 8142,
+        "rails": 42197,
+        "facilityA": 12336,
+        "police": 34255,
+        "fire": 14562,
+        "stadiums": 58073,
+        "coal": 61028,
+        "seaports": 58995,
+        "nuclear": 31030,
+        "airports": 40733
+      },
+      "expected": 1103394080
+    },
+    {
+      "counts": {
+        "roads": 38360,
+        "rails": 40791,
+        "facilityA": 46282,
+        "police": 40353,
+        "fire": 6796,
+        "stadiums": 5243,
+        "coal": 65438,
+        "seaports": 57957,
+        "nuclear": 45184,
+        "airports": 59871
+      },
+      "expected": 1241295510
+    },
+    {
+      "counts": {
+        "roads": 44466,
+        "rails": 45417,
+        "facilityA": 52148,
+        "police": 899,
+        "fire": 21254,
+        "stadiums": 36525,
+        "coal": 8232,
+        "seaports": 34151,
+        "nuclear": 50074,
+        "airports": 15921
+      },
+      "expected": 808368700
+    },
+    {
+      "counts": {
+        "roads": 41436,
+        "rails": 54155,
+        "facilityA": 4974,
+        "police": 50165,
+        "fire": 34000,
+        "stadiums": 37359,
+        "coal": 38530,
+        "seaports": 25593,
+        "nuclear": 15620,
+        "airports": 42131
+      },
+      "expected": 695421330
+    },
+    {
+      "counts": {
+        "roads": 57558,
+        "rails": 41533,
+        "facilityA": 32376,
+        "police": 12151,
+        "fire": 50794,
+        "stadiums": 17089,
+        "coal": 15660,
+        "seaports": 38555,
+        "nuclear": 23358,
+        "airports": 18821
+      },
+      "expected": 695978520
+    },
+    {
+      "counts": {
+        "roads": 44320,
+        "rails": 32255,
+        "facilityA": 62290,
+        "police": 64137,
+        "fire": 16980,
+        "stadiums": 51619,
+        "coal": 8870,
+        "seaports": 55757,
+        "nuclear": 45256,
+        "airports": 40327
+      },
+      "expected": 1176099150
+    },
+    {
+      "counts": {
+        "roads": 48442,
+        "rails": 43857,
+        "facilityA": 60540,
+        "police": 23979,
+        "fire": 55054,
+        "stadiums": 29461,
+        "coal": 10608,
+        "seaports": 44559,
+        "nuclear": 50210,
+        "airports": 29977
+      },
+      "expected": 982425780
+    },
+    {
+      "counts": {
+        "roads": 56228,
+        "rails": 29363,
+        "facilityA": 6262,
+        "police": 13661,
+        "fire": 46872,
+        "stadiums": 53143,
+        "coal": 43018,
+        "seaports": 30689,
+        "nuclear": 45004,
+        "airports": 10427
+      },
+      "expected": 683226570
+    },
+    {
+      "counts": {
+        "roads": 34526,
+        "rails": 16549,
+        "facilityA": 63936,
+        "police": 8735,
+        "fire": 2290,
+        "stadiums": 54185,
+        "coal": 2292,
+        "seaports": 40899,
+        "nuclear": 49734,
+        "airports": 46317
+      },
+      "expected": 1172437520
+    },
+    {
+      "counts": {
+        "roads": 37224,
+        "rails": 50599,
+        "facilityA": 34522,
+        "police": 43121,
+        "fire": 34588,
+        "stadiums": 63435,
+        "coal": 27310,
+        "seaports": 45621,
+        "nuclear": 7696,
+        "airports": 55855
+      },
+      "expected": 935131910
+    },
+    {
+      "counts": {
+        "roads": 49602,
+        "rails": 5689,
+        "facilityA": 51780,
+        "police": 20691,
+        "fire": 8214,
+        "stadiums": 22653,
+        "coal": 16312,
+        "seaports": 32695,
+        "nuclear": 22954,
+        "airports": 15617
+      },
+      "expected": 624185900
+    },
+    {
+      "counts": {
+        "roads": 29292,
+        "rails": 51931,
+        "facilityA": 33406,
+        "police": 51141,
+        "fire": 38496,
+        "stadiums": 54847,
+        "coal": 61074,
+        "seaports": 15561,
+        "nuclear": 8084,
+        "airports": 34275
+      },
+      "expected": 658343170
+    }
+  ],
+  "exitCode": 0
+}
