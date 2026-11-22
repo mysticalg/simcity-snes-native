@@ -70,7 +70,7 @@ export class City {
  }
  // Zone population bands follow CODE_03842F/038456/03847A; spatial desirability below is provisional.
  zonePopulation(z){
-  if(z.type===5){if(z.id<0x99)return 0;return (Math.floor(((z.id-0x99)%36)/9)+1)*8;}
+  if(z.type===5){if(z.id<0x99)return 0;return (Math.floor(((z.id-0x99)%36)/9)+2)*8;}
   if(z.type===6)return z.id<0x144?0:Math.floor(((z.id-0x144)%45)/9)+1;
   if(z.type===7)return z.id<0x201?0:Math.floor(((z.id-0x201)%36)/9)+1;
   return 0;
@@ -85,7 +85,7 @@ export class City {
    if(!(this.flags[id]&1))continue;
    if(type<5||type>7)continue;
    this.counts[type]++;
-   this.rci[type-5]+=this.zonePopulation({id,type});
+   this.rci[type-5]+=type===5&&id===0x84?this.adjacentSmallHomeCount({x:i%W,y:Math.floor(i/W)}):this.zonePopulation({id,type});
    if(!this.power[i])unpowered++;
   }
   // CODE_038196: population = 20 × (8 × (industrial + commercial) + residential).

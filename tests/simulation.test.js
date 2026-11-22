@@ -12,22 +12,22 @@ test('ROM maps and scenario metadata stay aligned',()=>{
 test('ROM population band routines preserve their thresholds',()=>{
  const c=new City(map,build,flags);
  assert.equal(c.zonePopulation({type:5,id:0x98}),0);
- assert.equal(c.zonePopulation({type:5,id:0x99}),8);
- assert.equal(c.zonePopulation({type:5,id:0xa2}),16);
- assert.equal(c.zonePopulation({type:5,id:0xb4}),32);
+ assert.equal(c.zonePopulation({type:5,id:0x99}),16);
+ assert.equal(c.zonePopulation({type:5,id:0xa2}),24);
+ assert.equal(c.zonePopulation({type:5,id:0xb4}),40);
  assert.equal(c.zonePopulation({type:6,id:0x143}),0);
  assert.equal(c.zonePopulation({type:6,id:0x144}),1);
  assert.equal(c.zonePopulation({type:7,id:0x201}),1);
 });
 test('census matches CODE_038196 weighting across all developed tiles',()=>{
  const empty=Array(W*H).fill(0);
- empty[0]=0x99; // residential 8
+ empty[0]=0x99; // residential 16
  empty[1]=0x144; // commercial 1
  empty[2]=0x201; // industrial 1
  const c=new City(empty,build,flags);
- assert.deepEqual(c.rci,[8,1,1]);
- assert.equal(c.population,20*(8*(1+1)+8));
- assert.equal(c.population,480);
+ assert.deepEqual(c.rci,[16,1,1]);
+ assert.equal(c.population,20*(8*(1+1)+16));
+ assert.equal(c.population,640);
  assert.equal(c.counts[5],1);assert.equal(c.counts[6],1);assert.equal(c.counts[7],1);
 });
 test('city categories switch at ROM population thresholds',()=>{
@@ -84,4 +84,15 @@ test('scenario outcome and countdown survive city saves without duplicate outcom
  assert.equal(restored.scenarioRemaining,2);assert.equal(restored.scenarioResult,'won');assert.equal(restored.scenarioDialogSeen,true);
  restored.tick();assert.equal(restored.scenarioRemaining,0);assert.equal(restored.scenarioResult,'won');
  assert.equal(restored.notices.filter(n=>n==='Scenario won.').length,0);
+});
+
+test('residential lookup matches the ROM subtract loop across all ordinary residential IDs',()=>{
+ const c=new City(map,build,flags);
+ for(let id=0x99;id<=0x128;id++){
+  let a=(id-0x99)&255;while(a>=36)a-=36;
+  let y=1,carry;do{y++;carry=a>=9;a=(a-9)&255;}while(carry);
+  assert.equal(c.zonePopulation({id,type:5}),y*8,`tile ${id.toString(16)}`);
+ }
+ const m=Array(W*H).fill(0),i=50*W+60;m[i]=0x84;m[i-1]=0x89;m[i+1]=0x94;
+ const homes=new City(m,build,flags);assert.equal(homes.rci[0],2);assert.equal(homes.population,40);
 });
