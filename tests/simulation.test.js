@@ -10,6 +10,10 @@ test('disaster history records original IDs and dates once and survives reload',
  assert.deepEqual(c.eventHistory.slice(-2),[{id:14,year:1957,month:6},{id:11,year:1957,month:6}]);
  const restored=City.restore(c.serialize(),build,flags);assert.deepEqual(restored.eventHistory,c.eventHistory);restored.advanceVisualFrames(10,true);assert.deepEqual(restored.eventHistory,c.eventHistory);
 });
+test('older saves do not invent a foundation event on their saved date',()=>{
+ const c=new City(Array(W*H).fill(0),build,flags),old=JSON.parse(c.serialize());delete old.eventHistory;old.year=1987;old.month=9;
+ assert.deepEqual(City.restore(JSON.stringify(old),build,flags).eventHistory,[]);
+});
 test('blocked live ship damages five cells and preserves damage through save/load',()=>{for(let direction=0;direction<8;direction++){
  const c=new City(Array(W*H).fill(0x81),build,flags);Object.assign(c.ship,{active:true,x:60,y:50,pixelX:480,pixelY:400,direction,hornCountdown:100});
  c.advanceVisualFrames(2);assert.equal(c.ship.active,false);
