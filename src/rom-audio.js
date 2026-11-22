@@ -1,4 +1,4 @@
-import {planTrackOneLead} from './rom-sequence.js';
+import {planTrackOneLead,planTrackOneOpening} from './rom-sequence.js';
 // Native sample voice layer; sequence scheduling and DSP envelopes remain pending.
 export class RomSampleAudio {
  constructor(){this.context=null;this.output=null;this.buffers=new Map();this.voices=new Set();this.directory=null;}
@@ -6,6 +6,11 @@ export class RomSampleAudio {
   if(!this.context){this.context=new AudioContext();this.output=this.context.createGain();this.output.connect(this.context.destination);}
   await this.context.resume();
   if(!this.directory){const response=await fetch(new URL('../assets/audio/directory.json',import.meta.url));if(!response.ok)throw Error('Sample directory unavailable');this.directory=await response.json();}
+ }
+ async playOriginalOpening(){
+  await this.start();const r=await fetch(new URL('../assets/audio/aram.bin',import.meta.url));if(!r.ok)throw Error('Music data unavailable');const plan=planTrackOneOpening(new Uint8Array(await r.arrayBuffer()));
+  await Promise.all([...new Set(plan.events.map(e=>e.sample))].map(i=>this.load(i)));const origin=this.context.currentTime+.05;
+  for(const e of plan.events)await this.voice(e.sample,{pitch:e.pitch,volume:.12*(e.volume/255)*(e.masterVolume/255),duration:e.gateDuration,when:origin+e.seconds});return plan;
  }
  async playOriginalLead(){
   await this.start();const response=await fetch(new URL('../assets/audio/aram.bin',import.meta.url));const aram=new Uint8Array(await response.arrayBuffer()),events=planTrackOneLead(aram);

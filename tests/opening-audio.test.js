@@ -1,0 +1,3 @@
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import {planTrackOneOpening} from '../src/rom-sequence.js';
+test('ROM opening shares tempo and first-channel pattern boundary across eight voices',()=>{const a=fs.readFileSync(new URL('../assets/audio/aram.bin',import.meta.url));const p=planTrackOneOpening(a);assert.equal(p.endTick,192);assert.equal(p.duration,5.174);assert.equal(new Set(p.events.map(e=>e.channel)).size,8);assert.ok(p.events.every(e=>e.tempo===19&&e.masterVolume===150&&e.seconds+e.gateDuration<=p.duration+1e-9));assert.equal(p.events.find(e=>e.channel===7).seconds,.324);assert.ok(p.events.every(e=>e.pitch>0&&e.sample<32));});
+

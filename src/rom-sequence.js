@@ -95,3 +95,31 @@ export function decodeSpcOrders(aram,trackId,{maxPatterns=64}={}){
  }
  return {patterns,ended:false,pointer};
 }
+// Track 1 opening only. CODE_14BE jumps to CODE_1453 when the first
+// channel reaches an uncalled zero, replacing all eight stream pointers.
+// Later channels must therefore be clipped to that shared boundary.
+export function planTrackOneOpening(aram){
+ const track=trackPatternPointers(aram,1);
+ const lead=decodeSpcChannel(aram,track.channels[0],{maxEvents:1024});
+ if(!lead.ended||lead.unsupported)throw Error('Unsupported opening lead');
+ const endTick=lead.events.reduce((n,e)=>Math.max(n,e.tick+e.length),0);
+ const tempo=lead.events[0].tempo,masterVolume=lead.events[0].masterVolume;
+ if(lead.events.some(e=>e.tempo!==tempo||e.masterVolume!==masterVolume))throw Error('Opening global automation requires tick interpreter');
+ const events=[];
+ for(let channel=0;channel<8;channel++){
+  if(!track.channels[channel])continue;
+  const decoded=decodeSpcChannel(aram,track.channels[channel],{maxEvents:1024});
+  if(decoded.unsupported&&(!decoded.events.length||decoded.events.at(-1).tick<endTick))throw Error('Unsupported opening command '+decoded.unsupported.toString(16));
+  let previous=null;
+  for(const e of decoded.events){
+   if(e.tick>=endTick)break;
+   const end=Math.min(endTick,e.tick+e.length);
+   if(e.kind==='rest'){previous=null;continue;}
+   if(e.kind==='tie'){if(previous)previous.gateDuration=spcTickSeconds(end,tempo)-previous.seconds;continue;}
+   const gate=Math.max(1,Math.floor(e.length*aram[0x3496+((e.articulation??0)>>4&7)]/256));
+   previous={...e,channel,tempo,masterVolume,sample:aram[0x3400+e.instrument*6],pitch:spcPitch(aram,e.note+e.transpose+e.globalTranspose,e.instrument),seconds:spcTickSeconds(e.tick,tempo),duration:spcTickSeconds(end,tempo)-spcTickSeconds(e.tick,tempo),gateDuration:spcTickSeconds(Math.min(end,e.tick+gate),tempo)-spcTickSeconds(e.tick,tempo)};
+   events.push(previous);
+  }
+ }
+ return {events:events.sort((a,b)=>a.seconds-b.seconds||a.channel-b.channel),endTick,duration:spcTickSeconds(endTick,tempo)};
+}
