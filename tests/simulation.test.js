@@ -5,6 +5,24 @@ import fs from 'node:fs';
 const build=JSON.parse(fs.readFileSync(new URL('../assets/tables/build.json',import.meta.url)));
 const flags=JSON.parse(fs.readFileSync(new URL('../assets/tables/city.json',import.meta.url))).flags;
 const map=JSON.parse(fs.readFileSync(new URL('../assets/maps/Map_PracticeCity.json',import.meta.url)));
+test('annual evaluation settles once before score-dependent scenario outcome',()=>{
+ const c=new City(Array(W*H).fill(0),build,flags,{scenario:'Boston',year:2015});c.population=100000;c.category=4;c.rci=[1000,100,100];c.score=499;c.pendingBudget={year:2015,taxRate:7,assessment:{income:0,giftIncome:0,requests:[0,0,0]}};
+ c.updateScenarioOutcome();assert.equal(c.scenarioResult,null);c.settleAnnualBudget();assert.equal(c.score,713);assert.equal(c.scenarioResult,'won');assert.equal(c.evaluation.year,2015);const score=c.score;
+ assert.equal(c.settleAnnualBudget(),null);assert.equal(c.score,score);c.refresh();assert.equal(c.score,score);
+ const saved=City.restore(c.serialize(),build,flags);assert.equal(saved.score,score);assert.deepEqual(saved.evaluation,c.evaluation);
+});
+test('empty city evaluation resets original score and fire scan snapshots active tiles',()=>{
+ const c=new City(Array(W*H).fill(0),build,flags);c.score=900;c.evaluateCity();assert.equal(c.score,500);assert.equal(c.scoreChange,0);
+ c.map[6060]=0x7f;c.random=()=>1;c.scanCityTiles();assert.equal(c.fireCount,1);
+});
+test('pending annual budget retains evaluation inputs across later field updates and reload',()=>{
+ const c=new City(Array(W*H).fill(0),build,flags);c.population=100000;c.rci=[1000,100,100];c.pendingBudget={year:1901,taxRate:7,assessment:{income:0,giftIncome:0,requests:[0,0,0]},evaluationInputs:c.cityEvaluationInputs()};c.year=1901;c.meanCrime=250;c.demand=[-2000,-2000,-2000];
+ const saved=City.restore(c.serialize(),build,flags);saved.settleAnnualBudget();assert.equal(saved.score,714);assert.deepEqual(saved.evaluation.problems,[0,0,0,70,0,0,0]);
+});
+test('Bern checks original evaluated traffic metric rather than the most congested tile',()=>{
+ const c=new City(Array(W*H).fill(0),build,flags,{scenario:'Bern',year:1975});c.population=100000;c.category=4;c.rci=[1000,100,100];
+ for(let x=0;x<48;x+=2)c.landValue[x]=100;c.traffic[0]=240;c.evaluateCity();assert.equal(c.evaluation.problems[4],23);c.updateScenarioOutcome();assert.equal(c.scenarioResult,'won');
+});
 test('commercial scoring snapshots the old density center and survives save/load',()=>{
  const c=new City(Array(W*H).fill(0),build,flags);c.centerX=28;c.centerY=24;c.map[20*W+20]=0x144;c.refresh();c.updateDensityField();
  assert.equal(c.commercialRate[6*15+7],64);assert.equal(c.centerX,10);assert.equal(c.centerY,10);

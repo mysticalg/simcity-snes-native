@@ -1,0 +1,2528 @@
+{
+  "routine": "CODE_03B708",
+  "romSHA256": "e9c0bc05511e05a0d7c3e7cc42e761e1e8e532d46f59b9854b6902e1a2e9dd0a",
+  "mesenSHA256": "d2eb03c2590c648bf329f127ebcfefd70130e7690a9e2ccdba8616faea1fe96b",
+  "cases": [
+    {
+      "previous": 500,
+      "problems": [
+        0,
+        0,
+        0,
+        70,
+        0,
+        0,
+        0
+      ],
+      "caps": [
+        false,
+        false,
+        false
+      ],
+      "transport": 32,
+      "police": 1000,
+      "fire": 1000,
+      "demand": [
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "score": 714,
+        "change": 214,
+        "target": 928
+      }
+    },
+    {
+      "previous": 500,
+      "problems": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "caps": [
+        false,
+        false,
+        false
+      ],
+      "transport": 0,
+      "police": 1000,
+      "fire": 1000,
+      "demand": [
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "score": 732,
+        "change": 232,
+        "target": 964
+      }
+    },
+    {
+      "previous": 500,
+      "problems": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "caps": [
+        false,
+        false,
+        false
+      ],
+      "transport": 31,
+      "police": 1000,
+      "fire": 1000,
+      "demand": [
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "score": 747,
+        "change": 247,
+        "target": 995
+      }
+    },
+    {
+      "previous": 500,
+      "problems": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "caps": [
+        false,
+        false,
+        false
+      ],
+      "transport": 32,
+      "police": 1000,
+      "fire": 1000,
+      "demand": [
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "score": 748,
+        "change": 248,
+        "target": 996
+      }
+    },
+    {
+      "previous": 500,
+      "problems": [
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255
+      ],
+      "caps": [
+        false,
+        false,
+        false
+      ],
+      "transport": 0,
+      "police": 1000,
+      "fire": 1000,
+      "demand": [
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "score": 750,
+        "change": 250,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 500,
+      "problems": [
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255
+      ],
+      "caps": [
+        false,
+        false,
+        false
+      ],
+      "transport": 31,
+      "police": 1000,
+      "fire": 1000,
+      "demand": [
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "score": 750,
+        "change": 250,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 500,
+      "problems": [
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255
+      ],
+      "caps": [
+        false,
+        false,
+        false
+      ],
+      "transport": 32,
+      "police": 1000,
+      "fire": 1000,
+      "demand": [
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "score": 250,
+        "change": -250,
+        "target": 0
+      }
+    },
+    {
+      "previous": 500,
+      "problems": [
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535
+      ],
+      "caps": [
+        false,
+        false,
+        false
+      ],
+      "transport": 0,
+      "police": 1000,
+      "fire": 1000,
+      "demand": [
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "score": 750,
+        "change": 250,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 500,
+      "problems": [
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535
+      ],
+      "caps": [
+        false,
+        false,
+        false
+      ],
+      "transport": 31,
+      "police": 1000,
+      "fire": 1000,
+      "demand": [
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "score": 750,
+        "change": 250,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 500,
+      "problems": [
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535
+      ],
+      "caps": [
+        false,
+        false,
+        false
+      ],
+      "transport": 32,
+      "police": 1000,
+      "fire": 1000,
+      "demand": [
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "score": 250,
+        "change": -250,
+        "target": 0
+      }
+    },
+    {
+      "previous": 500,
+      "problems": [
+        0,
+        0,
+        0,
+        70,
+        0,
+        0,
+        0
+      ],
+      "caps": [
+        false,
+        false,
+        false
+      ],
+      "transport": 32,
+      "police": 1000,
+      "fire": 0,
+      "demand": [
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "score": 668,
+        "change": 168,
+        "target": 837
+      }
+    },
+    {
+      "previous": 500,
+      "problems": [
+        0,
+        0,
+        0,
+        70,
+        0,
+        0,
+        0
+      ],
+      "caps": [
+        false,
+        false,
+        false
+      ],
+      "transport": 32,
+      "police": 1000,
+      "fire": 999,
+      "demand": [
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "score": 714,
+        "change": 214,
+        "target": 928
+      }
+    },
+    {
+      "previous": 500,
+      "problems": [
+        0,
+        0,
+        0,
+        70,
+        0,
+        0,
+        0
+      ],
+      "caps": [
+        false,
+        false,
+        false
+      ],
+      "transport": 32,
+      "police": 1000,
+      "fire": 1000,
+      "demand": [
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "score": 714,
+        "change": 214,
+        "target": 928
+      }
+    },
+    {
+      "previous": 500,
+      "problems": [
+        0,
+        0,
+        0,
+        70,
+        0,
+        0,
+        0
+      ],
+      "caps": [
+        false,
+        false,
+        false
+      ],
+      "transport": 32,
+      "police": 1000,
+      "fire": 4095,
+      "demand": [
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "score": 750,
+        "change": 250,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 500,
+      "problems": [
+        0,
+        0,
+        0,
+        70,
+        0,
+        0,
+        0
+      ],
+      "caps": [
+        false,
+        false,
+        false
+      ],
+      "transport": 32,
+      "police": 1000,
+      "fire": 4096,
+      "demand": [
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "score": 716,
+        "change": 216,
+        "target": 932
+      }
+    },
+    {
+      "previous": 500,
+      "problems": [
+        0,
+        0,
+        0,
+        70,
+        0,
+        0,
+        0
+      ],
+      "caps": [
+        false,
+        false,
+        false
+      ],
+      "transport": 32,
+      "police": 1000,
+      "fire": 1000,
+      "demand": [
+        -1001,
+        -1001,
+        -1001
+      ],
+      "expected": {
+        "score": 536,
+        "change": 36,
+        "target": 572
+      }
+    },
+    {
+      "previous": 500,
+      "problems": [
+        0,
+        0,
+        0,
+        70,
+        0,
+        0,
+        0
+      ],
+      "caps": [
+        false,
+        false,
+        false
+      ],
+      "transport": 32,
+      "police": 1000,
+      "fire": 1000,
+      "demand": [
+        -1000,
+        -1000,
+        -1000
+      ],
+      "expected": {
+        "score": 714,
+        "change": 214,
+        "target": 928
+      }
+    },
+    {
+      "previous": 500,
+      "problems": [
+        0,
+        0,
+        0,
+        70,
+        0,
+        0,
+        0
+      ],
+      "caps": [
+        false,
+        false,
+        false
+      ],
+      "transport": 32,
+      "police": 1000,
+      "fire": 1000,
+      "demand": [
+        -999,
+        -999,
+        -999
+      ],
+      "expected": {
+        "score": 714,
+        "change": 214,
+        "target": 928
+      }
+    },
+    {
+      "previous": 500,
+      "problems": [
+        0,
+        0,
+        0,
+        70,
+        0,
+        0,
+        0
+      ],
+      "caps": [
+        false,
+        false,
+        false
+      ],
+      "transport": 32,
+      "police": 1000,
+      "fire": 1000,
+      "demand": [
+        -2000,
+        -2000,
+        -2000
+      ],
+      "expected": {
+        "score": 536,
+        "change": 36,
+        "target": 572
+      }
+    },
+    {
+      "previous": 500,
+      "problems": [
+        0,
+        0,
+        0,
+        70,
+        0,
+        0,
+        0
+      ],
+      "caps": [
+        false,
+        false,
+        false
+      ],
+      "transport": 32,
+      "police": 1000,
+      "fire": 1000,
+      "demand": [
+        1500,
+        1500,
+        1500
+      ],
+      "expected": {
+        "score": 714,
+        "change": 214,
+        "target": 928
+      }
+    },
+    {
+      "previous": 636,
+      "problems": [
+        247,
+        102,
+        7,
+        280,
+        224,
+        257,
+        168
+      ],
+      "caps": [
+        false,
+        true,
+        false
+      ],
+      "transport": 17,
+      "police": 896,
+      "fire": 1249,
+      "demand": [
+        -284,
+        947,
+        193
+      ],
+      "expected": {
+        "score": 428,
+        "change": -208,
+        "target": 220
+      }
+    },
+    {
+      "previous": 985,
+      "problems": [
+        37,
+        61,
+        269,
+        199,
+        3,
+        236,
+        77
+      ],
+      "caps": [
+        true,
+        false,
+        true
+      ],
+      "transport": 25,
+      "police": 173,
+      "fire": 1609,
+      "demand": [
+        -554,
+        1919,
+        239
+      ],
+      "expected": {
+        "score": 992,
+        "change": 7,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 283,
+      "problems": [
+        89,
+        294,
+        38,
+        95,
+        55,
+        164,
+        105
+      ],
+      "caps": [
+        false,
+        true,
+        false
+      ],
+      "transport": 7,
+      "police": 279,
+      "fire": 4063,
+      "demand": [
+        516,
+        1021,
+        -344
+      ],
+      "expected": {
+        "score": 641,
+        "change": 358,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 776,
+      "problems": [
+        155,
+        260,
+        293,
+        235,
+        265,
+        159,
+        181
+      ],
+      "caps": [
+        true,
+        false,
+        true
+      ],
+      "transport": 20,
+      "police": 734,
+      "fire": 3772,
+      "demand": [
+        343,
+        418,
+        1311
+      ],
+      "expected": {
+        "score": 888,
+        "change": 112,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 439,
+      "problems": [
+        250,
+        196,
+        249,
+        114,
+        248,
+        257,
+        13
+      ],
+      "caps": [
+        false,
+        true,
+        false
+      ],
+      "transport": 8,
+      "police": 518,
+      "fire": 256,
+      "demand": [
+        -1917,
+        -949,
+        229
+      ],
+      "expected": {
+        "score": 719,
+        "change": 280,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 115,
+      "problems": [
+        197,
+        38,
+        127,
+        77,
+        96,
+        238,
+        59
+      ],
+      "caps": [
+        true,
+        false,
+        true
+      ],
+      "transport": 34,
+      "police": 360,
+      "fire": 3914,
+      "demand": [
+        1088,
+        1182,
+        795
+      ],
+      "expected": {
+        "score": 57,
+        "change": -58,
+        "target": 0
+      }
+    },
+    {
+      "previous": 766,
+      "problems": [
+        203,
+        219,
+        205,
+        298,
+        209,
+        155,
+        2
+      ],
+      "caps": [
+        false,
+        true,
+        false
+      ],
+      "transport": 12,
+      "police": 872,
+      "fire": 2865,
+      "demand": [
+        -1802,
+        -145,
+        1705
+      ],
+      "expected": {
+        "score": 883,
+        "change": 117,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 283,
+      "problems": [
+        126,
+        186,
+        275,
+        292,
+        207,
+        2,
+        200
+      ],
+      "caps": [
+        true,
+        false,
+        true
+      ],
+      "transport": 9,
+      "police": 891,
+      "fire": 3820,
+      "demand": [
+        -1361,
+        -970,
+        -1389
+      ],
+      "expected": {
+        "score": 641,
+        "change": 358,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 287,
+      "problems": [
+        118,
+        124,
+        33,
+        10,
+        198,
+        291,
+        293
+      ],
+      "caps": [
+        false,
+        true,
+        false
+      ],
+      "transport": 20,
+      "police": 321,
+      "fire": 2338,
+      "demand": [
+        601,
+        -252,
+        -54
+      ],
+      "expected": {
+        "score": 643,
+        "change": 356,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 235,
+      "problems": [
+        107,
+        54,
+        87,
+        282,
+        85,
+        191,
+        97
+      ],
+      "caps": [
+        true,
+        false,
+        true
+      ],
+      "transport": 26,
+      "police": 156,
+      "fire": 1661,
+      "demand": [
+        -446,
+        -1787,
+        1109
+      ],
+      "expected": {
+        "score": 617,
+        "change": 382,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 850,
+      "problems": [
+        245,
+        1,
+        246,
+        3,
+        33,
+        229,
+        45
+      ],
+      "caps": [
+        false,
+        true,
+        false
+      ],
+      "transport": 37,
+      "police": 898,
+      "fire": 1873,
+      "demand": [
+        1787,
+        -688,
+        523
+      ],
+      "expected": {
+        "score": 425,
+        "change": -425,
+        "target": 0
+      }
+    },
+    {
+      "previous": 996,
+      "problems": [
+        75,
+        232,
+        14,
+        196,
+        216,
+        208,
+        128
+      ],
+      "caps": [
+        true,
+        false,
+        true
+      ],
+      "transport": 16,
+      "police": 157,
+      "fire": 3635,
+      "demand": [
+        1860,
+        1371,
+        -1483
+      ],
+      "expected": {
+        "score": 998,
+        "change": 2,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 974,
+      "problems": [
+        66,
+        202,
+        26,
+        119,
+        37,
+        117,
+        201
+      ],
+      "caps": [
+        false,
+        true,
+        false
+      ],
+      "transport": 35,
+      "police": 650,
+      "fire": 1619,
+      "demand": [
+        683,
+        1630,
+        -510
+      ],
+      "expected": {
+        "score": 487,
+        "change": -487,
+        "target": 0
+      }
+    },
+    {
+      "previous": 400,
+      "problems": [
+        134,
+        132,
+        41,
+        104,
+        140,
+        276,
+        77
+      ],
+      "caps": [
+        true,
+        false,
+        true
+      ],
+      "transport": 33,
+      "police": 696,
+      "fire": 2430,
+      "demand": [
+        1320,
+        1198,
+        978
+      ],
+      "expected": {
+        "score": 200,
+        "change": -200,
+        "target": 0
+      }
+    },
+    {
+      "previous": 269,
+      "problems": [
+        175,
+        245,
+        0,
+        189,
+        139,
+        89,
+        55
+      ],
+      "caps": [
+        false,
+        true,
+        false
+      ],
+      "transport": 16,
+      "police": 990,
+      "fire": 2330,
+      "demand": [
+        -817,
+        1519,
+        -340
+      ],
+      "expected": {
+        "score": 634,
+        "change": 365,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 702,
+      "problems": [
+        170,
+        93,
+        7,
+        84,
+        212,
+        92,
+        140
+      ],
+      "caps": [
+        true,
+        false,
+        true
+      ],
+      "transport": 31,
+      "police": 212,
+      "fire": 760,
+      "demand": [
+        1306,
+        382,
+        1593
+      ],
+      "expected": {
+        "score": 851,
+        "change": 149,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 145,
+      "problems": [
+        256,
+        63,
+        232,
+        40,
+        99,
+        277,
+        4
+      ],
+      "caps": [
+        false,
+        true,
+        false
+      ],
+      "transport": 0,
+      "police": 62,
+      "fire": 2101,
+      "demand": [
+        -1602,
+        -494,
+        1865
+      ],
+      "expected": {
+        "score": 572,
+        "change": 427,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 16,
+      "problems": [
+        12,
+        126,
+        5,
+        103,
+        258,
+        122,
+        222
+      ],
+      "caps": [
+        true,
+        false,
+        true
+      ],
+      "transport": 8,
+      "police": 134,
+      "fire": 1664,
+      "demand": [
+        -938,
+        -1832,
+        60
+      ],
+      "expected": {
+        "score": 508,
+        "change": 492,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 576,
+      "problems": [
+        25,
+        189,
+        60,
+        14,
+        103,
+        207,
+        162
+      ],
+      "caps": [
+        false,
+        true,
+        false
+      ],
+      "transport": 5,
+      "police": 594,
+      "fire": 204,
+      "demand": [
+        1057,
+        117,
+        -5
+      ],
+      "expected": {
+        "score": 788,
+        "change": 212,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 569,
+      "problems": [
+        243,
+        190,
+        111,
+        98,
+        19,
+        15,
+        282
+      ],
+      "caps": [
+        true,
+        false,
+        true
+      ],
+      "transport": 20,
+      "police": 521,
+      "fire": 3377,
+      "demand": [
+        1720,
+        1219,
+        771
+      ],
+      "expected": {
+        "score": 784,
+        "change": 215,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 475,
+      "problems": [
+        128,
+        113,
+        221,
+        27,
+        43,
+        180,
+        215
+      ],
+      "caps": [
+        false,
+        true,
+        false
+      ],
+      "transport": 30,
+      "police": 952,
+      "fire": 3537,
+      "demand": [
+        271,
+        -486,
+        1696
+      ],
+      "expected": {
+        "score": 737,
+        "change": 262,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 162,
+      "problems": [
+        251,
+        42,
+        201,
+        15,
+        197,
+        190,
+        155
+      ],
+      "caps": [
+        true,
+        false,
+        true
+      ],
+      "transport": 7,
+      "police": 181,
+      "fire": 2184,
+      "demand": [
+        182,
+        -1642,
+        -264
+      ],
+      "expected": {
+        "score": 561,
+        "change": 399,
+        "target": 960
+      }
+    },
+    {
+      "previous": 7,
+      "problems": [
+        187,
+        31,
+        98,
+        189,
+        3,
+        163,
+        218
+      ],
+      "caps": [
+        false,
+        true,
+        false
+      ],
+      "transport": 33,
+      "police": 690,
+      "fire": 1944,
+      "demand": [
+        1293,
+        -677,
+        -1118
+      ],
+      "expected": {
+        "score": 3,
+        "change": -4,
+        "target": 0
+      }
+    },
+    {
+      "previous": 196,
+      "problems": [
+        43,
+        299,
+        100,
+        49,
+        54,
+        18,
+        53
+      ],
+      "caps": [
+        true,
+        false,
+        true
+      ],
+      "transport": 33,
+      "police": 975,
+      "fire": 1465,
+      "demand": [
+        -1719,
+        -333,
+        1341
+      ],
+      "expected": {
+        "score": 162,
+        "change": -34,
+        "target": 128
+      }
+    },
+    {
+      "previous": 492,
+      "problems": [
+        213,
+        228,
+        299,
+        82,
+        21,
+        23,
+        5
+      ],
+      "caps": [
+        false,
+        true,
+        false
+      ],
+      "transport": 29,
+      "police": 601,
+      "fire": 131,
+      "demand": [
+        -461,
+        -1362,
+        1696
+      ],
+      "expected": {
+        "score": 746,
+        "change": 254,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 561,
+      "problems": [
+        195,
+        89,
+        36,
+        8,
+        101,
+        44,
+        213
+      ],
+      "caps": [
+        true,
+        false,
+        true
+      ],
+      "transport": 21,
+      "police": 683,
+      "fire": 1579,
+      "demand": [
+        1897,
+        -226,
+        -1477
+      ],
+      "expected": {
+        "score": 309,
+        "change": -252,
+        "target": 58
+      }
+    },
+    {
+      "previous": 761,
+      "problems": [
+        220,
+        174,
+        2,
+        274,
+        46,
+        32,
+        119
+      ],
+      "caps": [
+        false,
+        true,
+        false
+      ],
+      "transport": 22,
+      "police": 695,
+      "fire": 2373,
+      "demand": [
+        782,
+        -342,
+        434
+      ],
+      "expected": {
+        "score": 880,
+        "change": 119,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 909,
+      "problems": [
+        127,
+        220,
+        241,
+        280,
+        274,
+        51,
+        10
+      ],
+      "caps": [
+        true,
+        false,
+        true
+      ],
+      "transport": 37,
+      "police": 64,
+      "fire": 67,
+      "demand": [
+        -466,
+        1946,
+        988
+      ],
+      "expected": {
+        "score": 454,
+        "change": -455,
+        "target": 0
+      }
+    },
+    {
+      "previous": 598,
+      "problems": [
+        10,
+        291,
+        278,
+        143,
+        261,
+        103,
+        282
+      ],
+      "caps": [
+        false,
+        true,
+        false
+      ],
+      "transport": 34,
+      "police": 554,
+      "fire": 424,
+      "demand": [
+        -760,
+        1792,
+        -280
+      ],
+      "expected": {
+        "score": 299,
+        "change": -299,
+        "target": 0
+      }
+    },
+    {
+      "previous": 207,
+      "problems": [
+        64,
+        124,
+        8,
+        203,
+        103,
+        108,
+        46
+      ],
+      "caps": [
+        true,
+        false,
+        true
+      ],
+      "transport": 20,
+      "police": 960,
+      "fire": 561,
+      "demand": [
+        234,
+        72,
+        -707
+      ],
+      "expected": {
+        "score": 149,
+        "change": -58,
+        "target": 91
+      }
+    },
+    {
+      "previous": 656,
+      "problems": [
+        253,
+        215,
+        1,
+        44,
+        67,
+        0,
+        35
+      ],
+      "caps": [
+        false,
+        true,
+        false
+      ],
+      "transport": 40,
+      "police": 683,
+      "fire": 68,
+      "demand": [
+        -1139,
+        153,
+        1415
+      ],
+      "expected": {
+        "score": 391,
+        "change": -265,
+        "target": 126
+      }
+    },
+    {
+      "previous": 411,
+      "problems": [
+        6,
+        95,
+        288,
+        180,
+        57,
+        226,
+        257
+      ],
+      "caps": [
+        true,
+        false,
+        true
+      ],
+      "transport": 22,
+      "police": 900,
+      "fire": 1857,
+      "demand": [
+        -97,
+        755,
+        992
+      ],
+      "expected": {
+        "score": 705,
+        "change": 294,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 61,
+      "problems": [
+        76,
+        281,
+        84,
+        28,
+        223,
+        289,
+        30
+      ],
+      "caps": [
+        false,
+        true,
+        false
+      ],
+      "transport": 26,
+      "police": 518,
+      "fire": 2273,
+      "demand": [
+        1031,
+        -143,
+        1497
+      ],
+      "expected": {
+        "score": 530,
+        "change": 469,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 98,
+      "problems": [
+        130,
+        239,
+        73,
+        16,
+        140,
+        176,
+        271
+      ],
+      "caps": [
+        true,
+        false,
+        true
+      ],
+      "transport": 38,
+      "police": 344,
+      "fire": 1192,
+      "demand": [
+        1489,
+        797,
+        -1116
+      ],
+      "expected": {
+        "score": 49,
+        "change": -49,
+        "target": 0
+      }
+    },
+    {
+      "previous": 58,
+      "problems": [
+        110,
+        23,
+        165,
+        42,
+        289,
+        26,
+        290
+      ],
+      "caps": [
+        false,
+        true,
+        false
+      ],
+      "transport": 2,
+      "police": 379,
+      "fire": 1708,
+      "demand": [
+        -418,
+        -234,
+        816
+      ],
+      "expected": {
+        "score": 529,
+        "change": 471,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 908,
+      "problems": [
+        202,
+        237,
+        26,
+        156,
+        287,
+        162,
+        64
+      ],
+      "caps": [
+        true,
+        false,
+        true
+      ],
+      "transport": 4,
+      "police": 152,
+      "fire": 1924,
+      "demand": [
+        -1725,
+        188,
+        989
+      ],
+      "expected": {
+        "score": 954,
+        "change": 46,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 340,
+      "problems": [
+        258,
+        295,
+        122,
+        74,
+        100,
+        176,
+        28
+      ],
+      "caps": [
+        false,
+        true,
+        false
+      ],
+      "transport": 32,
+      "police": 518,
+      "fire": 3619,
+      "demand": [
+        -805,
+        1104,
+        -1296
+      ],
+      "expected": {
+        "score": 170,
+        "change": -170,
+        "target": 0
+      }
+    },
+    {
+      "previous": 525,
+      "problems": [
+        286,
+        185,
+        136,
+        180,
+        139,
+        178,
+        169
+      ],
+      "caps": [
+        true,
+        false,
+        true
+      ],
+      "transport": 24,
+      "police": 498,
+      "fire": 1598,
+      "demand": [
+        -1013,
+        -1259,
+        306
+      ],
+      "expected": {
+        "score": 762,
+        "change": 237,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 499,
+      "problems": [
+        285,
+        151,
+        22,
+        239,
+        210,
+        1,
+        188
+      ],
+      "caps": [
+        false,
+        true,
+        false
+      ],
+      "transport": 1,
+      "police": 411,
+      "fire": 1246,
+      "demand": [
+        -17,
+        544,
+        1207
+      ],
+      "expected": {
+        "score": 749,
+        "change": 250,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 884,
+      "problems": [
+        257,
+        28,
+        116,
+        41,
+        203,
+        253,
+        299
+      ],
+      "caps": [
+        true,
+        false,
+        true
+      ],
+      "transport": 35,
+      "police": 840,
+      "fire": 393,
+      "demand": [
+        607,
+        -12,
+        -433
+      ],
+      "expected": {
+        "score": 442,
+        "change": -442,
+        "target": 0
+      }
+    },
+    {
+      "previous": 611,
+      "problems": [
+        33,
+        137,
+        162,
+        101,
+        276,
+        134,
+        277
+      ],
+      "caps": [
+        false,
+        true,
+        false
+      ],
+      "transport": 38,
+      "police": 834,
+      "fire": 4077,
+      "demand": [
+        201,
+        1888,
+        -188
+      ],
+      "expected": {
+        "score": 305,
+        "change": -306,
+        "target": 0
+      }
+    },
+    {
+      "previous": 970,
+      "problems": [
+        157,
+        218,
+        77,
+        69,
+        242,
+        167,
+        159
+      ],
+      "caps": [
+        true,
+        false,
+        true
+      ],
+      "transport": 24,
+      "police": 546,
+      "fire": 3065,
+      "demand": [
+        1577,
+        1708,
+        -126
+      ],
+      "expected": {
+        "score": 985,
+        "change": 15,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 591,
+      "problems": [
+        215,
+        294,
+        235,
+        238,
+        229,
+        58,
+        245
+      ],
+      "caps": [
+        false,
+        true,
+        false
+      ],
+      "transport": 24,
+      "police": 313,
+      "fire": 4070,
+      "demand": [
+        988,
+        -712,
+        -225
+      ],
+      "expected": {
+        "score": 795,
+        "change": 204,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 771,
+      "problems": [
+        217,
+        207,
+        128,
+        117,
+        271,
+        132,
+        159
+      ],
+      "caps": [
+        true,
+        false,
+        true
+      ],
+      "transport": 34,
+      "police": 90,
+      "fire": 3233,
+      "demand": [
+        -699,
+        -1017,
+        -999
+      ],
+      "expected": {
+        "score": 385,
+        "change": -386,
+        "target": 0
+      }
+    },
+    {
+      "previous": 345,
+      "problems": [
+        98,
+        172,
+        42,
+        268,
+        228,
+        24,
+        189
+      ],
+      "caps": [
+        false,
+        true,
+        false
+      ],
+      "transport": 14,
+      "police": 692,
+      "fire": 1353,
+      "demand": [
+        -16,
+        -299,
+        -847
+      ],
+      "expected": {
+        "score": 672,
+        "change": 327,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 849,
+      "problems": [
+        48,
+        158,
+        1,
+        117,
+        81,
+        255,
+        165
+      ],
+      "caps": [
+        true,
+        false,
+        true
+      ],
+      "transport": 38,
+      "police": 687,
+      "fire": 3227,
+      "demand": [
+        -1781,
+        1082,
+        1450
+      ],
+      "expected": {
+        "score": 424,
+        "change": -425,
+        "target": 0
+      }
+    },
+    {
+      "previous": 668,
+      "problems": [
+        65,
+        17,
+        199,
+        279,
+        199,
+        239,
+        22
+      ],
+      "caps": [
+        false,
+        true,
+        false
+      ],
+      "transport": 24,
+      "police": 306,
+      "fire": 454,
+      "demand": [
+        888,
+        1884,
+        -1046
+      ],
+      "expected": {
+        "score": 834,
+        "change": 166,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 333,
+      "problems": [
+        280,
+        30,
+        258,
+        257,
+        78,
+        39,
+        56
+      ],
+      "caps": [
+        true,
+        false,
+        true
+      ],
+      "transport": 0,
+      "police": 786,
+      "fire": 612,
+      "demand": [
+        373,
+        -1160,
+        1836
+      ],
+      "expected": {
+        "score": 666,
+        "change": 333,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 838,
+      "problems": [
+        65,
+        115,
+        187,
+        22,
+        274,
+        39,
+        44
+      ],
+      "caps": [
+        false,
+        true,
+        false
+      ],
+      "transport": 17,
+      "police": 318,
+      "fire": 2433,
+      "demand": [
+        1171,
+        -877,
+        782
+      ],
+      "expected": {
+        "score": 425,
+        "change": -413,
+        "target": 12
+      }
+    },
+    {
+      "previous": 319,
+      "problems": [
+        180,
+        252,
+        286,
+        117,
+        158,
+        111,
+        54
+      ],
+      "caps": [
+        true,
+        false,
+        true
+      ],
+      "transport": 35,
+      "police": 46,
+      "fire": 1100,
+      "demand": [
+        233,
+        -861,
+        -1805
+      ],
+      "expected": {
+        "score": 159,
+        "change": -160,
+        "target": 0
+      }
+    },
+    {
+      "previous": 858,
+      "problems": [
+        218,
+        165,
+        77,
+        110,
+        35,
+        224,
+        177
+      ],
+      "caps": [
+        false,
+        true,
+        false
+      ],
+      "transport": 28,
+      "police": 84,
+      "fire": 2123,
+      "demand": [
+        1068,
+        -1026,
+        -315
+      ],
+      "expected": {
+        "score": 576,
+        "change": -282,
+        "target": 295
+      }
+    },
+    {
+      "previous": 832,
+      "problems": [
+        172,
+        112,
+        167,
+        33,
+        160,
+        203,
+        205
+      ],
+      "caps": [
+        true,
+        false,
+        true
+      ],
+      "transport": 24,
+      "police": 727,
+      "fire": 1848,
+      "demand": [
+        726,
+        -866,
+        -272
+      ],
+      "expected": {
+        "score": 916,
+        "change": 84,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 124,
+      "problems": [
+        285,
+        34,
+        276,
+        59,
+        78,
+        294,
+        208
+      ],
+      "caps": [
+        false,
+        true,
+        false
+      ],
+      "transport": 27,
+      "police": 780,
+      "fire": 2720,
+      "demand": [
+        525,
+        -1939,
+        31
+      ],
+      "expected": {
+        "score": 562,
+        "change": 438,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 644,
+      "problems": [
+        227,
+        178,
+        159,
+        132,
+        113,
+        106,
+        66
+      ],
+      "caps": [
+        true,
+        false,
+        true
+      ],
+      "transport": 37,
+      "police": 83,
+      "fire": 1627,
+      "demand": [
+        -502,
+        1743,
+        1948
+      ],
+      "expected": {
+        "score": 322,
+        "change": -322,
+        "target": 0
+      }
+    },
+    {
+      "previous": 226,
+      "problems": [
+        195,
+        51,
+        79,
+        144,
+        278,
+        272,
+        216
+      ],
+      "caps": [
+        false,
+        true,
+        false
+      ],
+      "transport": 40,
+      "police": 567,
+      "fire": 2829,
+      "demand": [
+        -1863,
+        1669,
+        203
+      ],
+      "expected": {
+        "score": 113,
+        "change": -113,
+        "target": 0
+      }
+    },
+    {
+      "previous": 212,
+      "problems": [
+        6,
+        163,
+        96,
+        59,
+        13,
+        191,
+        72
+      ],
+      "caps": [
+        true,
+        false,
+        true
+      ],
+      "transport": 6,
+      "police": 804,
+      "fire": 4032,
+      "demand": [
+        -1161,
+        1659,
+        -1614
+      ],
+      "expected": {
+        "score": 167,
+        "change": -45,
+        "target": 122
+      }
+    },
+    {
+      "previous": 262,
+      "problems": [
+        202,
+        268,
+        45,
+        4,
+        74,
+        87,
+        52
+      ],
+      "caps": [
+        false,
+        true,
+        false
+      ],
+      "transport": 11,
+      "police": 718,
+      "fire": 1845,
+      "demand": [
+        -877,
+        -106,
+        -1108
+      ],
+      "expected": {
+        "score": 139,
+        "change": -123,
+        "target": 16
+      }
+    },
+    {
+      "previous": 407,
+      "problems": [
+        24,
+        193,
+        37,
+        53,
+        260,
+        167,
+        293
+      ],
+      "caps": [
+        true,
+        false,
+        true
+      ],
+      "transport": 14,
+      "police": 572,
+      "fire": 294,
+      "demand": [
+        -607,
+        -1369,
+        1755
+      ],
+      "expected": {
+        "score": 703,
+        "change": 296,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 212,
+      "problems": [
+        202,
+        206,
+        49,
+        115,
+        147,
+        43,
+        261
+      ],
+      "caps": [
+        false,
+        true,
+        false
+      ],
+      "transport": 16,
+      "police": 627,
+      "fire": 705,
+      "demand": [
+        1927,
+        -564,
+        228
+      ],
+      "expected": {
+        "score": 606,
+        "change": 394,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 581,
+      "problems": [
+        20,
+        158,
+        124,
+        223,
+        41,
+        119,
+        24
+      ],
+      "caps": [
+        true,
+        false,
+        true
+      ],
+      "transport": 28,
+      "police": 943,
+      "fire": 1155,
+      "demand": [
+        -1005,
+        773,
+        1111
+      ],
+      "expected": {
+        "score": 312,
+        "change": -269,
+        "target": 44
+      }
+    },
+    {
+      "previous": 485,
+      "problems": [
+        200,
+        90,
+        278,
+        146,
+        184,
+        88,
+        39
+      ],
+      "caps": [
+        false,
+        true,
+        false
+      ],
+      "transport": 27,
+      "police": 422,
+      "fire": 2029,
+      "demand": [
+        -1104,
+        -1974,
+        789
+      ],
+      "expected": {
+        "score": 742,
+        "change": 257,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 244,
+      "problems": [
+        199,
+        131,
+        108,
+        214,
+        205,
+        282,
+        204
+      ],
+      "caps": [
+        true,
+        false,
+        true
+      ],
+      "transport": 26,
+      "police": 588,
+      "fire": 2953,
+      "demand": [
+        -310,
+        -494,
+        61
+      ],
+      "expected": {
+        "score": 622,
+        "change": 378,
+        "target": 1000
+      }
+    },
+    {
+      "previous": 295,
+      "problems": [
+        244,
+        94,
+        26,
+        10,
+        36,
+        176,
+        299
+      ],
+      "caps": [
+        false,
+        true,
+        false
+      ],
+      "transport": 37,
+      "police": 781,
+      "fire": 524,
+      "demand": [
+        -1359,
+        1481,
+        -753
+      ],
+      "expected": {
+        "score": 147,
+        "change": -148,
+        "target": 0
+      }
+    },
+    {
+      "previous": 50,
+      "problems": [
+        209,
+        239,
+        95,
+        260,
+        159,
+        174,
+        79
+      ],
+      "caps": [
+        true,
+        false,
+        true
+      ],
+      "transport": 31,
+      "police": 143,
+      "fire": 1590,
+      "demand": [
+        -704,
+        1379,
+        -135
+      ],
+      "expected": {
+        "score": 525,
+        "change": 475,
+        "target": 1000
+      }
+    }
+  ],
+  "exitCode": 0
+}
