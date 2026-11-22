@@ -16,3 +16,4 @@ export function serviceMilestoneNotices({police,fire,rail},progress){
  }
  return notices;
 }
+export function serviceMilestoneGift(notice){return notice.startsWith('Police stations')?21:notice.startsWith('Fire stations')?22:null;}
