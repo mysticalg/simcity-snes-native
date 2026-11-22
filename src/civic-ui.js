@@ -1,7 +1,7 @@
-import {CIVIC_TOOLS,civicForId,civicBounds,civicServices,educationEffects} from './civic.js?v=civic-revisions-1';
-const civicSprites=Array.from({length:12},(_,n)=>{const image=new Image();image.src='assets/custom/civic-'+n+'.png';return image;});
+import {CIVIC_TOOLS,civicForId,civicBounds,civicServices,educationEffects} from './civic.js?v=build-groups-1';
+const civicSprites=Array.from({length:13},(_,n)=>{const image=new Image();image.src='assets/custom/civic-'+n+'.png';return image;});
 export function drawCivic(ctx,city,{pipes=false,phase=0}={}){
- for(const z of city.zones){const b=civicForId(z.id);if(!b)continue;const bounds=civicBounds(z),sprite=civicSprites[b.tool-30];if(sprite?.complete&&sprite.naturalWidth){ctx.drawImage(sprite,bounds.x*8,bounds.y*8,bounds.width*8,bounds.height*8);continue;}const size=b.size||3,x=(z.x-(size===3?1:0))*8,y=(z.y-(size===3?1:0))*8;ctx.save();ctx.translate(x,y);const r=(x,y,w,h,color)=>{ctx.fillStyle=color;ctx.fillRect(x,y,w,h);};r(0,0,size*8,size*8,'#799462');
+ for(const z of city.zones){const b=civicForId(z.id);if(!b)continue;const bounds=civicBounds(z),sprite=civicSprites[b.sprite??b.tool-30];if(sprite?.complete&&sprite.naturalWidth){ctx.drawImage(sprite,bounds.x*8,bounds.y*8-((b.artHeight||bounds.height*8)-bounds.height*8),bounds.width*8,b.artHeight||bounds.height*8);continue;}const size=b.size||3,x=(z.x-(size===3?1:0))*8,y=(z.y-(size===3?1:0))*8;ctx.save();ctx.translate(x,y);const r=(x,y,w,h,color)=>{ctx.fillStyle=color;ctx.fillRect(x,y,w,h);};r(0,0,size*8,size*8,'#799462');
  if(size===1){if(b.id===961){r(0,0,8,8,'#735a35');for(let n=0;n<7;n++)r((n*3+z.i)%7,(n*5+z.i)%7,2,2,['#b4b6a3','#585b54','#d1bd85'][n%3]);}else{r(0,0,8,8,'#777d73');r(3,1,1,6,'#d8d5b3');r(2,0,4,3,'#2f7eb8');r(3,1,2,1,'#e8f1e8');}}
  else if(b.id===963){r(2,3,20,18,'#42565a');r(4,5,16,12,'#93a4a5');r(7,4,10,15,'#dce5dd');r(5,7,14,9,'#dce5dd');r(9,7,6,9,'#256d91');r(7,9,10,5,'#42bde7');r(10,9,4,5,'#d4ffff');r(2,20,20,2,'#273940');}
  else if(b.id===962){r(2,9,20,12,'#7e8279');r(3,6,10,4,'#bec1a8');r(16,2,4,15,'#535b59');r(15,1,6,2,'#2b3331');r(4,13,7,6,'#2c3330');r(6,16,3,2,'#f4a652');r(14,16,6,5,'#a5afa1');r(16,4,4,2,'#adb3a2');}

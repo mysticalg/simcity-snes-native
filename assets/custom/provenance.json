@@ -23,5 +23,16 @@
     "City bus"
   ],
   "preparation": "Separate uniform atlas cells; nearest-neighbor resample to 32x32; alpha threshold 180 for crisp native pixel sprites. Original preserved.",
-  "prompt": "SNES-style top-down orthographic city-building pixel sprite atlas; 4 columns x 3 rows; transparent background; hospital, landfill, incinerator, fusion, school, college, university, bus stop, bus station, water pump, pipe junction, yellow city bus; no text/grid lines; readable bold shapes for small game tiles."
+  "prompt": "SNES-style top-down orthographic city-building pixel sprite atlas; 4 columns x 3 rows; transparent background; hospital, landfill, incinerator, fusion, school, college, university, bus stop, bus station, water pump, pipe junction, yellow city bus; no text/grid lines; readable bold shapes for small game tiles.",
+  "wind": {
+    "source": "OpenAI ImageGen tool",
+    "date": "2026-11-22",
+    "original": "wind-imagegen-original.png",
+    "sprite": "civic-12.png",
+    "sha256": "dcb69fe2855c1db831ed04b85bba89d580c422cfe2f65ecba76fa6450a3ff1d7",
+    "footprint": "2x1 tiles",
+    "art": "16x24 native pixels including mast overhang",
+    "preparation": "Nearest-neighbor 32x32 source sprite with alpha threshold180; original preserved",
+    "prompt": "One isolated SNES-style top-down wind turbine, three white blades, two side-by-side square utility ground tiles, tall mast above footprint, transparent background, no text, readable at tiny pixel size."
+  }
 }

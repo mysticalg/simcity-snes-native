@@ -10,6 +10,7 @@ export const CIVIC_TOOLS=[
  {tool:37,id:967,name:'Bus stop',icon:'🚏',cost:25,annual:5,kind:'bus',capacity:500,size:1},
  {tool:38,id:968,name:'Bus station',icon:'🚌',cost:1000,annual:200,kind:'bus',capacity:5000,size:1},
  {tool:39,id:969,name:'Water pump',icon:'💧',cost:500,annual:100,kind:'water',capacity:5000},
+ {tool:41,id:972,name:'Wind turbine',icon:'🌬',cost:1000,annual:40,kind:'power',capacity:200,width:2,height:1,sprite:12,artHeight:24},
  {tool:40,id:970,name:'Water pipe',icon:'🔵',cost:2,annual:0,kind:'pipe',size:1}
 ];
 export function installCivicTools(build,flags){for(const b of CIVIC_TOOLS){if(b.kind==='pipe')continue;const width=b.width||b.size||3,height=b.height||b.size||3,center=Math.floor(height/2)*width+Math.floor(width/2);build.buildings[b.tool]={id:b.tool,tiles:Array.from({length:width*height},(_,i)=>i===center?b.id:971),x:Array.from({length:width*height},(_,i)=>i%width),y:Array.from({length:width*height},(_,i)=>Math.floor(i/width))};flags[b.id]=0x81;build.costs[b.tool]=b.cost;}flags[971]=0x80;build.buildings[40]={id:40,tiles:[0],x:[0],y:[0]};build.costs[40]=2;}

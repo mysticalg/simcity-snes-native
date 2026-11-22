@@ -37,3 +37,4 @@ export function planOriginalTornado(aram){return planOriginalEffect(aram,34,{pit
 
 export function planOriginalFire(aram){return planOriginalEffect(aram,33,{pitchSlides:true,volumeAutomation:true});}
 export function planOriginalMeltdown(aram){return planOriginalEffect(aram,30,{pitchSlides:true,volumeAutomation:true});}
+export function planOriginalMonster(aram){return planOriginalEffect(aram,1,{pitchSlides:true,volumeAutomation:true});}

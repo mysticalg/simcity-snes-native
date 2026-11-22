@@ -3,7 +3,7 @@ import {spcTickSeconds} from './rom-sequence.js?v=horn-1';
 import {planOriginalTrackOne} from './rom-track.js?v=horn-1';
 import {renderSpcEnvelope} from './rom-envelope.js?v=horn-1';
 import {planSpcVibrato} from './rom-vibrato.js?v=horn-1';
-import {planOriginalShipHorn,planOriginalTornado,planOriginalFire,planOriginalMeltdown} from './rom-sfx.js?v=disaster-sfx-1';
+import {planOriginalShipHorn,planOriginalTornado,planOriginalFire,planOriginalMeltdown,planOriginalMonster} from './rom-sfx.js?v=monster-1';
 // Native BRR voices with supported original sequence/envelope scheduling.
 // Full DSP behavior and hardware voice arbitration remain incomplete.
 export class RomSampleAudio {
@@ -22,6 +22,7 @@ export class RomSampleAudio {
  async playOriginalShipHorn(){return this.playOriginalEffect(planOriginalShipHorn);}
  async playOriginalTornado(){return this.playOriginalEffect(planOriginalTornado);}
  async playOriginalFire(){return this.playOriginalEffect(planOriginalFire);}
+ async playOriginalMonster(){return this.playOriginalEffect(planOriginalMonster);}
  async playOriginalMeltdown(){return this.playOriginalEffect(planOriginalMeltdown);}
  async playOriginalEffect(planner){
   const generation=this.hornGeneration=(this.hornGeneration||0)+1;await this.start();

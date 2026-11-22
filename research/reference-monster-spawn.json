@@ -1,0 +1,3825 @@
+{
+  "routine": "CODE_03BA47",
+  "romSHA256": "e9c0bc05511e05a0d7c3e7cc42e761e1e8e532d46f59b9854b6902e1a2e9dd0a",
+  "mesenSHA256": "d2eb03c2590c648bf329f127ebcfefd70130e7690a9e2ccdba8616faea1fe96b",
+  "valuesCompared": 1296,
+  "cases": [
+    {
+      "active": false,
+      "target": {
+        "x": 0,
+        "y": 0
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 48,
+        "y": 54,
+        "targetX": 0,
+        "targetY": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        50502,
+        45175,
+        1018,
+        4521,
+        202,
+        65117,
+        3
+      ]
+    },
+    {
+      "active": false,
+      "target": {
+        "x": 0,
+        "y": 0
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 10,
+        "y": 5,
+        "targetX": 0,
+        "targetY": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        2,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "active": false,
+      "target": {
+        "x": 0,
+        "y": 0
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        17426,
+        17220,
+        35525,
+        33955,
+        46004,
+        12815,
+        34968
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 108,
+        "y": 55,
+        "targetX": 0,
+        "targetY": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        50937,
+        31876,
+        17426,
+        17220,
+        35525,
+        33955,
+        46004
+      ]
+    },
+    {
+      "active": false,
+      "target": {
+        "x": 0,
+        "y": 0
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        12046,
+        44488,
+        349,
+        48077,
+        30677,
+        54535,
+        11473
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 91,
+        "y": 90,
+        "targetX": 0,
+        "targetY": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        63671,
+        59103,
+        12046,
+        44488,
+        349,
+        48077,
+        30677
+      ]
+    },
+    {
+      "active": false,
+      "target": {
+        "x": 0,
+        "y": 0
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        38528,
+        26481,
+        32807,
+        31594,
+        24576,
+        60738,
+        48401
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 65,
+        "y": 27,
+        "targetX": 0,
+        "targetY": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        41036,
+        18119,
+        38528,
+        26481,
+        32807,
+        31594,
+        24576
+      ]
+    },
+    {
+      "active": false,
+      "target": {
+        "x": 0,
+        "y": 0
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        57640,
+        539,
+        50383,
+        3410,
+        18670,
+        8633,
+        44369
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 35,
+        "y": 26,
+        "targetX": 0,
+        "targetY": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        7777,
+        8205,
+        57640,
+        539,
+        50383,
+        3410,
+        18670
+      ]
+    },
+    {
+      "active": false,
+      "target": {
+        "x": 0,
+        "y": 0
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        53200,
+        43688,
+        38573,
+        63345,
+        35775,
+        4526,
+        38601
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 40,
+        "y": 46,
+        "targetX": 0,
+        "targetY": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        14943,
+        42502,
+        53200,
+        43688,
+        38573,
+        63345,
+        35775
+      ]
+    },
+    {
+      "active": false,
+      "target": {
+        "x": 0,
+        "y": 0
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        44366,
+        37076,
+        30569,
+        10289,
+        55490,
+        41145,
+        38452
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 78,
+        "y": 14,
+        "targetX": 0,
+        "targetY": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        3515,
+        22330,
+        44366,
+        37076,
+        30569,
+        10289,
+        55490
+      ]
+    },
+    {
+      "active": false,
+      "target": {
+        "x": 0,
+        "y": 0
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        44786,
+        44007,
+        38338,
+        6278,
+        43476,
+        36822,
+        15071
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 62,
+        "y": 88,
+        "targetX": 0,
+        "targetY": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        62918,
+        17102,
+        44786,
+        44007,
+        38338,
+        6278,
+        43476
+      ]
+    },
+    {
+      "active": false,
+      "target": {
+        "x": 0,
+        "y": 0
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        51279,
+        62061,
+        23984,
+        51410,
+        41633,
+        5239,
+        17888
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 29,
+        "y": 25,
+        "targetX": 0,
+        "targetY": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        7228,
+        39001,
+        51279,
+        62061,
+        23984,
+        51410,
+        41633
+      ]
+    },
+    {
+      "active": false,
+      "target": {
+        "x": 0,
+        "y": 0
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        48291,
+        62353,
+        36964,
+        10656,
+        64338,
+        56925,
+        7473
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 63,
+        "y": 34,
+        "targetX": 0,
+        "targetY": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        43385,
+        17387,
+        48291,
+        62353,
+        36964,
+        10656,
+        64338
+      ]
+    },
+    {
+      "active": false,
+      "target": {
+        "x": 0,
+        "y": 0
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        27322,
+        30412,
+        62927,
+        15737,
+        30098,
+        51232,
+        51426
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 75,
+        "y": 71,
+        "targetX": 0,
+        "targetY": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        56550,
+        21123,
+        27322,
+        30412,
+        62927,
+        15737,
+        30098
+      ]
+    },
+    {
+      "active": false,
+      "target": {
+        "x": 29,
+        "y": 24
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 48,
+        "y": 54,
+        "targetX": 29,
+        "targetY": 24,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        50502,
+        45175,
+        1018,
+        4521,
+        202,
+        65117,
+        3
+      ]
+    },
+    {
+      "active": false,
+      "target": {
+        "x": 29,
+        "y": 24
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 10,
+        "y": 5,
+        "targetX": 29,
+        "targetY": 24,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        2,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "active": false,
+      "target": {
+        "x": 29,
+        "y": 24
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        17426,
+        17220,
+        35525,
+        33955,
+        46004,
+        12815,
+        34968
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 108,
+        "y": 55,
+        "targetX": 29,
+        "targetY": 24,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        50937,
+        31876,
+        17426,
+        17220,
+        35525,
+        33955,
+        46004
+      ]
+    },
+    {
+      "active": false,
+      "target": {
+        "x": 29,
+        "y": 24
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        12046,
+        44488,
+        349,
+        48077,
+        30677,
+        54535,
+        11473
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 91,
+        "y": 90,
+        "targetX": 29,
+        "targetY": 24,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        63671,
+        59103,
+        12046,
+        44488,
+        349,
+        48077,
+        30677
+      ]
+    },
+    {
+      "active": false,
+      "target": {
+        "x": 29,
+        "y": 24
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        38528,
+        26481,
+        32807,
+        31594,
+        24576,
+        60738,
+        48401
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 65,
+        "y": 27,
+        "targetX": 29,
+        "targetY": 24,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        41036,
+        18119,
+        38528,
+        26481,
+        32807,
+        31594,
+        24576
+      ]
+    },
+    {
+      "active": false,
+      "target": {
+        "x": 29,
+        "y": 24
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        57640,
+        539,
+        50383,
+        3410,
+        18670,
+        8633,
+        44369
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 35,
+        "y": 26,
+        "targetX": 29,
+        "targetY": 24,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        7777,
+        8205,
+        57640,
+        539,
+        50383,
+        3410,
+        18670
+      ]
+    },
+    {
+      "active": false,
+      "target": {
+        "x": 29,
+        "y": 24
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        53200,
+        43688,
+        38573,
+        63345,
+        35775,
+        4526,
+        38601
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 40,
+        "y": 46,
+        "targetX": 29,
+        "targetY": 24,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        14943,
+        42502,
+        53200,
+        43688,
+        38573,
+        63345,
+        35775
+      ]
+    },
+    {
+      "active": false,
+      "target": {
+        "x": 29,
+        "y": 24
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        44366,
+        37076,
+        30569,
+        10289,
+        55490,
+        41145,
+        38452
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 78,
+        "y": 14,
+        "targetX": 29,
+        "targetY": 24,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        3515,
+        22330,
+        44366,
+        37076,
+        30569,
+        10289,
+        55490
+      ]
+    },
+    {
+      "active": false,
+      "target": {
+        "x": 29,
+        "y": 24
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        44786,
+        44007,
+        38338,
+        6278,
+        43476,
+        36822,
+        15071
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 62,
+        "y": 88,
+        "targetX": 29,
+        "targetY": 24,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        62918,
+        17102,
+        44786,
+        44007,
+        38338,
+        6278,
+        43476
+      ]
+    },
+    {
+      "active": false,
+      "target": {
+        "x": 29,
+        "y": 24
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        51279,
+        62061,
+        23984,
+        51410,
+        41633,
+        5239,
+        17888
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 29,
+        "y": 25,
+        "targetX": 29,
+        "targetY": 24,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        7228,
+        39001,
+        51279,
+        62061,
+        23984,
+        51410,
+        41633
+      ]
+    },
+    {
+      "active": false,
+      "target": {
+        "x": 29,
+        "y": 24
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        48291,
+        62353,
+        36964,
+        10656,
+        64338,
+        56925,
+        7473
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 63,
+        "y": 34,
+        "targetX": 29,
+        "targetY": 24,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        43385,
+        17387,
+        48291,
+        62353,
+        36964,
+        10656,
+        64338
+      ]
+    },
+    {
+      "active": false,
+      "target": {
+        "x": 29,
+        "y": 24
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        27322,
+        30412,
+        62927,
+        15737,
+        30098,
+        51232,
+        51426
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 75,
+        "y": 71,
+        "targetX": 29,
+        "targetY": 24,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        56550,
+        21123,
+        27322,
+        30412,
+        62927,
+        15737,
+        30098
+      ]
+    },
+    {
+      "active": false,
+      "target": {
+        "x": 80,
+        "y": 70
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 48,
+        "y": 54,
+        "targetX": 80,
+        "targetY": 70,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        50502,
+        45175,
+        1018,
+        4521,
+        202,
+        65117,
+        3
+      ]
+    },
+    {
+      "active": false,
+      "target": {
+        "x": 80,
+        "y": 70
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 10,
+        "y": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        2,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "active": false,
+      "target": {
+        "x": 80,
+        "y": 70
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        17426,
+        17220,
+        35525,
+        33955,
+        46004,
+        12815,
+        34968
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 108,
+        "y": 55,
+        "targetX": 80,
+        "targetY": 70,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        50937,
+        31876,
+        17426,
+        17220,
+        35525,
+        33955,
+        46004
+      ]
+    },
+    {
+      "active": false,
+      "target": {
+        "x": 80,
+        "y": 70
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        12046,
+        44488,
+        349,
+        48077,
+        30677,
+        54535,
+        11473
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 91,
+        "y": 90,
+        "targetX": 80,
+        "targetY": 70,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        63671,
+        59103,
+        12046,
+        44488,
+        349,
+        48077,
+        30677
+      ]
+    },
+    {
+      "active": false,
+      "target": {
+        "x": 80,
+        "y": 70
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        38528,
+        26481,
+        32807,
+        31594,
+        24576,
+        60738,
+        48401
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 65,
+        "y": 27,
+        "targetX": 80,
+        "targetY": 70,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 1,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        41036,
+        18119,
+        38528,
+        26481,
+        32807,
+        31594,
+        24576
+      ]
+    },
+    {
+      "active": false,
+      "target": {
+        "x": 80,
+        "y": 70
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        57640,
+        539,
+        50383,
+        3410,
+        18670,
+        8633,
+        44369
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 35,
+        "y": 26,
+        "targetX": 80,
+        "targetY": 70,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        7777,
+        8205,
+        57640,
+        539,
+        50383,
+        3410,
+        18670
+      ]
+    },
+    {
+      "active": false,
+      "target": {
+        "x": 80,
+        "y": 70
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        53200,
+        43688,
+        38573,
+        63345,
+        35775,
+        4526,
+        38601
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 40,
+        "y": 46,
+        "targetX": 80,
+        "targetY": 70,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        14943,
+        42502,
+        53200,
+        43688,
+        38573,
+        63345,
+        35775
+      ]
+    },
+    {
+      "active": false,
+      "target": {
+        "x": 80,
+        "y": 70
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        44366,
+        37076,
+        30569,
+        10289,
+        55490,
+        41145,
+        38452
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 78,
+        "y": 14,
+        "targetX": 80,
+        "targetY": 70,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 1,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        3515,
+        22330,
+        44366,
+        37076,
+        30569,
+        10289,
+        55490
+      ]
+    },
+    {
+      "active": false,
+      "target": {
+        "x": 80,
+        "y": 70
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        44786,
+        44007,
+        38338,
+        6278,
+        43476,
+        36822,
+        15071
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 62,
+        "y": 88,
+        "targetX": 80,
+        "targetY": 70,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        62918,
+        17102,
+        44786,
+        44007,
+        38338,
+        6278,
+        43476
+      ]
+    },
+    {
+      "active": false,
+      "target": {
+        "x": 80,
+        "y": 70
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        51279,
+        62061,
+        23984,
+        51410,
+        41633,
+        5239,
+        17888
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 29,
+        "y": 25,
+        "targetX": 80,
+        "targetY": 70,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        7228,
+        39001,
+        51279,
+        62061,
+        23984,
+        51410,
+        41633
+      ]
+    },
+    {
+      "active": false,
+      "target": {
+        "x": 80,
+        "y": 70
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        48291,
+        62353,
+        36964,
+        10656,
+        64338,
+        56925,
+        7473
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 63,
+        "y": 34,
+        "targetX": 80,
+        "targetY": 70,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 1,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        43385,
+        17387,
+        48291,
+        62353,
+        36964,
+        10656,
+        64338
+      ]
+    },
+    {
+      "active": false,
+      "target": {
+        "x": 80,
+        "y": 70
+      },
+      "before": {
+        "active": false,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        27322,
+        30412,
+        62927,
+        15737,
+        30098,
+        51232,
+        51426
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 75,
+        "y": 71,
+        "targetX": 80,
+        "targetY": 70,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "walk": 0,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        56550,
+        21123,
+        27322,
+        30412,
+        62927,
+        15737,
+        30098
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 0,
+        "y": 0
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 0,
+        "y": 0
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 0,
+        "y": 0
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        17426,
+        17220,
+        35525,
+        33955,
+        46004,
+        12815,
+        34968
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        17426,
+        17220,
+        35525,
+        33955,
+        46004,
+        12815,
+        34968
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 0,
+        "y": 0
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        12046,
+        44488,
+        349,
+        48077,
+        30677,
+        54535,
+        11473
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        12046,
+        44488,
+        349,
+        48077,
+        30677,
+        54535,
+        11473
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 0,
+        "y": 0
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        38528,
+        26481,
+        32807,
+        31594,
+        24576,
+        60738,
+        48401
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        38528,
+        26481,
+        32807,
+        31594,
+        24576,
+        60738,
+        48401
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 0,
+        "y": 0
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        57640,
+        539,
+        50383,
+        3410,
+        18670,
+        8633,
+        44369
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        57640,
+        539,
+        50383,
+        3410,
+        18670,
+        8633,
+        44369
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 0,
+        "y": 0
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        53200,
+        43688,
+        38573,
+        63345,
+        35775,
+        4526,
+        38601
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        53200,
+        43688,
+        38573,
+        63345,
+        35775,
+        4526,
+        38601
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 0,
+        "y": 0
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        44366,
+        37076,
+        30569,
+        10289,
+        55490,
+        41145,
+        38452
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        44366,
+        37076,
+        30569,
+        10289,
+        55490,
+        41145,
+        38452
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 0,
+        "y": 0
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        44786,
+        44007,
+        38338,
+        6278,
+        43476,
+        36822,
+        15071
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        44786,
+        44007,
+        38338,
+        6278,
+        43476,
+        36822,
+        15071
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 0,
+        "y": 0
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        51279,
+        62061,
+        23984,
+        51410,
+        41633,
+        5239,
+        17888
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        51279,
+        62061,
+        23984,
+        51410,
+        41633,
+        5239,
+        17888
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 0,
+        "y": 0
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        48291,
+        62353,
+        36964,
+        10656,
+        64338,
+        56925,
+        7473
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        48291,
+        62353,
+        36964,
+        10656,
+        64338,
+        56925,
+        7473
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 0,
+        "y": 0
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        27322,
+        30412,
+        62927,
+        15737,
+        30098,
+        51232,
+        51426
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        27322,
+        30412,
+        62927,
+        15737,
+        30098,
+        51232,
+        51426
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 29,
+        "y": 24
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 29,
+        "y": 24
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 29,
+        "y": 24
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        17426,
+        17220,
+        35525,
+        33955,
+        46004,
+        12815,
+        34968
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        17426,
+        17220,
+        35525,
+        33955,
+        46004,
+        12815,
+        34968
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 29,
+        "y": 24
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        12046,
+        44488,
+        349,
+        48077,
+        30677,
+        54535,
+        11473
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        12046,
+        44488,
+        349,
+        48077,
+        30677,
+        54535,
+        11473
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 29,
+        "y": 24
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        38528,
+        26481,
+        32807,
+        31594,
+        24576,
+        60738,
+        48401
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        38528,
+        26481,
+        32807,
+        31594,
+        24576,
+        60738,
+        48401
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 29,
+        "y": 24
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        57640,
+        539,
+        50383,
+        3410,
+        18670,
+        8633,
+        44369
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        57640,
+        539,
+        50383,
+        3410,
+        18670,
+        8633,
+        44369
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 29,
+        "y": 24
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        53200,
+        43688,
+        38573,
+        63345,
+        35775,
+        4526,
+        38601
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        53200,
+        43688,
+        38573,
+        63345,
+        35775,
+        4526,
+        38601
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 29,
+        "y": 24
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        44366,
+        37076,
+        30569,
+        10289,
+        55490,
+        41145,
+        38452
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        44366,
+        37076,
+        30569,
+        10289,
+        55490,
+        41145,
+        38452
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 29,
+        "y": 24
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        44786,
+        44007,
+        38338,
+        6278,
+        43476,
+        36822,
+        15071
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        44786,
+        44007,
+        38338,
+        6278,
+        43476,
+        36822,
+        15071
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 29,
+        "y": 24
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        51279,
+        62061,
+        23984,
+        51410,
+        41633,
+        5239,
+        17888
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        51279,
+        62061,
+        23984,
+        51410,
+        41633,
+        5239,
+        17888
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 29,
+        "y": 24
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        48291,
+        62353,
+        36964,
+        10656,
+        64338,
+        56925,
+        7473
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        48291,
+        62353,
+        36964,
+        10656,
+        64338,
+        56925,
+        7473
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 29,
+        "y": 24
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        27322,
+        30412,
+        62927,
+        15737,
+        30098,
+        51232,
+        51426
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        27322,
+        30412,
+        62927,
+        15737,
+        30098,
+        51232,
+        51426
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 80,
+        "y": 70
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 80,
+        "y": 70
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 80,
+        "y": 70
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        17426,
+        17220,
+        35525,
+        33955,
+        46004,
+        12815,
+        34968
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        17426,
+        17220,
+        35525,
+        33955,
+        46004,
+        12815,
+        34968
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 80,
+        "y": 70
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        12046,
+        44488,
+        349,
+        48077,
+        30677,
+        54535,
+        11473
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        12046,
+        44488,
+        349,
+        48077,
+        30677,
+        54535,
+        11473
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 80,
+        "y": 70
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        38528,
+        26481,
+        32807,
+        31594,
+        24576,
+        60738,
+        48401
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        38528,
+        26481,
+        32807,
+        31594,
+        24576,
+        60738,
+        48401
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 80,
+        "y": 70
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        57640,
+        539,
+        50383,
+        3410,
+        18670,
+        8633,
+        44369
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        57640,
+        539,
+        50383,
+        3410,
+        18670,
+        8633,
+        44369
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 80,
+        "y": 70
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        53200,
+        43688,
+        38573,
+        63345,
+        35775,
+        4526,
+        38601
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        53200,
+        43688,
+        38573,
+        63345,
+        35775,
+        4526,
+        38601
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 80,
+        "y": 70
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        44366,
+        37076,
+        30569,
+        10289,
+        55490,
+        41145,
+        38452
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        44366,
+        37076,
+        30569,
+        10289,
+        55490,
+        41145,
+        38452
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 80,
+        "y": 70
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        44786,
+        44007,
+        38338,
+        6278,
+        43476,
+        36822,
+        15071
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        44786,
+        44007,
+        38338,
+        6278,
+        43476,
+        36822,
+        15071
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 80,
+        "y": 70
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        51279,
+        62061,
+        23984,
+        51410,
+        41633,
+        5239,
+        17888
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        51279,
+        62061,
+        23984,
+        51410,
+        41633,
+        5239,
+        17888
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 80,
+        "y": 70
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        48291,
+        62353,
+        36964,
+        10656,
+        64338,
+        56925,
+        7473
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        48291,
+        62353,
+        36964,
+        10656,
+        64338,
+        56925,
+        7473
+      ]
+    },
+    {
+      "active": true,
+      "target": {
+        "x": 80,
+        "y": 70
+      },
+      "before": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "seed": [
+        27322,
+        30412,
+        62927,
+        15737,
+        30098,
+        51232,
+        51426
+      ],
+      "expected": {
+        "active": true,
+        "departing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 2,
+        "walk": 7,
+        "frame": 8,
+        "surface": 1
+      },
+      "rng": [
+        27322,
+        30412,
+        62927,
+        15737,
+        30098,
+        51232,
+        51426
+      ]
+    }
+  ],
+  "exitCode": 0
+}
