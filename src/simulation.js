@@ -1,3 +1,4 @@
+import {traceRomPower} from './rom-power.js';
 import {romFieldSchedule} from './rom-schedule.js';
 import {romGiftEffects,nextCoreMilestone,enqueueRomGift} from './rom-gifts.js';
 import {networkCrossing} from './rom-networks.js';
@@ -77,12 +78,8 @@ export class City {
   this.updatePower();this.census();
  }
  updatePower(){
-  this.power.fill(0);const queue=[];let capacity=0;
-  // CODE_03AA9F/03AFB0 count coal center $028C and nuclear $027C.
-  for(const z of this.zones)if(z.id===0x28c||z.id===0x27c){queue.push(z.i);this.power[z.i]=1;capacity+=z.id===0x28c?700:2000;}
-  let q=0;
-  while(q<queue.length&&q<capacity){const i=queue[q++];for(const n of this.neighbors(i))if(!this.power[n]&&(this.flag(n)&0x80)){this.power[n]=1;queue.push(n);}}
-  this.powerCapacity=capacity;this.powerUsed=q;
+  const result=traceRomPower(this.map,this.flags,W,H);
+  this.power=result.power;this.powerCapacity=result.capacity;this.powerUsed=result.used;this.powerOverloaded=result.exhausted;
   // CODE_03B152 writes the resulting power bit back to every map word.
   for(let i=0;i<this.map.length;i++)this.map[i]=(this.map[i]&0x7fff)|(this.power[i]?0x8000:0);
  }
