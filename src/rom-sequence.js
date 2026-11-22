@@ -24,6 +24,13 @@ export function decodeSpcChannel(aram,pointer,{maxEvents=64,state={}}={}){
   const prefix=readSpcNotePrefix(aram,p,length);p=prefix.next;
   if(prefix.kind==='end')return {events,state:s,next:p,ended:true};
   if(prefix.kind==='command'){
+   // CODE_1626: vibrato delay/rate/depth. CODE_16FD: echo mask and
+   // left/right volumes. CODE_173B: echo delay, feedback and FIR preset.
+   // These are retained in note state for a dry render; DSP modulation and
+   // echo processing are deliberately not claimed reproduced here.
+   const grouped={0xe3:['vibrato',3],0xf5:['echo',3],0xf7:['echoConfig',3]};
+   if(grouped[prefix.opcode]){const [key,count]=grouped[prefix.opcode];s[key]=Array.from(aram.slice(p,p+count));p+=count;continue;}
+   if(prefix.opcode===0xe4){s.vibrato=[0,0,0];continue;}
    const h=handlers[prefix.opcode];if(!h)return {events,state:s,next:p-1,unsupported:prefix.opcode};
    s[h[0]]=aram[p++];continue;
   }
