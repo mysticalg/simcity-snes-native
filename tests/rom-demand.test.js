@@ -35,3 +35,5 @@ test('ROM facility flags honor thresholds, scan dispatch, early return and negat
  scanRomGrowthCaps(26,{...input,rci:[499,99,69]},state);assert.deepEqual(state.suppressed,[false,false,false]);
  assert.equal(scanRomGrowthCaps(0,{...input,zones:[0,0,0]},state),0);assert.equal(state.zoneTotal,0);
 });
+import fs from 'node:fs';
+test('demand retains all79 original-ROM execution fixtures',()=>{const report=JSON.parse(fs.readFileSync(new URL('../research/reference-demand.json',import.meta.url)));assert.equal(report.exitCode,0);assert.equal(report.cases.length,79);assert.equal(report.wordsCompared,632);for(const c of report.cases){const generated=generateRomDemand(c.rci,c.history,c.difficulty);assert.deepEqual(generated.ratios,c.ratios);assert.equal(generated.totalUnits,c.total);assert.deepEqual(generated.scores.map((n,i)=>accumulateRomDemand(c.previous[i],n,c.tax,c.difficulty,i===0?2000:1500,{suppressPositive:c.suppressed[i],forceMaximum:c.force})),c.expected);}});

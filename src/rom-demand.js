@@ -21,6 +21,8 @@ export function accumulateRomDemand(previousScore,generatedScore,taxRate,difficu
   if(suppressPositive&&next>=0)return 0;
   return Math.max(-limit,Math.min(limit,next));
 }
+// ROM execution:79 controlled CODE_03894C fixtures match ratios and outputs
+// (research/reference-demand.json); natural city call timing remains separate.
 // CODE_03894C..038A83. Unsigned Q8/Q16 intermediates use byte-offset
 // reads of the 32-bit CODE_03A2F5 product/CODE_03A421 quotient.
 export function generateRomDemand(rci,historyRci=[0,0,0],difficulty=0){

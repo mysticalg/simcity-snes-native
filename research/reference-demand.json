@@ -1,0 +1,2860 @@
+{
+  "routine": "CODE_03894C",
+  "wordsCompared": 632,
+  "romSHA256": "e9c0bc05511e05a0d7c3e7cc42e761e1e8e532d46f59b9854b6902e1a2e9dd0a",
+  "mesenSHA256": "d2eb03c2590c648bf329f127ebcfefd70130e7690a9e2ccdba8616faea1fe96b",
+  "fixture": {
+    "directPage": 6144,
+    "dataBank": 3,
+    "stack": 7935,
+    "status": 4,
+    "interrupts": false
+  },
+  "cases": [
+    {
+      "rci": [
+        0,
+        0,
+        0
+      ],
+      "history": [
+        0,
+        0,
+        0
+      ],
+      "previous": [
+        0,
+        0,
+        0
+      ],
+      "tax": 7,
+      "difficulty": 0,
+      "suppressed": [
+        false,
+        false,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        332,
+        256,
+        512
+      ],
+      "total": 0,
+      "expected": [
+        178,
+        0,
+        600
+      ]
+    },
+    {
+      "rci": [
+        800,
+        50,
+        50
+      ],
+      "history": [
+        800,
+        50,
+        50
+      ],
+      "previous": [
+        100,
+        -100,
+        500
+      ],
+      "tax": 7,
+      "difficulty": 0,
+      "suppressed": [
+        false,
+        false,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        261,
+        281,
+        302
+      ],
+      "total": 200,
+      "expected": [
+        111,
+        -42,
+        607
+      ]
+    },
+    {
+      "rci": [
+        800,
+        50,
+        50
+      ],
+      "history": [
+        0,
+        0,
+        0
+      ],
+      "previous": [
+        -1900,
+        1400,
+        0
+      ],
+      "tax": 20,
+      "difficulty": 0,
+      "suppressed": [
+        false,
+        false,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        5,
+        281,
+        302
+      ],
+      "total": 200,
+      "expected": [
+        -2000,
+        858,
+        -493
+      ]
+    },
+    {
+      "rci": [
+        0,
+        0,
+        1
+      ],
+      "history": [
+        0,
+        1,
+        0
+      ],
+      "previous": [
+        1900,
+        0,
+        -1400
+      ],
+      "tax": 0,
+      "difficulty": 0,
+      "suppressed": [
+        false,
+        false,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        332,
+        69,
+        512
+      ],
+      "total": 1,
+      "expected": [
+        2000,
+        -239,
+        -600
+      ]
+    },
+    {
+      "rci": [
+        800,
+        50,
+        50
+      ],
+      "history": [
+        800,
+        50,
+        50
+      ],
+      "previous": [
+        100,
+        -100,
+        500
+      ],
+      "tax": 7,
+      "difficulty": 1,
+      "suppressed": [
+        false,
+        false,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        261,
+        281,
+        281
+      ],
+      "total": 200,
+      "expected": [
+        101,
+        -52,
+        548
+      ]
+    },
+    {
+      "rci": [
+        800,
+        50,
+        50
+      ],
+      "history": [
+        0,
+        0,
+        0
+      ],
+      "previous": [
+        -1900,
+        1400,
+        0
+      ],
+      "tax": 20,
+      "difficulty": 1,
+      "suppressed": [
+        false,
+        false,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        5,
+        281,
+        281
+      ],
+      "total": 200,
+      "expected": [
+        -2000,
+        858,
+        -542
+      ]
+    },
+    {
+      "rci": [
+        0,
+        0,
+        1
+      ],
+      "history": [
+        0,
+        1,
+        0
+      ],
+      "previous": [
+        1900,
+        0,
+        -1400
+      ],
+      "tax": 0,
+      "difficulty": 1,
+      "suppressed": [
+        false,
+        false,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        332,
+        69,
+        512
+      ],
+      "total": 1,
+      "expected": [
+        2000,
+        -289,
+        -650
+      ]
+    },
+    {
+      "rci": [
+        800,
+        50,
+        50
+      ],
+      "history": [
+        800,
+        50,
+        50
+      ],
+      "previous": [
+        100,
+        -100,
+        500
+      ],
+      "tax": 7,
+      "difficulty": 2,
+      "suppressed": [
+        false,
+        false,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        261,
+        281,
+        250
+      ],
+      "total": 200,
+      "expected": [
+        71,
+        -82,
+        445
+      ]
+    },
+    {
+      "rci": [
+        800,
+        50,
+        50
+      ],
+      "history": [
+        0,
+        0,
+        0
+      ],
+      "previous": [
+        -1900,
+        1400,
+        0
+      ],
+      "tax": 20,
+      "difficulty": 2,
+      "suppressed": [
+        false,
+        false,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        5,
+        281,
+        250
+      ],
+      "total": 200,
+      "expected": [
+        -2000,
+        858,
+        -615
+      ]
+    },
+    {
+      "rci": [
+        0,
+        0,
+        1
+      ],
+      "history": [
+        0,
+        1,
+        0
+      ],
+      "previous": [
+        1900,
+        0,
+        -1400
+      ],
+      "tax": 0,
+      "difficulty": 2,
+      "suppressed": [
+        false,
+        false,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        332,
+        69,
+        512
+      ],
+      "total": 1,
+      "expected": [
+        2000,
+        -319,
+        -680
+      ]
+    },
+    {
+      "rci": [
+        4000,
+        200,
+        100
+      ],
+      "history": [
+        3000,
+        100,
+        50
+      ],
+      "previous": [
+        1900,
+        1400,
+        1400
+      ],
+      "tax": 7,
+      "difficulty": 0,
+      "suppressed": [
+        true,
+        true,
+        true
+      ],
+      "force": false,
+      "ratios": [
+        81,
+        278,
+        394
+      ],
+      "total": 800,
+      "expected": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "rci": [
+        4000,
+        200,
+        100
+      ],
+      "history": [
+        3000,
+        100,
+        50
+      ],
+      "previous": [
+        -1900,
+        -1400,
+        -1400
+      ],
+      "tax": 7,
+      "difficulty": 2,
+      "suppressed": [
+        true,
+        true,
+        true
+      ],
+      "force": false,
+      "ratios": [
+        81,
+        278,
+        322
+      ],
+      "total": 800,
+      "expected": [
+        -2000,
+        -1389,
+        -1286
+      ]
+    },
+    {
+      "rci": [
+        4000,
+        200,
+        100
+      ],
+      "history": [
+        3000,
+        100,
+        50
+      ],
+      "previous": [
+        -1900,
+        -1400,
+        -1400
+      ],
+      "tax": 20,
+      "difficulty": 2,
+      "suppressed": [
+        true,
+        true,
+        true
+      ],
+      "force": true,
+      "ratios": [
+        81,
+        278,
+        322
+      ],
+      "total": 800,
+      "expected": [
+        2000,
+        1500,
+        1500
+      ]
+    },
+    {
+      "rci": [
+        18832,
+        1880,
+        6946
+      ],
+      "history": [
+        17331,
+        237,
+        2023
+      ],
+      "previous": [
+        -1500,
+        -305,
+        291
+      ],
+      "tax": 11,
+      "difficulty": 0,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        250,
+        411,
+        293
+      ],
+      "total": 11180,
+      "expected": [
+        -1665,
+        -92,
+        227
+      ]
+    },
+    {
+      "rci": [
+        1573,
+        6647,
+        1943
+      ],
+      "history": [
+        4732,
+        5627,
+        3659
+      ],
+      "previous": [
+        1539,
+        -886,
+        -161
+      ],
+      "tax": 1,
+      "difficulty": 1,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        91,
+        17
+      ],
+      "total": 8786,
+      "expected": [
+        2000,
+        -1153,
+        -602
+      ]
+    },
+    {
+      "rci": [
+        15170,
+        5175,
+        1238
+      ],
+      "history": [
+        23674,
+        7355,
+        4784
+      ],
+      "previous": [
+        -1049,
+        1394,
+        -723
+      ],
+      "tax": 12,
+      "difficulty": 2,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        111,
+        60
+      ],
+      "total": 8309,
+      "expected": [
+        -749,
+        0,
+        -1483
+      ]
+    },
+    {
+      "rci": [
+        33030,
+        5694,
+        4061
+      ],
+      "history": [
+        32239,
+        7853,
+        662
+      ],
+      "previous": [
+        -1002,
+        73,
+        -1449
+      ],
+      "tax": 18,
+      "difficulty": 2,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        168,
+        118
+      ],
+      "total": 13883,
+      "expected": [
+        -1002,
+        -734,
+        -1500
+      ]
+    },
+    {
+      "rci": [
+        11439,
+        4518,
+        1050
+      ],
+      "history": [
+        22163,
+        7165,
+        461
+      ],
+      "previous": [
+        -315,
+        1395,
+        735
+      ],
+      "tax": 16,
+      "difficulty": 2,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        107,
+        89
+      ],
+      "total": 6997,
+      "expected": [
+        -215,
+        0,
+        -157
+      ]
+    },
+    {
+      "rci": [
+        24188,
+        3983,
+        6812
+      ],
+      "history": [
+        16486,
+        7219,
+        5824
+      ],
+      "previous": [
+        -168,
+        76,
+        -962
+      ],
+      "tax": 13,
+      "difficulty": 0,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        240,
+        47
+      ],
+      "total": 13818,
+      "expected": [
+        182,
+        -212,
+        -1500
+      ]
+    },
+    {
+      "rci": [
+        35578,
+        4027,
+        1152
+      ],
+      "history": [
+        17243,
+        7193,
+        6656
+      ],
+      "previous": [
+        -1928,
+        615,
+        -451
+      ],
+      "tax": 4,
+      "difficulty": 1,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        165,
+        42
+      ],
+      "total": 9626,
+      "expected": [
+        -1278,
+        0,
+        -903
+      ]
+    },
+    {
+      "rci": [
+        14173,
+        5550,
+        3794
+      ],
+      "history": [
+        7794,
+        4658,
+        3053
+      ],
+      "previous": [
+        712,
+        -192,
+        -539
+      ],
+      "tax": 16,
+      "difficulty": 2,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        138,
+        31
+      ],
+      "total": 11115,
+      "expected": [
+        812,
+        -969,
+        -1500
+      ]
+    },
+    {
+      "rci": [
+        17813,
+        6368,
+        5936
+      ],
+      "history": [
+        1327,
+        5799,
+        3231
+      ],
+      "previous": [
+        346,
+        -430,
+        -383
+      ],
+      "tax": 1,
+      "difficulty": 1,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        157,
+        4
+      ],
+      "total": 14530,
+      "expected": [
+        1066,
+        -543,
+        -854
+      ]
+    },
+    {
+      "rci": [
+        7597,
+        6189,
+        1833
+      ],
+      "history": [
+        5149,
+        894,
+        6820
+      ],
+      "previous": [
+        -1227,
+        140,
+        1353
+      ],
+      "tax": 5,
+      "difficulty": 2,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        100,
+        20
+      ],
+      "total": 8971,
+      "expected": [
+        -627,
+        -226,
+        799
+      ]
+    },
+    {
+      "rci": [
+        20060,
+        603,
+        5265
+      ],
+      "history": [
+        12470,
+        7571,
+        170
+      ],
+      "previous": [
+        1039,
+        762,
+        73
+      ],
+      "tax": 0,
+      "difficulty": 1,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        512,
+        56
+      ],
+      "total": 8375,
+      "expected": [
+        1789,
+        0,
+        -246
+      ]
+    },
+    {
+      "rci": [
+        26442,
+        2798,
+        1180
+      ],
+      "history": [
+        16703,
+        4715,
+        5907
+      ],
+      "previous": [
+        -589,
+        1119,
+        -526
+      ],
+      "tax": 17,
+      "difficulty": 0,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        180,
+        59
+      ],
+      "total": 7283,
+      "expected": [
+        -439,
+        0,
+        -1438
+      ]
+    },
+    {
+      "rci": [
+        1774,
+        6666,
+        6030
+      ],
+      "history": [
+        33097,
+        3261,
+        7427
+      ],
+      "previous": [
+        -1272,
+        -1467,
+        -492
+      ],
+      "tax": 19,
+      "difficulty": 1,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        134,
+        108
+      ],
+      "total": 12917,
+      "expected": [
+        -1272,
+        -1500,
+        -1439
+      ]
+    },
+    {
+      "rci": [
+        31876,
+        1653,
+        7719
+      ],
+      "history": [
+        21266,
+        6325,
+        770
+      ],
+      "previous": [
+        -629,
+        -1318,
+        794
+      ],
+      "tax": 0,
+      "difficulty": 2,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        460,
+        512,
+        93
+      ],
+      "total": 13356,
+      "expected": [
+        -31,
+        -598,
+        531
+      ]
+    },
+    {
+      "rci": [
+        36986,
+        3530,
+        4055
+      ],
+      "history": [
+        32031,
+        2238,
+        4851
+      ],
+      "previous": [
+        443,
+        -716,
+        1319
+      ],
+      "tax": 7,
+      "difficulty": 1,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        397,
+        239,
+        158
+      ],
+      "total": 12208,
+      "expected": [
+        763,
+        -766,
+        1079
+      ]
+    },
+    {
+      "rci": [
+        17954,
+        3769,
+        240
+      ],
+      "history": [
+        9390,
+        2870,
+        3469
+      ],
+      "previous": [
+        1964,
+        -476,
+        -280
+      ],
+      "tax": 2,
+      "difficulty": 1,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        114,
+        51
+      ],
+      "total": 6253,
+      "expected": [
+        2000,
+        -709,
+        -661
+      ]
+    },
+    {
+      "rci": [
+        32733,
+        7595,
+        4516
+      ],
+      "history": [
+        7037,
+        3773,
+        4917
+      ],
+      "previous": [
+        -709,
+        -1454,
+        -663
+      ],
+      "tax": 13,
+      "difficulty": 1,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        147,
+        27
+      ],
+      "total": 16202,
+      "expected": [
+        -409,
+        -1500,
+        -1500
+      ]
+    },
+    {
+      "rci": [
+        15030,
+        5997,
+        1701
+      ],
+      "history": [
+        38074,
+        6563,
+        2788
+      ],
+      "previous": [
+        1545,
+        -903,
+        -283
+      ],
+      "tax": 15,
+      "difficulty": 2,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        110,
+        127
+      ],
+      "total": 9576,
+      "expected": [
+        1695,
+        -1500,
+        -1036
+      ]
+    },
+    {
+      "rci": [
+        34571,
+        5622,
+        5381
+      ],
+      "history": [
+        17893,
+        4347,
+        5750
+      ],
+      "previous": [
+        -1995,
+        522,
+        1002
+      ],
+      "tax": 15,
+      "difficulty": 1,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        188,
+        61
+      ],
+      "total": 15324,
+      "expected": [
+        -1795,
+        -38,
+        144
+      ]
+    },
+    {
+      "rci": [
+        35770,
+        2216,
+        7375
+      ],
+      "history": [
+        28397,
+        5547,
+        3570
+      ],
+      "previous": [
+        1099,
+        -1216,
+        674
+      ],
+      "tax": 6,
+      "difficulty": 2,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        439,
+        97
+      ],
+      "total": 14062,
+      "expected": [
+        1689,
+        -798,
+        291
+      ]
+    },
+    {
+      "rci": [
+        18806,
+        3004,
+        6879
+      ],
+      "history": [
+        18524,
+        7139,
+        731
+      ],
+      "previous": [
+        1917,
+        755,
+        -728
+      ],
+      "tax": 5,
+      "difficulty": 1,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        281,
+        82
+      ],
+      "total": 12233,
+      "expected": [
+        2000,
+        0,
+        -1106
+      ]
+    },
+    {
+      "rci": [
+        12015,
+        2450,
+        31
+      ],
+      "history": [
+        10618,
+        4301,
+        5783
+      ],
+      "previous": [
+        -1876,
+        -546,
+        679
+      ],
+      "tax": 15,
+      "difficulty": 0,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        112,
+        41
+      ],
+      "total": 3982,
+      "expected": [
+        -1626,
+        -1234,
+        -175
+      ]
+    },
+    {
+      "rci": [
+        28071,
+        1451,
+        3061
+      ],
+      "history": [
+        7959,
+        4084,
+        516
+      ],
+      "previous": [
+        -554,
+        600,
+        1202
+      ],
+      "tax": 9,
+      "difficulty": 2,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        340,
+        382,
+        53
+      ],
+      "total": 8020,
+      "expected": [
+        -508,
+        0,
+        576
+      ]
+    },
+    {
+      "rci": [
+        4220,
+        3540,
+        7793
+      ],
+      "history": [
+        34263,
+        6531,
+        2475
+      ],
+      "previous": [
+        -916,
+        -1102,
+        -1013
+      ],
+      "tax": 0,
+      "difficulty": 1,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        231,
+        133
+      ],
+      "total": 11860,
+      "expected": [
+        -166,
+        -1011,
+        -1152
+      ]
+    },
+    {
+      "rci": [
+        18499,
+        7614,
+        7862
+      ],
+      "history": [
+        17545,
+        2347,
+        6545
+      ],
+      "previous": [
+        596,
+        -426,
+        -514
+      ],
+      "tax": 11,
+      "difficulty": 0,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        161,
+        75
+      ],
+      "total": 17788,
+      "expected": [
+        1046,
+        -799,
+        -1089
+      ]
+    },
+    {
+      "rci": [
+        22493,
+        5566,
+        7589
+      ],
+      "history": [
+        19426,
+        4433,
+        4015
+      ],
+      "previous": [
+        178,
+        1490,
+        -51
+      ],
+      "tax": 6,
+      "difficulty": 0,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        198,
+        87
+      ],
+      "total": 15966,
+      "expected": [
+        808,
+        0,
+        -418
+      ]
+    },
+    {
+      "rci": [
+        6057,
+        4478,
+        2902
+      ],
+      "history": [
+        6545,
+        505,
+        1499
+      ],
+      "previous": [
+        -1217,
+        717,
+        -690
+      ],
+      "tax": 13,
+      "difficulty": 0,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        125,
+        124
+      ],
+      "total": 8137,
+      "expected": [
+        -867,
+        0,
+        -1250
+      ]
+    },
+    {
+      "rci": [
+        31458,
+        4215,
+        2572
+      ],
+      "history": [
+        16118,
+        7678,
+        6418
+      ],
+      "previous": [
+        -970,
+        -33,
+        -788
+      ],
+      "tax": 6,
+      "difficulty": 2,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        175,
+        35
+      ],
+      "total": 10719,
+      "expected": [
+        -380,
+        -233,
+        -1316
+      ]
+    },
+    {
+      "rci": [
+        30710,
+        7282,
+        5254
+      ],
+      "history": [
+        30895,
+        5344,
+        674
+      ],
+      "previous": [
+        1368,
+        642,
+        -301
+      ],
+      "tax": 0,
+      "difficulty": 0,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        406,
+        155,
+        196
+      ],
+      "total": 16374,
+      "expected": [
+        1919,
+        0,
+        -242
+      ]
+    },
+    {
+      "rci": [
+        26734,
+        5702,
+        5170
+      ],
+      "history": [
+        37599,
+        5137,
+        2932
+      ],
+      "previous": [
+        141,
+        -545,
+        -733
+      ],
+      "tax": 6,
+      "difficulty": 2,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        172,
+        146
+      ],
+      "total": 14213,
+      "expected": [
+        731,
+        -752,
+        -1001
+      ]
+    },
+    {
+      "rci": [
+        34571,
+        2166,
+        3091
+      ],
+      "history": [
+        28852,
+        5998,
+        5870
+      ],
+      "previous": [
+        -1357,
+        1170,
+        751
+      ],
+      "tax": 10,
+      "difficulty": 1,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        306,
+        84
+      ],
+      "total": 9578,
+      "expected": [
+        -907,
+        0,
+        197
+      ]
+    },
+    {
+      "rci": [
+        5726,
+        4578,
+        7917
+      ],
+      "history": [
+        25473,
+        18,
+        3476
+      ],
+      "previous": [
+        -530,
+        -852,
+        -354
+      ],
+      "tax": 4,
+      "difficulty": 2,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        199,
+        228
+      ],
+      "total": 13210,
+      "expected": [
+        100,
+        -956,
+        -390
+      ]
+    },
+    {
+      "rci": [
+        24124,
+        6806,
+        4692
+      ],
+      "history": [
+        38357,
+        443,
+        5085
+      ],
+      "previous": [
+        974,
+        628,
+        1077
+      ],
+      "tax": 18,
+      "difficulty": 1,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        474,
+        147,
+        244
+      ],
+      "total": 14513,
+      "expected": [
+        934,
+        -178,
+        498
+      ]
+    },
+    {
+      "rci": [
+        11018,
+        6806,
+        1931
+      ],
+      "history": [
+        21409,
+        6741,
+        7287
+      ],
+      "previous": [
+        1113,
+        1418,
+        722
+      ],
+      "tax": 12,
+      "difficulty": 1,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        102,
+        52
+      ],
+      "total": 10114,
+      "expected": [
+        1463,
+        0,
+        -7
+      ]
+    },
+    {
+      "rci": [
+        21340,
+        7712,
+        3050
+      ],
+      "history": [
+        38822,
+        6907,
+        3798
+      ],
+      "previous": [
+        1111,
+        1363,
+        -176
+      ],
+      "tax": 7,
+      "difficulty": 2,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        120,
+        113
+      ],
+      "total": 13429,
+      "expected": [
+        1671,
+        0,
+        -552
+      ]
+    },
+    {
+      "rci": [
+        19025,
+        5806,
+        1531
+      ],
+      "history": [
+        13958,
+        2771,
+        5211
+      ],
+      "previous": [
+        -1607,
+        -407,
+        -400
+      ],
+      "tax": 14,
+      "difficulty": 2,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        115,
+        53
+      ],
+      "total": 9715,
+      "expected": [
+        -1407,
+        -1138,
+        -1276
+      ]
+    },
+    {
+      "rci": [
+        5090,
+        4695,
+        5257
+      ],
+      "history": [
+        22877,
+        928,
+        1950
+      ],
+      "previous": [
+        460,
+        -1037,
+        787
+      ],
+      "tax": 10,
+      "difficulty": 1,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        156,
+        279
+      ],
+      "total": 10588,
+      "expected": [
+        910,
+        -1422,
+        690
+      ]
+    },
+    {
+      "rci": [
+        21179,
+        4910,
+        2487
+      ],
+      "history": [
+        5001,
+        4649,
+        3076
+      ],
+      "previous": [
+        -752,
+        1476,
+        1168
+      ],
+      "tax": 6,
+      "difficulty": 2,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        141,
+        19
+      ],
+      "total": 10044,
+      "expected": [
+        -162,
+        0,
+        602
+      ]
+    },
+    {
+      "rci": [
+        17201,
+        2216,
+        3641
+      ],
+      "history": [
+        20837,
+        1841,
+        6127
+      ],
+      "previous": [
+        -1058,
+        -916,
+        -379
+      ],
+      "tax": 19,
+      "difficulty": 1,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        250,
+        91
+      ],
+      "total": 8007,
+      "expected": [
+        -1058,
+        -1500,
+        -1366
+      ]
+    },
+    {
+      "rci": [
+        21022,
+        7793,
+        709
+      ],
+      "history": [
+        14644,
+        3733,
+        2584
+      ],
+      "previous": [
+        -1269,
+        474,
+        -1388
+      ],
+      "tax": 16,
+      "difficulty": 0,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        98,
+        88
+      ],
+      "total": 11129,
+      "expected": [
+        -1069,
+        -297,
+        -1500
+      ]
+    },
+    {
+      "rci": [
+        23902,
+        89,
+        6580
+      ],
+      "history": [
+        13597,
+        2274,
+        3747
+      ],
+      "previous": [
+        -1618,
+        553,
+        1444
+      ],
+      "tax": 16,
+      "difficulty": 1,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        512,
+        79
+      ],
+      "total": 9656,
+      "expected": [
+        -1468,
+        0,
+        579
+      ]
+    },
+    {
+      "rci": [
+        5191,
+        1035,
+        5655
+      ],
+      "history": [
+        18666,
+        5496,
+        5181
+      ],
+      "previous": [
+        -1462,
+        -398,
+        -1114
+      ],
+      "tax": 11,
+      "difficulty": 1,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        490,
+        60
+      ],
+      "total": 7338,
+      "expected": [
+        -1062,
+        -50,
+        -1500
+      ]
+    },
+    {
+      "rci": [
+        37807,
+        7442,
+        7308
+      ],
+      "history": [
+        5483,
+        5068,
+        2620
+      ],
+      "previous": [
+        -1210,
+        529,
+        940
+      ],
+      "tax": 9,
+      "difficulty": 2,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        421,
+        181,
+        21
+      ],
+      "total": 19475,
+      "expected": [
+        -974,
+        0,
+        239
+      ]
+    },
+    {
+      "rci": [
+        432,
+        2692,
+        4981
+      ],
+      "history": [
+        7461,
+        3151,
+        5670
+      ],
+      "previous": [
+        763,
+        -1359,
+        -1270
+      ],
+      "tax": 13,
+      "difficulty": 1,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        198,
+        29
+      ],
+      "total": 7727,
+      "expected": [
+        1063,
+        -1500,
+        -1500
+      ]
+    },
+    {
+      "rci": [
+        689,
+        1083,
+        2774
+      ],
+      "history": [
+        4008,
+        3543,
+        351
+      ],
+      "previous": [
+        379,
+        -1308,
+        500
+      ],
+      "tax": 10,
+      "difficulty": 2,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        251,
+        31
+      ],
+      "total": 3943,
+      "expected": [
+        779,
+        -1500,
+        -228
+      ]
+    },
+    {
+      "rci": [
+        4659,
+        2221,
+        873
+      ],
+      "history": [
+        11067,
+        3360,
+        2361
+      ],
+      "previous": [
+        108,
+        -1299,
+        -395
+      ],
+      "tax": 8,
+      "difficulty": 0,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        114,
+        73
+      ],
+      "total": 3676,
+      "expected": [
+        698,
+        -1500,
+        -834
+      ]
+    },
+    {
+      "rci": [
+        22836,
+        3565,
+        7139
+      ],
+      "history": [
+        28397,
+        164,
+        3711
+      ],
+      "previous": [
+        -678,
+        -589,
+        -258
+      ],
+      "tax": 10,
+      "difficulty": 2,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        352,
+        263,
+        229
+      ],
+      "total": 13558,
+      "expected": [
+        -653,
+        -773,
+        -522
+      ]
+    },
+    {
+      "rci": [
+        15821,
+        314,
+        1024
+      ],
+      "history": [
+        28122,
+        1403,
+        2630
+      ],
+      "previous": [
+        -1495,
+        -921,
+        1387
+      ],
+      "tax": 0,
+      "difficulty": 0,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        512,
+        267
+      ],
+      "total": 3315,
+      "expected": [
+        -695,
+        -121,
+        1500
+      ]
+    },
+    {
+      "rci": [
+        8816,
+        4670,
+        1814
+      ],
+      "history": [
+        22361,
+        944,
+        3205
+      ],
+      "previous": [
+        38,
+        -1441,
+        2
+      ],
+      "tax": 8,
+      "difficulty": 2,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        112,
+        168
+      ],
+      "total": 7586,
+      "expected": [
+        538,
+        -1500,
+        -305
+      ]
+    },
+    {
+      "rci": [
+        34519,
+        7455,
+        4268
+      ],
+      "history": [
+        34745,
+        6808,
+        2507
+      ],
+      "previous": [
+        -857,
+        -829,
+        1054
+      ],
+      "tax": 10,
+      "difficulty": 1,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        148,
+        130
+      ],
+      "total": 16037,
+      "expected": [
+        -407,
+        -1233,
+        608
+      ]
+    },
+    {
+      "rci": [
+        34744,
+        1513,
+        7283
+      ],
+      "history": [
+        3631,
+        4734,
+        3776
+      ],
+      "previous": [
+        1349,
+        -877,
+        -148
+      ],
+      "tax": 3,
+      "difficulty": 2,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        506,
+        512,
+        12
+      ],
+      "total": 13139,
+      "expected": [
+        1984,
+        -227,
+        -670
+      ]
+    },
+    {
+      "rci": [
+        15149,
+        1772,
+        3160
+      ],
+      "history": [
+        389,
+        3664,
+        7469
+      ],
+      "previous": [
+        1204,
+        1165,
+        -70
+      ],
+      "tax": 3,
+      "difficulty": 1,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        266,
+        1
+      ],
+      "total": 6825,
+      "expected": [
+        1884,
+        0,
+        -588
+      ]
+    },
+    {
+      "rci": [
+        18338,
+        2677,
+        325
+      ],
+      "history": [
+        36895,
+        5040,
+        7994
+      ],
+      "previous": [
+        -625,
+        -617,
+        1232
+      ],
+      "tax": 17,
+      "difficulty": 2,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        136,
+        87
+      ],
+      "total": 5294,
+      "expected": [
+        -575,
+        -1449,
+        285
+      ]
+    },
+    {
+      "rci": [
+        12013,
+        7360,
+        4849
+      ],
+      "history": [
+        36021,
+        2332,
+        5155
+      ],
+      "previous": [
+        1498,
+        -380,
+        177
+      ],
+      "tax": 14,
+      "difficulty": 1,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        128,
+        168
+      ],
+      "total": 13710,
+      "expected": [
+        1748,
+        -1030,
+        -380
+      ]
+    },
+    {
+      "rci": [
+        15837,
+        2269,
+        6315
+      ],
+      "history": [
+        10413,
+        2823,
+        2987
+      ],
+      "previous": [
+        -974,
+        -256,
+        -1104
+      ],
+      "tax": 11,
+      "difficulty": 0,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        322,
+        68
+      ],
+      "total": 10563,
+      "expected": [
+        -524,
+        -252,
+        -1500
+      ]
+    },
+    {
+      "rci": [
+        23841,
+        2427,
+        41
+      ],
+      "history": [
+        13209,
+        4444,
+        4095
+      ],
+      "previous": [
+        -1907,
+        -805,
+        635
+      ],
+      "tax": 20,
+      "difficulty": 0,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        155,
+        49
+      ],
+      "total": 5448,
+      "expected": [
+        -1907,
+        -1500,
+        -451
+      ]
+    },
+    {
+      "rci": [
+        37341,
+        3724,
+        742
+      ],
+      "history": [
+        14682,
+        84,
+        822
+      ],
+      "previous": [
+        -860,
+        1125,
+        475
+      ],
+      "tax": 14,
+      "difficulty": 0,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        54,
+        169,
+        397
+      ],
+      "total": 9133,
+      "expected": [
+        -1634,
+        0,
+        505
+      ]
+    },
+    {
+      "rci": [
+        14342,
+        4599,
+        5434
+      ],
+      "history": [
+        28181,
+        2256,
+        6317
+      ],
+      "previous": [
+        1348,
+        917,
+        -1355
+      ],
+      "tax": 19,
+      "difficulty": 1,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        177,
+        115
+      ],
+      "total": 11825,
+      "expected": [
+        1348,
+        0,
+        -1500
+      ]
+    },
+    {
+      "rci": [
+        24440,
+        262,
+        6510
+      ],
+      "history": [
+        33281,
+        4987,
+        2629
+      ],
+      "previous": [
+        1649,
+        917,
+        430
+      ],
+      "tax": 14,
+      "difficulty": 0,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        512,
+        166
+      ],
+      "total": 9827,
+      "expected": [
+        1949,
+        0,
+        -81
+      ]
+    },
+    {
+      "rci": [
+        1746,
+        7087,
+        1975
+      ],
+      "history": [
+        20354,
+        3020,
+        1659
+      ],
+      "previous": [
+        -1205,
+        1077,
+        894
+      ],
+      "tax": 0,
+      "difficulty": 0,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        90,
+        166
+      ],
+      "total": 9280,
+      "expected": [
+        -405,
+        0,
+        883
+      ]
+    },
+    {
+      "rci": [
+        32287,
+        6276,
+        5912
+      ],
+      "history": [
+        33407,
+        1566,
+        1524
+      ],
+      "previous": [
+        -1044,
+        -514,
+        1445
+      ],
+      "tax": 8,
+      "difficulty": 1,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        201,
+        178,
+        365
+      ],
+      "total": 16223,
+      "expected": [
+        -1213,
+        -737,
+        1500
+      ]
+    },
+    {
+      "rci": [
+        4749,
+        159,
+        1643
+      ],
+      "history": [
+        28457,
+        6999,
+        3040
+      ],
+      "previous": [
+        1414,
+        -1255,
+        -35
+      ],
+      "tax": 18,
+      "difficulty": 2,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        512,
+        88
+      ],
+      "total": 2395,
+      "expected": [
+        1414,
+        -1255,
+        -1029
+      ]
+    },
+    {
+      "rci": [
+        29385,
+        3242,
+        6005
+      ],
+      "history": [
+        16744,
+        518,
+        2993
+      ],
+      "previous": [
+        -1359,
+        815,
+        -522
+      ],
+      "tax": 19,
+      "difficulty": 0,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        249,
+        275,
+        182
+      ],
+      "total": 12920,
+      "expected": [
+        -1926,
+        0,
+        -1246
+      ]
+    },
+    {
+      "rci": [
+        8547,
+        530,
+        1393
+      ],
+      "history": [
+        24630,
+        2803,
+        3120
+      ],
+      "previous": [
+        274,
+        218,
+        476
+      ],
+      "tax": 9,
+      "difficulty": 1,
+      "suppressed": [
+        false,
+        true,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        390,
+        146
+      ],
+      "total": 2991,
+      "expected": [
+        774,
+        0,
+        118
+      ]
+    },
+    {
+      "rci": [
+        65535,
+        65535,
+        65535
+      ],
+      "history": [
+        65535,
+        65535,
+        65535
+      ],
+      "previous": [
+        0,
+        0,
+        0
+      ],
+      "tax": 7,
+      "difficulty": 0,
+      "suppressed": [
+        false,
+        false,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        512,
+        8,
+        37
+      ],
+      "total": 8190,
+      "expected": [
+        600,
+        -582,
+        -514
+      ]
+    },
+    {
+      "rci": [
+        65535,
+        1,
+        0
+      ],
+      "history": [
+        8,
+        65535,
+        1
+      ],
+      "previous": [
+        0,
+        0,
+        0
+      ],
+      "tax": 7,
+      "difficulty": 0,
+      "suppressed": [
+        false,
+        false,
+        false
+      ],
+      "force": false,
+      "ratios": [
+        5,
+        512,
+        512
+      ],
+      "total": 8192,
+      "expected": [
+        -589,
+        600,
+        600
+      ]
+    }
+  ],
+  "exitCode": 0
+}
