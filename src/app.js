@@ -183,7 +183,7 @@ function panBlueprintAtEdge(dt){
 function updatePlacementTooltip(){
  const el=$('#placementTooltip');if(!el)return;
  const r=canvas.getBoundingClientRect(),p=placementPointer,inside=p&&p.x>=r.left&&p.x<=r.right&&p.y>=r.top&&p.y<=r.bottom;
- if(!city||!p||(!inside&&!stroke)||mapView!=='none'||panGesture||selected<0||!$('#modal').classList.contains('hidden')){el.hidden=true;return;}
+ if(!city||!p||(!inside&&!stroke)||mapView!=='none'||panGesture||selected<0||selected>=build.buildings.length||!$('#modal').classList.contains('hidden')){el.hidden=true;return;}
  const plan=stroke?stroke.plan:hoverPlanCache||hoverPlacementPlan();if(!plan){el.hidden=true;return;}
  el.hidden=false;el.className=plan.ok?'valid':'invalid';el.textContent=plan.ok?'$'+plan.cost.toLocaleString()+(plan.anchors?' · '+plan.anchors.length+' placements':'')+(plan.skipped?' · '+plan.skipped+' skipped':''):(plan.reason||'Cannot place here.');
  const box=el.getBoundingClientRect(),x=clamp(p.x+16,8,Math.max(8,innerWidth-box.width-8));let y=p.type==='touch'?p.y-box.height-28:p.y+20;
