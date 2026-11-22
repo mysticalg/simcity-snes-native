@@ -62,7 +62,7 @@ export class City {
  id(x,y){return x>=0&&x<W&&y>=0&&y<H?this.map[y*W+x]&1023:0;}
  flag(i){return this.flags[this.map[i]&1023]||0;}
  neighbors(i){const x=i%W,y=Math.floor(i/W);return [x>0?i-1:-1,y>0?i-W:-1,x<W-1?i+1:-1,y<H-1?i+W:-1].filter(n=>n>=0);}
- message(text){this.notices.unshift(text);this.notices.length=Math.min(8,this.notices.length);}
+ message(text){this.noticeSerial=(this.noticeSerial||0)+1;this.notices.unshift(text);this.notices.length=Math.min(8,this.notices.length);}
  classify(id){
   if(id>=0x376&&id<0x39a)return 5;
   if(id>=0x39a&&id<0x3c0)return 6;
@@ -166,11 +166,11 @@ export class City {
    if(tool>=1&&tool<=3&&id>=0x30&&id<0x80&&(shadow.flags[id]&bit))continue;
    target=c;if(!shadow.place(tool,c.x,c.y,options))return {ok:false,reason:shadow.notices[0]||'This blueprint cannot be placed.',anchors,cost:this.funds-shadow.funds};
   }
-  return {ok:true,anchors,cost:this.funds-shadow.funds,map:shadow.map,gifts:shadow.gifts};
+  return {ok:true,tool,anchors,cost:this.funds-shadow.funds,map:shadow.map,gifts:shadow.gifts};
  }
  applyPlacementPlan(plan){
   if(!plan.ok){this.message(plan.reason);return false;}
-  this.map=plan.map;this.funds-=plan.cost;this.gifts=plan.gifts;this.refresh();return true;
+  this.map=plan.map;this.funds-=plan.cost;this.gifts=plan.gifts;this.refresh();if(plan.tool===8||plan.tool===21)this.message('Police station built. Coverage reduces crime as the simulation runs; power, roads and funding affect its strength.');return true;
  }
  place(tool,x,y,{autoDemolish=false}={}){
   const check=autoDemolish?this.replacementPlan(tool,x,y):this.canBuild(tool,x,y);if(!check.ok){this.message(check.reason);return false;}
@@ -212,6 +212,12 @@ export class City {
  updateCrimeField(){this.giftEffects=romGiftEffects(this.map,this.flags);this.policeCoverage=this.serviceInputs?expandRomServicePlane(this.serviceInputs.police,'police',W,H):romPoliceCoverage(this.map,this.funding[1],W,H);for(let i=0;i<W*H;i++)this.crime[i]=romCrimeValue(this.landValue[i],this.density[i],this.giftEffects.crimeModifier,this.policeCoverage[i]);this.meanCrime=meanRomCrime(this.crime,this.landValue,W,H);}
  updateFireField(){this.fireCoverage=this.serviceInputs?expandRomServicePlane(this.serviceInputs.fire,'fire',W,H):romFireCoverage(this.map,this.funding[2],W,H);}
  updateScheduledFields(){const due=romFieldSchedule(this.baseStep,this.speed);for(const [key,method]of [['landPollution','updateLandPollutionField'],['crime','updateCrimeField'],['density','updateDensityField'],['fire','updateFireField']])if(due[key]){this[method]();this.fieldEpochs[key]=this.baseStep;}}
+ policeEffectAt(x,y){
+  x=clamp(Math.floor(x),0,W-1);y=clamp(Math.floor(y),0,H-1);const i=y*W+x;
+  const station=this.zones.find(z=>(z.id===0x249||z.id===0x307)&&Math.abs(z.x-x)<=1&&Math.abs(z.y-y)<=1);
+  let nextUpdate=1;while(nextUpdate<16&&!romFieldSchedule((this.baseStep+nextUpdate)&65535,this.speed).crime)nextUpdate++;
+  return {crime:this.crime[i],coverage:this.policeCoverage[i],strength:this.serviceStrengths[0],nextUpdate,station:station?{powered:!!this.power[station.i],road:!!findZoneTransport(this.map,station.x,station.y,W,H)}:null};
+ }
  grow(z,direction){
   if(z.type===5){
    const id=this.id(z.x,z.y),current={...z,id};

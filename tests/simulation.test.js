@@ -278,3 +278,7 @@ test('blueprint dry run never edits live city and rejects the whole batch on ins
 test('blueprint rejects terrain conflicts and packs building footprints without overlap',()=>{
  const c=new City(Array(W*H).fill(0),build,flags);c.map[242]=3;const invalid=c.planPlacements(5,[{x:2,y:2}]);assert.equal(invalid.ok,false);assert.equal(c.id(2,2),3);const packed=c.planPlacements(5,Array.from({length:7},(_,n)=>({x:20+n,y:20})));assert.ok(packed.ok);assert.equal(packed.cost,3*build.costs[5]);assert.equal(packed.anchors.length,3);c.applyPlacementPlan(packed);assert.equal(c.counts[5],3);
 });
+
+test('a new police station changes local crime on scheduled pass, not during placement',()=>{
+ const c=new City(Array(W*H).fill(0),build,flags),i=41*W+41;c.landValue.fill(50);c.density.fill(200);c.updateCrimeField();assert.equal(c.crime[i],250);c.baseStep=5;const plan=c.planPlacements(8,[{x:40,y:40}]);assert.ok(c.applyPlacementPlan(plan));assert.equal(c.crime[i],250);assert.deepEqual(c.policeEffectAt(41,41),{crime:250,coverage:0,strength:1000,nextUpdate:1,station:{powered:false,road:false}});c.stepSimulation();assert.equal(c.fieldEpochs.crime,6);assert.equal(c.policeCoverage[i],54);assert.equal(c.crime[i],224);const loaded=City.restore(c.serialize(),build,flags);assert.equal(loaded.crime[i],224);assert.equal(loaded.policeCoverage[i],54);
+});
