@@ -140,8 +140,41 @@ export class City {
   }
   return {ok:this.funds>=cost,cost,reason:this.funds>=cost?'':'Insufficient funds.'};
  }
- place(tool,x,y){
-  const check=this.canBuild(tool,x,y);if(!check.ok){this.message(check.reason);return false;}
+ replacementPlan(tool,x,y){
+  const check=this.canBuild(tool,x,y);if(check.ok||tool<=0||check.reason!=='Clear this site before building.')return {...check,map:null,cleared:[]};
+  const original=this.map,candidate=Uint16Array.from(original),cleared=new Set();
+  const add=(cx,cy)=>{if(cx>=0&&cx<W&&cy>=0&&cy<H){const i=cy*W+cx;if(original[i]&1023)cleared.add(i);candidate[i]=0;}};
+  for(const c of this.footprint(tool,x,y)){
+   const id=this.id(c.x,c.y);if(id<=3)continue;
+   // Preserve legal network crossings and skip rebuilding an existing segment.
+   if(tool<=3&&((this.flags[id]||0)&(tool===1?0x40:tool===2?0x20:0x10)))return {ok:false,cost:0,reason:'This network is already here.',map:null,cleared:[]};
+   const z=this.zones.find(z=>{const size=[10,11,13,14].includes(z.type)?4:z.type===12?6:3;return c.x>=z.x-1&&c.x<z.x-1+size&&c.y>=z.y-1&&c.y<z.y-1+size;});
+   if(z){const size=[10,11,13,14].includes(z.type)?4:z.type===12?6:3;for(let dy=0;dy<size;dy++)for(let dx=0;dx<size;dx++)add(z.x-1+dx,z.y-1+dy);}else add(c.x,c.y);
+  }
+  this.map=candidate;let next;try{next=this.canBuild(tool,x,y);}finally{this.map=original;}
+  const cost=next.cost+cleared.size;return {...next,ok:next.ok&&this.funds>=cost,cost,reason:this.funds<cost?'Insufficient funds.':next.reason,map:candidate,cleared:[...cleared]};
+ }
+ planPlacements(tool,cells,options={}){
+  const shadow=Object.assign(Object.create(Object.getPrototypeOf(this)),this,{map:Uint16Array.from(this.map),gifts:[...this.gifts],zones:[...this.zones],notices:[]});
+  let target=null;const occupied=new Set(),anchors=[];
+  // A dry run needs centers for demolition, but no power/field/census pass.
+  shadow.refresh=()=>{shadow.zones=shadow.zones.filter(z=>(shadow.map[z.i]&1023)===z.id);if(tool>0)for(const c of shadow.footprint(tool,target.x,target.y)){const i=c.y*W+c.x,id=shadow.map[i]&1023;if((shadow.flags[id]&1)&&!shadow.zones.some(z=>z.i===i))shadow.zones.push({i,x:c.x,y:c.y,id,type:shadow.classify(id)});}};
+  for(const c of cells){
+   const footprint=tool>4?shadow.footprint(tool,c.x,c.y):[c];if(footprint.some(p=>occupied.has(p.y*W+p.x)))continue;
+   anchors.push(c);for(const p of footprint)occupied.add(p.y*W+p.x);
+   const id=shadow.id(c.x,c.y),bit=[0,0x40,0x20,0x10][tool];
+   if(tool>=1&&tool<=3&&id>=0x30&&id<0x80&&(shadow.flags[id]&bit))continue;
+   target=c;if(!shadow.place(tool,c.x,c.y,options))return {ok:false,reason:shadow.notices[0]||'This blueprint cannot be placed.',anchors,cost:this.funds-shadow.funds};
+  }
+  return {ok:true,anchors,cost:this.funds-shadow.funds,map:shadow.map,gifts:shadow.gifts};
+ }
+ applyPlacementPlan(plan){
+  if(!plan.ok){this.message(plan.reason);return false;}
+  this.map=plan.map;this.funds-=plan.cost;this.gifts=plan.gifts;this.refresh();return true;
+ }
+ place(tool,x,y,{autoDemolish=false}={}){
+  const check=autoDemolish?this.replacementPlan(tool,x,y):this.canBuild(tool,x,y);if(!check.ok){this.message(check.reason);return false;}
+  if(check.map)this.map=check.map;
   this.funds-=check.cost;
   if(tool===0){
    const i=y*W+x,z=this.zones.find(z=>Math.abs(z.x-x)<=1&&Math.abs(z.y-y)<=1&&this.id(x,y)>=0x80);
@@ -152,6 +185,7 @@ export class City {
    if(tool>=15)this.gifts.splice(this.gifts.indexOf(tool),1);
   }
   for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++)this.connect(x+dx,y+dy);
+  for(const i of check.cleared||[])for(const [dx,dy]of [[0,-1],[1,0],[0,1],[-1,0]])this.connect(i%W+dx,Math.floor(i/W)+dy);
   this.refresh();return true;
  }
  connect(x,y){

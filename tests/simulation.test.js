@@ -263,3 +263,18 @@ test('Free City simulation dispatches the source random fire after field workers
  const m=Array(W*H).fill(0);m[121]=0x88;const c=new City(m,build,flags,{scenario:'FreeCity'}),order=[];c.scanCityTiles=()=>{};c.updateScheduledFields=()=>order.push('fields');c.random=()=>{order.push('kind');return 0;};const bounds=[];c.boundedRandom=max=>{bounds.push(max);return max===4800?0:1;};c.stepSimulation();assert.deepEqual(order,['fields','kind']);assert.deepEqual(bounds,[4800,119,99]);assert.equal(c.map[121],0x7f);assert.equal(c.eventHistory.at(-1).id,11);assert.equal(City.restore(c.serialize(),build,flags).map[121],0x7f);
  const p=new City(m,build,flags);p.scanCityTiles=()=>{};p.boundedRandom=()=>{throw Error('Practice random disaster draw');};p.stepSimulation();
 });
+
+test('auto replacement clears a whole overlapping building and charges only on successful placement',()=>{
+ const c=new City(Array(W*H).fill(0),build,flags);assert.ok(c.place(5,20,20));const before=c.funds;assert.equal(c.place(6,20,20),false);assert.equal(c.funds,before);assert.ok(c.place(6,20,20,{autoDemolish:true}));assert.equal(c.id(20,20),0x137);assert.equal(c.funds,before-build.costs[6]-9);assert.equal(c.zones.filter(z=>z.type===5).length,0);assert.equal(c.zones.filter(z=>z.type===6).length,1);
+ const old=Array.from(c.map);c.funds=1;assert.equal(c.place(5,20,20,{autoDemolish:true}),false);assert.deepEqual(Array.from(c.map),old);assert.equal(c.funds,1);
+});
+test('auto replacement keeps legal network crossings and rejects rebuilding an existing road',()=>{
+ const c=new City(Array(W*H).fill(0),build,flags);assert.ok(c.place(1,20,20));const before=c.funds;assert.equal(c.place(1,20,20,{autoDemolish:true}),false);assert.equal(c.funds,before);assert.ok(c.place(3,20,20,{autoDemolish:true}));assert.ok(flags[c.id(20,20)]&0x40);assert.ok(flags[c.id(20,20)]&0x10);
+});
+
+test('blueprint dry run never edits live city and rejects the whole batch on insufficient funds',()=>{
+ const c=new City(Array(W*H).fill(0),build,flags);c.funds=30;const cells=Array.from({length:5},(_,n)=>({x:10+n,y:10})),plan=c.planPlacements(1,cells);assert.equal(plan.ok,false);assert.equal(c.funds,30);assert.ok(c.map.every(v=>v===0));assert.equal(c.applyPlacementPlan(plan),false);assert.ok(c.map.every(v=>v===0));c.funds=100;const valid=c.planPlacements(1,cells);assert.equal(valid.ok,true);assert.equal(valid.cost,50);assert.ok(c.map.every(v=>v===0));assert.ok(c.applyPlacementPlan(valid));assert.equal(c.funds,50);assert.equal(c.roadCount,5);
+});
+test('blueprint rejects terrain conflicts and packs building footprints without overlap',()=>{
+ const c=new City(Array(W*H).fill(0),build,flags);c.map[242]=3;const invalid=c.planPlacements(5,[{x:2,y:2}]);assert.equal(invalid.ok,false);assert.equal(c.id(2,2),3);const packed=c.planPlacements(5,Array.from({length:7},(_,n)=>({x:20+n,y:20})));assert.ok(packed.ok);assert.equal(packed.cost,3*build.costs[5]);assert.equal(packed.anchors.length,3);c.applyPlacementPlan(packed);assert.equal(c.counts[5],3);
+});
