@@ -1,6 +1,6 @@
-import {decodeSpcOrders,decodeSpcChannel,spcPitch,spcTickSeconds,spcFadeVolume} from './rom-sequence.js?v=vibrato-1';
-import {spcVoiceVolumes} from './rom-mix.js?v=vibrato-1';
-import {instrumentEnvelope} from './rom-envelope.js?v=vibrato-1';
+import {decodeSpcOrders,decodeSpcChannel,spcPitch,spcTickSeconds,spcFadeVolume} from './rom-sequence.js?v=horn-1';
+import {spcVoiceVolumes} from './rom-mix.js?v=horn-1';
+import {instrumentEnvelope} from './rom-envelope.js?v=horn-1';
 // Track1: intro then repeating body. Shared pattern boundary follows the first
 // channel's uncalled zero (CODE_14BE -> CODE_1453); do not read past it.
 export function planOriginalTrackOne(aram,{maxPatterns=3}={}){

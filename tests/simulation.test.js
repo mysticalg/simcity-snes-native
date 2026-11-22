@@ -5,6 +5,12 @@ import fs from 'node:fs';
 const build=JSON.parse(fs.readFileSync(new URL('../assets/tables/build.json',import.meta.url)));
 const flags=JSON.parse(fs.readFileSync(new URL('../assets/tables/city.json',import.meta.url))).flags;
 const map=JSON.parse(fs.readFileSync(new URL('../assets/maps/Map_PracticeCity.json',import.meta.url)));
+test('ship horn frame command queues original port3 effect5 and is not replayed on load',()=>{
+ const c=new City(Array(W*H).fill(2),build,flags);Object.assign(c.ship,{active:true,x:60,y:50,pixelX:480,pixelY:400,direction:2,hornCountdown:100});
+ c.advanceVisualFrames(800);assert.deepEqual(c.soundEvents,[{port:3,command:5}]);assert.equal(c.ship.hornCountdown,600);
+ c.advanceVisualFrames(800,true);assert.equal(c.soundEvents.length,1);assert.equal(c.ship.hornCountdown,600);
+ assert.deepEqual(City.restore(c.serialize(),build,flags).soundEvents,[]);
+});
 test('population promotions and 600000 milestone record original history IDs once',()=>{
  const c=new City(Array(W*H).fill(0),build,flags,{scenario:'FreeCity'});c.population=600000;c.category=5;c.year=2000;c.month=3;
  for(let n=0;n<6;n++)c.checkMilestones();assert.deepEqual(c.eventHistory.map(e=>e.id),[0,2,3,4,5,6,19]);

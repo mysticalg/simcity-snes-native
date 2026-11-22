@@ -61,7 +61,7 @@ export function spcFadeVolume(fade,tick){
 export function spcPitch(aram,note,instrument){
  return spcPitchQ8(aram,(note&127)*256,instrument);
 }
-export function spcPitchQ8(aram,noteQ8,instrument){
+export function spcPitchQ8(aram,noteQ8,instrument,tuningOverride=null){
  const word=p=>aram[p]|aram[p+1]<<8;
  let value=noteQ8&65535,n=value>>>8;
  // CODE_0970 applies small endpoint corrections before table interpolation.
@@ -69,7 +69,7 @@ export function spcPitchQ8(aram,noteQ8,instrument){
  const octave=Math.floor(n/12),pointer=0x1ae9+2*(n%12),table=word(pointer);
  let base=(table+Math.floor((word(pointer+2)-table)*(value&255)/256))*2;
  for(let shifts=(6-octave)&255;shifts>0;shifts--)base=Math.floor(base/2);
- const tuning=(aram[0x3400+instrument*6+4]<<8)|aram[0x3400+instrument*6+5];
+ const tuning=tuningOverride??((aram[0x3400+instrument*6+4]<<8)|aram[0x3400+instrument*6+5]);
  return Math.floor(base*tuning/256)&65535;
 }
 // Initial timer target $10 gives 2ms pulses; CODE_08AE accumulates tempo
