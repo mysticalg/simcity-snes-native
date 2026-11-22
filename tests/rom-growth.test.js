@@ -116,3 +116,11 @@ test('CODE_039659 turns 16 residents into a special house block and downgrades 8
  const full=make();for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++)full.map[(y+dy)*W+x+dx]=0x30;full.map[i]=0x84;
  assert.equal(full.grow({x,y,i,id:0x84,type:5},1),false);
  });
+test('ROM merged partner repair retains complete pairs and repairs detached halves',async()=>{
+ const {repairMergedZone}=await import('../src/rom-growth.js');
+ for(const [id,dx,dy,partner,base] of [[0x37a,3,0,0x383,0x11c],[0x383,-3,0,0x37a,0x11c],[0x38c,0,3,0x395,0x11c],[0x395,0,-3,0x38c,0x11c],[0x39e,3,0,0x3a7,0x1eb],[0x3a7,-3,0,0x39e,0x1eb],[0x3b0,0,3,0x3b9,0x1eb],[0x3b9,0,-3,0x3b0,0x1eb]]){
+  const m=Array(W*H).fill(0),x=60,y=50,i=y*W+x,j=(y+dy)*W+x+dx;m[i]=0x8000|id;m[j]=partner;
+  assert.equal(repairMergedZone(m,x,y),false);assert.equal(m[i],0x8000|id);
+  m[j]=0;assert.equal(repairMergedZone(m,x,y),true);assert.equal(m[i],0x8000|(base+4));assert.ok(m[(y+1)*W+x+1]&0x4000);
+ }
+});

@@ -4,6 +4,17 @@
 export const signed16 = value => (value << 16) >> 16;
 const word = value => value & 0xffff;
 
+// CODE_039137..0391DB partner check before zone dispatch. CPU byte offsets
+// resolve to three map cells horizontally or three rows vertically.
+export function repairMergedZone(map,x,y,width=120,height=100){
+ const id=map[y*width+x]&1023;
+ const rules={0x37a:[3,0,0x383,0x11c],0x383:[-3,0,0x37a,0x11c],0x38c:[0,3,0x395,0x11c],0x395:[0,-3,0x38c,0x11c],0x39e:[3,0,0x3a7,0x1eb],0x3a7:[-3,0,0x39e,0x1eb],0x3b0:[0,3,0x3b9,0x1eb],0x3b9:[0,-3,0x3b0,0x1eb]};
+ const rule=rules[id];if(!rule)return false;
+ const [dx,dy,partner,base]=rule,cx=x+dx,cy=y+dy;
+ if(cx>=0&&cx<width&&cy>=0&&cy<height&&(map[cy*width+cx]&1023)===partner)return false;
+ return stampZoneFootprint(map,x,y,base,width,height);
+}
+
 // CODE_0397C9/03985A. The USA routine repeatedly reads the first direction
 // table entries (north); neither operand is indexed by X in CODE_03987F.
 export function placeSmallHome(map,x,y,density,nextWord,nextBelow3,width=120,height=100){
