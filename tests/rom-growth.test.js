@@ -42,13 +42,13 @@ test('negative demand decay is bounded by the ROM signed threshold at +350',()=>
 test('city residential map changes only when injected ROM branches confirm growth or decline',()=>{
  const map=Array(W*H).fill(0),center=50*W+60;map[center]=0x8099;
  const city=new City(map,build,flags);const zone=city.zones.find(z=>z.i===center);city.landValue[center]=255;
- let words=[1];const beforeGate=[...city.map];
+ let words=[35,1];const beforeGate=[...city.map];
  assert.equal(city.updateResidentialTile(zone,()=>words.shift()).action,'none');
  assert.deepEqual([...city.map],beforeGate);assert.deepEqual(words,[]);
- words=[0,0];const beforeThreshold=[...city.map];
+ words=[35,0,0];const beforeThreshold=[...city.map];
  assert.equal(city.updateResidentialTile(zone,()=>words.shift()).action,'none');
  assert.deepEqual([...city.map],beforeThreshold);
- words=[0,0x4000];
+ words=[35,0,0x4000];
  assert.equal(city.updateResidentialTile(zone,()=>words.shift()).action,'grow');
  assert.notDeepEqual([...city.map],beforeThreshold);
 });
@@ -162,4 +162,11 @@ test('ROM transport destination ranges and bounded route distinguish missing, de
  m[(y-2)*W+x]=0x32;assert.equal(traceZoneTransport(m,x,y,5,()=>1).status,0);
  m[(y-2)*W+x+1]=0x32;m[(y-3)*W+x+1]=0x144;
  assert.equal(traceZoneTransport(m,x,y,5,()=>1).status,1);
+});
+
+test('residential transport precheck declines isolated zones before update gate',()=>{
+ const m=Array(W*H).fill(0),x=60,y=50,i=y*W+x;m[i]=0x80a2;
+ const c=new City(m,build,flags);let draws=0;
+ const result=c.updateResidentialTile({x,y,i,id:0xa2,type:5},()=>{draws++;return 0;});
+ assert.equal(result.reason,'missing-transport');assert.equal(draws,1);assert.equal(c.map[i]&1023,0x99);
 });

@@ -182,13 +182,19 @@ export class City {
   return count;
  }
  updateResidentialTile(z,nextRandomWord=()=>this.random()){
-  const gateWord=nextRandomWord();
   const current={...z,id:this.id(z.x,z.y)};
+  const population=current.id===0x84?this.adjacentSmallHomeCount(z):this.zonePopulation(current);
+  let transport=1;
+  if(nextRandomWord()%36<population){
+   const route=traceZoneTransport(this.map,z.x,z.y,5,nextRandomWord,W,H);transport=route.status;
+   if(transport===-1){this.grow(current,-1);return {action:'decline',reason:'missing-transport',randomsUsed:0};}
+   if(transport===1)addRouteTraffic(this.map,this.traffic,route.path,W,H);
+  }
+  const gateWord=current.id===0x84?0:nextRandomWord();
   // CODE_0399D2's 0..255 lookup planes are represented by the model's
   // approximate land-value field; demand and these local inputs remain provisional.
-  const localScore=residentialLocalScore(this.landValue[z.i]||0,this.pollution[z.i]||0);
+  const localScore=residentialLocalScore(this.landValue[z.i]||0,this.pollution[z.i]||0,transport!==0);
   const score=residentialDemandScore(this.map[z.i],localScore,this.demand[0]);
-  const population=current.id===0x84?this.adjacentSmallHomeCount(z):this.zonePopulation(current);
   const decision=decideResidentialUpdate({tileId:current.id,gateWord,score,population,nextRandomWord});
   if(decision.action==='grow')this.grow(current,1);
   else if(decision.action==='decline')this.grow(z,-1);
