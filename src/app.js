@@ -28,3 +28,4 @@ let last=performance.now(),acc=0;function frame(now){const dt=Math.min(100,now-l
 window.render_game_to_text=()=>JSON.stringify(city?{coordinates:'origin top-left; x right, y down; 120×100 tiles',mode:paused?'paused':'city',scenario:city.scenario,name:city.name,year:city.year,month:city.month,funds:city.funds,population:city.population,demand:city.demand,selectedTool:TOOLS[selected],cursor,populationBands:city.rci,powerCapacity:city.powerCapacity,powerUsed:city.powerUsed,disasters:city.disasters,notices:city.notices.slice(0,2)}:{mode:'menu'});window.advanceTime=ms=>{if(city&&!paused)city.advance(ms);paint()};
 
 
+

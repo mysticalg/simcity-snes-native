@@ -39,3 +39,20 @@ export function decodeSpcChannel(aram,pointer,{maxEvents=64,state={}}={}){
  }
  return {events,state:s,next:p,ended:false};
 }
+// CODE_0986..09F3: semitone table, octave shifts and instrument tuning.
+export function spcPitch(aram,note,instrument){
+ const word=p=>aram[p]|aram[p+1]<<8;
+ const n=note&127,octave=Math.floor(n/12),table=word(0x1ae9+2*(n%12));
+ let base=table*2;for(let o=octave;o<6;o++)base=Math.floor(base/2);
+ const tuning=(aram[0x3400+instrument*6+4]<<8)|aram[0x3400+instrument*6+5];
+ return Math.floor(base*tuning/256)&65535;
+}
+// Initial timer target $10 gives 2ms pulses; CODE_08AE accumulates tempo
+// into an 8-bit phase and advances the music tick on carry.
+export function planTrackOneLead(aram,maxEvents=3){
+ const track=trackPatternPointers(aram,1),decoded=decodeSpcChannel(aram,track.channels[0],{maxEvents});
+ return decoded.events.filter(e=>e.kind==='note').map(e=>({
+  ...e,sample:aram[0x3400+e.instrument*6],pitch:spcPitch(aram,e.note+e.transpose+e.globalTranspose,e.instrument),
+  seconds:e.tick*0.002*256/e.tempo,duration:e.length*0.002*256/e.tempo
+ }));
+}
