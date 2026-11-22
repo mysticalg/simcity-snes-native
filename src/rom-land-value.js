@@ -12,3 +12,10 @@ export function aggregateRomLandValue(map,values,width=120,height=100){
  }
  return count?Math.floor(sum/count):0;
 }
+
+// CODE_039E61 Manhattan distance capped32. CODE_039D50..039DAD:
+// (34-distance)*4 + terrain - pollution - (crime>=190 ? 20 : 0).
+export function romLandValue(x,y,centerX,centerY,terrain,pollution,crime){
+ const distance=Math.min(32,Math.abs(x-centerX)+Math.abs(y-centerY));
+ return Math.max(1,Math.min(250,(34-distance)*4+terrain-pollution-(crime>=190?20:0)));
+}
