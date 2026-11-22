@@ -5,6 +5,19 @@ import fs from 'node:fs';
 const build=JSON.parse(fs.readFileSync(new URL('../assets/tables/build.json',import.meta.url)));
 const flags=JSON.parse(fs.readFileSync(new URL('../assets/tables/city.json',import.meta.url))).flags;
 const map=JSON.parse(fs.readFileSync(new URL('../assets/maps/Map_PracticeCity.json',import.meta.url)));
+test('commercial scoring snapshots the old density center and survives save/load',()=>{
+ const c=new City(Array(W*H).fill(0),build,flags);c.centerX=28;c.centerY=24;c.map[20*W+20]=0x144;c.refresh();c.updateDensityField();
+ assert.equal(c.commercialRate[6*15+7],64);assert.equal(c.centerX,10);assert.equal(c.centerY,10);
+ const saved=City.restore(c.serialize(),build,flags);assert.deepEqual(saved.commercialRate,c.commercialRate);assert.equal(saved.commercialRate[0],-64);
+ c.updateDensityField();assert.equal(c.commercialRate[6*15+7],-64);
+});
+test('city scan grows commercial zone near center and rejects identical draw far away',async()=>{
+ const {romCommercialRate}=await import('../src/rom-commercial.js');
+ for(const [x,y,shouldGrow]of [[60,48,true],[8,8,false]]){
+  const c=new City(Array(W*H).fill(0),build,flags),i=y*W+x;c.map[i]=0x8144;c.landValue[i]=255;c.demand[1]=0;c.commercialRate=romCommercialRate(30,25);const words=[0,39200,0];c.random=()=>words.shift()??0;c.boundedRandom=()=>5;
+  c.scanCityTiles();assert.equal((c.map[i]&1023)!==0x144,shouldGrow);if(shouldGrow)assert.equal(c.map[i]&1023,0x1d4);
+ }
+});
 test('ship horn frame command queues original port3 effect5 and is not replayed on load',()=>{
  const c=new City(Array(W*H).fill(2),build,flags);Object.assign(c.ship,{active:true,x:60,y:50,pixelX:480,pixelY:400,direction:2,hornCountdown:100});
  c.advanceVisualFrames(800);assert.deepEqual(c.soundEvents,[{port:3,command:5}]);assert.equal(c.ship.hornCountdown,600);
