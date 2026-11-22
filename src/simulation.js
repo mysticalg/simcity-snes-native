@@ -19,7 +19,7 @@ import {aggregateRomLandValue,romLandValue,romTerrainField} from './rom-land-val
 import {romAnnualRevenue,allocateRomBudget} from './rom-finance.js';
 import {SIMULATION_SEED,nextSimulationWord,boundSimulationWord} from './rom-random.js';
 import {decayTraffic,addRouteTraffic} from './rom-traffic.js';
-import {applyRomMeltdown,applyRomEarthquake,startRomFlood,dispatchRomDisasterTile} from './rom-disasters.js';
+import {applyRomMeltdown,applyRomEarthquake,startRomFire,startRomFlood,dispatchRomDisasterTile} from './rom-disasters.js?v=fire-start-1';
 import {scenarioOutcome,SCENARIO_EVENT_COUNTS,stepScenarioEvent,stepScenarioReminder,scenarioMeltdownSite} from './rom-scenarios.js';
 import {residentialDemandScore, residentialLocalScore, residentialDensityBand, residentialGrowthBase, residentialDeclineFootprint, decideResidentialUpdate, stampZoneFootprint, placeSmallHome, mergeResidentialZone,repairMergedZone,updateCommercialFootprint,updateIndustrialFootprint,decideJobZoneUpdate,findZoneTransport,traceZoneTransport} from './rom-growth.js';
 import {accumulateRomDemand,generateRomDemand,scanRomGrowthCaps} from './rom-demand.js';
@@ -308,7 +308,7 @@ export class City {
   if(type==='Flood'){const result=startRomFlood(this.map,this.flags,max=>this.boundedRandom(max),W,H);if(result.started){this.floodRemaining=result.remaining;this.recordEvent(0x0c);this.message('Flood reported.');this.refresh();}else this.message('No vulnerable shoreline found.');return result;}
   if(type==='Earthquake'){const result=applyRomEarthquake(this.map,this.flags,max=>this.boundedRandom(max),W,H);this.quakeFrames=result.attempts;this.recordEvent(0x0e);this.message('Earthquake reported.');this.refresh();return result;}
   if(type==='Meltdown'){const result=applyRomMeltdown(this.map,this.flags,x,y,max=>this.boundedRandom(max),W,H);this.recordEvent(0x08);this.message('Nuclear meltdown reported.');this.refresh();return result;}
-  if(type==='Fire'){this.map[y*W+x]=0x7f;this.recordEvent(0x0b);this.message('Fire reported.');this.refresh();return;}
+  if(type==='Fire'){const result=startRomFire(this.map,this.flags,max=>this.boundedRandom(max));if(result.started){this.fireCount=(this.fireCount+1)&65535;this.recordEvent(0x0b);this.soundEvents.push({port:3,command:0x21});this.message('Fire reported.');this.refresh();}else this.message('No vulnerable fire site found.');return result;}
   this.disasters.push({type,x,y,life:type==='Earthquake'?1:16});this.message(`${type} reported. Emergency services are responding.`);
   if(type==='Fire')this.map[y*W+x]=0x2e;
   this.updateDisasters();this.refresh();

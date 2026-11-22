@@ -1,0 +1,761 @@
+{
+  "routines": [
+    "CODE_03BBB9",
+    "CODE_03BB6A",
+    "CODE_03BC9F"
+  ],
+  "valuesCompared": 336224,
+  "romSHA256": "e9c0bc05511e05a0d7c3e7cc42e761e1e8e532d46f59b9854b6902e1a2e9dd0a",
+  "mesenSHA256": "d2eb03c2590c648bf329f127ebcfefd70130e7690a9e2ccdba8616faea1fe96b",
+  "cases": [
+    {
+      "randomDisaster": false,
+      "id": 0,
+      "seed": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ],
+      "expected": {
+        "started": false,
+        "attempts": 40
+      },
+      "rng": [
+        60117,
+        64227,
+        34009,
+        41771,
+        48598,
+        43683,
+        24434
+      ]
+    },
+    {
+      "randomDisaster": false,
+      "id": 0,
+      "seed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "started": false,
+        "attempts": 40
+      },
+      "rng": [
+        57767,
+        28582,
+        11783,
+        14178,
+        38835,
+        26522,
+        3401
+      ]
+    },
+    {
+      "randomDisaster": false,
+      "id": 20,
+      "seed": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ],
+      "expected": {
+        "started": true,
+        "x": 45,
+        "y": 54,
+        "attempts": 1
+      },
+      "rng": [
+        50502,
+        45175,
+        1018,
+        4521,
+        202,
+        65117,
+        3
+      ]
+    },
+    {
+      "randomDisaster": false,
+      "id": 20,
+      "seed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "started": true,
+        "x": 0,
+        "y": 0,
+        "attempts": 1
+      },
+      "rng": [
+        2,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "randomDisaster": false,
+      "id": 48,
+      "seed": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ],
+      "expected": {
+        "started": false,
+        "attempts": 40
+      },
+      "rng": [
+        60117,
+        64227,
+        34009,
+        41771,
+        48598,
+        43683,
+        24434
+      ]
+    },
+    {
+      "randomDisaster": false,
+      "id": 48,
+      "seed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "started": false,
+        "attempts": 40
+      },
+      "rng": [
+        57767,
+        28582,
+        11783,
+        14178,
+        38835,
+        26522,
+        3401
+      ]
+    },
+    {
+      "randomDisaster": false,
+      "id": 136,
+      "seed": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ],
+      "expected": {
+        "started": true,
+        "x": 45,
+        "y": 54,
+        "attempts": 1
+      },
+      "rng": [
+        50502,
+        45175,
+        1018,
+        4521,
+        202,
+        65117,
+        3
+      ]
+    },
+    {
+      "randomDisaster": false,
+      "id": 136,
+      "seed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "started": true,
+        "x": 0,
+        "y": 0,
+        "attempts": 1
+      },
+      "rng": [
+        2,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "randomDisaster": false,
+      "id": 153,
+      "seed": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ],
+      "expected": {
+        "started": false,
+        "attempts": 40
+      },
+      "rng": [
+        60117,
+        64227,
+        34009,
+        41771,
+        48598,
+        43683,
+        24434
+      ]
+    },
+    {
+      "randomDisaster": false,
+      "id": 153,
+      "seed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "started": false,
+        "attempts": 40
+      },
+      "rng": [
+        57767,
+        28582,
+        11783,
+        14178,
+        38835,
+        26522,
+        3401
+      ]
+    },
+    {
+      "randomDisaster": false,
+      "id": 868,
+      "seed": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ],
+      "expected": {
+        "started": false,
+        "attempts": 40
+      },
+      "rng": [
+        60117,
+        64227,
+        34009,
+        41771,
+        48598,
+        43683,
+        24434
+      ]
+    },
+    {
+      "randomDisaster": false,
+      "id": 868,
+      "seed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "started": false,
+        "attempts": 40
+      },
+      "rng": [
+        57767,
+        28582,
+        11783,
+        14178,
+        38835,
+        26522,
+        3401
+      ]
+    },
+    {
+      "randomDisaster": false,
+      "id": 32788,
+      "seed": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ],
+      "expected": {
+        "started": true,
+        "x": 45,
+        "y": 54,
+        "attempts": 1
+      },
+      "rng": [
+        50502,
+        45175,
+        1018,
+        4521,
+        202,
+        65117,
+        3
+      ]
+    },
+    {
+      "randomDisaster": false,
+      "id": 32788,
+      "seed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "started": true,
+        "x": 0,
+        "y": 0,
+        "attempts": 1
+      },
+      "rng": [
+        2,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "randomDisaster": true,
+      "id": 0,
+      "seed": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ],
+      "expected": {
+        "started": false,
+        "attempts": 20
+      },
+      "rng": [
+        37870,
+        31424,
+        10904,
+        30950,
+        45340,
+        39276,
+        11045
+      ]
+    },
+    {
+      "randomDisaster": true,
+      "id": 0,
+      "seed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "started": false,
+        "attempts": 20
+      },
+      "rng": [
+        8540,
+        38193,
+        43140,
+        1322,
+        46732,
+        49287,
+        26471
+      ]
+    },
+    {
+      "randomDisaster": true,
+      "id": 20,
+      "seed": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ],
+      "expected": {
+        "started": false,
+        "attempts": 20
+      },
+      "rng": [
+        37870,
+        31424,
+        10904,
+        30950,
+        45340,
+        39276,
+        11045
+      ]
+    },
+    {
+      "randomDisaster": true,
+      "id": 20,
+      "seed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "started": false,
+        "attempts": 20
+      },
+      "rng": [
+        8540,
+        38193,
+        43140,
+        1322,
+        46732,
+        49287,
+        26471
+      ]
+    },
+    {
+      "randomDisaster": true,
+      "id": 48,
+      "seed": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ],
+      "expected": {
+        "started": false,
+        "attempts": 20
+      },
+      "rng": [
+        37870,
+        31424,
+        10904,
+        30950,
+        45340,
+        39276,
+        11045
+      ]
+    },
+    {
+      "randomDisaster": true,
+      "id": 48,
+      "seed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "started": false,
+        "attempts": 20
+      },
+      "rng": [
+        8540,
+        38193,
+        43140,
+        1322,
+        46732,
+        49287,
+        26471
+      ]
+    },
+    {
+      "randomDisaster": true,
+      "id": 136,
+      "seed": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ],
+      "expected": {
+        "started": true,
+        "x": 45,
+        "y": 54,
+        "attempts": 1
+      },
+      "rng": [
+        50502,
+        45175,
+        1018,
+        4521,
+        202,
+        65117,
+        3
+      ]
+    },
+    {
+      "randomDisaster": true,
+      "id": 136,
+      "seed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "started": true,
+        "x": 0,
+        "y": 0,
+        "attempts": 1
+      },
+      "rng": [
+        2,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "randomDisaster": true,
+      "id": 153,
+      "seed": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ],
+      "expected": {
+        "started": false,
+        "attempts": 20
+      },
+      "rng": [
+        37870,
+        31424,
+        10904,
+        30950,
+        45340,
+        39276,
+        11045
+      ]
+    },
+    {
+      "randomDisaster": true,
+      "id": 153,
+      "seed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "started": false,
+        "attempts": 20
+      },
+      "rng": [
+        8540,
+        38193,
+        43140,
+        1322,
+        46732,
+        49287,
+        26471
+      ]
+    },
+    {
+      "randomDisaster": true,
+      "id": 868,
+      "seed": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ],
+      "expected": {
+        "started": true,
+        "x": 45,
+        "y": 54,
+        "attempts": 1
+      },
+      "rng": [
+        50502,
+        45175,
+        1018,
+        4521,
+        202,
+        65117,
+        3
+      ]
+    },
+    {
+      "randomDisaster": true,
+      "id": 868,
+      "seed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "started": true,
+        "x": 0,
+        "y": 0,
+        "attempts": 1
+      },
+      "rng": [
+        2,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "randomDisaster": true,
+      "id": 32788,
+      "seed": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ],
+      "expected": {
+        "started": false,
+        "attempts": 20
+      },
+      "rng": [
+        37870,
+        31424,
+        10904,
+        30950,
+        45340,
+        39276,
+        11045
+      ]
+    },
+    {
+      "randomDisaster": true,
+      "id": 32788,
+      "seed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "started": false,
+        "attempts": 20
+      },
+      "rng": [
+        8540,
+        38193,
+        43140,
+        1322,
+        46732,
+        49287,
+        26471
+      ]
+    }
+  ],
+  "exitCode": 0
+}

@@ -74,7 +74,7 @@ test('population promotions and 600000 milestone record original history IDs onc
  const restored=City.restore(c.serialize(),build,flags);restored.population=600000;restored.category=5;restored.checkMilestones();assert.equal(restored.eventHistory.filter(e=>e.id===19).length,1);
 });
 test('disaster history records original IDs and dates once and survives reload',()=>{
- const c=new City(Array(W*H).fill(0),build,flags);c.year=1957;c.month=6;c.disaster('Earthquake');c.disaster('Fire',20,20);
+ const c=new City(Array(W*H).fill(0),build,flags);c.year=1957;c.month=6;c.disaster('Earthquake');c.map[2420]=0x14;c.boundedRandom=()=>20;c.disaster('Fire',20,20);
  assert.deepEqual(c.eventHistory.slice(-2),[{id:14,year:1957,month:6},{id:11,year:1957,month:6}]);
  const restored=City.restore(c.serialize(),build,flags);assert.deepEqual(restored.eventHistory,c.eventHistory);restored.advanceVisualFrames(10,true);assert.deepEqual(restored.eventHistory,c.eventHistory);
 });
@@ -253,3 +253,8 @@ test('live tile scan burns later center before growth and omits destroyed statio
 test('transport scan applies decay and traffic art while reconnecting busy roads',()=>{const c=new City(Array(W*H).fill(0),build,flags),i=1000;c.map[i]=0x32;c.transportStrength=0;c.random=()=>0;c.scanCityTiles();assert.equal(c.map[i]&1023,0x28);c.map[i]=0x32;c.map[i+1]=0x32;c.transportStrength=33;c.traffic[i]=210;c.scanCityTiles();assert.equal(c.map[i]&1023,0x52);c.connect(i%W,Math.floor(i/W));c.connect((i+1)%W,Math.floor((i+1)/W));assert.equal(c.map[i]&1023,0x52);assert.equal(c.map[i+1]&1023,0x32);const saved=City.restore(c.serialize(),build,flags);assert.equal(saved.transportStrength,33);const roads=new City(Array(W*H).fill(0),build,flags);roads.map[1000]=0x30;roads.map[1010]=0x355;roads.map[1020]=0x32;roads.refresh();assert.equal(roads.roadCount,11);});
 test('rail tile scan spawns train and visual phase pauses/moves/saves it',()=>{const c=new City(Array(W*H).fill(0),build,flags);for(let x=10;x<30;x++)c.map[10*W+x]=0x72;c.refresh();c.scanCityTiles();assert.equal(c.train.active,true);assert.equal(c.train.x,84);c.quakePhase=6;c.advanceVisualFrames(1,true);assert.equal(c.train.x,84);c.quakePhase=6;c.advanceVisualFrames(1);assert.equal(c.train.x,85);const saved=City.restore(c.serialize(),build,flags);assert.deepEqual(saved.train,c.train);saved.quakeFrames=2;saved.advanceVisualFrames(1);assert.equal(saved.train.active,false);});
 test('menu RNG returns second updated word like CODE_00824F',()=>{const c=new City(Array(W*H).fill(0),build,flags);c.rngA=1;c.rngB=0;assert.equal(c.menuRandom(),2);assert.equal(c.rngA,1);assert.equal(c.rngB,2);});
+
+test('Fire command searches original eligible sites and saves only a successful history event',()=>{
+ const c=new City(Array(W*H).fill(0),build,flags);c.map[121]=0x8014;c.boundedRandom=()=>1;const result=c.disaster('Fire',80,70);assert.equal(result.started,true);assert.equal(c.map[121],0x7f);assert.equal(c.map[70*W+80],0);assert.equal(c.eventHistory.at(-1).id,11);const loaded=City.restore(c.serialize(),build,flags);assert.equal(loaded.map[121],0x7f);assert.equal(loaded.eventHistory.at(-1).id,11);
+ const blank=new City(Array(W*H).fill(0),build,flags),before=[...blank.eventHistory];blank.boundedRandom=()=>0;assert.equal(blank.disaster('Fire').started,false);assert.deepEqual(blank.eventHistory,before);
+});

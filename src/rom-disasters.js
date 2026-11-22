@@ -73,3 +73,16 @@ export function dispatchRomDisasterTile(map,i,flags,coverage,remaining,nextWord,
  if(id===0x364){if(nextBounded(4000)===0)map[i]=0;return {kind:'radiation',remaining};}
  return null;
 }
+// Manual request CODE_03BBB9 (40 tries); random disaster CODE_03BB6A
+// (20 tries). CODE_03BC9F draws x then y, packing their low bytes.
+export function startRomFire(map,flags,nextBounded,{randomDisaster=false,width=120,height=100}={}){
+ const limit=randomDisaster?20:40;
+ for(let attempts=1;attempts<=limit;attempts++){
+  const x=nextBounded(119)&255,y=nextBounded(99)&255,i=y*width+x;
+  if(i>=map.length)continue;
+  const id=map[i]&1023,f=flags[id]||0;
+  if((f&1)||(randomDisaster?id<0x88:!(f&4)))continue;
+  map[i]=0x7f;return {started:true,x,y,attempts};
+ }
+ return {started:false,attempts:limit};
+}
