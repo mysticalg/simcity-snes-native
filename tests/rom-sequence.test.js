@@ -10,3 +10,10 @@ test('confirmed duration/instrument/volume commands emit deterministic note tick
 });
 
 
+test('SPC tick accumulator quantizes note boundaries and articulation persists',async()=>{
+ const {spcTickSeconds,planTrackOneLead}=await import('../src/rom-sequence.js');
+ assert.equal(spcTickSeconds(36,19),.972);assert.equal(spcTickSeconds(48,19),1.294);
+ const aram=fs.readFileSync(new URL('../assets/audio/aram.bin',import.meta.url));const lead=planTrackOneLead(aram);
+ assert.deepEqual(lead.map(e=>e.articulation),[125,125,125]);assert.deepEqual(lead.map(e=>e.pitch),[7497,8414,7497]);
+ assert.equal(lead[0].seconds+lead[0].duration,lead[1].seconds);
+});

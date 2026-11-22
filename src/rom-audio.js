@@ -10,7 +10,7 @@ export class RomSampleAudio {
  async playOriginalLead(){
   await this.start();const response=await fetch(new URL('../assets/audio/aram.bin',import.meta.url));const aram=new Uint8Array(await response.arrayBuffer()),events=planTrackOneLead(aram);
   await Promise.all(events.map(e=>this.load(e.sample)));const origin=this.context.currentTime+.05;
-  for(const e of events)await this.voice(e.sample,{pitch:e.pitch,volume:.15*e.volume/255,duration:e.duration,when:origin+e.seconds});return events;
+  for(const e of events)await this.voice(e.sample,{pitch:e.pitch,volume:.15*e.volume/255,duration:e.gateDuration,when:origin+e.seconds});return events;
  }
  mute(muted){if(this.output)this.output.gain.setValueAtTime(muted?0:1,this.context.currentTime);}
  async load(index){
