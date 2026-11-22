@@ -1,0 +1,20 @@
+import fs from'node:fs';import path from'node:path';import crypto from'node:crypto';import{spawn}from'node:child_process';import{planOriginalTornado}from'../src/rom-sfx.js';
+const root=path.resolve(import.meta.dirname,'..'),work=process.env.REFERENCE_WORK||path.resolve(root,'../../work/tools/mesen2'),exe=process.env.MESEN_EXE||path.join(work,'app/Mesen.exe'),rom=process.env.SIMCITY_ROM||path.resolve(root,'../../work/extracted/SimCity (USA).sfc'),sha=b=>crypto.createHash('sha256').update(b).digest('hex'),hash=sha(fs.readFileSync(rom));if(hash!==JSON.parse(fs.readFileSync(path.join(root,'assets/manifest.json'))).romSHA256)throw Error('Wrong ROM');const aram=fs.readFileSync(path.join(root,'assets/audio/aram.bin')),plan=planOriginalTornado(aram),voice=plan.voices[0],points=voice.pitchSteps;
+const script=`local bytes='${aram.toString('hex')}';local points={${points.map(p=>`[${p.tick}]={${p.noteQ8},${p.pitch}}`)}};local tick=0;local stage=0;local injected=false;local main=false;local reg=0;local dsp={};local on={};local off={};local mem=emu.memType.spcRam
+local function run(target)
+ local s=emu.getState();s['spc.pc']=0x500;s['spc.a']=0;s['spc.x']=0;s['spc.y']=0;s['spc.sp']=0xef;s['spc.ps']=0;emu.setState(s)
+ emu.write(0x500,0x3f,mem);emu.write(0x501,target%256,mem);emu.write(0x502,math.floor(target/256),mem);emu.write(0x503,0,mem)
+end
+emu.addMemoryCallback(function()if main then return end;main=true;local s=emu.getState();s['cpu.pc']=0x1000;s['cpu.k']=0;s['cpu.dbr']=0;s['cpu.emulationMode']=false;s['cpu.ps']=4;emu.setState(s);emu.write(0x1000,0x80,emu.memType.snesWorkRam);emu.write(0x1001,0xfe,emu.memType.snesWorkRam);emu.write(0x4200,0,emu.memType.snesMemory)end,emu.callbackType.exec,0,0xffffff)
+emu.addMemoryCallback(function(address,value)if address==0xf2 then reg=value else dsp[reg]=value;if reg==0x4c and value>=128 then table.insert(on,tick)end;if reg==0x5c and value>=128 then table.insert(off,tick)end end end,emu.callbackType.write,0xf2,0xf3,emu.cpuType.spc,emu.memType.spcMemory)
+emu.addMemoryCallback(function()
+ if not injected then return end
+ if stage==0 then if emu.read(0x3ae,mem)~=50 or emu.read(0x3af,mem)~=3 then emu.stop(100000);return end;stage=1;tick=1;run(0x0ab2);return end
+ local p=points[tick];if p then if emu.read16(0x36e,mem)~=p[1]then emu.stop(200000+tick);return end;if (dsp[0x72]or 0)+(dsp[0x73]or 0)*256~=p[2]then emu.stop(300000+tick);return end end
+ if tick>=3 and tick<318 then if dsp[0x74]~=10 or dsp[0x70]~=127 or dsp[0x71]~=127 then emu.stop(400000+tick);return end end
+ if tick==318 then if emu.read(0x3ae,mem)~=0 then emu.stop(500000);return end;if #on~=1 or on[1]~=3 then emu.stop(600000+#on);return end;if #off~=2 or off[1]~=0 or off[2]~=316 then emu.stop(700000+#off);return end;emu.stop(0);return end
+ tick=tick+1;run(0x0ab2)
+end,emu.callbackType.exec,0x0503,0x0503,emu.cpuType.spc,emu.memType.spcMemory)
+emu.addMemoryCallback(function()if injected then return end;for i=0,65535 do emu.write(i,tonumber(bytes:sub(i*2+1,i*2+2),16),mem)end;for i=0x200,0x3ff do emu.write(i,0,mem)end;emu.write(3,34,mem);injected=true;run(0x0aab)end,emu.callbackType.exec,0,0xffff,emu.cpuType.spc,emu.memType.spcMemory)
+`;
+fs.mkdirSync(work,{recursive:true});const file=path.join(work,'spc-tornado-sequence.lua');fs.writeFileSync(file,script);const code=await new Promise((resolve,reject)=>{const p=spawn(exe,['--testRunner','--timeout=15',file,rom],{windowsHide:true,stdio:'ignore'}),timer=setTimeout(()=>{p.kill();reject(Error('Reference timeout'));},20000);p.on('error',e=>{clearTimeout(timer);reject(e);});p.on('exit',code=>{clearTimeout(timer);resolve(code);});});console.log({ticks:318,pitchPoints:points.length,exitCode:code});if(code===0)fs.writeFileSync(path.join(root,'research/reference-spc-tornado-sequence.json'),JSON.stringify({routines:['SPC_CODE_0AAB','SPC_CODE_0AB2'],scope:'Full original SFX driver dispatch/tick path, instrument and DSP writes; isolated music-silent initial state',romSHA256:hash,aramSHA256:sha(aram),mesenSHA256:sha(fs.readFileSync(exe)),command:34,keyOnTicks:[3],keyOffTicks:[0,316],endTick:318,voice,exitCode:code},null,2)+'\n');else process.exitCode=1;

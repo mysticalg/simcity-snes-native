@@ -3,8 +3,9 @@ import {spcTickSeconds} from './rom-sequence.js?v=horn-1';
 import {planOriginalTrackOne} from './rom-track.js?v=horn-1';
 import {renderSpcEnvelope} from './rom-envelope.js?v=horn-1';
 import {planSpcVibrato} from './rom-vibrato.js?v=horn-1';
-import {planOriginalShipHorn} from './rom-sfx.js?v=horn-1';
-// Native sample voice layer; sequence scheduling and DSP envelopes remain pending.
+import {planOriginalShipHorn,planOriginalTornado} from './rom-sfx.js?v=tornado-sfx-1';
+// Native BRR voices with supported original sequence/envelope scheduling.
+// Full DSP behavior and hardware voice arbitration remain incomplete.
 export class RomSampleAudio {
  constructor(){this.context=null;this.output=null;this.buffers=new Map();this.voices=new Set();this.directory=null;}
  async start(){
@@ -18,12 +19,14 @@ export class RomSampleAudio {
   for(const e of plan.events)await this.voice(e.sample,{pitch:e.pitch,volume:.12*(e.volume/255)*(e.masterVolume/255),duration:e.gateDuration,when:origin+e.seconds});return plan;
  }
  stopMusic(){this.hornGeneration=(this.hornGeneration||0)+1;if(this.musicTimer)clearInterval(this.musicTimer);this.musicTimer=null;this.music=null;for(const voice of this.voices){try{voice.stop();}catch{}}}
- async playOriginalShipHorn(){
+ async playOriginalShipHorn(){return this.playOriginalEffect(planOriginalShipHorn);}
+ async playOriginalTornado(){return this.playOriginalEffect(planOriginalTornado);}
+ async playOriginalEffect(planner){
   const generation=this.hornGeneration=(this.hornGeneration||0)+1;await this.start();
   if(!this.aram){const response=await fetch(new URL('../assets/audio/aram.bin',import.meta.url));if(!response.ok)throw Error('Sound effect data unavailable');this.aram=new Uint8Array(await response.arrayBuffer());}
-  const plan=planOriginalShipHorn(this.aram);await Promise.all([...new Set(plan.voices.map(v=>v.sample))].map(i=>this.load(i)));if(generation!==this.hornGeneration)return null;
+  const plan=planner(this.aram);await Promise.all([...new Set(plan.voices.map(v=>v.sample))].map(i=>this.load(i)));if(generation!==this.hornGeneration)return null;
   if(this.hornVoices)for(const voice of this.hornVoices){try{voice.stop();}catch{}}this.hornVoices=new Set();const origin=this.context.currentTime+.02;
-  for(const event of plan.voices){const voice=await this.voice(event.sample,{pitch:event.pitch,volume:.5,stereo:[event.left/128,event.right/128],envelope:event.envelope,counterPhase:Math.round(event.seconds*32000)%30720,duration:event.gateDuration,when:origin+event.seconds});this.hornVoices.add(voice);}return plan;
+  for(const event of plan.voices){const voice=await this.voice(event.sample,{pitch:event.pitch,pitchAutomation:event.pitchAutomation,volume:.5,stereo:[event.left/128,event.right/128],envelope:event.envelope,counterPhase:Math.round(event.seconds*32000)%30720,duration:event.gateDuration,when:origin+event.seconds});this.hornVoices.add(voice);}return plan;
  }
  async playOriginalTrackOne({offline=false}={}){
   await this.start();this.stopMusic();const response=await fetch(new URL('../assets/audio/aram.bin',import.meta.url));if(!response.ok)throw Error('Music data unavailable');

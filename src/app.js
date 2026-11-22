@@ -4,7 +4,7 @@ import {drawPowerWarnings,unpoweredBuildings} from './power-warnings.js?v=power-
 import {strokeCells,shapeCells,zoneBlockLayout} from './build-stroke.js?v=blocks-1';
 import {OVERLAYS,overlayColor} from './map-overlays.js';
 import {cityPaletteForMonth,romSeasonPalette} from './rom-render.js?v=season-1';
-import {RomSampleAudio} from './rom-audio.js?v=horn-1';
+import {RomSampleAudio} from './rom-audio.js?v=tornado-sfx-1';
 const romAudio=new RomSampleAudio();
 import{City,SCENARIOS,TOOLS,W,H,clamp}from'./simulation.js?v=tornado-1';
 const $=s=>document.querySelector(s),canvas=$('#game'),ctx=canvas.getContext('2d',{alpha:false});ctx.imageSmoothingEnabled=false;
@@ -34,7 +34,7 @@ function cityEvaluation(){
  modal('City evaluation','Annual score '+evaluation.score+' · Change '+(evaluation.change>=0?'+':'')+evaluation.change,'<p>Last annual review: '+evaluation.year+'</p>'+migration+assessed+poll+(concerns.length?'<h3>Residents’ concerns</h3><ul class="evaluation-concerns">'+concerns.map(v=>'<li>'+labels[v.id]+': '+v.votes+'%</li>').join('')+'</ul>':'')+'<h3>Problem ratings</h3><ul class="event-history">'+labels.map((label,i)=>'<li>'+label+': '+evaluation.problems[i]+'</li>').join('')+'</ul>');
 }
 function cityHistory(){if(!city)return;modal('City history','The ten most recent recorded events, oldest first.',city.eventHistory.length?'<ol class="event-history">'+city.eventHistory.map(e=>'<li>'+e.year+' · '+['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'][e.month-1]+' — '+(HISTORY_LABELS[e.id]||'Event '+e.id)+'</li>').join('')+'</ol>':'<p>No events recorded yet.</p>');}
-function dispatchCitySounds(){if(!city)return;for(const effect of city.soundEvents.splice(0)){if(sound&&effect.port===3&&effect.command===5)romAudio.playOriginalShipHorn().catch(error=>city?.message('Audio: '+error.message));}}
+function dispatchCitySounds(){if(!city)return;for(const effect of city.soundEvents.splice(0)){if(sound&&effect.port===3){const play=effect.command===5?'playOriginalShipHorn':effect.command===34?'playOriginalTornado':null;if(play)romAudio[play]().catch(error=>city?.message('Audio: '+error.message));}}}
 function giftMenu(){
  if(!city)return;
  const names={15:'Mayor’s house',16:'City park',17:'Zoo',18:'Gift building',19:'Casino',20:'Landmark',21:'Police headquarters',22:'Fire headquarters',23:'Gift building',24:'Gift building',25:'Gift building',26:'Gift building',27:'Gift building',28:'Gift building',29:'Gift building'};
