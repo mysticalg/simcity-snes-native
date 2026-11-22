@@ -22,3 +22,7 @@ test('SPC EF phrase call repeats and returns with persistent note state',()=>{
  const result=decodeSpcChannel(aram,0);
  assert.equal(result.ended,true);assert.deepEqual(result.events.map(e=>[e.tick,e.note,e.instrument,e.articulation]),[[0,17,7,127],[12,17,7,127],[24,19,7,127]]);
 });
+test('ROM track one order list follows intro then repeated body',async()=>{
+ const {decodeSpcOrders}=await import('../src/rom-sequence.js');const aram=fs.readFileSync(new URL('../assets/audio/aram.bin',import.meta.url));
+ const result=decodeSpcOrders(aram,1,{maxPatterns:5});assert.deepEqual(result.patterns.map(p=>p.pattern),[0x1b50,0x1b40,0x1b40,0x1b40,0x1b40]);assert.equal(result.ended,false);
+});

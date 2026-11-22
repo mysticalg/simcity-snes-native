@@ -72,3 +72,18 @@ export function spcTickSeconds(tick,tempo,phase=0){
  if(!Number.isInteger(tempo)||tempo<1||tempo>255)throw Error('Invalid SPC tempo');
  return Math.max(0,Math.ceil((tick*256-phase)/tempo))*.002;
 }
+// CODE_1453..147D. Order entries with high byte zero are control words;
+// $80/$81 toggle channel suppression, other bytes repeat/jump via $42.
+export function decodeSpcOrders(aram,trackId,{maxPatterns=64}={}){
+ const word=p=>aram[p]|aram[p+1]<<8,track=trackPatternPointers(aram,trackId);
+ let pointer=track.order,counter=0,suppressed=0;const patterns=[];
+ for(let steps=0;steps<4096&&patterns.length<maxPatterns;steps++){
+  const address=pointer,value=word(pointer);pointer+=2;
+  if(value>>>8){patterns.push({address,pattern:value,suppressed,channels:Array.from({length:8},(_,i)=>word(value+2*i))});continue;}
+  if(value===0)return {patterns,ended:true,pointer};
+  if(value===0x80||value===0x81){suppressed=value===0x80?0x80:0;continue;}
+  counter=(counter-1)&255;if(counter&128)counter=value;
+  const target=word(pointer);pointer+=2;if(counter!==0)pointer=target;
+ }
+ return {patterns,ended:false,pointer};
+}
