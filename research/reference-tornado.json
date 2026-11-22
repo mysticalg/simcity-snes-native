@@ -1,0 +1,9231 @@
+{
+  "routines": [
+    "CODE_00B0C1",
+    "CODE_00AEDB",
+    "CODE_03A9C2"
+  ],
+  "scope": "State and full map; sprite transfer suppressed with0AB5. Final menu RNG compared too.",
+  "romSHA256": "e9c0bc05511e05a0d7c3e7cc42e761e1e8e532d46f59b9854b6902e1a2e9dd0a",
+  "mesenSHA256": "d2eb03c2590c648bf329f127ebcfefd70130e7690a9e2ccdba8616faea1fe96b",
+  "valuesCompared": 2426424,
+  "cases": [
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 49,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 0,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 49,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 0,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 49,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 0,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          5940,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 49,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 0,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          5819,
+          127
+        ],
+        [
+          5820,
+          127
+        ],
+        [
+          5821,
+          127
+        ],
+        [
+          5939,
+          127
+        ],
+        [
+          5940,
+          127
+        ],
+        [
+          5941,
+          127
+        ],
+        [
+          6059,
+          127
+        ],
+        [
+          6060,
+          127
+        ],
+        [
+          6061,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 6,
+        "direction": 0,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 6,
+        "direction": 0,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 6,
+        "direction": 0,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          6060,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 6,
+        "direction": 0,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          5939,
+          127
+        ],
+        [
+          5940,
+          127
+        ],
+        [
+          5941,
+          127
+        ],
+        [
+          6059,
+          127
+        ],
+        [
+          6060,
+          127
+        ],
+        [
+          6061,
+          127
+        ],
+        [
+          6179,
+          127
+        ],
+        [
+          6180,
+          127
+        ],
+        [
+          6181,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 0,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 0,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 0,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 0,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 6,
+        "direction": 0,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 6,
+        "direction": 0,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 6,
+        "direction": 0,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          0,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 6,
+        "direction": 0,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          0,
+          127
+        ],
+        [
+          1,
+          127
+        ],
+        [
+          119,
+          127
+        ],
+        [
+          120,
+          127
+        ],
+        [
+          121,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 98,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 0,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 98,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 0,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 98,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 0,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          11879,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 98,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 0,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          11758,
+          127
+        ],
+        [
+          11759,
+          127
+        ],
+        [
+          11760,
+          127
+        ],
+        [
+          11878,
+          127
+        ],
+        [
+          11879,
+          127
+        ],
+        [
+          11880,
+          127
+        ],
+        [
+          11998,
+          127
+        ],
+        [
+          11999,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 6,
+        "direction": 0,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 6,
+        "direction": 0,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 6,
+        "direction": 0,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          11999,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 6,
+        "direction": 0,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          11878,
+          127
+        ],
+        [
+          11879,
+          127
+        ],
+        [
+          11880,
+          127
+        ],
+        [
+          11998,
+          127
+        ],
+        [
+          11999,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 1,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 49,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 7,
+        "direction": 1,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 1,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 49,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 7,
+        "direction": 1,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 1,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 49,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 7,
+        "direction": 1,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          5940,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 1,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 49,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 7,
+        "direction": 1,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          5819,
+          127
+        ],
+        [
+          5820,
+          127
+        ],
+        [
+          5821,
+          127
+        ],
+        [
+          5939,
+          127
+        ],
+        [
+          5940,
+          127
+        ],
+        [
+          5941,
+          127
+        ],
+        [
+          6059,
+          127
+        ],
+        [
+          6060,
+          127
+        ],
+        [
+          6061,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 1,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 61,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 6,
+        "direction": 1,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 1,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 61,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 6,
+        "direction": 1,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 1,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 61,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 6,
+        "direction": 1,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          6061,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 1,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 61,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 6,
+        "direction": 1,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          5940,
+          127
+        ],
+        [
+          5941,
+          127
+        ],
+        [
+          5942,
+          127
+        ],
+        [
+          6060,
+          127
+        ],
+        [
+          6061,
+          127
+        ],
+        [
+          6062,
+          127
+        ],
+        [
+          6180,
+          127
+        ],
+        [
+          6181,
+          127
+        ],
+        [
+          6182,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 1,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 7,
+        "direction": 1,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 1,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 7,
+        "direction": 1,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 1,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 7,
+        "direction": 1,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 1,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 7,
+        "direction": 1,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 1,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 1,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 6,
+        "direction": 1,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 1,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 1,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 6,
+        "direction": 1,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 1,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 1,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 6,
+        "direction": 1,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          1,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 1,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 1,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 6,
+        "direction": 1,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          0,
+          127
+        ],
+        [
+          1,
+          127
+        ],
+        [
+          2,
+          127
+        ],
+        [
+          120,
+          127
+        ],
+        [
+          121,
+          127
+        ],
+        [
+          122,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 1,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 98,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 7,
+        "direction": 1,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 1,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 98,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 7,
+        "direction": 1,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 1,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 98,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 7,
+        "direction": 1,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          11879,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 1,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 98,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 7,
+        "direction": 1,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          11758,
+          127
+        ],
+        [
+          11759,
+          127
+        ],
+        [
+          11760,
+          127
+        ],
+        [
+          11878,
+          127
+        ],
+        [
+          11879,
+          127
+        ],
+        [
+          11880,
+          127
+        ],
+        [
+          11998,
+          127
+        ],
+        [
+          11999,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 1,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 1,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 1,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 1,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 1,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 1,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 1,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 1,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 0,
+        "direction": 2,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 0,
+        "direction": 2,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 0,
+        "direction": 2,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          6060,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 0,
+        "direction": 2,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          5939,
+          127
+        ],
+        [
+          5940,
+          127
+        ],
+        [
+          5941,
+          127
+        ],
+        [
+          6059,
+          127
+        ],
+        [
+          6060,
+          127
+        ],
+        [
+          6061,
+          127
+        ],
+        [
+          6179,
+          127
+        ],
+        [
+          6180,
+          127
+        ],
+        [
+          6181,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 2,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 61,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 2,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 2,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 61,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 2,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 2,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 61,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 2,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          6061,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 2,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 61,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 2,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          5940,
+          127
+        ],
+        [
+          5941,
+          127
+        ],
+        [
+          5942,
+          127
+        ],
+        [
+          6060,
+          127
+        ],
+        [
+          6061,
+          127
+        ],
+        [
+          6062,
+          127
+        ],
+        [
+          6180,
+          127
+        ],
+        [
+          6181,
+          127
+        ],
+        [
+          6182,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 0,
+        "direction": 2,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 0,
+        "direction": 2,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 0,
+        "direction": 2,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          0,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 0,
+        "direction": 2,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          0,
+          127
+        ],
+        [
+          1,
+          127
+        ],
+        [
+          119,
+          127
+        ],
+        [
+          120,
+          127
+        ],
+        [
+          121,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 2,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 1,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 2,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 2,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 1,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 2,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 2,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 1,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 2,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          1,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 2,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 1,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 2,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          0,
+          127
+        ],
+        [
+          1,
+          127
+        ],
+        [
+          2,
+          127
+        ],
+        [
+          120,
+          127
+        ],
+        [
+          121,
+          127
+        ],
+        [
+          122,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 0,
+        "direction": 2,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 0,
+        "direction": 2,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 0,
+        "direction": 2,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          11999,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 0,
+        "direction": 2,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          11878,
+          127
+        ],
+        [
+          11879,
+          127
+        ],
+        [
+          11880,
+          127
+        ],
+        [
+          11998,
+          127
+        ],
+        [
+          11999,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 2,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 2,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 2,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 2,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 2,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 2,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 2,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 2,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 1,
+        "direction": 3,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 1,
+        "direction": 3,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 1,
+        "direction": 3,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          6060,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 1,
+        "direction": 3,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          5939,
+          127
+        ],
+        [
+          5940,
+          127
+        ],
+        [
+          5941,
+          127
+        ],
+        [
+          6059,
+          127
+        ],
+        [
+          6060,
+          127
+        ],
+        [
+          6061,
+          127
+        ],
+        [
+          6179,
+          127
+        ],
+        [
+          6180,
+          127
+        ],
+        [
+          6181,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 3,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 61,
+        "y": 51,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 3,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 61,
+        "y": 51,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 3,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 61,
+        "y": 51,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          6181,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 3,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 61,
+        "y": 51,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          6060,
+          127
+        ],
+        [
+          6061,
+          127
+        ],
+        [
+          6062,
+          127
+        ],
+        [
+          6180,
+          127
+        ],
+        [
+          6181,
+          127
+        ],
+        [
+          6182,
+          127
+        ],
+        [
+          6300,
+          127
+        ],
+        [
+          6301,
+          127
+        ],
+        [
+          6302,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 1,
+        "direction": 3,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 1,
+        "direction": 3,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 1,
+        "direction": 3,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          0,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 1,
+        "direction": 3,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          0,
+          127
+        ],
+        [
+          1,
+          127
+        ],
+        [
+          119,
+          127
+        ],
+        [
+          120,
+          127
+        ],
+        [
+          121,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 3,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 1,
+        "y": 1,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 3,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 1,
+        "y": 1,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 3,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 1,
+        "y": 1,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          121,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 3,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 1,
+        "y": 1,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          0,
+          127
+        ],
+        [
+          1,
+          127
+        ],
+        [
+          2,
+          127
+        ],
+        [
+          120,
+          127
+        ],
+        [
+          121,
+          127
+        ],
+        [
+          122,
+          127
+        ],
+        [
+          240,
+          127
+        ],
+        [
+          241,
+          127
+        ],
+        [
+          242,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 1,
+        "direction": 3,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 1,
+        "direction": 3,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 1,
+        "direction": 3,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          11999,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 1,
+        "offsetY": 1,
+        "direction": 3,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          11878,
+          127
+        ],
+        [
+          11879,
+          127
+        ],
+        [
+          11880,
+          127
+        ],
+        [
+          11998,
+          127
+        ],
+        [
+          11999,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 3,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 3,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 3,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 3,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 3,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 3,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 3,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 3,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 4,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 1,
+        "direction": 4,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 4,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 1,
+        "direction": 4,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 4,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 1,
+        "direction": 4,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          6060,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 4,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 1,
+        "direction": 4,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          5939,
+          127
+        ],
+        [
+          5940,
+          127
+        ],
+        [
+          5941,
+          127
+        ],
+        [
+          6059,
+          127
+        ],
+        [
+          6060,
+          127
+        ],
+        [
+          6061,
+          127
+        ],
+        [
+          6179,
+          127
+        ],
+        [
+          6180,
+          127
+        ],
+        [
+          6181,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 4,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 51,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 4,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 4,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 51,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 4,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 4,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 51,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 4,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          6180,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 4,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 51,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 4,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          6059,
+          127
+        ],
+        [
+          6060,
+          127
+        ],
+        [
+          6061,
+          127
+        ],
+        [
+          6179,
+          127
+        ],
+        [
+          6180,
+          127
+        ],
+        [
+          6181,
+          127
+        ],
+        [
+          6299,
+          127
+        ],
+        [
+          6300,
+          127
+        ],
+        [
+          6301,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 4,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 1,
+        "direction": 4,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 4,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 1,
+        "direction": 4,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 4,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 1,
+        "direction": 4,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          0,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 4,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 1,
+        "direction": 4,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          0,
+          127
+        ],
+        [
+          1,
+          127
+        ],
+        [
+          119,
+          127
+        ],
+        [
+          120,
+          127
+        ],
+        [
+          121,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 4,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 1,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 4,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 4,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 1,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 4,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 4,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 1,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 4,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          120,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 4,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 1,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 4,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          0,
+          127
+        ],
+        [
+          1,
+          127
+        ],
+        [
+          119,
+          127
+        ],
+        [
+          120,
+          127
+        ],
+        [
+          121,
+          127
+        ],
+        [
+          239,
+          127
+        ],
+        [
+          240,
+          127
+        ],
+        [
+          241,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 4,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 1,
+        "direction": 4,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 4,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 1,
+        "direction": 4,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 4,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 1,
+        "direction": 4,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          11999,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 4,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 1,
+        "direction": 4,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          11878,
+          127
+        ],
+        [
+          11879,
+          127
+        ],
+        [
+          11880,
+          127
+        ],
+        [
+          11998,
+          127
+        ],
+        [
+          11999,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 4,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 4,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 4,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 4,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 4,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 4,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 4,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 4,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 5,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 59,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 1,
+        "direction": 5,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 5,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 59,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 1,
+        "direction": 5,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 5,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 59,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 1,
+        "direction": 5,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          6059,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 5,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 59,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 1,
+        "direction": 5,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          5938,
+          127
+        ],
+        [
+          5939,
+          127
+        ],
+        [
+          5940,
+          127
+        ],
+        [
+          6058,
+          127
+        ],
+        [
+          6059,
+          127
+        ],
+        [
+          6060,
+          127
+        ],
+        [
+          6178,
+          127
+        ],
+        [
+          6179,
+          127
+        ],
+        [
+          6180,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 5,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 51,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 0,
+        "direction": 5,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 5,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 51,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 0,
+        "direction": 5,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 5,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 51,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 0,
+        "direction": 5,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          6180,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 5,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 51,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 0,
+        "direction": 5,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          6059,
+          127
+        ],
+        [
+          6060,
+          127
+        ],
+        [
+          6061,
+          127
+        ],
+        [
+          6179,
+          127
+        ],
+        [
+          6180,
+          127
+        ],
+        [
+          6181,
+          127
+        ],
+        [
+          6299,
+          127
+        ],
+        [
+          6300,
+          127
+        ],
+        [
+          6301,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 5,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 5,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 5,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 5,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 5,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 5,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 5,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 5,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 5,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 1,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 0,
+        "direction": 5,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 5,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 1,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 0,
+        "direction": 5,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 5,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 1,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 0,
+        "direction": 5,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          120,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 5,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 1,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 0,
+        "direction": 5,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          0,
+          127
+        ],
+        [
+          1,
+          127
+        ],
+        [
+          119,
+          127
+        ],
+        [
+          120,
+          127
+        ],
+        [
+          121,
+          127
+        ],
+        [
+          239,
+          127
+        ],
+        [
+          240,
+          127
+        ],
+        [
+          241,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 5,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 118,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 1,
+        "direction": 5,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 5,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 118,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 1,
+        "direction": 5,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 5,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 118,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 1,
+        "direction": 5,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          11998,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 5,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 118,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 1,
+        "direction": 5,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          11877,
+          127
+        ],
+        [
+          11878,
+          127
+        ],
+        [
+          11879,
+          127
+        ],
+        [
+          11997,
+          127
+        ],
+        [
+          11998,
+          127
+        ],
+        [
+          11999,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 5,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 0,
+        "direction": 5,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 5,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 0,
+        "direction": 5,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 5,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 0,
+        "direction": 5,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 5,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 0,
+        "direction": 5,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 6,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 59,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 6,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 6,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 59,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 6,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 6,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 59,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 6,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          6059,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 6,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 59,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 6,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          5938,
+          127
+        ],
+        [
+          5939,
+          127
+        ],
+        [
+          5940,
+          127
+        ],
+        [
+          6058,
+          127
+        ],
+        [
+          6059,
+          127
+        ],
+        [
+          6060,
+          127
+        ],
+        [
+          6178,
+          127
+        ],
+        [
+          6179,
+          127
+        ],
+        [
+          6180,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 6,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 7,
+        "direction": 6,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 6,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 7,
+        "direction": 6,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 6,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 7,
+        "direction": 6,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          6060,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 6,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 7,
+        "direction": 6,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          5939,
+          127
+        ],
+        [
+          5940,
+          127
+        ],
+        [
+          5941,
+          127
+        ],
+        [
+          6059,
+          127
+        ],
+        [
+          6060,
+          127
+        ],
+        [
+          6061,
+          127
+        ],
+        [
+          6179,
+          127
+        ],
+        [
+          6180,
+          127
+        ],
+        [
+          6181,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 6,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 6,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 6,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 6,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 6,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 6,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 6,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 6,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 6,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 7,
+        "direction": 6,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 6,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 7,
+        "direction": 6,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 6,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 7,
+        "direction": 6,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          0,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 6,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 7,
+        "direction": 6,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          0,
+          127
+        ],
+        [
+          1,
+          127
+        ],
+        [
+          119,
+          127
+        ],
+        [
+          120,
+          127
+        ],
+        [
+          121,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 6,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 118,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 6,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 6,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 118,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 6,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 6,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 118,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 6,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          11998,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 6,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 118,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 6,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          11877,
+          127
+        ],
+        [
+          11878,
+          127
+        ],
+        [
+          11879,
+          127
+        ],
+        [
+          11997,
+          127
+        ],
+        [
+          11998,
+          127
+        ],
+        [
+          11999,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 6,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 7,
+        "direction": 6,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 6,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 7,
+        "direction": 6,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 6,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 7,
+        "direction": 6,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          11999,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 6,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 7,
+        "direction": 6,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          11878,
+          127
+        ],
+        [
+          11879,
+          127
+        ],
+        [
+          11880,
+          127
+        ],
+        [
+          11998,
+          127
+        ],
+        [
+          11999,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 7,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 59,
+        "y": 49,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 7,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 59,
+        "y": 49,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 7,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 59,
+        "y": 49,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          5939,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 7,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 59,
+        "y": 49,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          5818,
+          127
+        ],
+        [
+          5819,
+          127
+        ],
+        [
+          5820,
+          127
+        ],
+        [
+          5938,
+          127
+        ],
+        [
+          5939,
+          127
+        ],
+        [
+          5940,
+          127
+        ],
+        [
+          6058,
+          127
+        ],
+        [
+          6059,
+          127
+        ],
+        [
+          6060,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 6,
+        "direction": 7,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 6,
+        "direction": 7,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 6,
+        "direction": 7,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          6060,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 6,
+        "direction": 7,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          5939,
+          127
+        ],
+        [
+          5940,
+          127
+        ],
+        [
+          5941,
+          127
+        ],
+        [
+          6059,
+          127
+        ],
+        [
+          6060,
+          127
+        ],
+        [
+          6061,
+          127
+        ],
+        [
+          6179,
+          127
+        ],
+        [
+          6180,
+          127
+        ],
+        [
+          6181,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 7,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 7,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 7,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 7,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 7,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 7,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 7,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": false,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 7,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "ended": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 6,
+        "direction": 7,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 6,
+        "direction": 7,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 6,
+        "direction": 7,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          0,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 0,
+        "y": 0,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 6,
+        "direction": 7,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          0,
+          127
+        ],
+        [
+          1,
+          127
+        ],
+        [
+          119,
+          127
+        ],
+        [
+          120,
+          127
+        ],
+        [
+          121,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 7,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 118,
+        "y": 98,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 7,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 118,
+        "y": 98,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 7,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 118,
+        "y": 98,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          11878,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 7,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 118,
+        "y": 98,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          11757,
+          127
+        ],
+        [
+          11758,
+          127
+        ],
+        [
+          11759,
+          127
+        ],
+        [
+          11877,
+          127
+        ],
+        [
+          11878,
+          127
+        ],
+        [
+          11879,
+          127
+        ],
+        [
+          11997,
+          127
+        ],
+        [
+          11998,
+          127
+        ],
+        [
+          11999,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 0,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 6,
+        "direction": 7,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "empty"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 3,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 6,
+        "direction": 7,
+        "frame": 1,
+        "surface": 1
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "result": "terrain"
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 6,
+        "direction": 7,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        28430,
+        52196
+      ],
+      "result": {
+        "changed": true,
+        "result": "debris"
+      },
+      "changed": [
+        [
+          11999,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 153,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 119,
+        "y": 99,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 6,
+        "offsetY": 6,
+        "direction": 7,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": true,
+        "result": "zone"
+      },
+      "changed": [
+        [
+          11878,
+          127
+        ],
+        [
+          11879,
+          127
+        ],
+        [
+          11880,
+          127
+        ],
+        [
+          11998,
+          127
+        ],
+        [
+          11999,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": true,
+        "x": 60,
+        "y": 50,
+        "targetX": 40,
+        "targetY": 30,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 40,
+        "targetY": 30,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 7,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "initialized": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": true,
+        "x": 60,
+        "y": 50,
+        "targetX": 40,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 40,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 5,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "initialized": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": true,
+        "x": 60,
+        "y": 50,
+        "targetX": 40,
+        "targetY": 70,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 40,
+        "targetY": 70,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 5,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "initialized": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": true,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 30,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 30,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 1,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "initialized": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": true,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "initialized": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": true,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 70,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 60,
+        "targetY": 70,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "initialized": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": true,
+        "x": 60,
+        "y": 50,
+        "targetX": 80,
+        "targetY": 30,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 80,
+        "targetY": 30,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 1,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "initialized": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": true,
+        "x": 60,
+        "y": 50,
+        "targetX": 80,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 80,
+        "targetY": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "initialized": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": true,
+        "x": 60,
+        "y": 50,
+        "targetX": 80,
+        "targetY": 70,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": false,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 80,
+        "targetY": 70,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "frame": 1,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false,
+        "initialized": true
+      },
+      "changed": []
+    },
+    {
+      "before": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 10,
+        "targetY": 10,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "id": 20,
+      "paused": true,
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 10,
+        "targetY": 10,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "result": {
+        "changed": false
+      },
+      "changed": []
+    }
+  ],
+  "exitCode": 0
+}

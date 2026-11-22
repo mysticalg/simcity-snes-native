@@ -1,0 +1,825 @@
+{
+  "routine": "CODE_03B9DB",
+  "romSHA256": "e9c0bc05511e05a0d7c3e7cc42e761e1e8e532d46f59b9854b6902e1a2e9dd0a",
+  "mesenSHA256": "d2eb03c2590c648bf329f127ebcfefd70130e7690a9e2ccdba8616faea1fe96b",
+  "valuesCompared": 336,
+  "cases": [
+    {
+      "active": false,
+      "seed": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ],
+      "expected": {
+        "active": true,
+        "initializing": true,
+        "x": 48,
+        "y": 21,
+        "targetX": 54,
+        "targetY": 18,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "rng": [
+        5813,
+        35465,
+        50502,
+        45175,
+        1018,
+        4521,
+        202
+      ]
+    },
+    {
+      "active": false,
+      "seed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "active": true,
+        "initializing": true,
+        "x": 10,
+        "y": 5,
+        "targetX": 5,
+        "targetY": 10,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "rng": [
+        8,
+        4,
+        2,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "active": false,
+      "seed": [
+        17426,
+        17220,
+        35525,
+        33955,
+        46004,
+        12815,
+        34968
+      ],
+      "expected": {
+        "active": true,
+        "initializing": true,
+        "x": 108,
+        "y": 39,
+        "targetX": 55,
+        "targetY": 81,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "rng": [
+        12249,
+        55870,
+        50937,
+        31876,
+        17426,
+        17220,
+        35525
+      ]
+    },
+    {
+      "active": false,
+      "seed": [
+        12046,
+        44488,
+        349,
+        48077,
+        30677,
+        54535,
+        11473
+      ],
+      "expected": {
+        "active": true,
+        "initializing": true,
+        "x": 91,
+        "y": 44,
+        "targetX": 90,
+        "targetY": 106,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "rng": [
+        14181,
+        31129,
+        63671,
+        59103,
+        12046,
+        44488,
+        349
+      ]
+    },
+    {
+      "active": false,
+      "seed": [
+        38528,
+        26481,
+        32807,
+        31594,
+        24576,
+        60738,
+        48401
+      ],
+      "expected": {
+        "active": true,
+        "initializing": true,
+        "x": 65,
+        "y": 54,
+        "targetX": 27,
+        "targetY": 86,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "rng": [
+        17862,
+        57496,
+        41036,
+        18119,
+        38528,
+        26481,
+        32807
+      ]
+    },
+    {
+      "active": false,
+      "seed": [
+        57640,
+        539,
+        50383,
+        3410,
+        18670,
+        8633,
+        44369
+      ],
+      "expected": {
+        "active": true,
+        "initializing": true,
+        "x": 35,
+        "y": 69,
+        "targetX": 26,
+        "targetY": 101,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "rng": [
+        55894,
+        62420,
+        7777,
+        8205,
+        57640,
+        539,
+        50383
+      ]
+    },
+    {
+      "active": false,
+      "seed": [
+        53200,
+        43688,
+        38573,
+        63345,
+        35775,
+        4526,
+        38601
+      ],
+      "expected": {
+        "active": true,
+        "initializing": true,
+        "x": 40,
+        "y": 69,
+        "targetX": 46,
+        "targetY": 92,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "rng": [
+        55948,
+        59647,
+        14943,
+        42502,
+        53200,
+        43688,
+        38573
+      ]
+    },
+    {
+      "active": false,
+      "seed": [
+        44366,
+        37076,
+        30569,
+        10289,
+        55490,
+        41145,
+        38452
+      ],
+      "expected": {
+        "active": true,
+        "initializing": true,
+        "x": 78,
+        "y": 71,
+        "targetX": 14,
+        "targetY": 62,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "rng": [
+        23863,
+        17076,
+        3515,
+        22330,
+        44366,
+        37076,
+        30569
+      ]
+    },
+    {
+      "active": false,
+      "seed": [
+        44786,
+        44007,
+        38338,
+        6278,
+        43476,
+        36822,
+        15071
+      ],
+      "expected": {
+        "active": true,
+        "initializing": true,
+        "x": 62,
+        "y": 81,
+        "targetX": 88,
+        "targetY": 61,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "rng": [
+        27371,
+        16824,
+        62918,
+        17102,
+        44786,
+        44007,
+        38338
+      ]
+    },
+    {
+      "active": false,
+      "seed": [
+        51279,
+        62061,
+        23984,
+        51410,
+        41633,
+        5239,
+        17888
+      ],
+      "expected": {
+        "active": true,
+        "initializing": true,
+        "x": 29,
+        "y": 75,
+        "targetX": 25,
+        "targetY": 27,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "rng": [
+        25307,
+        38359,
+        7228,
+        39001,
+        51279,
+        62061,
+        23984
+      ]
+    },
+    {
+      "active": false,
+      "seed": [
+        48291,
+        62353,
+        36964,
+        10656,
+        64338,
+        56925,
+        7473
+      ],
+      "expected": {
+        "active": true,
+        "initializing": true,
+        "x": 63,
+        "y": 8,
+        "targetX": 34,
+        "targetY": 79,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "rng": [
+        34207,
+        22431,
+        43385,
+        17387,
+        48291,
+        62353,
+        36964
+      ]
+    },
+    {
+      "active": false,
+      "seed": [
+        27322,
+        30412,
+        62927,
+        15737,
+        30098,
+        51232,
+        51426
+      ],
+      "expected": {
+        "active": true,
+        "initializing": true,
+        "x": 75,
+        "y": 58,
+        "targetX": 71,
+        "targetY": 63,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "rng": [
+        19196,
+        17466,
+        56550,
+        21123,
+        27322,
+        30412,
+        62927
+      ]
+    },
+    {
+      "active": true,
+      "seed": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ],
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "rng": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ]
+    },
+    {
+      "active": true,
+      "seed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "rng": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "active": true,
+      "seed": [
+        17426,
+        17220,
+        35525,
+        33955,
+        46004,
+        12815,
+        34968
+      ],
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "rng": [
+        17426,
+        17220,
+        35525,
+        33955,
+        46004,
+        12815,
+        34968
+      ]
+    },
+    {
+      "active": true,
+      "seed": [
+        12046,
+        44488,
+        349,
+        48077,
+        30677,
+        54535,
+        11473
+      ],
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "rng": [
+        12046,
+        44488,
+        349,
+        48077,
+        30677,
+        54535,
+        11473
+      ]
+    },
+    {
+      "active": true,
+      "seed": [
+        38528,
+        26481,
+        32807,
+        31594,
+        24576,
+        60738,
+        48401
+      ],
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "rng": [
+        38528,
+        26481,
+        32807,
+        31594,
+        24576,
+        60738,
+        48401
+      ]
+    },
+    {
+      "active": true,
+      "seed": [
+        57640,
+        539,
+        50383,
+        3410,
+        18670,
+        8633,
+        44369
+      ],
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "rng": [
+        57640,
+        539,
+        50383,
+        3410,
+        18670,
+        8633,
+        44369
+      ]
+    },
+    {
+      "active": true,
+      "seed": [
+        53200,
+        43688,
+        38573,
+        63345,
+        35775,
+        4526,
+        38601
+      ],
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "rng": [
+        53200,
+        43688,
+        38573,
+        63345,
+        35775,
+        4526,
+        38601
+      ]
+    },
+    {
+      "active": true,
+      "seed": [
+        44366,
+        37076,
+        30569,
+        10289,
+        55490,
+        41145,
+        38452
+      ],
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "rng": [
+        44366,
+        37076,
+        30569,
+        10289,
+        55490,
+        41145,
+        38452
+      ]
+    },
+    {
+      "active": true,
+      "seed": [
+        44786,
+        44007,
+        38338,
+        6278,
+        43476,
+        36822,
+        15071
+      ],
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "rng": [
+        44786,
+        44007,
+        38338,
+        6278,
+        43476,
+        36822,
+        15071
+      ]
+    },
+    {
+      "active": true,
+      "seed": [
+        51279,
+        62061,
+        23984,
+        51410,
+        41633,
+        5239,
+        17888
+      ],
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "rng": [
+        51279,
+        62061,
+        23984,
+        51410,
+        41633,
+        5239,
+        17888
+      ]
+    },
+    {
+      "active": true,
+      "seed": [
+        48291,
+        62353,
+        36964,
+        10656,
+        64338,
+        56925,
+        7473
+      ],
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "rng": [
+        48291,
+        62353,
+        36964,
+        10656,
+        64338,
+        56925,
+        7473
+      ]
+    },
+    {
+      "active": true,
+      "seed": [
+        27322,
+        30412,
+        62927,
+        15737,
+        30098,
+        51232,
+        51426
+      ],
+      "expected": {
+        "active": true,
+        "initializing": false,
+        "x": 60,
+        "y": 50,
+        "targetX": 20,
+        "targetY": 40,
+        "offsetX": 3,
+        "offsetY": 6,
+        "direction": 0,
+        "frame": 0,
+        "surface": 0
+      },
+      "rng": [
+        27322,
+        30412,
+        62927,
+        15737,
+        30098,
+        51232,
+        51426
+      ]
+    }
+  ],
+  "exitCode": 0
+}
