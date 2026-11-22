@@ -17,3 +17,8 @@ test('SPC tick accumulator quantizes note boundaries and articulation persists',
  assert.deepEqual(lead.map(e=>e.articulation),[125,125,125]);assert.deepEqual(lead.map(e=>e.pitch),[7497,8414,7497]);
  assert.equal(lead[0].seconds+lead[0].duration,lead[1].seconds);
 });
+test('SPC EF phrase call repeats and returns with persistent note state',()=>{
+ const aram=new Uint8Array(64);aram.set([0xe0,7,0xef,32,0,2,0x93,0],0);aram.set([12,0x7f,0x91,0],32);
+ const result=decodeSpcChannel(aram,0);
+ assert.equal(result.ended,true);assert.deepEqual(result.events.map(e=>[e.tick,e.note,e.instrument,e.articulation]),[[0,17,7,127],[12,17,7,127],[24,19,7,127]]);
+});

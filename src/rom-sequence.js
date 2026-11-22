@@ -18,14 +18,20 @@ export function readSpcNotePrefix(aram,pointer,previousLength=1){
 // until their state transitions are translated, even where lengths are known.
 export function decodeSpcChannel(aram,pointer,{maxEvents=64,state={}}={}){
  const s={instrument:0,pan:10,volume:255,tempo:32,masterVolume:192,transpose:0,globalTranspose:0,...state};
- const events=[];let p=pointer,tick=0,length=1,articulation=null;
+ const events=[];let p=pointer,tick=0,length=1,articulation=null,call=null;
  const handlers={0xe0:['instrument',1],0xe1:['pan',1],0xe5:['masterVolume',1],0xe7:['tempo',1],0xe9:['globalTranspose',1],0xea:['transpose',1],0xed:['volume',1],0xf4:['finePitch',1],0xfa:['instrumentBase',1]};
  for(let n=0;n<4096&&events.length<maxEvents;n++){
   const prefix=readSpcNotePrefix(aram,p,length);p=prefix.next;
   length=prefix.length??length;
   if(prefix.articulation!==null&&prefix.articulation!==undefined)articulation=prefix.articulation;
-  if(prefix.kind==='end')return {events,state:s,next:p,ended:true};
+  if(prefix.kind==='end'){
+   // CODE_14BE: a single return slot and repeat counter, not a stack.
+   if(call){call.remaining=(call.remaining-1)&255;if(call.remaining){p=call.target;continue;}p=call.returnTo;call=null;continue;}
+   return {events,state:s,next:p,ended:true};
+  }
   if(prefix.kind==='command'){
+   // EF -> CODE_16DA saves the address following all three operands.
+   if(prefix.opcode===0xef){const target=aram[p]|aram[p+1]<<8,remaining=aram[p+2];call={target,remaining,returnTo:p+3};p=target;continue;}
    // CODE_1626: vibrato delay/rate/depth. CODE_16FD: echo mask and
    // left/right volumes. CODE_173B: echo delay, feedback and FIR preset.
    // These are retained in note state for a dry render; DSP modulation and
