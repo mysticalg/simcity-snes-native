@@ -8,3 +8,11 @@ export function romGiftEffects(map,flags){
  }
  return {income:income&65535,crimeModifier};
 }
+// CODE_03C26B/03C291/03C303: source milestone message thresholds.
+export function serviceMilestoneNotices({police,fire,rail},progress){
+ const notices=[];
+ for(const [key,value,thresholds] of [['police',police,[6,12,18]],['fire',fire,[6,12,18]],['rail',rail,[500,2000]]]){
+  const stage=progress[key]||0;if(stage<thresholds.length&&value>=thresholds[stage]){progress[key]=stage+1;notices.push(`${key==='rail'?'Rail network':key==='police'?'Police stations':'Fire stations'} milestone: ${thresholds[stage]}.`);}
+ }
+ return notices;
+}
