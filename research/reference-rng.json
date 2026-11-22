@@ -1,0 +1,46 @@
+{
+  "routine": "CODE_03907E",
+  "maximum": null,
+  "calls": 256,
+  "boundedValuesCompared": 0,
+  "stateWordsCompared": 1792,
+  "romSHA256": "e9c0bc05511e05a0d7c3e7cc42e761e1e8e532d46f59b9854b6902e1a2e9dd0a",
+  "mesenSHA256": "d2eb03c2590c648bf329f127ebcfefd70130e7690a9e2ccdba8616faea1fe96b",
+  "fixture": {
+    "directPage": 6144,
+    "dataBank": 3,
+    "stack": 7935,
+    "status": 4,
+    "interrupts": false,
+    "seed": [
+      1018,
+      4521,
+      202,
+      65117,
+      3,
+      39848,
+      468
+    ]
+  },
+  "expectedFirstWords": [
+    45175,
+    50502,
+    35465,
+    5813,
+    11425,
+    18329,
+    35640,
+    26104
+  ],
+  "expectedFinalState": [
+    65526,
+    52443,
+    29149,
+    61137,
+    57333,
+    9410,
+    52658
+  ],
+  "exitCode": 0,
+  "elapsedMs": 347
+}

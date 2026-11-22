@@ -9,3 +9,5 @@ test('ROM bounded random uses quotient scaling including endpoint overflow',()=>
 });
 
 
+import fs from 'node:fs';
+test('native RNG retains the ROM-executed256-call reference state',()=>{const evidence=JSON.parse(fs.readFileSync(new URL('../research/reference-rng.json',import.meta.url)));assert.equal(evidence.exitCode,0);assert.equal(evidence.calls,256);assert.equal(evidence.stateWordsCompared,1792);const state=[...evidence.fixture.seed],first=[];for(let i=0;i<evidence.calls;i++){const n=nextSimulationWord(state);if(i<8)first.push(n);}assert.deepEqual(first,evidence.expectedFirstWords);assert.deepEqual(state,evidence.expectedFinalState);});
