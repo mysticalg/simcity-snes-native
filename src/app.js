@@ -23,7 +23,7 @@ function cell(x,y){if(x<0||x>=W||y<0||y>=H)return;const id=city.map[y*W+x]&1023;
 function paint(){if(!city)return;ctx.fillStyle='#071c33';ctx.fillRect(0,0,960,600);ctx.save();ctx.scale(zoom,zoom);ctx.translate(-camera.x*8,-camera.y*8);const x0=Math.floor(Math.max(0,camera.x)),y0=Math.floor(Math.max(0,camera.y)),x1=Math.min(W,camera.x+120/zoom),y1=Math.min(H,camera.y+75/zoom);for(let y=y0;y<y1;y++)for(let x=x0;x<x1;x++)cell(x,y);
 if(selected>=0&&selected<16){ctx.globalAlpha=.75;for(const c of city.footprint(selected,cursor.x,cursor.y)){if(c.x>=x0&&c.x<x1&&c.y>=y0&&c.y<y1){ctx.fillStyle=city.canBuild(selected,cursor.x,cursor.y).ok?'#d5ff7d':'#ff755e';ctx.fillRect(c.x*8,c.y*8,8,8)}}ctx.globalAlpha=1;}
 ctx.strokeStyle='#fff';ctx.lineWidth=1;ctx.strokeRect(cursor.x*8+.5,cursor.y*8+.5,7,7);ctx.restore();refresh();}
-function refresh(){if(!city)return;if(city.scenarioResult&&!city.scenarioDialogSeen){city.scenarioDialogSeen=true;modal(city.scenarioResult==='won'?'Scenario complete':'Scenario failed','The scenario deadline has been reached. You can continue managing this city.');}$('#cityName').textContent=city.name.toUpperCase();$('#date').textContent=`${['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'][city.month-1]} ${city.year}`;$('#funds').textContent='$'+city.funds.toLocaleString();$('#population').textContent=city.population.toLocaleString();$('#report').textContent=`${['VILLAGE','TOWN','CITY','CAPITAL','METROPOLIS','MEGALOPOLIS'][city.category]}\nR ${city.rci[0]}   C ${city.rci[1]}   I ${city.rci[2]}\nPOWER ${city.powerUsed}/${city.powerCapacity}\nROADS ${city.roadCount} · RAIL ${city.railCount}\nCRIME ${Math.round(city.meanCrime||0)} · SCORE ${city.score}\n${city.notices[0]||'The city is quiet.'}`;updateTools();}
+function refresh(){if(!city)return;if(city.scenarioResult&&!city.scenarioDialogSeen){city.scenarioDialogSeen=true;modal(city.scenarioResult==='won'?'Scenario complete':'Scenario failed','The scenario deadline has been reached. You can continue managing this city.');}$('#cityName').textContent=city.name.toUpperCase();$('#date').textContent=`${['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'][city.month-1]} ${city.year}`;$('#funds').textContent='$'+city.funds.toLocaleString();$('#population').textContent=city.population.toLocaleString();$('#report').textContent=`${['VILLAGE','TOWN','CITY','CAPITAL','METROPOLIS','MEGALOPOLIS'][city.category]}\nR ${city.rci[0]}   C ${city.rci[1]}   I ${city.rci[2]}\nPOWER ${city.powerUsed}/${city.powerCapacity}\nROADS ${city.roadCount} · RAIL ${city.railCount}\nCRIME ${Math.round(city.meanCrime||0)} · SCORE ${city.score}\n${city.notices[0]||'Hold left mouse and drag to build roads, rails or power lines.'}`;updateTools();}
 let stroke=null;
 function pointer(e,buildNow){
  if(!city)return;
@@ -31,7 +31,7 @@ function pointer(e,buildNow){
  cursor={x:clamp(Math.floor(px/(8*zoom)+camera.x),0,W-1),y:clamp(Math.floor(py/(8*zoom)+camera.y),0,H-1)};
  if(buildNow&&selected>=0){
   const cells=stroke&&stroke.tool<=4?strokeCells(stroke.last,cursor):[cursor];
-  for(const c of cells){const key=c.y*W+c.x;if(stroke?.visited.has(key))continue;if(stroke)stroke.visited.add(key);city.place(stroke?.tool??selected,c.x,c.y);}
+  for(const c of cells){const key=c.y*W+c.x;if(stroke?.visited.has(key))continue;if(city.place(stroke?.tool??selected,c.x,c.y)&&stroke)stroke.visited.add(key);}
   if(stroke)stroke.last={...cursor};
  }
  paint();
@@ -47,6 +47,7 @@ async function load(e){try{city=City.restore(await e.target.files[0].text(),buil
 setup();modal('Welcome to SimCity','A native JavaScript reconstruction using graphics, palettes, construction tables, and all nine maps extracted from the matching USA SNES ROM. Choose a scenario to begin.','<p>This playable milestone is still in development. Scenario objectives and several simulation formulas remain approximations.</p>','CHOOSE A CITY',menu);
 let last=performance.now(),acc=0;function frame(now){const dt=Math.min(100,now-last);last=now;if(city&&!paused&&$('#modal').classList.contains('hidden')){city.advance(dt);acc+=dt;if(acc>150){acc=0;paint()}}requestAnimationFrame(frame)}requestAnimationFrame(frame);
 window.render_game_to_text=()=>JSON.stringify(city?{coordinates:'origin top-left; x right, y down; 120×100 tiles',mode:paused?'paused':'city',zoom,speed:city.speed,scenario:city.scenario,name:city.name,year:city.year,month:city.month,funds:city.funds,population:city.population,demand:city.demand,selectedTool:TOOLS[selected],cursor,populationBands:city.rci,powerCapacity:city.powerCapacity,powerUsed:city.powerUsed,disasters:city.disasters,notices:city.notices.slice(0,2)}:{mode:'menu'});window.advanceTime=ms=>{if(city&&!paused)city.advance(ms);paint()};
+
 
 
 

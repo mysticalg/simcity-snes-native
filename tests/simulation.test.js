@@ -123,3 +123,10 @@ test('road and rail masks connect horizontal vertical corners and junctions',()=
  c.place(tool,x,y+1);assert.equal(c.id(x,y),base+12);
  }
 });
+test('coal line crossing carries power to residential and disconnecting clears marker',()=>{
+ const c=new City(Array(W*H).fill(0),build,flags);c.place(14,20,20);
+ c.place(1,27,20);c.place(1,27,21);c.place(1,27,22);
+ for(let x=24;x<=31;x++)assert.equal(c.place(3,x,21),true);
+ c.place(5,32,20);c.refresh();assert.ok(c.map[21*W+33]&0x8000);assert.equal(c.id(27,21),0x3e);
+ c.place(0,29,21);assert.equal(c.map[21*W+33]&0x8000,0);
+});

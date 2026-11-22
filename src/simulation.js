@@ -1,3 +1,4 @@
+import {networkCrossing} from './rom-networks.js';
 import {romPoliceCoverage,romFireCoverage,fireBurnoutMaximum} from './rom-services.js';
 import {romDensityField} from './rom-density.js';
 import {romCrimeValue,meanRomCrime} from './rom-crime.js';
@@ -135,7 +136,7 @@ export class City {
    if(z){const size=[10,11,13,14].includes(z.type)?4:z.type===12?6:3;for(let dy=0;dy<size;dy++)for(let dx=0;dx<size;dx++){const n=(z.y-1+dy)*W+z.x-1+dx;if(n>=0&&n<this.map.length)this.map[n]=0x2a;}}
    else this.map[i]=0;
   } else {
-   for(const c of this.footprint(tool,x,y))this.map[c.y*W+c.x]=c.id;
+   for(const c of this.footprint(tool,x,y)){const i=c.y*W+c.x;this.map[i]=networkCrossing(tool,this.map[i])??c.id;}
    if(tool>=16)this.gifts=this.gifts.filter(g=>g!==tool);
   }
   for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++)this.connect(x+dx,y+dy);
@@ -147,7 +148,7 @@ export class City {
   if(!kind)return;
   const bit=kind===1?0x40:kind===2?0x20:0x10;
   // DATA_018020, CODE_01B62F/645/65B. Bit directions follow CODE_01B6CC.
-  let mask=0;[[0,-1,8],[1,0,2],[0,1,1],[-1,0,4]].forEach(([dx,dy,b])=>{if((this.flags[this.id(x+dx,y+dy)]||0)&bit)mask|=b;});
+  let mask=0;[[0,-1,8],[1,0,2],[0,1,1],[-1,0,4]].forEach(([dx,dy,b])=>{if((this.flags[this.id(x+dx,y+dy)]||0)&(kind===3?0x80:bit))mask|=b;});
   const table=[2,3,2,5,2,6,2,10,3,3,4,9,7,11,8,12];this.map[i]=(kind===1?0x30:kind===2?0x70:0x60)+table[mask];
  }
  nearRoad(z){return findZoneTransport(this.map,z.x,z.y,W,H)!==null;}
@@ -277,6 +278,7 @@ export class City {
  serialize(){return JSON.stringify({version:1,simulationRng:this.simulationRng,traffic:Array.from(this.traffic),scenarioRemaining:this.scenarioRemaining,scenarioResult:this.scenarioResult,scenarioReminders:this.scenarioReminders,scenarioDialogSeen:this.scenarioDialogSeen,map:Array.from(this.map),name:this.name,scenario:this.scenario,year:this.year,month:this.month,funds:this.funds,difficulty:this.difficulty,tax:this.tax,taxAccumulator:this.taxAccumulator,funding:this.funding,rngA:this.rngA,rngB:this.rngB,history:this.history,loan:this.loan,gifts:this.gifts});}
  static restore(text,build,flags){const s=JSON.parse(text);if(s.version!==1||!Array.isArray(s.map)||s.map.length!==12000||s.map.some(n=>!Number.isInteger(n)||n<0||n>65535))throw Error('This is not a supported city save.');const c=new City(s.map,build,flags,s);for(const k of ['simulationRng','scenarioRemaining','scenarioResult','scenarioReminders','scenarioDialogSeen','month','funds','tax','taxAccumulator','funding','rngA','rngB','history','loan','gifts'])if(s[k]!==undefined)c[k]=s[k];if(Array.isArray(s.traffic)&&s.traffic.length===W*H)c.traffic=Uint8Array.from(s.traffic);c.refresh();return c;}
 }
+
 
 
 
