@@ -1,4 +1,4 @@
-import {setupBuildPalette} from './build-palette.js';
+import {setupBuildPalette} from './build-palette.js?v=power-lines-1';
 import {drawTerrainShore} from './terrain-tools.js';
 import {drawWaterWarnings,unwateredBuildings} from './water-warnings.js?v=civic-revisions-1';
 import {setupRegions} from './region-ui.js?v=build-groups-1';
