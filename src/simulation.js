@@ -185,7 +185,7 @@ export class City {
   this.funds-=check.cost;
   if(tool===0){
    const i=y*W+x,z=this.zones.find(z=>Math.abs(z.x-x)<=1&&Math.abs(z.y-y)<=1&&this.id(x,y)>=0x80);
-   if(z){const size=[10,11,13,14].includes(z.type)?4:z.type===12?6:3;for(let dy=0;dy<size;dy++)for(let dx=0;dx<size;dx++){const n=(z.y-1+dy)*W+z.x-1+dx;if(n>=0&&n<this.map.length)this.map[n]=0x2a;}}
+   if(z){const size=[10,11,13,14].includes(z.type)?4:z.type===12?6:3;for(let dy=0;dy<size;dy++)for(let dx=0;dx<size;dx++){const n=(z.y-1+dy)*W+z.x-1+dx;if(n>=0&&n<this.map.length)this.map[n]=0;}}
    else this.map[i]=0;
   } else {
    for(const c of this.footprint(tool,x,y)){const i=c.y*W+c.x;this.map[i]=networkCrossing(tool,this.map[i])??c.id;}
