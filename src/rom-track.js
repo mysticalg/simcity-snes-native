@@ -1,5 +1,6 @@
-import {decodeSpcOrders,decodeSpcChannel,spcPitch,spcTickSeconds,spcFadeVolume} from './rom-sequence.js?v=mix-1';
-import {spcVoiceVolumes} from './rom-mix.js?v=mix-1';
+import {decodeSpcOrders,decodeSpcChannel,spcPitch,spcTickSeconds,spcFadeVolume} from './rom-sequence.js?v=envelope-1';
+import {spcVoiceVolumes} from './rom-mix.js?v=envelope-1';
+import {instrumentEnvelope} from './rom-envelope.js?v=envelope-1';
 // Track1: intro then repeating body. Shared pattern boundary follows the first
 // channel's uncalled zero (CODE_14BE -> CODE_1453); do not read past it.
 export function planOriginalTrackOne(aram,{maxPatterns=3}={}){
@@ -25,7 +26,7 @@ export function planOriginalTrackOne(aram,{maxPatterns=3}={}){
     if(e.note>=74)throw Error('Untranslated percussion note');
     const gate=Math.max(1,Math.floor(e.length*aram[0x3496+((e.articulation??0)>>4&7)]/256));
     previous={...e,channel,gateEndTick:Math.min(end,e.tick+gate),sample:aram[0x3400+e.instrument*6],pitch:spcPitch(aram,e.note+e.transpose+e.globalTranspose,e.instrument),seconds:spcTickSeconds(e.tick,tempo),duration:spcTickSeconds(end,tempo)-spcTickSeconds(e.tick,tempo),gateDuration:spcTickSeconds(Math.min(end,e.tick+gate),tempo)-spcTickSeconds(e.tick,tempo)};
-    previous.dspVolumes=spcVoiceVolumes(aram,e);events.push(previous);
+    previous.dspVolumes=spcVoiceVolumes(aram,e);previous.envelope=instrumentEnvelope(aram,e.instrument);events.push(previous);
    }
   }
   startTick=endTick;
