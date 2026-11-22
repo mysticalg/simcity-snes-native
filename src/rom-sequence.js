@@ -16,18 +16,19 @@ export function readSpcNotePrefix(aram,pointer,previousLength=1){
 }
 // Confirmed DATA_1814 command handlers. Modulation/echo commands are rejected
 // until their state transitions are translated, even where lengths are known.
-export function decodeSpcChannel(aram,pointer,{maxEvents=64,state={}}={}){
+export function decodeSpcChannel(aram,pointer,{maxEvents=64,state={},startTick=0,maxTicks=Infinity}={}){
  const s={instrument:0,pan:10,volume:255,tempo:32,masterVolume:192,transpose:0,globalTranspose:0,...state};
- const events=[];let p=pointer,tick=0,length=1,articulation=null,call=null;
+ const events=[];let p=pointer,tick=startTick,length=s.noteLength??1,articulation=s.articulation??null,call=null;
  const handlers={0xe0:['instrument',1],0xe1:['pan',1],0xe5:['masterVolume',1],0xe7:['tempo',1],0xe9:['globalTranspose',1],0xea:['transpose',1],0xed:['volume',1],0xf4:['finePitch',1],0xfa:['instrumentBase',1]};
  for(let n=0;n<4096&&events.length<maxEvents;n++){
+  if(tick>=maxTicks){if(s.volumeFade)s.volume=spcFadeVolume(s.volumeFade,maxTicks);s.noteLength=length;s.articulation=articulation;return {events,state:s,next:p,ended:false,boundary:true};}
   const prefix=readSpcNotePrefix(aram,p,length);p=prefix.next;
   length=prefix.length??length;
   if(prefix.articulation!==null&&prefix.articulation!==undefined)articulation=prefix.articulation;
   if(prefix.kind==='end'){
    // CODE_14BE: a single return slot and repeat counter, not a stack.
    if(call){call.remaining=(call.remaining-1)&255;if(call.remaining){p=call.target;continue;}p=call.returnTo;call=null;continue;}
-   return {events,state:s,next:p,ended:true};
+   s.noteLength=length;s.articulation=articulation;return {events,state:s,next:p,ended:true};
   }
   if(prefix.kind==='command'){
    // EE -> CODE_16BD/17F8: signed Q8 step, countdown and target byte.

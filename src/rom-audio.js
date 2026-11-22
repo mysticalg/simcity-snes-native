@@ -1,4 +1,6 @@
-import {planTrackOneLead,planTrackOneOpening} from './rom-sequence.js';
+import {planTrackOneLead,planTrackOneOpening} from './rom-sequence.js?v=track-1';
+import {spcTickSeconds} from './rom-sequence.js?v=track-1';
+import {planOriginalTrackOne} from './rom-track.js?v=track-1';
 // Native sample voice layer; sequence scheduling and DSP envelopes remain pending.
 export class RomSampleAudio {
  constructor(){this.context=null;this.output=null;this.buffers=new Map();this.voices=new Set();this.directory=null;}
@@ -11,6 +13,18 @@ export class RomSampleAudio {
   await this.start();const r=await fetch(new URL('../assets/audio/aram.bin',import.meta.url));if(!r.ok)throw Error('Music data unavailable');const plan=planTrackOneOpening(new Uint8Array(await r.arrayBuffer()));
   await Promise.all([...new Set(plan.events.map(e=>e.sample))].map(i=>this.load(i)));const origin=this.context.currentTime+.05;
   for(const e of plan.events)await this.voice(e.sample,{pitch:e.pitch,volume:.12*(e.volume/255)*(e.masterVolume/255),duration:e.gateDuration,when:origin+e.seconds});return plan;
+ }
+ stopMusic(){if(this.musicTimer)clearInterval(this.musicTimer);this.musicTimer=null;this.music=null;for(const voice of this.voices){try{voice.stop();}catch{}}}
+ async playOriginalTrackOne({offline=false}={}){
+  await this.start();this.stopMusic();const response=await fetch(new URL('../assets/audio/aram.bin',import.meta.url));if(!response.ok)throw Error('Music data unavailable');
+  const plan=planOriginalTrackOne(new Uint8Array(await response.arrayBuffer()));
+  await Promise.all([...new Set(plan.events.map(e=>e.sample))].map(i=>this.load(i)));const origin=this.context.currentTime+.05;
+  const play=(event,shift=0)=>{const seconds=spcTickSeconds(event.tick+shift,event.tempo),gate=spcTickSeconds(event.gateEndTick+shift,event.tempo)-seconds;return this.voice(event.sample,{pitch:event.pitch,volume:.12*(event.volume/255)*(event.masterVolume/255),duration:gate,when:origin+seconds});};
+  if(offline){for(const event of plan.events)await play(event);return plan;}
+  const loop=plan.patterns.at(-1),loopIndex=plan.events.findIndex(e=>e.tick>=loop.startTick);let index=0,shift=0;
+  this.music={track:1,scheduled:0,cycles:0};
+  const schedule=()=>{while(this.music){const event=plan.events[index],when=origin+spcTickSeconds(event.tick+shift,event.tempo);if(when>this.context.currentTime+1)break;play(event,shift).catch(error=>{this.lastError=error.message;this.stopMusic();});this.music.scheduled++;if(++index===plan.events.length){index=loopIndex;shift+=loop.endTick-loop.startTick;this.music.cycles++;}}};
+  schedule();this.musicTimer=setInterval(schedule,100);return plan;
  }
  async playOriginalLead(){
   await this.start();const response=await fetch(new URL('../assets/audio/aram.bin',import.meta.url));const aram=new Uint8Array(await response.arrayBuffer()),events=planTrackOneLead(aram);

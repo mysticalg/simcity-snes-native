@@ -1,0 +1,33 @@
+import {decodeSpcOrders,decodeSpcChannel,spcPitch,spcTickSeconds} from './rom-sequence.js?v=track-1';
+// Track1: intro then repeating body. Shared pattern boundary follows the first
+// channel's uncalled zero (CODE_14BE -> CODE_1453); do not read past it.
+export function planOriginalTrackOne(aram,{maxPatterns=3}={}){
+ const orders=decodeSpcOrders(aram,1,{maxPatterns}),events=[],patterns=[],states=Array.from({length:8},()=>({}));let startTick=0,tempo=19,masterVolume=150;
+ for(const pattern of orders.patterns){
+  const lead=decodeSpcChannel(aram,pattern.channels[0],{maxEvents:2048,state:states[0],startTick});
+  if(!lead.ended||lead.unsupported)throw Error('Unsupported track1 lead command');
+  const endTick=lead.events.at(-1).tick+lead.events.at(-1).length;
+  if(!lead.events.length||endTick<=startTick)throw Error('Empty pattern');
+  tempo=lead.events[0].tempo;masterVolume=lead.events[0].masterVolume;
+  if(lead.events.some(e=>e.tempo!==tempo||e.masterVolume!==masterVolume))throw Error('Global automation needs a tick scheduler');
+  patterns.push({pattern:pattern.pattern,startTick,endTick});
+  for(let channel=0;channel<8;channel++){
+   if(!pattern.channels[channel])continue;
+   const decoded=decodeSpcChannel(aram,pattern.channels[channel],{maxEvents:2048,state:{...states[channel],tempo,masterVolume},startTick,maxTicks:endTick});
+   if(decoded.unsupported)throw Error('Unsupported track1 command '+decoded.unsupported.toString(16));states[channel]=decoded.state;
+   let previous=null;
+   for(const e of decoded.events){
+    if(e.tick>=endTick)break;const end=Math.min(endTick,e.tick+e.length);
+    if(e.tempo!==tempo||e.masterVolume!==masterVolume)throw Error('Cross-channel global automation needs a tick scheduler');
+    if(e.kind==='rest'){previous=null;continue;}
+    if(e.kind==='tie'){if(previous){previous.gateEndTick=end;previous.gateDuration=spcTickSeconds(end,tempo)-previous.seconds;}continue;}
+    if(e.note>=74)throw Error('Untranslated percussion note');
+    const gate=Math.max(1,Math.floor(e.length*aram[0x3496+((e.articulation??0)>>4&7)]/256));
+    previous={...e,channel,gateEndTick:Math.min(end,e.tick+gate),sample:aram[0x3400+e.instrument*6],pitch:spcPitch(aram,e.note+e.transpose+e.globalTranspose,e.instrument),seconds:spcTickSeconds(e.tick,tempo),duration:spcTickSeconds(end,tempo)-spcTickSeconds(e.tick,tempo),gateDuration:spcTickSeconds(Math.min(end,e.tick+gate),tempo)-spcTickSeconds(e.tick,tempo)};
+    events.push(previous);
+   }
+  }
+  startTick=endTick;
+ }
+ return {events:events.sort((a,b)=>a.seconds-b.seconds||a.channel-b.channel),patterns,duration:spcTickSeconds(startTick,tempo)};
+}

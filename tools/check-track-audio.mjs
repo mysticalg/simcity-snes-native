@@ -1,0 +1,15 @@
+import {chromium} from 'playwright';
+const browser=await chromium.launch({executablePath:'C:/Users/drhoo/AppData/Local/ms-playwright/chromium-1248/chrome-win64/chrome.exe',headless:true}),page=await browser.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto(process.env.TEST_URL||'http://localhost:5198');await page.waitForFunction(()=>typeof render_game_to_text==='function');
+const pcm=await page.evaluate(async()=>{
+ const {RomSampleAudio}=await import('./src/rom-audio.js?v=track-1');const audio=new RomSampleAudio(),context=new OfflineAudioContext(1,70*32000,32000);audio.context=context;audio.output=context.createGain();audio.output.connect(context.destination);audio.start=async()=>{audio.directory=await(await fetch('assets/audio/directory.json')).json();};
+ const plan=await audio.playOriginalTrackOne({offline:true}),rendered=await context.startRendering(),samples=rendered.getChannelData(0);
+ const energy=(start,end)=>{let total=0;for(let i=start*32000;i<end*32000;i++)total+=samples[i]**2;return total;};
+ return {events:plan.events.length,duration:plan.duration,finite:samples.every(Number.isFinite),intro:energy(0,5),body:energy(6,30),repeat:energy(38,65)};
+});if(pcm.events!==502||!pcm.finite||pcm.body<=0||pcm.repeat<=0)throw Error(JSON.stringify(pcm));
+const loop=await page.evaluate(async()=>{
+ const {RomSampleAudio}=await import('./src/rom-audio.js?v=track-1');const audio=new RomSampleAudio(),calls=[];let pump;audio.context={currentTime:0};audio.start=async()=>{};audio.load=async()=>{};audio.voice=async(sample,options)=>{calls.push({sample,...options});};
+ const original=setInterval;window.setInterval=callback=>{pump=callback;return 2147483000;};
+ try{await audio.playOriginalTrackOne();audio.context.currentTime=70;pump();audio.context.currentTime=101;pump();const cycles=audio.music.cycles,firstLoop=calls.some(c=>Math.abs(c.when-67.312)<.000001);audio.stopMusic();return {cycles,firstLoop};}finally{window.setInterval=original;}
+});if(loop.cycles<2||!loop.firstLoop)throw Error(JSON.stringify(loop));
+await page.evaluate(async()=>{const{RomSampleAudio}=await import('./src/rom-audio.js?v=track-1');const original=RomSampleAudio.prototype.playOriginalTrackOne;RomSampleAudio.prototype.playOriginalTrackOne=async function(...args){window.testAudio=this;return original.apply(this,args);};});
+await page.locator('#modalGo').click();await page.locator('[data-city="PracticeCity"]').click();await page.locator('#sound').click();await page.waitForFunction(()=>window.testAudio?.music?.scheduled>54,{},{timeout:12000});const scheduled=await page.evaluate(()=>testAudio.music.scheduled);await page.locator('#sound').click();await page.waitForFunction(()=>testAudio.music===null&&testAudio.musicTimer===null&&testAudio.output.gain.value===0);const stopped=await page.evaluate(()=>testAudio.music===null&&testAudio.musicTimer===null&&testAudio.output.gain.value===0);if(!stopped||errors.length)throw Error(errors.join()||'Music did not stop');console.log({pcm,loop,scheduled,stopped,errors});await browser.close();
