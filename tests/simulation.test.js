@@ -258,3 +258,8 @@ test('Fire command searches original eligible sites and saves only a successful 
  const c=new City(Array(W*H).fill(0),build,flags);c.map[121]=0x8014;c.boundedRandom=()=>1;const result=c.disaster('Fire',80,70);assert.equal(result.started,true);assert.equal(c.map[121],0x7f);assert.equal(c.map[70*W+80],0);assert.equal(c.eventHistory.at(-1).id,11);const loaded=City.restore(c.serialize(),build,flags);assert.equal(loaded.map[121],0x7f);assert.equal(loaded.eventHistory.at(-1).id,11);
  const blank=new City(Array(W*H).fill(0),build,flags),before=[...blank.eventHistory];blank.boundedRandom=()=>0;assert.equal(blank.disaster('Fire').started,false);assert.deepEqual(blank.eventHistory,before);
 });
+
+test('Free City simulation dispatches the source random fire after field workers; Practice draws nothing',()=>{
+ const m=Array(W*H).fill(0);m[121]=0x88;const c=new City(m,build,flags,{scenario:'FreeCity'}),order=[];c.scanCityTiles=()=>{};c.updateScheduledFields=()=>order.push('fields');c.random=()=>{order.push('kind');return 0;};const bounds=[];c.boundedRandom=max=>{bounds.push(max);return max===4800?0:1;};c.stepSimulation();assert.deepEqual(order,['fields','kind']);assert.deepEqual(bounds,[4800,119,99]);assert.equal(c.map[121],0x7f);assert.equal(c.eventHistory.at(-1).id,11);assert.equal(City.restore(c.serialize(),build,flags).map[121],0x7f);
+ const p=new City(m,build,flags);p.scanCityTiles=()=>{};p.boundedRandom=()=>{throw Error('Practice random disaster draw');};p.stepSimulation();
+});

@@ -1,4 +1,5 @@
 import {romPopulation} from './rom-population.js';
+import {selectRomRandomDisaster} from './rom-random-disaster.js';
 import {romFacilityDemand,placeRomFacility,updateRomFacility} from './rom-facilities.js';
 import {createRomTrain,spawnRomTrain,stepRomTrain} from './rom-train.js';
 import {createRomShip,spawnRomShip,stepRomShip} from './rom-ship.js?v=collision-2';
@@ -258,7 +259,6 @@ export class City {
   // CODE_038016 runs demand and tile simulation on each of four base steps.
   this.taxAccumulator+=this.tax;
   this.traffic=this.traffic.map(decayTraffic);
-  {const e=stepScenarioEvent(this.scenario,this.scenarioRemaining,this.population);this.scenarioRemaining=e.remaining;if(e.event==='Meltdown'){const site=scenarioMeltdownSite(this.map);if(site)this.disaster(e.event,site.x,site.y);}else if(e.event)this.disaster(e.event);}
   const reminder=stepScenarioReminder(this.scenario,this.year,this.scenarioReminders.length);if(reminder.yearsLeft!==null){this.scenarioReminders.push(reminder.yearsLeft);this.message('Scenario deadline: '+reminder.yearsLeft+' years remaining.');}
   let repaired=false;for(const z of this.zones)if(repairMergedZone(this.map,z.x,z.y,W,H))repaired=true;if(repaired)this.refresh();
   this.updatePower();
@@ -276,6 +276,12 @@ export class City {
   this.checkMilestones();
   this.updateScenarioOutcome();
   this.updateScheduledFields();
+  // CODE_038154 calls disaster handling after this pass's field workers.
+  let scenarioTriggered=false;
+  {const e=stepScenarioEvent(this.scenario,this.scenarioRemaining,this.population);this.scenarioRemaining=e.remaining;if(e.event==='Meltdown'){const site=scenarioMeltdownSite(this.map);if(site){this.disaster(e.event,site.x,site.y);scenarioTriggered=true;}}else if(e.event){const result=this.disaster(e.event);scenarioTriggered=result?.started!==false;}}
+  const pollution=this.cityEvaluationInputs().problems[1];
+  const randomDisaster=selectRomRandomDisaster({practice:this.scenario==='PracticeCity',difficulty:this.difficulty,pollution,messagePending:scenarioTriggered},max=>this.boundedRandom(max),()=>this.random());
+  if(randomDisaster)this.disaster(randomDisaster,undefined,undefined,{randomDisaster:true});
  }
  scanCityTiles(){
   this.fireCount=0;
@@ -304,11 +310,11 @@ export class City {
  advance(ms){if(this.pendingBudget)return;this.elapsed+=ms*this.speed;while(this.elapsed>=750&&!this.pendingBudget){this.elapsed-=750;this.stepSimulation();}if(this.pendingBudget)this.elapsed=0;}
  advanceVisualFrames(frames,blocked=false){for(let n=0;n<frames;n++){if(this.quakeFrames){this.quakeFrames--;this.train.active=false;}if((this.quakePhase&7)===1){const event=stepRomShip(this.ship,this.map,()=>this.menuRandom(),{paused:blocked});if(event.horn){this.soundEvents.push({port:3,command:5});if(this.soundEvents.length>16)this.soundEvents.shift();}if(event.navigation==='collision'){applyRomShipCollision(this.map,this.flags,event.collision.x,event.collision.y,()=>this.menuRandom());this.recordEvent(0x10);this.message('A ship collided.');this.refresh();}}if(!blocked&&(this.quakePhase&7)===6)stepRomTrain(this.train,this.map,()=>this.menuRandom(),W,H);this.quakePhase=(this.quakePhase+1)&255;}}
  recordEvent(id){recordRomHistory(this.eventHistory,id,this.year,this.month);}
- disaster(type,x=60,y=50){
+ disaster(type,x=60,y=50,options={}){
   if(type==='Flood'){const result=startRomFlood(this.map,this.flags,max=>this.boundedRandom(max),W,H);if(result.started){this.floodRemaining=result.remaining;this.recordEvent(0x0c);this.message('Flood reported.');this.refresh();}else this.message('No vulnerable shoreline found.');return result;}
   if(type==='Earthquake'){const result=applyRomEarthquake(this.map,this.flags,max=>this.boundedRandom(max),W,H);this.quakeFrames=result.attempts;this.recordEvent(0x0e);this.message('Earthquake reported.');this.refresh();return result;}
   if(type==='Meltdown'){const result=applyRomMeltdown(this.map,this.flags,x,y,max=>this.boundedRandom(max),W,H);this.recordEvent(0x08);this.message('Nuclear meltdown reported.');this.refresh();return result;}
-  if(type==='Fire'){const result=startRomFire(this.map,this.flags,max=>this.boundedRandom(max));if(result.started){this.fireCount=(this.fireCount+1)&65535;this.recordEvent(0x0b);this.soundEvents.push({port:3,command:0x21});this.message('Fire reported.');this.refresh();}else this.message('No vulnerable fire site found.');return result;}
+  if(type==='Fire'){const result=startRomFire(this.map,this.flags,max=>this.boundedRandom(max),options);if(result.started){this.fireCount=(this.fireCount+1)&65535;this.recordEvent(0x0b);this.soundEvents.push({port:3,command:0x21});this.message('Fire reported.');this.refresh();}else if(!options.randomDisaster)this.message('No vulnerable fire site found.');return result;}
   this.disasters.push({type,x,y,life:type==='Earthquake'?1:16});this.message(`${type} reported. Emergency services are responding.`);
   if(type==='Fire')this.map[y*W+x]=0x2e;
   this.updateDisasters();this.refresh();
