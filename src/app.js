@@ -5,7 +5,7 @@ import {strokeCells} from './build-stroke.js';
 import {cityPaletteForMonth} from './rom-render.js';
 import {RomSampleAudio} from './rom-audio.js?v=horn-1';
 const romAudio=new RomSampleAudio();
-import{City,SCENARIOS,TOOLS,W,H,clamp}from'./simulation.js?v=evaluation-1';
+import{City,SCENARIOS,TOOLS,W,H,clamp}from'./simulation.js?v=polls-1';
 const $=s=>document.querySelector(s),canvas=$('#game'),ctx=canvas.getContext('2d',{alpha:false});ctx.imageSmoothingEnabled=false;
 const files=await Promise.all([fetch('assets/tables/city.json').then(r=>r.json()),fetch('assets/tables/build.json').then(r=>r.json()),...['city-0.png','city-1.png','city-2.png','city-3.png'].map(n=>new Promise((ok,no)=>{const i=new Image;i.onload=()=>ok(i);i.onerror=no;i.src='assets/'+n})),...SCENARIOS.map(s=>fetch(`assets/maps/Map_${s.id}.json`).then(r=>r.json()))]);
 const[table,build,...rest]=files,atlases=rest.slice(0,4),maps=rest.slice(4),flags=table.flags;
@@ -22,7 +22,14 @@ function setup(){const zb=document.createElement('button');zb.id='zoom';zb.textC
 const icons=['🚜','🛣','🛤','⚡','🌳','🏠','🏢','🏭','🛡','🚒','🏟','⚓','✈','☢','♨','🎁'];
 TOOLS.forEach((n,i)=>{let b=document.createElement('button');b.innerHTML=`<span class="tool-icon" aria-hidden="true">${icons[i]}</span><span>${n}</span>`;b.title=n;b.setAttribute('aria-label',n);b.dataset.tool=i;b.onclick=()=>{if(i===15){giftMenu();return;}selected=i;updateTools()};$('#tools').append(b)});
 $('#pause').onclick=()=>{paused=!paused;$('#pause').textContent=paused?'▶ RESUME':'Ⅱ PAUSE'};$('#speed').onclick=()=>{city.speed=speeds[(speeds.indexOf(city.speed)+1)%speeds.length];$('#speed').textContent=`SPEED ${city.speed}×`};$('#view').onclick=()=>{mapView=!mapView;paint()};$('#save').onclick=save;$('#load').onclick=()=>$('#file').click();$('#file').onchange=load;$('#sound').onclick=async()=>{sound=!sound;$('#sound').textContent=sound?'SOUND ON':'SOUND OFF';try{if(sound){await romAudio.start();romAudio.mute(false);await romAudio.playOriginalTrackOne();}else{romAudio.mute(true);romAudio.stopMusic();}}catch(error){sound=false;$('#sound').textContent='SOUND OFF';city?.message('Audio: '+error.message);}};$('#modalGo').onclick=()=>{if(onGo)onGo();else $('#modal').classList.add('hidden')};$('#modalClose').onclick=()=>{if(!city?.pendingBudget)$('#modal').classList.add('hidden');};}
-function cityEvaluation(){if(!city)return;const evaluation=city.evaluation;if(!evaluation){modal('City evaluation','Your first annual review is available after the January budget.','<p>Current score: '+city.score+'</p>');return;}const labels=['Crime','Pollution','Housing cost','Taxes','Traffic','Unemployment','Fire'];modal('City evaluation','Annual score '+evaluation.score+' · Change '+(evaluation.change>=0?'+':'')+evaluation.change,'<p>Last annual review: '+evaluation.year+'</p><h3>Problem ratings</h3><ul class="event-history">'+labels.map((label,i)=>'<li>'+label+': '+evaluation.problems[i]+'</li>').join('')+'</ul>');}
+function cityEvaluation(){
+ if(!city)return;const evaluation=city.evaluation;
+ if(!evaluation){modal('City evaluation','Your first annual review is available after the January budget.','<p>Current score: '+city.score+'</p>');return;}
+ const labels=['Crime','Pollution','Housing cost','Taxes','Traffic','Unemployment','Fire'],approval=evaluation.approval;
+ const poll=approval?'<p class="evaluation-approval">'+(approval.approve+approval.disapprove?'Mayor approval: '+approval.approve+'% · Disapprove: '+approval.disapprove+'%':'No residents polled.')+'</p>':'';
+ const concerns=evaluation.survey?.worst.filter(v=>v.id<7&&v.votes>0)||[];
+ modal('City evaluation','Annual score '+evaluation.score+' · Change '+(evaluation.change>=0?'+':'')+evaluation.change,'<p>Last annual review: '+evaluation.year+'</p>'+poll+(concerns.length?'<h3>Residents’ concerns</h3><ul class="evaluation-concerns">'+concerns.map(v=>'<li>'+labels[v.id]+': '+v.votes+'%</li>').join('')+'</ul>':'')+'<h3>Problem ratings</h3><ul class="event-history">'+labels.map((label,i)=>'<li>'+label+': '+evaluation.problems[i]+'</li>').join('')+'</ul>');
+}
 function cityHistory(){if(!city)return;modal('City history','The ten most recent recorded events, oldest first.',city.eventHistory.length?'<ol class="event-history">'+city.eventHistory.map(e=>'<li>'+e.year+' · '+['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'][e.month-1]+' — '+(HISTORY_LABELS[e.id]||'Event '+e.id)+'</li>').join('')+'</ol>':'<p>No events recorded yet.</p>');}
 function dispatchCitySounds(){if(!city)return;for(const effect of city.soundEvents.splice(0)){if(sound&&effect.port===3&&effect.command===5)romAudio.playOriginalShipHorn().catch(error=>city?.message('Audio: '+error.message));}}
 function giftMenu(){

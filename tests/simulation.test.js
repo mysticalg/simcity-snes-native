@@ -23,6 +23,11 @@ test('Bern checks original evaluated traffic metric rather than the most congest
  const c=new City(Array(W*H).fill(0),build,flags,{scenario:'Bern',year:1975});c.population=100000;c.category=4;c.rci=[1000,100,100];
  for(let x=0;x<48;x+=2)c.landValue[x]=100;c.traffic[0]=240;c.evaluateCity();assert.equal(c.evaluation.problems[4],23);c.updateScenarioOutcome();assert.equal(c.scenarioResult,'won');
 });
+test('annual approval survey saves its RNG result and empty-city review consumes no draws',()=>{
+ const c=new City(Array(W*H).fill(0),build,flags),initial=[...c.simulationRng];c.evaluateCity();assert.deepEqual(c.simulationRng,initial);
+ c.population=100000;c.rci=[1000,100,100];c.evaluateCity();assert.deepEqual(c.evaluation.approval,{approve:74,disapprove:26});assert.deepEqual(c.evaluation.survey.worst[0],{id:3,votes:15});assert.notDeepEqual(c.simulationRng,initial);
+ const saved=City.restore(c.serialize(),build,flags);assert.deepEqual(saved.evaluation,c.evaluation);assert.deepEqual(saved.simulationRng,c.simulationRng);
+});
 test('commercial scoring snapshots the old density center and survives save/load',()=>{
  const c=new City(Array(W*H).fill(0),build,flags);c.centerX=28;c.centerY=24;c.map[20*W+20]=0x144;c.refresh();c.updateDensityField();
  assert.equal(c.commercialRate[6*15+7],64);assert.equal(c.centerX,10);assert.equal(c.centerY,10);

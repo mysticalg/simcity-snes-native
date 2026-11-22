@@ -24,3 +24,17 @@ export function romCityProblems({crime=0,landValue=0,pollution,traffic,landValue
  const fireProblem=Math.min(255,word(word(fires*4)+word(fires)+((fires&0x4000)?1:0)));
  return [word(crime),meanPollution,q8(landValue,179),word(tax*10),q8(meanTraffic,614),unemployment,fireProblem];
 }
+// CODE_03B627: cycle eight problem slots until100 accepted responses or600
+// attempts. Slot7 is the zero-filled spare, and still consumes random draws.
+export function pollRomProblems(problems,nextBounded){
+ const votes=Array(8).fill(0);let total=0,attempts=0,index=0;
+ while(total<100&&attempts<600){if(nextBounded(300)<word(problems[index]||0)){votes[index]++;total++;}index=(index+1)&7;attempts++;}
+ const selected=new Set(),worst=[];
+ for(let n=0;n<4;n++){
+  let best=0,winner=7;for(let i=0;i<7;i++)if(!selected.has(i)&&votes[i]>=best){best=votes[i];winner=i;}
+  if(best){selected.add(winner);worst.push({id:winner,votes:best});}else worst.push({id:7,votes:0});
+ }
+ return {votes,worst,total,attempts};
+}
+// CODE_03B824:100 fresh bounded draws, after score calculation.
+export function pollRomApproval(score,nextBounded){let approve=0;for(let i=0;i<100;i++)if(nextBounded(1000)<word(score))approve++;return {approve,disapprove:100-approve};}

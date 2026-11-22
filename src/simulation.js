@@ -3,7 +3,7 @@ import {createRomShip,spawnRomShip,stepRomShip} from './rom-ship.js?v=collision-
 import {applyRomShipCollision,burnRomZone} from './rom-collision.js';
 import {recordRomHistory} from './rom-history.js';
 import {romCommercialRate,commercialLocalScore,industrialLocalScore} from './rom-commercial.js';
-import {romCityProblems,romCityScore} from './rom-evaluation.js';
+import {romCityProblems,romCityScore,pollRomProblems,pollRomApproval} from './rom-evaluation.js';
 import {romTransportFunding,updateRomTransportTile} from './rom-transport.js';
 import {traceRomPower} from './rom-power.js';
 import {romFieldSchedule} from './rom-schedule.js';
@@ -242,10 +242,12 @@ export class City {
  takeLoan(){if(this.loan){this.message('Repay the current loan before borrowing again.');return false;}this.loan={years:21,payment:500};this.funds=Math.min(999999,this.funds+10000);this.message('Bank loan received: $10,000; 21 annual payments of $500.');return true;}
  cityEvaluationInputs(){return {population:this.population,problems:romCityProblems({crime:this.meanCrime||0,landValue:this.meanLandValue||0,pollution:this.pollution,traffic:this.traffic,landValues:this.landValue,tax:this.tax,rci:this.rci,fires:this.fireCount}),caps:[...this.growthCaps.suppressed],demand:[...this.demand]};}
  evaluateCity(inputs=this.cityEvaluationInputs()){
-  if(!inputs.population){this.score=500;this.scoreChange=0;this.evaluation={year:this.year,score:500,change:0,problems:Array(7).fill(0)};return this.evaluation;}
+  if(!inputs.population){this.score=500;this.scoreChange=0;this.evaluation={year:this.year,score:500,change:0,problems:Array(7).fill(0),survey:null,approval:{approve:0,disapprove:0}};return this.evaluation;}
   const problems=inputs.problems;
+  const survey=pollRomProblems(problems,max=>this.boundedRandom(max));
   const result=romCityScore({previous:this.score,problems,caps:inputs.caps,transport:this.transportStrength,police:this.serviceStrengths[0],fire:this.serviceStrengths[1],demand:inputs.demand});
-  this.score=result.score;this.scoreChange=result.change;this.evaluation={year:this.year,problems,...result};return this.evaluation;
+  const approval=pollRomApproval(result.score,max=>this.boundedRandom(max));
+  this.score=result.score;this.scoreChange=result.change;this.evaluation={year:this.year,problems,survey,approval,...result};return this.evaluation;
  }
  updateScenarioOutcome(){if(this.pendingBudget)return;const result=scenarioOutcome(this.scenario,this.year,{category:this.category,traffic:this.evaluation?.problems?.[4]??0,crime:this.meanCrime||0,score:this.score});if(result!=='active'&&!this.scenarioResult){this.scenarioResult=result;this.message('Scenario '+result+'.');}}
  settleAnnualBudget(){if(!this.pendingBudget)return null;const rate=this.pendingBudget.taxRate,inputs=this.pendingBudget.evaluationInputs;const result=this.budget(true,rate);this.pendingBudget=null;this.evaluateCity(inputs);this.updateScenarioOutcome();return result;}
