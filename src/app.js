@@ -1,3 +1,4 @@
+import {strokeCells} from './build-stroke.js';
 import {cityPaletteForMonth} from './rom-render.js';
 import {RomSampleAudio} from './rom-audio.js';
 const romAudio=new RomSampleAudio();
@@ -23,13 +24,30 @@ function paint(){if(!city)return;ctx.fillStyle='#071c33';ctx.fillRect(0,0,960,60
 if(selected>=0&&selected<16){ctx.globalAlpha=.75;for(const c of city.footprint(selected,cursor.x,cursor.y)){if(c.x>=x0&&c.x<x1&&c.y>=y0&&c.y<y1){ctx.fillStyle=city.canBuild(selected,cursor.x,cursor.y).ok?'#d5ff7d':'#ff755e';ctx.fillRect(c.x*8,c.y*8,8,8)}}ctx.globalAlpha=1;}
 ctx.strokeStyle='#fff';ctx.lineWidth=1;ctx.strokeRect(cursor.x*8+.5,cursor.y*8+.5,7,7);ctx.restore();refresh();}
 function refresh(){if(!city)return;if(city.scenarioResult&&!city.scenarioDialogSeen){city.scenarioDialogSeen=true;modal(city.scenarioResult==='won'?'Scenario complete':'Scenario failed','The scenario deadline has been reached. You can continue managing this city.');}$('#cityName').textContent=city.name.toUpperCase();$('#date').textContent=`${['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'][city.month-1]} ${city.year}`;$('#funds').textContent='$'+city.funds.toLocaleString();$('#population').textContent=city.population.toLocaleString();$('#report').textContent=`${['VILLAGE','TOWN','CITY','CAPITAL','METROPOLIS','MEGALOPOLIS'][city.category]}\nR ${city.rci[0]}   C ${city.rci[1]}   I ${city.rci[2]}\nPOWER ${city.powerUsed}/${city.powerCapacity}\nROADS ${city.roadCount} · RAIL ${city.railCount}\nCRIME ${Math.round(city.meanCrime||0)} · SCORE ${city.score}\n${city.notices[0]||'The city is quiet.'}`;updateTools();}
-function pointer(e,buildNow){const r=canvas.getBoundingClientRect(),px=(e.clientX-r.left)*canvas.width/r.width,py=(e.clientY-r.top)*canvas.height/r.height;cursor={x:clamp(Math.floor(px/(8*zoom)+camera.x),0,W-1),y:clamp(Math.floor(py/(8*zoom)+camera.y),0,H-1)};if(buildNow&&selected>=0)city.place(selected,cursor.x,cursor.y);paint();}
-canvas.onpointermove=e=>pointer(e,false);canvas.onpointerdown=e=>pointer(e,true);window.onkeydown=e=>{if(e.key==='f'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();return}if($('#modal').classList.contains('hidden')===false)return;if(!city)return;const k=e.key.toLowerCase();if(k===' '){e.preventDefault();$('#pause').click()}else if(k==='m')$('#view').click();else if(k==='b')city.place(selected,cursor.x,cursor.y);else if(k>='1'&&k<='9'){selected=+k-1;updateTools()}else{const dx={arrowleft:-1,a:-1,arrowright:1,d:1}[k]||0,dy={arrowup:-1,w:-1,arrowdown:1,s:1}[k]||0;cursor.x=clamp(cursor.x+dx,0,W-1);cursor.y=clamp(cursor.y+dy,0,H-1);centerCamera();paint()}};
+let stroke=null;
+function pointer(e,buildNow){
+ if(!city)return;
+ const r=canvas.getBoundingClientRect(),px=(e.clientX-r.left)*canvas.width/r.width,py=(e.clientY-r.top)*canvas.height/r.height;
+ cursor={x:clamp(Math.floor(px/(8*zoom)+camera.x),0,W-1),y:clamp(Math.floor(py/(8*zoom)+camera.y),0,H-1)};
+ if(buildNow&&selected>=0){
+  const cells=stroke&&stroke.tool<=4?strokeCells(stroke.last,cursor):[cursor];
+  for(const c of cells){const key=c.y*W+c.x;if(stroke?.visited.has(key))continue;if(stroke)stroke.visited.add(key);city.place(stroke?.tool??selected,c.x,c.y);}
+  if(stroke)stroke.last={...cursor};
+ }
+ paint();
+}
+canvas.style.touchAction='none';
+canvas.onpointerdown=e=>{if(e.button!==0||!city)return;canvas.setPointerCapture(e.pointerId);pointer(e,false);stroke={tool:selected,last:{...cursor},visited:new Set()};pointer(e,true);};
+canvas.onpointermove=e=>{if(stroke&&!(e.buttons&1))stroke=null;pointer(e,!!stroke&&stroke.tool<=4);};
+canvas.onpointerup=e=>{if(stroke&&stroke.tool<=4)pointer(e,true);stroke=null;if(canvas.hasPointerCapture(e.pointerId))canvas.releasePointerCapture(e.pointerId);};
+canvas.onpointercancel=canvas.onlostpointercapture=()=>{stroke=null;};
+window.addEventListener('blur',()=>{stroke=null;});window.onkeydown=e=>{if(e.key==='f'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();return}if($('#modal').classList.contains('hidden')===false)return;if(!city)return;const k=e.key.toLowerCase();if(k===' '){e.preventDefault();$('#pause').click()}else if(k==='m')$('#view').click();else if(k==='b')city.place(selected,cursor.x,cursor.y);else if(k>='1'&&k<='9'){selected=+k-1;updateTools()}else{const dx={arrowleft:-1,a:-1,arrowright:1,d:1}[k]||0,dy={arrowup:-1,w:-1,arrowdown:1,s:1}[k]||0;cursor.x=clamp(cursor.x+dx,0,W-1);cursor.y=clamp(cursor.y+dy,0,H-1);centerCamera();paint()}};
 function save(){if(!city)return;const a=document.createElement('a'),url=URL.createObjectURL(new Blob([city.serialize()],{type:'application/json'}));a.href=url;a.download='simcity-save.json';a.click();URL.revokeObjectURL(url)}
 async function load(e){try{city=City.restore(await e.target.files[0].text(),build,flags);camera={x:0,y:0};$('#modal').classList.add('hidden');paint()}catch(err){modal('Could not load city',err.message)}}
 setup();modal('Welcome to SimCity','A native JavaScript reconstruction using graphics, palettes, construction tables, and all nine maps extracted from the matching USA SNES ROM. Choose a scenario to begin.','<p>This playable milestone is still in development. Scenario objectives and several simulation formulas remain approximations.</p>','CHOOSE A CITY',menu);
 let last=performance.now(),acc=0;function frame(now){const dt=Math.min(100,now-last);last=now;if(city&&!paused&&$('#modal').classList.contains('hidden')){city.advance(dt);acc+=dt;if(acc>150){acc=0;paint()}}requestAnimationFrame(frame)}requestAnimationFrame(frame);
 window.render_game_to_text=()=>JSON.stringify(city?{coordinates:'origin top-left; x right, y down; 120×100 tiles',mode:paused?'paused':'city',zoom,speed:city.speed,scenario:city.scenario,name:city.name,year:city.year,month:city.month,funds:city.funds,population:city.population,demand:city.demand,selectedTool:TOOLS[selected],cursor,populationBands:city.rci,powerCapacity:city.powerCapacity,powerUsed:city.powerUsed,disasters:city.disasters,notices:city.notices.slice(0,2)}:{mode:'menu'});window.advanceTime=ms=>{if(city&&!paused)city.advance(ms);paint()};
+
 
 
 

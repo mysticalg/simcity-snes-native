@@ -1,0 +1,7 @@
+// Cardinal staircase keeps network strokes connected even on diagonal drags.
+export function strokeCells(from,to){
+ const cells=[{...from}];let x=from.x,y=from.y;
+ const dx=Math.abs(to.x-x),dy=Math.abs(to.y-y),sx=Math.sign(to.x-x),sy=Math.sign(to.y-y);let error=dx-dy;
+ while(x!==to.x||y!==to.y){const twice=2*error;if(twice>-dy&&x!==to.x){error-=dy;x+=sx;cells.push({x,y});}if(twice<dx&&y!==to.y){error+=dx;y+=sy;cells.push({x,y});}}
+ return cells;
+}
