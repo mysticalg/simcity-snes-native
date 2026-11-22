@@ -1,0 +1,29 @@
+import fs from'node:fs';import path from'node:path';import crypto from'node:crypto';import{spawn}from'node:child_process';import{traceRomPower}from'../src/rom-power.js';
+const root=path.resolve(import.meta.dirname,'..'),work=process.env.REFERENCE_WORK||path.resolve(root,'../../work/tools/mesen2'),exe=process.env.MESEN_EXE||path.join(work,'app/Mesen.exe'),rom=process.env.SIMCITY_ROM||path.resolve(root,'../../work/extracted/SimCity (USA).sfc');const sha=b=>crypto.createHash('sha256').update(b).digest('hex'),romHash=sha(fs.readFileSync(rom));if(romHash!==JSON.parse(fs.readFileSync(path.join(root,'assets/manifest.json'))).romSHA256)throw Error('Wrong ROM');const flags=JSON.parse(fs.readFileSync(path.join(root,'assets/tables/city.json'))).flags;
+const rle=map=>{const out=[];for(const n of map){if(out.at(-1)?.[1]===n)out.at(-1)[0]++;else out.push([1,n]);}return out;};
+const cases=[];const add=(name,map)=>{const result=traceRomPower(map,flags),bitmap=new Uint8Array(1500),plants=[];let coal=0,nuclear=0;for(let i=0;i<map.length;i++){if(result.power[i])bitmap[Math.floor(i/120)*15+Math.floor((i%120)/8)]|=128>>((i%120)&7);if((flags[map[i]&1023]&1)&&[0x28c,0x27c].includes(map[i]&1023)){plants.push([i%120,Math.floor(i/120)]);if((map[i]&1023)===0x28c)coal++;else nuclear++;}}cases.push({name,mapRle:rle(map),plants,coal,nuclear,scanId:map.at(-1)&1023,capacity:result.capacity,used:result.used,exhausted:result.exhausted,powered:result.power.reduce((a,b)=>a+b,0),bitmap:Array.from(bitmap),bitmapSHA256:sha(bitmap),mapSHA256:sha(Buffer.from(Uint16Array.from(map,(word,i)=>(word&32767)|(result.power[i]?32768:0)).buffer))});};
+add('no plants',Array(12000).fill(0x62));let m=Array(12000).fill(0);m[50*120+60]=0x28c;add('isolated coal',m);for(const n of [-120,-1,1,120])m[50*120+60+n]=0x62;add('four branches',m);m=Array(12000).fill(0);m[0]=0x28c;m[1]=0x62;m[10000]=0x27c;m[10001]=0x62;add('disconnected mixed plants',m);m=Array(12000).fill(0x62);m[0]=0x28c;m[11999]=0;add('coal overload',m);m[0]=0x27c;add('nuclear overload',m);m=Array(12000).fill(0);m[11998]=0x62;m[11999]=0x28c;add('final scan register plant',m);
+m=Array(12000).fill(0);for(let y=0;y<40;y++)for(let x=0;x<80;x++)m[y*120+x]=0xc062;m[0]=0xc28c;m[20]=0x827c;add('connected plants and marker preservation',m);
+m=Array(12000).fill(0);for(let y=10;y<35;y++)for(let x=10;x<35;x++)m[y*120+x]=(x%4===0||y%4===0)?0x62:0x32;m[12*120+12]=0x28c;add('grid branches with nonconductive roads',m);
+const fixtures=cases.map(c=>`{runs={${c.mapRle.map(r=>'{'+r+'}')}},plants={${c.plants.map(r=>'{'+r+'}')}},coal=${c.coal},nuclear=${c.nuclear},scanId=${c.scanId},capacity=${c.capacity},used=${c.used},exhausted=${c.exhausted?'true':'false'},bitmap={${c.bitmap}}}`).join(',');
+const script=`local fixtures={${fixtures}}
+local n=0;local injected=false;local mem=emu.memType.snesWorkRam
+local function setup(index)
+ local c=fixtures[index];local s=emu.getState();s['cpu.emulationMode']=false;s['cpu.pc']=0x1000;s['cpu.k']=3;s['cpu.d']=0x1800;s['cpu.dbr']=3;s['cpu.sp']=0x1eff;s['cpu.ps']=4;s['cpu.needNmi']=false;s['cpu.stopState']=0;emu.setState(s)
+ local i=0;for _,run in ipairs(c.runs)do for j=1,run[1]do emu.write16(0x10200+i*2,run[2],mem);i=i+1 end end
+ emu.write16(0x0e0d,c.coal,mem);emu.write16(0x0e0f,c.nuclear,mem);emu.write16(0x0c57,#c.plants,mem);emu.write16(0x0c59,0,mem);emu.write16(0x0b89,c.scanId,mem);emu.write16(0x0383,0,mem)
+ for j,p in ipairs(c.plants)do emu.write(0x1d1e4+j,p[1],mem);emu.write(0x1e56c+j,p[2],mem)end
+ for j,v in ipairs({0x20,0xb0,0xaf,0x20,0x52,0xb1,0xea})do emu.write(0x1000+j-1,v,mem)end
+ emu.write(0x4200,0,emu.memType.snesMemory)
+end
+emu.addMemoryCallback(function()
+ if not injected then return end;local c=fixtures[n]
+ for j=1,1500 do if emu.read(0x1a598+j-1,mem)~=c.bitmap[j]then emu.stop(100000+n*2000+j);return end end
+ local i=0;for _,run in ipairs(c.runs)do for j=1,run[1]do local byte=c.bitmap[math.floor(i/120)*15+math.floor((i%120)/8)+1];local powered=(byte&(128>>((i%120)&7)))~=0;local expected=(run[2]&32767)|(powered and 32768 or 0);if emu.read16(0x10200+i*2,mem)~=expected then emu.stop(500000+n*12000+i);return end;i=i+1 end end
+ local capacity=emu.read16(0x17f6,mem)+65536*emu.read16(0x17f8,mem);local used=emu.read16(0x17fa,mem)+65536*emu.read16(0x17fc,mem)
+ if capacity~=c.capacity then emu.stop(1000+n);return end;if used~=c.used then emu.stop(2000+n);return end;if (emu.read16(0x0383,mem)>0)~=c.exhausted then emu.stop(3000+n);return end
+ if n==#fixtures then emu.stop(0);return end;n=n+1;setup(n)
+end,emu.callbackType.exec,0x031006,0x031006)
+emu.addMemoryCallback(function()if injected then return end;n=1;setup(n);injected=true end,emu.callbackType.exec,0,0xffffff)
+`;
+fs.mkdirSync(work,{recursive:true});const file=path.join(work,'power-fixtures.lua');fs.writeFileSync(file,script);const code=await new Promise((resolve,reject)=>{const p=spawn(exe,['--testRunner','--timeout=10',file,rom],{windowsHide:true,stdio:'ignore'});const timer=setTimeout(()=>{p.kill();reject(Error('Reference timeout'));},15000);p.on('error',e=>{clearTimeout(timer);reject(e);});p.on('exit',code=>{clearTimeout(timer);resolve(code);});});console.log(JSON.stringify({cases:cases.length,exitCode:code}));if(code===0){const report={routine:'CODE_03AFB0 + CODE_03B152',mapWordsCompared:cases.length*12000,romSHA256:romHash,mesenSHA256:sha(fs.readFileSync(exe)),bitmapBytesCompared:cases.length*1500,counterWordsCompared:cases.length*4,overloadFlagsCompared:cases.length,fixture:{directPage:0x1800,dataBank:3,stack:0x1eff,status:4,interrupts:false},cases:cases.map(({bitmap,...c})=>c),exitCode:code};fs.writeFileSync(path.join(root,'research/reference-power.json'),JSON.stringify(report,null,2)+'\n');}else process.exitCode=1;

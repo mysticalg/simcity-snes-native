@@ -1,3 +1,5 @@
+// Nine controlled ROM-execution fixtures verify bitmap, counters and map
+// writeback (research/reference-power.json). Natural scan timing is separate.
 // CODE_03AFB0..03B0DC: row-major plant pushes, LIFO branch stack,
 // first two available N/E/S/W neighbors, follow the second and revisit
 // the junction. Every visit consumes capacity, including revisits.
