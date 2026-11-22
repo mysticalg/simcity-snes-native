@@ -235,12 +235,13 @@ export class City {
   return result;
  }
  takeLoan(){if(this.loan){this.message('Repay the current loan before borrowing again.');return false;}this.loan={years:10,payment:600};this.funds=Math.min(999999,this.funds+5000);this.message('Bank loan received: $5,000; $600 annually for ten years. Provisional loan terms.');return true;}
- tick(){
-  // CODE_038016 accrues tax once per base step; four steps make a month.
-  this.taxAccumulator+=this.tax*4;
-  for(let step=0;step<4;step++)this.traffic=this.traffic.map(decayTraffic);
-  for(let step=0;step<4;step++)decayRomRadiation(this.map,max=>this.boundedRandom(max));
-  for(let step=0;step<4;step++){const e=stepScenarioEvent(this.scenario,this.scenarioRemaining,this.population);this.scenarioRemaining=e.remaining;if(e.event==='Meltdown'){const site=scenarioMeltdownSite(this.map);if(site)this.disaster(e.event,site.x,site.y);}else if(e.event)this.disaster(e.event);}
+ tick(){for(let n=0;n<4;n++)this.stepSimulation();}
+ stepSimulation(){
+  // CODE_038016 runs demand and tile simulation on each of four base steps.
+  this.taxAccumulator+=this.tax;
+  this.traffic=this.traffic.map(decayTraffic);
+  decayRomRadiation(this.map,max=>this.boundedRandom(max));
+  {const e=stepScenarioEvent(this.scenario,this.scenarioRemaining,this.population);this.scenarioRemaining=e.remaining;if(e.event==='Meltdown'){const site=scenarioMeltdownSite(this.map);if(site)this.disaster(e.event,site.x,site.y);}else if(e.event)this.disaster(e.event);}
   const reminder=stepScenarioReminder(this.scenario,this.year,this.scenarioReminders.length);if(reminder.yearsLeft!==null){this.scenarioReminders.push(reminder.yearsLeft);this.message('Scenario deadline: '+reminder.yearsLeft+' years remaining.');}
   let repaired=false;for(const z of this.zones)if(repairMergedZone(this.map,z.x,z.y,W,H))repaired=true;if(repaired)this.refresh();
   this.updatePower();this.fields();
@@ -256,16 +257,21 @@ export class City {
    else if(decision.action==='decline')this.grow(z,-1);
   }
   this.updateDisasters();this.refresh();
-  this.updateGrowthCaps();
+  this.baseStep=(this.baseStep+1)&65535;
+  if((this.baseStep&3)===0){
+   if(++this.month>12){this.month=1;this.year++;this.budget(true,Math.floor(this.taxAccumulator/48));this.taxAccumulator=0;}
+   this.history.push({year:this.year,month:this.month,population:this.population,rci:[...this.rci],funds:this.funds,crime:this.meanCrime||0});if(this.history.length>240)this.history.shift();
+  }
+  this.scanGrowthCaps();
   this.checkMilestones();
   const result=scenarioOutcome(this.scenario,this.year,{category:this.category,traffic:Math.max(...this.traffic),crime:this.meanCrime||0,score:this.score});if(result!=='active'&&!this.scenarioResult){this.scenarioResult=result;this.message('Scenario '+result+'.');}
 
-  this.history.push({year:this.year,month:this.month,population:this.population,rci:[...this.rci],funds:this.funds,crime:this.meanCrime||0});if(this.history.length>240)this.history.shift();
-  if(++this.month>12){this.month=1;this.budget(true,Math.floor(this.taxAccumulator/48));this.taxAccumulator=0;this.year++;}
+
  }
- updateGrowthCaps(){const input={zones:this.counts.slice(5,8),roads:this.roadCount,rails:this.railCount,plants:this.zones.filter(z=>z.id===0x28c||z.id===0x27c).length,rci:this.rci,stadiums:this.counts[10],seaports:this.counts[11],airports:this.counts[12]};for(let n=0;n<4;n++){this.baseStep=(this.baseStep+1)&65535;const advice=scanRomGrowthCaps(this.baseStep,input,this.growthCaps);if(advice>=6&&advice<=8)this.message(['A stadium is needed for further residential growth.','A seaport is needed for further industrial growth.','An airport is needed for further commercial growth.'][advice-6]);}}
+ updateGrowthCaps(){for(let n=0;n<4;n++){this.baseStep=(this.baseStep+1)&65535;this.scanGrowthCaps();}}
+ scanGrowthCaps(){const input={zones:this.counts.slice(5,8),roads:this.roadCount,rails:this.railCount,plants:this.zones.filter(z=>z.id===0x28c||z.id===0x27c).length,rci:this.rci,stadiums:this.counts[10],seaports:this.counts[11],airports:this.counts[12]};const advice=scanRomGrowthCaps(this.baseStep,input,this.growthCaps);if(advice>=6&&advice<=8)this.message(['A stadium is needed for further residential growth.','A seaport is needed for further industrial growth.','An airport is needed for further commercial growth.'][advice-6]);}
  checkMilestones(){const event=nextCoreMilestone({population:this.population,category:this.category,police:this.counts[8],fire:this.counts[9],rail:this.railCount,inventorySize:this.gifts.length},this.giftMilestones);if(event){this.message(event.text);if(event.gift!==null)enqueueRomGift(this.gifts,event.gift);}return event;}
- advance(ms){this.elapsed+=ms*this.speed;while(this.elapsed>=3000){this.elapsed-=3000;this.tick();}}
+ advance(ms){this.elapsed+=ms*this.speed;while(this.elapsed>=750){this.elapsed-=750;this.stepSimulation();}}
  disaster(type,x=60,y=50){
   if(type==='Meltdown'){const result=applyRomMeltdown(this.map,this.flags,x,y,max=>this.boundedRandom(max),W,H);this.message('Nuclear meltdown reported.');this.refresh();return result;}
   if(type==='Fire'){this.map[y*W+x]=0x7f;this.message('Fire reported.');this.refresh();return;}
@@ -290,8 +296,8 @@ export class City {
   }
   this.disasters=this.disasters.filter(d=>d.life>0);
  }
- serialize(){return JSON.stringify({version:1,baseStep:this.baseStep,growthCaps:this.growthCaps,demand:this.demand,giftMilestones:this.giftMilestones,simulationRng:this.simulationRng,traffic:Array.from(this.traffic),scenarioRemaining:this.scenarioRemaining,scenarioResult:this.scenarioResult,scenarioReminders:this.scenarioReminders,scenarioDialogSeen:this.scenarioDialogSeen,map:Array.from(this.map),name:this.name,scenario:this.scenario,year:this.year,month:this.month,funds:this.funds,difficulty:this.difficulty,tax:this.tax,taxAccumulator:this.taxAccumulator,funding:this.funding,rngA:this.rngA,rngB:this.rngB,history:this.history,loan:this.loan,gifts:this.gifts});}
- static restore(text,build,flags){const s=JSON.parse(text);if(s.version!==1||!Array.isArray(s.map)||s.map.length!==12000||s.map.some(n=>!Number.isInteger(n)||n<0||n>65535))throw Error('This is not a supported city save.');const c=new City(s.map,build,flags,s);for(const k of ['baseStep','growthCaps','demand','giftMilestones','simulationRng','scenarioRemaining','scenarioResult','scenarioReminders','scenarioDialogSeen','month','funds','tax','taxAccumulator','funding','rngA','rngB','history','loan','gifts'])if(s[k]!==undefined)c[k]=s[k];if(Array.isArray(s.traffic)&&s.traffic.length===W*H)c.traffic=Uint8Array.from(s.traffic);c.refresh();return c;}
+ serialize(){return JSON.stringify({version:1,elapsed:this.elapsed,speed:this.speed,baseStep:this.baseStep,growthCaps:this.growthCaps,demand:this.demand,giftMilestones:this.giftMilestones,simulationRng:this.simulationRng,traffic:Array.from(this.traffic),scenarioRemaining:this.scenarioRemaining,scenarioResult:this.scenarioResult,scenarioReminders:this.scenarioReminders,scenarioDialogSeen:this.scenarioDialogSeen,map:Array.from(this.map),name:this.name,scenario:this.scenario,year:this.year,month:this.month,funds:this.funds,difficulty:this.difficulty,tax:this.tax,taxAccumulator:this.taxAccumulator,funding:this.funding,rngA:this.rngA,rngB:this.rngB,history:this.history,loan:this.loan,gifts:this.gifts});}
+ static restore(text,build,flags){const s=JSON.parse(text);if(s.version!==1||!Array.isArray(s.map)||s.map.length!==12000||s.map.some(n=>!Number.isInteger(n)||n<0||n>65535))throw Error('This is not a supported city save.');const c=new City(s.map,build,flags,s);for(const k of ['elapsed','speed','baseStep','growthCaps','demand','giftMilestones','simulationRng','scenarioRemaining','scenarioResult','scenarioReminders','scenarioDialogSeen','month','funds','tax','taxAccumulator','funding','rngA','rngB','history','loan','gifts'])if(s[k]!==undefined)c[k]=s[k];if(Array.isArray(s.traffic)&&s.traffic.length===W*H)c.traffic=Uint8Array.from(s.traffic);c.refresh();return c;}
 }
 
 
