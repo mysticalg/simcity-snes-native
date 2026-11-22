@@ -37,3 +37,17 @@ export function scanRomFire(map,flags,coverage,nextWord,nextBounded,igniteZone,w
  }
  return burning;
 }
+// CODE_03BAF5/03BB30/03BB4F, using CODE_03BC9F random map coordinates.
+// Coordinates are byte-packed; an x endpoint beyond the row wraps into
+// the next row as the original address arithmetic does. Out-of-map RAM
+// writes are guarded in this native map representation.
+export function applyRomEarthquake(map,flags,nextBounded,width=120,height=100){
+ const attempts=200+nextBounded(350);let fire=0,rubble=0;
+ for(let n=0;n<attempts;n++){
+  const x=nextBounded(width-1)&255,y=nextBounded(height-1)&255,i=y*width+x;
+  if(i>=map.length)continue;const id=map[i]&1023;
+  if(id<0x80||id>=0x2bc||(flags[id]&1))continue;
+  if((x&3)===0){map[i]=0x7f;fire++;}else{map[i]=0x28;rubble++;}
+ }
+ return {attempts,fire,rubble};
+}
