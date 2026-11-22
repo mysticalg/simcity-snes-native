@@ -107,9 +107,11 @@ window.render_game_to_text=()=>JSON.stringify(city?{coordinates:'origin top-left
 
 function setupWorkspaceControls(){
  const bar=document.createElement('section');bar.className='workspace-controls';
- const nav=$('#nav'),actions=$('.actions');bar.append(nav,actions,mobileControls);
+ const nav=$('#nav'),actions=$('.actions'),row=document.createElement('div');row.className='command-row';row.append(nav,actions);bar.append(row);
  const drawing=document.createElement('div');drawing.className='drawing-controls';drawing.innerHTML='<label>Draw <select id="drawMode"><option value="freehand">Freehand</option><option value="line">Straight line</option><option value="rectangle">Rectangle outline</option><option value="filled">Filled rectangle</option><option value="grid">Street grid</option></select></label><label id="gridSpacingLabel" hidden>Grid <input id="gridSpacing" type="number" min="2" max="24" value="4" aria-label="Grid spacing"> tiles · wheel adjusts</label><label><input id="autoDemolish" type="checkbox"> Auto demolish + replace ($1/tile)</label><label>Overlay <select id="overlay">'+Object.entries(OVERLAYS).map(([id,name])=>'<option value="'+id+'">'+name+'</option>').join('')+'</select></label>';
- bar.append(drawing);$('.top').after(bar);
+ $('.tools').after(drawing,mobileControls);$('.top').after(bar);
+ const commandIcons=['🏙','ℹ','📜','📊','💰','🌪','⏸','⏩','🗺','🔍','💾','📂','🔊'];
+ [...row.querySelectorAll('button')].forEach((button,i)=>{button.dataset.icon=commandIcons[i]||'◆';button.setAttribute('aria-label',button.textContent);button.title=button.textContent;new MutationObserver(()=>{button.setAttribute('aria-label',button.textContent);button.title=button.textContent;}).observe(button,{childList:true,characterData:true,subtree:true});});
  $('#drawMode').onchange=e=>{drawMode=e.target.value;$('#gridSpacingLabel').hidden=drawMode!=='grid';stroke=null;paint();};$('#gridSpacing').onchange=e=>setGridSpacing(+e.target.value);$('#autoDemolish').onchange=e=>autoDemolish=e.target.checked;$('#overlay').onchange=e=>{mapView=e.target.value;paint();};
  const legend=document.createElement('span');legend.id='overlayLegend';$('.screen').append(legend);
  const hud=$('.hud');hud.insertAdjacentHTML('beforeend','<span id="demandBars" aria-label="RCI demand">'+['R','C','I'].map((name,i)=>'<span class="demand-column" title="'+name+' demand"><span class="demand-track"><i id="demand'+i+'"></i></span><b>'+name+'</b></span>').join('')+'</span>');
