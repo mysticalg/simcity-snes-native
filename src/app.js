@@ -47,16 +47,20 @@ function centerCamera(){camera.x=clamp(cursor.x-60/zoom,0,Math.max(0,W-120/zoom)
 function setZoom(value){zoom=value;centerCamera();document.querySelector('#zoom').textContent='ZOOM '+zoom+'×';paint();}
 function cell(x,y){if(x<0||x>=W||y<0||y>=H)return;const id=city.map[y*W+x]&1023;const season=cityPaletteForMonth(city.month),atlas=currentAtlas,i=clamp(id,0,957),sx=(i%32)*8,sy=(i>>5)*8,dx=x*8,dy=y*8;ctx.drawImage(atlas,sx,sy,8,8,dx,dy,8,8);const color=overlayColor(city,mapView,y*W+x);if(color){ctx.fillStyle=color;ctx.fillRect(dx,dy,8,8);}}
 function paint(){if(!city)return;currentAtlas=animatedAtlas.image(cityPaletteForMonth(city.month),animation);ctx.fillStyle='#071c33';ctx.fillRect(0,0,960,600);ctx.save();ctx.scale(zoom,zoom);if(city.quakeFrames)ctx.translate((city.quakePhase&8)?-2:2,0);ctx.translate(-camera.x*8,-camera.y*8);const x0=Math.floor(Math.max(0,camera.x)),y0=Math.floor(Math.max(0,camera.y)),x1=Math.min(W,camera.x+120/zoom),y1=Math.min(H,camera.y+75/zoom);for(let y=y0;y<y1;y++)for(let x=x0;x<x1;x++)cell(x,y);
-if(mapView==='none'&&!stroke&&selected>=0&&selected<build.buildings.length){ctx.globalAlpha=.75;for(const c of city.footprint(selected,cursor.x,cursor.y)){if(c.x>=x0&&c.x<x1&&c.y>=y0&&c.y<y1){ctx.fillStyle=city.canBuild(selected,cursor.x,cursor.y).ok?'#d5ff7d':'#ff755e';ctx.fillRect(c.x*8,c.y*8,8,8)}}ctx.globalAlpha=1;}
+hoverPlanCache=null;
+if(mapView==='none'&&!stroke&&selected>=0&&selected<build.buildings.length){hoverPlanCache=hoverPlacementPlan();ctx.globalAlpha=.7;
+ const anchors=drawMode==='blocks'?zoneBlockLayout(cursor,cursor,blockColumns,blockRows,blockCourtyard).zones:[cursor];
+ for(const anchor of anchors)for(const c of city.footprint(selected,anchor.x,anchor.y)){if(c.x>=x0&&c.x<x1&&c.y>=y0&&c.y<y1){ctx.fillStyle=hoverPlanCache.ok?'#d5ff7d':'#ff755e';ctx.fillRect(c.x*8,c.y*8,8,8);}}ctx.globalAlpha=1;
+}
 if(city.ship.active&&!city.ship.initializing)ctx.drawImage(shipImage,city.ship.direction*32,0,32,32,city.ship.pixelX-12,city.ship.pixelY-12,32,32);
 if(city.train.active&&!city.train.hidden)ctx.drawImage(trainImage,city.train.frame*8,0,8,8,city.train.x-4,city.train.y-4,8,8);
 if(stroke){stroke.plan=planStroke();ctx.fillStyle=stroke.plan.ok?'#55d9ff66':'#ff333399';ctx.strokeStyle=stroke.plan.ok?'#8beaff':'#ff6666';ctx.lineWidth=.5;const occupied=new Set();for(const c of (stroke.mode==='filled'&&fillAvailable?stroke.plan.anchors:strokePreview())){
  const tool=c.tool??stroke.tool,footprint=tool>4?city.footprint(tool,c.x,c.y):[c];if(footprint.some(p=>occupied.has(p.y*W+p.x)))continue;
  for(const p of footprint){if(p.x<0||p.x>=W||p.y<0||p.y>=H)continue;occupied.add(p.y*W+p.x);ctx.fillRect(p.x*8,p.y*8,8,8);ctx.strokeRect(p.x*8+.25,p.y*8+.25,7.5,7.5);}
 }if(stroke.mode==='blocks'&&!blockRoads){ctx.fillStyle=stroke.plan.ok?'#e6d88255':'#ff333399';for(const c of blockLayout().roads)ctx.fillRect(c.x*8,c.y*8,8,8);}}
-drawPowerWarnings(ctx,city);ctx.strokeStyle='#fff';ctx.lineWidth=1;ctx.strokeRect(cursor.x*8+.5,cursor.y*8+.5,7,7);ctx.restore();refresh();}
+drawPowerWarnings(ctx,city);ctx.strokeStyle='#fff';ctx.lineWidth=1;ctx.strokeRect(cursor.x*8+.5,cursor.y*8+.5,7,7);ctx.restore();refresh();updatePlacementTooltip();}
 function refresh(){if(!city)return;if(city.pendingBudget&&$('#modal').classList.contains('hidden'))budget();if(!city.pendingBudget&&city.scenarioResult&&!city.scenarioDialogSeen){city.scenarioDialogSeen=true;modal(city.scenarioResult==='won'?'Scenario complete':'Scenario failed','The scenario deadline has been reached. You can continue managing this city.');}$('#cityName').textContent=city.name.toUpperCase();$('#date').textContent=`${['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'][city.month-1]} ${city.year}`;$('#funds').textContent='$'+city.funds.toLocaleString();const annual=city.budget(false).net,balance=$('#annualBalance');balance.textContent=(annual<0?'−':'+')+'$'+Math.abs(annual).toLocaleString()+'/yr';balance.className=annual<0?'deficit':annual>0?'surplus':'balanced';balance.title='Projected annual '+(annual<0?'loss':'surplus')+' from the current fiscal budget';balance.setAttribute('aria-label','Projected annual balance '+annual+' dollars');$('#population').textContent=city.population.toLocaleString();$('#citySize').textContent=['Village','Town','City','Capital','Metropolis','Megalopolis'][city.category];refreshCityWarning();updateDemandBars();$('#overlayLegend').textContent=overlayLegend();$('#blueprintLegend').textContent=stroke?(stroke.plan?.ok?((stroke.mode==='blocks'?blockLayout().blocks+' blocks · ':'')+(stroke.plan.anchors?.length||0)+' placements · $'+stroke.plan.cost.toLocaleString()+(stroke.plan.skipped?' · '+stroke.plan.skipped+' skipped':'')+' · release to place'):(stroke.plan?.reason||'Cannot place this blueprint')):'';$('#report').textContent=`${['VILLAGE','TOWN','CITY','CAPITAL','METROPOLIS','MEGALOPOLIS'][city.category]}\nR ${city.rci[0]}   C ${city.rci[1]}   I ${city.rci[2]}\nDEMAND ${city.demand.join(' / ')}${city.growthCaps.suppressed.some(Boolean)?' · NEEDS '+['STADIUM','AIRPORT','SEAPORT'].filter((_,i)=>city.growthCaps.suppressed[i]).join(', '):''}\nPOWER ${city.powerUsed}/${city.powerCapacity}${city.powerOverloaded?' · OVERLOADED':''} · UNPOWERED ${unpoweredBuildings(city).length}\nROADS ${city.roadCount} · RAIL ${city.railCount}\nCRIME ${Math.round(city.meanCrime||0)} · SCORE ${city.score}\n${city.notices[0]||'Left-drag to build · Right-drag to pan the map.'}`;updateTools();}
-let stroke=null,touchMode='pan',panGesture=null,drawMode='freehand',autoDemolish=false,gridSpacing=4,blockColumns=3,blockRows=3,blockCourtyard=true,blockRoads=false,fillAvailable=false;
+let stroke=null,touchMode='pan',panGesture=null,drawMode='freehand',autoDemolish=false,gridSpacing=4,blockColumns=3,blockRows=3,blockCourtyard=true,blockRoads=false,fillAvailable=false,placementPointer=null,hoverPlanCache=null;
 const mobileControls=document.createElement('div');mobileControls.className='mobile-controls';
 mobileControls.innerHTML='<button id="touchPan" aria-pressed="true">✥ PAN</button><button id="touchBuild" aria-pressed="false">BUILD</button><button id="zoomOut" aria-label="Zoom out">− ZOOM</button><button id="zoomIn" aria-label="Zoom in">+ ZOOM</button><span>Pan: drag the map · Build: choose a tool, then tap or drag</span>';
 document.querySelector('.screen').after(mobileControls);
@@ -66,6 +70,7 @@ $('#zoomOut').onclick=()=>{if(city)setZoom(Math.max(1,zoom/2));};$('#zoomIn').on
 document.querySelector('#tools').addEventListener('click',e=>{if(e.target.closest('[data-tool]'))setTouchMode('build');});
 function pointer(e,buildNow){
  if(!city)return;
+ placementPointer={x:e.clientX,y:e.clientY,type:e.pointerType||placementPointer?.type||'mouse'};
  const r=canvas.getBoundingClientRect(),px=(e.clientX-r.left)*canvas.width/r.width,py=(e.clientY-r.top)*canvas.height/r.height;
  cursor={x:clamp(Math.floor(px/(8*zoom)+camera.x),0,W-1),y:clamp(Math.floor(py/(8*zoom)+camera.y),0,H-1)};
  if(buildNow&&stroke)stroke.pointer={clientX:e.clientX,clientY:e.clientY,pointerId:e.pointerId};
@@ -77,12 +82,28 @@ function pointer(e,buildNow){
 }
 function blockLayout(){return zoneBlockLayout(stroke.start,cursor,blockColumns,blockRows,blockCourtyard);}
 function strokePreview(){if(stroke.mode==='blocks'){const layout=blockLayout();return [...layout.zones,...(blockRoads?layout.roads.map(c=>({...c,tool:1})):[])];}return stroke.mode==='freehand'?[...stroke.path.values()]:shapeCells(stroke.start,cursor,stroke.mode,gridSpacing);}
-function planStroke(){const plan=city.planPlacements(stroke.tool,strokePreview(),{autoDemolish,skipBlocked:stroke.mode==='filled'&&fillAvailable});if(stroke.mode==='blocks'){if(stroke.tool<5||stroke.tool>7)return {ok:false,cost:0,reason:'Choose residential, commercial or industrial for Zone Blocks.'};const layout=blockLayout();for(const c of layout.roads){if(c.x<0||c.x>=W||c.y<0||c.y>=H)return {...plan,ok:false,reason:'The complete block and its road space must fit inside the map.'};if(!blockRoads&&plan.ok){const id=plan.map[c.y*W+c.x]&1023;if(id>=0x80&&!(flags[id]&0x70))return {...plan,ok:false,reason:'Clear the road/rail corridor around this block first.'};}}}return plan;}
+function validateBlockPlan(plan,layout){
+ for(const c of layout.roads){if(c.x<0||c.x>=W||c.y<0||c.y>=H)return {...plan,ok:false,reason:'The complete block and its road space must fit inside the map.'};if(!blockRoads&&plan.ok){const id=plan.map[c.y*W+c.x]&1023;if(id>=0x80&&!(flags[id]&0x70))return {...plan,ok:false,reason:'Clear the road/rail corridor around this block first.'};}}
+ return plan;
+}
+function hoverPlacementPlan(){
+ if(drawMode==='blocks'){
+  if(selected<5||selected>7)return {ok:false,cost:0,reason:'Choose residential, commercial or industrial for Zone Blocks.'};
+  const layout=zoneBlockLayout(cursor,cursor,blockColumns,blockRows,blockCourtyard),cells=[...layout.zones,...(blockRoads?layout.roads.map(c=>({...c,tool:1})):[])];return validateBlockPlan(city.planPlacements(selected,cells,{autoDemolish}),layout);
+ }
+ return autoDemolish?city.replacementPlan(selected,cursor.x,cursor.y):city.canBuild(selected,cursor.x,cursor.y);
+}
+function planStroke(){
+ if(stroke.mode==='blocks'&&(stroke.tool<5||stroke.tool>7))return {ok:false,cost:0,reason:'Choose residential, commercial or industrial for Zone Blocks.'};
+ const plan=city.planPlacements(stroke.tool,strokePreview(),{autoDemolish,skipBlocked:stroke.mode==='filled'&&fillAvailable});return stroke.mode==='blocks'?validateBlockPlan(plan,blockLayout()):plan;
+}
+
 canvas.style.touchAction='none';
-canvas.onpointerdown=e=>{if((e.button!==0&&e.button!==2)||!city||panGesture||stroke)return;e.preventDefault();try{canvas.setPointerCapture(e.pointerId);}catch{}if(e.button===2||mapView!=='none'||(matchMedia('(max-width:900px)').matches&&touchMode==='pan')){panGesture={id:e.pointerId,x:e.clientX,y:e.clientY,camera:{...camera}};return;}pointer(e,false);stroke={id:e.pointerId,tool:selected,mode:drawMode,start:{...cursor},last:{...cursor},path:new Map([[cursor.y*W+cursor.x,{...cursor}]])};pointer(e,true);};
+canvas.onpointerdown=e=>{if((e.button!==0&&e.button!==2)||!city||panGesture||stroke)return;e.preventDefault();try{canvas.setPointerCapture(e.pointerId);}catch{}if(e.button===2||mapView!=='none'||(matchMedia('(max-width:900px)').matches&&touchMode==='pan')){panGesture={id:e.pointerId,x:e.clientX,y:e.clientY,camera:{...camera}};$('#placementTooltip').hidden=true;return;}pointer(e,false);stroke={id:e.pointerId,tool:selected,mode:drawMode,start:{...cursor},last:{...cursor},path:new Map([[cursor.y*W+cursor.x,{...cursor}]])};pointer(e,true);};
 canvas.onpointermove=e=>{if(panGesture){if(e.pointerId!==panGesture.id)return;const r=canvas.getBoundingClientRect();camera.x=clamp(panGesture.camera.x-(e.clientX-panGesture.x)*960/r.width/(8*zoom),0,Math.max(0,W-120/zoom));camera.y=clamp(panGesture.camera.y-(e.clientY-panGesture.y)*600/r.height/(8*zoom),0,Math.max(0,H-75/zoom));paint();return;}if(stroke&&e.pointerId!==stroke.id)return;pointer(e,!!stroke);};
 canvas.onpointerup=e=>{if(panGesture?.id===e.pointerId)panGesture=null;if(stroke?.id===e.pointerId){pointer(e,true);city.applyPlacementPlan(planStroke());stroke=null;paint();}if(canvas.hasPointerCapture(e.pointerId))canvas.releasePointerCapture(e.pointerId);};
-canvas.onpointercancel=()=>{stroke=null;panGesture=null;};
+canvas.onpointercancel=()=>{stroke=null;panGesture=null;placementPointer=null;$('#placementTooltip').hidden=true;};
+canvas.onpointerleave=()=>{if(!stroke){placementPointer=null;$('#placementTooltip').hidden=true;}};
 window.addEventListener('pointerup',()=>{stroke=null;panGesture=null;});
 canvas.oncontextmenu=e=>e.preventDefault();
 canvas.onlostpointercapture=()=>{stroke=null;panGesture=null;};
@@ -119,6 +140,7 @@ function setupWorkspaceControls(){
  $('#drawMode').onchange=e=>{drawMode=e.target.value;$('#gridSpacingLabel').hidden=drawMode!=='grid';$('#blockSettings').hidden=drawMode!=='blocks';$('#fillAvailableLabel').hidden=drawMode!=='filled';if(drawMode==='blocks'&&(selected<5||selected>7)){selected=5;updateTools();}stroke=null;paint();};$('#fillAvailable').onchange=e=>{fillAvailable=e.target.checked;paint();};for(const [id,set]of [['blockColumns',v=>blockColumns=v],['blockRows',v=>blockRows=v]])$('#'+id).onchange=e=>{const v=clamp(Math.trunc(+e.target.value)||1,1,12);set(v);e.target.value=v;paint();};$('#blockCourtyard').onchange=e=>{blockCourtyard=e.target.checked;paint();};$('#blockRoads').onchange=e=>{blockRoads=e.target.checked;paint();};$('#gridSpacing').onchange=e=>setGridSpacing(+e.target.value);$('#autoDemolish').onchange=e=>autoDemolish=e.target.checked;$('#overlay').onchange=e=>setOverlay(e.target.value);
  const identity=document.createElement('span');identity.className='city-identity';$('#cityName').before(identity);const size=document.createElement('b');size.id='citySize';identity.append($('#cityName'),size);
  const warning=document.createElement('section');warning.id='cityWarning';warning.className='city-warning';warning.hidden=true;warning.setAttribute('role','status');warning.innerHTML='<div><strong>CITY ADVISOR</strong><p id="cityWarningText"></p></div><button id="dismissWarning" aria-label="Dismiss city warning">×</button>';$('.screen').append(warning);$('#dismissWarning').onclick=()=>{dismissedCityWarning=cityWarningKey();warning.hidden=true;};
+ const tooltip=document.createElement('div');tooltip.id='placementTooltip';tooltip.hidden=true;tooltip.setAttribute('role','tooltip');document.body.append(tooltip);
  const blueprintLegend=document.createElement('span');blueprintLegend.id='blueprintLegend';$('.screen').append(blueprintLegend);
  const legend=document.createElement('span');legend.id='overlayLegend';$('.screen').append(legend);
  const annual=document.createElement('span');annual.id='annualBalance';$('#funds').after(annual);$('#funds').parentElement.classList.add('funds-group');
@@ -156,4 +178,14 @@ function panBlueprintAtEdge(dt){
  const dx=p.clientX<r.left+edge?-1:p.clientX>r.right-edge?1:0,dy=p.clientY<r.top+edge?-1:p.clientY>r.bottom-edge?1:0;
  const x=clamp(camera.x+dx*amount,0,Math.max(0,W-120/zoom)),y=clamp(camera.y+dy*amount,0,Math.max(0,H-75/zoom));
  if(x!==camera.x||y!==camera.y){camera.x=x;camera.y=y;pointer(p,true);}
+}
+
+function updatePlacementTooltip(){
+ const el=$('#placementTooltip');if(!el)return;
+ const r=canvas.getBoundingClientRect(),p=placementPointer,inside=p&&p.x>=r.left&&p.x<=r.right&&p.y>=r.top&&p.y<=r.bottom;
+ if(!city||!p||(!inside&&!stroke)||mapView!=='none'||panGesture||selected<0||!$('#modal').classList.contains('hidden')){el.hidden=true;return;}
+ const plan=stroke?stroke.plan:hoverPlanCache||hoverPlacementPlan();if(!plan){el.hidden=true;return;}
+ el.hidden=false;el.className=plan.ok?'valid':'invalid';el.textContent=plan.ok?'$'+plan.cost.toLocaleString()+(plan.anchors?' · '+plan.anchors.length+' placements':'')+(plan.skipped?' · '+plan.skipped+' skipped':''):(plan.reason||'Cannot place here.');
+ const box=el.getBoundingClientRect(),x=clamp(p.x+16,8,Math.max(8,innerWidth-box.width-8));let y=p.type==='touch'?p.y-box.height-28:p.y+20;
+ if(y+box.height>innerHeight-72)y=p.y-box.height-18;el.style.left=x+'px';el.style.top=clamp(y,8,Math.max(8,innerHeight-box.height-72))+'px';
 }
