@@ -8,3 +8,5 @@
 #tools button:focus-visible{outline:2px solid var(--lime);outline-offset:2px}
 @media(max-width:900px){.layout{grid-template-columns:180px minmax(0,1fr)}.layout>aside{display:flex;grid-column:1;grid-row:1}.layout>.screen{grid-column:2;grid-row:1}#tools{grid-template-columns:1fr}canvas{height:600px;aspect-ratio:auto}.hud{flex-wrap:wrap;gap:5px}}
 @media(max-width:520px){.layout{grid-template-columns:64px minmax(0,1fr)}.layout>aside{padding:8px 4px}.tool-icon{font-size:23px}#tools button{justify-content:center}#tools button>span:last-child{display:none}.section-title{font-size:8px}aside nav,.actions,.info{display:none}}
+.layout>aside{max-height:600px;overflow-y:auto;min-width:0}#tools{min-width:0;grid-template-columns:repeat(2,minmax(0,1fr))}#tools button{min-width:0;white-space:normal;overflow-wrap:anywhere}.layout>.screen{min-width:0}
+@media(max-width:900px){#tools{grid-template-columns:1fr}}
