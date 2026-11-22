@@ -5,6 +5,14 @@ import fs from 'node:fs';
 const build=JSON.parse(fs.readFileSync(new URL('../assets/tables/build.json',import.meta.url)));
 const flags=JSON.parse(fs.readFileSync(new URL('../assets/tables/city.json',import.meta.url))).flags;
 const map=JSON.parse(fs.readFileSync(new URL('../assets/maps/Map_PracticeCity.json',import.meta.url)));
+test('January population baseline uses prior displayed population before the fresh scan',()=>{
+ const m=Array(W*H).fill(0),i=50*W+60;m[i]=0x99;const c=new City(m,build,flags);assert.equal(c.population,320);c.month=12;c.baseStep=47;c.scanCityTiles=()=>{c.map[i]=0xa2;};c.stepSimulation();
+ assert.equal(c.population,480);assert.equal(c.populationBaseline,320);assert.equal(c.netMigration,160);assert.ok(c.pendingBudget);
+ const saved=City.restore(c.serialize(),build,flags);assert.equal(saved.populationBaseline,320);assert.equal(saved.netMigration,160);saved.map[i]=0x99;saved.refresh();assert.equal(saved.netMigration,0);
+});
+test('legacy city saves start migration at load instead of inventing a past baseline',()=>{
+ const m=Array(W*H).fill(0);m[6060]=0x99;const c=new City(m,build,flags),old=JSON.parse(c.serialize());delete old.populationBaseline;delete old.netMigration;const saved=City.restore(JSON.stringify(old),build,flags);assert.equal(saved.populationBaseline,320);assert.equal(saved.netMigration,0);
+});
 test('special facility centers stay outside residential census and RCI scan path',()=>{
  const m=Array(W*H).fill(0);m[20*W+20]=0x129;m[20*W+25]=0x132;const c=new City(m,build,flags);assert.deepEqual(c.facilityCounts,[1,1]);assert.equal(c.population,0);assert.equal(c.counts[5],0);
  c.random=()=>{throw Error('facility entered residential RNG path');};c.scanCityTiles();assert.equal(c.map[20*W+20]&1023,0x129);assert.equal(c.map[20*W+25]&1023,0x132);

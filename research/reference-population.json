@@ -1,0 +1,912 @@
+{
+  "routines": [
+    "CODE_038196",
+    "CODE_03B562"
+  ],
+  "valuesCompared": 420,
+  "romSHA256": "e9c0bc05511e05a0d7c3e7cc42e761e1e8e532d46f59b9854b6902e1a2e9dd0a",
+  "mesenSHA256": "d2eb03c2590c648bf329f127ebcfefd70130e7690a9e2ccdba8616faea1fe96b",
+  "cases": [
+    {
+      "annual": false,
+      "rci": [
+        0,
+        0,
+        0
+      ],
+      "baseline": 0,
+      "expected": {
+        "units": 0,
+        "population": 0,
+        "netMigration": 0,
+        "category": 0
+      }
+    },
+    {
+      "annual": false,
+      "rci": [
+        0,
+        0,
+        0
+      ],
+      "baseline": 123456,
+      "expected": {
+        "units": 0,
+        "population": 0,
+        "netMigration": -123456,
+        "category": 0
+      }
+    },
+    {
+      "annual": false,
+      "rci": [
+        0,
+        0,
+        0
+      ],
+      "baseline": 4294967295,
+      "expected": {
+        "units": 0,
+        "population": 0,
+        "netMigration": 1,
+        "category": 0
+      }
+    },
+    {
+      "annual": false,
+      "rci": [
+        100,
+        0,
+        0
+      ],
+      "baseline": 0,
+      "expected": {
+        "units": 100,
+        "population": 2000,
+        "netMigration": 2000,
+        "category": 1
+      }
+    },
+    {
+      "annual": false,
+      "rci": [
+        100,
+        0,
+        0
+      ],
+      "baseline": 123456,
+      "expected": {
+        "units": 100,
+        "population": 2000,
+        "netMigration": -121456,
+        "category": 1
+      }
+    },
+    {
+      "annual": false,
+      "rci": [
+        100,
+        0,
+        0
+      ],
+      "baseline": 4294967295,
+      "expected": {
+        "units": 100,
+        "population": 2000,
+        "netMigration": 2001,
+        "category": 1
+      }
+    },
+    {
+      "annual": false,
+      "rci": [
+        500,
+        0,
+        0
+      ],
+      "baseline": 0,
+      "expected": {
+        "units": 500,
+        "population": 10000,
+        "netMigration": 10000,
+        "category": 2
+      }
+    },
+    {
+      "annual": false,
+      "rci": [
+        500,
+        0,
+        0
+      ],
+      "baseline": 123456,
+      "expected": {
+        "units": 500,
+        "population": 10000,
+        "netMigration": -113456,
+        "category": 2
+      }
+    },
+    {
+      "annual": false,
+      "rci": [
+        500,
+        0,
+        0
+      ],
+      "baseline": 4294967295,
+      "expected": {
+        "units": 500,
+        "population": 10000,
+        "netMigration": 10001,
+        "category": 2
+      }
+    },
+    {
+      "annual": false,
+      "rci": [
+        2500,
+        0,
+        0
+      ],
+      "baseline": 0,
+      "expected": {
+        "units": 2500,
+        "population": 50000,
+        "netMigration": 50000,
+        "category": 3
+      }
+    },
+    {
+      "annual": false,
+      "rci": [
+        2500,
+        0,
+        0
+      ],
+      "baseline": 123456,
+      "expected": {
+        "units": 2500,
+        "population": 50000,
+        "netMigration": -73456,
+        "category": 3
+      }
+    },
+    {
+      "annual": false,
+      "rci": [
+        2500,
+        0,
+        0
+      ],
+      "baseline": 4294967295,
+      "expected": {
+        "units": 2500,
+        "population": 50000,
+        "netMigration": 50001,
+        "category": 3
+      }
+    },
+    {
+      "annual": false,
+      "rci": [
+        5000,
+        0,
+        0
+      ],
+      "baseline": 0,
+      "expected": {
+        "units": 5000,
+        "population": 100000,
+        "netMigration": 100000,
+        "category": 4
+      }
+    },
+    {
+      "annual": false,
+      "rci": [
+        5000,
+        0,
+        0
+      ],
+      "baseline": 123456,
+      "expected": {
+        "units": 5000,
+        "population": 100000,
+        "netMigration": -23456,
+        "category": 4
+      }
+    },
+    {
+      "annual": false,
+      "rci": [
+        5000,
+        0,
+        0
+      ],
+      "baseline": 4294967295,
+      "expected": {
+        "units": 5000,
+        "population": 100000,
+        "netMigration": 100001,
+        "category": 4
+      }
+    },
+    {
+      "annual": false,
+      "rci": [
+        25000,
+        0,
+        0
+      ],
+      "baseline": 0,
+      "expected": {
+        "units": 25000,
+        "population": 500000,
+        "netMigration": 500000,
+        "category": 5
+      }
+    },
+    {
+      "annual": false,
+      "rci": [
+        25000,
+        0,
+        0
+      ],
+      "baseline": 123456,
+      "expected": {
+        "units": 25000,
+        "population": 500000,
+        "netMigration": 376544,
+        "category": 5
+      }
+    },
+    {
+      "annual": false,
+      "rci": [
+        25000,
+        0,
+        0
+      ],
+      "baseline": 4294967295,
+      "expected": {
+        "units": 25000,
+        "population": 500000,
+        "netMigration": 500001,
+        "category": 5
+      }
+    },
+    {
+      "annual": false,
+      "rci": [
+        65535,
+        65535,
+        65535
+      ],
+      "baseline": 0,
+      "expected": {
+        "units": 65520,
+        "population": 1310400,
+        "netMigration": 1310400,
+        "category": 5
+      }
+    },
+    {
+      "annual": false,
+      "rci": [
+        65535,
+        65535,
+        65535
+      ],
+      "baseline": 123456,
+      "expected": {
+        "units": 65520,
+        "population": 1310400,
+        "netMigration": 1186944,
+        "category": 5
+      }
+    },
+    {
+      "annual": false,
+      "rci": [
+        65535,
+        65535,
+        65535
+      ],
+      "baseline": 4294967295,
+      "expected": {
+        "units": 65520,
+        "population": 1310400,
+        "netMigration": 1310401,
+        "category": 5
+      }
+    },
+    {
+      "annual": false,
+      "rci": [
+        0,
+        8192,
+        0
+      ],
+      "baseline": 0,
+      "expected": {
+        "units": 1,
+        "population": 20,
+        "netMigration": 20,
+        "category": 0
+      }
+    },
+    {
+      "annual": false,
+      "rci": [
+        0,
+        8192,
+        0
+      ],
+      "baseline": 123456,
+      "expected": {
+        "units": 1,
+        "population": 20,
+        "netMigration": -123436,
+        "category": 0
+      }
+    },
+    {
+      "annual": false,
+      "rci": [
+        0,
+        8192,
+        0
+      ],
+      "baseline": 4294967295,
+      "expected": {
+        "units": 1,
+        "population": 20,
+        "netMigration": 21,
+        "category": 0
+      }
+    },
+    {
+      "annual": false,
+      "rci": [
+        65535,
+        8192,
+        0
+      ],
+      "baseline": 0,
+      "expected": {
+        "units": 0,
+        "population": 0,
+        "netMigration": 0,
+        "category": 0
+      }
+    },
+    {
+      "annual": false,
+      "rci": [
+        65535,
+        8192,
+        0
+      ],
+      "baseline": 123456,
+      "expected": {
+        "units": 0,
+        "population": 0,
+        "netMigration": -123456,
+        "category": 0
+      }
+    },
+    {
+      "annual": false,
+      "rci": [
+        65535,
+        8192,
+        0
+      ],
+      "baseline": 4294967295,
+      "expected": {
+        "units": 0,
+        "population": 0,
+        "netMigration": 1,
+        "category": 0
+      }
+    },
+    {
+      "annual": false,
+      "rci": [
+        1,
+        65535,
+        1
+      ],
+      "baseline": 0,
+      "expected": {
+        "units": 1,
+        "population": 20,
+        "netMigration": 20,
+        "category": 0
+      }
+    },
+    {
+      "annual": false,
+      "rci": [
+        1,
+        65535,
+        1
+      ],
+      "baseline": 123456,
+      "expected": {
+        "units": 1,
+        "population": 20,
+        "netMigration": -123436,
+        "category": 0
+      }
+    },
+    {
+      "annual": false,
+      "rci": [
+        1,
+        65535,
+        1
+      ],
+      "baseline": 4294967295,
+      "expected": {
+        "units": 1,
+        "population": 20,
+        "netMigration": 21,
+        "category": 0
+      }
+    },
+    {
+      "annual": true,
+      "rci": [
+        0,
+        0,
+        0
+      ],
+      "baseline": 0,
+      "expected": {
+        "units": 0,
+        "population": 0,
+        "netMigration": 0,
+        "category": 0
+      }
+    },
+    {
+      "annual": true,
+      "rci": [
+        0,
+        0,
+        0
+      ],
+      "baseline": 123456,
+      "expected": {
+        "units": 0,
+        "population": 0,
+        "netMigration": -123456,
+        "category": 0
+      }
+    },
+    {
+      "annual": true,
+      "rci": [
+        0,
+        0,
+        0
+      ],
+      "baseline": 4294967295,
+      "expected": {
+        "units": 0,
+        "population": 0,
+        "netMigration": 1,
+        "category": 0
+      }
+    },
+    {
+      "annual": true,
+      "rci": [
+        100,
+        0,
+        0
+      ],
+      "baseline": 0,
+      "expected": {
+        "units": 100,
+        "population": 2000,
+        "netMigration": 2000,
+        "category": 1
+      }
+    },
+    {
+      "annual": true,
+      "rci": [
+        100,
+        0,
+        0
+      ],
+      "baseline": 123456,
+      "expected": {
+        "units": 100,
+        "population": 2000,
+        "netMigration": -121456,
+        "category": 1
+      }
+    },
+    {
+      "annual": true,
+      "rci": [
+        100,
+        0,
+        0
+      ],
+      "baseline": 4294967295,
+      "expected": {
+        "units": 100,
+        "population": 2000,
+        "netMigration": 2001,
+        "category": 1
+      }
+    },
+    {
+      "annual": true,
+      "rci": [
+        500,
+        0,
+        0
+      ],
+      "baseline": 0,
+      "expected": {
+        "units": 500,
+        "population": 10000,
+        "netMigration": 10000,
+        "category": 2
+      }
+    },
+    {
+      "annual": true,
+      "rci": [
+        500,
+        0,
+        0
+      ],
+      "baseline": 123456,
+      "expected": {
+        "units": 500,
+        "population": 10000,
+        "netMigration": -113456,
+        "category": 2
+      }
+    },
+    {
+      "annual": true,
+      "rci": [
+        500,
+        0,
+        0
+      ],
+      "baseline": 4294967295,
+      "expected": {
+        "units": 500,
+        "population": 10000,
+        "netMigration": 10001,
+        "category": 2
+      }
+    },
+    {
+      "annual": true,
+      "rci": [
+        2500,
+        0,
+        0
+      ],
+      "baseline": 0,
+      "expected": {
+        "units": 2500,
+        "population": 50000,
+        "netMigration": 50000,
+        "category": 3
+      }
+    },
+    {
+      "annual": true,
+      "rci": [
+        2500,
+        0,
+        0
+      ],
+      "baseline": 123456,
+      "expected": {
+        "units": 2500,
+        "population": 50000,
+        "netMigration": -73456,
+        "category": 3
+      }
+    },
+    {
+      "annual": true,
+      "rci": [
+        2500,
+        0,
+        0
+      ],
+      "baseline": 4294967295,
+      "expected": {
+        "units": 2500,
+        "population": 50000,
+        "netMigration": 50001,
+        "category": 3
+      }
+    },
+    {
+      "annual": true,
+      "rci": [
+        5000,
+        0,
+        0
+      ],
+      "baseline": 0,
+      "expected": {
+        "units": 5000,
+        "population": 100000,
+        "netMigration": 100000,
+        "category": 4
+      }
+    },
+    {
+      "annual": true,
+      "rci": [
+        5000,
+        0,
+        0
+      ],
+      "baseline": 123456,
+      "expected": {
+        "units": 5000,
+        "population": 100000,
+        "netMigration": -23456,
+        "category": 4
+      }
+    },
+    {
+      "annual": true,
+      "rci": [
+        5000,
+        0,
+        0
+      ],
+      "baseline": 4294967295,
+      "expected": {
+        "units": 5000,
+        "population": 100000,
+        "netMigration": 100001,
+        "category": 4
+      }
+    },
+    {
+      "annual": true,
+      "rci": [
+        25000,
+        0,
+        0
+      ],
+      "baseline": 0,
+      "expected": {
+        "units": 25000,
+        "population": 500000,
+        "netMigration": 500000,
+        "category": 5
+      }
+    },
+    {
+      "annual": true,
+      "rci": [
+        25000,
+        0,
+        0
+      ],
+      "baseline": 123456,
+      "expected": {
+        "units": 25000,
+        "population": 500000,
+        "netMigration": 376544,
+        "category": 5
+      }
+    },
+    {
+      "annual": true,
+      "rci": [
+        25000,
+        0,
+        0
+      ],
+      "baseline": 4294967295,
+      "expected": {
+        "units": 25000,
+        "population": 500000,
+        "netMigration": 500001,
+        "category": 5
+      }
+    },
+    {
+      "annual": true,
+      "rci": [
+        65535,
+        65535,
+        65535
+      ],
+      "baseline": 0,
+      "expected": {
+        "units": 65520,
+        "population": 1310400,
+        "netMigration": 1310400,
+        "category": 5
+      }
+    },
+    {
+      "annual": true,
+      "rci": [
+        65535,
+        65535,
+        65535
+      ],
+      "baseline": 123456,
+      "expected": {
+        "units": 65520,
+        "population": 1310400,
+        "netMigration": 1186944,
+        "category": 5
+      }
+    },
+    {
+      "annual": true,
+      "rci": [
+        65535,
+        65535,
+        65535
+      ],
+      "baseline": 4294967295,
+      "expected": {
+        "units": 65520,
+        "population": 1310400,
+        "netMigration": 1310401,
+        "category": 5
+      }
+    },
+    {
+      "annual": true,
+      "rci": [
+        0,
+        8192,
+        0
+      ],
+      "baseline": 0,
+      "expected": {
+        "units": 1,
+        "population": 20,
+        "netMigration": 20,
+        "category": 0
+      }
+    },
+    {
+      "annual": true,
+      "rci": [
+        0,
+        8192,
+        0
+      ],
+      "baseline": 123456,
+      "expected": {
+        "units": 1,
+        "population": 20,
+        "netMigration": -123436,
+        "category": 0
+      }
+    },
+    {
+      "annual": true,
+      "rci": [
+        0,
+        8192,
+        0
+      ],
+      "baseline": 4294967295,
+      "expected": {
+        "units": 1,
+        "population": 20,
+        "netMigration": 21,
+        "category": 0
+      }
+    },
+    {
+      "annual": true,
+      "rci": [
+        65535,
+        8192,
+        0
+      ],
+      "baseline": 0,
+      "expected": {
+        "units": 0,
+        "population": 0,
+        "netMigration": 0,
+        "category": 0
+      }
+    },
+    {
+      "annual": true,
+      "rci": [
+        65535,
+        8192,
+        0
+      ],
+      "baseline": 123456,
+      "expected": {
+        "units": 0,
+        "population": 0,
+        "netMigration": -123456,
+        "category": 0
+      }
+    },
+    {
+      "annual": true,
+      "rci": [
+        65535,
+        8192,
+        0
+      ],
+      "baseline": 4294967295,
+      "expected": {
+        "units": 0,
+        "population": 0,
+        "netMigration": 1,
+        "category": 0
+      }
+    },
+    {
+      "annual": true,
+      "rci": [
+        1,
+        65535,
+        1
+      ],
+      "baseline": 0,
+      "expected": {
+        "units": 1,
+        "population": 20,
+        "netMigration": 20,
+        "category": 0
+      }
+    },
+    {
+      "annual": true,
+      "rci": [
+        1,
+        65535,
+        1
+      ],
+      "baseline": 123456,
+      "expected": {
+        "units": 1,
+        "population": 20,
+        "netMigration": -123436,
+        "category": 0
+      }
+    },
+    {
+      "annual": true,
+      "rci": [
+        1,
+        65535,
+        1
+      ],
+      "baseline": 4294967295,
+      "expected": {
+        "units": 1,
+        "population": 20,
+        "netMigration": 21,
+        "category": 0
+      }
+    }
+  ],
+  "exitCode": 0
+}
