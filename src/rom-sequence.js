@@ -19,9 +19,11 @@ export function readSpcNotePrefix(aram,pointer,previousLength=1){
 export function decodeSpcChannel(aram,pointer,{maxEvents=64,state={},startTick=0,maxTicks=Infinity}={}){
  const s={instrument:0,pan:10,volume:255,tempo:32,masterVolume:192,transpose:0,globalTranspose:0,...state};
  const events=[];let p=pointer,tick=startTick,length=s.noteLength??1,articulation=s.articulation??null,call=null;
+ const advanceVolume=at=>{if(s.volumeFade){const fade=s.volumeFade;s.volume=spcFadeVolume(fade,at);if(at-fade.startTick>=(fade.ticks||256))delete s.volumeFade;}};
  const handlers={0xe0:['instrument',1],0xe1:['pan',1],0xe5:['masterVolume',1],0xe7:['tempo',1],0xe9:['globalTranspose',1],0xea:['transpose',1],0xed:['volume',1],0xf4:['finePitch',1],0xfa:['instrumentBase',1]};
  for(let n=0;n<4096&&events.length<maxEvents;n++){
-  if(tick>=maxTicks){if(s.volumeFade)s.volume=spcFadeVolume(s.volumeFade,maxTicks);s.noteLength=length;s.articulation=articulation;return {events,state:s,next:p,ended:false,boundary:true};}
+  advanceVolume(Math.min(tick,maxTicks));
+  if(tick>=maxTicks){s.noteLength=length;s.articulation=articulation;return {events,state:s,next:p,ended:false,boundary:true};}
   const prefix=readSpcNotePrefix(aram,p,length);p=prefix.next;
   length=prefix.length??length;
   if(prefix.articulation!==null&&prefix.articulation!==undefined)articulation=prefix.articulation;
@@ -46,7 +48,6 @@ export function decodeSpcChannel(aram,pointer,{maxEvents=64,state={},startTick=0
    s[h[0]]=aram[p++];continue;
   }
   length=prefix.length;
-  if(s.volumeFade){const f=s.volumeFade,elapsed=tick-f.startTick;s.volume=elapsed>=f.ticks?f.target:Math.floor((f.start*256+f.step*elapsed)/256);}
   events.push({tick,length,kind:prefix.kind,note:prefix.opcode-0x80,articulation,...s});tick+=length;
  }
  return {events,state:s,next:p,ended:false};
@@ -54,7 +55,7 @@ export function decodeSpcChannel(aram,pointer,{maxEvents=64,state={},startTick=0
 
 export function spcFadeVolume(fade,tick){
  const elapsed=Math.max(0,tick-fade.startTick);
- return elapsed>=fade.ticks?fade.target:Math.floor((fade.start*256+fade.step*elapsed)/256);
+ return elapsed>=(fade.ticks||256)?fade.target:Math.floor((fade.start*256+fade.step*elapsed)/256);
 }
 // CODE_0986..09F3: semitone table, octave shifts and instrument tuning.
 export function spcPitch(aram,note,instrument){

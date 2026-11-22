@@ -1,4 +1,5 @@
-import {decodeSpcOrders,decodeSpcChannel,spcPitch,spcTickSeconds} from './rom-sequence.js?v=track-1';
+import {decodeSpcOrders,decodeSpcChannel,spcPitch,spcTickSeconds,spcFadeVolume} from './rom-sequence.js?v=mix-1';
+import {spcVoiceVolumes} from './rom-mix.js?v=mix-1';
 // Track1: intro then repeating body. Shared pattern boundary follows the first
 // channel's uncalled zero (CODE_14BE -> CODE_1453); do not read past it.
 export function planOriginalTrackOne(aram,{maxPatterns=3}={}){
@@ -24,10 +25,11 @@ export function planOriginalTrackOne(aram,{maxPatterns=3}={}){
     if(e.note>=74)throw Error('Untranslated percussion note');
     const gate=Math.max(1,Math.floor(e.length*aram[0x3496+((e.articulation??0)>>4&7)]/256));
     previous={...e,channel,gateEndTick:Math.min(end,e.tick+gate),sample:aram[0x3400+e.instrument*6],pitch:spcPitch(aram,e.note+e.transpose+e.globalTranspose,e.instrument),seconds:spcTickSeconds(e.tick,tempo),duration:spcTickSeconds(end,tempo)-spcTickSeconds(e.tick,tempo),gateDuration:spcTickSeconds(Math.min(end,e.tick+gate),tempo)-spcTickSeconds(e.tick,tempo)};
-    events.push(previous);
+    previous.dspVolumes=spcVoiceVolumes(aram,e);events.push(previous);
    }
   }
   startTick=endTick;
  }
+ for(const event of events){event.mixAutomation=[];if(!event.volumeFade)continue;let previous=event.dspVolumes;for(let tick=event.tick+1;tick<event.gateEndTick;tick++){const mixed=spcVoiceVolumes(aram,{...event,volume:spcFadeVolume(event.volumeFade,tick)});if(mixed.left!==previous.left||mixed.right!==previous.right){event.mixAutomation.push({tick,left:mixed.left,right:mixed.right});previous=mixed;}}}
  return {events:events.sort((a,b)=>a.seconds-b.seconds||a.channel-b.channel),patterns,duration:spcTickSeconds(startTick,tempo)};
 }

@@ -17,3 +17,7 @@ test('pattern boundaries stop command reads and preserve note duration and artic
 test('unsupported sequence commands fail explicitly in the full-track planner',()=>{
  const changed=Uint8Array.from(aram);changed[0x1d08]=0xff;assert.throws(()=>planOriginalTrackOne(changed),/Unsupported/);
 });
+test('SPC volume fades produce quantized stereo changes inside sustained notes',()=>{
+ const plan=planOriginalTrackOne(aram),fading=plan.events.filter(e=>e.mixAutomation.length);assert.ok(fading.length>10);
+ for(const event of fading)for(const point of event.mixAutomation){assert.ok(point.tick>event.tick&&point.tick<event.gateEndTick);assert.ok(Number.isInteger(point.left)&&Number.isInteger(point.right));}
+});

@@ -3,7 +3,7 @@ import {AnimatedCityAtlas,cityAnimationState,advanceCityAnimation} from './city-
 import {drawPowerWarnings,unpoweredBuildings} from './power-warnings.js?v=power-visible-2';
 import {strokeCells} from './build-stroke.js';
 import {cityPaletteForMonth} from './rom-render.js';
-import {RomSampleAudio} from './rom-audio.js?v=track-1';
+import {RomSampleAudio} from './rom-audio.js?v=mix-1';
 const romAudio=new RomSampleAudio();
 import{City,SCENARIOS,TOOLS,W,H,clamp}from'./simulation.js?v=history-3';
 const $=s=>document.querySelector(s),canvas=$('#game'),ctx=canvas.getContext('2d',{alpha:false});ctx.imageSmoothingEnabled=false;
