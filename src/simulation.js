@@ -1,3 +1,4 @@
+import {decayTraffic,addRouteTraffic} from './rom-traffic.js';
 import {applyRomMeltdown,decayRomRadiation} from './rom-disasters.js';
 import {scenarioOutcome,SCENARIO_EVENT_COUNTS,stepScenarioEvent,stepScenarioReminder,scenarioMeltdownSite} from './rom-scenarios.js';
 import {residentialDemandScore, residentialLocalScore, residentialDensityBand, residentialGrowthBase, residentialDeclineFootprint, decideResidentialUpdate, stampZoneFootprint, placeSmallHome, mergeResidentialZone,repairMergedZone,updateCommercialFootprint,updateIndustrialFootprint,decideJobZoneUpdate,findZoneTransport,traceZoneTransport} from './rom-growth.js';
@@ -140,7 +141,7 @@ export class City {
  nearRoad(z){return findZoneTransport(this.map,z.x,z.y,W,H)!==null;}
  coverage(x,y,type){let n=0;for(const z of this.zones)if(z.type===type)n=Math.max(n,clamp(1-(Math.abs(z.x-x)+Math.abs(z.y-y))/24,0,1));return n*this.funding[type===8?1:2]/100;}
  fields(){
-  this.pollution.fill(0);this.crime.fill(0);this.traffic.fill(0);
+  this.pollution.fill(0);this.crime.fill(0);
   for(const z of this.zones){
    const amount=z.type===7?90:z.type===11?160:0;
    if(amount)for(let dy=-8;dy<=8;dy++)for(let dx=-8;dx<=8;dx++){const x=z.x+dx,y=z.y+dy,d=Math.abs(dx)+Math.abs(dy);if(x>=0&&x<W&&y>=0&&y<H&&d<9){const i=y*W+x;this.pollution[i]=clamp(this.pollution[i]+amount*(9-d)/9,0,255);}}
@@ -149,7 +150,7 @@ export class City {
   for(let y=0;y<H;y++)for(let x=0;x<W;x++){
    const i=y*W+x,t=this.map[i]&1023;this.landValue[i]=clamp(150-this.pollution[i]+(t>=4&&t<0x30?30:0),0,255);
    this.crime[i]=t>=0x80?clamp(90+this.population/5000-this.coverage(x,y,8)*140,0,255):0;crime+=this.crime[i];
-   if(this.flags[t]&0x40)this.traffic[i]=clamp(this.population/300+this.zones.filter(z=>Math.abs(z.x-x)+Math.abs(z.y-y)<8).length*7,0,255);
+
   }
   this.meanCrime=crime/12000;
  }
@@ -209,6 +210,7 @@ export class City {
  tick(){
   // CODE_038016 accrues tax once per base step; four steps make a month.
   this.taxAccumulator+=this.tax*4;
+  for(let step=0;step<4;step++)this.traffic=this.traffic.map(decayTraffic);
   for(let step=0;step<4;step++)decayRomRadiation(this.map,max=>this.random()%(max+1));
   for(let step=0;step<4;step++){const e=stepScenarioEvent(this.scenario,this.scenarioRemaining,this.population);this.scenarioRemaining=e.remaining;if(e.event==='Meltdown'){const site=scenarioMeltdownSite(this.map);if(site)this.disaster(e.event,site.x,site.y);}else if(e.event)this.disaster(e.event);}
   const reminder=stepScenarioReminder(this.scenario,this.year,this.scenarioReminders.length);if(reminder.yearsLeft!==null){this.scenarioReminders.push(reminder.yearsLeft);this.message('Scenario deadline: '+reminder.yearsLeft+' years remaining.');}
@@ -219,7 +221,7 @@ export class City {
   this.demand=generatedDemand.map((value,i)=>accumulateRomDemand(this.demand[i],value,this.tax,this.difficulty,i===0?2000:1500));
   for(const z of this.zones){if(z.type<5||z.type>7)continue;
    if(z.type===5){this.updateResidentialTile(z);continue;}
-   let transport=1;if(this.random()%6<this.zonePopulation(z))transport=traceZoneTransport(this.map,z.x,z.y,z.type,()=>this.random(),W,H).status;
+   let transport=1;if(this.random()%6<this.zonePopulation(z)){const route=traceZoneTransport(this.map,z.x,z.y,z.type,()=>this.random(),W,H);transport=route.status;if(transport===1)addRouteTraffic(this.map,this.traffic,route.path,W,H);}
    if(transport===-1){this.grow(z,-1);continue;}
    const decision=decideJobZoneUpdate({mapWord:this.map[z.i],demand:this.demand[z.type-5],localScore:transport===0?(z.type===7?-1000:-3000):0,gateWord:this.random(),nextRandomWord:()=>this.random()});
    if(decision.action==='grow')this.grow(z,1);
@@ -253,9 +255,10 @@ export class City {
   }
   this.disasters=this.disasters.filter(d=>d.life>0);
  }
- serialize(){return JSON.stringify({version:1,scenarioRemaining:this.scenarioRemaining,scenarioResult:this.scenarioResult,scenarioReminders:this.scenarioReminders,scenarioDialogSeen:this.scenarioDialogSeen,map:Array.from(this.map),name:this.name,scenario:this.scenario,year:this.year,month:this.month,funds:this.funds,difficulty:this.difficulty,tax:this.tax,taxAccumulator:this.taxAccumulator,funding:this.funding,rngA:this.rngA,rngB:this.rngB,history:this.history,loan:this.loan,gifts:this.gifts});}
- static restore(text,build,flags){const s=JSON.parse(text);if(s.version!==1||!Array.isArray(s.map)||s.map.length!==12000||s.map.some(n=>!Number.isInteger(n)||n<0||n>65535))throw Error('This is not a supported city save.');const c=new City(s.map,build,flags,s);for(const k of ['scenarioRemaining','scenarioResult','scenarioReminders','scenarioDialogSeen','month','funds','tax','taxAccumulator','funding','rngA','rngB','history','loan','gifts'])if(s[k]!==undefined)c[k]=s[k];c.refresh();return c;}
+ serialize(){return JSON.stringify({version:1,traffic:Array.from(this.traffic),scenarioRemaining:this.scenarioRemaining,scenarioResult:this.scenarioResult,scenarioReminders:this.scenarioReminders,scenarioDialogSeen:this.scenarioDialogSeen,map:Array.from(this.map),name:this.name,scenario:this.scenario,year:this.year,month:this.month,funds:this.funds,difficulty:this.difficulty,tax:this.tax,taxAccumulator:this.taxAccumulator,funding:this.funding,rngA:this.rngA,rngB:this.rngB,history:this.history,loan:this.loan,gifts:this.gifts});}
+ static restore(text,build,flags){const s=JSON.parse(text);if(s.version!==1||!Array.isArray(s.map)||s.map.length!==12000||s.map.some(n=>!Number.isInteger(n)||n<0||n>65535))throw Error('This is not a supported city save.');const c=new City(s.map,build,flags,s);for(const k of ['scenarioRemaining','scenarioResult','scenarioReminders','scenarioDialogSeen','month','funds','tax','taxAccumulator','funding','rngA','rngB','history','loan','gifts'])if(s[k]!==undefined)c[k]=s[k];if(Array.isArray(s.traffic)&&s.traffic.length===W*H)c.traffic=Uint8Array.from(s.traffic);c.refresh();return c;}
 }
+
 
 
 
