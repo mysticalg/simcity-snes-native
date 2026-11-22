@@ -28,3 +28,4 @@ canvas{height:auto;aspect-ratio:8 / 5}.mobile-controls{display:none}
  .layout{grid-template-columns:minmax(0,1fr) 250px}.layout>.screen{grid-column:1;grid-row:1}.layout>.mobile-controls{grid-column:1;grid-row:2;align-self:start}.layout>aside{grid-column:2;grid-row:1 / span 2;max-height:calc(100dvh - 68px);overflow-y:auto;border-left:1px solid var(--line)}
  canvas{width:min(100%,calc((100dvh - 155px)*1.6));margin:0 auto}#tools{grid-template-columns:repeat(3,minmax(0,1fr))}.mobile-controls span{font-size:10px}
 }
+.event-history{padding-left:24px;line-height:2;color:var(--text)}
