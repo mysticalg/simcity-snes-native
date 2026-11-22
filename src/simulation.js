@@ -1,4 +1,4 @@
-import {romGiftEffects,serviceMilestoneNotices,serviceMilestoneGift} from './rom-gifts.js';
+import {romGiftEffects,serviceMilestoneNotices,serviceMilestoneGift,enqueueRomGift} from './rom-gifts.js';
 import {networkCrossing} from './rom-networks.js';
 import {romPoliceCoverage,romFireCoverage,fireBurnoutMaximum} from './rom-services.js';
 import {romDensityField} from './rom-density.js';
@@ -138,7 +138,7 @@ export class City {
    else this.map[i]=0;
   } else {
    for(const c of this.footprint(tool,x,y)){const i=c.y*W+c.x;this.map[i]=networkCrossing(tool,this.map[i])??c.id;}
-   if(tool>=16)this.gifts=this.gifts.filter(g=>g!==tool);
+   if(tool>=16)this.gifts.splice(this.gifts.indexOf(tool),1);
   }
   for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++)this.connect(x+dx,y+dy);
   this.refresh();return true;
@@ -251,9 +251,9 @@ export class City {
    else if(decision.action==='decline')this.grow(z,-1);
   }
   this.updateDisasters();this.refresh();
-  for(const notice of serviceMilestoneNotices({police:this.counts[8],fire:this.counts[9],rail:this.railCount},this.giftMilestones)){this.message(notice);const gift=serviceMilestoneGift(notice);if(gift!==null)this.gifts.push(gift);}
+  for(const notice of serviceMilestoneNotices({police:this.counts[8],fire:this.counts[9],rail:this.railCount},this.giftMilestones)){this.message(notice);const gift=serviceMilestoneGift(notice);if(gift!==null)enqueueRomGift(this.gifts,gift);}
   const result=scenarioOutcome(this.scenario,this.year,{category:this.category,traffic:Math.max(...this.traffic),crime:this.meanCrime||0,score:this.score});if(result!=='active'&&!this.scenarioResult){this.scenarioResult=result;this.message('Scenario '+result+'.');}
-  if(this.category>oldCategory){this.gifts.push(16);this.message(`Congratulations! ${this.name} is now a ${CATEGORIES[this.category].toLowerCase()}. A gift is available.`);}
+  if(this.category>oldCategory){enqueueRomGift(this.gifts,16);this.message(`Congratulations! ${this.name} is now a ${CATEGORIES[this.category].toLowerCase()}. A gift is available.`);}
   this.history.push({year:this.year,month:this.month,population:this.population,rci:[...this.rci],funds:this.funds,crime:this.meanCrime||0});if(this.history.length>240)this.history.shift();
   if(++this.month>12){this.month=1;this.budget(true,Math.floor(this.taxAccumulator/48));this.taxAccumulator=0;this.year++;}
  }
@@ -264,7 +264,7 @@ export class City {
   this.disasters.push({type,x,y,life:type==='Earthquake'?1:16});this.message(`${type} reported. Emergency services are responding.`);
   if(type==='Fire')this.map[y*W+x]=0x2e;
   this.updateDisasters();this.refresh();
-  for(const notice of serviceMilestoneNotices({police:this.counts[8],fire:this.counts[9],rail:this.railCount},this.giftMilestones)){this.message(notice);const gift=serviceMilestoneGift(notice);if(gift!==null)this.gifts.push(gift);}
+  for(const notice of serviceMilestoneNotices({police:this.counts[8],fire:this.counts[9],rail:this.railCount},this.giftMilestones)){this.message(notice);const gift=serviceMilestoneGift(notice);if(gift!==null)enqueueRomGift(this.gifts,gift);}
   const result=scenarioOutcome(this.scenario,this.year,{category:this.category,traffic:Math.max(...this.traffic),crime:this.meanCrime||0,score:this.score});if(result!=='active'&&!this.scenarioResult){this.scenarioResult=result;this.message('Scenario '+result+'.');}
  }
  updateDisasters(){
@@ -285,6 +285,7 @@ export class City {
  serialize(){return JSON.stringify({version:1,giftMilestones:this.giftMilestones,simulationRng:this.simulationRng,traffic:Array.from(this.traffic),scenarioRemaining:this.scenarioRemaining,scenarioResult:this.scenarioResult,scenarioReminders:this.scenarioReminders,scenarioDialogSeen:this.scenarioDialogSeen,map:Array.from(this.map),name:this.name,scenario:this.scenario,year:this.year,month:this.month,funds:this.funds,difficulty:this.difficulty,tax:this.tax,taxAccumulator:this.taxAccumulator,funding:this.funding,rngA:this.rngA,rngB:this.rngB,history:this.history,loan:this.loan,gifts:this.gifts});}
  static restore(text,build,flags){const s=JSON.parse(text);if(s.version!==1||!Array.isArray(s.map)||s.map.length!==12000||s.map.some(n=>!Number.isInteger(n)||n<0||n>65535))throw Error('This is not a supported city save.');const c=new City(s.map,build,flags,s);for(const k of ['giftMilestones','simulationRng','scenarioRemaining','scenarioResult','scenarioReminders','scenarioDialogSeen','month','funds','tax','taxAccumulator','funding','rngA','rngB','history','loan','gifts'])if(s[k]!==undefined)c[k]=s[k];if(Array.isArray(s.traffic)&&s.traffic.length===W*H)c.traffic=Uint8Array.from(s.traffic);c.refresh();return c;}
 }
+
 
 
 

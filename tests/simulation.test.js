@@ -130,3 +130,8 @@ test('coal line crossing carries power to residential and disconnecting clears m
  c.place(5,32,20);c.refresh();assert.ok(c.map[21*W+33]&0x8000);assert.equal(c.id(27,21),0x3e);
  c.place(0,29,21);assert.equal(c.map[21*W+33]&0x8000,0);
 });
+test('gift placement consumes one duplicate and retains inventory after reload',()=>{
+ const c=new City(Array(W*H).fill(0),build,flags);c.gifts=[21,21,22];const funds=c.funds;
+ assert.equal(c.place(21,60,50),true);assert.deepEqual(c.gifts,[21,22]);assert.equal(c.funds,funds);assert.equal(c.id(61,51),0x307);
+ const restored=City.restore(c.serialize(),build,flags);assert.deepEqual(restored.gifts,[21,22]);assert.equal(restored.place(21,60,50),false);assert.deepEqual(restored.gifts,[21,22]);
+});

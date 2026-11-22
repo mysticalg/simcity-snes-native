@@ -17,3 +17,5 @@ export function serviceMilestoneNotices({police,fire,rail},progress){
  return notices;
 }
 export function serviceMilestoneGift(notice){return notice.startsWith('Police stations')?21:notice.startsWith('Fire stations')?22:null;}
+// CODE_01BFFF scans four slots; a full inventory drops the new reward.
+export function enqueueRomGift(inventory,tool){if(inventory.length>=4)return false;inventory.push(tool);return true;}
