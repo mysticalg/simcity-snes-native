@@ -30,17 +30,19 @@ function pointer(e,buildNow){
  const r=canvas.getBoundingClientRect(),px=(e.clientX-r.left)*canvas.width/r.width,py=(e.clientY-r.top)*canvas.height/r.height;
  cursor={x:clamp(Math.floor(px/(8*zoom)+camera.x),0,W-1),y:clamp(Math.floor(py/(8*zoom)+camera.y),0,H-1)};
  if(buildNow&&selected>=0){
-  const cells=stroke&&stroke.tool<=4?strokeCells(stroke.last,cursor):[cursor];
+  const cells=stroke&&stroke.tool<=3?strokeCells(stroke.last,cursor):[cursor];
   for(const c of cells){const key=c.y*W+c.x;if(stroke?.visited.has(key))continue;if(city.place(stroke?.tool??selected,c.x,c.y)&&stroke)stroke.visited.add(key);}
   if(stroke)stroke.last={...cursor};
  }
  paint();
 }
 canvas.style.touchAction='none';
-canvas.onpointerdown=e=>{if(e.button!==0||!city)return;canvas.setPointerCapture(e.pointerId);pointer(e,false);stroke={tool:selected,last:{...cursor},visited:new Set()};pointer(e,true);};
-canvas.onpointermove=e=>{if(stroke&&!(e.buttons&1))stroke=null;pointer(e,!!stroke&&stroke.tool<=4);};
-canvas.onpointerup=e=>{if(stroke&&stroke.tool<=4)pointer(e,true);stroke=null;if(canvas.hasPointerCapture(e.pointerId))canvas.releasePointerCapture(e.pointerId);};
-canvas.onpointercancel=canvas.onlostpointercapture=()=>{stroke=null;};
+canvas.onpointerdown=e=>{if(e.button!==0||!city)return;e.preventDefault();try{canvas.setPointerCapture(e.pointerId);}catch{}pointer(e,false);stroke={tool:selected,last:{...cursor},visited:new Set()};pointer(e,true);};
+canvas.onpointermove=e=>{pointer(e,!!stroke&&stroke.tool<=3);};
+canvas.onpointerup=e=>{if(stroke&&stroke.tool<=3)pointer(e,true);stroke=null;if(canvas.hasPointerCapture(e.pointerId))canvas.releasePointerCapture(e.pointerId);};
+canvas.onpointercancel=()=>{stroke=null;};
+window.addEventListener('pointerup',()=>{stroke=null;});
+canvas.addEventListener('dragstart',e=>e.preventDefault());
 window.addEventListener('blur',()=>{stroke=null;});window.onkeydown=e=>{if(e.key==='f'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();return}if($('#modal').classList.contains('hidden')===false)return;if(!city)return;const k=e.key.toLowerCase();if(k===' '){e.preventDefault();$('#pause').click()}else if(k==='m')$('#view').click();else if(k==='b')city.place(selected,cursor.x,cursor.y);else if(k>='1'&&k<='9'){selected=+k-1;updateTools()}else{const dx={arrowleft:-1,a:-1,arrowright:1,d:1}[k]||0,dy={arrowup:-1,w:-1,arrowdown:1,s:1}[k]||0;cursor.x=clamp(cursor.x+dx,0,W-1);cursor.y=clamp(cursor.y+dy,0,H-1);centerCamera();paint()}};
 function save(){if(!city)return;const a=document.createElement('a'),url=URL.createObjectURL(new Blob([city.serialize()],{type:'application/json'}));a.href=url;a.download='simcity-save.json';a.click();URL.revokeObjectURL(url)}
 async function load(e){try{city=City.restore(await e.target.files[0].text(),build,flags);camera={x:0,y:0};$('#modal').classList.add('hidden');paint()}catch(err){modal('Could not load city',err.message)}}
