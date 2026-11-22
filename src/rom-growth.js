@@ -4,6 +4,16 @@
 export const signed16 = value => (value << 16) >> 16;
 const word = value => value & 0xffff;
 
+// CODE_0395FC/039794 -> CODE_039906. The random low bit chooses
+// one of two four-level industrial graphics families.
+export function updateIndustrialFootprint(map,x,y,population,direction,nextWord,width=120,height=100){
+ if(direction>0&&population>=4)return false;
+ if(direction<0&&population===0)return false;
+ if(direction<0&&population===1)return stampZoneFootprint(map,x,y,0x1f4,width,height);
+ const family=nextWord()&1,stage=direction>0?population:population-2;
+ return stampZoneFootprint(map,x,y,0x1fd+9*(family*4+stage),width,height);
+}
+
 // CODE_039567/03974B and CODE_0398DD; DATA_03992B has nine-tile strides.
 export function updateCommercialFootprint(map,x,y,population,density,valueByte,direction,width=120,height=100){
  const id=map[y*width+x]&1023;

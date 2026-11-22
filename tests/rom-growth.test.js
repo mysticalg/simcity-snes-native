@@ -131,3 +131,14 @@ test('commercial source transitions use value gate, five density levels and merg
  assert.equal(updateCommercialFootprint(m,x,y,2,0,0,-1),true);assert.equal(m[i]&1023,0x144);
  m[i]=0x81ef;m[i+3]=0x81ef;assert.equal(updateCommercialFootprint(m,x,y,5,3,255,1),true);assert.equal(m[i]&1023,0x39e);assert.equal(m[i+3]&1023,0x3a7);
 });
+test('industrial ROM progression caps four levels and selects low-bit graphics family',async()=>{
+ const {updateIndustrialFootprint}=await import('../src/rom-growth.js');const x=60,y=50,i=y*W+x;
+ for(const family of [0,1])for(let pop=0;pop<4;pop++){
+  const m=Array(W*H).fill(0);m[i]=0x8201;
+  assert.equal(updateIndustrialFootprint(m,x,y,pop,1,()=>family),true);assert.equal(m[i]&1023,0x201+9*(family*4+pop));
+ }
+ const m=Array(W*H).fill(0);m[i]=0x8201;let calls=0;const rng=()=>{calls++;return 1;};
+ assert.equal(updateIndustrialFootprint(m,x,y,4,1,rng),false);assert.equal(calls,0);
+ assert.equal(updateIndustrialFootprint(m,x,y,1,-1,rng),true);assert.equal(m[i]&1023,0x1f8);assert.equal(calls,0);
+ assert.equal(updateIndustrialFootprint(m,x,y,3,-1,rng),true);assert.equal(m[i]&1023,0x22e);assert.equal(calls,1);
+});
