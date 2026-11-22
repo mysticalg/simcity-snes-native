@@ -30,6 +30,8 @@ export function decodeSpcChannel(aram,pointer,{maxEvents=64,state={}}={}){
    return {events,state:s,next:p,ended:true};
   }
   if(prefix.kind==='command'){
+   // EE -> CODE_16BD/17F8: signed Q8 step, countdown and target byte.
+   if(prefix.opcode===0xee){const ticks=aram[p++],target=aram[p++];s.volumeFade={startTick:tick,ticks,target,start:s.volume,step:Math.trunc((target-s.volume)*256/(ticks||256))};continue;}
    // EF -> CODE_16DA saves the address following all three operands.
    if(prefix.opcode===0xef){const target=aram[p]|aram[p+1]<<8,remaining=aram[p+2];call={target,remaining,returnTo:p+3};p=target;continue;}
    // CODE_1626: vibrato delay/rate/depth. CODE_16FD: echo mask and
@@ -43,9 +45,15 @@ export function decodeSpcChannel(aram,pointer,{maxEvents=64,state={}}={}){
    s[h[0]]=aram[p++];continue;
   }
   length=prefix.length;
+  if(s.volumeFade){const f=s.volumeFade,elapsed=tick-f.startTick;s.volume=elapsed>=f.ticks?f.target:Math.floor((f.start*256+f.step*elapsed)/256);}
   events.push({tick,length,kind:prefix.kind,note:prefix.opcode-0x80,articulation,...s});tick+=length;
  }
  return {events,state:s,next:p,ended:false};
+}
+
+export function spcFadeVolume(fade,tick){
+ const elapsed=Math.max(0,tick-fade.startTick);
+ return elapsed>=fade.ticks?fade.target:Math.floor((fade.start*256+fade.step*elapsed)/256);
 }
 // CODE_0986..09F3: semitone table, octave shifts and instrument tuning.
 export function spcPitch(aram,note,instrument){

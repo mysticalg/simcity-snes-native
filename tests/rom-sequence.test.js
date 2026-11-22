@@ -26,3 +26,8 @@ test('ROM track one order list follows intro then repeated body',async()=>{
  const {decodeSpcOrders}=await import('../src/rom-sequence.js');const aram=fs.readFileSync(new URL('../assets/audio/aram.bin',import.meta.url));
  const result=decodeSpcOrders(aram,1,{maxPatterns:5});assert.deepEqual(result.patterns.map(p=>p.pattern),[0x1b50,0x1b40,0x1b40,0x1b40,0x1b40]);assert.equal(result.ended,false);
 });
+test('SPC EE volume fade advances signed Q8 state and lands on target',()=>{
+ const aram=Uint8Array.from([0xed,100,0xee,4,20,2,0x91,0x93,0x95,0]);
+ const result=decodeSpcChannel(aram,0);assert.deepEqual(result.events.map(e=>e.volume),[100,60,20]);
+ assert.equal(result.events[0].volumeFade.step,-5120);
+});
