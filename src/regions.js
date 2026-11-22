@@ -1,4 +1,4 @@
-import {civicForId} from './civic.js';
+import {civicForId} from './civic.js?v=civic-revisions-1';
 const analysisCache=new WeakMap();
 // Player-requested regional extension; not a SNES simulation routine.
 export const REGION_SIZES=[4,8,16];
@@ -13,7 +13,7 @@ export function analyzeCity(city){
   }
   layers[kind]={labels,groups};
  }
- for(const z of city.zones){if(z.id===969&&city.power[z.i]&&city.nearRoad(z)){const ids=new Set();for(let dy=-2;dy<=2;dy++)for(let dx=-2;dx<=2;dx++){const x=z.x+dx,y=z.y+dy;if(x>=0&&x<w&&y>=0&&y<h){const n=layers.water.labels[y*w+x];if(n>=0)ids.add(n);}}if(ids.size)layers.water.groups[[...ids][0]].generation+=5000;}if(z.type>=5&&z.type<=7){const ids=new Set();for(let dy=-3;dy<=3;dy++)for(let dx=-3;dx<=3;dx++){const x=z.x+dx,y=z.y+dy;if(x>=0&&x<w&&y>=0&&y<h){const n=layers.water.labels[y*w+x];if(n>=0)ids.add(n);}}if(ids.size)layers.water.groups[[...ids][0]].waterDemand+=Math.max(20,city.zonePopulation(z)*20);}
+ for(const z of city.zones){if(z.id===969&&city.power[z.i]&&city.nearRoad(z)){const ids=new Set();for(let dy=-2;dy<=2;dy++)for(let dx=-2;dx<=2;dx++){const x=z.x+dx,y=z.y+dy;if(x>=0&&x<w&&y>=0&&y<h){const n=layers.water.labels[y*w+x];if(n>=0)ids.add(n);}}if(ids.size)layers.water.groups[[...ids][0]].generation+=5000;}if((z.type>=5&&z.type<=14)||[30,32,33,34,35,36,38].includes(z.type)){const ids=new Set();for(let dy=-3;dy<=3;dy++)for(let dx=-3;dx<=3;dx++){const x=z.x+dx,y=z.y+dy;if(x>=0&&x<w&&y>=0&&y<h){const n=layers.water.labels[y*w+x];if(n>=0)ids.add(n);}}if(ids.size)layers.water.groups[[...ids][0]].waterDemand+=Math.max(20,(z.id===0x84?city.adjacentSmallHomeCount(z):city.zonePopulation(z))*20);}
  const ids=new Set();for(const kind of ['road','rail'])for(const [dx,dy]of around){const x=z.x+dx,y=z.y+dy;if(x<0||x>=w||y<0||y>=h)continue;const label=layers[kind].labels[y*w+x];if(label>=0)ids.add(kind+':'+label);}
   for(const key of ids){const[kind,label]=key.split(':'),g=layers[kind].groups[+label];g.zones.push(z.i);if(z.type>=5&&z.type<=7){const k=z.type-5,pop=z.id===0x84?city.adjacentSmallHomeCount(z):city.zonePopulation(z);g.rci[k]+=pop;g.vacancies[k]+=Math.max(0,([48,6,4][k])-pop);}const facility=civicForId(z.id);if(facility&&city.power[z.i]&&key===[...ids][0]){if(facility.kind==='health')g.health+=facility.capacity;if(facility.id===962)g.garbage+=facility.capacity;}}
  }
