@@ -30,16 +30,21 @@ function pointer(e,buildNow){
  const r=canvas.getBoundingClientRect(),px=(e.clientX-r.left)*canvas.width/r.width,py=(e.clientY-r.top)*canvas.height/r.height;
  cursor={x:clamp(Math.floor(px/(8*zoom)+camera.x),0,W-1),y:clamp(Math.floor(py/(8*zoom)+camera.y),0,H-1)};
  if(buildNow&&selected>=0){
-  const cells=stroke&&stroke.tool<=3?strokeCells(stroke.last,cursor):[cursor];
-  for(const c of cells){const key=c.y*W+c.x;if(stroke?.visited.has(key))continue;if(city.place(stroke?.tool??selected,c.x,c.y)&&stroke)stroke.visited.add(key);}
+  const cells=stroke?strokeCells(stroke.last,cursor):[cursor];
+  for(const c of cells){
+   const key=c.y*W+c.x,tool=stroke?.tool??selected;if(stroke?.visited.has(key))continue;
+   const footprint=tool>4?city.footprint(tool,c.x,c.y):[c];
+   if(stroke&&footprint.some(p=>stroke.occupied.has(p.y*W+p.x)))continue;
+   if(city.place(tool,c.x,c.y)&&stroke){stroke.visited.add(key);for(const p of footprint)stroke.occupied.add(p.y*W+p.x);}
+  }
   if(stroke)stroke.last={...cursor};
  }
  paint();
 }
 canvas.style.touchAction='none';
-canvas.onpointerdown=e=>{if(e.button!==0||!city)return;e.preventDefault();try{canvas.setPointerCapture(e.pointerId);}catch{}pointer(e,false);stroke={tool:selected,last:{...cursor},visited:new Set()};pointer(e,true);};
-canvas.onpointermove=e=>{pointer(e,!!stroke&&stroke.tool<=3);};
-canvas.onpointerup=e=>{if(stroke&&stroke.tool<=3)pointer(e,true);stroke=null;if(canvas.hasPointerCapture(e.pointerId))canvas.releasePointerCapture(e.pointerId);};
+canvas.onpointerdown=e=>{if(e.button!==0||!city)return;e.preventDefault();try{canvas.setPointerCapture(e.pointerId);}catch{}pointer(e,false);stroke={tool:selected,last:{...cursor},visited:new Set(),occupied:new Set()};pointer(e,true);};
+canvas.onpointermove=e=>{pointer(e,!!stroke);};
+canvas.onpointerup=e=>{if(stroke)pointer(e,true);stroke=null;if(canvas.hasPointerCapture(e.pointerId))canvas.releasePointerCapture(e.pointerId);};
 canvas.onpointercancel=()=>{stroke=null;};
 window.addEventListener('pointerup',()=>{stroke=null;});
 canvas.addEventListener('dragstart',e=>e.preventDefault());
@@ -49,6 +54,7 @@ async function load(e){try{city=City.restore(await e.target.files[0].text(),buil
 setup();modal('Welcome to SimCity','A native JavaScript reconstruction using graphics, palettes, construction tables, and all nine maps extracted from the matching USA SNES ROM. Choose a scenario to begin.','<p>This playable milestone is still in development. Scenario objectives and several simulation formulas remain approximations.</p>','CHOOSE A CITY',menu);
 let last=performance.now(),acc=0;function frame(now){const dt=Math.min(100,now-last);last=now;if(city&&!paused&&$('#modal').classList.contains('hidden')){city.advance(dt);acc+=dt;if(acc>150){acc=0;paint()}}requestAnimationFrame(frame)}requestAnimationFrame(frame);
 window.render_game_to_text=()=>JSON.stringify(city?{coordinates:'origin top-left; x right, y down; 120×100 tiles',mode:paused?'paused':'city',zoom,speed:city.speed,scenario:city.scenario,name:city.name,year:city.year,month:city.month,funds:city.funds,population:city.population,demand:city.demand,selectedTool:TOOLS[selected],cursor,populationBands:city.rci,powerCapacity:city.powerCapacity,powerUsed:city.powerUsed,disasters:city.disasters,notices:city.notices.slice(0,2)}:{mode:'menu'});window.advanceTime=ms=>{if(city&&!paused)city.advance(ms);paint()};
+
 
 
 
