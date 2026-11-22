@@ -24,6 +24,8 @@ top=words(at(0x02cf2d,0x77c));bottom=words(at(0x02d6a9,0x77c));mini=words(at(0x0
 (A/'tables').mkdir(exist_ok=True);(A/'tables/city.json').write_text(json.dumps(dict(top=top,bottom=bottom,mini=mini,flags=list(at(0x0384eb,958)))))
 gfx=bytearray((A/'graphics/GFX_Layer1_CitySimulationTiles.bin').read_bytes());anim=(A/'graphics/GFX_Layer2_AnimatedCitySimulationTiles.bin').read_bytes()
 gfx[0x6c00:0x6ec0]=anim[:0x2c0];gfx[0x6ec0:0x72a0]=anim[0x2c0:0x6a0]
+gfx[0x72a0:0x7900]=anim[0x6a0:0xd00] # CODE_008775, VRAM word $3950
+gfx[0x7900:0x8000]=anim[0xd00:0x1400] # CODE_0087A8, VRAM word $3C80
 # static water/bridge animation groups loaded at runtime; first-frame patches are applied above.
 for season in range(4):
  pal=palette((A/f'palettes/DATA_058{season}00.bin').read_bytes());atlas=Image.new('RGBA',(256,240),pal[0])
