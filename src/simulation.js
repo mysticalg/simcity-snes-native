@@ -7,7 +7,7 @@ import {aggregateRomLandValue,romLandValue,romTerrainField} from './rom-land-val
 import {romAnnualRevenue} from './rom-finance.js';
 import {SIMULATION_SEED,nextSimulationWord,boundSimulationWord} from './rom-random.js';
 import {decayTraffic,addRouteTraffic} from './rom-traffic.js';
-import {applyRomMeltdown,decayRomRadiation} from './rom-disasters.js';
+import {applyRomMeltdown,decayRomRadiation,scanRomFire} from './rom-disasters.js';
 import {scenarioOutcome,SCENARIO_EVENT_COUNTS,stepScenarioEvent,stepScenarioReminder,scenarioMeltdownSite} from './rom-scenarios.js';
 import {residentialDemandScore, residentialLocalScore, residentialDensityBand, residentialGrowthBase, residentialDeclineFootprint, decideResidentialUpdate, stampZoneFootprint, placeSmallHome, mergeResidentialZone,repairMergedZone,updateCommercialFootprint,updateIndustrialFootprint,decideJobZoneUpdate,findZoneTransport,traceZoneTransport} from './rom-growth.js';
 import {accumulateRomDemand} from './rom-demand.js';
@@ -256,12 +256,14 @@ export class City {
  advance(ms){this.elapsed+=ms*this.speed;while(this.elapsed>=3000){this.elapsed-=3000;this.tick();}}
  disaster(type,x=60,y=50){
   if(type==='Meltdown'){const result=applyRomMeltdown(this.map,this.flags,x,y,max=>this.boundedRandom(max),W,H);this.message('Nuclear meltdown reported.');this.refresh();return result;}
+  if(type==='Fire'){this.map[y*W+x]=0x7f;this.message('Fire reported.');this.refresh();return;}
   this.disasters.push({type,x,y,life:type==='Earthquake'?1:16});this.message(`${type} reported. Emergency services are responding.`);
   if(type==='Fire')this.map[y*W+x]=0x2e;
   this.updateDisasters();this.refresh();
   const result=scenarioOutcome(this.scenario,this.year,{category:this.category,traffic:Math.max(...this.traffic),crime:this.meanCrime||0,score:this.score});if(result!=='active'&&!this.scenarioResult){this.scenarioResult=result;this.message('Scenario '+result+'.');}
  }
  updateDisasters(){
+  scanRomFire(this.map,this.flags,this.fireCoverage||[],()=>this.random(),max=>this.boundedRandom(max),(x,y,id)=>{const size=id===0x2a5?6:(id>=0x257&&id<0x297)||id===0x36b?4:3;for(let dy=-1;dy<size-1;dy++)for(let dx=-1;dx<size-1;dx++){const cx=x+dx,cy=y+dy;if(cx>=0&&cx<W&&cy>=0&&cy<H){const i=cy*W+cx;if(this.flags[this.map[i]&1023]&4)this.map[i]=0x7f;}}},W,H);
   for(const d of this.disasters){
    let radius=d.type==='Earthquake'?18:d.type==='Meltdown'?8:d.type==='Flood'?4:2;
    for(let n=0;n<(d.type==='Earthquake'?100:12);n++){
@@ -278,6 +280,7 @@ export class City {
  serialize(){return JSON.stringify({version:1,simulationRng:this.simulationRng,traffic:Array.from(this.traffic),scenarioRemaining:this.scenarioRemaining,scenarioResult:this.scenarioResult,scenarioReminders:this.scenarioReminders,scenarioDialogSeen:this.scenarioDialogSeen,map:Array.from(this.map),name:this.name,scenario:this.scenario,year:this.year,month:this.month,funds:this.funds,difficulty:this.difficulty,tax:this.tax,taxAccumulator:this.taxAccumulator,funding:this.funding,rngA:this.rngA,rngB:this.rngB,history:this.history,loan:this.loan,gifts:this.gifts});}
  static restore(text,build,flags){const s=JSON.parse(text);if(s.version!==1||!Array.isArray(s.map)||s.map.length!==12000||s.map.some(n=>!Number.isInteger(n)||n<0||n>65535))throw Error('This is not a supported city save.');const c=new City(s.map,build,flags,s);for(const k of ['simulationRng','scenarioRemaining','scenarioResult','scenarioReminders','scenarioDialogSeen','month','funds','tax','taxAccumulator','funding','rngA','rngB','history','loan','gifts'])if(s[k]!==undefined)c[k]=s[k];if(Array.isArray(s.traffic)&&s.traffic.length===W*H)c.traffic=Uint8Array.from(s.traffic);c.refresh();return c;}
 }
+
 
 
 

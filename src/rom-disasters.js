@@ -21,3 +21,19 @@ export function decayRomRadiation(map,nextBounded){
  for(let i=0;i<map.length;i++)if((map[i]&1023)===0x364&&nextBounded(4000)===0){map[i]=0;cleared++;}
  return cleared;
 }
+// CODE_03A7E0 scans live map in row-major order; newly ignited later
+// cells can update during the same scan. Zone ignition delegates to caller.
+export function scanRomFire(map,flags,coverage,nextWord,nextBounded,igniteZone,width=120,height=100){
+ let burning=0;
+ for(let i=0;i<map.length;i++){
+  if((map[i]&1023)!==0x7f)continue;burning++;const x=i%width,y=Math.floor(i/width);
+  for(const [dx,dy] of [[-1,0],[0,-1],[1,0],[0,1]]){
+   if((nextWord()&7)!==0)continue;const cx=x+dx,cy=y+dy;if(cx<0||cx>=width||cy<0||cy>=height)continue;
+   const j=cy*width+cx,id=map[j]&1023,f=flags[id]||0;if(!(f&4))continue;
+   if(f&1)igniteZone(cx,cy,id);else map[j]=0x7f;
+  }
+  const value=Math.min(255,coverage[i]||0),maximum=value===0?10:value<20?3:value<100?2:1;
+  if(nextBounded(maximum)===0)map[i]=0x28;
+ }
+ return burning;
+}
