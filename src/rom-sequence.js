@@ -59,9 +59,16 @@ export function spcFadeVolume(fade,tick){
 }
 // CODE_0986..09F3: semitone table, octave shifts and instrument tuning.
 export function spcPitch(aram,note,instrument){
+ return spcPitchQ8(aram,(note&127)*256,instrument);
+}
+export function spcPitchQ8(aram,noteQ8,instrument){
  const word=p=>aram[p]|aram[p+1]<<8;
- const n=note&127,octave=Math.floor(n/12),table=word(0x1ae9+2*(n%12));
- let base=table*2;for(let o=octave;o<6;o++)base=Math.floor(base/2);
+ let value=noteQ8&65535,n=value>>>8;
+ // CODE_0970 applies small endpoint corrections before table interpolation.
+ value=(value+(n>=52?n-52:n<19?2*(n-19):0))&65535;n=value>>>8;
+ const octave=Math.floor(n/12),pointer=0x1ae9+2*(n%12),table=word(pointer);
+ let base=(table+Math.floor((word(pointer+2)-table)*(value&255)/256))*2;
+ for(let shifts=(6-octave)&255;shifts>0;shifts--)base=Math.floor(base/2);
  const tuning=(aram[0x3400+instrument*6+4]<<8)|aram[0x3400+instrument*6+5];
  return Math.floor(base*tuning/256)&65535;
 }
