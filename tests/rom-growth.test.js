@@ -148,3 +148,10 @@ test('job-zone source gate has no residential bypass or empty special branch',as
  assert.equal(decideJobZoneUpdate({mapWord:0x8144,demand:0,gateWord:0,nextRandomWord:()=>0x2000}).action,'grow');
  assert.equal(decideJobZoneUpdate({mapWord:0x144,demand:2000,gateWord:0,nextRandomWord:()=>0x7000}).action,'decline');
 });
+test('ROM transport scan uses twelve perimeter cells and excludes pure power lines',async()=>{
+ const {findZoneTransport}=await import('../src/rom-growth.js');const m=Array(W*H).fill(0),x=60,y=50;
+ m[(y-1)*W+x]=0x32;assert.equal(findZoneTransport(m,x,y),null);
+ m[(y-2)*W+x-1]=0x60;assert.equal(findZoneTransport(m,x,y),null);
+ m[(y+2)*W+x]=0x72;assert.deepEqual(findZoneTransport(m,x,y),{x,y:y+2});
+ m[(y-2)*W+x-1]=0x8032;assert.deepEqual(findZoneTransport(m,x,y),{x:x-1,y:y-2});
+});

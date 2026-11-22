@@ -4,6 +4,15 @@
 export const signed16 = value => (value << 16) >> 16;
 const word = value => value & 0xffff;
 
+// CODE_03B26B / DATA_03B2BE/B2CA / CODE_03B401, in scan order.
+export function findZoneTransport(map,x,y,width=120,height=100){
+ const offsets=[[-1,-2],[0,-2],[1,-2],[2,-1],[2,0],[2,1],[1,2],[0,2],[-1,2],[-2,1],[-2,0],[-2,-1]];
+ for(const [dx,dy] of offsets){const cx=x+dx,cy=y+dy;if(cx<0||cx>=width||cy<0||cy>=height)continue;
+  const id=map[cy*width+cx]&1023;if(id>=0x30&&id<0x80&&!(id>=0x60&&id<0x6d))return {x:cx,y:cy};
+ }
+ return null;
+}
+
 // CODE_0395FC/039794 -> CODE_039906. The random low bit chooses
 // one of two four-level industrial graphics families.
 export function updateIndustrialFootprint(map,x,y,population,direction,nextWord,width=120,height=100){
