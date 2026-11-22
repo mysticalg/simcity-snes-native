@@ -96,3 +96,9 @@ test('residential lookup matches the ROM subtract loop across all ordinary resid
  const m=Array(W*H).fill(0),i=50*W+60;m[i]=0x84;m[i-1]=0x89;m[i+1]=0x94;
  const homes=new City(m,build,flags);assert.equal(homes.rci[0],2);assert.equal(homes.population,40);
 });
+test('merged residential/commercial census follows ROM dispatch and fixed contributions',()=>{
+ const m=Array(W*H).fill(0);for(const [j,id] of [0x37a,0x383,0x38c,0x395,0x39e,0x3a7,0x3b0,0x3b9].entries())m[50*W+20+j*3]=id;
+ const c=new City(m,build,flags);assert.deepEqual(c.rci,[192,24,0]);assert.equal(c.population,7680);
+ const i=50*W+20,z={i,x:20,y:50,type:5,id:0x37a};assert.equal(c.grow(z,-1),true);assert.equal(c.map[i]&1023,0x120);
+ const other={i:i+3,x:23,y:50,type:5,id:0x383};const before=[...c.map];assert.equal(c.grow(other,-1),false);assert.deepEqual([...c.map],before);
+});

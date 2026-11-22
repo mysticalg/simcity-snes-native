@@ -40,6 +40,8 @@ export class City {
  neighbors(i){const x=i%W,y=Math.floor(i/W);return [x>0?i-1:-1,y>0?i-W:-1,x<W-1?i+1:-1,y<H-1?i+W:-1].filter(n=>n>=0);}
  message(text){this.notices.unshift(text);this.notices.length=Math.min(8,this.notices.length);}
  classify(id){
+  if(id>=0x376&&id<0x39a)return 5;
+  if(id>=0x39a&&id<0x3c0)return 6;
   if(id>=0x80&&id<0x137)return 5;
   if(id>=0x137&&id<0x1f4)return 6;
   if(id>=0x1f4&&id<0x245)return 7;
@@ -70,6 +72,8 @@ export class City {
  }
  // Zone population bands follow CODE_03842F/038456/03847A; spatial desirability below is provisional.
  zonePopulation(z){
+  if(z.type===5&&z.id>=0x376&&z.id<0x39a)return 48;
+  if(z.type===6&&z.id>=0x39a)return 6;
   if(z.type===5){if(z.id<0x99)return 0;return (Math.floor(((z.id-0x99)%36)/9)+2)*8;}
   if(z.type===6)return z.id<0x144?0:Math.floor(((z.id-0x144)%45)/9)+1;
   if(z.type===7)return z.id<0x201?0:Math.floor(((z.id-0x201)%36)/9)+1;
@@ -152,6 +156,10 @@ export class City {
  grow(z,direction){
   if(z.type===5){
    const id=this.id(z.x,z.y),current={...z,id};
+   if(direction<0){
+    if(id===0x37a||id===0x38c)return stampZoneFootprint(this.map,z.x,z.y,0x11c,W,H);
+    if(id===0x383||id===0x395)return false;
+   }
    const population=id===0x84?this.adjacentSmallHomeCount(z):this.zonePopulation(current);
    if(direction>0&&this.pollution[z.i]>=0x81)return false;
    const density=residentialDensityBand(this.landValue[z.i]||0,this.pollution[z.i]||0);
