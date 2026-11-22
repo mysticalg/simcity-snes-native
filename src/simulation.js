@@ -1,3 +1,4 @@
+import {romGiftEffects} from './rom-gifts.js';
 import {networkCrossing} from './rom-networks.js';
 import {romPoliceCoverage,romFireCoverage,fireBurnoutMaximum} from './rom-services.js';
 import {romDensityField} from './rom-density.js';
@@ -155,12 +156,13 @@ export class City {
  coverage(x,y,type){let n=0;for(const z of this.zones)if(z.type===type)n=Math.max(n,clamp(1-(Math.abs(z.x-x)+Math.abs(z.y-y))/24,0,1));return n*this.funding[type===8?1:2]/100;}
  fields(){
   this.terrain=romTerrainField(this.map,W,H);this.pollution=romPollutionField(this.map,W,H);this.crime.fill(0);
+  this.giftEffects=romGiftEffects(this.map,this.flags);
   this.fireCoverage=romFireCoverage(this.map,this.funding[2],W,H);this.policeCoverage=romPoliceCoverage(this.map,this.funding[1],W,H);
   const spatial=romDensityField(this.map,this.flags,(id,x,y)=>id>=0x376?48:id===0x84?this.adjacentSmallHomeCount({x,y}):this.zonePopulation({id,type:this.classify(id)})*(this.classify(id)===5?1:8),W,H);
   this.density=spatial.density;let crime=0;const {centerX,centerY}=spatial;
   for(let y=0;y<H;y++)for(let x=0;x<W;x++){
    const i=y*W+x,t=this.map[i]&1023;
-   this.crime[i]=romCrimeValue(this.landValue[i],this.density[i],0,this.policeCoverage[i]);crime+=this.crime[i];
+   this.crime[i]=romCrimeValue(this.landValue[i],this.density[i],this.giftEffects.crimeModifier,this.policeCoverage[i]);crime+=this.crime[i];
    this.landValue[i]=romLandValue(x>>1,y>>1,centerX,centerY,this.terrain[i],this.pollution[i],this.crime[i]);
 
   }
@@ -216,13 +218,14 @@ export class City {
   // This gross-income estimate remains provisional; original budget tracing is incomplete.
   const units=Math.floor(this.rci[0]/8)+this.rci[1]+this.rci[2];
   const meanLandValue=this.meanLandValue||0;
-  const income=romAnnualRevenue(units,meanLandValue,taxRate,this.difficulty);
+  const giftIncome=romGiftEffects(this.map,this.flags).income;
+  const income=romAnnualRevenue(units,meanLandValue,taxRate,this.difficulty)+giftIncome;
   // CODE_038E39 scales road + double rail count by a Q8 factor indexed by difficulty.
   const transportFactor=[0x00b3,0x00e6,0x0133][this.difficulty];
   const requests=[Math.min(9999,Math.floor((this.roadCount+2*this.railCount)*transportFactor/256)),Math.min(9999,this.counts[8]*100),Math.min(9999,this.counts[9]*100)];
   const expenses=requests.map((n,i)=>Math.round(n*this.funding[i]/100));let payment=this.loan?this.loan.payment:0;
   const net=income-expenses.reduce((a,b)=>a+b,0)-payment;
-  const result={income,requests,expenses,payment,net,taxRate};
+  const result={income,requests,expenses,payment,net,taxRate,giftIncome};
   if(apply){this.funds=clamp(this.funds+net,0,999999);if(this.loan&&--this.loan.years<=0)this.loan=null;this.lastBudget=result;this.message(`Fiscal year ${this.year}: ${net>=0?'+':''}$${net.toLocaleString()}.`);}
   return result;
  }
@@ -280,6 +283,7 @@ export class City {
  serialize(){return JSON.stringify({version:1,simulationRng:this.simulationRng,traffic:Array.from(this.traffic),scenarioRemaining:this.scenarioRemaining,scenarioResult:this.scenarioResult,scenarioReminders:this.scenarioReminders,scenarioDialogSeen:this.scenarioDialogSeen,map:Array.from(this.map),name:this.name,scenario:this.scenario,year:this.year,month:this.month,funds:this.funds,difficulty:this.difficulty,tax:this.tax,taxAccumulator:this.taxAccumulator,funding:this.funding,rngA:this.rngA,rngB:this.rngB,history:this.history,loan:this.loan,gifts:this.gifts});}
  static restore(text,build,flags){const s=JSON.parse(text);if(s.version!==1||!Array.isArray(s.map)||s.map.length!==12000||s.map.some(n=>!Number.isInteger(n)||n<0||n>65535))throw Error('This is not a supported city save.');const c=new City(s.map,build,flags,s);for(const k of ['simulationRng','scenarioRemaining','scenarioResult','scenarioReminders','scenarioDialogSeen','month','funds','tax','taxAccumulator','funding','rngA','rngB','history','loan','gifts'])if(s[k]!==undefined)c[k]=s[k];if(Array.isArray(s.traffic)&&s.traffic.length===W*H)c.traffic=Uint8Array.from(s.traffic);c.refresh();return c;}
 }
+
 
 
 
