@@ -46,3 +46,22 @@ export function generateRomDemand(rci,historyRci=[0,0,0],difficulty=0){
  const ratios=[residentialRatio,commercialRatio,industrialRatio];
  return {ratios,scores:ratios.map(n=>(multiply(n,600)>>>8)&65535),totalUnits:total};
 }
+// CODE_03BE12 dispatches by base-step low six bits. Earlier advice can
+// return before the facility checks; reached flags alone are cleared/set.
+export function scanRomGrowthCaps(phase,input,state){
+ const p=phase&63;if(p>=35)return null;
+ const start=p<5?0:p<10?1:p<14?2:p<18?3:p<22?4:p<26?5:p<28?6:p<30?7:8;
+ const {zones,roads,rails,plants,rci,stadiums,seaports,airports}=input;
+ if(start===0)state.zoneTotal=(zones[0]+zones[1]+zones[2])&65535;
+ const total=state.zoneTotal||0;
+ for(let branch=start;branch<=8;branch++){
+  if(branch===0&&((total>>>2)>=zones[0]))return 0;
+  if(branch===1&&((total>>>3)>=zones[1]))return 1;
+  if(branch===2&&((total>>>3)>=zones[2]))return 2;
+  if(branch===3&&total>=10&&((total*2)&65535)>=roads)return 3;
+  if(branch===4&&total>=50&&total>=rails)return 4;
+  if(branch===5&&total>=10&&plants===0)return 5;
+  if(branch>=6){const index=[0,2,1][branch-6],limit=[500,70,100][branch-6],count=[stadiums,seaports,airports][branch-6];state.suppressed[index]=rci[index]>=limit&&count===0;if(state.suppressed[index])return branch;}
+ }
+ return null;
+}

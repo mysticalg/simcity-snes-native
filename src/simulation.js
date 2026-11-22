@@ -11,7 +11,7 @@ import {decayTraffic,addRouteTraffic} from './rom-traffic.js';
 import {applyRomMeltdown,decayRomRadiation,scanRomFire} from './rom-disasters.js';
 import {scenarioOutcome,SCENARIO_EVENT_COUNTS,stepScenarioEvent,stepScenarioReminder,scenarioMeltdownSite} from './rom-scenarios.js';
 import {residentialDemandScore, residentialLocalScore, residentialDensityBand, residentialGrowthBase, residentialDeclineFootprint, decideResidentialUpdate, stampZoneFootprint, placeSmallHome, mergeResidentialZone,repairMergedZone,updateCommercialFootprint,updateIndustrialFootprint,decideJobZoneUpdate,findZoneTransport,traceZoneTransport} from './rom-growth.js';
-import {accumulateRomDemand,generateRomDemand} from './rom-demand.js';
+import {accumulateRomDemand,generateRomDemand,scanRomGrowthCaps} from './rom-demand.js';
 // Native simulation model. ROM-backed tables and direct translations are marked.
 // Monthly growth, coverage and disasters are provisional reconstructions, not yet
 // instruction-for-instruction ports of the SNES simulation (see research/STATUS.md).
@@ -40,7 +40,7 @@ export class City {
   this.difficulty=clamp(Math.trunc(opts.difficulty??0),0,2);this.funds=[20000,10000,5000][this.difficulty];this.tax=7;this.funding=[100,100,100];this.speed=1;
   this.simulationRng=[...SIMULATION_SEED];this.rngA=0x5cd6;this.rngB=0x1238;this.population=0;this.demand=[400,200,200];this.history=[];this.taxAccumulator=opts.taxAccumulator||0;
   this.power=new Uint8Array(W*H);this.pollution=new Uint8Array(W*H);this.crime=new Uint8Array(W*H);this.landValue=new Uint8Array(W*H);this.traffic=new Uint8Array(W*H);
-  this.zones=[];this.notices=[];this.disasters=[];this.loan=null;this.elapsed=0;this.category=0;this.giftMilestones={};this.gifts=[];this.giftChoice=16;this.lastBudget=null;
+  this.baseStep=0;this.growthCaps={zoneTotal:0,suppressed:[false,false,false]};this.zones=[];this.notices=[];this.disasters=[];this.loan=null;this.elapsed=0;this.category=0;this.giftMilestones={};this.gifts=[];this.giftChoice=16;this.lastBudget=null;
   this.scenarioRemaining=SCENARIO_EVENT_COUNTS[this.scenario]||0;this.scenarioReminders=[];this.scenarioResult=null;this.scenarioDialogSeen=false;this.refresh();
  }
  // CODE_00824F: additive RNG, including carry into the second 16-bit add.
@@ -104,6 +104,9 @@ export class City {
    if(!(this.flags[id]&1))continue;
    if(id===0x249||id===0x307)this.counts[8]++;
    if(id===0x252||id===0x310)this.counts[9]++;
+   if(id===0x25c||id===0x36b)this.counts[10]++;
+   if(id===0x26c)this.counts[11]++;
+   if(id===0x2a5)this.counts[12]++;
    if(type<5||type>7)continue;
    this.counts[type]++;
    this.rci[type-5]+=type===5&&id===0x84?this.adjacentSmallHomeCount({x:i%W,y:Math.floor(i/W)}):this.zonePopulation({id,type});
@@ -243,7 +246,7 @@ export class City {
   this.updatePower();this.fields();
   const historyRci=this.history.at(-1)?.rci||[0,0,0];
   const generatedDemand=generateRomDemand(this.rci,historyRci,this.difficulty).scores;
-  this.demand=generatedDemand.map((value,i)=>accumulateRomDemand(this.demand[i],value,this.tax,this.difficulty,i===0?2000:1500));
+  this.demand=generatedDemand.map((value,i)=>accumulateRomDemand(this.demand[i],value,this.tax,this.difficulty,i===0?2000:1500,{suppressPositive:this.growthCaps.suppressed[i]}));
   for(const z of this.zones){if(z.type<5||z.type>7)continue;
    if(z.type===5){this.updateResidentialTile(z);continue;}
    let transport=1;if(this.boundedRandom(5)<this.zonePopulation(z)){const route=traceZoneTransport(this.map,z.x,z.y,z.type,()=>this.random(),W,H);transport=route.status;if(transport===1)addRouteTraffic(this.map,this.traffic,route.path,W,H);}
@@ -253,12 +256,14 @@ export class City {
    else if(decision.action==='decline')this.grow(z,-1);
   }
   this.updateDisasters();this.refresh();
+  this.updateGrowthCaps();
   this.checkMilestones();
   const result=scenarioOutcome(this.scenario,this.year,{category:this.category,traffic:Math.max(...this.traffic),crime:this.meanCrime||0,score:this.score});if(result!=='active'&&!this.scenarioResult){this.scenarioResult=result;this.message('Scenario '+result+'.');}
 
   this.history.push({year:this.year,month:this.month,population:this.population,rci:[...this.rci],funds:this.funds,crime:this.meanCrime||0});if(this.history.length>240)this.history.shift();
   if(++this.month>12){this.month=1;this.budget(true,Math.floor(this.taxAccumulator/48));this.taxAccumulator=0;this.year++;}
  }
+ updateGrowthCaps(){const input={zones:this.counts.slice(5,8),roads:this.roadCount,rails:this.railCount,plants:this.zones.filter(z=>z.id===0x28c||z.id===0x27c).length,rci:this.rci,stadiums:this.counts[10],seaports:this.counts[11],airports:this.counts[12]};for(let n=0;n<4;n++){this.baseStep=(this.baseStep+1)&65535;const advice=scanRomGrowthCaps(this.baseStep,input,this.growthCaps);if(advice>=6&&advice<=8)this.message(['A stadium is needed for further residential growth.','A seaport is needed for further industrial growth.','An airport is needed for further commercial growth.'][advice-6]);}}
  checkMilestones(){const event=nextCoreMilestone({population:this.population,category:this.category,police:this.counts[8],fire:this.counts[9],rail:this.railCount,inventorySize:this.gifts.length},this.giftMilestones);if(event){this.message(event.text);if(event.gift!==null)enqueueRomGift(this.gifts,event.gift);}return event;}
  advance(ms){this.elapsed+=ms*this.speed;while(this.elapsed>=3000){this.elapsed-=3000;this.tick();}}
  disaster(type,x=60,y=50){
@@ -285,8 +290,8 @@ export class City {
   }
   this.disasters=this.disasters.filter(d=>d.life>0);
  }
- serialize(){return JSON.stringify({version:1,demand:this.demand,giftMilestones:this.giftMilestones,simulationRng:this.simulationRng,traffic:Array.from(this.traffic),scenarioRemaining:this.scenarioRemaining,scenarioResult:this.scenarioResult,scenarioReminders:this.scenarioReminders,scenarioDialogSeen:this.scenarioDialogSeen,map:Array.from(this.map),name:this.name,scenario:this.scenario,year:this.year,month:this.month,funds:this.funds,difficulty:this.difficulty,tax:this.tax,taxAccumulator:this.taxAccumulator,funding:this.funding,rngA:this.rngA,rngB:this.rngB,history:this.history,loan:this.loan,gifts:this.gifts});}
- static restore(text,build,flags){const s=JSON.parse(text);if(s.version!==1||!Array.isArray(s.map)||s.map.length!==12000||s.map.some(n=>!Number.isInteger(n)||n<0||n>65535))throw Error('This is not a supported city save.');const c=new City(s.map,build,flags,s);for(const k of ['demand','giftMilestones','simulationRng','scenarioRemaining','scenarioResult','scenarioReminders','scenarioDialogSeen','month','funds','tax','taxAccumulator','funding','rngA','rngB','history','loan','gifts'])if(s[k]!==undefined)c[k]=s[k];if(Array.isArray(s.traffic)&&s.traffic.length===W*H)c.traffic=Uint8Array.from(s.traffic);c.refresh();return c;}
+ serialize(){return JSON.stringify({version:1,baseStep:this.baseStep,growthCaps:this.growthCaps,demand:this.demand,giftMilestones:this.giftMilestones,simulationRng:this.simulationRng,traffic:Array.from(this.traffic),scenarioRemaining:this.scenarioRemaining,scenarioResult:this.scenarioResult,scenarioReminders:this.scenarioReminders,scenarioDialogSeen:this.scenarioDialogSeen,map:Array.from(this.map),name:this.name,scenario:this.scenario,year:this.year,month:this.month,funds:this.funds,difficulty:this.difficulty,tax:this.tax,taxAccumulator:this.taxAccumulator,funding:this.funding,rngA:this.rngA,rngB:this.rngB,history:this.history,loan:this.loan,gifts:this.gifts});}
+ static restore(text,build,flags){const s=JSON.parse(text);if(s.version!==1||!Array.isArray(s.map)||s.map.length!==12000||s.map.some(n=>!Number.isInteger(n)||n<0||n>65535))throw Error('This is not a supported city save.');const c=new City(s.map,build,flags,s);for(const k of ['baseStep','growthCaps','demand','giftMilestones','simulationRng','scenarioRemaining','scenarioResult','scenarioReminders','scenarioDialogSeen','month','funds','tax','taxAccumulator','funding','rngA','rngB','history','loan','gifts'])if(s[k]!==undefined)c[k]=s[k];if(Array.isArray(s.traffic)&&s.traffic.length===W*H)c.traffic=Uint8Array.from(s.traffic);c.refresh();return c;}
 }
 
 
