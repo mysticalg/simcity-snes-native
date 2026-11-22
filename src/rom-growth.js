@@ -13,6 +13,33 @@ export function findZoneTransport(map,x,y,width=120,height=100){
  return null;
 }
 
+export function isTransportDestination(id,zoneType){
+ const k=zoneType-5;if(k<0||k>2)return false;id&=1023;
+ const low=[0x137,0x89,0x89][k],high=[0x354,0x245,0x137][k];
+ const mergedLow=[0x39a,0x376,0x376][k],mergedHigh=[0x3be,0x3be,0x39a][k];
+ return ((id>=low&&id<high)||(id>=mergedLow&&id<mergedHigh))&&!(id>=0x277&&id<0x287);
+}
+
+// CODE_03B2D6/0318: random starting direction, avoid immediate reversal,
+// store alternate steps and penalize dead ends. Exact source stack effects
+// are retained; a browser guard bounds malformed/unexpected walks.
+export function traceZoneTransport(map,x,y,zoneType,nextWord,width=120,height=100){
+ const entry=findZoneTransport(map,x,y,width,height);if(!entry)return {status:-1,path:[]};
+ let cx=entry.x,cy=entry.y,reverse=5,stored=0;const path=[];
+ const dirs=[[0,-1],[1,0],[0,1],[-1,0]];
+ const idAt=(px,py)=>px>=0&&px<width&&py>=0&&py<height?map[py*width+px]&1023:0;
+ for(let step=0;step<30;step++){
+  const start=nextWord()&3;let chosen=-1;
+  for(let n=0;n<4;n++){const d=(start+n)&3,[dx,dy]=dirs[d],id=idAt(cx+dx,cy+dy);
+   if(d!==reverse&&id>=0x30&&id<0x80&&!(id>=0x60&&id<0x6d)){chosen=d;break;}}
+  if(chosen<0){if(stored===0)return {status:0,path};stored--;step+=3;continue;}
+  cx+=dirs[chosen][0];cy+=dirs[chosen][1];reverse=(chosen+2)&3;
+  if((step&1)===0){stored++;path.push({x:cx,y:cy});}
+  if(dirs.some(([dx,dy])=>isTransportDestination(idAt(cx+dx,cy+dy),zoneType)))return {status:1,path};
+ }
+ return {status:0,path};
+}
+
 // CODE_0395FC/039794 -> CODE_039906. The random low bit chooses
 // one of two four-level industrial graphics families.
 export function updateIndustrialFootprint(map,x,y,population,direction,nextWord,width=120,height=100){

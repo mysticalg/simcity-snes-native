@@ -155,3 +155,11 @@ test('ROM transport scan uses twelve perimeter cells and excludes pure power lin
  m[(y+2)*W+x]=0x72;assert.deepEqual(findZoneTransport(m,x,y),{x,y:y+2});
  m[(y-2)*W+x-1]=0x8032;assert.deepEqual(findZoneTransport(m,x,y),{x:x-1,y:y-2});
 });
+test('ROM transport destination ranges and bounded route distinguish missing, dead and reachable',async()=>{
+ const {traceZoneTransport,isTransportDestination}=await import('../src/rom-growth.js');
+ assert.equal(isTransportDestination(0x144,5),true);assert.equal(isTransportDestination(0x27c,5),false);assert.equal(isTransportDestination(0x99,7),true);assert.equal(isTransportDestination(0x144,7),false);
+ const x=60,y=50,m=Array(W*H).fill(0);assert.equal(traceZoneTransport(m,x,y,5,()=>1).status,-1);
+ m[(y-2)*W+x]=0x32;assert.equal(traceZoneTransport(m,x,y,5,()=>1).status,0);
+ m[(y-2)*W+x+1]=0x32;m[(y-3)*W+x+1]=0x144;
+ assert.equal(traceZoneTransport(m,x,y,5,()=>1).status,1);
+});
