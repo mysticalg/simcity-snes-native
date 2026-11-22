@@ -5,6 +5,21 @@ import fs from 'node:fs';
 const build=JSON.parse(fs.readFileSync(new URL('../assets/tables/build.json',import.meta.url)));
 const flags=JSON.parse(fs.readFileSync(new URL('../assets/tables/city.json',import.meta.url))).flags;
 const map=JSON.parse(fs.readFileSync(new URL('../assets/maps/Map_PracticeCity.json',import.meta.url)));
+test('powered seaport spawns a saved ship and visual frames move it',()=>{
+ const c=new City(Array(W*H).fill(2),build,flags);const i=50*W+60;c.map[i]=0x826c;c.scanCityTiles();
+ assert.equal(c.ship.active,true);assert.equal(c.ship.initializing,true);assert.equal(c.ship.y,0);
+ const saved=City.restore(c.serialize(),build,flags);assert.deepEqual(saved.ship,c.ship);
+ c.advanceVisualFrames(2);assert.equal(c.ship.initializing,false);const before=[c.ship.pixelX,c.ship.pixelY];
+ c.advanceVisualFrames(64,true);assert.deepEqual([c.ship.pixelX,c.ship.pixelY],before);
+ c.advanceVisualFrames(64);assert.notDeepEqual([c.ship.pixelX,c.ship.pixelY],before);
+ const noPower=new City(Array(W*H).fill(2),build,flags);noPower.map[i]=0x26c;noPower.scanCityTiles();assert.equal(noPower.ship.active,false);
+});
+test('live ship tile coordinates open the original horizontal drawbridge',()=>{
+ const c=new City(Array(W*H).fill(2),build,flags),i=50*W+60,offsets=[-122,-2,-1,0,1,2,-118];
+ [1,0x30,0x30,0x30,0x30,0x30,1].forEach((id,j)=>c.map[i+offsets[j]]=id);
+ Object.assign(c.ship,{active:true,x:61,y:50,pixelX:488,pixelY:400});c.scanCityTiles();
+ assert.equal(c.map[i]&1023,0x354);assert.equal(c.map[i-2]&1023,0x357);
+});
 test('ROM maps and scenario metadata stay aligned',()=>{
  assert.equal(map.length,W*H);assert.equal(SCENARIOS.length,9);
  for(const scenario of SCENARIOS){const file=new URL(`../assets/maps/Map_${scenario.id}.json`,import.meta.url);assert.equal(JSON.parse(fs.readFileSync(file)).length,12000);}
