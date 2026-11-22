@@ -4,6 +4,27 @@
 export const signed16 = value => (value << 16) >> 16;
 const word = value => value & 0xffff;
 
+// CODE_039567/03974B and CODE_0398DD; DATA_03992B has nine-tile strides.
+export function updateCommercialFootprint(map,x,y,population,density,valueByte,direction,width=120,height=100){
+ const id=map[y*width+x]&1023;
+ const stamp=base=>stampZoneFootprint(map,x,y,base,width,height);
+ if(direction<0){
+  if(id===0x39e||id===0x3b0)return stamp(0x1eb);
+  if(id===0x3a7||id===0x3b9||population===0)return false;
+  return stamp(population===1?0x137:0x140+9*((density&3)*5+population-2));
+ }
+ if((valueByte&255)>>>5<population)return false;
+ if(population<5)return stamp(0x140+9*((density&3)*5+population));
+ if(id!==0x1ef)return false;
+ if(x+3<width&&(map[y*width+x+3]&1023)===0x1ef){
+  const a=stamp(0x39a),b=stampZoneFootprint(map,x+3,y,0x3a3,width,height);return a||b;
+ }
+ if(y+3<height&&(map[(y+3)*width+x]&1023)===0x1ef){
+  const a=stamp(0x3ac),b=stampZoneFootprint(map,x,y+3,0x3b5,width,height);return a||b;
+ }
+ return false;
+}
+
 // CODE_039137..0391DB partner check before zone dispatch. CPU byte offsets
 // resolve to three map cells horizontally or three rows vertically.
 export function repairMergedZone(map,x,y,width=120,height=100){

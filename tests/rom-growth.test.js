@@ -124,3 +124,10 @@ test('ROM merged partner repair retains complete pairs and repairs detached halv
   m[j]=0;assert.equal(repairMergedZone(m,x,y),true);assert.equal(m[i],0x8000|(base+4));assert.ok(m[(y+1)*W+x+1]&0x4000);
  }
 });
+test('commercial source transitions use value gate, five density levels and merge bases',async()=>{
+ const {updateCommercialFootprint}=await import('../src/rom-growth.js');const x=60,y=50,i=y*W+x,m=Array(W*H).fill(0);m[i]=0x8144;
+ assert.equal(updateCommercialFootprint(m,x,y,1,2,31,1),false);
+ assert.equal(updateCommercialFootprint(m,x,y,1,2,32,1),true);assert.equal(m[i]&1023,0x1a7);
+ assert.equal(updateCommercialFootprint(m,x,y,2,0,0,-1),true);assert.equal(m[i]&1023,0x144);
+ m[i]=0x81ef;m[i+3]=0x81ef;assert.equal(updateCommercialFootprint(m,x,y,5,3,255,1),true);assert.equal(m[i]&1023,0x39e);assert.equal(m[i+3]&1023,0x3a7);
+});
