@@ -1,6 +1,6 @@
 import {applyRomMeltdown,decayRomRadiation} from './rom-disasters.js';
 import {scenarioOutcome,SCENARIO_EVENT_COUNTS,stepScenarioEvent,stepScenarioReminder,scenarioMeltdownSite} from './rom-scenarios.js';
-import {residentialDemandScore, residentialLocalScore, residentialDensityBand, residentialGrowthBase, residentialDeclineFootprint, decideResidentialUpdate, stampZoneFootprint, placeSmallHome, mergeResidentialZone,repairMergedZone,updateCommercialFootprint,updateIndustrialFootprint} from './rom-growth.js';
+import {residentialDemandScore, residentialLocalScore, residentialDensityBand, residentialGrowthBase, residentialDeclineFootprint, decideResidentialUpdate, stampZoneFootprint, placeSmallHome, mergeResidentialZone,repairMergedZone,updateCommercialFootprint,updateIndustrialFootprint,decideJobZoneUpdate} from './rom-growth.js';
 import {accumulateRomDemand} from './rom-demand.js';
 // Native simulation model. ROM-backed tables and direct translations are marked.
 // Monthly growth, coverage and disasters are provisional reconstructions, not yet
@@ -219,9 +219,9 @@ export class City {
   this.demand=generatedDemand.map((value,i)=>accumulateRomDemand(this.demand[i],value,this.tax,this.difficulty,i===0?2000:1500));
   for(const z of this.zones){if(z.type<5||z.type>7)continue;
    if(z.type===5){this.updateResidentialTile(z);continue;}
-   const connected=this.power[z.i]&&this.nearRoad(z);const chance=this.random()%100;
-   if(connected&&this.demand[z.type-5]>0&&chance<40&&this.pollution[z.i]<(z.type===7?256:190))this.grow(z,1);
-   else if((!connected||this.demand[z.type-5]<-400)&&chance<20)this.grow(z,-1);
+   const decision=decideJobZoneUpdate({mapWord:this.map[z.i],demand:this.demand[z.type-5],localScore:0,gateWord:this.random(),nextRandomWord:()=>this.random()});
+   if(decision.action==='grow')this.grow(z,1);
+   else if(decision.action==='decline')this.grow(z,-1);
   }
   this.updateDisasters();this.refresh();
   const result=scenarioOutcome(this.scenario,this.year,{category:this.category,traffic:Math.max(...this.traffic),crime:this.meanCrime||0,score:this.score});if(result!=='active'&&!this.scenarioResult){this.scenarioResult=result;this.message('Scenario '+result+'.');}
@@ -254,6 +254,7 @@ export class City {
  serialize(){return JSON.stringify({version:1,scenarioRemaining:this.scenarioRemaining,scenarioResult:this.scenarioResult,scenarioReminders:this.scenarioReminders,scenarioDialogSeen:this.scenarioDialogSeen,map:Array.from(this.map),name:this.name,scenario:this.scenario,year:this.year,month:this.month,funds:this.funds,difficulty:this.difficulty,tax:this.tax,taxAccumulator:this.taxAccumulator,funding:this.funding,rngA:this.rngA,rngB:this.rngB,history:this.history,loan:this.loan,gifts:this.gifts});}
  static restore(text,build,flags){const s=JSON.parse(text);if(s.version!==1||!Array.isArray(s.map)||s.map.length!==12000||s.map.some(n=>!Number.isInteger(n)||n<0||n>65535))throw Error('This is not a supported city save.');const c=new City(s.map,build,flags,s);for(const k of ['scenarioRemaining','scenarioResult','scenarioReminders','scenarioDialogSeen','month','funds','tax','taxAccumulator','funding','rngA','rngB','history','loan','gifts'])if(s[k]!==undefined)c[k]=s[k];c.refresh();return c;}
 }
+
 
 
 

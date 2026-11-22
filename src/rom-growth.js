@@ -187,6 +187,13 @@ export function residentialUpdateGate(tileId, randomWord) {
   return (tileId & 0x3ff) === 0x84 || (word(randomWord) & 7) === 0;
 }
 
+// CODE_03927B/039327 share the residential signed comparisons, but have
+// neither the $84 gate bypass nor the empty-residential special branch.
+export function decideJobZoneUpdate({mapWord,demand,localScore=0,gateWord,nextRandomWord}){
+ const score=residentialDemandScore(mapWord,localScore,demand);
+ return decideResidentialUpdate({tileId:0,gateWord,score,population:1,nextRandomWord});
+}
+
 // Mirrors CODE_03937A's signed threshold and random comparisons. `randomWords`
 // supplies successive CODE_03907E values after the one-in-eight gate.
 export function decideResidentialUpdate({tileId, gateWord, score, population, randomWords = [], nextRandomWord}) {

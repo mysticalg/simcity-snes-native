@@ -142,3 +142,9 @@ test('industrial ROM progression caps four levels and selects low-bit graphics f
  assert.equal(updateIndustrialFootprint(m,x,y,1,-1,rng),true);assert.equal(m[i]&1023,0x1f8);assert.equal(calls,0);
  assert.equal(updateIndustrialFootprint(m,x,y,3,-1,rng),true);assert.equal(m[i]&1023,0x22e);assert.equal(calls,1);
 });
+test('job-zone source gate has no residential bypass or empty special branch',async()=>{
+ const {decideJobZoneUpdate}=await import('../src/rom-growth.js');
+ let calls=0;assert.equal(decideJobZoneUpdate({mapWord:0x8144,demand:0,gateWord:1,nextRandomWord:()=>{calls++;return 0x2000;}}).action,'none');assert.equal(calls,0);
+ assert.equal(decideJobZoneUpdate({mapWord:0x8144,demand:0,gateWord:0,nextRandomWord:()=>0x2000}).action,'grow');
+ assert.equal(decideJobZoneUpdate({mapWord:0x144,demand:2000,gateWord:0,nextRandomWord:()=>0x7000}).action,'decline');
+});
