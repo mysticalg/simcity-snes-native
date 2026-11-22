@@ -135,3 +135,8 @@ test('gift placement consumes one duplicate and retains inventory after reload',
  assert.equal(c.place(21,60,50),true);assert.deepEqual(c.gifts,[21,22]);assert.equal(c.funds,funds);assert.equal(c.id(61,51),0x307);
  const restored=City.restore(c.serialize(),build,flags);assert.deepEqual(restored.gifts,[21,22]);assert.equal(restored.place(21,60,50),false);assert.deepEqual(restored.gifts,[21,22]);
 });
+test('service center census includes headquarters and Mayor house placement consumes awarded slot',()=>{
+ const c=new City(Array(W*H).fill(0),build,flags);assert.equal(c.canBuild(15,10,10).ok,false);c.gifts=[15];assert.equal(c.place(15,10,10),true);assert.equal(c.id(11,11),0x2bf);assert.deepEqual(c.gifts,[]);
+ for(const [i,id]of [[1000,0x249],[1010,0x307],[1020,0x252],[1030,0x310]])c.map[i]=id;c.refresh();assert.equal(c.counts[8],2);assert.equal(c.counts[9],2);assert.deepEqual(c.budget().requests.slice(1),[200,200]);
+ c.population=2000;c.category=1;assert.equal(c.checkMilestones().message,1);assert.equal(c.checkMilestones().gift,15);const loaded=City.restore(c.serialize(),build,flags);assert.equal(loaded.giftMilestones.mayorHouse,true);assert.deepEqual(loaded.gifts,[15]);assert.equal(loaded.checkMilestones(),null);
+});

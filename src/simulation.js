@@ -1,4 +1,4 @@
-import {romGiftEffects,serviceMilestoneNotices,serviceMilestoneGift,enqueueRomGift} from './rom-gifts.js';
+import {romGiftEffects,nextCoreMilestone,enqueueRomGift} from './rom-gifts.js';
 import {networkCrossing} from './rom-networks.js';
 import {romPoliceCoverage,romFireCoverage,fireBurnoutMaximum} from './rom-services.js';
 import {romDensityField} from './rom-density.js';
@@ -102,6 +102,8 @@ export class City {
    const id=this.map[i]&1023,type=this.classify(id);
    // CODE_038297 dispatches only entries whose ROM tile flag has bit 0 set.
    if(!(this.flags[id]&1))continue;
+   if(id===0x249||id===0x307)this.counts[8]++;
+   if(id===0x252||id===0x310)this.counts[9]++;
    if(type<5||type>7)continue;
    this.counts[type]++;
    this.rci[type-5]+=type===5&&id===0x84?this.adjacentSmallHomeCount({x:i%W,y:Math.floor(i/W)}):this.zonePopulation({id,type});
@@ -117,7 +119,7 @@ export class City {
   if(tool<0)return {ok:false,cost:0,reason:'Choose a construction tool.'};
   if(tool===0){const id=this.id(x,y);return {ok:x>=0&&x<W&&y>=0&&y<H&&id>3,cost:1,reason:'There is nothing to clear here.'};}
   const cells=this.footprint(tool,x,y);let cost=this.build.costs[Math.min(tool,15)]||100;
-  if(tool>=16){if(!this.gifts.includes(tool))return {ok:false,cost:0,reason:'This gift has not been awarded.'};cost=0;}
+  if(tool>=15){if(!this.gifts.includes(tool))return {ok:false,cost:0,reason:'This gift has not been awarded.'};cost=0;}
   for(const c of cells){
    if(c.x<0||c.x>=W||c.y<0||c.y>=H)return {ok:false,cost,reason:'The building must fit inside the map.'};
    const id=this.id(c.x,c.y);
@@ -138,7 +140,7 @@ export class City {
    else this.map[i]=0;
   } else {
    for(const c of this.footprint(tool,x,y)){const i=c.y*W+c.x;this.map[i]=networkCrossing(tool,this.map[i])??c.id;}
-   if(tool>=16)this.gifts.splice(this.gifts.indexOf(tool),1);
+   if(tool>=15)this.gifts.splice(this.gifts.indexOf(tool),1);
   }
   for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++)this.connect(x+dx,y+dy);
   this.refresh();return true;
@@ -238,7 +240,7 @@ export class City {
   for(let step=0;step<4;step++){const e=stepScenarioEvent(this.scenario,this.scenarioRemaining,this.population);this.scenarioRemaining=e.remaining;if(e.event==='Meltdown'){const site=scenarioMeltdownSite(this.map);if(site)this.disaster(e.event,site.x,site.y);}else if(e.event)this.disaster(e.event);}
   const reminder=stepScenarioReminder(this.scenario,this.year,this.scenarioReminders.length);if(reminder.yearsLeft!==null){this.scenarioReminders.push(reminder.yearsLeft);this.message('Scenario deadline: '+reminder.yearsLeft+' years remaining.');}
   let repaired=false;for(const z of this.zones)if(repairMergedZone(this.map,z.x,z.y,W,H))repaired=true;if(repaired)this.refresh();
-  const oldCategory=this.category;this.updatePower();this.fields();
+  this.updatePower();this.fields();
   const jobs=(this.rci[1]+this.rci[2])*8;
   const generatedDemand=[700+(jobs-this.rci[0])*8-(this.tax-7)*90,500+(this.rci[0]/5-this.rci[1])*15-(this.tax-7)*80,450+(this.rci[0]/4-this.rci[2])*12-(this.tax-7)*70];
   this.demand=generatedDemand.map((value,i)=>accumulateRomDemand(this.demand[i],value,this.tax,this.difficulty,i===0?2000:1500));
@@ -251,12 +253,13 @@ export class City {
    else if(decision.action==='decline')this.grow(z,-1);
   }
   this.updateDisasters();this.refresh();
-  for(const notice of serviceMilestoneNotices({police:this.counts[8],fire:this.counts[9],rail:this.railCount},this.giftMilestones)){this.message(notice);const gift=serviceMilestoneGift(notice);if(gift!==null)enqueueRomGift(this.gifts,gift);}
+  this.checkMilestones();
   const result=scenarioOutcome(this.scenario,this.year,{category:this.category,traffic:Math.max(...this.traffic),crime:this.meanCrime||0,score:this.score});if(result!=='active'&&!this.scenarioResult){this.scenarioResult=result;this.message('Scenario '+result+'.');}
-  if(this.category>oldCategory){enqueueRomGift(this.gifts,16);this.message(`Congratulations! ${this.name} is now a ${CATEGORIES[this.category].toLowerCase()}. A gift is available.`);}
+
   this.history.push({year:this.year,month:this.month,population:this.population,rci:[...this.rci],funds:this.funds,crime:this.meanCrime||0});if(this.history.length>240)this.history.shift();
   if(++this.month>12){this.month=1;this.budget(true,Math.floor(this.taxAccumulator/48));this.taxAccumulator=0;this.year++;}
  }
+ checkMilestones(){const event=nextCoreMilestone({population:this.population,category:this.category,police:this.counts[8],fire:this.counts[9],rail:this.railCount,inventorySize:this.gifts.length},this.giftMilestones);if(event){this.message(event.text);if(event.gift!==null)enqueueRomGift(this.gifts,event.gift);}return event;}
  advance(ms){this.elapsed+=ms*this.speed;while(this.elapsed>=3000){this.elapsed-=3000;this.tick();}}
  disaster(type,x=60,y=50){
   if(type==='Meltdown'){const result=applyRomMeltdown(this.map,this.flags,x,y,max=>this.boundedRandom(max),W,H);this.message('Nuclear meltdown reported.');this.refresh();return result;}
@@ -264,7 +267,7 @@ export class City {
   this.disasters.push({type,x,y,life:type==='Earthquake'?1:16});this.message(`${type} reported. Emergency services are responding.`);
   if(type==='Fire')this.map[y*W+x]=0x2e;
   this.updateDisasters();this.refresh();
-  for(const notice of serviceMilestoneNotices({police:this.counts[8],fire:this.counts[9],rail:this.railCount},this.giftMilestones)){this.message(notice);const gift=serviceMilestoneGift(notice);if(gift!==null)enqueueRomGift(this.gifts,gift);}
+
   const result=scenarioOutcome(this.scenario,this.year,{category:this.category,traffic:Math.max(...this.traffic),crime:this.meanCrime||0,score:this.score});if(result!=='active'&&!this.scenarioResult){this.scenarioResult=result;this.message('Scenario '+result+'.');}
  }
  updateDisasters(){

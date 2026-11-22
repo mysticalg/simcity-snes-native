@@ -19,3 +19,17 @@ export function serviceMilestoneNotices({police,fire,rail},progress){
 export function serviceMilestoneGift(notice){return notice.startsWith('Police stations')?21:notice.startsWith('Fire stations')?22:null;}
 // CODE_01BFFF scans four slots; a full inventory drops the new reward.
 export function enqueueRomGift(inventory,tool){if(inventory.length>=4)return false;inventory.push(tool);return true;}
+// CODE_03C0FA runs population promotion before the gift-capacity gate.
+// CODE_03C131 emits Mayor's House message $2C once after first promotion.
+// CODE_03C405 then reserves one of the four inventory slots in a village.
+export function nextCoreMilestone({population,category,police,fire,rail,inventorySize},progress){
+ const thresholds=[2000,10000,50000,100000,500000],stage=progress.population||0;
+ if(stage<thresholds.length&&population>=thresholds[stage]){progress.population=stage+1;return {message:stage+1,text:`Population milestone: ${thresholds[stage].toLocaleString()}.`,gift:null};}
+ if(inventorySize>=(category===0?3:4))return null;
+ if(!progress.mayorHouse&&(progress.population||0)>0){progress.mayorHouse=true;return {message:0x2c,text:'The Mayor’s House is available.',gift:15};}
+ // Earlier unported Wright conditions can preempt these in the cartridge.
+ for(const [key,value,limits,message,gift] of [['police',police,[6,12,18],0x11,21],['fire',fire,[6,12,18],0x12,22],['rail',rail,[500,2000],0x1a,29]]){
+  const n=progress[key]||0;if(n<limits.length&&value>=limits[n]){progress[key]=n+1;return {message,text:`${key==='rail'?'Rail network':key==='police'?'Police stations':'Fire stations'} milestone: ${limits[n]}.`,gift};}
+ }
+ return null;
+}
