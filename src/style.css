@@ -52,3 +52,4 @@ body{display:block;padding:8px 8px 80px}.frame{margin:auto;overflow:visible}.top
 @media(min-width:901px) and (max-height:760px){.command-row button{font-size:9px;min-height:30px}.drawing-controls{gap:5px;padding-top:6px}.screen canvas{width:min(100%,calc((100dvh - 170px)*1.6))}}
 .command-row{gap:4px}.command-row button{padding:6px 7px}.tools{position:sticky;top:0;background:#101918;z-index:1}
 @media(max-width:900px){.command-row{gap:3px}.command-row button{padding:5px}}
+.drawing-controls{flex-wrap:nowrap}
