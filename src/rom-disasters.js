@@ -51,3 +51,30 @@ export function applyRomEarthquake(map,flags,nextBounded,width=120,height=100){
  }
  return {attempts,fire,rubble};
 }
+// CODE_03BC0B..03BC8E: up to300 random shoreline samples, first
+// nonzero combustible neighbor in N/E/S/W order starts tile$365.
+export function startRomFlood(map,flags,nextBounded,width=120,height=100){
+ for(let attempt=1;attempt<=300;attempt++){
+  const x=nextBounded(width-1)&255,y=nextBounded(height-1)&255,i=y*width+x;if(i>=map.length)continue;
+  const id=map[i]&1023;if(id<4||id>=20)continue;
+  for(const [dx,dy]of [[0,-1],[1,0],[0,1],[-1,0]]){const cx=x+dx,cy=y+dy;if(cx<0||cx>=width||cy<0||cy>=height)continue;const n=cy*width+cx,tile=map[n]&1023;if(tile!==0&&(flags[tile]&4)){map[n]=0x365;return {started:true,attempts:attempt,x:cx,y:cy,remaining:60};}}
+ }
+ return {started:false,attempts:300};
+}
+// CODE_03AD3F: shared timer decrements once per active flood tile.
+// New later cells may be processed in this same row-major tile pass.
+export function scanRomFlood(map,flags,remaining,nextWord,igniteZone,width=120,height=100){
+ let flooded=0,cleared=0,spread=0;
+ for(let i=0;i<map.length;i++){
+  if((map[i]&1023)!==0x365)continue;flooded++;
+  if(!remaining){if((nextWord()&7)===0){map[i]=0;cleared++;}continue;}
+  remaining--;const x=i%width,y=Math.floor(i/width);
+  for(const [dx,dy]of [[0,-1],[1,0],[0,1],[-1,0]]){
+   if((nextWord()&3)!==0)continue;const cx=x+dx,cy=y+dy;if(cx<0||cx>=width||cy<0||cy>=height)continue;
+   const j=cy*width+cx,id=map[j]&1023;if(id===0x365)continue;
+   if(id!==0&&!(flags[id]&4))continue;
+   if(id!==0&&(flags[id]&1))igniteZone(cx,cy,id);else{map[j]=0x365;spread++;}
+  }
+ }
+ return {remaining,flooded,cleared,spread};
+}
