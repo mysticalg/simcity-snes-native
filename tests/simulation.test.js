@@ -102,3 +102,9 @@ test('merged residential/commercial census follows ROM dispatch and fixed contri
  const i=50*W+20,z={i,x:20,y:50,type:5,id:0x37a};assert.equal(c.grow(z,-1),true);assert.equal(c.map[i]&1023,0x120);
  const other={i:i+3,x:23,y:50,type:5,id:0x383};const before=[...c.map];assert.equal(c.grow(other,-1),false);assert.deepEqual([...c.map],before);
 });
+test('power scan counts ROM coal/nuclear center IDs and writes map power markers',()=>{
+ const m=Array(W*H).fill(0),i=50*W+60;m[i]=0x28c;m[i+1]=0x60;m[i+10]=0x27c;
+ const c=new City(m,build,flags);assert.equal(c.powerCapacity,2700);assert.ok(c.map[i]&0x8000);assert.ok(c.map[i+1]&0x8000);
+ assert.equal(c.map[0]&0x8000,0);
+ c.map[i]=0;c.map[i+10]=0;c.refresh();assert.equal(c.powerCapacity,0);assert.equal(c.map[i+1]&0x8000,0);
+});

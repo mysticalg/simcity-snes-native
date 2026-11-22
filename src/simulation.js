@@ -69,10 +69,13 @@ export class City {
  }
  updatePower(){
   this.power.fill(0);const queue=[];let capacity=0;
-  for(const z of this.zones)if(z.type===11||z.type===13){queue.push(z.i);this.power[z.i]=1;capacity+=z.type===11?700:2000;}
+  // CODE_03AA9F/03AFB0 count coal center $028C and nuclear $027C.
+  for(const z of this.zones)if(z.id===0x28c||z.id===0x27c){queue.push(z.i);this.power[z.i]=1;capacity+=z.id===0x28c?700:2000;}
   let q=0;
   while(q<queue.length&&q<capacity){const i=queue[q++];for(const n of this.neighbors(i))if(!this.power[n]&&(this.flag(n)&0x80)){this.power[n]=1;queue.push(n);}}
   this.powerCapacity=capacity;this.powerUsed=q;
+  // CODE_03B152 writes the resulting power bit back to every map word.
+  for(let i=0;i<this.map.length;i++)this.map[i]=(this.map[i]&0x7fff)|(this.power[i]?0x8000:0);
  }
  // Zone population bands follow CODE_03842F/038456/03847A; spatial desirability below is provisional.
  zonePopulation(z){
