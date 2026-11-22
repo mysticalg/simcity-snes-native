@@ -4,13 +4,15 @@ import {findZoneTransport} from './rom-growth.js';
 export function romServiceFunding(allocated,requested){if(!requested)return 1000;const ratio=Math.floor(((allocated&65535)*256)/(requested&65535))&65535;return (Math.imul(ratio,1000)>>>8)&65535;}
 // CODE_03AAEB/03AB44 adds into cleared 15x13 word planes during tile scan.
 export function seedRomServicePlane(map,strength,kind,width=120,height=100){
- const w=Math.ceil(width/8),h=Math.ceil(height/8),field=new Uint16Array(w*h),station=kind==='fire'?0x252:0x249,hq=kind==='fire'?0x310:0x307;
- for(let i=0;i<map.length;i++){const id=map[i]&1023;if(id!==station&&id!==hq)continue;
-  const x=i%width,y=Math.floor(i/width);let value=id===hq?(strength*2)&65535:strength;
-  if(!(map[i]&0x8000))value>>=1;if(!findZoneTransport(map,x,y,width,height))value>>=1;
-  const p=(y>>3)*w+(x>>3);field[p]=(field[p]+value)&65535;
- }
+ const w=Math.ceil(width/8),h=Math.ceil(height/8),field=new Uint16Array(w*h);
+ for(let i=0;i<map.length;i++)addRomServiceCenter(field,map,i,strength,kind,width,height);
  return field;
+}
+export function addRomServiceCenter(field,map,i,strength,kind,width=120,height=100){
+ const id=map[i]&1023,station=kind==='fire'?0x252:0x249,hq=kind==='fire'?0x310:0x307;if(id!==station&&id!==hq)return;
+ const x=i%width,y=Math.floor(i/width),w=Math.ceil(width/8);let value=id===hq?(strength*2)&65535:strength;
+ if(!(map[i]&0x8000))value>>=1;if(!findZoneTransport(map,x,y,width,height))value>>=1;
+ const p=(y>>3)*w+(x>>3);field[p]=(field[p]+value)&65535;
 }
 // CODE_03A14D/03A1CC: neighbor sum wraps; second LSR supplies carry
 // to ADC self, then final LSR. Copy scratch plane back after each pass.

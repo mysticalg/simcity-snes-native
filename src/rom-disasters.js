@@ -23,20 +23,13 @@ export function decayRomRadiation(map,nextBounded){
 }
 // CODE_03A7E0 scans live map in row-major order; newly ignited later
 // cells can update during the same scan. Zone ignition delegates to caller.
-export function scanRomFire(map,flags,coverage,nextWord,nextBounded,igniteZone,width=120,height=100){
- let burning=0;
- for(let i=0;i<map.length;i++){
-  if((map[i]&1023)!==0x7f)continue;burning++;const x=i%width,y=Math.floor(i/width);
-  for(const [dx,dy] of [[-1,0],[0,-1],[1,0],[0,1]]){
-   if((nextWord()&7)!==0)continue;const cx=x+dx,cy=y+dy;if(cx<0||cx>=width||cy<0||cy>=height)continue;
-   const j=cy*width+cx,id=map[j]&1023,f=flags[id]||0;if(!(f&4))continue;
-   if(f&1)igniteZone(cx,cy,id);else map[j]=0x7f;
-  }
-  const value=Math.min(255,coverage[i]||0),maximum=value===0?10:value<20?3:value<100?2:1;
-  if(nextBounded(maximum)===0)map[i]=0x28;
- }
- return burning;
+export function updateRomFireTile(map,i,flags,coverage,nextWord,nextBounded,igniteZone,width=120,height=100){
+ const x=i%width,y=Math.floor(i/width);
+ for(const [dx,dy]of [[-1,0],[0,-1],[1,0],[0,1]]){if((nextWord()&7)!==0)continue;const cx=x+dx,cy=y+dy;if(cx<0||cx>=width||cy<0||cy>=height)continue;const j=cy*width+cx,id=map[j]&1023,f=flags[id]||0;if(!(f&4))continue;if(f&1)igniteZone(cx,cy,id);else map[j]=0x7f;}
+ const value=Math.min(255,coverage[i]||0),maximum=value===0?10:value<20?3:value<100?2:1;
+ if(nextBounded(maximum)===0)map[i]=0x28;
 }
+export function scanRomFire(map,flags,coverage,nextWord,nextBounded,igniteZone,width=120,height=100){let burning=0;for(let i=0;i<map.length;i++)if((map[i]&1023)===0x7f){burning++;updateRomFireTile(map,i,flags,coverage,nextWord,nextBounded,igniteZone,width,height);}return burning;}
 // CODE_03BAF5/03BB30/03BB4F, using CODE_03BC9F random map coordinates.
 // Coordinates are byte-packed; an x endpoint beyond the row wraps into
 // the next row as the original address arithmetic does. Out-of-map RAM
@@ -63,18 +56,20 @@ export function startRomFlood(map,flags,nextBounded,width=120,height=100){
 }
 // CODE_03AD3F: shared timer decrements once per active flood tile.
 // New later cells may be processed in this same row-major tile pass.
-export function scanRomFlood(map,flags,remaining,nextWord,igniteZone,width=120,height=100){
- let flooded=0,cleared=0,spread=0;
- for(let i=0;i<map.length;i++){
-  if((map[i]&1023)!==0x365)continue;flooded++;
-  if(!remaining){if((nextWord()&7)===0){map[i]=0;cleared++;}continue;}
-  remaining--;const x=i%width,y=Math.floor(i/width);
-  for(const [dx,dy]of [[0,-1],[1,0],[0,1],[-1,0]]){
-   if((nextWord()&3)!==0)continue;const cx=x+dx,cy=y+dy;if(cx<0||cx>=width||cy<0||cy>=height)continue;
-   const j=cy*width+cx,id=map[j]&1023;if(id===0x365)continue;
-   if(id!==0&&!(flags[id]&4))continue;
-   if(id!==0&&(flags[id]&1))igniteZone(cx,cy,id);else{map[j]=0x365;spread++;}
-  }
- }
- return {remaining,flooded,cleared,spread};
+export function updateRomFloodTile(map,i,flags,remaining,nextWord,igniteZone,width=120,height=100){
+ let cleared=0,spread=0;
+ if(!remaining){if((nextWord()&7)===0){map[i]=0;cleared++;}return {remaining,flooded:1,cleared,spread};}
+ remaining--;const x=i%width,y=Math.floor(i/width);
+ for(const [dx,dy]of [[0,-1],[1,0],[0,1],[-1,0]]){if((nextWord()&3)!==0)continue;const cx=x+dx,cy=y+dy;if(cx<0||cx>=width||cy<0||cy>=height)continue;const j=cy*width+cx,id=map[j]&1023;if(id===0x365)continue;if(id!==0&&!(flags[id]&4))continue;if(id!==0&&(flags[id]&1))igniteZone(cx,cy,id);else{map[j]=0x365;spread++;}}
+ return {remaining,flooded:1,cleared,spread};
+}
+export function scanRomFlood(map,flags,remaining,nextWord,igniteZone,width=120,height=100){let flooded=0,cleared=0,spread=0;for(let i=0;i<map.length;i++)if((map[i]&1023)===0x365){const r=updateRomFloodTile(map,i,flags,remaining,nextWord,igniteZone,width,height);remaining=r.remaining;flooded+=r.flooded;cleared+=r.cleared;spread+=r.spread;}return {remaining,flooded,cleared,spread};}
+// CODE_038297/0382B9/03832B/038336 dispatches from each live map
+// word in row-major order. Caller handles zone centers when null is returned.
+export function dispatchRomDisasterTile(map,i,flags,coverage,remaining,nextWord,nextBounded,igniteZone,width=120,height=100){
+ const id=map[i]&1023;
+ if(id===0x7f){updateRomFireTile(map,i,flags,coverage,nextWord,nextBounded,igniteZone,width,height);return {kind:'fire',remaining};}
+ if(id===0x365)return {kind:'flood',...updateRomFloodTile(map,i,flags,remaining,nextWord,igniteZone,width,height)};
+ if(id===0x364){if(nextBounded(4000)===0)map[i]=0;return {kind:'radiation',remaining};}
+ return null;
 }

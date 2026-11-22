@@ -2,7 +2,7 @@ import {traceRomPower} from './rom-power.js';
 import {romFieldSchedule} from './rom-schedule.js';
 import {romGiftEffects,nextCoreMilestone,enqueueRomGift} from './rom-gifts.js';
 import {networkCrossing} from './rom-networks.js';
-import {romPoliceCoverage,romFireCoverage,fireBurnoutMaximum,romServiceFunding,seedRomServicePlane,expandRomServicePlane} from './rom-services.js';
+import {romPoliceCoverage,romFireCoverage,fireBurnoutMaximum,romServiceFunding,seedRomServicePlane,expandRomServicePlane,addRomServiceCenter} from './rom-services.js';
 import {romDensityField} from './rom-density.js';
 import {romCrimeValue,meanRomCrime} from './rom-crime.js';
 import {romPollutionField} from './rom-pollution.js';
@@ -10,7 +10,7 @@ import {aggregateRomLandValue,romLandValue,romTerrainField} from './rom-land-val
 import {romAnnualRevenue,allocateRomBudget} from './rom-finance.js';
 import {SIMULATION_SEED,nextSimulationWord,boundSimulationWord} from './rom-random.js';
 import {decayTraffic,addRouteTraffic} from './rom-traffic.js';
-import {applyRomMeltdown,applyRomEarthquake,startRomFlood,scanRomFlood,decayRomRadiation,scanRomFire} from './rom-disasters.js';
+import {applyRomMeltdown,applyRomEarthquake,startRomFlood,dispatchRomDisasterTile} from './rom-disasters.js';
 import {scenarioOutcome,SCENARIO_EVENT_COUNTS,stepScenarioEvent,stepScenarioReminder,scenarioMeltdownSite} from './rom-scenarios.js';
 import {residentialDemandScore, residentialLocalScore, residentialDensityBand, residentialGrowthBase, residentialDeclineFootprint, decideResidentialUpdate, stampZoneFootprint, placeSmallHome, mergeResidentialZone,repairMergedZone,updateCommercialFootprint,updateIndustrialFootprint,decideJobZoneUpdate,findZoneTransport,traceZoneTransport} from './rom-growth.js';
 import {accumulateRomDemand,generateRomDemand,scanRomGrowthCaps} from './rom-demand.js';
@@ -241,23 +241,15 @@ export class City {
   // CODE_038016 runs demand and tile simulation on each of four base steps.
   this.taxAccumulator+=this.tax;
   this.traffic=this.traffic.map(decayTraffic);
-  decayRomRadiation(this.map,max=>this.boundedRandom(max));
   {const e=stepScenarioEvent(this.scenario,this.scenarioRemaining,this.population);this.scenarioRemaining=e.remaining;if(e.event==='Meltdown'){const site=scenarioMeltdownSite(this.map);if(site)this.disaster(e.event,site.x,site.y);}else if(e.event)this.disaster(e.event);}
   const reminder=stepScenarioReminder(this.scenario,this.year,this.scenarioReminders.length);if(reminder.yearsLeft!==null){this.scenarioReminders.push(reminder.yearsLeft);this.message('Scenario deadline: '+reminder.yearsLeft+' years remaining.');}
   let repaired=false;for(const z of this.zones)if(repairMergedZone(this.map,z.x,z.y,W,H))repaired=true;if(repaired)this.refresh();
-  this.updatePower();this.captureServiceInputs();
+  this.updatePower();
   const historyRci=this.history.at(-1)?.rci||[0,0,0];
   const generatedDemand=generateRomDemand(this.rci,historyRci,this.difficulty).scores;
   this.demand=generatedDemand.map((value,i)=>accumulateRomDemand(this.demand[i],value,this.tax,this.difficulty,i===0?2000:1500,{suppressPositive:this.growthCaps.suppressed[i]}));
-  for(const z of this.zones){if(z.type<5||z.type>7)continue;
-   if(z.type===5){this.updateResidentialTile(z);continue;}
-   let transport=1;if(this.boundedRandom(5)<this.zonePopulation(z)){const route=traceZoneTransport(this.map,z.x,z.y,z.type,()=>this.random(),W,H);transport=route.status;if(transport===1)addRouteTraffic(this.map,this.traffic,route.path,W,H);}
-   if(transport===-1){this.grow(z,-1);continue;}
-   const decision=decideJobZoneUpdate({mapWord:this.map[z.i],demand:this.demand[z.type-5],localScore:transport===0?(z.type===7?-1000:-3000):0,gateWord:this.random(),nextRandomWord:()=>this.random()});
-   if(decision.action==='grow')this.grow(z,1);
-   else if(decision.action==='decline')this.grow(z,-1);
-  }
-  this.updateDisasters();this.refresh();
+  this.scanCityTiles();
+  this.updateDisasters(false);this.refresh();
   this.baseStep=(this.baseStep+1)&65535;
   if((this.baseStep&3)===0){
    if(++this.month>12){this.month=1;this.year++;this.pendingBudget={year:this.year,taxRate:Math.floor(this.taxAccumulator/48)};const assessment=this.budget(false,this.pendingBudget.taxRate);this.pendingBudget.assessment={income:assessment.income,giftIncome:assessment.giftIncome,requests:[...assessment.requests]};this.taxAccumulator=0;if(this.autoBudget)this.settleAnnualBudget();}
@@ -267,6 +259,22 @@ export class City {
   this.checkMilestones();
   const result=scenarioOutcome(this.scenario,this.year,{category:this.category,traffic:Math.max(...this.traffic),crime:this.meanCrime||0,score:this.score});if(result!=='active'&&!this.scenarioResult){this.scenarioResult=result;this.message('Scenario '+result+'.');}
   this.updateScheduledFields();
+ }
+ scanCityTiles(){
+  this.serviceInputs={police:new Uint16Array(195),fire:new Uint16Array(195)};
+  for(let i=0;i<this.map.length;i++){
+   const disaster=dispatchRomDisasterTile(this.map,i,this.flags,this.fireCoverage,this.floodRemaining,()=>this.random(),max=>this.boundedRandom(max),(x,y,id)=>this.igniteZone(x,y,id),W,H);
+   if(disaster){this.floodRemaining=disaster.remaining;continue;}
+   const id=this.map[i]&1023;if(!(this.flags[id]&1))continue;
+   addRomServiceCenter(this.serviceInputs.police,this.map,i,this.serviceStrengths[0],'police',W,H);addRomServiceCenter(this.serviceInputs.fire,this.map,i,this.serviceStrengths[1],'fire',W,H);
+   const z={i,x:i%W,y:Math.floor(i/W),id,type:this.classify(id)};if(z.type<5||z.type>7)continue;
+   if(z.type===5){this.updateResidentialTile(z);continue;}
+   let transport=1;if(this.boundedRandom(5)<this.zonePopulation(z)){const route=traceZoneTransport(this.map,z.x,z.y,z.type,()=>this.random(),W,H);transport=route.status;if(transport===1)addRouteTraffic(this.map,this.traffic,route.path,W,H);}
+   if(transport===-1){this.grow(z,-1);continue;}
+   const decision=decideJobZoneUpdate({mapWord:this.map[z.i],demand:this.demand[z.type-5],localScore:transport===0?(z.type===7?-1000:-3000):0,gateWord:this.random(),nextRandomWord:()=>this.random()});
+   if(decision.action==='grow')this.grow(z,1);
+   else if(decision.action==='decline')this.grow(z,-1);
+  }
  }
  updateGrowthCaps(){for(let n=0;n<4;n++){this.baseStep=(this.baseStep+1)&65535;this.scanGrowthCaps();}}
  scanGrowthCaps(){const input={zones:this.counts.slice(5,8),roads:this.roadCount,rails:this.railCount,plants:this.zones.filter(z=>z.id===0x28c||z.id===0x27c).length,rci:this.rci,stadiums:this.counts[10],seaports:this.counts[11],airports:this.counts[12]};const advice=scanRomGrowthCaps(this.baseStep,input,this.growthCaps);if(advice>=6&&advice<=8)this.message(['A stadium is needed for further residential growth.','A seaport is needed for further industrial growth.','An airport is needed for further commercial growth.'][advice-6]);}
@@ -284,10 +292,9 @@ export class City {
 
   const result=scenarioOutcome(this.scenario,this.year,{category:this.category,traffic:Math.max(...this.traffic),crime:this.meanCrime||0,score:this.score});if(result!=='active'&&!this.scenarioResult){this.scenarioResult=result;this.message('Scenario '+result+'.');}
  }
- updateDisasters(){
-  const igniteZone=(x,y,id)=>{const size=id===0x2a5?6:(id>=0x257&&id<0x297)||id===0x36b?4:3;for(let dy=-1;dy<size-1;dy++)for(let dx=-1;dx<size-1;dx++){const cx=x+dx,cy=y+dy;if(cx>=0&&cx<W&&cy>=0&&cy<H){const i=cy*W+cx;if(this.flags[this.map[i]&1023]&4)this.map[i]=0x7f;}}};
-  scanRomFire(this.map,this.flags,this.fireCoverage||[],()=>this.random(),max=>this.boundedRandom(max),igniteZone,W,H);
-  this.floodRemaining=scanRomFlood(this.map,this.flags,this.floodRemaining,()=>this.random(),igniteZone,W,H).remaining;
+ igniteZone(x,y,id){const size=id===0x2a5?6:(id>=0x257&&id<0x297)||id===0x36b?4:3;for(let dy=-1;dy<size-1;dy++)for(let dx=-1;dx<size-1;dx++){const cx=x+dx,cy=y+dy;if(cx>=0&&cx<W&&cy>=0&&cy<H){const i=cy*W+cx;if(this.flags[this.map[i]&1023]&4)this.map[i]=0x7f;}}}
+ updateDisasters(scanTiles=true){
+  if(scanTiles)for(let i=0;i<this.map.length;i++){const result=dispatchRomDisasterTile(this.map,i,this.flags,this.fireCoverage,this.floodRemaining,()=>this.random(),max=>this.boundedRandom(max),(x,y,id)=>this.igniteZone(x,y,id),W,H);if(result)this.floodRemaining=result.remaining;}
   for(const d of this.disasters){
    let radius=d.type==='Earthquake'?18:d.type==='Meltdown'?8:d.type==='Flood'?4:2;
    for(let n=0;n<(d.type==='Earthquake'?100:12);n++){
