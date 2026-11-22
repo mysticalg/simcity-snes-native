@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {romFieldSchedule} from '../src/rom-schedule.js';
+test('source field schedule tables select separate slow/medium/fast phases',()=>{for(const [speed,period,targets]of [[1,16,[2,6,10,14]],[2,8,[1,3,5,7]],[3,4,[0,1,2,3]],[16,4,[0,1,2,3]]]){const keys=['landPollution','crime','density','fire'];for(let step=0;step<period*2;step++)for(let i=0;i<4;i++)assert.equal(romFieldSchedule(step,speed)[keys[i]],step%period===targets[i]);}});
