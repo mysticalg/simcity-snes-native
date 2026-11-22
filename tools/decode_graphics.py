@@ -1,7 +1,11 @@
 from pathlib import Path
-import struct,json
+import struct,json,argparse
 from PIL import Image
-ROOT=Path('outputs/simcity');A=ROOT/'assets';rom=next(Path('work/extracted').glob('*.sfc')).read_bytes()
+ROOT=Path(__file__).resolve().parents[1]
+parser=argparse.ArgumentParser(description='Rebuild ROM-backed city and title atlases')
+parser.add_argument('--rom',type=Path,default=ROOT.parents[1]/'work/extracted/SimCity (USA).sfc')
+args=parser.parse_args()
+A=ROOT/'assets';rom=args.rom.read_bytes()
 def at(a,n):return rom[((a>>16)*32768+(a&32767)):][:n]
 def words(b):return list(struct.unpack('<'+'H'*(len(b)//2),b))
 def palette(b):return [tuple(((v>>s)&31)*255//31 for s in (0,5,10))+(255,) for v in words(b)]
