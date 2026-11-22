@@ -1,3 +1,4 @@
+import {romDensityField} from './rom-density.js';
 import {romCrimeValue,meanRomCrime} from './rom-crime.js';
 import {romPollutionField} from './rom-pollution.js';
 import {aggregateRomLandValue,romLandValue,romTerrainField} from './rom-land-value.js';
@@ -152,11 +153,11 @@ export class City {
  coverage(x,y,type){let n=0;for(const z of this.zones)if(z.type===type)n=Math.max(n,clamp(1-(Math.abs(z.x-x)+Math.abs(z.y-y))/24,0,1));return n*this.funding[type===8?1:2]/100;}
  fields(){
   this.terrain=romTerrainField(this.map,W,H);this.pollution=romPollutionField(this.map,W,H);this.crime.fill(0);
-  let crime=0,total=0,sumX=0,sumY=0;for(const z of this.zones){const weight=this.zonePopulation(z)*(z.type===5?1:8);if(weight){total+=weight;sumX+=z.x*weight;sumY+=z.y*weight;}}
-  const centerX=total?Math.floor(sumX/total/2):30,centerY=total?Math.floor(sumY/total/2):25;
+  const spatial=romDensityField(this.map,this.flags,(id,x,y)=>id>=0x376?48:id===0x84?this.adjacentSmallHomeCount({x,y}):this.zonePopulation({id,type:this.classify(id)})*(this.classify(id)===5?1:8),W,H);
+  this.density=spatial.density;let crime=0;const {centerX,centerY}=spatial;
   for(let y=0;y<H;y++)for(let x=0;x<W;x++){
    const i=y*W+x,t=this.map[i]&1023;
-   this.crime[i]=romCrimeValue(this.landValue[i],Math.min(255,this.population/5000),0,Math.floor(this.coverage(x,y,8)*140));crime+=this.crime[i];
+   this.crime[i]=romCrimeValue(this.landValue[i],this.density[i],0,Math.floor(this.coverage(x,y,8)*140));crime+=this.crime[i];
    this.landValue[i]=romLandValue(x>>1,y>>1,centerX,centerY,this.terrain[i],this.pollution[i],this.crime[i]);
 
   }
@@ -274,6 +275,7 @@ export class City {
  serialize(){return JSON.stringify({version:1,simulationRng:this.simulationRng,traffic:Array.from(this.traffic),scenarioRemaining:this.scenarioRemaining,scenarioResult:this.scenarioResult,scenarioReminders:this.scenarioReminders,scenarioDialogSeen:this.scenarioDialogSeen,map:Array.from(this.map),name:this.name,scenario:this.scenario,year:this.year,month:this.month,funds:this.funds,difficulty:this.difficulty,tax:this.tax,taxAccumulator:this.taxAccumulator,funding:this.funding,rngA:this.rngA,rngB:this.rngB,history:this.history,loan:this.loan,gifts:this.gifts});}
  static restore(text,build,flags){const s=JSON.parse(text);if(s.version!==1||!Array.isArray(s.map)||s.map.length!==12000||s.map.some(n=>!Number.isInteger(n)||n<0||n>65535))throw Error('This is not a supported city save.');const c=new City(s.map,build,flags,s);for(const k of ['simulationRng','scenarioRemaining','scenarioResult','scenarioReminders','scenarioDialogSeen','month','funds','tax','taxAccumulator','funding','rngA','rngB','history','loan','gifts'])if(s[k]!==undefined)c[k]=s[k];if(Array.isArray(s.traffic)&&s.traffic.length===W*H)c.traffic=Uint8Array.from(s.traffic);c.refresh();return c;}
 }
+
 
 
 
