@@ -1,6 +1,7 @@
 // CODE_03ABDA / CODE_03AC5B..03AD3D, USA v1.0.
 // Keep accumulator inputs to CODE_039035: first call receives inactive flag 0;
 // later calls receive the preceding masked draw or exhausted scan coordinate.
+export function createRomShip(){return {active:false,x:0,y:0,direction:0,targetDirection:0,turn:0,turnPhase:0,pixelX:0,pixelY:0,offsetX:0,offsetY:0,hornCountdown:0,initializing:false,travelCountdown:0};}
 export function spawnRomShip(ship,map,boundedRandom){
  if(ship.active)return false;
  let accumulator=0;
@@ -51,4 +52,34 @@ export function navigateRomShip(ship,map,nextMenuWord){
  if(tryTurn(opposite)||fallback>=0)return choose(opposite);
  const initializing=ship.initializing;ship.active=false;
  return initializing?'despawn':'collision';
+}
+
+// One eligible frame of CODE_00B759..00B86C (global frame & 7 == 1).
+const VECTORS=[[0,-1],[1,-1],[1,0],[1,1],[0,1],[-1,1],[-1,0],[-1,-1]];
+export function stepRomShip(ship,map,nextMenuWord,{paused=false,blocked=false}={}){
+ if(!ship.active||paused)return {};
+ const events={};ship.hornCountdown=(ship.hornCountdown-1)&65535;
+ if(!ship.hornCountdown){events.horn=true;ship.hornCountdown=600;}
+ if(blocked)return events;
+ if(ship.initializing){
+  ship.pixelX=ship.x*8;ship.pixelY=ship.y*8;ship.offsetX=ship.offsetY=0;
+  events.navigation=navigateRomShip(ship,map,nextMenuWord);
+  if(ship.active)ship.initializing=false;
+  return events;
+ }
+ if(ship.turn){
+  ship.turnPhase=(ship.turnPhase+1)&1;
+  if(!ship.turnPhase){ship.direction=(ship.direction+ship.turn)&7;if(ship.direction===ship.targetDirection)ship.turn=0;}
+  if(ship.turn)return events;
+ }else if(!ship.offsetX&&!ship.offsetY){
+  events.navigation=navigateRomShip(ship,map,nextMenuWord);ship.travelCountdown=8;
+  if(ship.turn)return events;
+ }
+ const [dx,dy]=VECTORS[ship.direction];ship.pixelX=(ship.pixelX+dx)&65535;ship.pixelY=(ship.pixelY+dy)&65535;
+ // Match Y-before-X assignment and early exits, including retained old X on Y exit.
+ if(ship.pixelY&32768){ship.active=false;return events;}
+ ship.y=ship.pixelY>>>3;if(ship.y>=100){ship.active=false;return events;}ship.offsetY=ship.pixelY&7;
+ if(ship.pixelX&32768){ship.active=false;return events;}
+ ship.x=ship.pixelX>>>3;if(ship.x>=120){ship.active=false;return events;}ship.offsetX=ship.pixelX&7;
+ return events;
 }
