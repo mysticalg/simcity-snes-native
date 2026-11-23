@@ -1,5 +1,8 @@
 # Reverse engineering status
 
+**Historical initial inspection below.** Its original TODO list is preserved as a research record and is not the current feature inventory. Current verified work is indexed in [the README](../README.md), with source/runtime evidence and limits in each release report. Recent work includes original numbered terrain, city-wide simulation workers, six city music themes, graphs, scenario lifecycle and [Practice lessons](practice-v0.2.46.md); the old TODO entries for these systems should not be read as saying they are absent. Full game completion remains unproven: global scheduling/natural progression, original interface/endings/unlocks, complete SPC DSP/menu-event audio, remaining requested Turbo content and further heavy-city performance work are still open.
+
+
 ROM identity is verified against the USA hash in the reference disassembly. The LoROM header declares `SIMCITY`, North America, 512 KiB ROM, SRAM, and 1991 release. The archive copy was SHA-256 checked against `E:\Downloads\SimCity.zip` before extraction.
 
 ## Implemented from observed assembly/data

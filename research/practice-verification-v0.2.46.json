@@ -1,0 +1,41 @@
+{
+  "version": "0.2.46",
+  "nodeTests": 514,
+  "originalCases": 1659,
+  "originalOutputs": 6652,
+  "originalTableWords": 18,
+  "originalTextBlocks": 7,
+  "browser": {
+    "scope": "Controlled real browser lessons/calendar plus original worker fixtures; not a natural five-year original-ROM playthrough.",
+    "originalWorkerCases": 1659,
+    "originalOutputsCompared": 6652,
+    "realPopulation": 30400,
+    "realPoweredZones": 38,
+    "readAndDismiss": true,
+    "actualJuneStep": true,
+    "threeSecondDismiss": true,
+    "warningsOff": true,
+    "won": true,
+    "lost": true,
+    "downloadReload": true,
+    "session": true,
+    "historicDecision": true,
+    "mobile": {
+      "width": 366,
+      "viewport": 390,
+      "overflow": 0
+    },
+    "mobileTouch": true,
+    "errors": []
+  },
+  "sources": {
+    "src/app.js": "3311c882f8cac0e66011138d97b532cf47b59cab5ed3e5f87f4c2b88da273455",
+    "src/simulation.js": "57dcf08ab81b83dc22759209e32aa987fb99952f3af84f39ab032136da1aa999",
+    "src/rom-practice.js": "7e8a6499f8b2d2e158a947053245a9632a1491d6a246d0a15084588c4e396a19",
+    "src/practice-info.js": "c3af73bba45c9c893e62afa98b0dafe6794b69c396293474ad28e80d97863fff",
+    "src/practice-lessons.js": "14088ec66e3c863f7d49d0d5d0747e6b20fbf104d58bf23c48ff8015aa28ae7e",
+    "src/style.css": "dd1138068bf3c5e00e6977b928fde645915e7f7e436b791ece5229a293c6c526"
+  },
+  "screenshotsInspected": true,
+  "fullPortComplete": false
+}
