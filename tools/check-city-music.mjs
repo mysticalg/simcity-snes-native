@@ -1,0 +1,29 @@
+import {chromium} from 'playwright';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+fs.mkdirSync('output',{recursive:true});
+const browser=await chromium.launch({executablePath:'C:/Users/drhoo/AppData/Local/ms-playwright/chromium-1248/chrome-win64/chrome.exe'});
+try{
+ const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[];
+ const pending=new Set();page.on('request',r=>pending.add(r.url()));page.on('requestfinished',r=>pending.delete(r.url()));page.on('requestfailed',r=>pending.delete(r.url()));page.on('pageerror',e=>errors.push(e.message));page.on('requestfailed',r=>errors.push(r.url()+': '+r.failure()?.errorText));
+ await page.goto(process.env.TEST_URL||'http://127.0.0.1:55709');try{await page.waitForFunction(()=>window.render_game_to_text);}catch(error){console.error({errors,pending:[...pending],body:(await page.locator('body').innerText()).slice(0,500)});throw error;}
+ await page.evaluate(async()=>{const app=document.querySelector('script[type=module]').src,text=await(await fetch(app)).text();const url=name=>new URL(text.match(new RegExp("from\\s*['\"](.\\/"+name+"\\.js[^'\"]*)"))[1],app).href;
+  window.musicModule=await import(url('rom-audio'));const{City}=await import(url('simulation')),original=City.prototype.refresh;City.prototype.refresh=function(){window.musicCity=this;return original.apply(this,arguments);};
+  const proto=musicModule.RomSampleAudio.prototype,start=proto.playOriginalCityTrack;proto.playOriginalCityTrack=function(...args){window.testCityAudio=this;return start.apply(this,args);};
+ });
+ console.log('App loaded; rendering original themes');const pcm=await page.evaluate(async()=>{const results=[];
+  for(const id of [2,3]){const audio=new musicModule.RomSampleAudio(),context=new OfflineAudioContext(2,Math.ceil(12*32000),32000);audio.context=context;audio.output=context.createGain();audio.output.connect(context.destination);audio.start=async()=>{if(!audio.directory)audio.directory=await(await fetch('assets/audio/directory.json')).json();};
+   const plan=await audio.playOriginalCityTrack(id,{offline:true,offlineSeconds:12}),buffer=await context.startRendering(),energies=[];for(const[start,end]of[[0,.5],[1,5],[6,10]]){let energy=0;for(let i=Math.ceil(start*32000);i<end*32000;i++)energy+=buffer.getChannelData(0)[i]**2+buffer.getChannelData(1)[i]**2;energies.push(energy);}
+   results.push({id,events:plan.events.length,duration:plan.duration,finite:[0,1].every(c=>buffer.getChannelData(c).every(Number.isFinite)),energies});
+  }return results;
+ });
+ console.log({pcm});for(const p of pcm){assert.ok(p.finite);assert.ok(p.events>1000);assert.ok(p.energies.every(e=>e>0));}
+ const loops=await page.evaluate(async()=>{const result=[];for(const id of[2,3]){const audio=new musicModule.RomSampleAudio(),calls=[];let pump;audio.context={currentTime:0};audio.start=async()=>{};audio.load=async()=>{};audio.voice=async(sample,options)=>calls.push({sample,...options});const interval=window.setInterval;window.setInterval=callback=>{pump=callback;return 2147483000;};try{const plan=await audio.playOriginalCityTrack(id);audio.context.currentTime=plan.duration+.1;pump();const firstLoop=calls.some(c=>Math.abs(c.when-plan.duration-.05)<1e-6);audio.context.currentTime=plan.duration*2;pump();result.push({id,cycles:audio.music.cycles,firstLoop});audio.stopMusic();}finally{window.setInterval=interval;}}return result;});for(const loop of loops){assert.ok(loop.firstLoop);assert.ok(loop.cycles>=2);}
+ const mutePcm=await page.evaluate(async()=>{const results=[];for(const muted of [false,true]){const audio=new musicModule.RomSampleAudio(),context=new OfflineAudioContext(1,8000,32000);audio.context=context;audio.output=context.createGain();audio.output.connect(context.destination);audio.start=async()=>{if(!audio.directory)audio.directory=await(await fetch('assets/audio/directory.json')).json();};audio.mute(muted);await audio.voice(0,{duration:.1,when:0});const data=(await context.startRendering()).getChannelData(0);results.push(data.reduce((n,v)=>n+v*v,0));}return results;});assert.ok(mutePcm[0]>0);assert.equal(mutePcm[1],0);
+ const cancelled=await page.evaluate(async()=>{const audio=new musicModule.RomSampleAudio();let release;audio.start=()=>new Promise(resolve=>{release=resolve;});const pending=audio.playOriginalCityTrack(2);audio.stopMusic();release();return await pending===null&&!audio.musicTimer&&!audio.voices.size;});assert.ok(cancelled);
+ await page.locator('#modalGo').click();await page.locator('[data-city="PracticeCity"]').click();if(JSON.parse(await page.evaluate(()=>render_game_to_text())).mode!=='paused')await page.locator('#pause').click();
+ await page.locator('#sound').click();await page.waitForFunction(()=>testCityAudio?.music?.track===1);
+ const tracks=[1];for(const category of [1,2,3]){await page.evaluate(category=>{musicCity.category=category;},category);await page.waitForFunction(track=>JSON.parse(render_game_to_text()).audio.track===track,Math.min(category,2)+1);tracks.push(JSON.parse(await page.evaluate(()=>render_game_to_text())).audio.track);}
+ assert.deepEqual(tracks,[1,2,3,3]);await page.evaluate(()=>{musicCity.category=0;musicCity.giftMilestones.population=2;advanceTime(0);});assert.equal(JSON.parse(await page.evaluate(()=>render_game_to_text())).audio.track,3);await page.locator('#sfx').click();await page.locator('#sound').click();assert.equal(await page.evaluate(()=>testCityAudio.music===null&&testCityAudio.musicTimer===null&&testCityAudio.output.gain.value===1),true);await page.locator('#sfx').click();await page.waitForFunction(()=>testCityAudio.output.gain.value===0);assert.equal(await page.evaluate(()=>testCityAudio.output.gain.value),0);
+ await page.screenshot({path:'output/city-music-browser.png'});assert.deepEqual(errors,[]);console.log(JSON.stringify({pcm,loops,mutePcm,cancelled,categoryTracks:tracks,separateToggles:true,errors},null,2));
+}finally{await browser.close();}

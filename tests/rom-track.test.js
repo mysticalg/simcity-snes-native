@@ -6,9 +6,9 @@ test('native track follows intro and body boundaries with original notes and pit
  const fields=e=>[e.tick,e.channel,e.note,e.sample,e.pitch,e.seconds];assert.deepEqual(plan.events.slice(0,54).map(fields),planTrackOneOpening(aram).events.map(fields));
  assert.deepEqual(plan.events.slice(54,59).map(e=>[e.tick,e.channel,e.note,e.sample,e.pitch]),[[192,0,43,15,5614],[192,2,52,0,4050],[192,3,50,0,3606],[192,4,12,13,931],[192,6,43,15,5614]]);
 });
-test('second body pass stabilizes channel state while first body transition is retained',()=>{
+test('all body repeats retain the original current-note articulation',()=>{
  const plan=planOriginalTrackOne(aram,{maxPatterns:4});const rows=plan.patterns.map(p=>plan.events.filter(e=>e.tick>=p.startTick&&e.tick<p.endTick).map(e=>[e.tick-p.startTick,e.channel,e.note,e.sample,e.pitch,e.volume,e.articulation,e.pan]));
- assert.notDeepEqual(rows[1],rows[2]);assert.deepEqual(rows[2],rows[3]);assert.deepEqual(rows.map(r=>r.length),[54,224,224,224]);
+ assert.deepEqual(rows[1],rows[2]);assert.deepEqual(rows[2],rows[3]);assert.deepEqual(rows.map(r=>r.length),[54,224,224,224]);
 });
 test('pattern boundaries stop command reads and preserve note duration and articulation',()=>{
  const bytes=Uint8Array.from([12,0x7f,0x91,0xed,20,0]);const first=decodeSpcChannel(bytes,0,{maxTicks:12});assert.equal(first.state.volume,255);assert.equal(first.next,3);assert.equal(first.state.noteLength,12);assert.equal(first.state.articulation,127);

@@ -1,4 +1,4 @@
-import {spcPitchQ8,spcTickSeconds} from './rom-sequence.js?v=horn-1';
+import {spcPitchQ8,spcTickSeconds} from './rom-sequence.js?v=city-music-36';
 // Port3 CODE_0AD7 adds16 to the command and chains via DATA_0E12.
 // Effects use the independent $38/256 accumulator, not music tempo.
 function planOriginalEffect(aram,rootCommand,{pitchSlides=false,volumeAutomation=false}={}){

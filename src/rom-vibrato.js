@@ -1,4 +1,4 @@
-import {spcPitchQ8,spcTickSeconds} from './rom-sequence.js?v=horn-1';
+import {spcPitchQ8,spcTickSeconds} from './rom-sequence.js?v=city-music-36';
 // CODE_19D9: folded triangle, sign from phase bit7. Depth >=F1 uses
 // the low nibble as a wider Q8 pitch displacement rather than high-byte MUL.
 export function spcVibratoDelta(phase,depth){

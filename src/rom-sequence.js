@@ -14,6 +14,22 @@ export function readSpcNotePrefix(aram,pointer,previousLength=1){
  if(value>=0xe0)return {kind:'command',opcode:value,next:p,length,articulation};
  return {kind:value===0xc9?'rest':value===0xc8?'tie':'note',opcode:value,length,articulation,next:p};
 }
+// CODE_192D..1975 looks past prefixes and commands without executing them.
+// A tie beyond a shared pattern boundary can still suppress an earlier KOFF.
+export function spcNextNoteIsTie(aram,pointer,call=null){
+ const sizes=[1,1,2,3,0,1,2,1,2,1,1,3,0,1,2,3,1,3,3,0,1,3,0,3,3,3,1,0,0,0,0,0];
+ let p=pointer,remaining=call?.remaining||0;
+ for(let guard=0;guard<4096;guard++){
+  const value=aram[p++];
+  if(value===0){if(!remaining)return false;remaining=(remaining-1)&255;p=remaining?call.target:call.returnTo;continue;}
+  if(value<0x80)continue;
+  if(value===0xc8)return true;
+  if(value<0xe0)return false;
+  if(value===0xef){p=aram[p]|aram[p+1]<<8;continue;}
+  p+=sizes[value-0xe0];
+ }
+ throw Error('Unterminated SPC tie lookahead');
+}
 // Confirmed DATA_1814 command handlers. Modulation/echo commands are rejected
 // until their state transitions are translated, even where lengths are known.
 export function decodeSpcChannel(aram,pointer,{maxEvents=64,state={},startTick=0,maxTicks=Infinity}={}){
@@ -22,19 +38,19 @@ export function decodeSpcChannel(aram,pointer,{maxEvents=64,state={},startTick=0
  const advanceVolume=at=>{if(s.volumeFade){const fade=s.volumeFade;s.volume=spcFadeVolume(fade,at);if(at-fade.startTick>=(fade.ticks||256))delete s.volumeFade;}};
  const handlers={0xe0:['instrument',1],0xe1:['pan',1],0xe5:['masterVolume',1],0xe7:['tempo',1],0xe9:['globalTranspose',1],0xea:['transpose',1],0xed:['volume',1],0xf4:['finePitch',1],0xfa:['instrumentBase',1]};
  for(let n=0;n<4096&&events.length<maxEvents;n++){
-  advanceVolume(Math.min(tick,maxTicks));
+  advanceVolume(Math.min(tick,maxTicks-1));
   if(tick>=maxTicks){s.noteLength=length;s.articulation=articulation;return {events,state:s,next:p,ended:false,boundary:true};}
   const prefix=readSpcNotePrefix(aram,p,length);p=prefix.next;
   length=prefix.length??length;
   if(prefix.articulation!==null&&prefix.articulation!==undefined)articulation=prefix.articulation;
   if(prefix.kind==='end'){
    // CODE_14BE: a single return slot and repeat counter, not a stack.
-   if(call){call.remaining=(call.remaining-1)&255;if(call.remaining){p=call.target;continue;}p=call.returnTo;call=null;continue;}
+   if(call?.remaining){call.remaining=(call.remaining-1)&255;if(call.remaining){p=call.target;continue;}p=call.returnTo;call=null;continue;}
    s.noteLength=length;s.articulation=articulation;return {events,state:s,next:p,ended:true};
   }
   if(prefix.kind==='command'){
    // EE -> CODE_16BD/17F8: signed Q8 step, countdown and target byte.
-   if(prefix.opcode===0xee){const ticks=aram[p++],target=aram[p++];s.volumeFade={startTick:tick,ticks,target,start:s.volume,step:Math.trunc((target-s.volume)*256/(ticks||256))};continue;}
+   if(prefix.opcode===0xee){const ticks=aram[p++],target=aram[p++];s.volumeFade={startTick:tick-1,ticks,target,start:s.volume,step:Math.trunc((target-s.volume)*256/(ticks||256))};continue;}
    // EF -> CODE_16DA saves the address following all three operands.
    if(prefix.opcode===0xef){const target=aram[p]|aram[p+1]<<8,remaining=aram[p+2];call={target,remaining,returnTo:p+3};p=target;continue;}
    // CODE_1626: vibrato delay/rate/depth. CODE_16FD: echo mask and
@@ -48,7 +64,7 @@ export function decodeSpcChannel(aram,pointer,{maxEvents=64,state={},startTick=0
    s[h[0]]=aram[p++];continue;
   }
   length=prefix.length;
-  events.push({tick,length,kind:prefix.kind,note:prefix.opcode-0x80,articulation,...s});tick+=length;
+  events.push({tick,length,kind:prefix.kind,note:prefix.opcode-0x80,...s,articulation,nextIsTie:spcNextNoteIsTie(aram,p,call)});tick+=length;
  }
  return {events,state:s,next:p,ended:false};
 }

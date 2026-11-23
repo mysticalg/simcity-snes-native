@@ -28,10 +28,12 @@ test('ROM track one order list follows intro then repeated body',async()=>{
 });
 test('SPC EE volume fade advances signed Q8 state and lands on target',()=>{
  const aram=Uint8Array.from([0xed,100,0xee,4,20,2,0x91,0x93,0x95,0]);
- const result=decodeSpcChannel(aram,0);assert.deepEqual(result.events.map(e=>e.volume),[100,60,20]);
+ const result=decodeSpcChannel(aram,0);assert.deepEqual(result.events.map(e=>e.volume),[80,40,20]);
  assert.equal(result.events[0].volumeFade.step,-5120);
 });
 test('completed SPC fade cannot override a later explicit volume command',()=>{
  const aram=Uint8Array.from([0xed,100,0xee,4,20,4,0x91,0xed,80,4,0x93,0]);const result=decodeSpcChannel(aram,0);
- assert.deepEqual(result.events.map(e=>e.volume),[100,80]);assert.equal(result.events[1].volumeFade,undefined);
+ assert.deepEqual(result.events.map(e=>e.volume),[80,80]);assert.equal(result.events[1].volumeFade,undefined);
 });
+
+test("new note articulation replaces inherited pattern state",()=>{const d=decodeSpcChannel(Uint8Array.from([12,0x7f,0x91,0]),0,{state:{articulation:0x7d}});assert.equal(d.events[0].articulation,0x7f);});

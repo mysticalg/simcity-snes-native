@@ -1,15 +1,15 @@
-import {planTrackOneLead,planTrackOneOpening} from './rom-sequence.js?v=horn-1';
-import {spcTickSeconds} from './rom-sequence.js?v=horn-1';
-import {planOriginalTrackOne} from './rom-track.js?v=horn-1';
+import {planTrackOneLead,planTrackOneOpening} from './rom-sequence.js?v=city-music-36';
+import {spcTickSeconds} from './rom-sequence.js?v=city-music-36';
+import {planOriginalCityTrack} from './rom-track.js?v=city-music-36';
 import {renderSpcEnvelope} from './rom-envelope.js?v=horn-1';
-import {planSpcVibrato} from './rom-vibrato.js?v=horn-1';
-import {planOriginalShipHorn,planOriginalTornado,planOriginalFire,planOriginalMeltdown,planOriginalMonster,planOriginalPlaneEngine,planOriginalPlaneCrash,planOriginalUfo} from './rom-sfx.js?v=ufo-audio-1';
+import {planSpcVibrato} from './rom-vibrato.js?v=city-music-36';
+import {planOriginalShipHorn,planOriginalTornado,planOriginalFire,planOriginalMeltdown,planOriginalMonster,planOriginalPlaneEngine,planOriginalPlaneCrash,planOriginalUfo} from './rom-sfx.js?v=city-music-36';
 // Native BRR voices with supported original sequence/envelope scheduling.
 // Full DSP behavior and hardware voice arbitration remain incomplete.
 export class RomSampleAudio {
- constructor(){this.context=null;this.output=null;this.buffers=new Map();this.voices=new Set();this.musicVoices=new Set();this.effectVoices=new Set();this.directory=null;}
+ constructor(){this.context=null;this.output=null;this.muted=false;this.buffers=new Map();this.voices=new Set();this.musicVoices=new Set();this.effectVoices=new Set();this.directory=null;}
  async start(){
-  if(!this.context){this.context=new AudioContext();this.output=this.context.createGain();this.output.connect(this.context.destination);}
+  if(!this.context){this.context=new AudioContext();this.output=this.context.createGain();this.output.gain.value=this.muted?0:1;this.output.connect(this.context.destination);}
   await this.context.resume();
   if(!this.directory){const response=await fetch(new URL('../assets/audio/directory.json',import.meta.url));if(!response.ok)throw Error('Sample directory unavailable');this.directory=await response.json();}
  }
@@ -35,14 +35,16 @@ export class RomSampleAudio {
   if(this.hornVoices)for(const voice of this.hornVoices){try{voice.stop();}catch{}}this.hornVoices=new Set();const origin=this.context.currentTime+.02;
   for(const event of plan.voices){const voice=await this.voice(event.sample,{kind:'effect',generation,pitch:event.pitch,pitchAutomation:event.pitchAutomation,volume:.5,stereo:[event.left/128,event.right/128],stereoAutomation:event.stereoAutomation||[],envelope:event.envelope,counterPhase:Math.round(event.seconds*32000)%30720,duration:event.gateDuration,when:origin+event.seconds});if(voice)this.hornVoices.add(voice);}return plan;
  }
- async playOriginalTrackOne({offline=false}={}){
-  await this.start();this.stopMusic();const generation=this.musicGeneration;const response=await fetch(new URL('../assets/audio/aram.bin',import.meta.url));if(!response.ok)throw Error('Music data unavailable');
-  const aram=this.aram=new Uint8Array(await response.arrayBuffer()),plan=planOriginalTrackOne(aram);
+ async playOriginalTrackOne(options){return this.playOriginalCityTrack(1,options);}
+ async playOriginalCityTrack(trackId,{offline=false,offlineSeconds=Infinity}={}){
+  this.stopMusic();const generation=this.musicGeneration;await this.start();if(generation!==this.musicGeneration)return null;const response=await fetch(new URL('../assets/audio/aram.bin',import.meta.url));if(!response.ok)throw Error('Music data unavailable');
+  const aram=this.aram=new Uint8Array(await response.arrayBuffer()),plan=planOriginalCityTrack(aram,trackId);
   await Promise.all([...new Set(plan.events.map(e=>e.sample))].map(i=>this.load(i)));const origin=this.context.currentTime+.05;
+  if(generation!==this.musicGeneration)return null;
   const play=(event,shift=0)=>{const seconds=spcTickSeconds(event.tick+shift,event.tempo),gate=spcTickSeconds(event.gateEndTick+shift,event.tempo)-seconds;return this.voice(event.sample,{kind:'music',generation,pitch:event.pitch,pitchAutomation:planSpcVibrato(aram,event,shift),volume:.5,envelope:event.envelope,counterPhase:Math.round(seconds*32000)%30720,stereo:[event.dspVolumes.left/128,event.dspVolumes.right/128],stereoAutomation:event.mixAutomation.map(p=>({offset:spcTickSeconds(p.tick+shift,event.tempo)-seconds,gains:[p.left/128,p.right/128]})),duration:gate,when:origin+seconds});};
-  if(offline){for(const event of plan.events)await play(event);return plan;}
+  if(offline){for(const event of plan.events){if(event.seconds>=offlineSeconds)break;await play(event);}return plan;}
   const loop=plan.patterns.at(-1),loopIndex=plan.events.findIndex(e=>e.tick>=loop.startTick);let index=0,shift=0;
-  this.music={track:1,scheduled:0,cycles:0};
+  this.music={track:trackId,scheduled:0,cycles:0};
   const schedule=()=>{while(this.music){const event=plan.events[index],when=origin+spcTickSeconds(event.tick+shift,event.tempo);if(when>this.context.currentTime+1)break;play(event,shift).catch(error=>{this.lastError=error.message;this.stopMusic();});this.music.scheduled++;if(++index===plan.events.length){index=loopIndex;shift+=loop.endTick-loop.startTick;this.music.cycles++;}}};
   schedule();this.musicTimer=setInterval(schedule,100);return plan;
  }
@@ -51,7 +53,7 @@ export class RomSampleAudio {
   await Promise.all(events.map(e=>this.load(e.sample)));const origin=this.context.currentTime+.05;
   for(const e of events)await this.voice(e.sample,{pitch:e.pitch,volume:.15*e.volume/255,duration:e.gateDuration,when:origin+e.seconds});return events;
  }
- mute(muted){if(this.output)this.output.gain.setValueAtTime(muted?0:1,this.context.currentTime);}
+ mute(muted){this.muted=!!muted;if(this.output){this.output.gain.cancelScheduledValues(0);this.output.gain.value=this.muted?0:1;}}
  async load(index){
   if(this.buffers.has(index))return this.buffers.get(index);
   const name=index.toString(16).toUpperCase().padStart(2,'0');
