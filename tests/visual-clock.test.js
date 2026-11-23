@@ -1,0 +1,3 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {visualFrameBudget} from '../src/visual-clock.js';
+test('world animation budget scales at every supported simulation speed',()=>{for(const speed of [1,2,4,8,16])assert.equal(visualFrameBudget(1000,speed).frames,60*speed);});
+test('fractional frames accumulate without depending on browser frame duration',()=>{for(const speed of [1,2,4,8,16]){let frames=0,remainder=0;for(let n=0;n<1000;n++){const next=visualFrameBudget(1,speed,remainder);frames+=next.frames;remainder=next.remainder;}assert.equal(frames,60*speed);assert.ok(remainder<1e-8);}});

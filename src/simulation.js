@@ -161,7 +161,7 @@ export class City {
   if(tool===42||tool===43){const inside=x>=0&&x<this.width&&y>=0&&y<this.height,id=this.id(x,y),same=tool===42?id===0:id>=1&&id<20,cost=tool===42?5:10;return {ok:inside&&id<48&&!same&&this.spendingFunds>=cost,cost,reason:!inside?'Terrain must fit inside the map.':same?'This terrain is already here.':id>=48?'Clear this site before building.':'Insufficient funds.'};}
   if(tool===37&&(this.flags[this.id(x,y)]&64)){return {ok:x>=0&&x<this.width&&y>=0&&y<this.height&&!this.busStops[y*this.width+x]&&this.spendingFunds>=25,cost:25,reason:this.busStops[y*this.width+x]?'A bus stop is already here.':'Insufficient funds.'};}
   if(tool===40){const ok=x>=0&&x<this.width&&y>=0&&y<this.height;return {ok:ok&&!this.pipes[y*this.width+x]&&this.spendingFunds>=2,cost:2,reason:!ok?'Pipe must fit inside the map.':this.pipes[y*this.width+x]?'A pipe is already here.':'Insufficient funds.'};}
-  if(tool===0){const id=this.id(x,y);return {ok:x>=0&&x<this.width&&y>=0&&y<this.height&&id>3,cost:1,reason:'There is nothing to clear here.'};}
+  if(tool===0){const id=this.id(x,y);return {ok:x>=0&&x<this.width&&y>=0&&y<this.height&&(id>3||this.pipes[y*this.width+x]||this.busStops[y*this.width+x]),cost:1,reason:'There is nothing to clear here.'};}
   const cells=this.footprint(tool,x,y);let cost=this.build.costs[tool]||100;
   if(tool>=15&&tool<30){if(!this.gifts.includes(tool))return {ok:false,cost:0,reason:'This gift has not been awarded.'};cost=0;}
   for(const c of cells){
@@ -200,9 +200,10 @@ export class City {
   shadow.refresh=()=>{if(activeTool===40)return;shadow.zones=shadow.zones.filter(z=>(shadow.map[z.i]&1023)===z.id);if(activeTool>0)for(const c of shadow.footprint(activeTool,target.x,target.y)){const i=c.y*this.width+c.x,id=shadow.map[i]&1023;if((shadow.flags[id]&1)&&!shadow.zones.some(z=>z.i===i))shadow.zones.push({i,x:c.x,y:c.y,id,type:shadow.classify(id)});}};
   for(const c of cells){
    activeTool=c.tool??tool;const footprint=activeTool>4?shadow.footprint(activeTool,c.x,c.y):[c];if(footprint.some(p=>occupied.has(p.y*this.width+p.x)))continue;
+   if(activeTool===0&&!shadow.canBuild(0,c.x,c.y).ok){skipped++;continue;}
    const id=shadow.id(c.x,c.y);if(activeTool===2&&options.replaceRoadOnly&&!hasRoadLayer(id,shadow.flags)){skipped++;continue;}const bit=[0,0x40,0x20,0x10][activeTool];
    if(activeTool>=1&&activeTool<=3&&id>=0x30&&id<0x80&&(shadow.flags[id]&bit)&&!(activeTool===2&&(options.autoDemolish||options.replaceRoadOnly)&&hasRoadLayer(id,shadow.flags))){skipped++;continue;}
-   target=c;if(!shadow.place(activeTool,c.x,c.y,{...options,autoDemolish:activeTool===2&&options.replaceRoadOnly?true:options.skipBlocked?false:options.autoDemolish})){
+   target=c;if(!shadow.place(activeTool,c.x,c.y,{...options,clearAllLayers:activeTool===0&&cells.length>1,autoDemolish:activeTool===0?false:activeTool===2&&options.replaceRoadOnly?true:options.skipBlocked?false:options.autoDemolish})){
     if(options.skipBlocked){skipped++;continue;}
     if(shadow.notices[0]==='Insufficient funds.'&&!options.ignoreFunds){const required=this.planPlacements(tool,cells,{...options,ignoreFunds:true});return {...required,ok:false,reason:'Insufficient funds.'};}
     return {ok:false,reason:shadow.notices[0]||'This blueprint cannot be placed.',anchors,cost:startingFunds-shadow.funds};
@@ -214,14 +215,16 @@ export class City {
 
  applyPlacementPlan(plan){
   if(!plan.ok){this.message(plan.reason);return false;}
+  if(plan.tool===0&&!plan.anchors.length)return true;
   this.map=plan.map;if(plan.pipes)this.pipes=plan.pipes;if(plan.busStops)this.busStops=plan.busStops;if(plan.terraform)this.terraform=plan.terraform;if(plan.elevation)this.elevation=plan.elevation;if(plan.civicLegacyLayouts)this.civicLegacyLayouts=plan.civicLegacyLayouts;this.civicEnabled ||=plan.civicEnabled;this.civic.waterEnabled ||=plan.waterEnabled;this.civic.sewageEnabled ||=plan.sewageEnabled;if(plan.landfillUsed)this.civic.landfillUsed=plan.landfillUsed;if(!this.infiniteMoney||this._placementShadow)this.funds-=plan.cost;this.gifts=plan.gifts;this.refresh();if(plan.tool===8||plan.tool===21)this.message('Police station built. Coverage reduces crime as the simulation runs; power, roads and funding affect its strength.');return true;
  }
- place(tool,x,y,{autoDemolish=false}={}){
+ place(tool,x,y,{autoDemolish=false,clearAllLayers=false}={}){
   const check=autoDemolish?this.replacementPlan(tool,x,y):this.canBuild(tool,x,y);if(!check.ok){this.message(check.reason);return false;}
   if(check.map)this.map=check.map;
   if(!this.infiniteMoney||this._placementShadow)this.funds-=check.cost;if(tool>=46&&tool<=48){const i=y*this.width+x,old=this.elevation[i];this.terraform[i]=1;if(tool===48)plantForest(this.map,x,y,this.width,this.height);else{this.elevation[i]+=tool===46?1:-1;const water=this.elevation[i]<=0;if((old<=0)!==water)reshapeTerrain(this.map,this.terraform,x,y,water,this.width,this.height);}this.refresh();return true;}if(tool===42||tool===43){this.elevation[y*this.width+x]=tool===43?0:1;reshapeTerrain(this.map,this.terraform,x,y,tool===43,this.width,this.height);this.refresh();return true;}
-  if(tool===37&&(this.flags[this.id(x,y)]&64)){this.busStops[y*this.width+x]=1;this.civicEnabled=true;this.refresh();return true;}if(tool===0&&this.busStops[y*this.width+x]){this.busStops[y*this.width+x]=0;this.refresh();return true;}if(tool>=30)this.civicEnabled=true;if(tool===31){this.civic.landfillUsed??={};delete this.civic.landfillUsed[y*this.width+x];}if(tool===44||tool===45)this.civic.sewageEnabled=true;if(tool===39||tool===40)this.civic.waterEnabled=true;if(tool===40){this.pipes[y*this.width+x]=1;this.refresh();return true;}
+  if(tool===37&&(this.flags[this.id(x,y)]&64)){this.busStops[y*this.width+x]=1;this.civicEnabled=true;this.refresh();return true;}if(tool===0&&!clearAllLayers&&this.busStops[y*this.width+x]){this.busStops[y*this.width+x]=0;this.refresh();return true;}if(tool>=30)this.civicEnabled=true;if(tool===31){this.civic.landfillUsed??={};delete this.civic.landfillUsed[y*this.width+x];}if(tool===44||tool===45)this.civic.sewageEnabled=true;if(tool===39||tool===40)this.civic.waterEnabled=true;if(tool===40){this.pipes[y*this.width+x]=1;this.refresh();return true;}
   if(tool===0){
+   if(clearAllLayers){this.busStops[y*this.width+x]=0;this.pipes[y*this.width+x]=0;}
    const custom=this.zones.find(z=>{const b=civicBounds(z);return b&&x>=b.x&&x<b.x+b.width&&y>=b.y&&y<b.y+b.height;});if(custom){const b=civicBounds(custom);if(custom.id===961&&this.civic.landfillUsed)delete this.civic.landfillUsed[custom.i];delete this.civicLegacyLayouts[custom.i];for(let dy=0;dy<b.height;dy++)for(let dx=0;dx<b.width;dx++)this.map[(b.y+dy)*this.width+b.x+dx]=0;this.refresh();return true;}
    const i=y*this.width+x,z=this.zones.find(z=>Math.abs(z.x-x)<=1&&Math.abs(z.y-y)<=1&&this.id(x,y)>=0x80);
    if(z){const size=civicForId(z.id)?.size||([10,11,13,14].includes(z.type)?4:z.type===12?6:3),offset=size===1?0:1;for(let dy=0;dy<size;dy++)for(let dx=0;dx<size;dx++){const n=(z.y-offset+dy)*this.width+z.x-offset+dx;if(n>=0&&n<this.map.length)this.map[n]=0;}}
