@@ -7,13 +7,16 @@ function planOriginalEffect(aram,rootCommand,{pitchSlides=false,volumeAutomation
   if(channel<0)throw Error('Invalid SFX chain');
   const pointer=word(0x0da4+(command+16)*2);streams.push({command,pointer,channel});
   let p=pointer,tick=3,length=1,left=112,right=112,instrument=null,current=null,ended=false;
-  const finish=()=>{if(current){current.endTick=tick;current.gateEndTick=Math.max(current.tick,tick-2);}};
+  // CODE_0C1A handles an active slide instead of the remaining-two KOFF
+  // check. Such a voice stays gated until retrigger/end, without early KOFF.
+  const finish=()=>{if(current){current.endTick=tick;const early=Math.max(current.tick,tick-2),sliding=current.slides.some(s=>early>=s.tick&&early<s.tick+s.ticks);current.gateEndTick=sliding?tick:early;}};
   for(let steps=0;steps<1024;steps++){
    let opcode=aram[p++];
    if(opcode===0){finish();ended=true;break;}
    if(opcode===0xe0){const id=aram[p++],base=0x0cd8+id*9;instrument={id,sample:aram[base+4],envelope:{adsr1:aram[base+5],adsr2:aram[base+6],gain:aram[base+7]},tuning:aram[base+8]*256};left=aram[base];right=aram[base+1];continue;}
    if(opcode<128){length=opcode;opcode=aram[p++];if(opcode<128){left=opcode;opcode=aram[p++];if(opcode<128){right=opcode;opcode=aram[p++];}else right=left;}}
-   if(!instrument)throw Error('Missing SFX instrument');
+   if(instrument?.silentInherited&&(left||right))throw Error('Unresolved inherited SFX instrument');
+   if(!instrument){if(left||right)throw Error('Missing SFX instrument');instrument={id:null,sample:0,envelope:{adsr1:0,adsr2:0,gain:0},tuning:0,silentInherited:true};}
    let note=null,slide=null;
    if(opcode===0xf9){note=aram[p++]-128;}
    else if(opcode!==0xf1){if(opcode<128||opcode>=0xc8)throw Error('Unsupported SFX opcode '+opcode.toString(16));note=opcode-128;}
@@ -40,3 +43,5 @@ export function planOriginalMeltdown(aram){return planOriginalEffect(aram,30,{pi
 export function planOriginalMonster(aram){return planOriginalEffect(aram,1,{pitchSlides:true,volumeAutomation:true});}
 export function planOriginalPlaneEngine(aram){return planOriginalEffect(aram,12,{pitchSlides:true,volumeAutomation:true});}
 export function planOriginalPlaneCrash(aram){return planOriginalEffect(aram,15,{pitchSlides:true,volumeAutomation:true});}
+
+export function planOriginalUfo(aram){return planOriginalEffect(aram,28,{pitchSlides:true,volumeAutomation:true});}

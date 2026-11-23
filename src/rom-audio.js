@@ -3,7 +3,7 @@ import {spcTickSeconds} from './rom-sequence.js?v=horn-1';
 import {planOriginalTrackOne} from './rom-track.js?v=horn-1';
 import {renderSpcEnvelope} from './rom-envelope.js?v=horn-1';
 import {planSpcVibrato} from './rom-vibrato.js?v=horn-1';
-import {planOriginalShipHorn,planOriginalTornado,planOriginalFire,planOriginalMeltdown,planOriginalMonster,planOriginalPlaneEngine,planOriginalPlaneCrash} from './rom-sfx.js?v=aircraft-1';
+import {planOriginalShipHorn,planOriginalTornado,planOriginalFire,planOriginalMeltdown,planOriginalMonster,planOriginalPlaneEngine,planOriginalPlaneCrash,planOriginalUfo} from './rom-sfx.js?v=ufo-audio-1';
 // Native BRR voices with supported original sequence/envelope scheduling.
 // Full DSP behavior and hardware voice arbitration remain incomplete.
 export class RomSampleAudio {
@@ -25,6 +25,7 @@ export class RomSampleAudio {
  async playOriginalFire(){return this.playOriginalEffect(planOriginalFire);}
  async playOriginalPlaneEngine(){return this.playOriginalEffect(planOriginalPlaneEngine);}
  async playOriginalPlaneCrash(){return this.playOriginalEffect(planOriginalPlaneCrash);}
+ async playOriginalUfo(){return this.playOriginalEffect(planOriginalUfo);}
  async playOriginalMonster(){return this.playOriginalEffect(planOriginalMonster);}
  async playOriginalMeltdown(){return this.playOriginalEffect(planOriginalMeltdown);}
  async playOriginalEffect(planner){
