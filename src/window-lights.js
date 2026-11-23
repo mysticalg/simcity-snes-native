@@ -1,5 +1,6 @@
+import {utilityImagePath} from './utility-art.js?v=utilities-22';
 import {compactEmergencySprite} from './emergency.js?v=emergency-1';
-import {civicForId,civicBounds} from './civic.js?v=water-capacity-1';
+import {civicForId,civicBounds} from './civic.js?v=utilities-22';
 const hash=n=>{n=Math.imul(n^(n>>>16),0x45d9f3b);return ((n^(n>>>16))>>>0)/4294967296;};
 // Conservative sprite-pixel masks: small glazing or inset apertures, with
 // surrounding wall pixels. Large roofs, ground patches and tanks are rejected.
@@ -25,9 +26,9 @@ export function extractWindowPixels(data,width,height,options={}){
 export function windowBrightness(seed,time){const phase=Math.floor(time/45),blend=Math.min(1,(time%45)/3),value=n=>hash(seed+n*977)>.27?.55+hash(seed+n*173+11)*.45:0;return value(phase-1)*(1-blend)+value(phase)*blend;}
 function footprint(city,z){for(const b of city.build.buildings){if(!b)continue;const n=b.tiles.indexOf(z.id);if(n>=0)return {x:z.x-b.x[n],y:z.y-b.y[n],width:Math.max(...b.x)+1,height:Math.max(...b.y)+1};}return {x:z.x-1,y:z.y-1,width:3,height:3};}
 export class WindowLights{
- constructor(){this.art=Array.from({length:17},(_,i)=>{const image=new Image();image.src='assets/custom/civic-'+i+'.png';return image;});this.ready=Promise.all(this.art.map(i=>i.decode()));this.masks=new Map();this.states=new WeakMap();}
+ constructor(){this.art=Array.from({length:29},(_,i)=>{const image=new Image();image.src=utilityImagePath(i)||'assets/custom/civic-'+(i<17?i:0)+'.png';return image;});this.ready=Promise.all(this.art.map(i=>i.decode()));this.masks=new Map();this.states=new WeakMap();}
  mask(city,z,atlas){
-  const custom=civicForId(z.id);if(custom&&[961,967,972,970].includes(z.id))return null;const b=custom?civicBounds(z):footprint(city,z);if(!b)return null;
+  const custom=civicForId(z.id);if(custom&&[961,967,972,970,990].includes(z.id))return null;const b=custom?civicBounds(z):footprint(city,z);if(!b)return null;
   const w=b.width*8,h=custom?.artHeight||b.height*8,key=custom?'civic:'+z.id+':'+w+':'+h:b.width+','+b.height+':'+Array.from({length:b.width*b.height},(_,n)=>city.id(b.x+n%b.width,b.y+Math.floor(n/b.width))).join(',');let mask=this.masks.get(key);
   if(!mask){const canvas=document.createElement('canvas');canvas.width=w;canvas.height=h;const ctx=canvas.getContext('2d',{willReadFrequently:true});ctx.imageSmoothingEnabled=false;
    if(custom){const im=custom.nativeTool?compactEmergencySprite(city,z.id,atlas):this.art[custom.sprite??custom.tool-30];if(!im||(!(im instanceof HTMLCanvasElement)&&(!im.complete||!im.naturalWidth)))return null;ctx.drawImage(im,0,0,w,h);}

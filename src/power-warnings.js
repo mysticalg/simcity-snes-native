@@ -1,5 +1,5 @@
 // Visible status derives from simulation power, independently of census size.
-const NO_POWER_REQUIRED=new Set([0x27c,0x28c,963,972,961,967]);
+const NO_POWER_REQUIRED=new Set([0x27c,0x28c,963,972,990,961,967]);
 export function unpoweredBuildings(city){return city.zones.filter(z=>!NO_POWER_REQUIRED.has(z.id)&&((z.type>=5&&z.type<=14)||((city.flags?.[z.id]||0)&0x81)===0x81)&&!city.power[z.i]);}
 export function drawPowerWarnings(ctx,city,visible=true){
  if(!visible)return;

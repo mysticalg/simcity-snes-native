@@ -6,7 +6,7 @@ This project reverse engineers the USA release of SimCity for Super Nintendo and
 
 Open the [GitHub Pages version](https://mysticalg.github.io/simcity-snes-native/) after deployment, or serve this directory locally with `python -m http.server 5173` and open `http://localhost:5173`.
 
-Latest Turbo update: **v0.2.20** adds **Demolish city & restart** to bankruptcy recovery, with preserved terrain/region slot and a restorable backup. [Verification notes](research/bankruptcy-restart-v0.2.20.md).
+Latest Turbo update: **v0.2.22** adds a 1×2 water tower, 2×2 pump, triple-output 3×3 heavy pump and 2×2 solar array. Animation speed and bulk-demolition fixes are also live. [Verification notes](research/utilities-v0.2.22.md).
 
 ## Current coverage
 

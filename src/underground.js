@@ -1,7 +1,7 @@
-import {waterConsumerBounds} from './water-allocation.js?v=water-capacity-1';
+import {waterConsumerBounds} from './water-allocation.js?v=utilities-22';
 const layerCache=new WeakMap();
 export function undergroundRenderStats(city){const s=layerCache.get(city);return s?{builds:s.builds,revision:s.revision,width:s.canvas.width,height:s.canvas.height}:{builds:0};}
-import {waterNetwork,utilityPipeStatus,civicBounds} from './civic.js?v=water-capacity-1';
+import {waterNetwork,utilityPipeStatus,civicBounds} from './civic.js?v=utilities-22';
 const cache=new WeakMap();
 // Mirrors waterService's Chebyshev radius3; range alone does not guarantee
 // a building's demand fits the network's finite allocation.
@@ -27,8 +27,8 @@ function drawStaticPipes(ctx,city,area,width,x0,y0,x1,y1){const height=city.heig
 export function drawUtilityConnectors(ctx,city,{x0=0,y0=0,x1=city.width||120,y1=city.height||100}={}){
  const width=city.width||120;let connectors=0;
  ctx.save();ctx.lineCap='round';
- for(const z of city.zones){if(![969,973,974].includes(z.id)||z.x<x0-4||z.x>x1+4||z.y<y0-4||z.y>y1+4)continue;
-  const s=utilityPipeStatus(city,z),b=civicBounds(z),cx=z.x*8+4,cy=z.y*8+4,color=!s.powered?'#e78b78':!s.connected?'#b6c5cd':z.id===969?'#7de1ff':'#ffc275';
+ for(const z of city.zones){if(![969,973,974,988,989].includes(z.id)||z.x<x0-4||z.x>x1+4||z.y<y0-4||z.y>y1+4)continue;
+  const s=utilityPipeStatus(city,z),b=civicBounds(z),cx=z.x*8+4,cy=z.y*8+4,color=!s.powered?'#e78b78':!s.connected?'#b6c5cd':[969,988,989].includes(z.id)?'#7de1ff':'#ffc275';
   ctx.setLineDash([1,1]);ctx.lineWidth=1.2;ctx.strokeStyle=color;ctx.beginPath();
   for(const i of s.pipePoints){const x=i%width*8+4,y=Math.floor(i/width)*8+4;ctx.moveTo(x,y);ctx.lineTo(cx,y);ctx.lineTo(cx,cy);}ctx.stroke();ctx.setLineDash([]);
   ctx.fillStyle='#0b1820';ctx.fillRect(cx-3,cy-3,6,6);ctx.strokeStyle=color;ctx.lineWidth=.8;ctx.strokeRect(cx-3,cy-3,6,6);ctx.beginPath();ctx.moveTo(cx-2,cy);ctx.lineTo(cx+2,cy);ctx.moveTo(cx,cy-2);ctx.lineTo(cx,cy+2);ctx.stroke();

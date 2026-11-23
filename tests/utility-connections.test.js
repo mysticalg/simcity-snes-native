@@ -1,10 +1,10 @@
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
-import {City} from '../src/simulation.js';import {pumpStatus,utilityPipeStatus,civicServices} from '../src/civic.js';import {sewageServices} from '../src/sewage.js';import {utilityInspectionHTML} from '../src/utility-inspection.js';
+import {City} from '../src/simulation.js';import {pumpStatus,utilityPipeStatus,civicServices,civicBounds} from '../src/civic.js';import {sewageServices} from '../src/sewage.js';import {utilityInspectionHTML} from '../src/utility-inspection.js';
 const build=JSON.parse(fs.readFileSync('assets/tables/build.json')),flags=JSON.parse(fs.readFileSync('assets/tables/city.json')).flags;
 const fresh=()=>{const c=new City(new Uint16Array(12000),structuredClone(build),[...flags],{civicEnabled:true});c.funds=200000;return c;};
 test('water intakes and sewage outfalls operate equally on north, south, east and west sides',()=>{
- for(const [x,y] of [[21,19],[21,23],[19,21],[23,21]])for(const tool of [39,44]){
-  const c=fresh();c.place(tool,20,20);c.map[y*120+x]=2;c.place(5,26,20);c.map[21*120+27]=0x99;for(let px=21;px<=28;px++)c.pipes[23*120+px]=1;c.refresh();c.power.fill(1);const z=c.zones.find(z=>z.type===tool);assert.ok(utilityPipeStatus(c,z).intake,`${tool}: water ${x},${y}`);
+ for(const side of ['north','south','east','west'])for(const tool of [39,44]){
+  const c=fresh();c.place(tool,20,20);const b=civicBounds(c.zones.find(z=>z.type===tool)),[x,y]=side==='north'?[b.x,b.y-1]:side==='south'?[b.x,b.y+b.height]:side==='west'?[b.x-1,b.y]:[b.x+b.width,b.y];c.map[y*120+x]=2;c.pipes[22*120+21]=1;c.place(5,26,20);c.map[21*120+27]=0x99;for(let px=21;px<=28;px++)c.pipes[23*120+px]=1;c.refresh();c.power.fill(1);const z=c.zones.find(z=>z.type===tool);assert.ok(utilityPipeStatus(c,z).intake,`${tool}: water ${x},${y}`);
   if(tool===39){assert.ok(pumpStatus(c,z).working);assert.ok(civicServices(c).watered.has(21*120+27));}else{const s=sewageServices(c);assert.equal(s.dumped,320);assert.equal(s.backlog,0);assert.ok(s.discharges.some(d=>d.points.includes(y*120+x)));}
  }
 });

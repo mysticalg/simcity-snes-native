@@ -1,0 +1,51 @@
+{
+  "tool": "Built-in ImageGen",
+  "reference": "Existing realistic utility style",
+  "packaging": "Original alpha PNG masters preserved; lossless WebP with maximum dimension 252 pixels, no cropping.",
+  "assets": [
+    {
+      "name": "water-pump",
+      "sprite": 9,
+      "master": "water-pump-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "masterSHA256": "f804c79b0cacfde1c126e5a2a68bf0cfc9c7986973bf026ea672d197dfc6b08f",
+      "runtime": "water-pump-v1.webp",
+      "runtimeSHA256": "f5f3016007e2cd5cfbfc36664e8826320dd0f653646a92ee65b0f2ae98c7d461",
+      "bytes": 82050
+    },
+    {
+      "name": "water-tower",
+      "sprite": 26,
+      "master": "water-tower-v1.png",
+      "width": 887,
+      "height": 1774,
+      "masterSHA256": "115af9c591744051a3383257267b609205694920fd5a051074dd51814074fcb5",
+      "runtime": "water-tower-v1.webp",
+      "runtimeSHA256": "904217b75be0d4280c932be43948473c9a2af8a3ce377c072e7143ceff3f9c83",
+      "bytes": 29454
+    },
+    {
+      "name": "heavy-pump",
+      "sprite": 27,
+      "master": "heavy-pump-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "masterSHA256": "da95c459ab6651411d435d947c46f4d4c793e278da5ba76d2d5972dd840b958b",
+      "runtime": "heavy-pump-v1.webp",
+      "runtimeSHA256": "620a38054de8afd64f1877b073a037760121552a324027c41c47367ac8e999d8",
+      "bytes": 82810
+    },
+    {
+      "name": "solar",
+      "sprite": 28,
+      "master": "solar-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "masterSHA256": "d7fd762c39bb54052a4a0dad6d0648ffd6a5dc85922e9959a49267742af56f16",
+      "runtime": "solar-v1.webp",
+      "runtimeSHA256": "00505aeb9191cad635f91e8ee8f347889e5e7984b6906402672e29bd031981fb",
+      "bytes": 82604
+    }
+  ]
+}

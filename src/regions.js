@@ -1,7 +1,7 @@
 import {windPower} from './climate.js?v=weather-1';
 import {conductivePowerFlags} from './power-conductors.js?v=terrain-1';
-import {buildingOff} from './building-operations.js?v=emergency-1';
-import {civicForId,pumpStatus,waterNetwork} from './civic.js?v=water-capacity-1';
+import {buildingOff} from './building-operations.js?v=utilities-22';
+import {civicForId,pumpStatus,waterNetwork} from './civic.js?v=utilities-22';
 const analysisCache=new WeakMap();
 // Player-requested regional extension; not a SNES simulation routine.
 export const REGION_SIZES=[4,8,16];
@@ -12,11 +12,11 @@ export function analyzeCity(city){
  for(const [kind,bit]of [['road',64],['rail',32],['power',128],['water',0]]){
   const labels=new Int32Array(map.length).fill(-1),groups=[],conducts=i=>kind==='water'?!!waterNodes[i]:!!((kind==='power'?powerFlags:flags)[map[i]&1023]&bit);
   for(let i=0;i<map.length;i++){if(labels[i]>=0||!conducts(i))continue;const group={cells:[],rci:[0,0,0],vacancies:[0,0,0],generation:0,zones:[],health:0,garbage:0,waterDemand:0},label=groups.length;groups.push(group);const stack=[i];labels[i]=label;
-   while(stack.length){const n=stack.pop(),id=map[n]&1023;group.cells.push(n);if(kind==='power'&&city.disabledBuildings?.[n]!==id){if(id===0x28c)group.generation+=700;if(id===0x27c)group.generation+=2000;if(id===963)group.generation+=10000;if(id===972)group.generation+=windPower(city);}for(const next of [n>=w?n-w:-1,n%w<w-1?n+1:-1,n+w<map.length?n+w:-1,n%w>0?n-1:-1])if(next>=0&&labels[next]<0&&conducts(next)){labels[next]=label;stack.push(next);}}
+   while(stack.length){const n=stack.pop(),id=map[n]&1023;group.cells.push(n);if(kind==='power'&&city.disabledBuildings?.[n]!==id){if(id===0x28c)group.generation+=700;if(id===0x27c)group.generation+=2000;if(id===963)group.generation+=10000;if(id===972)group.generation+=windPower(city);if(id===990)group.generation+=civicForId(id).capacity;}for(const next of [n>=w?n-w:-1,n%w<w-1?n+1:-1,n+w<map.length?n+w:-1,n%w>0?n-1:-1])if(next>=0&&labels[next]<0&&conducts(next)){labels[next]=label;stack.push(next);}}
   }
   layers[kind]={labels,groups};
  }
- for(const z of city.zones){if(buildingOff(city,z))continue;if(z.id===969&&pumpStatus(city,z).working){const n=layers.water.labels[z.i];if(n>=0)layers.water.groups[n].generation+=5000;}if((z.type>=5&&z.type<=14)||[30,32,33,34,35,36,38].includes(z.type)){const ids=new Set();for(let dy=-3;dy<=3;dy++)for(let dx=-3;dx<=3;dx++){const x=z.x+dx,y=z.y+dy;if(x>=0&&x<w&&y>=0&&y<h){const n=layers.water.labels[y*w+x];if(n>=0)ids.add(n);}}if(ids.size)layers.water.groups[[...ids][0]].waterDemand+=Math.max(20,(z.id===0x84?city.adjacentSmallHomeCount(z):city.zonePopulation(z))*20);}
+ for(const z of city.zones){if(buildingOff(city,z))continue;if(civicForId(z.id)?.kind==='water'&&pumpStatus(city,z).working){const n=layers.water.labels[z.i];if(n>=0)layers.water.groups[n].generation+=civicForId(z.id).capacity;}if((z.type>=5&&z.type<=14)||[30,32,33,34,35,36,38].includes(z.type)){const ids=new Set();for(let dy=-3;dy<=3;dy++)for(let dx=-3;dx<=3;dx++){const x=z.x+dx,y=z.y+dy;if(x>=0&&x<w&&y>=0&&y<h){const n=layers.water.labels[y*w+x];if(n>=0)ids.add(n);}}if(ids.size)layers.water.groups[[...ids][0]].waterDemand+=Math.max(20,(z.id===0x84?city.adjacentSmallHomeCount(z):city.zonePopulation(z))*20);}
  const ids=new Set();for(const kind of ['road','rail'])for(const [dx,dy]of around){const x=z.x+dx,y=z.y+dy;if(x<0||x>=w||y<0||y>=h)continue;const label=layers[kind].labels[y*w+x];if(label>=0)ids.add(kind+':'+label);}
   for(const key of ids){const[kind,label]=key.split(':'),g=layers[kind].groups[+label];g.zones.push(z.i);if(z.type>=5&&z.type<=7){const k=z.type-5,pop=z.id===0x84?city.adjacentSmallHomeCount(z):city.zonePopulation(z);g.rci[k]+=pop;g.vacancies[k]+=Math.max(0,([48,6,4][k])-pop);}const facility=civicForId(z.id);if(facility&&city.power[z.i]&&key===[...ids][0]){if(facility.kind==='health')g.health+=facility.capacity;if(facility.id===962)g.garbage+=facility.capacity;}}
  }

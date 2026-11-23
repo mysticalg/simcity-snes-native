@@ -1,6 +1,6 @@
-import {civicServices,civicForId,civicRoadEntry,pumpStatus,educationEffects} from './civic.js?v=water-capacity-1';
+import {civicServices,civicForId,civicRoadEntry,pumpStatus,educationEffects} from './civic.js?v=utilities-22';
 import {windPower} from './climate.js?v=weather-1';
-import {sewageServices} from './sewage.js?v=water-capacity-1';
+import {sewageServices} from './sewage.js?v=utilities-22';
 import {collectGarbage,monthlyGarbageDemand} from './landfill.js?v=processing-1';
 import {employmentIncome} from './employment.js';
 import {emergencyKind} from './emergency.js';
@@ -16,9 +16,10 @@ export function processingMeters(city,z){
   const p=services.statuses.find(p=>p.i===z.i),usage=shadow.civic.garbageFacilityUsage[z.i];status=p.reason;
   if(z.id===961){const site=services.sites.find(s=>s.tiles.some(t=>t.i===z.i));add('Rubbish stored · this tile',city.civic.landfillUsed?.[z.i]||0,10000);if(site)add('Connected landfill site',site.used,site.capacity);notes.push('Storage · shared site');}
   else{add(z.id===962?'Rubbish burned':z.id===975?'Rubbish recycled':'Extra rubbish pickup',usage.processed,{962:6000,975:4000,976:12000}[z.id],'/month');notes.push('Current monthly allocation');if(z.id===976)notes.push('Adds pickup after municipal collection; needs disposal capacity.');}
- }else if(z.id===969){
-  const s=pumpStatus(city,z),network=civicServices(city).waterNetworks.find(g=>g.cells.includes(z.i));status=s.reason;add('Water network demand',network?.requested||0,network?.capacity||5000,'/month');if(network?.shortfall)notes.push('Supply shortage '+fmt(network.shortfall)+'/month · add working pumps to this network');notes.push('Shared network · this pump adds '+(s.working?'5,000':'0')+'/month');
- }else if([13,14,33,41].includes(z.type)){
+ }else if(z.id===988){const s=pumpStatus(city,z),f=city.civic.waterStorageFlow?.[z.i];status=s.reason;add('Stored water',city.civic.waterStored?.[z.i]||0,custom.capacity,'water',{fullIsNormal:true});add('Released this month',f?.released||0,custom.flow,'/month');add('Stored this month',f?.charged||0,custom.flow,'/month');notes.push('Fills from surplus pumping; supplies shortages without creating water.');
+ }else if([969,989].includes(z.id)){
+  const s=pumpStatus(city,z),network=civicServices(city).waterNetworks.find(g=>g.cells.includes(z.i));status=s.reason;add('Water network demand',network?.requested||0,network?.capacity||custom.capacity,'/month');if(network?.shortfall)notes.push('Supply shortage '+fmt(network.shortfall)+'/month · add working pumps to this network');notes.push('Shared network · this pump adds '+fmt(s.working?custom.capacity:0)+'/month');
+ }else if([13,14,33,41,62].includes(z.type)){
   add('Power grid load',city.powerUsed,city.powerCapacity,'tiles');notes.push('Shared grid · output contribution '+fmt(off?0:z.type===13?2000:z.type===14?700:z.id===972?windPower(city):custom?.capacity));status=off?'Switched off':city.powerOverloaded?'Grid overloaded':'Generating';
  }else if(z.type===5){
   const h=employmentIncome(city).homes.get(z.i);add('Residents',h?.residents||0,(z.id>=0x376?48:40)*20,'people',{fullIsNormal:true});add('Employed residents',h?.employed||0,h?.workers||0,'workers',{fullIsNormal:true});status=h?.workers?(h.employed===h.workers?'All workers employed':'Residents need jobs'):'Vacant';
