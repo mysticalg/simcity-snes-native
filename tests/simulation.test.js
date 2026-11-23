@@ -58,7 +58,7 @@ test('commercial scoring snapshots the old density center and survives save/load
 test('city scan grows commercial zone near center and rejects identical draw far away',async()=>{
  const {romCommercialRate}=await import('../src/rom-commercial.js');
  for(const [x,y,shouldGrow]of [[60,48,true],[8,8,false]]){
-  const c=new City(Array(W*H).fill(0),build,flags),i=y*W+x;c.map[i]=0x8144;c.landValue[i]=255;c.demand[1]=0;c.commercialRate=romCommercialRate(30,25);const words=[0,39200,0];c.random=()=>words.shift()??0;c.boundedRandom=()=>5;
+  const c=new City(Array(W*H).fill(0),build,flags),i=y*W+x;c.map[i]=0x8144;c.landValue[i]=255;c.demand[1]=0;c.commercialRate=romCommercialRate(30,25);const words=[30000,0,39200,0];c.random=()=>words.shift()??0;
   c.scanCityTiles();assert.equal((c.map[i]&1023)!==0x144,shouldGrow);if(shouldGrow)assert.equal(c.map[i]&1023,0x1d4);
  }
 });

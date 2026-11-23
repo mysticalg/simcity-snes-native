@@ -1,7 +1,9 @@
+import {cityGrowthRateAt} from './rom-growth-rate.js?v=job-growth-1';
 import {socialFields} from './social-fields.js?v=megacity-1';
-export const OVERLAYS={none:'City view',crime:'Crime',pollution:'Pollution',traffic:'Traffic',landValue:'Land value',density:'Population density',power:'Power',policeCoverage:'Police coverage',fireCoverage:'Fire coverage',water:'Water / pipes',wind:'Wind / air pollution',health:'Local health',unemployment:'Unemployment',education:'Education access',sewage:'Sewage / sea pollution'};
+export const OVERLAYS={none:'City view',crime:'Crime',pollution:'Pollution',traffic:'Traffic',landValue:'Land value',density:'Population density',power:'Power',policeCoverage:'Police coverage',fireCoverage:'Fire coverage',water:'Water / pipes',wind:'Wind / air pollution',health:'Local health',unemployment:'Unemployment',education:'Education access',sewage:'Sewage / sea pollution',growthRate:'Growth / decline'};
 export function overlayColor(city,mode,i){
  if(mode==='none')return null;
+ if(mode==='growthRate'){const value=cityGrowthRateAt(city,i%city.width,Math.floor(i/city.width));return value?`hsla(${value>0?120:0},90%,48%,${.2+.55*Math.min(1,Math.abs(value)/200)})`:null;}
  if(['health','unemployment','education'].includes(mode)){const fields=socialFields(city);if(!fields.mask[i])return null;const value=fields[mode][i];return `hsla(${mode==='unemployment'?120*(1-value/100):120*value/100},90%,48%,.72)`;}
  if(mode==='wind')return city.pollution[i]?`rgba(130,65,25,${Math.min(.7,city.pollution[i]/250)})`:null;
  if(mode==='sewage'){if(city.seaPollution?.[i])return `rgba(140,80,30,${Math.max(.3,city.seaPollution[i]/255)})`;if(city.pipes[i])return city.sewageFlow?.[i]?'rgba(180,110,45,.85)':'rgba(0,0,0,.8)';return null;}

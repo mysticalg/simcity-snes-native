@@ -27,13 +27,13 @@ for(const input of configs)for(const demand of [-2000,2000]){
   if(config.network!=='none'){for(let px=59;px<78;px++)map[(y-2)*120+px]=0x32;if(config.network==='jobs')map[(y-3)*120+74]=0x144;}
   if(config.blocked)map[i+1]=0x7f;
   if(config.scoreObstacle){map[58*120+59]=0x89;map[59*120+60]=0x89;}
-  c.map=map.slice();c.simulationRng=[...rng];c.demand=[demand,0,0];c.facilityDemand=[...config.quota];c.landValue.fill(config.land);c.pollution.fill(config.pollution);c.density.fill(config.density);c.traffic.fill(0);
+  c.map=map.slice();c.simulationRng=[...rng];c.demand=[demand,0,0];c.facilityDemand=[...config.quota];c.landValue.fill(config.land);c.pollution.fill(config.pollution);c.density.fill(config.density);c.traffic.fill(0);c.growthRate.fill(0);
   const decision=c.updateResidentialTile({x,y,i,id:config.tile,type:5});
   const key=decision.action==='none'?'none':decision.action;if((counts[key]||0)>=2)continue;counts[key]=(counts[key]||0)+1;
-  cases.push({name:config.name,config,seed:rng,input:rle(map),expected:rle(c.map),rng:[...c.simulationRng],quota:[...c.facilityDemand],action:decision.action,reason:decision.reason,traffic:Buffer.from(Array.from({length:3000},(_,at)=>c.traffic[Math.floor(at/60)*240+(at%60)*2])).toString('hex')});
+  cases.push({name:config.name,config,seed:rng,input:rle(map),expected:rle(c.map),rng:[...c.simulationRng],quota:[...c.facilityDemand],action:decision.action,reason:decision.reason,growthRate:[...c.growthRate],traffic:Buffer.from(Array.from({length:3000},(_,at)=>c.traffic[Math.floor(at/60)*240+(at%60)*2])).toString('hex')});
  }
 }
-const fixtures=cases.map(c=>`{runs={${c.input.map(r=>'{'+r+'}')}},expected={${c.expected.map(r=>'{'+r+'}')}},seed={${c.seed}},rng={${c.rng}},quota={${c.config.quota}},expectedQuota={${c.quota}},tile=${c.config.tile},powered=${c.config.powered?32768:0},land=${c.config.land},pollution=${c.config.pollution},density=${c.config.density},demand=${c.config.demand&65535},action='${c.action}',traffic='${c.traffic}'}`).join(',');
+const fixtures=cases.map(c=>`{runs={${c.input.map(r=>'{'+r+'}')}},expected={${c.expected.map(r=>'{'+r+'}')}},seed={${c.seed}},rng={${c.rng}},quota={${c.config.quota}},expectedQuota={${c.quota}},tile=${c.config.tile},powered=${c.config.powered?32768:0},land=${c.config.land},pollution=${c.config.pollution},density=${c.config.density},demand=${c.config.demand&65535},action='${c.action}',growthRate={${c.growthRate.map(v=>v&65535)}},traffic='${c.traffic}'}`).join(',');
 const script=`local cases={${fixtures}};local n=0;local injected=false;local action='none';local mem=emu.memType.snesWorkRam
 local function setup(index)
  local c=cases[index];local s=emu.getState();s['cpu.emulationMode']=false;s['cpu.pc']=0x1000;s['cpu.k']=3;s['cpu.d']=0x1800;s['cpu.dbr']=3;s['cpu.sp']=0x1eff;s['cpu.ps']=4;s['cpu.needNmi']=false;s['cpu.stopState']=0;emu.setState(s)
@@ -55,6 +55,7 @@ emu.addMemoryCallback(function()
  for j,v in ipairs(c.rng)do if emu.read16(0xccf+(j-1)*2,mem)~=v then emu.stop(200000+n*8+j);return end end
  local at=0;for _,run in ipairs(c.expected)do for j=1,run[1]do if emu.read16(0x10200+at*2,mem)~=run[2]then emu.stop(1000000+n*12000+at);return end;at=at+1 end end
  for j,v in ipairs(c.expectedQuota)do if emu.read16(0xb97+(j-1)*2,mem)~=v then emu.stop(300000+n);return end end
+ for at,v in ipairs(c.growthRate)do if emu.read16(0x1ae62+(at-1)*2,mem)~=v then emu.stop(6000000+n*195+at);return end end
  for at=0,2999 do if emu.read(0x199e0+at,mem)~=tonumber(c.traffic:sub(at*2+1,at*2+2),16)then emu.stop(5000000+n*3000+at);return end end
  if n==#cases then emu.stop(0);return end;n=n+1;setup(n)
 end,emu.callbackType.exec,0x031003,0x031003)
@@ -65,4 +66,4 @@ const started=Date.now();const exitCode=await new Promise((resolve,reject)=>{con
 console.log({cases:cases.length,actions:Object.fromEntries(['none','grow','decline','special'].map(a=>[a,cases.filter(c=>c.action===a).length])),exitCode,elapsedMs:Date.now()-started});
 if(exitCode>=1000000&&exitCode<5000000){const n=Math.floor((exitCode-1000000)/12000);console.log({case:n,cell:(exitCode-1000000)%12000,fixture:cases[n-1]?.name,config:cases[n-1]?.config,action:cases[n-1]?.action});}
 if(exitCode>=200000&&exitCode<300000){const n=Math.floor((exitCode-200000)/8);console.log({rngCase:n,fixture:cases[n-1]?.name,config:cases[n-1]?.config,action:cases[n-1]?.action});}
-if(exitCode===0)fs.writeFileSync(path.join(root,'research/reference-residential.json'),JSON.stringify({routine:'CODE_03937A',scope:'Full residential update, including transport/random gate, local score, selected grow/decline/special branch, full map, final RNG, traffic and facility quotas. Controlled fields; no census/natural timing claim.',romSHA256:romHash,mesenSHA256:sha(fs.readFileSync(exe)),cases,exitCode},null,2)+'\n');else process.exitCode=1;
+if(exitCode===0)fs.writeFileSync(path.join(root,'research/reference-residential.json'),JSON.stringify({routine:'CODE_03937A',scope:'Full residential update, including transport/random gate, local score, selected grow/decline/special branch, full map, final RNG, traffic, growth-rate plane and facility quotas. Controlled fields; no census/natural timing claim.',romSHA256:romHash,mesenSHA256:sha(fs.readFileSync(exe)),cases,exitCode},null,2)+'\n');else process.exitCode=1;

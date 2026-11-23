@@ -1,0 +1,51 @@
+{
+  "tool": "built-in image_gen",
+  "selection": "first-square-plot-atlas",
+  "date": "2026-11-23",
+  "subjects": [
+    "Residential99",
+    "ResidentialB4",
+    "ResidentialD8",
+    "ResidentialFC",
+    "Residential120",
+    "Commercial144",
+    "Commercial168",
+    "Commercial195",
+    "Commercial1D4",
+    "Commercial1EF",
+    "Industry201",
+    "Industry21C",
+    "Police249",
+    "Coal28C",
+    "Nuclear27C"
+  ],
+  "assets": [
+    {
+      "file": "atlas-day-v1.png",
+      "generation": "exec-c550ad22-1a8d-4ca6-a98f-d92f111bbcd3",
+      "columns": 5,
+      "rows": 3,
+      "width": 1619,
+      "height": 971,
+      "sha256": "d3590e7bb17ceaff2249d91b7081ad0fae693b6d413911fe0df53f3fa230cc58"
+    },
+    {
+      "file": "atlas-night-v1.png",
+      "generation": "exec-8d35514a-6e43-4740-a394-ecf90ca7a8d5",
+      "columns": 5,
+      "rows": 3,
+      "width": 1620,
+      "height": 971,
+      "sha256": "acf1e045759a1f583823836e5e646f5a5495b71c201a1dc0b3d1165cf66db137"
+    },
+    {
+      "file": "water-v1.png",
+      "generation": "exec-f3309abb-01ac-4061-8432-818835740eab",
+      "columns": 2,
+      "rows": 2,
+      "width": 1254,
+      "height": 1254,
+      "sha256": "29d7ad0b7f27295425f631249c77a0568f2a1575efe00e9b813825bf9ebba2d8"
+    }
+  ]
+}

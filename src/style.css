@@ -86,3 +86,4 @@ body{display:block;padding:8px 8px 80px}.frame{margin:auto;overflow:visible}.top
 #trafficHint{position:absolute;left:6px;bottom:6px;max-width:65%;background:#10251fef;color:#e8efc5;border:1px solid #688776;padding:5px;font:10px monospace;pointer-events:none}#trafficHint[hidden]{display:none}
 
 .zone-growth{margin:16px 0;padding:12px;background:#1c342b;border:1px solid #3c5b4b}.zone-growth h3{margin-top:0}.zone-growth li{margin:6px 0}.growth-last{color:#d4e8aa}
+@media(max-width:900px){#overlayTools button{height:auto;min-height:56px;flex-direction:column;gap:3px;font-size:8px;line-height:1.15}#overlayTools button>span:last-child{display:block;max-width:100%;overflow-wrap:anywhere}}
