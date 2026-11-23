@@ -1,0 +1,20 @@
+# Native facility maintenance and nuclear RNG
+
+`CODE_03AA9F..03ABF5` now supplies native facility footprint maintenance at each flagged-center visit: coal/nuclear, stadium and seaport use4x4, airports6x6, original police/fire and their headquarters3x3. `CODE_03AEA1` runs only when baseStep&7 is zero, filling cells whose low10 bits are zero from the complete center word; nonblank damaged/occupied cells remain. Custom resized civic IDs are deliberately excluded. The existing hospital/school worker retains both original phase gates.
+
+The nuclear branch calls `CODE_039035` before repair with `DATA_03ABF6` maxima45000/30000/15000 by difficulty. A zero result enters the already source-verified `CODE_03BD61` meltdown, rather than repairing. City scan records the event/sound/advisor and continues scanning the modified map. The user's disasters toggle and disabled-plant state suppress automatic damage while retaining the source random advance; this is an explicit Turbo override. Saves preserve the resulting damaged map and RNG; there is no second pending disaster to replay after reload.
+
+The previous bounded RNG rejected maxima above32766. `CODE_03A3CF` actually implements16-bit restoring division and returnsFFFF for a zero divisor. The first division uses32767 divided by `(maximum+1)&65535`; the second divides the masked random word by that quotient. Thus maxima32767..65534 produceFFFF, including easy nuclear45000, so that source branch cannot trigger a meltdown on easy. Maximum65535 wraps the first divisor to0, producesFFFF for its quotient, then returns0. Normal/hard nuclear scaling remains the exact source quotient, with no invented range clamp. Invalid non-word inputs fail explicitly.
+
+## Verification
+
+- `reference-bounded-45000.json` and `reference-bounded-65535.json`:256 original CPU calls each, every returned quotient and all1792 RNG state words match. Original ROM and emulator hashes are retained.
+- `reference-utility-workers.json`:216 original `CODE_03AA9F` calls, comparing all12000 map words and all seven final RNG words. Ten native center IDs, intact/blank/fire-obstructed footprints, both maintenance phases, flag combinations, and all three nuclear difficulties/seeds are included. Meltdown cases execute the original damage path. Airport/port centers are unpowered in these isolated calls to avoid mixing actor creation into the maintenance comparison. Power-stack/service-plane/event/UI outputs are outside this report's claim.
+- `reference-scan-census.json` grows from84 to96 full120x100 original scans. New layouts include native stations/HQ/stadiums and powered plants/airport/seaport; complete maps, gift counters, pre-worker RCI census, population and final RNG match through the live scanner, including actor spawn randomness. The complete actor objects and natural scheduler are not compared here.
+- Deterministic tests replay captures, exercise actual city-triggered damage and save/reload, verify disaster/off overrides and retained random advances, and check large/divide-zero bounds. Browser checks load native facilities through the real save UI, repair eight footprints and reload their saved cells with no console/network errors. Existing gift UI and photoreal artwork remain intact.
+
+Full original UI/global timing/SPC/DSP parity, unpublished health/security and the unwired commodity economy remain open. This is a source-derived implementation milestone, not a complete-port declaration.
+
+## Dense-city profiling
+
+The1833-zone240x200 night/rain fixture at0.5zoom reports median7.1ms/p9536.7ms for the running app callback; isolated photoreal draw2.9ms day/8.2ms night and full effects14.5ms. These are local CPU/submission timings, not display FPS or a before/after improvement claim. Raw evidence is render-profile-v0.2.32.json. The uncached whole-map drawSeaPollution path remains prominent and is the next measured optimization target. An initial startup timeout was diagnosed with a verified HTTP200 JavaScript module/MIME; request-failure diagnostics were added and an isolated retry passed with no errors.

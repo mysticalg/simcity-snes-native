@@ -1,3 +1,4 @@
+import {isRomUtilityCenter,updateRomUtilityCenter} from './rom-utility-worker.js?v=utility-workers-32';
 import {isRomGiftCenter,updateRomGiftCenter} from './rom-gift-worker.js?v=gift-workers-31';
 import {expandServiceCoverage} from './police-range.js?v=police-area-28';
 import {reconcileAviation,advanceAviation,aviationBenefits} from './aviation.js?v=civic-refresh-30';
@@ -41,7 +42,7 @@ import {romCrimeValue,meanRomCrime} from './rom-crime.js';
 import {romPollutionField} from './rom-pollution.js';
 import {aggregateRomLandValue,romLandValue,romTerrainField} from './rom-land-value.js';
 import {romAnnualRevenue,allocateRomBudget} from './rom-finance.js';
-import {SIMULATION_SEED,nextSimulationWord,boundSimulationWord} from './rom-random.js';
+import {SIMULATION_SEED,nextSimulationWord,boundSimulationWord} from './rom-random.js?v=utility-workers-32';
 import {decayTraffic,addRouteTraffic} from './rom-traffic.js';
 import {applyRomMeltdown,applyRomEarthquake,startRomFire,startRomFlood,dispatchRomDisasterTile} from './rom-disasters.js?v=megacity-1';
 import {scenarioOutcome,SCENARIO_EVENT_COUNTS,stepScenarioEvent,stepScenarioReminder,scenarioMeltdownSite} from './rom-scenarios.js';
@@ -414,8 +415,6 @@ export class City {
    if(disaster){this.floodRemaining=disaster.remaining;continue;}
    const giftScanId=this.map[i]&1023;if(giftScanId===0)census.giftStats.emptyLand++;if(giftScanId===38||giftScanId===39)census.giftStats.parks++;
    const scanId=this.map[i]&1023;if(this.flags[scanId]&0x20){const wasActive=this.train.active;spawnRomTrain(this.train,scanId,i%this.width,Math.floor(i/this.width),this.quakeFrames);if(!wasActive&&this.train.active){delete this.train.id;delete this.train.passengers;this.train.trail=[];}}
-   if(scanId===0x2a5&&(this.map[i]&0x8000)){if(!this.plane.active){if((this.random()&3)===0){spawnRomPlane(this.plane,i%this.width,Math.floor(i/this.width));this.soundEvents.push({port:3,command:12});}}else if(!this.helicopter.active&&(this.random()&7)===0)spawnRomHelicopter(this.helicopter,i%this.width,Math.floor(i/this.width));}
-   if(scanId===0x26c&&(this.map[i]&0x8000)&&!this.ship.active)spawnRomShip(this.ship,this.map,max=>this.boundedRandom(max),this.width,this.height);
    updateRomTransportTile(this.map,i,this.flags,this.transportStrength,this.traffic[i],()=>this.random(),{shipX:this.ship.x,shipY:this.ship.y},this.width,this.height);
    const id=this.map[i]&1023;if(!(this.flags[id]&1))continue;
    // CODE_0382E5 marks the cell one row and one column after the center.
@@ -424,6 +423,9 @@ export class City {
    repairMergedZone(this.map,i%this.width,Math.floor(i/this.width),this.width,this.height);
    this.countCensusTile(census,i,id,this.classify(id));
    if(isRomGiftCenter(id)){const gift=updateRomGiftCenter(this.map,i%this.width,Math.floor(i/this.width),this.giftMilestones.mayorUpgradePending||0,{baseStep:this.baseStep,width:this.width,height:this.height});if(gift.pending!==((this.giftMilestones.mayorUpgradePending||0)&65535))this.giftMilestones.mayorUpgradePending=gift.pending;}
+   if(isRomUtilityCenter(id)){const utility=updateRomUtilityCenter(this.map,this.flags,i%this.width,Math.floor(i/this.width),max=>this.boundedRandom(max),{baseStep:this.baseStep,difficulty:this.difficulty,allowMeltdown:this.disastersEnabled&&this.disabledBuildings?.[i]!==id,width:this.width,height:this.height});if(utility.meltdown){this.recordEvent(0x08);this.soundEvents.push({port:3,command:0x1e});this.message('Nuclear meltdown reported.');continue;}}
+   if(scanId===0x2a5&&(this.map[i]&0x8000)){if(!this.plane.active){if((this.random()&3)===0){spawnRomPlane(this.plane,i%this.width,Math.floor(i/this.width));this.soundEvents.push({port:3,command:12});}}else if(!this.helicopter.active&&(this.random()&7)===0)spawnRomHelicopter(this.helicopter,i%this.width,Math.floor(i/this.width));}
+   if(scanId===0x26c&&(this.map[i]&0x8000)&&!this.ship.active)spawnRomShip(this.ship,this.map,max=>this.boundedRandom(max),this.width,this.height);
    if(this.disabledBuildings?.[i]===scanId)continue;addRomServiceCenter(this.serviceInputs.police,this.map,i,this.serviceStrengths[0]*this.policeEffectiveness,'police',this.width,this.height);addRomServiceCenter(this.serviceInputs.fire,this.map,i,this.serviceStrengths[1],'fire',this.width,this.height);
    if(id===0x129||id===0x132){updateRomFacility(this.map,i%this.width,Math.floor(i/this.width),this.facilityDemand,max=>this.boundedRandom(max),{baseStep:this.baseStep,repairPhase:this.facilityRepairPhase,width:this.width,height:this.height});continue;}const z={i,x:i%this.width,y:Math.floor(i/this.width),id,scanId:id,type:this.classify(id)};if(z.type<5||z.type>7)continue;
    if(z.type===5){this.updateResidentialTile(z);continue;}

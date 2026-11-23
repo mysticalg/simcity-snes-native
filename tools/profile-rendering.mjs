@@ -24,8 +24,8 @@ try{
   CanvasRenderingContext2D.prototype.fillRect=function(x,y,w,h){if(this.canvas.id==='game'&&x===0&&y===0&&w===960&&h===600&&this.fillStyle==='#071c33')renderTimings.paintCount++;return fill.call(this,x,y,w,h);};
   window.requestAnimationFrame=cb=>raf(t=>{const start=performance.now(),before=renderTimings.paintCount;cb(t);if(cb.name==='frame'){renderTimings.frames.push(performance.now()-start);renderTimings.paints.push(renderTimings.paintCount-before);}});
  });
- page.on('pageerror',e=>errors.push(e.message));
- await page.goto(process.env.TEST_URL||'http://localhost:5198');await page.waitForFunction(()=>window.render_game_to_text);
+ page.on('pageerror',e=>errors.push(e.message));page.on('requestfailed',r=>errors.push(r.url()+': '+r.failure()?.errorText));
+ await page.goto(process.env.TEST_URL||'http://127.0.0.1:55709');try{await page.waitForFunction(()=>window.render_game_to_text);}catch(error){await page.screenshot({path:'output/profile-startup-failure.png'});console.error({url:page.url(),errors,title:await page.title(),module:await page.locator('script[type=module]').getAttribute('src')});throw error;}
  await page.locator('#file').setInputFiles({name:'dense-performance.json',mimeType:'application/json',buffer:Buffer.from(city.serialize())});
  await page.waitForFunction(()=>JSON.parse(render_game_to_text()).year===2008);await page.locator('#pause').click();if(mega){await page.locator('#game').hover();await page.mouse.wheel(0,462.1);await page.waitForTimeout(750);}
  await page.getByRole('button',{name:'WEATHER / LIGHTING',exact:true}).click();await page.locator('#weatherTime').selectOption('night');await page.locator('#weatherMode').selectOption('rain');await page.locator('#realisticArt').check();await page.locator('#modalGo').click();

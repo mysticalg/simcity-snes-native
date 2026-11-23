@@ -8,7 +8,9 @@ export function nextSimulationWord(state,initialCarry=1){
 }
 // CODE_039035 divides twice; it does not take a remainder or clamp.
 export function boundSimulationWord(randomWord,maximum){
- const divisor=Math.floor(32767/(maximum+1));
- if(divisor<1)throw Error('Unsupported bounded RNG maximum');
- return Math.floor((randomWord&32767)/divisor);
+ if(!Number.isInteger(maximum)||maximum<0||maximum>65535)throw Error('Bounded RNG maximum must be a16-bit unsigned word');
+ // CODE_03A3CF is restoring unsigned division: division by zero yieldsFFFF.
+ // INC wraps atFFFF before the first division; the second quotient is not clamped.
+ const range=(maximum+1)&65535,divisor=range===0?65535:Math.floor(32767/range);
+ return divisor===0?65535:Math.floor((randomWord&32767)/divisor);
 }

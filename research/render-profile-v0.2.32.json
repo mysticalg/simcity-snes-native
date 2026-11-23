@@ -1,0 +1,159 @@
+{
+  "slices": {
+    "buildings-day": {
+      "medianMs": 2.899999976158142,
+      "p95Ms": 3
+    },
+    "buildings-night": {
+      "medianMs": 8.199999928474426,
+      "p95Ms": 9.899999976158142
+    },
+    "water": {
+      "medianMs": 0.10000002384185791,
+      "p95Ms": 0.20000004768371582
+    },
+    "weather": {
+      "medianMs": 14.5,
+      "p95Ms": 20.799999952316284
+    },
+    "without-water": {
+      "medianMs": 14.5,
+      "p95Ms": 15.600000023841858
+    },
+    "without-windows": {
+      "medianMs": 13,
+      "p95Ms": 41
+    },
+    "without-sprites": {
+      "medianMs": 10.399999976158142,
+      "p95Ms": 11.300000071525574
+    }
+  },
+  "zones": 1833,
+  "metrics": {
+    "enabled": true,
+    "spritesReady": true,
+    "weather": "rain",
+    "weatherBlend": {
+      "clear": 0,
+      "cloudy": 0,
+      "rain": 1
+    },
+    "cloudOffset": {
+      "x": 0,
+      "y": 0
+    },
+    "night": 1,
+    "clouds": 38,
+    "cloudCoverage": 52,
+    "cloudOpacity": 0.37,
+    "atmosphericHaze": 0.26,
+    "rainParticles": 180,
+    "smokePuffs": 1521,
+    "cars": 101,
+    "litBuildings": 1521,
+    "litWindows": 9396,
+    "windowPixels": 2948140,
+    "photorealBuildings": 988,
+    "smogPatches": 260,
+    "water": {
+      "cells": 12000,
+      "polluted": 8720,
+      "flowX": 0.08277623800258736,
+      "flowY": -5.068582745766405e-18,
+      "maskBuilds": 2,
+      "surfaceBuilds": 36
+    },
+    "fireTiles": 0
+  },
+  "appVersion": "http://127.0.0.1:55709/src/app.js?v=turbo-0.2.32",
+  "simulationYear": 2008,
+  "appZoom": 0.5,
+  "mapWidth": 240,
+  "mapHeight": 200,
+  "appFrames": {
+    "count": 149,
+    "medianMs": 7.099999904632568,
+    "p95Ms": 36.699999928474426,
+    "maximumPaintsPerFrame": 1
+  },
+  "baseline": false,
+  "cpuProfile": {
+    "durationMs": 5306.621,
+    "top": [
+      [
+        "drawImage ",
+        636
+      ],
+      [
+        "(idle) ",
+        537
+      ],
+      [
+        "drawSeaPollution sewage.js?v=civic-refresh-30",
+        526
+      ],
+      [
+        "fillRect ",
+        349
+      ],
+      [
+        "(program) ",
+        159
+      ],
+      [
+        "patch building-effects.js?v=civic-refresh-30",
+        123
+      ],
+      [
+        "CanvasRenderingContext2D.fillRect ",
+        119
+      ],
+      [
+        "fill ",
+        73
+      ],
+      [
+        "(garbage collector) ",
+        26
+      ],
+      [
+        "restore ",
+        22
+      ],
+      [
+        "serialize simulation.js?v=utility-workers-32",
+        20
+      ],
+      [
+        "getBoundingClientRect ",
+        20
+      ],
+      [
+        "cell app.js?v=turbo-0.2.32",
+        19
+      ],
+      [
+        "draw weather-fx.js?v=civic-refresh-30",
+        19
+      ],
+      [
+        "drawPowerWarnings power-warnings.js?v=amenities-gifts-29",
+        17
+      ],
+      [
+        "City.serialize financial-safety.js?v=parks-23",
+        16
+      ],
+      [
+        "City.serialize building-operations.js?v=education-traffic-27",
+        16
+      ],
+      [
+        " simulation.js?v=utility-workers-32",
+        14
+      ]
+    ]
+  },
+  "errors": []
+}

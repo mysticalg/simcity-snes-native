@@ -6,7 +6,7 @@ const exe=process.env.MESEN_EXE||path.join(work,'app/Mesen.exe'),rom=process.env
 const iterations=Number(process.argv[2]??256);if(!Number.isInteger(iterations)||iterations<1||iterations>4096)throw Error('Iteration count must be1..4096');
 const sha256=file=>crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
 const romHash=sha256(rom),manifest=JSON.parse(fs.readFileSync(path.join(root,'assets/manifest.json')));if(romHash!==manifest.romSHA256)throw Error('Reference ROM hash mismatch');
-const maximum=process.argv[3]===undefined?null:Number(process.argv[3]);if(maximum!==null&&(!Number.isInteger(maximum)||maximum<0||maximum>32766))throw Error('Maximum must be0..32766');
+const maximum=process.argv[3]===undefined?null:Number(process.argv[3]);if(maximum!==null&&(!Number.isInteger(maximum)||maximum<0||maximum>65535))throw Error('Maximum must be0..65535');
 const state=[...SIMULATION_SEED],states=[],bounded=[];for(let n=0;n<iterations;n++){const word=nextSimulationWord(state);states.push([...state]);if(maximum!==null)bounded.push(boundSimulationWord(word,maximum));}
 const entry=maximum===null?0x03907e:0x039035,returned=maximum===null?0x031006:0x031009,finished=maximum===null?0x031009:0x03100c;
 const stub=maximum===null?[0xa2,iterations&255,iterations>>8,0x20,0x7e,0x90,0xca,0xd0,0xfa,0xea]:[0xa2,iterations&255,iterations>>8,0xa9,maximum&255,maximum>>8,0x20,0x35,0x90,0xca,0xd0,0xf7,0xea];

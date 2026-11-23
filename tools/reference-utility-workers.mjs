@@ -1,0 +1,25 @@
+import fs from 'node:fs';import path from 'node:path';import crypto from 'node:crypto';import {spawn} from 'node:child_process';
+import {updateRomUtilityCenter} from '../src/rom-utility-worker.js';import {SIMULATION_SEED,nextSimulationWord,boundSimulationWord} from '../src/rom-random.js';
+const root=path.resolve(import.meta.dirname,'..'),work=path.resolve(root,'../../work/tools/mesen2'),exe=path.join(work,'app/Mesen.exe'),rom=path.resolve(root,'../../work/extracted/SimCity (USA).sfc'),hash=b=>crypto.createHash('sha256').update(b).digest('hex');if(hash(fs.readFileSync(rom))!==JSON.parse(fs.readFileSync('assets/manifest.json')).romSHA256)throw Error('Wrong ROM');
+const flags=JSON.parse(fs.readFileSync('assets/tables/city.json')).flags,rle=map=>{const runs=[];for(const v of map)if(runs.at(-1)?.[1]===v)runs.at(-1)[0]++;else runs.push([1,v]);return runs;},cases=[];
+for(const [id,side] of [[0x28c,4],[0x27c,4],[0x249,3],[0x252,3],[0x307,3],[0x310,3],[0x25c,4],[0x36b,4],[0x2a5,6],[0x26c,4]])for(const prefix of [0,0x4000])for(const baseStep of [0,1])for(const damage of ['intact','empty','fire'])for(const difficulty of id===0x27c?[0,1,2]:[0])for(const seed of id===0x27c?[SIMULATION_SEED,Array(7).fill(0),Array(7).fill(65535)]:[SIMULATION_SEED]){
+ const map=new Uint16Array(12000),offset=Math.floor((side-1)/2),pivot=offset*side+offset,indices=Array.from({length:side*side},(_,n)=>(50-offset+Math.floor(n/side))*120+60-offset+n%side);for(let y=42;y<=58;y++)for(let x=49;x<=71;x++)map[y*120+x]=38;indices.forEach((i,n)=>map[i]=(id-pivot+n)|(n%2?0:32768));map[50*120+60]=id|prefix;if(damage!=='intact'){map[indices[0]]=0x8000;map[indices.at(-1)]=0x4000;}if(damage==='fire')map[indices[1]]=0x7f;const input=rle(map),state=[...seed];let calls=0;const result=updateRomUtilityCenter(map,flags,60,50,max=>{calls++;return boundSimulationWord(nextSimulationWord(state),max);},{baseStep,difficulty});cases.push({id,side,prefix,baseStep,damage,difficulty,seed:[...seed],input,expected:rle(map),rng:state,calls,result});
+}
+const fixtures=cases.map(c=>`{id=${c.id},center=${c.id|c.prefix},baseStep=${c.baseStep},difficulty=${c.difficulty},seed={${c.seed}},rng={${c.rng}},input={${c.input.map(r=>'{'+r+'}')}},expected={${c.expected.map(r=>'{'+r+'}')}}}`).join(',');
+const script=`local cases={${fixtures}};local mem=emu.memType.snesWorkRam;local n=0;local injected=false
+local function setup(index)
+ for at=0,0x1ffff do emu.write(at,0,mem)end;local c=cases[index];local s=emu.getState();s['cpu.emulationMode']=false;s['cpu.pc']=0x1000;s['cpu.k']=3;s['cpu.d']=0x1800;s['cpu.dbr']=3;s['cpu.sp']=0x1eff;s['cpu.ps']=4;s['cpu.needNmi']=false;s['cpu.stopState']=0;emu.setState(s)
+ local at=0;for _,run in ipairs(c.input)do for j=1,run[1]do emu.write16(0x10200+at*2,run[2],mem);at=at+1 end end
+ emu.write16(0xb85,60+50*256,mem);emu.write16(0xb87,c.center,mem);emu.write16(0xb89,c.id,mem);emu.write16(0xb51,c.baseStep,mem);emu.write16(0x1800,6060*2+2,mem);emu.write16(0xb49,6060*2,mem);emu.write16(0xbc7,1000,mem);emu.write16(0xbc9,1000,mem);emu.write16(0xb57,c.difficulty,mem)
+ for j,v in ipairs(c.seed)do emu.write16(0xccf+(j-1)*2,v,mem)end
+ for j,v in ipairs({0x20,0x9f,0xaa,0xea})do emu.write(0x1000+j-1,v,mem)end;emu.write(0x4200,0,emu.memType.snesMemory)
+end
+emu.addMemoryCallback(function()
+ if not injected then return end;local c=cases[n];local at=0;for _,run in ipairs(c.expected)do for j=1,run[1]do local v=emu.read16(0x10200+at*2,mem);if v~=run[2]then emu.stop(100000000+n*65536+at);return end;at=at+1 end end
+ for j,v in ipairs(c.rng)do if emu.read16(0xccf+(j-1)*2,mem)~=v then emu.stop(200000000+n*65536+j);return end end
+ if n==#cases then emu.stop(0);return end;n=n+1;setup(n)
+end,emu.callbackType.exec,0x031003,0x031003)
+emu.addMemoryCallback(function()if injected then return end;n=1;injected=true;setup(n)end,emu.callbackType.exec,0,0xffffff)
+`;
+const file=path.join(work,'utility-worker-fixtures.lua');fs.writeFileSync(file,script);const code=await new Promise((resolve,reject)=>{const p=spawn(exe,['--testRunner','--timeout=50',file,rom],{windowsHide:true,stdio:'ignore'}),timer=setTimeout(()=>{p.kill();reject(Error('Utility worker reference exceeded55seconds'));},55000);p.on('error',e=>{clearTimeout(timer);reject(e);});p.on('exit',code=>{clearTimeout(timer);resolve(code);});});
+const index=Math.floor(((code||0)%100000000)/65536);console.log({cases:cases.length,exitCode:code,diagnostic:code?{index,case:cases[index-1],value:(code%100000000)%65536}:null});if(code)process.exitCode=1;else fs.writeFileSync('research/reference-utility-workers.json',JSON.stringify({routines:['CODE_03AA9F','CODE_03AEA1','CODE_039035','CODE_03BD61'],scope:'216 controlled original utility worker calls; all12000 map words and seven final RNG words. Airport/port centers are unpowered, suppressing vehicle creation. Includes three nuclear difficulty values and RNG seeds. Does not compare original power-stack, service-plane, event/UI or actor state.',romSHA256:hash(fs.readFileSync(rom)),mesenSHA256:hash(fs.readFileSync(exe)),cases,exitCode:code},null,2)+'\n');
