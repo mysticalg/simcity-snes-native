@@ -1,4 +1,4 @@
-import {cityMusicTrack} from './city-music.js?v=city-music-36';
+import {cityMusicTrack} from './city-music.js?v=music-global-42';
 import {openNumberedMapMenu} from './numbered-map-ui.js?v=mapgen-35';
 import {installHealthCare,drawAmbulances,ambulanceArtStats} from './health-care.js?v=health-care-34';
 import {ROM_GIFTS} from './rom-gifts.js?v=gift-workers-31';
@@ -45,7 +45,7 @@ import {drawPowerWarnings,unpoweredBuildings} from './power-warnings.js?v=amenit
 import {strokeCells,shapeCells,zoneBlockLayout} from './build-stroke.js?v=blocks-1';
 import {OVERLAYS,overlayColor} from './map-overlays.js?v=health-care-34';
 import {cityPaletteForMonth,romSeasonPalette} from './rom-render.js?v=season-1';
-import {RomSampleAudio} from './rom-audio.js?v=city-music-36';
+import {RomSampleAudio} from './rom-audio.js?v=music-global-42';
 const romAudio=new RomSampleAudio();
 import{City,SCENARIOS,TOOLS,W as DEFAULT_W,H as DEFAULT_H,clamp}from'./simulation.js?v=wide-demand-40';
 installBuildingOperations(City);installHealthCare(City);

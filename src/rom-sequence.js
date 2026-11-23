@@ -30,9 +30,10 @@ export function spcNextNoteIsTie(aram,pointer,call=null){
  }
  throw Error('Unterminated SPC tie lookahead');
 }
-// Confirmed DATA_1814 command handlers. Modulation/echo commands are rejected
-// until their state transitions are translated, even where lengths are known.
-export function decodeSpcChannel(aram,pointer,{maxEvents=64,state={},startTick=0,maxTicks=Infinity}={}){
+// Confirmed DATA_1814 handlers. Known echo/modulation state supports the dry
+// renderer; untranslated commands fail. The optional shared-tick command sink
+// also retains per-voice instrument/volume controls used by that scheduler.
+export function decodeSpcChannel(aram,pointer,{maxEvents=64,state={},startTick=0,maxTicks=Infinity,globalCommands=null,percussion=false}={}){
  const s={instrument:0,pan:10,volume:255,tempo:32,masterVolume:192,transpose:0,globalTranspose:0,...state};
  const events=[];let p=pointer,tick=startTick,length=s.noteLength??1,articulation=s.articulation??null,call=null;
  const advanceVolume=at=>{if(s.volumeFade){const fade=s.volumeFade;s.volume=spcFadeVolume(fade,at);if(at-fade.startTick>=(fade.ticks||256))delete s.volumeFade;}};
@@ -49,8 +50,11 @@ export function decodeSpcChannel(aram,pointer,{maxEvents=64,state={},startTick=0
    s.noteLength=length;s.articulation=articulation;return {events,state:s,next:p,ended:true};
   }
   if(prefix.kind==='command'){
+   // Global fades are consumed only by a caller providing the shared tick
+   // timeline. Independent channel playback must still fail explicitly.
+   if(prefix.opcode===0xe6||prefix.opcode===0xe8){if(!globalCommands)return {events,state:s,next:p-1,unsupported:prefix.opcode};globalCommands.push({tick,opcode:prefix.opcode,ticks:aram[p++],value:aram[p++]});continue;}
    // EE -> CODE_16BD/17F8: signed Q8 step, countdown and target byte.
-   if(prefix.opcode===0xee){const ticks=aram[p++],target=aram[p++];s.volumeFade={startTick:tick-1,ticks,target,start:s.volume,step:Math.trunc((target-s.volume)*256/(ticks||256))};continue;}
+   if(prefix.opcode===0xee){const ticks=aram[p++],target=aram[p++];if(globalCommands)globalCommands.push({tick,opcode:0xee,ticks,value:target});s.volumeFade={startTick:tick-1,ticks,target,start:s.volume,step:Math.trunc((target-s.volume)*256/(ticks||256))};continue;}
    // EF -> CODE_16DA saves the address following all three operands.
    if(prefix.opcode===0xef){const target=aram[p]|aram[p+1]<<8,remaining=aram[p+2];call={target,remaining,returnTo:p+3};p=target;continue;}
    // CODE_1626: vibrato delay/rate/depth. CODE_16FD: echo mask and
@@ -61,10 +65,11 @@ export function decodeSpcChannel(aram,pointer,{maxEvents=64,state={},startTick=0
    if(grouped[prefix.opcode]){const [key,count]=grouped[prefix.opcode];s[key]=Array.from(aram.slice(p,p+count));p+=count;continue;}
    if(prefix.opcode===0xe4){s.vibrato=[0,0,0];continue;}
    const h=handlers[prefix.opcode];if(!h)return {events,state:s,next:p-1,unsupported:prefix.opcode};
-   s[h[0]]=aram[p++];continue;
+   s[h[0]]=aram[p++];if(globalCommands&&[0xe0,0xe5,0xe7,0xe9,0xed,0xfa].includes(prefix.opcode))globalCommands.push({tick,opcode:prefix.opcode,value:s[h[0]]});continue;
   }
   length=prefix.length;
-  events.push({tick,length,kind:prefix.kind,note:prefix.opcode-0x80,...s,articulation,nextIsTie:spcNextNoteIsTie(aram,p,call)});tick+=length;
+  const drum=percussion&&prefix.kind==='note'&&prefix.opcode>=0xca;if(drum)s.instrument=(prefix.opcode-0xca+(s.instrumentBase||0))&255;
+  events.push({tick,length,kind:prefix.kind,note:drum?36:prefix.opcode-0x80,...s,...(drum?{percussionOffset:prefix.opcode-0xca}:{}),articulation,nextIsTie:spcNextNoteIsTie(aram,p,call)});tick+=length;
  }
  return {events,state:s,next:p,ended:false};
 }

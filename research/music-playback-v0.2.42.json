@@ -1,0 +1,131 @@
+{
+  "version": "0.2.42",
+  "scope": "Local canonical Web Audio playback; OfflineAudioContext stereo PCM and a live AnalyserNode after a user gesture. Voice/mix schedule checked against source-verified plans; not original DSP waveform parity.",
+  "browser": {
+    "pcm": [
+      {
+        "id": 2,
+        "renderedSeconds": 12,
+        "events": 1120,
+        "duration": 98.816,
+        "finite": true,
+        "energies": [
+          20.657627281418492,
+          391.31527818356227,
+          406.1194641663423
+        ]
+      },
+      {
+        "id": 3,
+        "renderedSeconds": 12,
+        "events": 1801,
+        "duration": 115.678,
+        "finite": true,
+        "energies": [
+          13.467184367396065,
+          237.70011959898872,
+          243.2427431998492
+        ]
+      },
+      {
+        "id": 4,
+        "renderedSeconds": 12,
+        "events": 1375,
+        "duration": 140.172,
+        "finite": true,
+        "energies": [
+          0.93902797266415,
+          16.89880971656876,
+          56.650981337447824
+        ]
+      },
+      {
+        "id": 5,
+        "renderedSeconds": 12,
+        "events": 1636,
+        "duration": 99.774,
+        "finite": true,
+        "energies": [
+          8.996731620205992,
+          214.46944235540857,
+          228.31406020691233
+        ]
+      },
+      {
+        "id": 6,
+        "renderedSeconds": 36,
+        "events": 3624,
+        "duration": 241.762,
+        "finite": true,
+        "energies": [
+          16.893573975441363,
+          127.99370359666852,
+          349.7492135106625,
+          45.38154167247619
+        ]
+      }
+    ],
+    "loops": [
+      {
+        "id": 2,
+        "cycles": 3,
+        "firstLoop": true,
+        "voiceAndMixSchedule": true
+      },
+      {
+        "id": 3,
+        "cycles": 3,
+        "firstLoop": true,
+        "voiceAndMixSchedule": true
+      },
+      {
+        "id": 4,
+        "cycles": 3,
+        "firstLoop": true,
+        "voiceAndMixSchedule": true
+      },
+      {
+        "id": 5,
+        "cycles": 3,
+        "firstLoop": true,
+        "voiceAndMixSchedule": true
+      },
+      {
+        "id": 6,
+        "cycles": 3,
+        "firstLoop": true,
+        "voiceAndMixSchedule": true
+      }
+    ],
+    "livePCM": {
+      "rms": 0.016913277465279306,
+      "state": "running",
+      "voices": 15,
+      "scheduled": 15
+    },
+    "mutePcm": [
+      542.3709934744513,
+      0
+    ],
+    "cancelled": true,
+    "categoryTracks": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "separateToggles": true,
+    "errors": []
+  },
+  "normalizedLFSourceSHA256": {
+    "src/city-music.js": "ace643083c6eaad9a11f4be62f31547364653f07cd9897ef261411081d1c4c0a",
+    "src/rom-audio.js": "48923a174a0a657184d742f104b65b2516b14d39f99d9f4c6f06eea99f529eb3",
+    "src/rom-sequence.js": "7529e20eae12c567ee65c096651e9bdfced8b0a401d8bff10775404665ae1092",
+    "src/rom-track.js": "8714052d1f24a64bcd049fa85903ef51459e4a7e37e7e6330e96a781c64c3501",
+    "src/rom-variable-track.js": "12da80a328e88f359618cea1a2944553de6b57e1dc7cdb7064adb56309f1da3e",
+    "src/rom-music-clock.js": "34c1b701cda99c9c17a1506446291ce237efe2551e342cc046b4ca8deae3a916",
+    "src/rom-vibrato.js": "a2ac0780b662c4a450fd9cc642733f38b88df489d2ec7a2373752967dac88306"
+  }
+}

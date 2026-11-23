@@ -1,9 +1,12 @@
+import {planVariableCityTrack} from './rom-variable-track.js?v=music-global-42';
 import {decodeSpcOrders,decodeSpcChannel,spcPitch,spcTickSeconds,spcFadeVolume} from './rom-sequence.js?v=city-music-36';
 import {spcVoiceVolumes} from './rom-mix.js?v=horn-1';
 import {instrumentEnvelope} from './rom-envelope.js?v=horn-1';
-// Supported city themes: introduction then repeating body. Shared pattern boundary follows the first
-// channel's uncalled zero (CODE_14BE -> CODE_1453); do not read past it.
-export function planOriginalCityTrack(aram,trackId=1,{maxPatterns=3}={}){
+// Fixed-tempo city themes use intro/body planning below. Later themes dispatch
+// to the shared-clock planner. All verified city boundaries follow channel zero
+// (CODE_14BE -> CODE_1453); other streams must not read past that boundary.
+export function planOriginalCityTrack(aram,trackId=1,{maxPatterns}={}){
+ if([4,5,6].includes(trackId))return planVariableCityTrack(aram,trackId,{maxPatterns});maxPatterns??=3;
  if(![1,2,3].includes(trackId))throw Error(`Unsupported city music track ${trackId}`);
  const orders=decodeSpcOrders(aram,trackId,{maxPatterns}),events=[],patterns=[],states=Array.from({length:8},()=>({}));let startTick=0,tempo=19,masterVolume=150;
  for(const pattern of orders.patterns){

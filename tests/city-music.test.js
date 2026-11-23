@@ -6,10 +6,10 @@ import {cityMusicTrack} from '../src/city-music.js';
 import {planOriginalCityTrack} from '../src/rom-track.js';
 import {spcNextNoteIsTie} from '../src/rom-sequence.js';
 const aram=fs.readFileSync(new URL('../assets/audio/aram.bin',import.meta.url));
-test('city category selects translated original themes and retains a supported theme for larger cities',()=>{
- assert.deepEqual([0,1,2,3,4,5].map(cityMusicTrack),[1,2,3,3,3,3]);
+test('city category selects all six translated original promotion themes',()=>{
+ assert.deepEqual([0,1,2,3,4,5].map(cityMusicTrack),[1,2,3,4,5,6]);
  assert.equal(cityMusicTrack(0,1),2);assert.equal(cityMusicTrack(0,2),3);assert.equal(cityMusicTrack(NaN),1);assert.equal(cityMusicTrack(-2),1);
- assert.throws(()=>planOriginalCityTrack(aram,4),/Unsupported city music track/);
+ assert.throws(()=>planOriginalCityTrack(aram,7),/Unsupported city music track/);
 });
 test('three native themes match original SPC note registers, fades and gate timings',()=>{
  const reference=JSON.parse(fs.readFileSync(new URL('../research/reference-spc-city-themes.json',import.meta.url)));

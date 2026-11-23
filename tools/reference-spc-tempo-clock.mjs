@@ -1,0 +1,21 @@
+import fs from 'node:fs';import path from 'node:path';import crypto from 'node:crypto';import {spawn} from 'node:child_process';import {planOriginalCityTrack} from '../src/rom-track.js';import {spcClockPosition} from '../src/rom-music-clock.js';
+const root=path.resolve(import.meta.dirname,'..'),work=process.env.REFERENCE_WORK||path.resolve(root,'../../work/tools/mesen2'),exe=process.env.MESEN_EXE||path.join(work,'app/Mesen.exe'),rom=process.env.SIMCITY_ROM||path.resolve(root,'../../work/extracted/SimCity (USA).sfc'),sha=b=>crypto.createHash('sha256').update(b).digest('hex'),hash=sha(fs.readFileSync(rom));if(hash!==JSON.parse(fs.readFileSync(path.join(root,'assets/manifest.json'))).romSHA256)throw Error('Wrong ROM');const aram=fs.readFileSync(path.join(root,'assets/audio/aram.bin')),cases=[];
+for(const id of[4,5,6]){const plan=planOriginalCityTrack(aram,id);for(const [start,count]of[[0,80],[id===4?1510:id===5?35:2120,100],[plan.clock.tempos.length-20,100],[plan.clock.tempos.length+1000000*(plan.loop.endTick-plan.loop.startTick),100]]){
+ const initial=spcClockPosition(plan.clock,start),rows=[];let tick=start,current=initial;const end=spcClockPosition(plan.clock,start+count).pulses;
+ for(let pulse=initial.pulses+1;pulse<=end;pulse++){const next=spcClockPosition(plan.clock,tick+1),carry=pulse===next.pulses,phase=(current.phase+(pulse-current.pulses)*current.tempo)&255;if(carry){tick++;current=next;}rows.push({phase,carry:carry?1:0,nextTempo:current.tempo});}
+ cases.push({track:id,start,count,phase:initial.phase,tempo:initial.tempo,rows});
+}}
+const lua=cases.map(c=>`{phase=${c.phase},tempo=${c.tempo},rows={${c.rows.map(r=>`{${r.phase},${r.carry},${r.nextTempo}}`)}}}`).join(',');
+const script=`local cases={${lua}};local bytes='${aram.toString('hex')}';local n=0;local pulse=0;local injected=false;local main=false;local mem=emu.memType.spcRam
+local function run()
+ local s=emu.getState();s['spc.pc']=0x08ae;s['spc.a']=0;s['spc.x']=0;s['spc.y']=0;s['spc.sp']=0xef;s['spc.ps']=0;emu.setState(s);emu.write(0x1f0,1,mem)
+end
+local function setup(index)n=index;pulse=0;emu.write(0x51,cases[n].phase,mem);emu.write(0x53,cases[n].tempo,mem);run()end
+emu.addMemoryCallback(function()if main then return end;main=true;local s=emu.getState();s['cpu.pc']=0x1000;s['cpu.k']=0;s['cpu.dbr']=0;s['cpu.emulationMode']=false;s['cpu.ps']=4;emu.setState(s);emu.write(0x1000,0x80,emu.memType.snesWorkRam);emu.write(0x1001,0xfe,emu.memType.snesWorkRam);emu.write(0x4200,0,emu.memType.snesMemory)end,emu.callbackType.exec,0,0xffffff)
+emu.addMemoryCallback(function()
+ if not injected then return end;pulse=pulse+1;local row=cases[n].rows[pulse];if emu.read(0x51,mem)~=row[1]then emu.stop(1000000+n*10000+pulse);return end;if(emu.getState()['spc.ps']%2)~=row[2]then emu.stop(2000000+n*10000+pulse);return end
+ if pulse==#cases[n].rows then if n==#cases then emu.stop(0);return end;setup(n+1);return end;emu.write(0x53,row[3],mem);run()
+end,emu.callbackType.exec,0x08b7,0x08b7,emu.cpuType.spc,emu.memType.spcMemory)
+emu.addMemoryCallback(function()if injected then return end;for i=0,65535 do emu.write(i,tonumber(bytes:sub(i*2+1,i*2+2),16),mem)end;injected=true;setup(1)end,emu.callbackType.exec,0,0xffff,emu.cpuType.spc,emu.memType.spcMemory)
+`;
+fs.mkdirSync(work,{recursive:true});const file=path.join(work,'spc-tempo-clock.lua');fs.writeFileSync(file,script);const code=await new Promise((resolve,reject)=>{const p=spawn(exe,['--testRunner','--timeout=20',file,rom],{windowsHide:true,stdio:'ignore'}),timer=setTimeout(()=>{p.kill();reject(Error('Clock reference timeout'));},25000);p.on('error',e=>{clearTimeout(timer);reject(e);});p.on('exit',code=>{clearTimeout(timer);resolve(code);});});console.log({cases:cases.length,pulses:cases.reduce((n,c)=>n+c.rows.length,0),exitCode:code});if(code===0)fs.writeFileSync(path.join(root,'research/reference-spc-tempo-clock.json'),JSON.stringify({routine:'SPC_CODE_08AE..08B7',scope:'One timer pulse per call; exact phase byte and carry, supplied source-verified tempo timeline; relative initial phase, not absolute startup wall time',romSHA256:hash,aramSHA256:sha(aram),mesenSHA256:sha(fs.readFileSync(exe)),cases,exitCode:code},null,2)+'\n');else process.exitCode=1;

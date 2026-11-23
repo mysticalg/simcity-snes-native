@@ -6,7 +6,9 @@ This project reverse engineers the USA release of SimCity for Super Nintendo and
 
 Open the [GitHub Pages version](https://mysticalg.github.io/simcity-snes-native/) after deployment, or serve this directory locally with `python -m http.server 5173` and open `http://localhost:5173`.
 
-Latest Turbo update: **v0.2.41** batches plain-city terrain drawing and reuses native atlas pixels, reducing heavy-city long-frame CPU cost while retaining exact tested pixels. [Measurements, checks and limits](research/render-batching-v0.2.41.md).
+Latest Turbo update: **v0.2.42** adds the original Capital, Metropolis and Megalopolis music, with shared tempo/volume fades and complete order cycles. All six city themes now follow promotion stage. [Source evidence, playback checks and limits](research/later-city-music-v0.2.42.md).
+
+v0.2.41 batched terrain drawing and reused native atlas pixels, reducing heavy-city long-frame CPU cost while retaining exact tested pixels. [Rendering measurements](research/render-batching-v0.2.41.md).
 
 v0.2.40 fixed large-city/regional demand, facility quota rollover and megacity evaluation sampling. [Demand evidence](research/megacity-demand-v0.2.40.md).
 
