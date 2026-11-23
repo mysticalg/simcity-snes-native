@@ -1,0 +1,14 @@
+import fs from 'node:fs';import assert from 'node:assert/strict';import crypto from 'node:crypto';import {FAX_ASSETS,FAX_OBJECTS,faxAssetPath,faxScene,faxFrame} from '../src/rom-fax.js';
+const sha=b=>crypto.createHash('sha256').update(b).digest('hex');const memories=[];
+const files=Object.fromEntries(Object.keys(FAX_ASSETS).map(name=>[name,new Uint8Array(fs.readFileSync(faxAssetPath(name)))])),root='output/fax-reference-v53',results=[];
+for(const screen of[9,10,11]){
+ const scene=faxScene(files,screen),referenceMemory=Object.fromEntries(['vram','cgram','oam'].map(n=>[n,fs.readFileSync(root+'/'+n+'-'+screen+'.bin')]));memories.push({screen,writtenVramBytes:49152,writtenVramSHA256:sha(Buffer.concat([referenceMemory.vram.subarray(0,0xb000),referenceMemory.vram.subarray(0xc000,0xd000)])),cgramSHA256:sha(referenceMemory.cgram),oamSHA256:sha(referenceMemory.oam)});for(const[name,length]of[['vram',65536],['cgram',512],['oam',544]]){const expected=fs.readFileSync(root+'/'+name+'-'+screen+'.bin');let different=0;for(let i=0;i<length;i++)if(!(name==='vram'&&((i>=0xb000&&i<0xc000)||i>=0xd000))&&scene[name][i]!==expected[i])different++;console.log({screen,memory:name,different});assert.equal(different,0,name+' memory');}
+ for(let phase=1;phase<=7;phase++){
+  const meta=JSON.parse(fs.readFileSync(root+'/screen-'+screen+'-phase-'+phase+'.json')),expected=fs.readFileSync(root+'/screen-'+screen+'-phase-'+phase+'.argb'),actual=faxFrame(scene,meta.scroll,meta.brightness);let different=0;const rows={},originalRGBA=new Uint8ClampedArray(actual.length);
+  for(let y=0;y<224;y++)for(let x=0;x<256;x++){const p=(y*256+x)*4,e=((y+7)*256+x)*4;originalRGBA[p]=expected[e+2];originalRGBA[p+1]=expected[e+1];originalRGBA[p+2]=expected[e];originalRGBA[p+3]=255;if(actual[p]!==expected[e+2]||actual[p+1]!==expected[e+1]||actual[p+2]!==expected[e]){different++;rows[y]=(rows[y]||0)+1;}}
+  results.push({screen,scroll:meta.scroll,brightness:meta.brightness,pixels:256*224,referenceOpaqueRgbaSHA256:sha(originalRGBA),different,rows});fs.writeFileSync(root+'/native-'+screen+'-'+phase+'.rgba',actual);console.log({screen,scroll:meta.scroll,different,rows:Object.entries(rows).slice(0,6)});
+ }
+}
+const run=JSON.parse(fs.readFileSync(root+'/run.json'));const report={romSHA256:run.romSHA256,mesenSHA256:run.mesenSHA256,memories,rgbaPixels:results.length*256*224,alphaPolicy:'Compare original RGB; pack as opaque RGBA for the browser canvas',routine:'CODE_03DF49 with original COP/decompression/DMA/NMI, controlled scroll holds',results,objectDefinitions:FAX_OBJECTS,assets:Object.fromEntries(Object.keys(FAX_ASSETS).map(n=>[faxAssetPath(n),crypto.createHash('sha256').update(files[n]).digest('hex')]))};fs.writeFileSync('output/fax-pixel-comparison-v53.json',JSON.stringify(report,null,2));assert.ok(results.every(r=>r.different===0),'Native fax pixels differ');
+
+fs.writeFileSync('research/reference-fax-graphics-v0.2.53.json',JSON.stringify(report,null,2)+'\n');

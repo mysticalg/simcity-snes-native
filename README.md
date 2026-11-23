@@ -6,7 +6,9 @@ This project reverse engineers the USA release of SimCity for Super Nintendo and
 
 Open the [GitHub Pages version](https://mysticalg.github.io/simcity-snes-native/), or serve this directory locally with `python scripts/serve.py --port 5173` and open `http://localhost:5173`. The bundled server supplies the correct JavaScript MIME type on Windows.
 
-Latest Turbo update: **v0.2.52** reduces repeated power/map copies and shares exactly checked pipe connectivity between water and sewage. Facility switching, outages, capacity, debt and saved state are preserved. Whole-frame gains remain mixed; heavy 16x cities still need work. [Checks and measurements](research/utility-work-v0.2.52.md).
+Latest Turbo update: **v0.2.53** restores the original scenario fax artwork, fade and paper feed in native JavaScript. All three outcomes match original PPU pixels and menu-state traces; records remain readable and mobile-friendly. [Reference evidence and remaining limits](research/native-fax-v0.2.53.md).
+
+v0.2.52 reduces repeated power/map copies and shares exactly checked pipe connectivity between water and sewage. Facility switching, outages, capacity, debt and saved state are preserved. Whole-frame gains remain mixed; heavy 16x cities still need work. [Checks and measurements](research/utility-work-v0.2.52.md).
 
 v0.2.51 reduces repeated bus-routing work in active cities, preserving exact routes and simulation state. Controlled 16x heavy-city tests show a modest improvement; busy frames still need work. [Checks and measured limits](research/active-city-routing-v0.2.51.md).
 

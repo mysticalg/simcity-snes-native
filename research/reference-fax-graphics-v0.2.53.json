@@ -1,0 +1,247 @@
+{
+  "romSHA256": "e9c0bc05511e05a0d7c3e7cc42e761e1e8e532d46f59b9854b6902e1a2e9dd0a",
+  "mesenSHA256": "d2eb03c2590c648bf329f127ebcfefd70130e7690a9e2ccdba8616faea1fe96b",
+  "memories": [
+    {
+      "screen": 9,
+      "writtenVramBytes": 49152,
+      "writtenVramSHA256": "479707298a7f0e559aa9cd2e6ebdc95b54d2e7d854f7f5d7dc0e2ea6ccb32c59",
+      "cgramSHA256": "2872837414f2198e0417d8e0549201b761b87875221f183d3f6ff83351ec935f",
+      "oamSHA256": "4b1debbf080bc7900faf27a96c19b6a239e712b4527092423a20bbc9e710bfba"
+    },
+    {
+      "screen": 10,
+      "writtenVramBytes": 49152,
+      "writtenVramSHA256": "918fba3f721413e5f64e59fc9c1b8bdda41c8bd2f2223318a190f6dad7ba6884",
+      "cgramSHA256": "2872837414f2198e0417d8e0549201b761b87875221f183d3f6ff83351ec935f",
+      "oamSHA256": "4b1debbf080bc7900faf27a96c19b6a239e712b4527092423a20bbc9e710bfba"
+    },
+    {
+      "screen": 11,
+      "writtenVramBytes": 49152,
+      "writtenVramSHA256": "bf8d0311798547fc1de00b8deeaf620555b6293e1eb41d648c1b3323590a8a59",
+      "cgramSHA256": "2872837414f2198e0417d8e0549201b761b87875221f183d3f6ff83351ec935f",
+      "oamSHA256": "4b1debbf080bc7900faf27a96c19b6a239e712b4527092423a20bbc9e710bfba"
+    }
+  ],
+  "rgbaPixels": 1204224,
+  "alphaPolicy": "Compare original RGB; pack as opaque RGBA for the browser canvas",
+  "routine": "CODE_03DF49 with original COP/decompression/DMA/NMI, controlled scroll holds",
+  "results": [
+    {
+      "screen": 9,
+      "scroll": -120,
+      "brightness": 15,
+      "pixels": 57344,
+      "referenceOpaqueRgbaSHA256": "93935fe0ff1ccb4874b2b10ec9d9b71a92fa2cff1bd00deef5304b36677e997b",
+      "different": 0,
+      "rows": {}
+    },
+    {
+      "screen": 9,
+      "scroll": -90,
+      "brightness": 15,
+      "pixels": 57344,
+      "referenceOpaqueRgbaSHA256": "99c3c8ab47ee447b54000472c0457dcc826b2a14668ce731f30a7f5ccb8e5313",
+      "different": 0,
+      "rows": {}
+    },
+    {
+      "screen": 9,
+      "scroll": -60,
+      "brightness": 15,
+      "pixels": 57344,
+      "referenceOpaqueRgbaSHA256": "4b60701e3f4533372d1e35fbc910f738ff774c8c4d57bd07cc1faaf2d1442254",
+      "different": 0,
+      "rows": {}
+    },
+    {
+      "screen": 9,
+      "scroll": -30,
+      "brightness": 15,
+      "pixels": 57344,
+      "referenceOpaqueRgbaSHA256": "3f6683bff5642e0bb42549d3a59e7424f452969249f173d9fb904c4b22b61143",
+      "different": 0,
+      "rows": {}
+    },
+    {
+      "screen": 9,
+      "scroll": 0,
+      "brightness": 15,
+      "pixels": 57344,
+      "referenceOpaqueRgbaSHA256": "dccd29dd4fa6d1772978743c3de06536869f7aba8d5a1792cd0316a55893f2da",
+      "different": 0,
+      "rows": {}
+    },
+    {
+      "screen": 9,
+      "scroll": -120,
+      "brightness": 0,
+      "pixels": 57344,
+      "referenceOpaqueRgbaSHA256": "f07f9de0f87fd1fe5a0422b2be825c0cec5e7cec03b5744220152dd41deb5bad",
+      "different": 0,
+      "rows": {}
+    },
+    {
+      "screen": 9,
+      "scroll": -120,
+      "brightness": 7,
+      "pixels": 57344,
+      "referenceOpaqueRgbaSHA256": "b6502dfcc762bed478283ffbbdd1cc28d30d492b48ae8cf5b2d699f8a6c47f3b",
+      "different": 0,
+      "rows": {}
+    },
+    {
+      "screen": 10,
+      "scroll": -120,
+      "brightness": 15,
+      "pixels": 57344,
+      "referenceOpaqueRgbaSHA256": "432b385f7b58733c29dad0530e81e5520f79c532601047f94a5cd6c549234273",
+      "different": 0,
+      "rows": {}
+    },
+    {
+      "screen": 10,
+      "scroll": -90,
+      "brightness": 15,
+      "pixels": 57344,
+      "referenceOpaqueRgbaSHA256": "1daae486aca8f6cc8e1803fef04cbd7b038718757db75324c41d9bb68617d61b",
+      "different": 0,
+      "rows": {}
+    },
+    {
+      "screen": 10,
+      "scroll": -60,
+      "brightness": 15,
+      "pixels": 57344,
+      "referenceOpaqueRgbaSHA256": "169d9fd42777bf0c7bed0c331634e15b001992cf9a84dc752b2b6718c45fd793",
+      "different": 0,
+      "rows": {}
+    },
+    {
+      "screen": 10,
+      "scroll": -30,
+      "brightness": 15,
+      "pixels": 57344,
+      "referenceOpaqueRgbaSHA256": "5e9544a13f697be938b40a5390e4741cbd8368c13d561ec4fb7d47ca57970f5e",
+      "different": 0,
+      "rows": {}
+    },
+    {
+      "screen": 10,
+      "scroll": 0,
+      "brightness": 15,
+      "pixels": 57344,
+      "referenceOpaqueRgbaSHA256": "eec098d440422a431d07ee83e28feb7a24baee0fd94abec9ab7d63f290899f7a",
+      "different": 0,
+      "rows": {}
+    },
+    {
+      "screen": 10,
+      "scroll": -120,
+      "brightness": 0,
+      "pixels": 57344,
+      "referenceOpaqueRgbaSHA256": "f07f9de0f87fd1fe5a0422b2be825c0cec5e7cec03b5744220152dd41deb5bad",
+      "different": 0,
+      "rows": {}
+    },
+    {
+      "screen": 10,
+      "scroll": -120,
+      "brightness": 7,
+      "pixels": 57344,
+      "referenceOpaqueRgbaSHA256": "f1a0c70f9d747d32c3966bbc9cc5cf2412fcbe2ca249b9656c36a597efa099b2",
+      "different": 0,
+      "rows": {}
+    },
+    {
+      "screen": 11,
+      "scroll": -120,
+      "brightness": 15,
+      "pixels": 57344,
+      "referenceOpaqueRgbaSHA256": "fa1d220b35d30e64961cea1cd886ae09e6265858bf9d559bdc66b4f75f99888a",
+      "different": 0,
+      "rows": {}
+    },
+    {
+      "screen": 11,
+      "scroll": -90,
+      "brightness": 15,
+      "pixels": 57344,
+      "referenceOpaqueRgbaSHA256": "25b9ddd359f8b0577b4a18f8cfc5948b1e7964ae408cd5dc8ac5aca3e306a56f",
+      "different": 0,
+      "rows": {}
+    },
+    {
+      "screen": 11,
+      "scroll": -60,
+      "brightness": 15,
+      "pixels": 57344,
+      "referenceOpaqueRgbaSHA256": "4eda434d9275bd2f86ac5eea7d1af0c51cdcc0ed6691efaa9d89f347e9aee1cc",
+      "different": 0,
+      "rows": {}
+    },
+    {
+      "screen": 11,
+      "scroll": -30,
+      "brightness": 15,
+      "pixels": 57344,
+      "referenceOpaqueRgbaSHA256": "51788e87eb86621c13291d760517cd8ff51b32d9d522e5bf3c9affbeebdaaee7",
+      "different": 0,
+      "rows": {}
+    },
+    {
+      "screen": 11,
+      "scroll": 0,
+      "brightness": 15,
+      "pixels": 57344,
+      "referenceOpaqueRgbaSHA256": "786475a688b9f31df258dec3ec87f0122852e77ea43de2c6d735ca5c0265a7cd",
+      "different": 0,
+      "rows": {}
+    },
+    {
+      "screen": 11,
+      "scroll": -120,
+      "brightness": 0,
+      "pixels": 57344,
+      "referenceOpaqueRgbaSHA256": "f07f9de0f87fd1fe5a0422b2be825c0cec5e7cec03b5744220152dd41deb5bad",
+      "different": 0,
+      "rows": {}
+    },
+    {
+      "screen": 11,
+      "scroll": -120,
+      "brightness": 7,
+      "pixels": 57344,
+      "referenceOpaqueRgbaSHA256": "b1a742840b527ca635f35beb1daf63f9f2b39980a3fecc3f5e72c0b4c9b19e09",
+      "different": 0,
+      "rows": {}
+    }
+  ],
+  "objectDefinitions": [
+    {
+      "address": 42431,
+      "x": 264,
+      "y": 159,
+      "hex": "5555f8e00130f0e00030e0f00530f0e80430e8e80330e0e8023000"
+    },
+    {
+      "address": 42458,
+      "x": 50,
+      "y": 207,
+      "hex": "5555fdfc0732f8f80730fb030632f700063000"
+    }
+  ],
+  "assets": {
+    "assets/graphics/GFX_LayerX_MainMenu.bin": "42d6114c74f304ab135029acf58597699dff0f41ec1ee4834c7e8e93cc087383",
+    "assets/graphics/GFX_Layer3_InformationAndBankLoanSubScreens.bin": "321fe5ae2da50f27d2b022ca7f0a225e2370c5bd3b7803da983d01501a6c42d9",
+    "assets/graphics/GFX_Sprite_FamicomLogoAndFaxMachineCord.bin": "5cb4348fe5bd33bdfb525cc9101bcd683f7d9c458c17f84c361b716cf3a8cb24",
+    "assets/tilemaps/TM_FaxPaper.bin": "ea04b817fdf4d5657a5025a1bea558c9f50b72b85c446506d291320b302b36d5",
+    "assets/tilemaps/TM_FaxMachineAndWoodTable.bin": "018b4c3209a2da60bce3912f3f9bb36a26239aa102ab2716c85768f0cb634df7",
+    "assets/tilemaps/TM_FaxMachineGlass.bin": "3209dae057f28bceb8481377a1de6402156e40a3fc8f4019fbc6ac2a2daff553",
+    "assets/palettes/PAL_FaxMachineScreen.bin": "6b37b23006efd520d59b4934d85205ac466a4e25e3339111f9e3aed9654f75a1",
+    "assets/tilemaps/TM_FailedScenarioText.bin": "ebb8ad85e3a2d0a67585eb13b225b79777f2036538ddfa1495456cff0db492ec",
+    "assets/tilemaps/TM_CompleteScenarioText.bin": "f60d0cec195fef90da09e03aa331a6d0094cc8499857e305057448b987ee1801",
+    "assets/tilemaps/TM_UnlockBonusScenariosText.bin": "cdf1f15db8cfa736923011525440b31cc3dd9421d2b5331a88d67a4be5417bb8"
+  }
+}
