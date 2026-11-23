@@ -14,7 +14,7 @@ import {OVERLAYS,overlayColor} from './map-overlays.js?v=civic-revisions-1';
 import {cityPaletteForMonth,romSeasonPalette} from './rom-render.js?v=season-1';
 import {RomSampleAudio} from './rom-audio.js?v=aircraft-1';
 const romAudio=new RomSampleAudio();
-import{City,SCENARIOS,TOOLS,W,H,clamp}from'./simulation.js?v=aircraft-1';
+import{City,SCENARIOS,TOOLS,W,H,clamp}from'./simulation.js?v=aircraft-2';
 installBuildingOperations(City);
 installFinancialSafety(City);
 const $=s=>document.querySelector(s),canvas=$('#game'),ctx=canvas.getContext('2d',{alpha:false});ctx.imageSmoothingEnabled=false;

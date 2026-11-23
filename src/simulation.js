@@ -10,7 +10,7 @@ import {selectRomRandomDisaster} from './rom-random-disaster.js';
 import {romFacilityDemand,placeRomFacility,updateRomFacility} from './rom-facilities.js';
 import {createRomTrain,spawnRomTrain,stepRomTrain} from './rom-train.js';
 import {createRomShip,spawnRomShip,stepRomShip} from './rom-ship.js?v=collision-2';
-import {applyRomShipCollision,applyRomTrainCollision,burnRomZone} from './rom-collision.js';
+import {applyRomShipCollision,applyRomTrainCollision,burnRomZone} from './rom-collision.js?v=aircraft-1';
 import {recordRomHistory} from './rom-history.js';
 import {romCommercialRate,commercialLocalScore,industrialLocalScore} from './rom-commercial.js';
 import {romCityProblems,romCityScore,pollRomProblems,pollRomApproval,romAssessedValue} from './rom-evaluation.js?v=facilities-1';
