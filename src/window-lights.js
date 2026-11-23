@@ -1,6 +1,6 @@
-import {utilityImagePath} from './utility-art.js?v=amenities-gifts-29';
+import {utilityImagePath} from './utility-art.js?v=civic-refresh-30';
 import {compactEmergencySprite} from './emergency.js?v=emergency-1';
-import {civicForId,civicBounds} from './civic.js?v=amenities-gifts-29';
+import {civicForId,civicBounds} from './civic.js?v=civic-refresh-30';
 const hash=n=>{n=Math.imul(n^(n>>>16),0x45d9f3b);return ((n^(n>>>16))>>>0)/4294967296;};
 // Conservative sprite-pixel masks: small glazing or inset apertures, with
 // surrounding wall pixels. Large roofs, ground patches and tanks are rejected.
@@ -26,12 +26,12 @@ export function extractWindowPixels(data,width,height,options={}){
 export function windowBrightness(seed,time){const phase=Math.floor(time/45),blend=Math.min(1,(time%45)/3),value=n=>hash(seed+n*977)>.27?.55+hash(seed+n*173+11)*.45:0;return value(phase-1)*(1-blend)+value(phase)*blend;}
 function footprint(city,z){for(const b of city.build.buildings){if(!b)continue;const n=b.tiles.indexOf(z.id);if(n>=0)return {x:z.x-b.x[n],y:z.y-b.y[n],width:Math.max(...b.x)+1,height:Math.max(...b.y)+1};}return {x:z.x-1,y:z.y-1,width:3,height:3};}
 export class WindowLights{
- constructor(){this.art=Array.from({length:60},(_,i)=>{const image=new Image();image.src=utilityImagePath(i)||'assets/custom/civic-'+(i<17?i:0)+'.png';return image;});this.ready=Promise.all(this.art.map(i=>i.decode()));this.masks=new Map();this.states=new WeakMap();}
+ constructor(){this.art=Array.from({length:62},(_,i)=>{const image=new Image();image.src=utilityImagePath(i)||'assets/custom/civic-'+(i<17?i:0)+'.png';return image;});this.ready=Promise.all(this.art.map(i=>i.decode()));this.masks=new Map();this.states=new WeakMap();}
  mask(city,z,atlas){
   const custom=civicForId(z.id);if(custom&&[961,967,972,970,990].includes(z.id))return null;const b=custom?civicBounds(z):footprint(city,z);if(!b)return null;
   const w=b.width*8,h=custom?.artHeight||b.height*8,key=custom?'civic:'+z.id+':'+w+':'+h:b.width+','+b.height+':'+Array.from({length:b.width*b.height},(_,n)=>city.id(b.x+n%b.width,b.y+Math.floor(n/b.width))).join(',');let mask=this.masks.get(key);
   if(!mask){const canvas=document.createElement('canvas');canvas.width=w;canvas.height=h;const ctx=canvas.getContext('2d',{willReadFrequently:true});ctx.imageSmoothingEnabled=false;
-   if(custom){const im=custom.nativeTool?compactEmergencySprite(city,z.id,atlas):this.art[custom.sprite??custom.tool-30];if(!im||(!(im instanceof HTMLCanvasElement)&&(!im.complete||!im.naturalWidth)))return null;ctx.drawImage(im,0,0,w,h);}
+   if(custom){const im=custom.nativeTool&&custom.sprite!==60?compactEmergencySprite(city,z.id,atlas):this.art[custom.sprite??custom.tool-30];if(!im||(!(im instanceof HTMLCanvasElement)&&(!im.complete||!im.naturalWidth)))return null;ctx.drawImage(im,0,0,w,h);}
    else{if(!atlas)return null;for(let yy=0;yy<b.height;yy++)for(let xx=0;xx<b.width;xx++){const id=city.id(b.x+xx,b.y+yy);ctx.drawImage(atlas,id%32*8,(id>>5)*8,8,8,xx*8,yy*8,8,8);}}
    mask=extractWindowPixels(ctx.getImageData(0,0,w,h).data,w,h,{allowBright:!!custom||z.type===7});
    if(!custom&&z.type===8){const data=ctx.getImageData(0,0,w,h).data;mask=[];for(const yy of [16,18])for(let xx=2;xx<w-2;xx++){if(yy===16&&xx>=8&&xx<=12||yy===18&&xx>=8&&xx<=15)continue;const at=(yy*w+xx)*4;if(data[at]>115&&data[at+1]>120&&data[at+2]>135)mask.push({kind:'window',pixels:[{x:xx,y:yy}]});}}
@@ -40,7 +40,8 @@ export class WindowLights{
  }
  draw(ctx,city,zones,atlas,view,night,time){
   let buildings=0,windows=0,pixels=0,state=this.states.get(city);
-  if(!state||state.revision!==city.revision){state={revision:city.revision,entries:new Map()};this.states.set(city,state);}
+  if(!state){state={revision:-1,entries:new Map()};this.states.set(city,state);}
+  if(state.revision!==city.revision){const current=new Map(zones.map(z=>[z.i,z]));for(const [i,entry] of state.entries){const z=current.get(i),mask=z&&entry.id===z.id?this.mask(city,z,atlas):null;if(!mask||mask.windows!==entry.mask.windows||mask.x!==entry.mask.x||mask.y!==entry.mask.y)state.entries.delete(i);}state.revision=city.revision;}
   // Only the three-second fade changes the individual window mask. Bake its
   // bloom once per building/fade step, rather than running a shadow filter for
   // every window pixel on the main canvas on every frame.
@@ -49,18 +50,19 @@ export class WindowLights{
   for(const z of zones){
    if(z.x<view.x-6||z.x>view.x+view.width+6||z.y<view.y-6||z.y>view.y+view.height+6)continue;
    let entry=state.entries.get(z.i);
-   if(!entry){const mask=this.mask(city,z,atlas);if(!mask)continue;entry={mask,key:null};state.entries.set(z.i,entry);}
+   if(!entry){const mask=this.mask(city,z,atlas);if(!mask)continue;entry={mask,key:null,id:z.id};state.entries.set(z.i,entry);}
+   if(!entry.mask.windows.length)continue;
    if(entry.key!==key){
     const mask=entry.mask,points=mask.windows.flatMap(w=>w.pixels),w=Math.max(1,...points.map(p=>p.x+1)),h=Math.max(1,...points.map(p=>p.y+1));
-    const source=document.createElement('canvas');source.width=w;source.height=h;const sc=source.getContext('2d');let litWindows=0,litPixels=0;
+    const source=entry.source||document.createElement('canvas');if(source.width!==w)source.width=w;if(source.height!==h)source.height=h;const sc=source.getContext('2d');sc.clearRect(0,0,w,h);sc.globalAlpha=1;let litWindows=0,litPixels=0;
     const sampleTime=phase*45+fade*3/16;
     for(const [n,window]of mask.windows.entries()){
      const amount=windowBrightness(z.i*97+n*31,sampleTime);if(amount<.03)continue;
      sc.fillStyle=hash(z.i+n*7)>.83?'#b7dfff':'#ffdb89';sc.globalAlpha=amount*.95;
      for(const p of window.pixels){sc.fillRect(p.x,p.y,1,1);litPixels++;}litWindows++;
     }
-    const glow=document.createElement('canvas');glow.width=w+8;glow.height=h+8;const gc=glow.getContext('2d');gc.shadowColor='#ffc969';gc.shadowBlur=2;gc.drawImage(source,4,4);
-    Object.assign(entry,{key,canvas:glow,windows:litWindows,pixels:litPixels});
+    const glow=entry.canvas||document.createElement('canvas');if(glow.width!==w+8)glow.width=w+8;if(glow.height!==h+8)glow.height=h+8;const gc=glow.getContext('2d');gc.clearRect(0,0,w+8,h+8);gc.shadowColor='#ffc969';gc.shadowBlur=2;gc.drawImage(source,4,4);
+    Object.assign(entry,{key,source,canvas:glow,windows:litWindows,pixels:litPixels});
    }
    if(entry.windows){ctx.drawImage(entry.canvas,entry.mask.x-4,entry.mask.y-4);buildings++;windows+=entry.windows;pixels+=entry.pixels;}
   }

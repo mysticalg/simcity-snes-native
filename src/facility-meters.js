@@ -1,10 +1,10 @@
-import {educationCoverage} from './education.js?v=amenities-gifts-29';
-import {aviationTraffic} from './aviation.js?v=amenities-gifts-29';
-import {parkServices} from './parks.js?v=amenities-gifts-29';
-import {civicServices,civicForId,civicRoadEntry,pumpStatus,educationEffects} from './civic.js?v=amenities-gifts-29';
+import {educationCoverage} from './education.js?v=civic-refresh-30';
+import {aviationTraffic} from './aviation.js?v=civic-refresh-30';
+import {parkServices} from './parks.js?v=civic-refresh-30';
+import {civicServices,civicForId,civicRoadEntry,pumpStatus,educationEffects} from './civic.js?v=civic-refresh-30';
 import {windPower} from './climate.js?v=weather-1';
-import {sewageServices} from './sewage.js?v=amenities-gifts-29';
-import {collectGarbage,monthlyGarbageDemand} from './landfill.js?v=processing-1';
+import {sewageServices} from './sewage.js?v=civic-refresh-30';
+import {collectGarbage,monthlyGarbageDemand} from './landfill.js?v=civic-refresh-30';
 import {employmentIncome} from './employment.js';
 import {emergencyKind} from './emergency.js';
 const fmt=n=>Math.round(Number(n)||0).toLocaleString();

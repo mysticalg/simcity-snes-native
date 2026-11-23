@@ -1,0 +1,75 @@
+{
+  "referenceCommit": "61222eeefb8112bb6dfaa751bb26faec9be3500f",
+  "scope": "Controlled180-civic-building WindowLights renderer.30 unchanged city revisions and30 lighting-cycle changes; isolated local Chromium CPU/canvas-allocation checks, not display FPS.",
+  "zones": 180,
+  "cases": [
+    {
+      "name": "initial",
+      "changed": 0,
+      "buildings": 180,
+      "windows": 2151
+    },
+    {
+      "name": "unchanged refresh",
+      "changed": 0,
+      "buildings": 180,
+      "windows": 2151
+    },
+    {
+      "name": "power cut removes one building",
+      "changed": 0,
+      "buildings": 179,
+      "windows": 2150
+    },
+    {
+      "name": "power restored",
+      "changed": 0,
+      "buildings": 180,
+      "windows": 2151
+    },
+    {
+      "name": "legacy footprint changed",
+      "changed": 0,
+      "buildings": 180,
+      "windows": 2153
+    },
+    {
+      "name": "lighting fade",
+      "changed": 0,
+      "buildings": 180,
+      "windows": 2913
+    },
+    {
+      "name": "second lighting cycle",
+      "changed": 0,
+      "buildings": 180,
+      "windows": 2920
+    },
+    {
+      "name": "third lighting cycle",
+      "changed": 0,
+      "buildings": 180,
+      "windows": 2915
+    }
+  ],
+  "before": {
+    "medianMs": 20.40000009536743,
+    "p95Ms": 146.79999995231628,
+    "canvases": 10800
+  },
+  "after": {
+    "medianMs": 0.30000007152557373,
+    "p95Ms": 2.4000000953674316,
+    "canvases": 0
+  },
+  "animatedBefore": {
+    "medianMs": 35.299999952316284,
+    "p95Ms": 240.89999997615814,
+    "canvases": 10800
+  },
+  "animatedAfter": {
+    "medianMs": 5.299999952316284,
+    "p95Ms": 29.800000071525574,
+    "canvases": 0
+  }
+}

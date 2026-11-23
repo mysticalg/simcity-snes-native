@@ -1,0 +1,4 @@
+// Photoreal civic assets; original masters and previous sprites are preserved.
+export const CIVIC_TEXTURES={"0":"civic-0-day-v1","1":"landfill-waste-v2","2":"civic-2-day-v1","3":"civic-3-day-v1","4":"civic-4-day-v1","5":"civic-5-day-v1","6":"university-v2","7":"bus-stop-v2","8":"bus-station-v2","11":"bus-vehicle-v2","12":"wind-base-v2","13":"civic-13-day-v1","14":"civic-14-day-v1","15":"recycling-centre-v2","16":"collection-depot-v2","60":"fire-station-v2","61":"wind-rotor-v2"};
+export const civicTexturePath=sprite=>CIVIC_TEXTURES[sprite]?'assets/realistic-civic/runtime/'+CIVIC_TEXTURES[sprite]+'.webp':null;
+export const CIVIC_ART_EXTRAS={soil:'assets/realistic-civic/runtime/landfill-soil-v2.webp',garbageTruck:'assets/realistic-civic/runtime/garbage-truck-v2.webp'};

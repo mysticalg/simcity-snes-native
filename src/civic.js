@@ -1,13 +1,13 @@
 import {AMENITY_TOOLS} from './amenities.js?v=amenities-gifts-29';
-import {educationCoverage} from './education.js?v=amenities-gifts-29';
+import {educationCoverage} from './education.js?v=civic-refresh-30';
 import {allocateWater,updateWaterStorage} from './water-allocation.js?v=education-traffic-27';
-import {landfillSites,garbageFacilities,collectGarbage,monthlyGarbageDemand} from './landfill.js?v=processing-1';
+import {landfillSites,garbageFacilities,collectGarbage,monthlyGarbageDemand} from './landfill.js?v=civic-refresh-30';
 import {buildingOff} from './building-operations.js?v=education-traffic-27';
 // Custom civic systems requested by the player. Values are game balance, not ROM-derived.
 export const CIVIC_TOOLS=[
  ...AMENITY_TOOLS,
  {tool:8,id:977,name:"Police",icon:"🛡",cost:500,annual:0,kind:"police",size:2,nativeTool:8},
- {tool:9,id:978,name:"Fire station",icon:"🚒",cost:500,annual:0,kind:"fire",size:2,nativeTool:9},
+ {tool:9,id:978,name:"Fire station",icon:"🚒",sprite:60,cost:500,annual:0,kind:"fire",size:2,nativeTool:9},
  {tool:30,id:960,name:'Hospital',icon:'🏥',cost:1000,annual:250,kind:'health',capacity:5000},
  {tool:31,id:961,name:'Landfill tile',icon:'🗑',cost:50,annual:10,kind:'garbage',capacity:1000,size:1},
  {tool:32,id:962,name:'Incinerator',icon:'♨',cost:3000,annual:400,kind:'garbage',capacity:6000},
@@ -41,7 +41,8 @@ export const CIVIC_TOOLS=[
  {tool:40,id:970,name:'Water pipe',icon:'🔵',cost:2,annual:0,kind:'pipe',size:1}
 ];
 export function installCivicTools(build,flags){build.nativeEmergencyBuildings??=Object.fromEntries([8,9].map(tool=>[tool,structuredClone(build.buildings[tool])]));for(const b of CIVIC_TOOLS){if(b.kind==='pipe')continue;const width=b.width||b.size||3,height=b.height||b.size||3,center=Math.floor(height/2)*width+Math.floor(width/2);build.buildings[b.tool]={id:b.tool,tiles:Array.from({length:width*height},(_,i)=>i===center?b.id:971),x:Array.from({length:width*height},(_,i)=>i%width),y:Array.from({length:width*height},(_,i)=>Math.floor(i/width))};flags[b.id]=b.nativeTool?0x85:0x81;build.costs[b.tool]=b.cost;}flags[971]=0x80;build.buildings[40]={id:40,tiles:[0],x:[0],y:[0]};build.costs[40]=2;}
-export const civicForId=id=>CIVIC_TOOLS.find(b=>b.id===id);
+const CIVIC_BY_ID=new Map(CIVIC_TOOLS.map(b=>[b.id,b]));
+export const civicForId=id=>CIVIC_BY_ID.get(id);
 // Budget/HUD callers need only upkeep, not water-network allocation, bus BFS
 // and waste-service calculations. This is the same enabled-facility total.
 export function civicAnnualCost(city){let annual=0;for(const z of city.zones){if(z.id<960||buildingOff(city,z))continue;annual+=civicForId(z.id)?.annual||0;}return annual;}

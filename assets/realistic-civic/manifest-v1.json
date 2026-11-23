@@ -1,0 +1,316 @@
+{
+  "tool": "built-in ImageGen",
+  "status": "Photoreal civic refresh v0.2.30; masters retained, max252px alpha-preserving runtime textures",
+  "reference": "assets/realistic/atlas-day-v1.png",
+  "assets": [
+    {
+      "name": "sewage-pump",
+      "sprite": 13,
+      "file": "civic-13-day-v1.png",
+      "generation": "exec-0e2946b5-4e10-438f-8c33-7d3204884dc2.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "abdf233d97b04b38489c16d497a8f2ba2528f434e887c04e7ae755274ded8937",
+      "prompt": "Realistic individual square plot using the existing day atlas as camera/material reference.",
+      "runtime": {
+        "file": "runtime/civic-13-day-v1.webp",
+        "width": 252,
+        "height": 252,
+        "bytes": 82302,
+        "sha256": "6f5b81133b62b471c063a2396f9672109670db9ae9a6f651002800fbee910783"
+      }
+    },
+    {
+      "name": "sewage-treatment",
+      "sprite": 14,
+      "file": "civic-14-day-v1.png",
+      "generation": "exec-5e519efb-94df-472a-988e-2cf2e603c2e2.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "d884e51dc5f361c6740a51c6819ff96d3c23105fa858685303777c950949fcb2",
+      "prompt": "Realistic individual square plot using the existing day atlas as camera/material reference.",
+      "runtime": {
+        "file": "runtime/civic-14-day-v1.webp",
+        "width": 252,
+        "height": 252,
+        "bytes": 88312,
+        "sha256": "8809da10aba17537a3ce6f4af35043f6588c2c8829b62bb866a42d0f1434cf10"
+      }
+    },
+    {
+      "name": "hospital",
+      "sprite": 0,
+      "file": "civic-0-day-v1.png",
+      "generation": "exec-ed74b1f2-5770-493d-8b7d-c8dceff8bf50.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "64d482879dd27f4c28bc476ac045c896694746629ae0f68b196a2bbf91a3f166",
+      "prompt": "Realistic individual square plot using the existing day atlas as camera/material reference.",
+      "runtime": {
+        "file": "runtime/civic-0-day-v1.webp",
+        "width": 252,
+        "height": 252,
+        "bytes": 75934,
+        "sha256": "9e3f222a1f4147f7d9d86e0344c02aabba070f9cedd7025fef6eca7caca4f04b"
+      }
+    },
+    {
+      "name": "incinerator",
+      "sprite": 2,
+      "file": "civic-2-day-v1.png",
+      "generation": "exec-f8fb87ca-c66e-4276-b956-f60c7b8ab949.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "c8daa3d78a8279b7a6529493afc96eae15842c66651caf6ff63c0df0e9295347",
+      "prompt": "Use case: photorealistic-natural. Create ONE production architectural game sprite, NOT a sprite sheet. Reference image is STYLE/CAMERA ONLY: match its photoreal detailed miniature architecture, steep elevated north-facing camera with roofs and SOUTH facades visible, neutral daylight from upper left, weathered realistic concrete/metal/glass, cream and blue-grey materials. North-up plot with horizontal/vertical edges; NOT a diamond or rotated base; no horizon, no surrounding city. Full building and shadows contained inside the plot. True alpha transparency outside plot. Object fills 94% of canvas with a small transparent margin, strong simplified silhouette readable at 8-32px game scale. No text, no letters, no labels, no grid, no UI, no cartoon or pixel art. Output SQUARE 1:1 canvas and square plot. Municipal WASTE INCINERATOR: compact low cream and grey industrial shed, two tall realistic silver exhaust chimneys, a broad dark loading bay and service yard, roof vents, small glazed control-room south facade. Recognizable waste-to-energy industrial facility, modest scale, no smoke baked into sprite.",
+      "runtime": {
+        "file": "runtime/civic-2-day-v1.webp",
+        "width": 252,
+        "height": 252,
+        "bytes": 72808,
+        "sha256": "3e2f0b16463c3c9e98baf7904454777975579a92eeeb0edae331c22587e3aeed"
+      }
+    },
+    {
+      "name": "fusion",
+      "sprite": 3,
+      "file": "civic-3-day-v1.png",
+      "generation": "exec-9b0ac38b-63ad-454d-b0b0-ab50cd9ba748.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "3c24ecf69499fadea354e0367cf4b25f01224e224596b1cbd8656e2d437a8986",
+      "prompt": "Use case: photorealistic-natural. Create ONE production architectural game sprite, NOT a sprite sheet. Reference image is STYLE/CAMERA ONLY: match its photoreal detailed miniature architecture, steep elevated north-facing camera with roofs and SOUTH facades visible, neutral daylight from upper left, weathered realistic concrete/metal/glass, cream and blue-grey materials. North-up plot with horizontal/vertical edges; NOT a diamond or rotated base; no horizon, no surrounding city. Full building and shadows contained inside the plot. True alpha transparency outside plot. Object fills 94% of canvas with a small transparent margin, strong simplified silhouette readable at 8-32px game scale. No text, no letters, no labels, no grid, no UI, no cartoon or pixel art. Output SQUARE 1:1 canvas and square plot. Advanced FUSION POWER STATION: realistic scientific-industrial concrete complex centered on a low circular tokamak containment building with blue-grey metal cladding and a subtle cyan-lit equipment ring; two low annexes, cooling equipment, transformers, dark glazed control windows. Believable engineering and restrained sci-fi, no giant glow or fantasy tower.",
+      "runtime": {
+        "file": "runtime/civic-3-day-v1.webp",
+        "width": 252,
+        "height": 252,
+        "bytes": 83502,
+        "sha256": "fc5defd2ee606d22ae1a5dcb2ae065c54668edca4be3d811dc0f8c31f249f2e2"
+      }
+    },
+    {
+      "name": "school",
+      "sprite": 4,
+      "file": "civic-4-day-v1.png",
+      "generation": "exec-0a6ef2f8-8124-4e6e-b30f-a4c6e3986d96.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "e1f83f4c7c29bbb3a7498cc0e374de155d99c3d63598e81c38e5f4ed82bbb2a6",
+      "prompt": "Use case: photorealistic-natural. Create ONE production architectural game sprite, NOT a sprite sheet. Reference image is STYLE/CAMERA ONLY: match its photoreal detailed miniature architecture, steep elevated north-facing camera with roofs and SOUTH facades visible, neutral daylight from upper left, weathered realistic concrete/metal/glass, cream and blue-grey materials. North-up plot with horizontal/vertical edges; NOT a diamond or rotated base; no horizon, no surrounding city. Full building and shadows contained inside the plot. True alpha transparency outside plot. Object fills 94% of canvas with a small transparent margin, strong simplified silhouette readable at 8-32px game scale. No text, no letters, no labels, no grid, no UI, no cartoon or pixel art. Output SQUARE 1:1 canvas and square plot. Small compact PRIMARY SCHOOL: one modest two-storey warm cream/red-brick school building, blue-grey roof with rooflights, rows of classroom windows, modest entrance canopy, tiny paved play area with one tree, clear simple school silhouette. The building must read at a very small one-tile footprint.",
+      "runtime": {
+        "file": "runtime/civic-4-day-v1.webp",
+        "width": 252,
+        "height": 252,
+        "bytes": 75390,
+        "sha256": "4cd131ea25acc99e797aea0b0ae34b264085ea48e1f557cf54849011c6dd10a7"
+      }
+    },
+    {
+      "name": "college",
+      "sprite": 5,
+      "file": "civic-5-day-v1.png",
+      "generation": "exec-cd0b6129-0d8a-42f3-b17d-ea40230c7ef1.png",
+      "width": 1774,
+      "height": 887,
+      "sha256": "ecd6e1bdc05befaed1bc9a078dcbffb554e56f37f3df4b898ca69e273cb1528f",
+      "prompt": "Use case: photorealistic-natural. Create ONE production architectural game sprite, NOT a sprite sheet. Reference image is STYLE/CAMERA ONLY: match its photoreal detailed miniature architecture, steep elevated north-facing camera with roofs and SOUTH facades visible, neutral daylight from upper left, weathered realistic concrete/metal/glass, cream and blue-grey materials. North-up plot with horizontal/vertical edges; NOT a diamond or rotated base; no horizon, no surrounding city. Full building and shadows contained inside the plot. True alpha transparency outside plot. Object fills 94% of canvas with a small transparent margin, strong simplified silhouette readable at 8-32px game scale. No text, no letters, no labels, no grid, no UI, no cartoon or pixel art. Output LANDSCAPE 2:1 canvas and rectangular plot exactly twice as wide as tall, with horizontal/vertical base edges, not a diamond. Small COLLEGE: one long low two-storey modern cream-brick teaching building with dark blue glazing and a flat blue-grey roof, modest central entrance and two tiny landscaped courtyards. This building fits a 2-tile wide by 1-tile high ground footprint; avoid tall walls or excess vertical transparent area.",
+      "runtime": {
+        "file": "runtime/civic-5-day-v1.webp",
+        "width": 252,
+        "height": 126,
+        "bytes": 41298,
+        "sha256": "7b5cf7d4fd8f497697931263e478a27f930561745146b2c88cf20a8f82dc4169"
+      }
+    },
+    {
+      "name": "university",
+      "sprite": 6,
+      "file": "university-v2.png",
+      "generation": "exec-6db8c414-8207-45fa-840d-56f02c14eef8.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "fd50091e71dd7e15e25631b0c470798111938fe42075f1de99c1eca808216d99",
+      "runtime": {
+        "file": "runtime/university-v2.webp",
+        "width": 252,
+        "height": 252,
+        "bytes": 88696,
+        "sha256": "350ec8f643c78ee109602a84676f1dcfabf1a63683a5acd0fe815ab2aa2210fb"
+      }
+    },
+    {
+      "name": "bus-stop",
+      "sprite": 7,
+      "file": "bus-stop-v2.png",
+      "generation": "exec-06f92b1f-5b58-417f-b12f-6f2f7342adb5.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "98d0cc3c175305c4ba93f4b5f782894af8e068c60d6ad0dad89a022ab770b67c",
+      "runtime": {
+        "file": "runtime/bus-stop-v2.webp",
+        "width": 252,
+        "height": 252,
+        "bytes": 55252,
+        "sha256": "d8ba631446bee4cbcab5644ea6b86739ae798a2eec1b4c753043bac116ce61c7"
+      }
+    },
+    {
+      "name": "bus-station",
+      "sprite": 8,
+      "file": "bus-station-v2.png",
+      "generation": "exec-75f6e386-e1d7-40c6-acd1-3725674e9381.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "d2180b3caf17e922838b7974bf190d50f124acbab7b0577d29ae4303c21e63ef",
+      "runtime": {
+        "file": "runtime/bus-station-v2.webp",
+        "width": 252,
+        "height": 252,
+        "bytes": 62086,
+        "sha256": "1457117c148da5feda5020495d6643beb8018c48e8a88552344c48f286e97e21"
+      }
+    },
+    {
+      "name": "wind-base",
+      "sprite": 12,
+      "file": "wind-base-v2.png",
+      "generation": "exec-475273c9-8fcd-4899-936d-33094a1c2188.png",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "8ebbea1262f02447f9db7026893f31477022dcf21f5f23864506aad50a481419",
+      "runtime": {
+        "file": "runtime/wind-base-v2.webp",
+        "width": 168,
+        "height": 252,
+        "bytes": 20388,
+        "sha256": "134b5ecc07e600f042cd7519b964ec330eddb8fa8cef2f19b564f998c1c5bd52"
+      }
+    },
+    {
+      "name": "wind-rotor",
+      "sprite": 61,
+      "file": "wind-rotor-v2.png",
+      "generation": "exec-c4f95685-1fe0-4497-a153-c0318a0d8f81.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "11ba9bc0d335427eb30bdae19b9bd0ea4fc9dde6ac6fcdb5c60986e1f76e58be",
+      "runtime": {
+        "file": "runtime/wind-rotor-v2.webp",
+        "width": 252,
+        "height": 252,
+        "bytes": 10280,
+        "sha256": "93f50fe4f3383927749ddcca9c70fb9781ed4abcf35171f738a4a35421cd7c97"
+      }
+    },
+    {
+      "name": "recycling-centre",
+      "sprite": 15,
+      "file": "recycling-centre-v2.png",
+      "generation": "exec-3e96466f-9b06-4845-90c8-afe217703ccf.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "7d9c52aeb5a66725486babcf72a8558b56650f5102f08e0cf921a8e96509ff60",
+      "runtime": {
+        "file": "runtime/recycling-centre-v2.webp",
+        "width": 252,
+        "height": 252,
+        "bytes": 74754,
+        "sha256": "dc158e01fb8df2a3fa2ec3ebdcb735ebd7c16c51bb714da95d898f9f4ee731bf"
+      }
+    },
+    {
+      "name": "collection-depot",
+      "sprite": 16,
+      "file": "collection-depot-v2.png",
+      "generation": "exec-9d3ff4f9-8e77-4693-9409-77f4a77c71ea.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "67fb6a47d980de2fb0aa82d7f51e471a49ab0f0844bf8fbdfef02894222ea559",
+      "runtime": {
+        "file": "runtime/collection-depot-v2.webp",
+        "width": 252,
+        "height": 252,
+        "bytes": 68614,
+        "sha256": "35cdeead798db6cfc51fb807310a01801037a3db46027503955fd2509b8f5dc6"
+      }
+    },
+    {
+      "name": "bus-vehicle",
+      "sprite": 11,
+      "file": "bus-vehicle-v2.png",
+      "generation": "exec-a614af16-d17f-4f43-a660-46d2273d37a1.png",
+      "width": 1774,
+      "height": 887,
+      "sha256": "0a5924bf386af6faaec3f7d09d16362071c66946f3bf735342bf55fa1b6b7372",
+      "runtime": {
+        "file": "runtime/bus-vehicle-v2.webp",
+        "width": 252,
+        "height": 126,
+        "bytes": 18726,
+        "sha256": "22935f96dbd0ea39fb5874e906b00a50b8b803330ec63f9e5612154931ac175b"
+      }
+    },
+    {
+      "name": "garbage-truck",
+      "file": "garbage-truck-v2.png",
+      "generation": "exec-cda90f9c-d8cc-41a0-9db7-9c6c5b9d19d0.png",
+      "width": 1774,
+      "height": 887,
+      "sha256": "5b888cbcf88aac32f913a24f2efb239d853467d3fc1796cf76ded353fd69f250",
+      "runtime": {
+        "file": "runtime/garbage-truck-v2.webp",
+        "width": 252,
+        "height": 126,
+        "bytes": 26822,
+        "sha256": "b266e789b4b82cc7e06614c7db17c2b904e5ba0f48462812c98b131bdbc0bf7a"
+      }
+    },
+    {
+      "name": "landfill-soil",
+      "file": "landfill-soil-v2.png",
+      "generation": "exec-f9329f1c-615d-427e-bd6e-e50b3eb20ce9.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "4c9cda9eba8c18c2d776eff880eb31b5196d81377a9cb8b05a50a49897bf804a",
+      "runtime": {
+        "file": "runtime/landfill-soil-v2.webp",
+        "width": 252,
+        "height": 252,
+        "bytes": 74878,
+        "sha256": "c02ffdc4b90803e0e4988e1558c5a6bbd01e5a4822398310e65cb851c0edc87f"
+      }
+    },
+    {
+      "name": "landfill-waste",
+      "sprite": 1,
+      "file": "landfill-waste-v2.png",
+      "generation": "exec-10b1b835-0175-4667-9db2-ef5e34988f52.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "d86684055a907911e5e568e1a0c8bbfca3d62509af472506b9731175694cddcc",
+      "runtime": {
+        "file": "runtime/landfill-waste-v2.webp",
+        "width": 252,
+        "height": 252,
+        "bytes": 121106,
+        "sha256": "4d6c80fc26e978ad212489e4135de969193c5d80540eb7a461c445217a88a19d"
+      }
+    },
+    {
+      "name": "fire-station",
+      "sprite": 60,
+      "file": "fire-station-v2.png",
+      "generation": "exec-10232963-4992-4121-b2f0-e90032cbf8b0.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "b6455436d392a3be66e933e51663fd01eda008240fef41df65922f4f16a6c4cb",
+      "runtime": {
+        "file": "runtime/fire-station-v2.webp",
+        "width": 252,
+        "height": 252,
+        "bytes": 68738,
+        "sha256": "f70ea777d4390b4ef3550c00bb9a303450b29c61c97595d6ba2c84018db2ade0"
+      }
+    }
+  ]
+}
