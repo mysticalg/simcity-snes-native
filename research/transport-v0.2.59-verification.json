@@ -1,0 +1,239 @@
+{
+  "nodeChecks": 583,
+  "browser": {
+    "base": "http://127.0.0.1:55721",
+    "title": "Sim City Turbo \u00b7 v0.2.59",
+    "fixture": {
+      "beforeJobs": 0,
+      "afterJobs": 160,
+      "working": 6,
+      "stats": {
+        "stations": 6,
+        "workingStations": 6,
+        "routes": 3,
+        "trains": 3,
+        "passengers": 160,
+        "capacity": 720,
+        "waiting": 0
+      },
+      "raisedRouteLevels": [
+        2,
+        0
+      ]
+    },
+    "blueprint": {
+      "valid": true,
+      "cost": 300,
+      "reason": "",
+      "cells": 6,
+      "placements": 6,
+      "skipped": 0,
+      "blocks": 0
+    },
+    "afterBuild": {
+      "stations": 6,
+      "workingStations": 6,
+      "routes": 3,
+      "trains": [
+        {
+          "id": "1:2541:2561:0",
+          "layer": 1,
+          "position": 0,
+          "direction": 1,
+          "passengers": 160,
+          "capacity": 240,
+          "route": 21
+        },
+        {
+          "id": "2:5295:5325:0",
+          "layer": 2,
+          "position": 0,
+          "direction": 1,
+          "passengers": 0,
+          "capacity": 240,
+          "route": 33
+        },
+        {
+          "id": "3:3860:3895:0",
+          "layer": 3,
+          "position": 0,
+          "direction": 1,
+          "passengers": 0,
+          "capacity": 240,
+          "route": 36
+        }
+      ],
+      "passengers": 160,
+      "capacity": 720,
+      "waiting": 0,
+      "underground": false,
+      "heavyRoadTiles": 42,
+      "trackTiles": {
+        "subway": 21,
+        "raised": 22,
+        "monorail": 36
+      }
+    },
+    "under": {
+      "stations": 7,
+      "workingStations": 6,
+      "routes": 3,
+      "trains": [
+        {
+          "id": "1:2541:2561:0",
+          "layer": 1,
+          "position": 0,
+          "direction": 1,
+          "passengers": 160,
+          "capacity": 240,
+          "route": 21
+        },
+        {
+          "id": "2:5295:5325:0",
+          "layer": 2,
+          "position": 0,
+          "direction": 1,
+          "passengers": 0,
+          "capacity": 240,
+          "route": 33
+        },
+        {
+          "id": "3:3860:3895:0",
+          "layer": 3,
+          "position": 0,
+          "direction": 1,
+          "passengers": 0,
+          "capacity": 240,
+          "route": 36
+        }
+      ],
+      "passengers": 160,
+      "capacity": 720,
+      "waiting": 0,
+      "underground": true,
+      "heavyRoadTiles": 42,
+      "trackTiles": {
+        "subway": 27,
+        "raised": 22,
+        "monorail": 42
+      }
+    },
+    "moving": {
+      "stations": 7,
+      "workingStations": 6,
+      "routes": 3,
+      "trains": [
+        {
+          "id": "1:2541:2561:0",
+          "layer": 1,
+          "position": 2.2400000000000007,
+          "direction": 1,
+          "passengers": 160,
+          "capacity": 240,
+          "route": 21
+        },
+        {
+          "id": "2:5295:5325:0",
+          "layer": 2,
+          "position": 2.2400000000000007,
+          "direction": 1,
+          "passengers": 0,
+          "capacity": 240,
+          "route": 33
+        },
+        {
+          "id": "3:3860:3895:0",
+          "layer": 3,
+          "position": 2.8799999999999994,
+          "direction": 1,
+          "passengers": 0,
+          "capacity": 240,
+          "route": 36
+        }
+      ],
+      "passengers": 160,
+      "capacity": 720,
+      "waiting": 0,
+      "underground": false,
+      "heavyRoadTiles": 42,
+      "trackTiles": {
+        "subway": 27,
+        "raised": 22,
+        "monorail": 42
+      }
+    },
+    "restored": {
+      "stations": 7,
+      "workingStations": 6,
+      "routes": 3,
+      "trains": [
+        {
+          "id": "1:2541:2561:0",
+          "layer": 1,
+          "position": 2.2400000000000007,
+          "direction": 1,
+          "passengers": 160,
+          "capacity": 240,
+          "route": 21
+        },
+        {
+          "id": "2:5295:5325:0",
+          "layer": 2,
+          "position": 2.2400000000000007,
+          "direction": 1,
+          "passengers": 0,
+          "capacity": 240,
+          "route": 33
+        },
+        {
+          "id": "3:3860:3895:0",
+          "layer": 3,
+          "position": 2.8799999999999994,
+          "direction": 1,
+          "passengers": 0,
+          "capacity": 240,
+          "route": 36
+        }
+      ],
+      "passengers": 160,
+      "capacity": 720,
+      "waiting": 0,
+      "underground": false,
+      "heavyRoadTiles": 42,
+      "trackTiles": {
+        "subway": 27,
+        "raised": 22,
+        "monorail": 42
+      }
+    },
+    "errors": []
+  },
+  "topologyBenchmark": {
+    "map": "240x200",
+    "roadTiles": 11250,
+    "stations": 6,
+    "routes": 3,
+    "coldTopologyMs": 12.68119999999999,
+    "warmTopologyMedianMs": 0.22860000000000014,
+    "warmTopologyMaxMs": 1.9120000000000061,
+    "sameTopologyReused": true
+  },
+  "sourceHashes": {
+    "app.js": "101e244cae998b06f1585f0fc7ba24eb427de899b01cd1739b03a2094f457c02",
+    "budget-view.js": "41d9791e3e0ef9c1cb9da676a334c23e49183b20fdcbc2fe1cfee814610f2322",
+    "build-palette.js": "64fca11d98648949fa69ca31e7fa745eaef05b7d4bc3a3f7e82297026a796624",
+    "employment.js": "02be78684e9abe9abdc7ef43bb092fe4e46700009f273e05fa5133bbfbd37871",
+    "facility-meters.js": "b7ec49548ee6ebb459988d12afd767290bbc4c6365981fa1bb3c2af51d0c5a5e",
+    "growth-advisor.js": "b7b46d2bb286654faff0840c47467e9207e25069bd2e021fb2ccc8d97f8fc9c0",
+    "health-care.js": "c106477b4455e5c43f70064da0940a76854793b0fa3f5ea1a1cb61e6bdd40971",
+    "map-overlays.js": "e33e0a6ff36d8137dd76cd0e16f5e7354e3f386f5c6a00c047867d3a3e94794a",
+    "service-placement.js": "d7bc4850682a1ab189070d6ee5a7624ead6e34d534e954b0b3c708192942b2cc",
+    "simulation.js": "b573f369e952384fb5e1c7556cf5b651449cf7ef46067af2c8458fbad18d1385",
+    "social-fields.js": "938024ca73b659b42c1d8bcfa450799a16c0e9f1f9af768cc34bfb58f1dd83fc",
+    "transit-network.js": "d2fbe869b6a6569dd8fbf294636852887ade1544bfb0fd42aabdfcc877ea016f",
+    "transit-render.js": "1ef9078fef9d4b2d04ab3f464fa8fca3aacecb1eb870e1c16b5179b477680b48",
+    "transit-tools.js": "ac7741cf7cda7e855ea4cfb0f05f92dfe0a438f80b8dd0d9014377f7dadfa6a9",
+    "transport-overlays.js": "4b856f74939844e0d8feb510f3977b8a42abf7eeeb188d2c7376b800d3104a41",
+    "zone-growth.js": "d9eae5abe8b5a887da35db19473f46118fbca6e42c91b608093657c63e556ecb"
+  }
+}

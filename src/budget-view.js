@@ -1,3 +1,4 @@
+import {hasRoadLayer} from './rom-networks.js?v=megacity-1';
 import{CIVIC_TOOLS}from'./civic.js?v=approaches-56';import{buildingOff}from'./building-operations.js?v=approaches-56';
 const money=n=>(n<0?'−':'')+'$'+Math.abs(n).toLocaleString();
 export function previewBudget(city,tax=city.tax,funding=city.funding){const oldTax=city.tax,oldFunding=city.funding;try{city.tax=tax;city.funding=funding;return city.budget(false,city.pendingBudget?.taxRate??tax);}finally{city.tax=oldTax;city.funding=oldFunding;}}
@@ -8,6 +9,7 @@ export function budgetBreakdown(city,b=city.budget(false)){
  for(const tool of CIVIC_TOOLS){if(tool.nativeTool)continue;const zones=city.zones.filter(z=>z.id===tool.id),count=tool.kind==='pipe'?city.pipes.reduce((a,b)=>a+b,0):zones.length;if(!count)continue;const active=tool.kind==='pipe'?count:zones.filter(z=>!buildingOff(city,z)).length,amount=city.civicEnabled?active*tool.annual:0;costs.push({name:tool.name,count:`${active} on / ${count} built`,selected:amount,allocated:amount});}
  for(const[id,name]of[[0x28c,'Coal plants'],[0x27c,'Nuclear plants'],[0x2a5,'Airports'],[0x26c,'Seaports'],[0x25c,'Stadiums']]){const n=city.zones.filter(z=>z.id===id).length;if(n)costs.push({name,count:String(n),selected:0,allocated:0});}
  const wires=city.map.reduce((n,id)=>n+!!(city.flags[id&1023]&16),0),parks=city.map.reduce((n,id)=>n+((id&1023)===44),0);if(wires)costs.push({name:'Power-line network',count:String(wires),selected:0,allocated:0});if(parks)costs.push({name:'Park tiles',count:String(parks),selected:0,allocated:0});
+ for(const [field,bit,name,rate]of[['heavyRoads',1,'High-density road upgrades',4],['transitTracks',1,'Subway tracks',2],['transitTracks',2,'Elevated rail',2],['transitTracks',4,'Monorail guideway',3],['transitStations',7,'Transit stations',100]]){const count=city[field]?.reduce((n,v,i)=>n+!!(v&bit)*(field!=='heavyRoads'||hasRoadLayer(city.map[i],city.flags)),0)||0;if(count)costs.push({name,count:String(count),selected:count*rate,allocated:count*rate});}
  city.loans.forEach((loan,i)=>costs.push({name:`Loan ${i+1} repayment`,count:`${loan.years} years left`,selected:loan.payment,allocated:loan.payment}));
  const totalIncome=income.reduce((n,row)=>n+row.amount,0),selectedCost=costs.reduce((n,row)=>n+row.selected,0),allocatedCost=costs.reduce((n,row)=>n+row.allocated,0);return{income,costs,totalIncome,selectedCost,allocatedCost,selectedNet:totalIncome-selectedCost,allocatedNet:totalIncome-allocatedCost};
 }

@@ -1,9 +1,9 @@
-import {transportOverlay} from './transport-overlays.js?v=approaches-56';
+import {transportOverlay} from './transport-overlays.js?v=transit-59';
 import {cityGrowthRateAt} from './rom-growth-rate.js?v=job-growth-1';
-import {socialFields} from './social-fields.js?v=approaches-56';
-export const OVERLAYS={none:'City view',crime:'Crime',pollution:'Pollution',traffic:'Traffic',landValue:'Land value',density:'Population density',power:'Power',policeCoverage:'Police coverage',fireCoverage:'Fire coverage',water:'Water / pipes',wind:'Wind / air pollution',health:'Local health',unemployment:'Unemployment',education:'Education access',sewage:'Sewage / sea pollution',growthRate:'Growth / decline',railTraffic:'Rail traffic',airTraffic:'Air traffic'};
+import {socialFields} from './social-fields.js?v=transit-59';
+export const OVERLAYS={none:'City view',crime:'Crime',pollution:'Pollution',traffic:'Traffic',landValue:'Land value',density:'Population density',power:'Power',policeCoverage:'Police coverage',fireCoverage:'Fire coverage',water:'Water / pipes',wind:'Wind / air pollution',health:'Local health',unemployment:'Unemployment',education:'Education access',sewage:'Sewage / sea pollution',growthRate:'Growth / decline',railTraffic:'Rail traffic',airTraffic:'Air traffic',subway:'Subway / underground rail'};
 export function overlayColor(city,mode,i){
- if(mode==='none')return null;if(mode==='traffic'||mode==='railTraffic'||mode==='airTraffic'){const s=transportOverlay(city,mode);return s.mask[i]?`hsla(${120*(1-Math.min(1,s.field[i]/s.max))},90%,48%,.65)`:null;}if(mode==='landValue')return `hsla(${120*Math.min(1,city.landValue[i]/250)},90%,48%,.65)`;
+ if(mode==='none')return null;if(mode==='subway')return city.transitTracks?.[i]&1?'rgba(50,190,245,.6)':null;if(mode==='traffic'||mode==='railTraffic'||mode==='airTraffic'){const s=transportOverlay(city,mode);return s.mask[i]?`hsla(${120*(1-Math.min(1,s.field[i]/s.max))},90%,48%,.65)`:null;}if(mode==='landValue')return `hsla(${120*Math.min(1,city.landValue[i]/250)},90%,48%,.65)`;
  if(mode==='growthRate'){const value=cityGrowthRateAt(city,i%city.width,Math.floor(i/city.width));return value?`hsla(${value>0?120:0},90%,48%,${.2+.55*Math.min(1,Math.abs(value)/200)})`:null;}
  if(['health','unemployment','education'].includes(mode)){const fields=socialFields(city);if(!fields.mask[i])return null;const value=fields[mode][i];return `hsla(${mode==='unemployment'?120*(1-value/100):120*value/100},90%,48%,.72)`;}
  if(mode==='wind')return city.pollution[i]?`rgba(130,65,25,${Math.min(.7,city.pollution[i]/250)})`:null;
