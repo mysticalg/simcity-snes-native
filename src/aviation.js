@@ -1,0 +1,43 @@
+// Requested Turbo aviation. Native SNES aircraft remain on their ROM actor path.
+import {civicForId,civicBounds} from './civic.js?v=aviation-24';
+import {buildingOff} from './building-operations.js?v=utilities-22';
+export const AIRCRAFT={light:{name:'Light aircraft',speed:12,passengers:4,cargo:0,length:9,span:10},private:{name:'Private jet',speed:20,passengers:12,cargo:0,length:12,span:9},jumbo:{name:'Super-jumbo jet',speed:18,passengers:500,cargo:0,length:25,span:22},cargo:{name:'Cargo aircraft',speed:18,passengers:0,cargo:250,length:23,span:20},fighter:{name:'Jet fighter',speed:36,passengers:0,cargo:0,length:13,span:9}};
+export function aviationRoadEntry(city,z){const b=civicBounds(z),w=city.width||120,h=city.height||100;for(let y=b.y-1;y<=b.y+b.height;y++)for(let x=b.x-1;x<=b.x+b.width;x++){if(x<0||x>=w||y<0||y>=h)continue;if((x===b.x-1||x===b.x+b.width)&&(y===b.y-1||y===b.y+b.height))continue;if(x>=b.x&&x<b.x+b.width&&y>=b.y&&y<b.y+b.height)continue;const i=y*w+x;if(city.flags[city.map[i]&1023]&64)return i;}return -1;}
+export function aviationFacilities(city){return city.zones.filter(z=>[991,992,993].includes(z.id)).map(z=>{const b=civicForId(z.id),off=buildingOff(city,z),powered=!!city.power[z.i],road=aviationRoadEntry(city,z)>=0,water=!city.civic.waterEnabled||!!city.civicWatered?.has(z.i);return {...z,building:b,bounds:civicBounds(z),operating:!off&&powered&&road&&water,reason:off?'Switched off':!powered?'Needs electricity':!road?'Needs road access':!water?'Needs water':'Operating',powered,road,water};});}
+export function aviationBenefits(city){const military=aviationFacilities(city).some(f=>f.id===993&&f.operating);return {industryProductivity:military ? .15 : 0,industrialDemand:military?120:0};}
+function stateFor(city,facilities){
+ if(!city.civic.aviation&&!facilities.length)return null;
+ let s=city.civic.aviation;if(!s||typeof s!=='object'||s.version!==1)s=city.civic.aviation={version:1,frames:0,nextId:1,aircraft:[],schedule:{},stats:{}};
+ s.frames=Math.max(0,Number.isFinite(s.frames)?s.frames:0);s.nextId=Math.max(1,Math.trunc(Number(s.nextId)||1));s.schedule=s.schedule&&typeof s.schedule==='object'?s.schedule:{};s.stats=s.stats&&typeof s.stats==='object'?s.stats:{};
+ const valid=new Map(facilities.map(f=>[f.i,f]));
+ s.aircraft=(Array.isArray(s.aircraft)?s.aircraft:[]).slice(0,32).filter(a=>a&&valid.get(a.root)?.operating&&AIRCRAFT[a.kind]&&Number.isFinite(a.x)&&Number.isFinite(a.y)&&Number.isFinite(a.altitude)&&Array.isArray(a.route)&&a.route.length>0&&a.route.length<=12&&a.route.every(p=>p&&Number.isFinite(p.x)&&Number.isFinite(p.y)&&Number.isFinite(p.altitude)&&Number.isFinite(p.speed)&&p.speed>0)&&Number.isInteger(a.segment)&&a.segment>=0&&a.segment<a.route.length);
+ for(const key of Object.keys(s.schedule))if(!valid.has(+key))delete s.schedule[key];for(const key of Object.keys(s.stats))if(!valid.has(+key))delete s.stats[key];
+ const month=city.year*12+city.month;
+ for(const f of facilities){let stat=s.stats[f.i];if(!stat||typeof stat!=='object'||stat.month!==month)s.stats[f.i]={month,arrivals:0,departures:0,passengers:0,cargo:0,sorties:0};if(!s.schedule[f.i]||!Number.isFinite(s.schedule[f.i].next))s.schedule[f.i]={next:s.frames+(f.i%5)*20,sequence:0};}
+ return s;
+}
+export function reconcileAviation(city){const f=aviationFacilities(city);return {facilities:f,state:stateFor(city,f)};}
+function mission(city,f,kind,arrival,id){
+ const b=f.bounds,w=city.width||120,h=city.height||100,y=b.y+b.height*(f.id===992?.145:f.id===993?.18:.25),left=b.x+.15*b.width,right=b.x+.85*b.width,gate={x:b.x+b.width*.5,y:b.y+b.height*(f.id===992?.56:f.id===993?.48:.58),altitude:0,speed:2},p=(x,y,altitude,speed)=>({x,y,altitude,speed}),model=AIRCRAFT[kind],runway=[p(left,y,0,3),p(right,y,0,5)],air=model.speed;
+ const patrol=kind==='fighter',route=patrol?[runway[1],p(Math.min(w-2,right+12),Math.max(2,y-10),1,air),p(w*.75,h*.25,1,air),p(w*.25,h*.25,1,air),p(Math.max(2,left-8),y,1,air),runway[0],runway[1],gate]:arrival?[p(left-4,y,1,air),runway[0],runway[1],gate]:[runway[1],p(Math.min(w+4,right+8),Math.max(-4,y-3),1,air*.7),p(w+4,Math.max(-4,y-8),1,air)];
+ const first=arrival&&!patrol?p(-4,y-3,1,air):runway[0];
+ return {id,root:f.i,kind,arrival:arrival||patrol,x:first.x,y:first.y,altitude:first.altitude,heading:0,segment:0,route,passengers:Math.min(model.passengers,Math.ceil(Math.max(0,city.population)/100)),cargo:Math.min(model.cargo,Math.ceil(Math.max(0,city.rci[2])*8))};
+}
+function travel(a,seconds){let left=seconds;for(let n=0;n<16&&left>0&&a.segment<a.route.length;n++){const p=a.route[a.segment],dx=p.x-a.x,dy=p.y-a.y,distance=Math.hypot(dx,dy),duration=distance/p.speed;if(duration<=left){a.x=p.x;a.y=p.y;a.altitude=p.altitude;a.segment++;left-=duration;}else{const fraction=left/duration;a.x+=dx*fraction;a.y+=dy*fraction;a.altitude+=(p.altitude-a.altitude)*fraction;left=0;}if(distance>.001)a.heading=Math.atan2(dy,dx);}}
+export function advanceAviation(city,frames,blocked=false){
+ const {facilities,state:s}=reconcileAviation(city);if(!s||blocked||frames<=0)return;
+ const advance=Math.max(0,Math.trunc(frames)),until=s.frames+advance;
+ // Integrate at 60 Hz so spawning and route crossings are independent of rAF chunks.
+ for(;s.frames<until;s.frames++){
+  for(const f of facilities){if(!f.operating)continue;const schedule=s.schedule[f.i],limit=f.id===991?3:f.id===992?8:4;if(schedule.next>s.frames||s.aircraft.filter(a=>a.root===f.i).length>=limit)continue;
+   const sequence=Math.max(0,Math.trunc(schedule.sequence)||0),kind=f.id===993?'fighter':f.id===992?['cargo','jumbo','jumbo','cargo'][sequence%4]:['light','private','light'][sequence%3];s.aircraft.push(mission(city,f,kind,sequence%2===0,s.nextId++));schedule.sequence=sequence+1;schedule.next=s.frames+(f.id===991?240:f.id===992?90:180);
+  }
+  for(const a of s.aircraft){travel(a,1/60);if(a.segment<a.route.length)continue;const f=facilities.find(f=>f.i===a.root),stat=s.stats[a.root];if(!f||!stat)continue;
+   if(a.kind==='fighter')stat.sorties++;else{stat[a.arrival?'arrivals':'departures']++;stat.passengers=Math.min(f.building.capacity,stat.passengers+a.passengers);stat.cargo=Math.min(f.building.cargo||0,stat.cargo+a.cargo);}
+  }
+  s.aircraft=s.aircraft.filter(a=>a.segment<a.route.length);
+ }
+}
+export function aviationSummary(city){const {facilities,state}=reconcileAviation(city);return {facilities:facilities.map(f=>({i:f.i,name:f.building.name,operating:f.operating,reason:f.reason,...state.stats[f.i]})),aircraft:(state?.aircraft||[]).map(a=>({id:a.id,root:a.root,kind:a.kind,x:a.x,y:a.y,altitude:a.altitude,arrival:a.arrival})),...aviationBenefits(city)};}
+export function drawAviation(ctx,city,view){const s=city.civic.aviation;if(!s)return;for(const a of s.aircraft||[]){if(a.x<view.x-5||a.x>view.x+view.width+5||a.y<view.y-5||a.y>view.y+view.height+5)continue;const model=AIRCRAFT[a.kind];if(!model)continue;const scale=.7+.3*a.altitude,x=a.x*8,y=a.y*8,L=model.length,W=model.span;ctx.save();ctx.translate(x+3*a.altitude,y+4*a.altitude);ctx.rotate(a.heading);ctx.scale(scale,scale);ctx.globalAlpha=.25;ctx.fillStyle='#071119';shape(ctx,L,W,a.kind);ctx.restore();ctx.save();ctx.translate(x,y-a.altitude*6);ctx.rotate(a.heading);ctx.scale(scale,scale);ctx.fillStyle=a.kind==='fighter'?'#8294a4':a.kind==='cargo'?'#e8dfc8':'#e4edf3';ctx.strokeStyle='#4a6171';ctx.lineWidth=.4;shape(ctx,L,W,a.kind,true);ctx.fillStyle=a.kind==='cargo'?'#d39e3e':'#3b7b9b';ctx.fillRect(-L*.25,-.8,L*.1,1.6);ctx.fillStyle='#293c50';ctx.fillRect(L*.25,-.6,L*.12,1.2);ctx.fillStyle='#fa4f4b';ctx.fillRect(-L*.1,-W*.48,.8,.8);ctx.fillStyle='#79fca6';ctx.fillRect(-L*.1,W*.42,.8,.8);if(Math.floor(s.frames/20)%2){ctx.fillStyle='#fff6cc';ctx.fillRect(L*.43,-.4,1,1);}ctx.restore();}}
+function shape(ctx,L,W,kind,outline=false){ctx.beginPath();ctx.moveTo(L*.5,0);ctx.lineTo(L*.2,-L*.065);ctx.lineTo(-L*.1,-W*.48);ctx.lineTo(-L*.25,-W*.48);ctx.lineTo(-L*.19,-L*.09);ctx.lineTo(-L*.42,-L*.06);ctx.lineTo(-L*.47,-W*.2);ctx.lineTo(-L*.5,-W*.2);ctx.lineTo(-L*.48,0);ctx.lineTo(-L*.5,W*.2);ctx.lineTo(-L*.47,W*.2);ctx.lineTo(-L*.42,L*.06);ctx.lineTo(-L*.19,L*.09);ctx.lineTo(-L*.25,W*.48);ctx.lineTo(-L*.1,W*.48);ctx.lineTo(L*.2,L*.065);ctx.closePath();ctx.fill();if(outline)ctx.stroke();if(kind==='light'){ctx.fillRect(-L*.12,-W*.5,L*.18,W);}}

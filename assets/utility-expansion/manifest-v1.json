@@ -90,6 +90,39 @@
       "runtime": "plaza-v1.webp",
       "runtimeSHA256": "d55f2f8e0548eaec369b056a3ec89dd339a730960bcb4b9d85097232f59ff424",
       "bytes": 90262
+    },
+    {
+      "name": "municipal",
+      "sprite": 29,
+      "master": "municipal-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "masterSHA256": "a0cdace8addea2f1615f97f7c0206c0450e9951d4d949992a77602e9cf59c6e4",
+      "runtime": "municipal-v1.webp",
+      "runtimeSHA256": "74e2c663adb63f04d728dc7983fb1420b0cb86f3a8184a9717c514de51c76bef",
+      "bytes": 75042
+    },
+    {
+      "name": "international",
+      "sprite": 30,
+      "master": "international-v1.png",
+      "width": 1448,
+      "height": 1086,
+      "masterSHA256": "946b56cba751b16aac2227e1214e12e7c79ee1e4a2c4bb88d381f32fc861ea14",
+      "runtime": "international-v1.webp",
+      "runtimeSHA256": "4c17a2648f660d73a32c7f41d1fd86a6dc8d7a630738d4496a05a8889a06a320",
+      "bytes": 625790
+    },
+    {
+      "name": "military",
+      "sprite": 31,
+      "master": "military-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "masterSHA256": "fef1dce4b3f4650a73ecbe4fa93f5f5cc116d40f048b96c10cee8ecc39253559",
+      "runtime": "military-v1.webp",
+      "runtimeSHA256": "3b0cb6af35f2b35c9ed706b264953ac2d58edc8c639fb32d30e4271f05be977c",
+      "bytes": 190674
     }
   ]
 }

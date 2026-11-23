@@ -1,5 +1,5 @@
-import {pumpStatus} from './civic.js?v=parks-23';
-import {sewageServices} from './sewage.js?v=utilities-22';
+import {pumpStatus} from './civic.js?v=aviation-24';
+import {sewageServices} from './sewage.js?v=aviation-24';
 export function utilityInspectionHTML(city,z){
  if(![969,973,974,988,989].includes(z.id))return '';
  const s=[969,988,989].includes(z.id)?pumpStatus(city,z):sewageServices(city).statuses.find(p=>p.i===z.i);

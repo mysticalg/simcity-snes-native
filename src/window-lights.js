@@ -1,6 +1,6 @@
-import {utilityImagePath} from './utility-art.js?v=parks-23';
+import {utilityImagePath} from './utility-art.js?v=aviation-24';
 import {compactEmergencySprite} from './emergency.js?v=emergency-1';
-import {civicForId,civicBounds} from './civic.js?v=parks-23';
+import {civicForId,civicBounds} from './civic.js?v=aviation-24';
 const hash=n=>{n=Math.imul(n^(n>>>16),0x45d9f3b);return ((n^(n>>>16))>>>0)/4294967296;};
 // Conservative sprite-pixel masks: small glazing or inset apertures, with
 // surrounding wall pixels. Large roofs, ground patches and tanks are rejected.

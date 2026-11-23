@@ -6,7 +6,7 @@ This project reverse engineers the USA release of SimCity for Super Nintendo and
 
 Open the [GitHub Pages version](https://mysticalg.github.io/simcity-snes-native/) after deployment, or serve this directory locally with `python -m http.server 5173` and open `http://localhost:5173`.
 
-Latest Turbo update: **v0.2.23** adds four park/plaza sizes with land-value and happiness benefits, and a **$1 trillion** treasury cap. [Verification notes](research/parks-treasury-v0.2.23.md).
+Latest Turbo update: **v0.2.24** adds municipal/international airports and a military airbase, five moving aircraft types, persistent flight routes and a visible industrial tax bonus. [Verification notes](research/aviation-v0.2.24.md).
 
 ## Current coverage
 

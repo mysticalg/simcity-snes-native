@@ -1,4 +1,4 @@
-import {allocateWater,updateWaterStorage} from './water-allocation.js?v=utilities-22';
+import {allocateWater,updateWaterStorage} from './water-allocation.js?v=aviation-24';
 import {landfillSites,garbageFacilities,collectGarbage,monthlyGarbageDemand} from './landfill.js?v=processing-1';
 import {buildingOff} from './building-operations.js?v=utilities-22';
 // Custom civic systems requested by the player. Values are game balance, not ROM-derived.
@@ -18,6 +18,9 @@ export const CIVIC_TOOLS=[
  {tool:60,id:988,name:'Water tower',icon:'🗼',cost:1000,annual:50,kind:'waterStorage',capacity:20000,flow:5000,width:1,height:2,sprite:26},
  {tool:61,id:989,name:'Heavy water pump',icon:'💦',cost:1500,annual:250,kind:'water',capacity:15000,size:3,sprite:27},
  {tool:62,id:990,name:'Solar power array',icon:'☀',cost:5000,annual:100,kind:'power',capacity:1000,size:2,sprite:28},
+ {tool:63,id:991,name:'Municipal airport',icon:'🛩',cost:5000,annual:500,kind:'airport',capacity:1200,cargo:0,size:4,sprite:29},
+ {tool:64,id:992,name:'International airport',icon:'✈',cost:50000,annual:4000,kind:'airport',capacity:15000,cargo:5000,width:24,height:18,sprite:30},
+ {tool:65,id:993,name:'Military airbase',icon:'🛫',cost:20000,annual:1500,kind:'military',capacity:4,size:8,sprite:31},
  {tool:66,id:994,name:'Pocket garden',icon:'🌷',cost:25,annual:5,kind:'park',size:1,radius:6,landBonus:8,happiness:6,sprite:32},
  {tool:67,id:995,name:'Neighbourhood park',icon:'🌳',cost:100,annual:20,kind:'park',size:2,radius:10,landBonus:16,happiness:10,sprite:33},
  {tool:68,id:996,name:'City park',icon:'🌲',cost:750,annual:80,kind:'park',size:4,radius:16,landBonus:28,happiness:18,sprite:34},
