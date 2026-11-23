@@ -1,0 +1,75 @@
+{
+  "version": "0.2.48",
+  "nodeTests": 525,
+  "originalCases": 2048,
+  "originalValuesCompared": 45056,
+  "originalTableWords": 8,
+  "originalTextBlocks": 3,
+  "browser": {
+    "originalCases": 2048,
+    "originalValuesCompared": 45056,
+    "scope": "Controlled real city steps into source-verified endings; not natural multi-year original-ROM victories or fax PPU animation comparison.",
+    "realPoweredResidentialZones": 150,
+    "population": 120000,
+    "wins": [
+      {
+        "id": "SanFrancicso",
+        "flags": 1,
+        "screen": 10
+      },
+      {
+        "id": "Bern",
+        "flags": 3,
+        "screen": 10
+      },
+      {
+        "id": "Tokyo",
+        "flags": 7,
+        "screen": 10
+      },
+      {
+        "id": "Detroit",
+        "flags": 15,
+        "screen": 10
+      },
+      {
+        "id": "Boston",
+        "flags": 31,
+        "screen": 10
+      },
+      {
+        "id": "RioDeJaneiro",
+        "flags": 32831,
+        "screen": 11
+      }
+    ],
+    "ordinaryFax": true,
+    "firstSixBonusFax": true,
+    "failureFax": true,
+    "allCitiesRemainSelectable": true,
+    "correctScenarioBadges": true,
+    "newCityKeepsCareer": true,
+    "session": true,
+    "downloadReload": true,
+    "portableCareerInFreshBrowser": true,
+    "noRepeatBonus": true,
+    "mobile": {
+      "width": 366,
+      "viewport": 390,
+      "overflow": 0
+    },
+    "mobileTouch": true,
+    "errors": []
+  },
+  "sources": {
+    "src/app.js": "a0dfe130af5f695c9019cc56a591edc64271ae128a590d1c81dae0b986a1f3f2",
+    "src/simulation.js": "f5217078663f0e004e52fcd1b1c27e4ea1988c037961550cd1318e665ec030a9",
+    "src/scenario-career.js": "b540b81fc196faa4bede0e482ff3cce435a716ead409d62af16d765648faa810",
+    "src/rom-scenario-ending.js": "19a9c266d9221680c74e5b112944e263e58b7836b94dc165657767560d861244",
+    "src/scenario-ending-info.js": "24e2c792fb5a9b2215cf851086dba00a89d910bb1c4b5e128236b524fecce789",
+    "src/scenario-ending-text.js": "db6fde2416865ac8840e17ccb2c762624d136c0e9b152e39c1d47018a4eab720",
+    "src/style.css": "0df8174aa5041801bf4973097b58220c7043bf76d76ba6569893df0dbdc53567"
+  },
+  "screenshotsInspected": true,
+  "fullPortComplete": false
+}

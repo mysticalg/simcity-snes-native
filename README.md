@@ -6,7 +6,9 @@ This project reverse engineers the USA release of SimCity for Super Nintendo and
 
 Open the [GitHub Pages version](https://mysticalg.github.io/simcity-snes-native/), or serve this directory locally with `python scripts/serve.py --port 5173` and open `http://localhost:5173`. The bundled server supplies the correct JavaScript MIME type on Windows.
 
-Latest Turbo update: **v0.2.47** batches independent photoreal window glows while preserving exact tested pixels and overlap order. The controlled heavy-city comparison shows a modest CPU improvement; larger real-time frame spikes remain. [Rendering evidence and limits](research/photo-glow-batches-v0.2.47.md).
+Latest Turbo update: **v0.2.48** adds saved scenario completion records, the original first-six bonus award, correct city-selection badges and the original success/failure/bonus message text. Records travel with downloaded city saves. [Original-worker comparisons and remaining presentation limits](research/scenario-endings-v0.2.48.md).
+
+v0.2.47 batches independent photoreal window glows while preserving exact tested pixels and overlap order. The controlled heavy-city comparison shows a modest CPU improvement; larger real-time frame spikes remain. [Rendering evidence and limits](research/photo-glow-batches-v0.2.47.md).
 
 v0.2.46 adds the original Practice lessons and 30,000-resident review, with compact advisor notices, retained lesson text in Information, and saved progress. [Original-worker comparisons and limits](research/practice-v0.2.46.md).
 
