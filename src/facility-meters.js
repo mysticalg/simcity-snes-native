@@ -1,10 +1,11 @@
-import {educationCoverage} from './education.js?v=civic-refresh-30';
-import {aviationTraffic} from './aviation.js?v=civic-refresh-30';
-import {parkServices} from './parks.js?v=civic-refresh-30';
-import {civicServices,civicForId,civicRoadEntry,pumpStatus,educationEffects} from './civic.js?v=civic-refresh-30';
+import {healthFleetStatus} from './health-care.js?v=health-care-34';
+import {educationCoverage} from './education.js?v=health-care-34';
+import {aviationTraffic} from './aviation.js?v=health-care-34';
+import {parkServices} from './parks.js?v=health-care-34';
+import {civicServices,civicForId,civicRoadEntry,pumpStatus,educationEffects} from './civic.js?v=health-care-34';
 import {windPower} from './climate.js?v=weather-1';
-import {sewageServices} from './sewage.js?v=sea-cache-33';
-import {collectGarbage,monthlyGarbageDemand} from './landfill.js?v=civic-refresh-30';
+import {sewageServices} from './sewage.js?v=health-care-34';
+import {collectGarbage,monthlyGarbageDemand} from './landfill.js?v=health-care-34';
 import {employmentIncome} from './employment.js';
 import {emergencyKind} from './emergency.js';
 const fmt=n=>Math.round(Number(n)||0).toLocaleString();
@@ -35,6 +36,7 @@ export function processingMeters(city,z){
  }else if(custom&&['health','education','bus'].includes(custom.kind)){
   const service=civicServices(city),capacity=service.capacity[custom.kind],operating=!off&&(city.power[z.i]||z.id===967)&&civicRoadEntry(city,z)>=0;add('Citywide '+custom.kind+' capacity',Math.min(city.population,capacity),capacity,'people');add(custom.kind==='health'?'City health':custom.kind==='education'?'City education':'City bus routes',custom.kind==='health'?city.civic.health:custom.kind==='education'?city.civic.education:city.busRoutes.length,custom.kind==='bus'?32:100,custom.kind==='bus'?'routes':'%',{fullIsNormal:true});if(custom.kind==='education'){const education=educationCoverage(city),p=education.facilities.find(p=>p.i===z.i);add('Residents in range',p?.load||0,custom.capacity,'people');add('City education target',education.target,100,'%',{fullIsNormal:true});notes.push('Service radius '+custom.radius+' tiles · strength '+Math.round(custom.strength*100)+'% · capacity limited by local residents');}notes.push('Shared city service · this facility contributes '+fmt(operating?custom.capacity:0));status=off?'Switched off':!city.power[z.i]&&z.id!==967?'Needs electricity':!operating?'Needs road access':'Serving the city';
  }else notes.push('No material-processing role');
+ if(custom?.kind==='health'){const f=healthFleetStatus(city,z);if(f){add('Home-visit patients this month',f.served,f.capacity,'patients');add('Ambulances dispatched',f.active,f.fleet,'vehicles',{fullIsNormal:true});notes.push(f.calls+' completed calls · '+f.active+' responding or returning');status=!f.working?f.reason:f.served>=f.capacity?'At monthly treatment capacity':f.active>=f.fleet?'All ambulances dispatched':'Ready';}}
  const water=city.civic.waterEnabled?city.waterAssignments?.get(z.i):null;if(water){add('Water allocated',water.supplied?water.need:0,water.need,'/month',{fullIsNormal:true});notes.push(water.reason);if(!water.supplied){status='Needs water';if(water.network!==null)add('Water network demand',water.networkDemand,water.capacity,'/month');}}
  return {status:off?'Switched off':status,meters,notes};
 }

@@ -1,6 +1,6 @@
 import {RealisticBuildings} from './realistic-art.js?v=amenities-gifts-29';
 import {WaterSurface} from './water-surface.js?v=render-perf-1';
-import {WindowLights} from './window-lights.js?v=civic-refresh-30';
+import {WindowLights} from './window-lights.js?v=health-care-34';
 import{windVector}from'./climate.js?v=weather-1';import{buildingOff}from'./building-operations.js?v=education-traffic-27';
 export const DEFAULT_WEATHER_FX={enabled:true,realisticArt:true,timeMode:'auto',weatherMode:'auto',quality:'high'};const mod=(n,d)=>(n%d+d)%d,hash=n=>{n=Math.imul(n^(n>>>16),0x45d9f3b);n=Math.imul(n^(n>>>16),0x45d9f3b);return((n^(n>>>16))>>>0)/4294967296;};
 export class WeatherFX{

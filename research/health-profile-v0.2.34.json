@@ -1,0 +1,29 @@
+{
+  "homes": 1833,
+  "facilities": 34,
+  "ambulances": 64,
+  "allRoutesOnRoad": true,
+  "initial": {
+    "medianMs": 2.3000000715255737,
+    "p95Ms": 3
+  },
+  "cached": {
+    "medianMs": 0.6000000238418579,
+    "p95Ms": 1.4000000953674316
+  },
+  "advance": {
+    "medianMs": 0,
+    "p95Ms": 0.10000002384185791
+  },
+  "draw": {
+    "medianMs": 0.10000002384185791,
+    "p95Ms": 0.20000004768371582
+  },
+  "art": {
+    "ready": true,
+    "canvases": 3,
+    "draws": 2880
+  },
+  "errors": [],
+  "scope": "Isolated health simulation/drawing CPU timings in local Chromium,1833 homes and34 hospitals. Not total frame time or display FPS."
+}

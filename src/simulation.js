@@ -1,25 +1,25 @@
 import {isRomUtilityCenter,updateRomUtilityCenter} from './rom-utility-worker.js?v=utility-workers-32';
 import {isRomGiftCenter,updateRomGiftCenter} from './rom-gift-worker.js?v=gift-workers-31';
 import {expandServiceCoverage} from './police-range.js?v=police-area-28';
-import {reconcileAviation,advanceAviation,aviationBenefits} from './aviation.js?v=civic-refresh-30';
+import {reconcileAviation,advanceAviation,aviationBenefits} from './aviation.js?v=health-care-34';
 import {TREASURY_CAP,treasuryAmount} from './treasury.js?v=parks-23';
-import {applyParkBenefits} from './parks.js?v=civic-refresh-30';
+import {applyParkBenefits} from './parks.js?v=health-care-34';
 import {compactEmergencyId,emergencyBounds,emergencyTransport} from './emergency.js?v=emergency-1';
 import {addRomGrowthRate,decayRomGrowthRate} from './rom-growth-rate.js?v=job-growth-1';
 import {createRomUfo,stepRomUfo,startRomUfoVisit} from './rom-ufo.js?v=emergency-1';
-import {updateLocalHealth} from './social-fields.js?v=civic-refresh-30';
+import {updateLocalHealth} from './social-fields.js?v=health-care-34';
 import {createClimate,advanceClimate,combineAirPollution,windPower} from './climate.js?v=weather-1';
 import {conductivePowerFlags} from './power-conductors.js?v=terrain-1';
 import {createElevation,terrainCheck,plantForest} from './elevation.js?v=megacity-1';
 import {employmentIncome} from './employment.js?v=megacity-1';
 import {buildingOff} from './building-operations.js?v=education-traffic-27';
 import {updateRailFleet,advanceRailFleet,trainVehicles} from './rail-fleet.js?v=education-traffic-27';
-import {updateSewageMonth,sewageServices} from './sewage.js?v=sea-cache-33';
+import {updateSewageMonth,sewageServices} from './sewage.js?v=health-care-34';
 import {createRomPlane,spawnRomPlane,stepRomPlane} from './rom-plane.js?v=emergency-1';
 import {createRomHelicopter,spawnRomHelicopter,stepRomHelicopter} from './rom-helicopter.js?v=emergency-1';
 import {installTerrainTools,reshapeTerrain} from './terrain-tools.js?v=megacity-1';
 import {createRomMonster,startRomMonster,stepRomMonster,monsterPollutionTarget} from './rom-monster.js?v=emergency-1';
-import {CIVIC_TOOLS,installCivicTools,civicForId,civicBounds,civicServices,civicAnnualCost,updateCivicMonth,educationEffects} from './civic.js?v=civic-refresh-30';
+import {CIVIC_TOOLS,installCivicTools,civicForId,civicBounds,civicServices,civicAnnualCost,updateCivicMonth,educationEffects} from './civic.js?v=health-care-34';
 import {createRomTornado,startRomTornado,stepRomTornado} from './rom-tornado.js?v=emergency-1';
 import {createRomSeason,changeRomSeason,advanceRomSeason} from './rom-render.js?v=season-1';
 import {romPopulation} from './rom-population.js';
@@ -129,6 +129,8 @@ export class City {
  }
  // Zone population bands follow CODE_03842F/038456/03847A; spatial desirability below is provisional.
  zonePopulation(z){
+  // CODE_0391DF/039207 count original hospital/school facilities, not residents.
+  if(z.type===5&&(z.id===0x129||z.id===0x132))return 0;
   if(z.type===5&&z.id>=0x376&&z.id<0x39a)return 48;
   if(z.type===6&&z.id>=0x39a)return 6;
   if(z.type===5){if(z.id<0x99)return 0;return (Math.floor(((z.id-0x99)%36)/9)+2)*8;}

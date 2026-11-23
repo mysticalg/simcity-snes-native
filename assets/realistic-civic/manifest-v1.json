@@ -1,6 +1,6 @@
 {
   "tool": "built-in ImageGen",
-  "status": "Photoreal civic refresh v0.2.30; masters retained, max252px alpha-preserving runtime textures",
+  "status": "Photoreal civic and health refresh v0.2.34; selected ImageGen masters retained",
   "reference": "assets/realistic/atlas-day-v1.png",
   "assets": [
     {
@@ -310,6 +310,93 @@
         "height": 252,
         "bytes": 68738,
         "sha256": "f70ea777d4390b4ef3550c00bb9a303450b29c61c97595d6ba2c84018db2ade0"
+      }
+    },
+    {
+      "name": "pharmacy",
+      "sprite": 17,
+      "file": "civic-17-day-v1.png",
+      "generation": "exec-568e4e30-2a05-4a01-ab73-cb39d42af687.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "a6bd6a1fb2ba7c31cf0dc0df44d1c860ec890de4851c1ba435a85845e9e92816",
+      "prompt": "Create ONE production architectural game sprite, not a sheet. Use image 1 only as camera/material reference and image 2 as the matching hospital palette. Match photorealistic detailed miniature architecture: steep elevated north-facing view showing roofs and SOUTH facades, realistic weathered cream concrete, muted brick, blue-grey metal roofs and dark glass, soft daylight from upper left. Plot edges aligned horizontally/vertically to a north-up square-grid city; NEVER a rotated diamond or isometric diamond. Transparent alpha outside plot, no horizon or surrounding city, the complete building and its shadow fit the plot with just 3% margin. Strong clear silhouette at 8-24px. No text/letters/labels, no UI, no grid, no cartoon/pixel art. Output SQUARE 1:1 canvas/plot for a 1x1 tile PHARMACY: very compact one-storey cream-brick community chemist with a blue-grey flat roof, recognizable GREEN medical cross roof marker without letters, glazed south shopfront entrance, tiny paved apron. Not a hospital tower; clear small medical shop.",
+      "runtime": {
+        "file": "runtime/civic-17-day-v1.webp",
+        "width": 252,
+        "height": 252,
+        "bytes": 62948,
+        "sha256": "f97785948954c2623c25926ee0d54e1756f185f371caf6a49db3719e76ae7752"
+      }
+    },
+    {
+      "name": "surgery",
+      "sprite": 18,
+      "file": "civic-18-day-v1.png",
+      "generation": "exec-479458a6-6f62-4866-b281-26faca296531.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "7191b1c83553c6fe6591eb38c6b6b944c03ecdbf7e6526293942fb47db765260",
+      "prompt": "Create ONE production architectural game sprite, not a sheet. Use image 1 only as camera/material reference and image 2 as the matching hospital palette. Match photorealistic detailed miniature architecture: steep elevated north-facing view showing roofs and SOUTH facades, realistic weathered cream concrete, muted brick, blue-grey metal roofs and dark glass, soft daylight from upper left. Plot edges aligned horizontally/vertically to a north-up square-grid city; NEVER a rotated diamond or isometric diamond. Transparent alpha outside plot, no horizon or surrounding city, the complete building and its shadow fit the plot with just 3% margin. Strong clear silhouette at 8-24px. No text/letters/labels, no UI, no grid, no cartoon/pixel art. Output SQUARE 1:1 canvas/plot for a 2x2 tile GP SURGERY / doctor's practice: compact two-storey cream-brick medical practice building with grey flat roof, small red medical cross roof marker, glazed south reception entrance, small side garden, modest ambulance bay with one white ambulance. Small community healthcare, not an operating theatre illustration.",
+      "runtime": {
+        "file": "runtime/civic-18-day-v1.webp",
+        "width": 252,
+        "height": 252,
+        "bytes": 73042,
+        "sha256": "a6955d6983971849a1c4814bf1c9e21da538768b3b4b91211b388e7dcceeb32c"
+      }
+    },
+    {
+      "name": "medical-centre",
+      "sprite": 19,
+      "file": "civic-19-day-v1.png",
+      "generation": "exec-37e595b3-1bb9-4c4b-9aa4-7d50528e5d6a.png",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "afbb6e82a685beab099f2482297808abf3cb2c93355ea6595ffafc8371a5eb62",
+      "prompt": "Create ONE production architectural game sprite, not a sheet. Use image 1 only as camera/material reference and image 2 as the matching hospital palette. Match photorealistic detailed miniature architecture: steep elevated north-facing view showing roofs and SOUTH facades, realistic weathered cream concrete, muted brick, blue-grey metal roofs and dark glass, soft daylight from upper left. Plot edges aligned horizontally/vertically to a north-up square-grid city; NEVER a rotated diamond or isometric diamond. Transparent alpha outside plot, no horizon or surrounding city, the complete building and its shadow fit the plot with just 3% margin. Strong clear silhouette at 8-24px. No text/letters/labels, no UI, no grid, no cartoon/pixel art. Output PORTRAIT 2:3 canvas/plot, exactly two tiles wide and three tiles tall, for a MEDICAL CENTRE: coherent medium-sized three-storey cream concrete community medical building, blue-grey flat roof with red medical cross marker, rows of windows, covered south entrance and two tiny ambulance bays. Fill a north-up RECTANGULAR base, twice wide by three tall; do not rotate into a diamond.",
+      "runtime": {
+        "file": "runtime/civic-19-day-v1.webp",
+        "width": 168,
+        "height": 252,
+        "bytes": 54538,
+        "sha256": "0b122358fade9471627d8a3e2e98af71d8a31ea13ca3dc0728231d3c8988a983"
+      }
+    },
+    {
+      "name": "clinic",
+      "sprite": 20,
+      "file": "civic-20-day-v1.png",
+      "generation": "exec-5880273c-5384-43a7-8d83-0d134c10674c.png",
+      "width": 887,
+      "height": 1774,
+      "sha256": "49278e0896e8bdbe1d11a9a0716fd2e107659de2ec11631b48d31589251f5bd6",
+      "prompt": "Create ONE production architectural game sprite, not a sheet. Use image 1 only as camera/material reference and image 2 as the matching hospital palette. Match photorealistic detailed miniature architecture: steep elevated north-facing view showing roofs and SOUTH facades, realistic weathered cream concrete, muted brick, blue-grey metal roofs and dark glass, soft daylight from upper left. Plot edges aligned horizontally/vertically to a north-up square-grid city; NEVER a rotated diamond or isometric diamond. Transparent alpha outside plot, no horizon or surrounding city, the complete building and its shadow fit the plot with just 3% margin. Strong clear silhouette at 8-24px. No text/letters/labels, no UI, no grid, no cartoon/pixel art. Output PORTRAIT 1:2 canvas/plot, exactly one tile wide and two tiles tall, for a small HEALTH CLINIC: narrow two-storey warm cream brick building with blue-grey flat roof, small red medical cross roof marker, glazed SOUTH entrance, tiny ambulance loading bay, restrained medical facade. North-up narrow RECTANGULAR plot, one tile wide by two tall, no diamond.",
+      "runtime": {
+        "file": "runtime/civic-20-day-v1.webp",
+        "width": 126,
+        "height": 252,
+        "bytes": 31412,
+        "sha256": "f9ea5e95d7035f2dfdd0d5c6fe8150023dfaf674e480abb73b7ff6612b6a7fbd"
+      }
+    },
+    {
+      "name": "ambulance",
+      "file": "ambulance-v1.png",
+      "generation": "exec-5df36af9-8140-4e27-957b-a50fd5a947d2.png",
+      "reference": "garbage-truck-v2.png",
+      "prompt": "Photoreal overhead white ambulance, front right, horizontal2:1, red medical roof cross, red/blue light bar, transparent background; matched to the existing vehicle camera/lighting.",
+      "width": 1774,
+      "height": 887,
+      "pix_fmt": "rgba",
+      "sha256": "31ee3eb5dad491fcd7102ee197e5a24298087547b792c654add52931dcfb23ce",
+      "runtime": {
+        "file": "runtime/ambulance-v1.webp",
+        "width": 252,
+        "height": 126,
+        "pix_fmt": "argb",
+        "bytes": 22546,
+        "sha256": "0f1bbcde7b987e03076b40fbce91a42a06253f0a3c3d11fbe826a7958d458973"
       }
     }
   ]

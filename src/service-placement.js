@@ -1,10 +1,10 @@
 import {expandServiceCoverage} from './police-range.js?v=police-area-28';
-import {educationCoverage} from './education.js?v=civic-refresh-30';
-import {CIVIC_TOOLS,civicForId,civicRoadEntry,civicBounds} from './civic.js?v=civic-refresh-30';
+import {educationCoverage} from './education.js?v=health-care-34';
+import {CIVIC_TOOLS,civicForId,civicRoadEntry,civicBounds} from './civic.js?v=health-care-34';
 import {seedRomServicePlane} from './rom-services.js';
 import {operationalMap,buildingOff} from './building-operations.js?v=education-traffic-27';
 import {emergencyKind,emergencyBounds} from './emergency.js?v=emergency-1';
-import {transportOverlay} from './transport-overlays.js?v=civic-refresh-30';
+import {transportOverlay} from './transport-overlays.js?v=health-care-34';
 const cache=new WeakMap();
 export function placementCoverageKind(tool){if(tool===8||tool===21)return 'police';if(tool===9||tool===22)return 'fire';if([1,37,38].includes(tool))return 'traffic';if(tool===2)return 'railTraffic';if([12,63,64,65].includes(tool))return 'airTraffic';const kind=CIVIC_TOOLS.find(b=>b.tool===tool)?.kind;if(tool===4||tool===10||(tool>=15&&tool<30)||kind==='park')return 'landValue';return ['health','education'].includes(kind)?kind:null;}
 const names={police:'Police coverage',fire:'Fire coverage',health:'Health / ambulance coverage',education:'Education coverage',landValue:'Land value'};
@@ -19,7 +19,7 @@ export function placementServiceCoverage(city,tool){
  if(kind==='education')field=educationCoverage(city).field;else if(kind==='landValue'){field=city.landValue;max=250;}
  else if(kind==='police'||kind==='fire')field=expandServiceCoverage(seedRomServicePlane(operationalMap(city),city.serviceStrengths[kind==='police'?0:1]*(kind==='police'?city.policeEffectiveness:1),kind,width,height),kind,width,height);
  else{field=new Uint16Array(city.map.length);const homes=city.zones.filter(z=>z.type===5).map(z=>({...z,residents:(z.id===0x84?city.adjacentSmallHomeCount(z):city.zonePopulation(z))*20}));
-  for(const z of facilities){const b=civicForId(z.id);if(buildingOff(city,z)||!city.power[z.i]||civicRoadEntry(city,z)<0)continue;const radius=b.radius||(kind==='health'?24:z.id===964?12:z.id===965?20:28),load=homes.reduce((n,h)=>n+(Math.abs(h.x-z.x)+Math.abs(h.y-z.y)<radius?h.residents:0),0),factor=Math.min(1,b.capacity/Math.max(1,load));
+  for(const z of facilities){const b=civicForId(z.id);if(buildingOff(city,z)||!city.power[z.i]||civicRoadEntry(city,z)<0)continue;const radius=b.healthRadius||b.radius||(kind==='health'?24:z.id===964?12:z.id===965?20:28),load=homes.reduce((n,h)=>n+(Math.abs(h.x-z.x)+Math.abs(h.y-z.y)<radius?h.residents:0),0),factor=Math.min(1,b.capacity/Math.max(1,load));
    for(let y=Math.max(0,z.y-radius);y<=Math.min(height-1,z.y+radius);y++)for(let x=Math.max(0,z.x-radius);x<=Math.min(width-1,z.x+radius);x++){const influence=Math.max(0,1-(Math.abs(x-z.x)+Math.abs(y-z.y))/radius)*factor,i=y*width+x;field[i]=Math.min(1000,field[i]+Math.round(influence*1000));}
   }
  }

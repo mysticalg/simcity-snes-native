@@ -1,14 +1,14 @@
 import {AMENITY_TOOLS} from './amenities.js?v=amenities-gifts-29';
-import {educationCoverage} from './education.js?v=civic-refresh-30';
+import {educationCoverage} from './education.js?v=health-care-34';
 import {allocateWater,updateWaterStorage} from './water-allocation.js?v=education-traffic-27';
-import {landfillSites,garbageFacilities,collectGarbage,monthlyGarbageDemand} from './landfill.js?v=civic-refresh-30';
+import {landfillSites,garbageFacilities,collectGarbage,monthlyGarbageDemand} from './landfill.js?v=health-care-34';
 import {buildingOff} from './building-operations.js?v=education-traffic-27';
 // Custom civic systems requested by the player. Values are game balance, not ROM-derived.
 export const CIVIC_TOOLS=[
  ...AMENITY_TOOLS,
  {tool:8,id:977,name:"Police",icon:"🛡",cost:500,annual:0,kind:"police",size:2,nativeTool:8},
  {tool:9,id:978,name:"Fire station",icon:"🚒",sprite:60,cost:500,annual:0,kind:"fire",size:2,nativeTool:9},
- {tool:30,id:960,name:'Hospital',icon:'🏥',cost:1000,annual:250,kind:'health',capacity:5000},
+ {tool:30,id:960,name:'Hospital',icon:'🏥',cost:1000,annual:250,kind:'health',capacity:5000,healthRadius:24,ambulances:3},
  {tool:31,id:961,name:'Landfill tile',icon:'🗑',cost:50,annual:10,kind:'garbage',capacity:1000,size:1},
  {tool:32,id:962,name:'Incinerator',icon:'♨',cost:3000,annual:400,kind:'garbage',capacity:6000},
  {tool:33,id:963,name:'Fusion plant',icon:'⚛',cost:50000,annual:1000,kind:'power',capacity:10000},
@@ -38,6 +38,10 @@ export const CIVIC_TOOLS=[
  {tool:45,id:974,name:'Sewage treatment',icon:'♻',cost:5000,annual:800,kind:'treatment',capacity:20000,size:4,sprite:14},
  {tool:49,id:975,name:'Recycling centre',icon:'♻',cost:2000,annual:250,kind:'garbage',capacity:4000,size:2,sprite:15},
  {tool:50,id:976,name:'Garbage collection depot',icon:'🚛',cost:1000,annual:150,kind:'collection',capacity:12000,size:2,sprite:16},
+ {tool:51,id:979,name:'Pharmacy',icon:'⚕',cost:200,annual:50,kind:'health',capacity:500,size:1,sprite:17,healthRadius:12,ambulances:1},
+ {tool:52,id:980,name:'Surgery',icon:'⚕',cost:700,annual:150,kind:'health',capacity:2500,size:2,sprite:18,healthRadius:18,ambulances:1},
+ {tool:53,id:981,name:'Medical centre',icon:'🏥',cost:900,annual:200,kind:'health',capacity:3500,width:2,height:3,sprite:19,healthRadius:22,ambulances:2},
+ {tool:54,id:982,name:'Clinic',icon:'⚕',cost:400,annual:100,kind:'health',capacity:1500,width:1,height:2,sprite:20,healthRadius:16,ambulances:1},
  {tool:40,id:970,name:'Water pipe',icon:'🔵',cost:2,annual:0,kind:'pipe',size:1}
 ];
 export function installCivicTools(build,flags){build.nativeEmergencyBuildings??=Object.fromEntries([8,9].map(tool=>[tool,structuredClone(build.buildings[tool])]));for(const b of CIVIC_TOOLS){if(b.kind==='pipe')continue;const width=b.width||b.size||3,height=b.height||b.size||3,center=Math.floor(height/2)*width+Math.floor(width/2);build.buildings[b.tool]={id:b.tool,tiles:Array.from({length:width*height},(_,i)=>i===center?b.id:971),x:Array.from({length:width*height},(_,i)=>i%width),y:Array.from({length:width*height},(_,i)=>Math.floor(i/width))};flags[b.id]=b.nativeTool?0x85:0x81;build.costs[b.tool]=b.cost;}flags[971]=0x80;build.buildings[40]={id:40,tiles:[0],x:[0],y:[0]};build.costs[40]=2;}
