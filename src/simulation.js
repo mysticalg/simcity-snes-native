@@ -1,6 +1,7 @@
+import {buildingOff} from './building-operations.js';
 import {installTerrainTools,reshapeTerrain} from './terrain-tools.js';
 import {createRomMonster,startRomMonster,stepRomMonster,monsterPollutionTarget} from './rom-monster.js';
-import {CIVIC_TOOLS,installCivicTools,civicForId,civicBounds,civicServices,updateCivicMonth,educationEffects} from './civic.js?v=pump-fix-1';
+import {CIVIC_TOOLS,installCivicTools,civicForId,civicBounds,civicServices,updateCivicMonth,educationEffects} from './civic.js?v=turbo-0.2.0';
 import {createRomTornado,startRomTornado,stepRomTornado} from './rom-tornado.js';
 import {createRomSeason,changeRomSeason,advanceRomSeason} from './rom-render.js?v=season-1';
 import {romPopulation} from './rom-population.js';
@@ -298,7 +299,7 @@ export class City {
   const productivity=this.civicEnabled?educationEffects(this.civic.education).productivity:1;let income=Math.floor(romAnnualRevenue(units,meanLandValue,taxRate,this.difficulty)*productivity)+giftIncome;
   // CODE_038E39 scales road + double rail count by a Q8 factor indexed by difficulty.
   const transportFactor=[0x00b3,0x00e6,0x0133][this.difficulty];
-  let requests=[Math.min(9999,Math.floor((this.roadCount+2*this.railCount)*transportFactor/256)),Math.min(9999,this.counts[8]*100),Math.min(9999,this.counts[9]*100)];
+  let requests=[Math.min(9999,Math.floor((this.roadCount+2*this.railCount)*transportFactor/256)),Math.min(9999,Math.max(0,this.counts[8]-this.zones.filter(z=>[0x249,0x307].includes(z.id)&&buildingOff(this,z)).length)*100),Math.min(9999,Math.max(0,this.counts[9]-this.zones.filter(z=>[0x252,0x310].includes(z.id)&&buildingOff(this,z)).length)*100)];
   if(this.pendingBudget?.assessment){({income,giftIncome}=this.pendingBudget.assessment);requests=[...this.pendingBudget.assessment.requests];}
   const payment=this.loans.reduce((sum,loan)=>sum+loan.payment,0);
   const allocation=allocateRomBudget(requests,this.funding,this.funds+income,payment),expenses=allocation.expenses;
@@ -362,7 +363,7 @@ export class City {
    if(scanId===0x26c&&(this.map[i]&0x8000)&&!this.ship.active)spawnRomShip(this.ship,this.map,max=>this.boundedRandom(max));
    updateRomTransportTile(this.map,i,this.flags,this.transportStrength,this.traffic[i],()=>this.random(),{shipX:this.ship.x,shipY:this.ship.y},W,H);
    const id=this.map[i]&1023;if(!(this.flags[id]&1))continue;
-   addRomServiceCenter(this.serviceInputs.police,this.map,i,this.serviceStrengths[0]*this.policeEffectiveness,'police',W,H);addRomServiceCenter(this.serviceInputs.fire,this.map,i,this.serviceStrengths[1],'fire',W,H);
+   if(this.disabledBuildings?.[i]===scanId)continue;addRomServiceCenter(this.serviceInputs.police,this.map,i,this.serviceStrengths[0]*this.policeEffectiveness,'police',W,H);addRomServiceCenter(this.serviceInputs.fire,this.map,i,this.serviceStrengths[1],'fire',W,H);
    if(id===0x129||id===0x132){updateRomFacility(this.map,i%W,Math.floor(i/W),this.facilityDemand,max=>this.boundedRandom(max),{baseStep:this.baseStep,repairPhase:this.facilityRepairPhase,width:W,height:H});continue;}const z={i,x:i%W,y:Math.floor(i/W),id,type:this.classify(id)};if(z.type<5||z.type>7)continue;
    if(z.type===5){this.updateResidentialTile(z);continue;}
    let transport=1;if(this.boundedRandom(5)<this.zonePopulation(z)){const route=traceZoneTransport(this.map,z.x,z.y,z.type,()=>this.random(),W,H);transport=route.status;if(transport!==1&&this.regionalState?.zoneAccess.get(z.i)?.workers>0)transport=1;if(transport===1)addRouteTraffic(this.map,this.traffic,route.path,W,H);}

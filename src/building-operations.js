@@ -1,0 +1,19 @@
+export const buildingOff=(city,z)=>city.disabledBuildings?.[z.i]===z.id;
+export function operationalMap(city){if(!city.disabledBuildings)return city.map;const map=city.map.slice();for(const [i,id]of Object.entries(city.disabledBuildings))if((map[i]&1023)===id)map[i]=(map[i]&0xfc00)|971;return map;}
+export function installBuildingOperations(City){
+ if(City.prototype.setBuildingEnabled)return;
+ City.prototype.setBuildingEnabled=function(z,enabled){if(!z||!([8,9,13,14].includes(z.type)||(z.type>=30&&z.type!==40)))return false;this.disabledBuildings??={};if(enabled)delete this.disabledBuildings[z.i];else this.disabledBuildings[z.i]=z.id;this.refresh();if(this.pendingBudget?.assessment){const pending=this.pendingBudget;try{this.pendingBudget=null;pending.assessment.requests=[...this.budget(false).requests];}finally{this.pendingBudget=pending;}}this.captureServiceInputs();this.updateCrimeField();this.updateFireField();return true;};
+ const power=City.prototype.updatePower;City.prototype.updatePower=function(){const original=this.map,zones=this.zones;this.map=operationalMap(this);this.zones=zones.filter(z=>!buildingOff(this,z));try{power.call(this);for(let i=0;i<original.length;i++)original[i]=(original[i]&0x7fff)|(this.map[i]&0x8000);}finally{this.map=original;this.zones=zones;}};
+ for(const method of ['captureServiceInputs','setPoliceEffectiveness']){const original=City.prototype[method];City.prototype[method]=function(...args){const map=this.map;this.map=operationalMap(this);try{return original.apply(this,args);}finally{this.map=map;}};}
+ const refresh=City.prototype.refresh;City.prototype.refresh=function(){for(const [i,id]of Object.entries(this.disabledBuildings||{}))if((this.map[i]&1023)!==id)delete this.disabledBuildings[i];return refresh.call(this);};
+ const serialize=City.prototype.serialize;City.prototype.serialize=function(){const s=JSON.parse(serialize.call(this));s.disabledBuildings=this.disabledBuildings||{};return JSON.stringify(s);};
+ const restore=City.restore;City.restore=function(text,...args){const city=restore.call(this,text,...args);city.disabledBuildings=JSON.parse(text).disabledBuildings||{};city.refresh();city.captureServiceInputs();city.updateCrimeField();city.updateFireField();return city;};
+}
+export function buildingAt(city,x,y){return city.zones.find(z=>{const b=city.build.buildings[z.type];if(!b)return z.x===x&&z.y===y;const center=b.tiles.indexOf(z.id);if(center<0)return z.x===x&&z.y===y;const ox=z.x-b.x[center],oy=z.y-b.y[center];return b.tiles.some((_,i)=>ox+b.x[i]===x&&oy+b.y[i]===y);})||null;}
+export function buildingSummary(city,z,tools,civic){const custom=civic.find(b=>b.id===z.id),units=z.type>=5&&z.type<=7?(z.id===0x84?city.adjacentSmallHomeCount(z):city.zonePopulation(z)):0,people=z.type===5?units*20:units*160;
+ const old=city.pendingBudget;let budget;try{city.pendingBudget=null;budget=city.budget(false);}finally{city.pendingBudget=old;}
+ const total=Math.floor(city.rci[0]/8)+city.rci[1]+city.rci[2],share=z.type===5?units/8:units;
+ const upkeep=buildingOff(city,z)?0:custom?.annual??(z.type===8?Math.round(city.funding[1]):z.type===9?Math.round(city.funding[2]):0);
+ return {name:custom?.name||tools[z.type]||'Building',residents:z.type===5?people:0,jobs:z.type===6||z.type===7?people:0,cost:city.build.costs[z.type]||0,annualUpkeep:upkeep,estimatedTax:total&&z.type>=5&&z.type<=7?Math.round(Math.max(0,budget.income-budget.giftIncome)*share/total):0,enabled:!buildingOff(city,z),toggleable:[8,9,13,14].includes(z.type)||(z.type>=30&&z.type!==40),powered:!!city.power[z.i],watered:!!city.civicWatered?.has(z.i)};}
+
+export function drawDisabledBuildings(ctx,city){for(const z of city.zones)if(buildingOff(city,z)){ctx.fillStyle='#231c16';ctx.fillRect(z.x*8-4,z.y*8-5,8,9);ctx.fillStyle='#ffc56e';ctx.fillRect(z.x*8-2,z.y*8-3,1,5);ctx.fillRect(z.x*8+1,z.y*8-3,1,5);}}
