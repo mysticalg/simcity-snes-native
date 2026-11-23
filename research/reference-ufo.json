@@ -1,0 +1,5949 @@
+{
+  "routines": [
+    "CODE_00C3F9",
+    "CODE_00C440..00C798"
+  ],
+  "scope": "Controlled phase worker state, RNG, damage maps",
+  "romSHA256": "e9c0bc05511e05a0d7c3e7cc42e761e1e8e532d46f59b9854b6902e1a2e9dd0a",
+  "mesenSHA256": "d2eb03c2590c648bf329f127ebcfefd70130e7690a9e2ccdba8616faea1fe96b",
+  "cases": [
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 0,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 1,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 1792,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 4,
+        "focusFrames": 255,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "event": {
+        "focus": {
+          "x": 50,
+          "y": 40
+        }
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 0,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 1,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 1792,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 4,
+        "focusFrames": 255,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "event": {
+        "focus": {
+          "x": 50,
+          "y": 40
+        }
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 0,
+        "counter": 34,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 1,
+        "counter": 34,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 1792,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 4,
+        "focusFrames": 255,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "event": {
+        "focus": {
+          "x": 50,
+          "y": 40
+        }
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 0,
+        "counter": 34,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 1,
+        "counter": 34,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 1792,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 4,
+        "focusFrames": 255,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "event": {
+        "focus": {
+          "x": 50,
+          "y": 40
+        }
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 0,
+        "counter": 38,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 1,
+        "counter": 38,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 1792,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 4,
+        "focusFrames": 255,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "event": {
+        "focus": {
+          "x": 50,
+          "y": 40
+        }
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 0,
+        "counter": 38,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 1,
+        "counter": 38,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 1792,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 4,
+        "focusFrames": 255,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "event": {
+        "focus": {
+          "x": 50,
+          "y": 40
+        }
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 0,
+        "counter": 39,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 1,
+        "counter": 39,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 1792,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 4,
+        "focusFrames": 255,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "event": {
+        "focus": {
+          "x": 50,
+          "y": 40
+        }
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 0,
+        "counter": 39,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 1,
+        "counter": 39,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 1792,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 4,
+        "focusFrames": 255,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "event": {
+        "focus": {
+          "x": 50,
+          "y": 40
+        }
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 1,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 274,
+        "direction": 4,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        28430,
+        52196
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 1,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 274,
+        "direction": 4,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        28430,
+        52196
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 1,
+        "counter": 34,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 34,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 274,
+        "direction": 4,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        28430,
+        52196
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 1,
+        "counter": 34,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 34,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 274,
+        "direction": 4,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        28430,
+        52196
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 1,
+        "counter": 38,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 38,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 274,
+        "direction": 4,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        28430,
+        52196
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 1,
+        "counter": 38,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 38,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 274,
+        "direction": 4,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        28430,
+        52196
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 1,
+        "counter": 39,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 39,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 274,
+        "direction": 4,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        28430,
+        52196
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 1,
+        "counter": 39,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 39,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 274,
+        "direction": 4,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        28430,
+        52196
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 317,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 39,
+        "offsetX": 0,
+        "offsetY": 5,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 317,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 39,
+        "offsetX": 0,
+        "offsetY": 5,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 34,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 2,
+        "counter": 34,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 317,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 39,
+        "offsetX": 0,
+        "offsetY": 5,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 34,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 2,
+        "counter": 34,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 317,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 39,
+        "offsetX": 0,
+        "offsetY": 5,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 38,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 2,
+        "counter": 38,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 317,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 39,
+        "offsetX": 0,
+        "offsetY": 5,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 38,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 2,
+        "counter": 38,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 317,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 39,
+        "offsetX": 0,
+        "offsetY": 5,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 39,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 2,
+        "counter": 39,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 317,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 39,
+        "offsetX": 0,
+        "offsetY": 5,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 39,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 2,
+        "counter": 39,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 317,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 39,
+        "offsetX": 0,
+        "offsetY": 5,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 3,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 3,
+        "counter": 1,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 401,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 1,
+        "offsetY": 0,
+        "frame": 4
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 3,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 3,
+        "counter": 1,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 401,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 1,
+        "offsetY": 0,
+        "frame": 4
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 3,
+        "counter": 34,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 3,
+        "counter": 35,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 319,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 39,
+        "offsetX": 0,
+        "offsetY": 7,
+        "frame": 4
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 3,
+        "counter": 34,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 3,
+        "counter": 35,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 319,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 39,
+        "offsetX": 0,
+        "offsetY": 7,
+        "frame": 4
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 3,
+        "counter": 38,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 3,
+        "counter": 39,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 401,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 1,
+        "offsetY": 0,
+        "frame": 4
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 3,
+        "counter": 38,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 3,
+        "counter": 39,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 401,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 1,
+        "offsetY": 0,
+        "frame": 4
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 3,
+        "counter": 39,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 4,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 319,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 39,
+        "offsetX": 0,
+        "offsetY": 7,
+        "frame": 4
+      },
+      "event": {
+        "damage": [
+          "empty",
+          "empty",
+          "empty",
+          "empty",
+          "empty"
+        ]
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 3,
+        "counter": 39,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 4,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 319,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 39,
+        "offsetX": 0,
+        "offsetY": 7,
+        "frame": 4
+      },
+      "event": {
+        "damage": [
+          "empty",
+          "empty",
+          "empty",
+          "empty",
+          "empty"
+        ]
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 4,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 4,
+        "counter": 1,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 401,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 1,
+        "offsetY": 0,
+        "frame": 4
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 4,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 4,
+        "counter": 1,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 401,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 1,
+        "offsetY": 0,
+        "frame": 4
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 4,
+        "counter": 34,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 4,
+        "counter": 35,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 319,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 39,
+        "offsetX": 0,
+        "offsetY": 7,
+        "frame": 4
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 4,
+        "counter": 34,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 4,
+        "counter": 35,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 319,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 39,
+        "offsetX": 0,
+        "offsetY": 7,
+        "frame": 4
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 4,
+        "counter": 38,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 4,
+        "counter": 39,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 401,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 1,
+        "offsetY": 0,
+        "frame": 4
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 4,
+        "counter": 38,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 4,
+        "counter": 39,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 401,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 1,
+        "offsetY": 0,
+        "frame": 4
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 4,
+        "counter": 39,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 5,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 319,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 39,
+        "offsetX": 0,
+        "offsetY": 7,
+        "frame": 4
+      },
+      "event": {
+        "damage": [
+          "empty",
+          "empty",
+          "empty",
+          "empty"
+        ]
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 4,
+        "counter": 39,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 5,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 319,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 39,
+        "offsetX": 0,
+        "offsetY": 7,
+        "frame": 4
+      },
+      "event": {
+        "damage": [
+          "empty",
+          "empty",
+          "empty",
+          "empty"
+        ]
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 5,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 5,
+        "counter": 1,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 401,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 1,
+        "offsetY": 0,
+        "frame": 4
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 5,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 5,
+        "counter": 1,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 401,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 1,
+        "offsetY": 0,
+        "frame": 4
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 5,
+        "counter": 34,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 5,
+        "counter": 35,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 319,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 39,
+        "offsetX": 0,
+        "offsetY": 7,
+        "frame": 4
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 5,
+        "counter": 34,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 5,
+        "counter": 35,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 319,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 39,
+        "offsetX": 0,
+        "offsetY": 7,
+        "frame": 4
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 5,
+        "counter": 38,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 5,
+        "counter": 39,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 401,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 1,
+        "offsetY": 0,
+        "frame": 4
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 5,
+        "counter": 38,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 5,
+        "counter": 39,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 401,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 1,
+        "offsetY": 0,
+        "frame": 4
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 5,
+        "counter": 39,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 6,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 319,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 39,
+        "offsetX": 0,
+        "offsetY": 7,
+        "frame": 4
+      },
+      "event": {
+        "damage": [
+          "empty",
+          "empty",
+          "empty",
+          "empty"
+        ]
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 5,
+        "counter": 39,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 6,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 319,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 39,
+        "offsetX": 0,
+        "offsetY": 7,
+        "frame": 4
+      },
+      "event": {
+        "damage": [
+          "empty",
+          "empty",
+          "empty",
+          "empty"
+        ]
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 6,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 6,
+        "counter": 1,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 401,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 1,
+        "offsetY": 0,
+        "frame": 4
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 6,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 6,
+        "counter": 1,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 401,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 1,
+        "offsetY": 0,
+        "frame": 4
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 6,
+        "counter": 34,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 6,
+        "counter": 35,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 319,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 39,
+        "offsetX": 0,
+        "offsetY": 7,
+        "frame": 4
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 6,
+        "counter": 34,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 6,
+        "counter": 35,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 319,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 39,
+        "offsetX": 0,
+        "offsetY": 7,
+        "frame": 4
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 6,
+        "counter": 38,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 6,
+        "counter": 39,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 401,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 1,
+        "offsetY": 0,
+        "frame": 4
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 6,
+        "counter": 38,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 6,
+        "counter": 39,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 401,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 1,
+        "offsetY": 0,
+        "frame": 4
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 6,
+        "counter": 39,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 7,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 319,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 39,
+        "offsetX": 0,
+        "offsetY": 7,
+        "frame": 4
+      },
+      "event": {
+        "damage": [
+          "empty",
+          "empty",
+          "empty",
+          "empty"
+        ]
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 6,
+        "counter": 39,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 7,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 319,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 39,
+        "offsetX": 0,
+        "offsetY": 7,
+        "frame": 4
+      },
+      "event": {
+        "damage": [
+          "empty",
+          "empty",
+          "empty",
+          "empty"
+        ]
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 7,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 7,
+        "counter": 1,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 401,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 1,
+        "offsetY": 0,
+        "frame": 4
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 7,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 7,
+        "counter": 1,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 401,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 1,
+        "offsetY": 0,
+        "frame": 4
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 7,
+        "counter": 34,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 7,
+        "counter": 35,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 319,
+        "pixelX": 400,
+        "direction": 4,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 39,
+        "offsetX": 0,
+        "offsetY": 7,
+        "frame": 4
+      },
+      "event": {},
+      "rng": [
+        28430,
+        52196
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 7,
+        "counter": 34,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 7,
+        "counter": 35,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 319,
+        "pixelX": 400,
+        "direction": 4,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 39,
+        "offsetX": 0,
+        "offsetY": 7,
+        "frame": 4
+      },
+      "event": {},
+      "rng": [
+        28430,
+        52196
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 7,
+        "counter": 38,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 7,
+        "counter": 39,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 401,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 1,
+        "offsetY": 0,
+        "frame": 4
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 7,
+        "counter": 38,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 7,
+        "counter": 39,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 401,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 1,
+        "offsetY": 0,
+        "frame": 4
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 7,
+        "counter": 39,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 8,
+        "counter": 48,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 319,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 39,
+        "offsetX": 0,
+        "offsetY": 7,
+        "frame": 0
+      },
+      "event": {
+        "damage": [
+          "empty",
+          "empty",
+          "empty",
+          "empty"
+        ]
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 7,
+        "counter": 39,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 8,
+        "counter": 48,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 319,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 39,
+        "offsetX": 0,
+        "offsetY": 7,
+        "frame": 0
+      },
+      "event": {
+        "damage": [
+          "empty",
+          "empty",
+          "empty",
+          "empty"
+        ]
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 8,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 0,
+        "request": 32768,
+        "mode": 8,
+        "counter": 255,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 323,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 0,
+        "offsetY": 3,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 8,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 0,
+        "request": 32768,
+        "mode": 8,
+        "counter": 255,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 323,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 0,
+        "offsetY": 3,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 8,
+        "counter": 34,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 0,
+        "request": 32768,
+        "mode": 8,
+        "counter": 33,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 323,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 0,
+        "offsetY": 3,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 8,
+        "counter": 34,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 0,
+        "request": 32768,
+        "mode": 8,
+        "counter": 33,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 323,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 0,
+        "offsetY": 3,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 8,
+        "counter": 38,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 0,
+        "request": 32768,
+        "mode": 8,
+        "counter": 37,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 323,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 0,
+        "offsetY": 3,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 8,
+        "counter": 38,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 0,
+        "request": 32768,
+        "mode": 8,
+        "counter": 37,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 323,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 0,
+        "offsetY": 3,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 8,
+        "counter": 39,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 0,
+        "request": 32768,
+        "mode": 8,
+        "counter": 38,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 323,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 0,
+        "offsetY": 3,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 8,
+        "counter": 39,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 0,
+        "request": 32768,
+        "mode": 8,
+        "counter": 38,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 323,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 0,
+        "offsetY": 3,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 317,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 39,
+        "offsetX": 0,
+        "offsetY": 5,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 1,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 317,
+        "pixelX": 402,
+        "direction": 1,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 39,
+        "offsetX": 2,
+        "offsetY": 5,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 2,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 317,
+        "pixelX": 403,
+        "direction": 2,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 39,
+        "offsetX": 3,
+        "offsetY": 5,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 3,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 318,
+        "pixelX": 403,
+        "direction": 3,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 39,
+        "offsetX": 3,
+        "offsetY": 6,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 4,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 3,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 403,
+        "direction": 4,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 3,
+        "offsetY": 0,
+        "frame": 4
+      },
+      "event": {
+        "sound": 28
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 5,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 3,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 322,
+        "pixelX": 403,
+        "direction": 5,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 3,
+        "offsetY": 2,
+        "frame": 4
+      },
+      "event": {
+        "sound": 28
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 6,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 3,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 323,
+        "pixelX": 403,
+        "direction": 6,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 3,
+        "offsetY": 3,
+        "frame": 4
+      },
+      "event": {
+        "sound": 28
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 7,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 3,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 323,
+        "pixelX": 402,
+        "direction": 7,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 2,
+        "offsetY": 3,
+        "frame": 4
+      },
+      "event": {
+        "sound": 28
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 8,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 3,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 323,
+        "pixelX": 400,
+        "direction": 8,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 0,
+        "offsetY": 3,
+        "frame": 4
+      },
+      "event": {
+        "sound": 28
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 9,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 323,
+        "pixelX": 398,
+        "direction": 9,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 49,
+        "y": 40,
+        "offsetX": 6,
+        "offsetY": 3,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 10,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 323,
+        "pixelX": 397,
+        "direction": 10,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 49,
+        "y": 40,
+        "offsetX": 5,
+        "offsetY": 3,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 11,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 322,
+        "pixelX": 397,
+        "direction": 11,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 49,
+        "y": 40,
+        "offsetX": 5,
+        "offsetY": 2,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 12,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 397,
+        "direction": 12,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 49,
+        "y": 40,
+        "offsetX": 5,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 13,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 318,
+        "pixelX": 397,
+        "direction": 13,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 49,
+        "y": 39,
+        "offsetX": 5,
+        "offsetY": 6,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 14,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 317,
+        "pixelX": 397,
+        "direction": 14,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 49,
+        "y": 39,
+        "offsetX": 5,
+        "offsetY": 5,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 15,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 317,
+        "pixelX": 398,
+        "direction": 15,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 49,
+        "y": 39,
+        "offsetX": 6,
+        "offsetY": 5,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 0,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 1,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 1792,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 4,
+        "focusFrames": 255,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "event": {
+        "focus": {
+          "x": 50,
+          "y": 40
+        }
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 0,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 4,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32772,
+        "request": 32768,
+        "mode": 1,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 1792,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 4,
+        "focusFrames": 255,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "event": {
+        "focus": {
+          "x": 50,
+          "y": 40
+        }
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 0,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 4660,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32820,
+        "request": 32768,
+        "mode": 1,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 1792,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 4660,
+        "focusFrames": 255,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "event": {
+        "focus": {
+          "x": 50,
+          "y": 40
+        }
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 0,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 32824,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32824,
+        "request": 32768,
+        "mode": 1,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 1792,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 32828,
+        "focusFrames": 255,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "event": {
+        "focus": {
+          "x": 50,
+          "y": 40
+        }
+      },
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 1,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 274,
+        "direction": 4,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        28430,
+        52196
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 1,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 1,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 1,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 1,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 1,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 255,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 1,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 255,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 1,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 256,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 274,
+        "direction": 4,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 256,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        28430,
+        52196
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 3,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {
+        "blocked": false,
+        "gameMode": 0
+      },
+      "expected": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 3,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 3,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {
+        "blocked": false,
+        "gameMode": 6
+      },
+      "expected": {
+        "activeWord": 32769,
+        "request": 32768,
+        "mode": 3,
+        "counter": 1,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 401,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 1,
+        "offsetY": 0,
+        "frame": 4
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 3,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {
+        "blocked": false,
+        "gameMode": 7
+      },
+      "expected": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 3,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 3,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {
+        "blocked": true,
+        "gameMode": 0
+      },
+      "expected": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 3,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 3,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {
+        "blocked": true,
+        "gameMode": 6
+      },
+      "expected": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 3,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 3,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {
+        "blocked": true,
+        "gameMode": 7
+      },
+      "expected": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 3,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 3,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 153,
+      "opts": {
+        "steps": 42
+      },
+      "expected": {
+        "activeWord": 32810,
+        "request": 32768,
+        "mode": 4,
+        "counter": 2,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 402,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 2,
+        "offsetY": 0,
+        "frame": 6
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": [
+        [
+          4729,
+          127
+        ],
+        [
+          4730,
+          127
+        ],
+        [
+          4731,
+          127
+        ],
+        [
+          4849,
+          127
+        ],
+        [
+          4850,
+          127
+        ],
+        [
+          4851,
+          127
+        ],
+        [
+          4969,
+          127
+        ],
+        [
+          4970,
+          127
+        ],
+        [
+          4971,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 4,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 153,
+      "opts": {
+        "steps": 42
+      },
+      "expected": {
+        "activeWord": 32810,
+        "request": 32768,
+        "mode": 5,
+        "counter": 2,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 402,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 2,
+        "offsetY": 0,
+        "frame": 6
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": [
+        [
+          4609,
+          127
+        ],
+        [
+          4610,
+          127
+        ],
+        [
+          4611,
+          127
+        ],
+        [
+          4729,
+          127
+        ],
+        [
+          4730,
+          127
+        ],
+        [
+          4731,
+          127
+        ],
+        [
+          4849,
+          127
+        ],
+        [
+          4850,
+          127
+        ],
+        [
+          4851,
+          127
+        ],
+        [
+          4969,
+          127
+        ],
+        [
+          4970,
+          127
+        ],
+        [
+          4971,
+          127
+        ],
+        [
+          5089,
+          127
+        ],
+        [
+          5090,
+          127
+        ],
+        [
+          5091,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 5,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 153,
+      "opts": {
+        "steps": 42
+      },
+      "expected": {
+        "activeWord": 32810,
+        "request": 32768,
+        "mode": 6,
+        "counter": 2,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 402,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 2,
+        "offsetY": 0,
+        "frame": 6
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": [
+        [
+          4489,
+          127
+        ],
+        [
+          4490,
+          127
+        ],
+        [
+          4491,
+          127
+        ],
+        [
+          4609,
+          127
+        ],
+        [
+          4610,
+          127
+        ],
+        [
+          4611,
+          127
+        ],
+        [
+          4727,
+          127
+        ],
+        [
+          4728,
+          127
+        ],
+        [
+          4729,
+          127
+        ],
+        [
+          4730,
+          127
+        ],
+        [
+          4731,
+          127
+        ],
+        [
+          4732,
+          127
+        ],
+        [
+          4733,
+          127
+        ],
+        [
+          4847,
+          127
+        ],
+        [
+          4848,
+          127
+        ],
+        [
+          4849,
+          127
+        ],
+        [
+          4851,
+          127
+        ],
+        [
+          4852,
+          127
+        ],
+        [
+          4853,
+          127
+        ],
+        [
+          4967,
+          127
+        ],
+        [
+          4968,
+          127
+        ],
+        [
+          4969,
+          127
+        ],
+        [
+          4970,
+          127
+        ],
+        [
+          4971,
+          127
+        ],
+        [
+          4972,
+          127
+        ],
+        [
+          4973,
+          127
+        ],
+        [
+          5089,
+          127
+        ],
+        [
+          5090,
+          127
+        ],
+        [
+          5091,
+          127
+        ],
+        [
+          5209,
+          127
+        ],
+        [
+          5210,
+          127
+        ],
+        [
+          5211,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 6,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 153,
+      "opts": {
+        "steps": 42
+      },
+      "expected": {
+        "activeWord": 32810,
+        "request": 32768,
+        "mode": 7,
+        "counter": 2,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 402,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 2,
+        "offsetY": 0,
+        "frame": 6
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": [
+        [
+          4490,
+          127
+        ],
+        [
+          4491,
+          127
+        ],
+        [
+          4492,
+          127
+        ],
+        [
+          4610,
+          127
+        ],
+        [
+          4611,
+          127
+        ],
+        [
+          4612,
+          127
+        ],
+        [
+          4730,
+          127
+        ],
+        [
+          4731,
+          127
+        ],
+        [
+          4732,
+          127
+        ],
+        [
+          4851,
+          127
+        ],
+        [
+          4852,
+          127
+        ],
+        [
+          4853,
+          127
+        ],
+        [
+          4971,
+          127
+        ],
+        [
+          4972,
+          127
+        ],
+        [
+          4973,
+          127
+        ],
+        [
+          5091,
+          127
+        ],
+        [
+          5092,
+          127
+        ],
+        [
+          5093,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 7,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 153,
+      "opts": {
+        "steps": 42
+      },
+      "expected": {
+        "activeWord": 0,
+        "request": 32768,
+        "mode": 8,
+        "counter": 47,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 397,
+        "direction": 4,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 49,
+        "y": 40,
+        "offsetX": 5,
+        "offsetY": 0,
+        "frame": 2
+      },
+      "event": {},
+      "rng": [
+        28430,
+        52196
+      ],
+      "changed": [
+        [
+          4488,
+          127
+        ],
+        [
+          4489,
+          127
+        ],
+        [
+          4490,
+          127
+        ],
+        [
+          4608,
+          127
+        ],
+        [
+          4609,
+          127
+        ],
+        [
+          4610,
+          127
+        ],
+        [
+          4728,
+          127
+        ],
+        [
+          4729,
+          127
+        ],
+        [
+          4730,
+          127
+        ],
+        [
+          4847,
+          127
+        ],
+        [
+          4848,
+          127
+        ],
+        [
+          4849,
+          127
+        ],
+        [
+          4967,
+          127
+        ],
+        [
+          4968,
+          127
+        ],
+        [
+          4969,
+          127
+        ],
+        [
+          5087,
+          127
+        ],
+        [
+          5088,
+          127
+        ],
+        [
+          5089,
+          127
+        ]
+      ]
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 8,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 153,
+      "opts": {
+        "steps": 42
+      },
+      "expected": {
+        "activeWord": 0,
+        "request": 32768,
+        "mode": 8,
+        "counter": 255,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 323,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 0,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 0,
+        "offsetY": 3,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {
+        "steps": 128,
+        "cameraX": 40,
+        "cameraY": 30
+      },
+      "expected": {
+        "activeWord": 32896,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 65472,
+        "pixelX": 400,
+        "direction": 0,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 248,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 4,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {
+        "steps": 128,
+        "cameraX": 40,
+        "cameraY": 30
+      },
+      "expected": {
+        "activeWord": 32896,
+        "request": 32768,
+        "mode": 6,
+        "counter": 7,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 322,
+        "pixelX": 408,
+        "direction": 4,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 51,
+        "y": 40,
+        "offsetX": 0,
+        "offsetY": 2,
+        "frame": 4
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 8,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {
+        "steps": 128,
+        "cameraX": 40,
+        "cameraY": 30
+      },
+      "expected": {
+        "activeWord": 32896,
+        "request": 32768,
+        "mode": 6,
+        "counter": 7,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 325,
+        "pixelX": 405,
+        "direction": 8,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 50,
+        "y": 40,
+        "offsetX": 5,
+        "offsetY": 5,
+        "frame": 4
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    },
+    {
+      "before": {
+        "activeWord": 32768,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 400,
+        "direction": 12,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "id": 0,
+      "opts": {
+        "steps": 128,
+        "cameraX": 40,
+        "cameraY": 30
+      },
+      "expected": {
+        "activeWord": 32896,
+        "request": 32768,
+        "mode": 2,
+        "counter": 0,
+        "targetY": 40,
+        "targetX": 50,
+        "pixelY": 320,
+        "pixelX": 16,
+        "direction": 12,
+        "visible": 65535,
+        "flags": 0,
+        "focusFrames": 0,
+        "x": 2,
+        "y": 40,
+        "offsetX": 0,
+        "offsetY": 0,
+        "frame": 0
+      },
+      "event": {},
+      "rng": [
+        23766,
+        4664
+      ],
+      "changed": []
+    }
+  ],
+  "exitCode": 0
+}
