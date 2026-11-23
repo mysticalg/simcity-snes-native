@@ -1,8 +1,8 @@
 import {compactEmergencySprite} from './emergency.js?v=emergency-1';
-import {drawLandfill,drawLandfillLayer} from './landfill.js?v=waste-utilities-1';
+import {drawLandfill,drawLandfillLayer} from './landfill.js?v=processing-1';
 import {buildingOff} from './building-operations.js?v=emergency-1';
-import {sewageServices} from './sewage.js?v=emergency-1';
-import {CIVIC_TOOLS,civicForId,civicBounds,civicServices,educationEffects} from './civic.js?v=emergency-1';
+import {sewageServices} from './sewage.js?v=processing-1';
+import {CIVIC_TOOLS,civicForId,civicBounds,civicServices,educationEffects} from './civic.js?v=processing-1';
 const civicSprites=Array.from({length:17},(_,n)=>{const image=new Image();image.src='assets/custom/civic-'+n+'.png';return image;});
 const spriteCache=new WeakMap();
 function smallCivicSprite(image){if(!image?.complete||!image.naturalWidth||image.naturalWidth<=128)return image;let small=spriteCache.get(image);if(!small){small=document.createElement('canvas');small.width=small.height=128;small.getContext('2d').drawImage(image,0,0,128,128);spriteCache.set(image,small);}return small;}

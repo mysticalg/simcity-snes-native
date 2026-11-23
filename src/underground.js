@@ -1,6 +1,6 @@
 const layerCache=new WeakMap();
 export function undergroundRenderStats(city){const s=layerCache.get(city);return s?{builds:s.builds,revision:s.revision,width:s.canvas.width,height:s.canvas.height}:{builds:0};}
-import {waterNetwork} from './civic.js?v=emergency-1';
+import {waterNetwork,utilityPipeStatus,civicBounds} from './civic.js?v=processing-1';
 const cache=new WeakMap();
 // Mirrors waterService's Chebyshev radius3; range alone does not guarantee
 // a building's demand fits the network's finite allocation.
@@ -17,5 +17,20 @@ export function drawUnderground(ctx,city,surface,view,{drawSurfaceFacilities,pre
 function drawStaticPipes(ctx,city,area,width,x0,y0,x1,y1){const height=city.height||100;for(let y=y0;y<y1;y++)for(let x=x0;x<x1;x++){const i=y*width+x;if(area[i]){ctx.fillStyle=area[i]===2?'rgba(34,159,211,.28)':'rgba(149,166,174,.10)';ctx.fillRect(x*8,y*8,8,8);}ctx.strokeStyle='rgba(114,157,165,.10)';ctx.lineWidth=.25;ctx.strokeRect(x*8,y*8,8,8);if(city.civicWatered?.has(i)){ctx.strokeStyle='#6cffe1';ctx.lineWidth=.8;ctx.strokeRect(x*8-3,y*8-3,14,14);}}
  for(let y=y0;y<y1;y++)for(let x=x0;x<x1;x++){const i=y*width+x;if(!city.pipes[i])continue;const cx=x*8+4,cy=y*8+4;ctx.lineCap='round';for(const [dx,dy]of [[0,-1],[1,0],[0,1],[-1,0]]){const nx=x+dx,ny=y+dy;if(nx<0||nx>=width||ny<0||ny>=height||!city.pipes[ny*width+nx])continue;ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+dx*8,cy+dy*8);ctx.strokeStyle=city.waterField?.[i]?'#02080c':'#59636a';ctx.lineWidth=3.4;ctx.stroke();ctx.strokeStyle=city.waterField?.[i]?'#3ab9ff':'#02080c';ctx.lineWidth=1.6;ctx.stroke();}ctx.fillStyle=city.waterField?.[i]?'#9deaff':'#05090c';ctx.fillRect(cx-1.5,cy-1.5,3,3);}
  for(let y=y0;y<y1;y++)for(let x=x0;x<x1;x++){const i=y*width+x;if(!city.pipes[i])continue;ctx.fillStyle=city.waterField?.[i]?'#9deaff':'#05090c';ctx.fillRect(x*8+2,y*8+2,4,4);}
+ drawUtilityConnectors(ctx,city,{x0,y0,x1,y1});
+}
 
+// Show the implicit pipe manifold under each utility footprint, including a
+// pipe that terminates underneath it. Cached with the static underground layer.
+export function drawUtilityConnectors(ctx,city,{x0=0,y0=0,x1=city.width||120,y1=city.height||100}={}){
+ const width=city.width||120;let connectors=0;
+ ctx.save();ctx.lineCap='round';
+ for(const z of city.zones){if(![969,973,974].includes(z.id)||z.x<x0-4||z.x>x1+4||z.y<y0-4||z.y>y1+4)continue;
+  const s=utilityPipeStatus(city,z),b=civicBounds(z),cx=z.x*8+4,cy=z.y*8+4,color=!s.powered?'#e78b78':!s.connected?'#b6c5cd':z.id===969?'#7de1ff':'#ffc275';
+  ctx.setLineDash([1,1]);ctx.lineWidth=1.2;ctx.strokeStyle=color;ctx.beginPath();
+  for(const i of s.pipePoints){const x=i%width*8+4,y=Math.floor(i/width)*8+4;ctx.moveTo(x,y);ctx.lineTo(cx,y);ctx.lineTo(cx,cy);}ctx.stroke();ctx.setLineDash([]);
+  ctx.fillStyle='#0b1820';ctx.fillRect(cx-3,cy-3,6,6);ctx.strokeStyle=color;ctx.lineWidth=.8;ctx.strokeRect(cx-3,cy-3,6,6);ctx.beginPath();ctx.moveTo(cx-2,cy);ctx.lineTo(cx+2,cy);ctx.moveTo(cx,cy-2);ctx.lineTo(cx,cy+2);ctx.stroke();
+  ctx.globalAlpha=.5;ctx.strokeRect(b.x*8+.5,b.y*8+.5,b.width*8-1,b.height*8-1);ctx.globalAlpha=1;connectors++;
+ }
+ ctx.restore();return connectors;
 }

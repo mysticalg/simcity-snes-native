@@ -57,8 +57,8 @@ export function updateIndustrialFootprint(map,x,y,population,direction,nextWord,
 }
 
 // CODE_039567/03974B and CODE_0398DD; DATA_03992B has nine-tile strides.
-export function updateCommercialFootprint(map,x,y,population,density,valueByte,direction,width=120,height=100){
- const id=map[y*width+x]&1023;
+export function updateCommercialFootprint(map,x,y,population,density,valueByte,direction,width=120,height=100,tileId=map[y*width+x]&1023){
+ const id=tileId;
  const stamp=base=>stampZoneFootprint(map,x,y,base,width,height);
  if(direction<0){
   if(id===0x39e||id===0x3b0)return stamp(0x1eb);

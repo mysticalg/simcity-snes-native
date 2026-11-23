@@ -6,7 +6,7 @@ This project reverse engineers the USA release of SimCity for Super Nintendo and
 
 Open the [GitHub Pages version](https://mysticalg.github.io/simcity-snes-native/) after deployment, or serve this directory locally with `python -m http.server 5173` and open `http://localhost:5173`.
 
-Latest Turbo update: **v0.2.17** adds **2×2 police/fire stations**; headquarters stay **3×3**. Existing saved stations keep their footprint. [Verification notes](research/emergency-footprints-v0.2.17.md).
+Latest Turbo update: **v0.2.18** adds compact processing/capacity meters, visible utility pipe connectors and correct sewage treatment status; full-scan census now matches 60 controlled ROM executions. [Verification notes](research/processing-census-v0.2.18.md).
 
 ## Current coverage
 

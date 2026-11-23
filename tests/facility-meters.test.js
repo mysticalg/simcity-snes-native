@@ -1,0 +1,15 @@
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import {City,TOOLS} from '../src/simulation.js';import {civicServices,CIVIC_TOOLS} from '../src/civic.js';import {collectGarbage} from '../src/landfill.js';import {processingMeters,facilityMetersHTML,meterHTML} from '../src/facility-meters.js';import {buildingSummary} from '../src/building-operations.js';
+const build=JSON.parse(fs.readFileSync('assets/tables/build.json')),flags=JSON.parse(fs.readFileSync('assets/tables/city.json')).flags;
+const fresh=()=>{const c=new City(new Uint16Array(12000),structuredClone(build),[...flags],{civicEnabled:true});c.funds=200000;return c;};
+test('waste meters show exact dispatch, full capacity and idle facilities without changing city state',()=>{
+ const c=fresh();for(const[t,x]of[[32,10],[32,15],[49,20],[50,25]])c.place(t,x,10);for(let x=8;x<31;x++)c.map[13*120+x]=0x32;c.refresh();c.power.fill(1);c.population=100000;c.rci=[0,0,0];
+ const inc=c.zones.filter(z=>z.id===962),recycle=c.zones.find(z=>z.id===975),before=c.serialize();assert.equal(processingMeters(c,recycle).meters[0].value,4000);assert.equal(processingMeters(c,inc[0]).meters[0].value,6000);assert.equal(processingMeters(c,inc[1]).meters[0].value,0);assert.equal(c.serialize(),before);assert.match(facilityMetersHTML(c,recycle,buildingSummary(c,recycle,TOOLS,CIVIC_TOOLS)),/Full capacity/);
+ const services=civicServices(c).garbageFacilities;collectGarbage(c,10000,services);assert.equal(c.civic.garbageFacilityUsage[recycle.i].processed,4000);assert.equal(inc.reduce((n,z)=>n+c.civic.garbageFacilityUsage[z.i].processed,0),c.civic.garbageBurned);
+});
+test('treatment meters are per-plant and collection/treatment allocations conserve monthly totals',()=>{
+ const c=fresh();for(const[t,x]of[[44,10],[44,15],[44,20],[45,30],[45,36]])c.place(t,x,10);c.place(5,25,15);c.map[16*120+26]=0x99;for(let x=11;x<40;x++)c.pipes[13*120+x]=1;c.refresh();c.power.fill(1);c.civic.sewageDebt={[16*120+26]:30000};
+ const plants=c.zones.filter(z=>z.id===974),pumps=c.zones.filter(z=>z.id===973),meters=plants.map(z=>processingMeters(c,z).meters[0]);assert.deepEqual(meters.map(m=>m.value),[20000,4000]);assert.equal(pumps.reduce((n,z)=>n+processingMeters(c,z).meters[0].value,0),24000);assert.match(meterHTML(meters[0]),/Full capacity/);assert.doesNotMatch(meterHTML(meters[1]),/Full capacity/);
+});
+test('meters expose accessible numbers, clamp graphics and distinguish full funding from a processing bottleneck',()=>{
+ assert.match(meterHTML({label:'Sewage',value:120,capacity:100,unit:'/month'}),/width:100%/);assert.match(meterHTML({label:'Sewage',value:120,capacity:100,unit:'/month'}),/aria-valuenow="100"/);assert.match(meterHTML({label:'Funding',value:100,capacity:100,unit:'%',fullIsNormal:true}),/>100%</);assert.doesNotMatch(meterHTML({label:'Funding',value:100,capacity:100,fullIsNormal:true}),/Full capacity/);assert.doesNotMatch(meterHTML({label:'Idle',value:0,capacity:0}),/NaN|Infinity|Full capacity/);
+});

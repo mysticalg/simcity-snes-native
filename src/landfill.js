@@ -24,6 +24,7 @@ function drawLandfillPixels(ctx,z,{fill,piles,edges}){const x=z.x*8,y=z.y*8;ctx.
 // existing stock intact, but generate 0.1 unit per population-equivalent/month.
 export function monthlyGarbageDemand(city,wasteReduction=0){return Math.ceil((Math.max(0,city.population)+8*(Math.max(0,city.rci[1])+Math.max(0,city.rci[2])))*.1*(1-Math.max(0,Math.min(1,wasteReduction))));}
 export function collectGarbage(city,demand,services){
+ const usage=Object.fromEntries(services.statuses.map(p=>[p.i,{id:p.id,capacity:p.capacity,processed:0,stored:0,reclaimed:0,reason:p.reason}]));
  const before=Math.max(0,city.civic.garbage||0);let remaining=before+demand;
  let pickup=services.capacity.collection??Infinity;
  const freshRecycled=Math.min(remaining,services.capacity.recycling||0,pickup);remaining-=freshRecycled;pickup-=freshRecycled;
@@ -38,9 +39,15 @@ export function collectGarbage(city,demand,services){
   // road-accessible site plus an operating, powered incinerator.
   const recycle=Math.min(used,spareRecycle,pickup);used-=recycle;spareRecycle-=recycle;pickup-=recycle;landfillRecycled+=recycle;
   const burn=Math.min(used,spareBurn,pickup);used-=burn;spareBurn-=burn;pickup-=burn;landfillBurned+=burn;reclaimed+=recycle+burn;
-  city.civic.landfillUsed[z.i]=used;
+  city.civic.landfillUsed[z.i]=used;if(usage[z.i])Object.assign(usage[z.i],{processed:deposit,stored:deposit,reclaimed:recycle+burn});
  }
  Object.assign(city.civic,{garbage:remaining,generatedGarbage:demand,collectedGarbage:freshBurned+freshRecycled+stored+regional,garbageBurned:freshBurned+landfillBurned,garbageRecycled:freshRecycled+landfillRecycled,garbageBurnedFresh:freshBurned,garbageReclaimed:reclaimed,garbageStored:stored,garbageRegional:regional,garbageBacklogChange:remaining-before,garbageLandfillChange:stored-reclaimed,garbageCollectionUsed:freshBurned+freshRecycled+stored+reclaimed});
+ // Explicit dispatch allocation, in map order. Shared municipal pickup is used
+ // before the additional capacity provided by collection depots.
+ const assign=(id,total)=>{for(const p of services.statuses)if(p.id===id){const used=Math.min(total,p.capacity);usage[p.i].processed=used;total-=used;}};
+ assign(975,city.civic.garbageRecycled);assign(962,city.civic.garbageBurned);assign(976,Math.max(0,city.civic.garbageCollectionUsed-(services.capacity.collection-services.capacity.depotCollection)));
+ city.civic.garbageFacilityUsage=usage;
+
 }
 export function garbageFacilities(city,roadEntry){
  const layout=landfillSites(city),sites=layout.sites.map(site=>({...site,used:site.tiles.reduce((sum,z)=>sum+(city.civic.landfillUsed?.[z.i]||0),0),capacity:site.tiles.length*10000})),statuses=[];

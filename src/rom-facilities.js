@@ -1,4 +1,4 @@
-import {stampZoneFootprint} from './rom-growth.js?v=residential-1';
+import {stampZoneFootprint} from './rom-growth.js?v=processing-1';
 // CODE_038CE8..038D24: compare residential census units>>8 to each count.
 export function romFacilityDemand(residential,counts){const quota=(residential&65535)>>>8;return counts.map(count=>quota===(count&65535)?0:quota>(count&65535)?1:-1);}
 // CODE_039449 tests nonzero, including negative quota flags, and clears the
