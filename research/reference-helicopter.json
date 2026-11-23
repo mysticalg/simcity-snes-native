@@ -1,0 +1,8757 @@
+{
+  "routines": [
+    "CODE_00AE83",
+    "CODE_03AC32",
+    "CODE_00B040"
+  ],
+  "scope": "Controlled worker/spawn: state, menu RNG and congestion notice",
+  "romSHA256": "e9c0bc05511e05a0d7c3e7cc42e761e1e8e532d46f59b9854b6902e1a2e9dd0a",
+  "mesenSHA256": "d2eb03c2590c648bf329f127ebcfefd70130e7690a9e2ccdba8616faea1fe96b",
+  "cases": [
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 49,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 49,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 49,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 6,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 6,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 6,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 49,
+        "offsetX": 1,
+        "offsetY": 7,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 49,
+        "offsetX": 1,
+        "offsetY": 7,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 49,
+        "offsetX": 1,
+        "offsetY": 7,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 61,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 6,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 61,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 6,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 61,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 6,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 1,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 1,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 1,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 61,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 61,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 61,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 1,
+        "offsetY": 1,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 1,
+        "offsetY": 1,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 1,
+        "offsetY": 1,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 61,
+        "y": 51,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 61,
+        "y": 51,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 61,
+        "y": 51,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 1,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 1,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 1,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 51,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 51,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 51,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 59,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 1,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 59,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 1,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 59,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 1,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 51,
+        "offsetX": 6,
+        "offsetY": 0,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 51,
+        "offsetX": 6,
+        "offsetY": 0,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 51,
+        "offsetX": 6,
+        "offsetY": 0,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 59,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 59,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 59,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 6,
+        "offsetY": 7,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 6,
+        "offsetY": 7,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 6,
+        "offsetY": 7,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 59,
+        "y": 49,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 59,
+        "y": 49,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 59,
+        "y": 49,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 6,
+        "offsetY": 6,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 6,
+        "offsetY": 6,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 6,
+        "offsetY": 6,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 32768,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "targetX": 108,
+        "targetY": 1,
+        "targetDirection": 1,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        15090,
+        43521
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 32768,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "targetX": 108,
+        "targetY": 1,
+        "targetDirection": 1,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        15090,
+        43521
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 32768,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "targetX": 108,
+        "targetY": 1,
+        "targetDirection": 1,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        15090,
+        43521
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 32768,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 32769,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 32768,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 32769,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 32768,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 32769,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 32768,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 32775,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 32768,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 32775,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 32768,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 32775,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 32768,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 0,
+        "targetX": 108,
+        "targetY": 1,
+        "targetDirection": 1,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        15090,
+        43521
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 32768,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 0,
+        "targetX": 108,
+        "targetY": 1,
+        "targetDirection": 1,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        15090,
+        43521
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 32768,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 0,
+        "targetX": 108,
+        "targetY": 1,
+        "targetDirection": 1,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        15090,
+        43521
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 32768,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 32769,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 32768,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 32769,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 32768,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 32769,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 32768,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 32775,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 32768,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 32775,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 32768,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 32775,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": -1,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "id": 95,
+      "opts": {
+        "phase": 0,
+        "mapView": false,
+        "newsBusy": false
+      },
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "id": 95,
+      "opts": {
+        "phase": 0,
+        "mapView": false,
+        "newsBusy": true
+      },
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "id": 95,
+      "opts": {
+        "phase": 0,
+        "mapView": true,
+        "newsBusy": false
+      },
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "id": 95,
+      "opts": {
+        "phase": 0,
+        "mapView": true,
+        "newsBusy": true
+      },
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "id": 95,
+      "opts": {
+        "phase": 1,
+        "mapView": false,
+        "newsBusy": false
+      },
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "id": 95,
+      "opts": {
+        "phase": 1,
+        "mapView": false,
+        "newsBusy": true
+      },
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "id": 95,
+      "opts": {
+        "phase": 1,
+        "mapView": true,
+        "newsBusy": false
+      },
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "id": 95,
+      "opts": {
+        "phase": 1,
+        "mapView": true,
+        "newsBusy": true
+      },
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "id": 95,
+      "opts": {
+        "phase": 4,
+        "mapView": false,
+        "newsBusy": false
+      },
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "id": 95,
+      "opts": {
+        "phase": 4,
+        "mapView": false,
+        "newsBusy": true
+      },
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "id": 95,
+      "opts": {
+        "phase": 4,
+        "mapView": true,
+        "newsBusy": false
+      },
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "id": 95,
+      "opts": {
+        "phase": 4,
+        "mapView": true,
+        "newsBusy": true
+      },
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "id": 95,
+      "opts": {
+        "phase": 5,
+        "mapView": false,
+        "newsBusy": false
+      },
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 1,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "id": 95,
+      "opts": {
+        "phase": 5,
+        "mapView": false,
+        "newsBusy": true
+      },
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 1,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "id": 95,
+      "opts": {
+        "phase": 5,
+        "mapView": true,
+        "newsBusy": false
+      },
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "id": 95,
+      "opts": {
+        "phase": 5,
+        "mapView": true,
+        "newsBusy": true
+      },
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "id": 95,
+      "opts": {
+        "phase": 13,
+        "mapView": false,
+        "newsBusy": false
+      },
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 1,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "id": 95,
+      "opts": {
+        "phase": 13,
+        "mapView": false,
+        "newsBusy": true
+      },
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 1,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "id": 95,
+      "opts": {
+        "phase": 13,
+        "mapView": true,
+        "newsBusy": false
+      },
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "id": 95,
+      "opts": {
+        "phase": 13,
+        "mapView": true,
+        "newsBusy": true
+      },
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "id": 95,
+      "opts": {
+        "phase": 21,
+        "mapView": false,
+        "newsBusy": false
+      },
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 1,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "id": 95,
+      "opts": {
+        "phase": 21,
+        "mapView": false,
+        "newsBusy": true
+      },
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 1,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "id": 95,
+      "opts": {
+        "phase": 21,
+        "mapView": true,
+        "newsBusy": false
+      },
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "id": 95,
+      "opts": {
+        "phase": 21,
+        "mapView": true,
+        "newsBusy": true
+      },
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "id": 95,
+      "opts": {
+        "phase": 23,
+        "mapView": false,
+        "newsBusy": false
+      },
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "id": 95,
+      "opts": {
+        "phase": 23,
+        "mapView": false,
+        "newsBusy": true
+      },
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "id": 95,
+      "opts": {
+        "phase": 23,
+        "mapView": true,
+        "newsBusy": false
+      },
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "id": 95,
+      "opts": {
+        "phase": 23,
+        "mapView": true,
+        "newsBusy": true
+      },
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 65534
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 32768,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 0,
+        "y": 0,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 0,
+        "y": 0,
+        "offsetX": 7,
+        "offsetY": 6,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 0,
+        "y": 0,
+        "offsetX": 1,
+        "offsetY": 7,
+        "direction": 32769,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 0,
+        "y": 0,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 1,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 6,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 0,
+        "y": 0,
+        "offsetX": 1,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 0,
+        "y": 0,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 1,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 0,
+        "y": 0,
+        "offsetX": 1,
+        "offsetY": 1,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 0,
+        "y": 0,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 1,
+        "y": 1,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 1,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 0,
+        "y": 0,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 0,
+        "y": 1,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 0,
+        "y": 0,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 32773,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 0,
+        "y": 0,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 0,
+        "y": 1,
+        "offsetX": 6,
+        "offsetY": 0,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 0,
+        "y": 0,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 32774,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 0,
+        "y": 0,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 0,
+        "y": 0,
+        "offsetX": 6,
+        "offsetY": 7,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 0,
+        "y": 0,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 0,
+        "y": 0,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 32775,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 0,
+        "y": 0,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 0,
+        "y": 0,
+        "offsetX": 6,
+        "offsetY": 6,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 119,
+        "y": 99,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 119,
+        "y": 98,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 119,
+        "y": 99,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 119,
+        "y": 99,
+        "offsetX": 7,
+        "offsetY": 6,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 119,
+        "y": 99,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 119,
+        "y": 98,
+        "offsetX": 1,
+        "offsetY": 7,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 119,
+        "y": 99,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 119,
+        "y": 99,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 32769,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 119,
+        "y": 99,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 119,
+        "y": 99,
+        "offsetX": 1,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 119,
+        "y": 99,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 119,
+        "y": 99,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 32770,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 119,
+        "y": 99,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 119,
+        "y": 99,
+        "offsetX": 1,
+        "offsetY": 1,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 119,
+        "y": 99,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 119,
+        "y": 99,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 32771,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 119,
+        "y": 99,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 119,
+        "y": 99,
+        "offsetX": 0,
+        "offsetY": 1,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 119,
+        "y": 99,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 119,
+        "y": 99,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 32772,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 119,
+        "y": 99,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 118,
+        "y": 99,
+        "offsetX": 7,
+        "offsetY": 1,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 119,
+        "y": 99,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 119,
+        "y": 99,
+        "offsetX": 6,
+        "offsetY": 0,
+        "direction": 32773,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 119,
+        "y": 99,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 118,
+        "y": 99,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 119,
+        "y": 99,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 119,
+        "y": 99,
+        "offsetX": 6,
+        "offsetY": 7,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 119,
+        "y": 99,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 118,
+        "y": 98,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 119,
+        "y": 99,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 119,
+        "y": 99,
+        "offsetX": 6,
+        "offsetY": 6,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 49,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 6,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 49,
+        "offsetX": 1,
+        "offsetY": 7,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 61,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 6,
+        "direction": 1,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 1,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 61,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 7,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 1,
+        "offsetY": 1,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 61,
+        "y": 51,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 3,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 1,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 51,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 59,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 1,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 51,
+        "offsetX": 6,
+        "offsetY": 0,
+        "direction": 5,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 59,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 6,
+        "offsetY": 7,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 59,
+        "y": 49,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 7,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {},
+      "expected": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 6,
+        "offsetY": 6,
+        "direction": 7,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {
+        "steps": 8192
+      },
+      "expected": {
+        "active": true,
+        "x": 83,
+        "y": 29,
+        "offsetX": 1,
+        "offsetY": 7,
+        "direction": 5,
+        "targetX": 4,
+        "targetY": 97,
+        "targetDirection": 5,
+        "turn": 0,
+        "rotor": 4096
+      },
+      "result": {},
+      "rng": [
+        57888,
+        53445
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {
+        "steps": 8192
+      },
+      "expected": {
+        "active": true,
+        "x": 52,
+        "y": 60,
+        "offsetX": 2,
+        "offsetY": 6,
+        "direction": 5,
+        "targetX": 4,
+        "targetY": 97,
+        "targetDirection": 5,
+        "turn": 0,
+        "rotor": 4096
+      },
+      "result": {},
+      "rng": [
+        57888,
+        53445
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 4,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {
+        "steps": 8192
+      },
+      "expected": {
+        "active": true,
+        "x": 72,
+        "y": 40,
+        "offsetX": 4,
+        "offsetY": 4,
+        "direction": 5,
+        "targetX": 4,
+        "targetY": 97,
+        "targetDirection": 5,
+        "turn": 0,
+        "rotor": 4096
+      },
+      "result": {},
+      "rng": [
+        57888,
+        53445
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 6,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {
+        "steps": 8192
+      },
+      "expected": {
+        "active": true,
+        "x": 68,
+        "y": 1,
+        "offsetX": 2,
+        "offsetY": 7,
+        "direction": 2,
+        "targetX": 108,
+        "targetY": 1,
+        "targetDirection": 1,
+        "turn": 0,
+        "rotor": 4096
+      },
+      "result": {},
+      "rng": [
+        15090,
+        43521
+      ]
+    },
+    {
+      "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 32768,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 0,
+      "opts": {
+        "steps": 8192
+      },
+      "expected": {
+        "active": true,
+        "x": 32,
+        "y": 80,
+        "offsetX": 2,
+        "offsetY": 6,
+        "direction": 5,
+        "targetX": 4,
+        "targetY": 97,
+        "targetDirection": 5,
+        "turn": 0,
+        "rotor": 4096
+      },
+      "result": {},
+      "rng": [
+        57888,
+        53445
+      ]
+    },
+    {
+      "before": {
+        "active": false,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 8
+      },
+      "id": 0,
+      "opts": {
+        "spawn": true,
+        "x": 0,
+        "y": 0
+      },
+      "expected": {
+        "active": true,
+        "x": 1,
+        "y": 1,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 32768,
+        "targetX": 1,
+        "targetY": 1,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 8
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": false,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 8
+      },
+      "id": 0,
+      "opts": {
+        "spawn": true,
+        "x": 60,
+        "y": 50
+      },
+      "expected": {
+        "active": true,
+        "x": 61,
+        "y": 51,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 32768,
+        "targetX": 61,
+        "targetY": 51,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 8
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    },
+    {
+      "before": {
+        "active": false,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 0,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 8
+      },
+      "id": 0,
+      "opts": {
+        "spawn": true,
+        "x": 119,
+        "y": 99
+      },
+      "expected": {
+        "active": true,
+        "x": 120,
+        "y": 100,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 32768,
+        "targetX": 120,
+        "targetY": 100,
+        "targetDirection": 0,
+        "turn": 1,
+        "rotor": 8
+      },
+      "result": {},
+      "rng": [
+        23766,
+        4664
+      ]
+    }
+  ],
+  "exitCode": 0
+}
