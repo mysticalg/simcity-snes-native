@@ -1,6 +1,6 @@
 // Source-derived residential decision points from CODE_03937A.
-// The ROM's random words are injected so the branch logic can be tested without
-// claiming that the browser RNG reproduces the ROM's $0CCD..$0CDB state.
+// Random words can be injected to isolate comparisons. Full-routine fixtures
+// separately verify the native RNG state and residential call ordering.
 export const signed16 = value => (value << 16) >> 16;
 const word = value => value & 0xffff;
 
@@ -20,24 +20,30 @@ export function isTransportDestination(id,zoneType){
  return ((id>=low&&id<high)||(id>=mergedLow&&id<mergedHigh))&&!(id>=0x277&&id<0x287);
 }
 
-// CODE_03B2D6/0318: random starting direction, avoid immediate reversal,
-// store alternate steps and penalize dead ends. Exact source stack effects
-// are retained; a browser guard bounds malformed/unexpected walks.
+// CODE_03B1A5/03B2D6/03B318. `path` is the traffic stack in its original
+// pop order, not every visited cell. Failed walks discard their last stored
+// cell. The successful drain includes slot zero, never written by push;
+// that slot is zero-initialized RAM and therefore refers to (0,0).
 export function traceZoneTransport(map,x,y,zoneType,nextWord,width=120,height=100){
  const entry=findZoneTransport(map,x,y,width,height);if(!entry)return {status:-1,path:[]};
- let cx=entry.x,cy=entry.y,reverse=5,stored=0;const path=[];
+ let cx=entry.x,cy=entry.y,reverse=5,step=0;const stack=[];
  const dirs=[[0,-1],[1,0],[0,1],[-1,0]];
  const idAt=(px,py)=>px>=0&&px<width&&py>=0&&py<height?map[py*width+px]&1023:0;
- for(let step=0;step<30;step++){
+ // Source compares equality with 30, so a dead-end +3 penalty can skip
+ // that value. Preserve its 16-bit counter; bound corrupt/pathological walks.
+ for(let guard=0;guard<65536;guard++){
   const start=nextWord()&3;let chosen=-1;
   for(let n=0;n<4;n++){const d=(start+n)&3,[dx,dy]=dirs[d],id=idAt(cx+dx,cy+dy);
    if(d!==reverse&&id>=0x30&&id<0x80&&!(id>=0x60&&id<0x6d)){chosen=d;break;}}
-  if(chosen<0){if(stored===0)return {status:0,path};stored--;step+=3;continue;}
-  cx+=dirs[chosen][0];cy+=dirs[chosen][1];reverse=(chosen+2)&3;
-  if((step&1)===0){stored++;path.push({x:cx,y:cy});}
-  if(dirs.some(([dx,dy])=>isTransportDestination(idAt(cx+dx,cy+dy),zoneType)))return {status:1,path};
+  if(chosen<0){if(stack.length===0)return {status:0,path:[]};stack.pop();step=(step+3)&65535;}
+  else {
+   cx+=dirs[chosen][0];cy+=dirs[chosen][1];reverse=(chosen+2)&3;
+   if((step&1)===0)stack.push({x:cx,y:cy});
+   if(dirs.some(([dx,dy])=>isTransportDestination(idAt(cx+dx,cy+dy),zoneType)))return {status:1,path:[...stack].reverse().concat({x:0,y:0})};
+  }
+  step=(step+1)&65535;if(step===30)return {status:0,path:[]};
  }
- return {status:0,path};
+ return {status:0,path:[],guarded:true};
 }
 
 // CODE_0395FC/039794 -> CODE_039906. The random low bit chooses
@@ -82,15 +88,17 @@ export function repairMergedZone(map,x,y,width=120,height=100){
  return stampZoneFootprint(map,x,y,base,width,height);
 }
 
-// CODE_0397C9/03985A. The USA routine repeatedly reads the first direction
-// table entries (north); neither operand is indexed by X in CODE_03987F.
+// CODE_0397C9/03985A. USA reads $06 (candidate X) for both coordinate
+// bytes, and repeatedly uses the first unindexed direction-table entries.
+// Its four tests therefore inspect (candidate X, candidate X-1).
 export function placeSmallHome(map,x,y,density,nextWord,nextBelow3,width=120,height=100){
   const offsets=[[-1,-1],[0,-1],[1,-1],[-1,0],[1,0],[-1,1],[0,1],[1,1]];
   let best=0,selected=null;
   for(const [dx,dy] of offsets){
     const cx=x+dx,cy=y+dy;if(cx<0||cx>=width||cy<0||cy>=height)continue;
     const id=map[cy*width+cx]&1023;if(id!==0&&(id<0x80||id>=0x89))continue;
-    const score=1+(cy>0&&(map[(cy-1)*width+cx]&1023)<0x60?4:0);
+    const sampleY=(cx-1)&255;
+    const score=1+((map[sampleY*width+cx]&1023)<0x60?4:0);
     if(score<best)continue;
     if(score===best&&(nextWord()&7)!==0)continue;
     best=score;selected=cy*width+cx;
@@ -168,9 +176,9 @@ export function residentialDeclineFootprint(map,x,y,population,density,nextRando
       if(dx===0&&dy===0)continue;
       const i=(y+dy)*width+x+dx;
       if(x+dx<0||x+dx>=width||y+dy<0||y+dy>=height)continue;
-      if((map[i]&0x03ff)===0x84)continue;
+      if(map[i]===0x84)continue;
       const variety=Math.max(0,Math.min(2,Math.trunc(nextRandomBelow3())));
-      map[i]=(map[i]&0xff00)|(homeBase+variety);
+      map[i]=homeBase+variety;
     }
     return true;
   }
@@ -182,8 +190,8 @@ export function residentialDeclineFootprint(map,x,y,population,density,nextRando
   for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){
     const cx=x+dx,cy=y+dy;
     if(cx<0||cx>=width||cy<0||cy>=height)continue;
-    const i=cy*width+cx,id=map[i]&0xff;
-    if(id>=0x89&&id<0x95){map[i]=(map[i]&0xff00)|0x80+(dy+1)*3+dx+1;return true;}
+    const i=cy*width+cx,id=map[i];
+    if(id>=0x89&&id<0x95){map[i]=0x80+(dy+1)*3+dx+1;return true;}
   }
   return changed;
 }

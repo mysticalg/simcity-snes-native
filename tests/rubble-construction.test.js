@@ -1,0 +1,11 @@
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import {City} from '../src/simulation.js';
+const build=JSON.parse(fs.readFileSync('assets/tables/build.json')),flags=JSON.parse(fs.readFileSync('assets/tables/city.json')).flags,fresh=()=>{const c=new City(new Uint16Array(12000),build,flags);c.funds=200000;return c;};
+test('all rubble variants allow construction without replacement enabled and include preparation cost',()=>{
+ for(const tool of [1,2,3,4,5,6,7,8,13,14,30,31,32,34,39]){const c=fresh(),footprint=c.footprint(tool,30,30);for(const [n,p]of footprint.entries())c.map[p.y*120+p.x]=0xc028+n%4;c.pipes[30*120+30]=1;const before=c.funds,check=c.canBuild(tool,30,30);assert.equal(check.ok,true,'tool '+tool);assert.equal(check.cost,c.build.costs[tool]+footprint.length);assert.equal(c.place(tool,30,30),true);assert.equal(c.funds,before-check.cost);assert.equal(c.pipes[30*120+30],1);for(const p of footprint)assert.ok(c.id(p.x,p.y)<0x28||c.id(p.x,p.y)>0x2b);}
+});
+test('available-space zoning fills rubble while preserving existing zones and preview atomicity',()=>{
+ const c=fresh();c.place(5,14,20);const existing=c.map.slice();for(const x of [10,18])for(const p of c.footprint(5,x,20))c.map[p.y*120+p.x]=0x28;const input=c.map.slice(),funds=c.funds,plan=c.planPlacements(5,[{x:10,y:20},{x:14,y:20},{x:18,y:20}],{skipBlocked:true});assert.equal(plan.ok,true);assert.equal(plan.anchors.length,2);assert.equal(plan.skipped,1);assert.equal(plan.cost,2*(c.build.costs[5]+9));assert.deepEqual(c.map,input);assert.equal(c.funds,funds);c.applyPlacementPlan(plan);for(const p of c.footprint(5,14,20))assert.equal(c.map[p.y*120+p.x],existing[p.y*120+p.x]);for(const x of [10,18])assert.equal(c.id(x+1,21),0x84);
+});
+test('rubble construction rejects fire/radiation and unaffordable atomic blueprints',()=>{
+ const c=fresh();for(const id of [0x7f,0x364,0x365]){c.map[30*120+30]=id;assert.equal(c.canBuild(5,30,30).ok,false);}for(const p of c.footprint(5,30,30))c.map[p.y*120+p.x]=0x28;c.funds=c.build.costs[5]+8;const before=c.map.slice(),plan=c.planPlacements(5,[{x:30,y:30}]);assert.equal(plan.ok,false);assert.equal(plan.cost,c.build.costs[5]+9);assert.deepEqual(c.map,before);
+});

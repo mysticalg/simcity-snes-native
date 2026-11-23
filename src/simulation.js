@@ -16,7 +16,7 @@ import {createRomTornado,startRomTornado,stepRomTornado} from './rom-tornado.js?
 import {createRomSeason,changeRomSeason,advanceRomSeason} from './rom-render.js?v=season-1';
 import {romPopulation} from './rom-population.js';
 import {selectRomRandomDisaster} from './rom-random-disaster.js';
-import {romFacilityDemand,placeRomFacility,updateRomFacility} from './rom-facilities.js';
+import {romFacilityDemand,placeRomFacility,updateRomFacility} from './rom-facilities.js?v=residential-1';
 import {createRomTrain,spawnRomTrain,stepRomTrain} from './rom-train.js';
 import {createRomShip,spawnRomShip,stepRomShip} from './rom-ship.js?v=megacity-1';
 import {applyRomShipCollision,applyRomTrainCollision,burnRomZone} from './rom-collision.js?v=megacity-1';
@@ -28,7 +28,7 @@ import {traceRomPower} from './rom-power.js?v=regions-1';
 import {romFieldSchedule} from './rom-schedule.js';
 import {romGiftEffects,nextCoreMilestone,enqueueRomGift} from './rom-gifts.js?v=history-3';
 import {networkCrossing,hasRoadLayer} from './rom-networks.js?v=megacity-1';
-import {romPoliceCoverage,romFireCoverage,fireBurnoutMaximum,romServiceFunding,seedRomServicePlane,expandRomServicePlane,addRomServiceCenter} from './rom-services.js';
+import {romPoliceCoverage,romFireCoverage,fireBurnoutMaximum,romServiceFunding,seedRomServicePlane,expandRomServicePlane,addRomServiceCenter} from './rom-services.js?v=residential-1';
 import {romDensityField} from './rom-density.js';
 import {romCrimeValue,meanRomCrime} from './rom-crime.js';
 import {romPollutionField} from './rom-pollution.js';
@@ -38,8 +38,8 @@ import {SIMULATION_SEED,nextSimulationWord,boundSimulationWord} from './rom-rand
 import {decayTraffic,addRouteTraffic} from './rom-traffic.js';
 import {applyRomMeltdown,applyRomEarthquake,startRomFire,startRomFlood,dispatchRomDisasterTile} from './rom-disasters.js?v=megacity-1';
 import {scenarioOutcome,SCENARIO_EVENT_COUNTS,stepScenarioEvent,stepScenarioReminder,scenarioMeltdownSite} from './rom-scenarios.js';
-import {residentialDemandScore, residentialLocalScore, residentialDensityBand, residentialGrowthBase, residentialDeclineFootprint, decideResidentialUpdate, stampZoneFootprint, placeSmallHome, mergeResidentialZone,repairMergedZone,updateCommercialFootprint,updateIndustrialFootprint,decideJobZoneUpdate,findZoneTransport,traceZoneTransport} from './rom-growth.js';
-import {accumulateRomDemand,generateRomDemand,scanRomGrowthCaps} from './rom-demand.js';
+import {residentialDemandScore, residentialLocalScore, residentialDensityBand, residentialGrowthBase, residentialDeclineFootprint, decideResidentialUpdate, stampZoneFootprint, placeSmallHome, mergeResidentialZone,repairMergedZone,updateCommercialFootprint,updateIndustrialFootprint,decideJobZoneUpdate,findZoneTransport,traceZoneTransport} from './rom-growth.js?v=residential-1';
+import {accumulateRomDemand,generateRomDemand,scanRomGrowthCaps} from './rom-demand.js?v=residential-1';
 // Native simulation model. ROM-backed tables and direct translations are marked.
 // Monthly growth, coverage and disasters are provisional reconstructions, not yet
 // instruction-for-instruction ports of the SNES simulation (see research/STATUS.md).
@@ -160,6 +160,9 @@ export class City {
    if(c.x<0||c.x>=this.width||c.y<0||c.y>=this.height)return {ok:false,cost,reason:'The building must fit inside the map.'};
    const id=this.id(c.x,c.y);
    if(id===0)continue;
+   // Rubble is a vacant construction site. Clear it as part of the build,
+   // with the same $1/cell preparation cost as other removable ground cover.
+   if(id>=0x28&&id<=0x2b){cost++;continue;}
    if(id>=4&&id<0x26){cost++;continue;}
    if(tool<=3&&(id>=1&&id<=3)){cost=this.build.costs[tool]*2;continue;}
    if(tool<=3&&id>=0x30&&id<0x80&&((this.flags[id]||0)&(tool===1?0x40:tool===2?0x20:0x10))===0)continue;
@@ -270,7 +273,7 @@ export class City {
    if(direction>0&&this.pollution[z.i]>=0x81)return false;
    const density=residentialDensityBand(this.landValue[z.i]||0,this.pollution[z.i]||0);
    if(direction>0){
-    if(id===0x84){if(population<8)return placeSmallHome(this.map,z.x,z.y,density,()=>this.random(),()=>this.boundedRandom(2),this.width,this.height);if((this.landValue[z.i]||0)<0x41)return false;return stampZoneFootprint(this.map,z.x,z.y,residentialGrowthBase(8,density),this.width,this.height);}
+    if(id===0x84){if(population<8)return placeSmallHome(this.map,z.x,z.y,density,()=>this.random(),()=>this.boundedRandom(2),this.width,this.height);if((this.density[z.i]||0)<0x41)return false;return stampZoneFootprint(this.map,z.x,z.y,residentialGrowthBase(8,density),this.width,this.height);}
     if(id===0x120||population>=40)return mergeResidentialZone(this.map,z.x,z.y,this.width,this.height);return stampZoneFootprint(this.map,z.x,z.y,residentialGrowthBase(population,density),this.width,this.height);
    }
    return residentialDeclineFootprint(this.map,z.x,z.y,population,density,()=>this.boundedRandom(2),this.width,this.height);
@@ -297,8 +300,8 @@ export class City {
    if(transport===1)addRouteTraffic(this.map,this.traffic,route.path,this.width,this.height);
   }
   const gateWord=current.id===0x84?0:nextRandomWord();
-  // CODE_0399D2's 0..255 lookup planes are represented by the model's
-  // approximate land-value field; demand and these local inputs remain provisional.
+  // CODE_0399D2 reads land value $7F6B00 and pollution $7F8270.
+  // The population-density redevelopment gate separately reads $7F8E28.
   const localScore=residentialLocalScore(this.landValue[z.i]||0,this.pollution[z.i]||0,transport!==0);
   const score=residentialDemandScore(this.map[z.i],localScore,this.demand[0]);
   const decision=decideResidentialUpdate({tileId:current.id,gateWord,score,population,nextRandomWord});

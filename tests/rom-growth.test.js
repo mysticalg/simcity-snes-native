@@ -93,10 +93,12 @@ test('CODE_039659 turns 16 residents into a special house block and downgrades 8
  assert.equal(residentialDeclineFootprint(homes,x,y,16,1,()=>varieties.shift(),width,height),true);
  assert.equal(homes[center],0x84);
  assert.deepEqual([homes[center-width-1]&0xff,homes[center-width]&0xff,homes[center-width+1]&0xff],[0x8c,0x8d,0x8e]);
- const small=Array(width*height).fill(0x8089);
+ const powered=Array(width*height).fill(0x8089);
+ assert.equal(residentialDeclineFootprint(powered,x,y,8,0,()=>0,width,height),false);
+ const small=Array(width*height).fill(0x89);
  assert.equal(residentialDeclineFootprint(small,x,y,8,0,()=>0,width,height),true);
- assert.equal(small[center-width-1],0x8080);
- assert.equal(small[center+width+1],0x8089);
+ assert.equal(small[center-width-1],0x80);
+ assert.equal(small[center+width+1],0x89);
 });
 
  test('small-home placement and both merge orientations execute through City.grow',()=>{
