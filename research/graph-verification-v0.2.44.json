@@ -1,0 +1,64 @@
+{
+  "version": "0.2.44",
+  "scope": "Native worker arithmetic compared in controlled original executions; browser UI fixture supplied through workers and one actual January tick. Not natural 120-year original runtime or PPU parity.",
+  "originalReference": {
+    "file": "research/reference-graphs.json",
+    "cases": 72,
+    "wordsCompared": 210528
+  },
+  "nodeTests": 502,
+  "browser": {
+    "originalWorkerWords": 210528,
+    "scope": "UI fixture history fed through source-verified workers; one actual January step checked, not a natural 120-year original-ROM run.",
+    "actualJanuaryMatches": true,
+    "preBudgetFinanceIndex": 153,
+    "sixSeries": true,
+    "rangeToggle": true,
+    "keyboardReadout": true,
+    "allLinesOff": true,
+    "session": true,
+    "downloadReload": true,
+    "modalBlocksSimulation": true,
+    "mobile": {
+      "dialogWidth": 366,
+      "viewport": 390,
+      "overflow": 0,
+      "svgWidth": 328
+    },
+    "mobileTouch": {
+      "readout": "1913 · Residential: 1,062 · Commercial: 128 · Industrial: 176 · Crime: 84 · Pollution: 58 · Finances: 167",
+      "close": true
+    },
+    "resize": true,
+    "olderSaveNoInventedPast": true,
+    "errors": []
+  },
+  "workerCost": {
+    "scope": "Local Node CPU: mean pollution plus monthly graph worker, January worker every twelfth sample; 1000 warmup, 500 samples. Not browser FPS or full simulation cost.",
+    "records": [
+      {
+        "width": 120,
+        "height": 100,
+        "captures": 500,
+        "medianMs": 0.023299999999998988,
+        "p95Ms": 0.04339999999999833
+      },
+      {
+        "width": 240,
+        "height": 200,
+        "captures": 500,
+        "medianMs": 0.03190000000000737,
+        "p95Ms": 0.052599999999998204
+      }
+    ]
+  },
+  "normalizedLFSourceSHA256": {
+    "src/rom-graphs.js": "04a2b00bc1a563e09e98ccb08acba4d390bd083e04acbd121ba338752ba659aa",
+    "src/turbo-graphs.js": "24deb3af84c24d22d8a5d9b6469a50e6c8ec8fc5101589aa7b3cd55babd3d4e8",
+    "src/graphs-ui.js": "89bb02f19212978979a47a0cffb1e466e0d8c2026c2083742579651a08534864",
+    "src/simulation.js": "c55c3aa021b0efe673b61b0015df36822e1c01691199e452484f17c50ed0ac2d",
+    "src/app.js": "ee9094dccb3af13030b534646d8640291ffaef2e2c33eda39bfa13a56a78e13c",
+    "src/style.css": "751fde1be15ae05bce136b322f72a90880bed28a5e07085b4cb10d26037147d8"
+  },
+  "fullPortComplete": false
+}

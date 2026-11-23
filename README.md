@@ -4,9 +4,11 @@ This project reverse engineers the USA release of SimCity for Super Nintendo and
 
 ## Play
 
-Open the [GitHub Pages version](https://mysticalg.github.io/simcity-snes-native/) after deployment, or serve this directory locally with `python -m http.server 5173` and open `http://localhost:5173`.
+Open the [GitHub Pages version](https://mysticalg.github.io/simcity-snes-native/), or serve this directory locally with `python scripts/serve.py --port 5173` and open `http://localhost:5173`. The bundled server supplies the correct JavaScript MIME type on Windows.
 
-Latest Turbo update: **v0.2.43** shares civic window-glow pages, retaining individual windows and their fade while reducing separate bloom canvases and blur operations. [Pixel checks and rendering measurements](research/shared-window-glows-v0.2.43.md).
+Latest Turbo update: **v0.2.44** adds City Graphs: original monthly/January records for RCI occupancy, crime, pollution and finances, with 10-year/120-year views, touch/keyboard readouts and saved history. The newest monthly records also feed zone demand. [Original-worker comparisons and limits](research/city-graphs-v0.2.44.md).
+
+v0.2.43 shared civic window-glow pages, retaining individual windows and their fade while reducing separate bloom canvases and blur operations. [Pixel checks and rendering measurements](research/shared-window-glows-v0.2.43.md).
 
 v0.2.42 added the original Capital, Metropolis and Megalopolis music, with shared tempo/volume fades and complete order cycles. All six city themes now follow promotion stage. [Source evidence, playback checks and limits](research/later-city-music-v0.2.42.md).
 
