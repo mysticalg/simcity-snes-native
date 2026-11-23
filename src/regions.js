@@ -1,3 +1,4 @@
+import {conductivePowerFlags} from './power-conductors.js?v=terrain-1';
 import {buildingOff} from './building-operations.js';
 import {civicForId,pumpStatus,waterNetwork} from './civic.js?v=sewage-1';
 const analysisCache=new WeakMap();
@@ -6,9 +7,9 @@ export const REGION_SIZES=[4,8,16];
 export function createRegion(name,size){if(!REGION_SIZES.includes(size))throw Error('Choose a 4×4, 8×8 or 16×16 region.');return {version:1,id:crypto.randomUUID(),name:String(name||'New region').slice(0,80),size,cities:{}};}
 const around=[[-1,-2],[0,-2],[1,-2],[2,-1],[2,0],[2,1],[1,2],[0,2],[-1,2],[-2,1],[-2,0],[-2,-1]];
 export function analyzeCity(city){
- const {map,flags}=city,w=120,h=100,layers={},waterNodes=waterNetwork(city).nodes;
+ const {map,flags}=city,powerFlags=conductivePowerFlags(flags),w=120,h=100,layers={},waterNodes=waterNetwork(city).nodes;
  for(const [kind,bit]of [['road',64],['rail',32],['power',128],['water',0]]){
-  const labels=new Int32Array(map.length).fill(-1),groups=[],conducts=i=>kind==='water'?!!waterNodes[i]:!!(flags[map[i]&1023]&bit);
+  const labels=new Int32Array(map.length).fill(-1),groups=[],conducts=i=>kind==='water'?!!waterNodes[i]:!!((kind==='power'?powerFlags:flags)[map[i]&1023]&bit);
   for(let i=0;i<map.length;i++){if(labels[i]>=0||!conducts(i))continue;const group={cells:[],rci:[0,0,0],vacancies:[0,0,0],generation:0,zones:[],health:0,garbage:0,waterDemand:0},label=groups.length;groups.push(group);const stack=[i];labels[i]=label;
    while(stack.length){const n=stack.pop(),id=map[n]&1023;group.cells.push(n);if(kind==='power'&&city.disabledBuildings?.[n]!==id){if(id===0x28c)group.generation+=700;if(id===0x27c)group.generation+=2000;if(id===963)group.generation+=10000;if(id===972)group.generation+=200;}for(const next of [n>=w?n-w:-1,n%w<w-1?n+1:-1,n+w<map.length?n+w:-1,n%w>0?n-1:-1])if(next>=0&&labels[next]<0&&conducts(next)){labels[next]=label;stack.push(next);}}
   }
@@ -23,7 +24,7 @@ export function analyzeCity(city){
 export function regionExchange(region,activeSlot,activeCity,savedCities){
  const cities=new Map(savedCities);cities.set(String(activeSlot),activeCity);const data=new Map([...cities].map(([slot,c])=>[String(slot),c===activeCity?analyzeCity(c):(()=>{const cached=analysisCache.get(c);if(cached?.revision===c.revision)return cached.data;const a=analyzeCity(c);analysisCache.set(c,{revision:c.revision,data:a});return a;})()])),parents=new Map(),links=[];
  const key=(s,k,g)=>s+'/'+k+'/'+g,find=x=>{if(!parents.has(x))parents.set(x,x);if(parents.get(x)!==x)parents.set(x,find(parents.get(x)));return parents.get(x);},join=(a,b)=>parents.set(find(a),find(b));
- for(const[slot,layers]of data){const s=+slot,col=s%region.size,row=Math.floor(s/region.size);for(const [neighbor,side]of [[col+1<region.size?s+1:-1,'east'],[row+1<region.size?s+region.size:-1,'south']]){const other=data.get(String(neighbor));if(!other)continue;for(const kind of ['road','rail','power','water'])for(let n=0;n<(side==='east'?100:120);n++){const a=side==='east'?n*120+119:99*120+n,b=side==='east'?n*120:n,ga=layers[kind].labels[a],gb=other[kind].labels[b];if(ga<0||gb<0)continue;if(kind==='power'&&(!(activeFlag(slot,a)&16)||!(activeFlag(String(neighbor),b)&16)))continue;join(key(slot,kind,ga),key(neighbor,kind,gb));links.push({from:s,to:neighbor,kind,position:n});}}}
+ for(const[slot,layers]of data){const s=+slot,col=s%region.size,row=Math.floor(s/region.size);for(const [neighbor,side]of [[col+1<region.size?s+1:-1,'east'],[row+1<region.size?s+region.size:-1,'south']]){const other=data.get(String(neighbor));if(!other)continue;for(const kind of ['road','rail','power','water'])for(let n=0;n<(side==='east'?100:120);n++){const a=side==='east'?n*120+119:99*120+n,b=side==='east'?n*120:n,ga=layers[kind].labels[a],gb=other[kind].labels[b];if(ga<0||gb<0)continue;if(kind==='power'&&(!(activeFlag(slot,a)&112)||!(activeFlag(String(neighbor),b)&112)))continue;join(key(slot,kind,ga),key(neighbor,kind,gb));links.push({from:s,to:neighbor,kind,position:n});}}}
  function activeFlag(slot,i){const c=cities.get(String(slot));return c.flags[c.map[i]&1023]||0;}
  const pools=new Map();for(const[slot,layers]of data)for(const[kind,layer]of Object.entries(layers))layer.groups.forEach((group,g)=>{const root=find(key(slot,kind,g));if(!pools.has(root))pools.set(root,[]);pools.get(root).push({slot,kind,group});});
  const active=data.get(String(activeSlot)),externalRci=[0,0,0],seenZones=new Set(),zoneAccess=new Map(),waterAllocations=new Map(),importPower=new Uint8Array(12000),regionalPowerMask=new Uint8Array(12000);let powerCapacity=0,powerUsed=0,powerShortfall=false,health=0,garbage=0,commuters=0;const powerSummary={capacity:0,used:0,imported:0},powerPools=new Set(),servicePools=new Set();const connectedCities=new Set(),transportCities=new Set();
