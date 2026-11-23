@@ -1,5 +1,5 @@
 import {buildingOff} from './building-operations.js';
-import {civicForId,pumpStatus,waterNetwork} from './civic.js?v=turbo-0.2.0';
+import {civicForId,pumpStatus,waterNetwork} from './civic.js?v=sewage-1';
 const analysisCache=new WeakMap();
 // Player-requested regional extension; not a SNES simulation routine.
 export const REGION_SIZES=[4,8,16];

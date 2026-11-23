@@ -1,6 +1,6 @@
 import {regionBorderHints,drawRegionBorders,drawRegionThumbnail,borderHintText} from './region-connections.js';
-import {civicServices} from './civic.js?v=turbo-0.2.0';
-import {createRegion,regionStore,regionExchange} from './regions.js?v=turbo-0.2.0';
+import {civicServices} from './civic.js?v=sewage-1';
+import {createRegion,regionStore,regionExchange} from './regions.js?v=sewage-1';
 export function setupRegions({getCity,setCity,City,build,flags,terrain,modal,paint}){
  let region=null,slot=null,saved=new Map(),busy=false,showConnections=true;const disconnect=()=>{if(getCity()){getCity().regionalProvider=null;getCity().regionalState=null;}};
  const $=s=>document.querySelector(s),escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));

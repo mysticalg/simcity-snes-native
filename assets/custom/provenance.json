@@ -34,5 +34,21 @@
     "art": "16x24 native pixels including mast overhang",
     "preparation": "Nearest-neighbor 32x32 source sprite with alpha threshold180; original preserved",
     "prompt": "One isolated SNES-style top-down wind turbine, three white blades, two side-by-side square utility ground tiles, tall mast above footprint, transparent background, no text, readable at tiny pixel size."
+  },
+  "sewage": {
+    "source": "OpenAI ImageGen tool",
+    "original": "sewage-imagegen-original.png",
+    "sha256": "2e6bc6aaf60a1d8dc0b74761d3d73a4bfe9b4581ecde748662539eea3dc703ee",
+    "subjects": [
+      "Sewage pump",
+      "Sewage treatment"
+    ],
+    "sprites": [
+      "civic-13.png",
+      "civic-14.png"
+    ],
+    "preparation": "Split two equal horizontal cells; nearest-neighbor32x32; alpha threshold180; original preserved",
+    "description": "SNES-style top-down city-building sewage pump and sewage treatment plant sprites; transparent background; tiny readable industrial tanks and pipework; no text.",
+    "documented": "2026-11-23"
   }
 }

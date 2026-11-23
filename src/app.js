@@ -1,11 +1,12 @@
+import {drawSeaPollution} from './sewage.js?v=sewage-1';
 import {installBuildingOperations,buildingAt,buildingSummary,drawDisabledBuildings} from './building-operations.js';
 import {installFinancialSafety,financialStatus} from './financial-safety.js';
-import {setupBuildPalette} from './build-palette.js?v=category-memory-1';
+import {setupBuildPalette} from './build-palette.js?v=sewage-1';
 import {drawTerrainShore} from './terrain-tools.js';
 import {drawWaterWarnings,unwateredBuildings} from './water-warnings.js?v=civic-revisions-1';
-import {setupRegions} from './region-ui.js?v=turbo-0.2.0';
-import {CIVIC_TOOLS} from './civic.js';
-import {drawCivic,civicReport} from './civic-ui.js?v=pump-fix-1';
+import {setupRegions} from './region-ui.js?v=sewage-1';
+import {CIVIC_TOOLS} from './civic.js?v=sewage-1';
+import {drawCivic,civicReport} from './civic-ui.js?v=sewage-1';
 import {HISTORY_LABELS} from './rom-history.js?v=history-3';
 import {AnimatedCityAtlas,cityAnimationState,advanceCityAnimation} from './city-graphics.js?v=season-1';
 import {drawPowerWarnings,unpoweredBuildings} from './power-warnings.js?v=pump-fix-1';
@@ -14,7 +15,7 @@ import {OVERLAYS,overlayColor} from './map-overlays.js?v=civic-revisions-1';
 import {cityPaletteForMonth,romSeasonPalette} from './rom-render.js?v=season-1';
 import {RomSampleAudio} from './rom-audio.js?v=aircraft-1';
 const romAudio=new RomSampleAudio();
-import{City,SCENARIOS,TOOLS,W,H,clamp}from'./simulation.js?v=aircraft-2';
+import{City,SCENARIOS,TOOLS,W,H,clamp}from'./simulation.js?v=sewage-1';
 installBuildingOperations(City);
 installFinancialSafety(City);
 const $=s=>document.querySelector(s),canvas=$('#game'),ctx=canvas.getContext('2d',{alpha:false});ctx.imageSmoothingEnabled=false;
@@ -32,7 +33,7 @@ function start(id='PracticeCity'){regionManager?.detach();const i=SCENARIOS.find
 function menu(){modal('Choose a city','Select an original cartridge map. Scenario objectives and timed events are still being reconstructed.','<div class="choices">'+SCENARIOS.map(s=>`<button class="choice" data-city="${s.id}"><strong>${s.name}</strong><span>${s.year} · ${s.description}</span></button>`).join('')+'</div>','',null);$('#modalGo').style.display='none';$('#modalClose').textContent='CLOSE';document.querySelectorAll('[data-city]').forEach(b=>b.onclick=()=>start(b.dataset.city));}
 function setup(){const zb=document.createElement('button');zb.id='zoom';zb.textContent='ZOOM 1×';zb.onclick=()=>setZoom([1,2,4][([1,2,4].indexOf(zoom)+1)%3]);document.querySelector('#view').after(zb);canvas.addEventListener('wheel',e=>{if(!city)return;e.preventDefault();if(mapView==='none'&&drawMode==='grid'){setGridSpacing(gridSpacing+(e.deltaY<0?1:-1));return;}setZoom(clamp(zoom*(e.deltaY<0?2:.5),1,4));},{passive:false});const nav=$('#nav');[['NEW CITY',menu],['INFORMATION',()=>modal('City information','Your city grows when zones connect to roads, power is available, and demand is positive.','Residential, commercial, and industrial zones need roads and electricity.')],['CITY HISTORY',cityHistory],['CITY EVALUATION',cityEvaluation],['FISCAL BUDGET',budget],['DISASTERS',disasters]].forEach(([label,fn])=>{let b=document.createElement('button');b.textContent=label;b.onclick=fn;nav.append(b)});
 const icons=['🚜','🛣','🛤','⚡','🌳','🏠','🏢','🏭','🛡','🚒','🏟','⚓','✈','☢','♨','🎁'];
-TOOLS.forEach((n,i)=>{let b=document.createElement('button');b.innerHTML=`<span class="tool-icon" aria-hidden="true">${i>=30&&i<42?'<img src="assets/custom/civic-'+(i===41?12:i-30)+'.png" alt="">':i===42?'🏝':i===43?'🌊':icons[i]||'◆'}</span><span>${n}</span>`;b.title=n;b.setAttribute('aria-label',n);b.dataset.tool=i;b.onclick=()=>{if(i===15){giftMenu();return;}selectBuildTool(i)};$('#tools').append(b)});
+TOOLS.forEach((n,i)=>{let b=document.createElement('button');b.innerHTML=`<span class="tool-icon" aria-hidden="true">${CIVIC_TOOLS.some(b=>b.tool===i)?'<img src="assets/custom/civic-'+(CIVIC_TOOLS.find(b=>b.tool===i)?.sprite??i-30)+'.png" alt="">':i===42?'🏝':i===43?'🌊':icons[i]||'◆'}</span><span>${n}</span>`;b.title=n;b.setAttribute('aria-label',n);b.dataset.tool=i;b.onclick=()=>{if(i===15){giftMenu();return;}selectBuildTool(i)};$('#tools').append(b)});
 buildPalette=setupBuildPalette(selectBuildTool);const inspect=document.createElement('button');inspect.id='inspectTool';inspect.textContent='🔎 Select / inspect';inspect.onclick=()=>selectBuildTool(-2);$('#buildCategories').prepend(inspect);
 $('#pause').onclick=()=>{if(paused&&city?.financialEmergency&&!city.resolveFinancialEmergency()){financialWarning(true);return;}paused=!paused;$('#pause').textContent=paused?'▶ RESUME':'Ⅱ PAUSE'};$('#speed').onclick=()=>{city.speed=speeds[(speeds.indexOf(city.speed)+1)%speeds.length];$('#speed').textContent=`SPEED ${city.speed}×`};$('#view').onclick=()=>setOverlay(mapView==='none'?'crime':'none');$('#save').onclick=save;$('#load').onclick=()=>$('#file').click();$('#file').onchange=load;$('#sound').textContent='MUSIC OFF';const effectsButton=document.createElement('button');effectsButton.id='sfx';effectsButton.textContent='SFX OFF';$('#sound').after(effectsButton);const updateAudioButtons=()=>{for(const[id,enabled,label]of[['sound',musicEnabled,'MUSIC'],['sfx',sfxEnabled,'SFX']]){$('#'+id).textContent=label+(enabled?' ON':' OFF');$('#'+id).setAttribute('aria-pressed',String(enabled));}romAudio.mute(!musicEnabled&&!sfxEnabled);};updateAudioButtons();$('#sound').onclick=async()=>{musicEnabled=!musicEnabled;updateAudioButtons();try{if(musicEnabled){await romAudio.start();if(!musicEnabled)return;romAudio.mute(false);await romAudio.playOriginalTrackOne();}else romAudio.stopMusic();}catch(error){musicEnabled=false;updateAudioButtons();city?.message('Music: '+error.message);}};$('#sfx').onclick=async()=>{sfxEnabled=!sfxEnabled;updateAudioButtons();try{if(sfxEnabled){await romAudio.start();if(sfxEnabled)romAudio.mute(false);}else romAudio.stopEffects();}catch(error){sfxEnabled=false;updateAudioButtons();city?.message('SFX: '+error.message);}};$('#modalGo').onclick=()=>{if(onGo)onGo();else $('#modal').classList.add('hidden')};$('#modalClose').onclick=()=>{if(!city?.pendingBudget)$('#modal').classList.add('hidden');};}
 function cityEvaluation(){
@@ -67,9 +68,9 @@ function disasters(){
 function updateTools(){document.querySelectorAll('#tools button').forEach(b=>b.classList.toggle('selected',+b.dataset.tool===selected));}
 function centerCamera(){camera.x=clamp(cursor.x-60/zoom,0,Math.max(0,W-120/zoom));camera.y=clamp(cursor.y-37.5/zoom,0,Math.max(0,H-75/zoom));}
 function setZoom(value){zoom=value;centerCamera();document.querySelector('#zoom').textContent='ZOOM '+zoom+'×';paint();}
-function cell(x,y){if(x<0||x>=W||y<0||y>=H)return;const id=city.map[y*W+x]&1023;const season=cityPaletteForMonth(city.month),atlas=currentAtlas,i=clamp(id,0,957),sx=(i%32)*8,sy=(i>>5)*8,dx=x*8,dy=y*8;ctx.drawImage(atlas,sx,sy,8,8,dx,dy,8,8);const color=overlayColor(city,mapView,y*W+x);if(color){ctx.fillStyle=color;ctx.fillRect(dx,dy,8,8);}}
+function cell(x,y){if(x<0||x>=W||y<0||y>=H)return;const id=city.map[y*W+x]&1023;const season=cityPaletteForMonth(city.month),atlas=currentAtlas,i=id>=960?0:clamp(id,0,957),sx=(i%32)*8,sy=(i>>5)*8,dx=x*8,dy=y*8;ctx.drawImage(atlas,sx,sy,8,8,dx,dy,8,8);const color=overlayColor(city,mapView,y*W+x);if(color){ctx.fillStyle=color;ctx.fillRect(dx,dy,8,8);}}
 function paint(){if(!city)return;if(city.focusRequest){cursor={...city.focusRequest};centerCamera();city.focusRequest=null;}currentAtlas=animatedAtlas.image(cityPaletteForMonth(city.month),animation,romSeasonPalette(graphicsData.slice(2),city.season.source,city.season.progress),city.season.source+':'+city.season.progress);ctx.fillStyle='#071c33';ctx.fillRect(0,0,960,600);ctx.save();ctx.scale(zoom,zoom);if(city.quakeFrames)ctx.translate((city.quakePhase&8)?-2:2,0);ctx.translate(-camera.x*8,-camera.y*8);const x0=Math.floor(Math.max(0,camera.x)),y0=Math.floor(Math.max(0,camera.y)),x1=Math.min(W,camera.x+120/zoom),y1=Math.min(H,camera.y+75/zoom);for(let y=y0;y<y1;y++)for(let x=x0;x<x1;x++)cell(x,y);
-drawTerrainShore(ctx,city);drawCivic(ctx,city,{pipes:selected===40||mapView==='water',phase:city.civic.busFrame||0});
+drawSeaPollution(ctx,city);drawTerrainShore(ctx,city);drawCivic(ctx,city,{pipes:selected===40||mapView==='water',phase:city.civic.busFrame||0});
 drawDisabledBuildings(ctx,city);hoverPlanCache=null;
 if(mapView==='none'&&!stroke&&selected>=0&&selected<build.buildings.length){hoverPlanCache=hoverPlacementPlan();ctx.globalAlpha=.7;
  const anchors=fillAvailable?hoverPlanCache.anchors:drawMode==='blocks'?zoneBlockLayout(cursor,cursor,blockColumns,blockRows,blockCourtyard).zones:[cursor];
