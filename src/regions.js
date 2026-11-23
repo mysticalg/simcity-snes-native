@@ -1,5 +1,5 @@
 import {windPower} from './climate.js?v=weather-1';
-import {conductivePowerFlags} from './power-conductors.js?v=terrain-1';
+import {conductivePowerFlags} from './power-conductors.js?v=power-work-38';
 import {buildingOff} from './building-operations.js?v=education-traffic-27';
 import {civicForId,pumpStatus,waterNetwork} from './civic.js?v=health-care-34';
 const analysisCache=new WeakMap();

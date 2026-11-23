@@ -9,7 +9,7 @@ import {addRomGrowthRate,decayRomGrowthRate} from './rom-growth-rate.js?v=job-gr
 import {createRomUfo,stepRomUfo,startRomUfoVisit} from './rom-ufo.js?v=emergency-1';
 import {updateLocalHealth} from './social-fields.js?v=health-care-34';
 import {createClimate,advanceClimate,combineAirPollution,windPower} from './climate.js?v=weather-1';
-import {conductivePowerFlags} from './power-conductors.js?v=terrain-1';
+import {conductivePowerFlags,turboPowerBranchLimit} from './power-conductors.js?v=power-work-38';
 import {createElevation,terrainCheck,plantForest} from './elevation.js?v=megacity-1';
 import {employmentIncome} from './employment.js?v=megacity-1';
 import {buildingOff} from './building-operations.js?v=education-traffic-27';
@@ -32,7 +32,7 @@ import {recordRomHistory} from './rom-history.js';
 import {romCommercialRate,commercialLocalScore,industrialLocalScore} from './rom-commercial.js?v=megacity-1';
 import {romCityProblems,romCityScore,pollRomProblems,pollRomApproval,romAssessedValue} from './rom-evaluation.js?v=facilities-1';
 import {romTransportFunding,updateRomTransportTile} from './rom-transport.js';
-import {traceRomPower} from './rom-power.js?v=regions-1';
+import {traceRomPower} from './rom-power.js?v=power-work-38';
 import {romFieldSchedule} from './rom-schedule.js';
 import {romGiftEffects,nextCoreMilestone,enqueueRomGift,ROM_GIFTS,giftToolForId} from './rom-gifts.js?v=gift-workers-31';
 import {networkCrossing,hasRoadLayer} from './rom-networks.js?v=megacity-1';
@@ -122,7 +122,8 @@ export class City {
   this.updatePower();this.census();applyParkBenefits(this);this.reconcileGrowthFacilities();if(this.regionalProvider){this.regionalState=this.regionalProvider(this);this.updatePower();}if(this.civicEnabled){const services=civicServices(this);this.civicCapacity=services.capacity;this.busRoutes=services.routes;this.civicWatered=services.watered;this.waterField=services.water;this.waterAssignments=services.waterAssignments;this.waterNetworks=services.waterNetworks;if(this.civic.sewageEnabled)this.sewageFlow=sewageServices(this).flow;}reconcileAviation(this);updateRailFleet(this);for(const key of Object.keys(this.zoneGrowthLog)){const id=this.map[+key]&1023,type=this.classify(id);if(!(this.flags[id]&1)||type<5||type>7)delete this.zoneGrowthLog[key];}
  }
  updatePower(){
-  const fusionSeeds=this.zones.filter(z=>civicForId(z.id)?.kind==='power').map(z=>z.i);const result=traceRomPower(this.map,conductivePowerFlags(this.flags),this.width,this.height,{extraSeeds:fusionSeeds,extraCapacity:fusionSeeds.reduce((n,i)=>n+((this.map[i]&1023)===972?windPower(this):civicForId(this.map[i]&1023).capacity),0)});
+  const fusionSeeds=this.zones.filter(z=>civicForId(z.id)?.kind==='power').map(z=>z.i);const result=traceRomPower(this.map,conductivePowerFlags(this.flags),this.width,this.height,{branchLimit:turboPowerBranchLimit(this.map.length),extraSeeds:fusionSeeds,extraCapacity:fusionSeeds.reduce((n,i)=>n+((this.map[i]&1023)===972?windPower(this):civicForId(this.map[i]&1023).capacity),0)});
+  this.powerTraversal={limit:result.branchLimit,peak:result.peak,dropped:result.dropped};
   if(this.regionalState){for(let i=0;i<this.width*this.height;i++)if(this.regionalState.regionalPowerMask[i])result.power[i]=this.regionalState.importPower[i];result.exhausted ||=this.regionalState.powerShortfall;}
   this.power=result.power;this.powerCapacity=result.capacity+(this.regionalState?.powerSummary?.imported||0);this.powerUsed=this.regionalState?.powerSummary?.imported?result.power.reduce((n,v)=>n+v,0):result.used;this.powerOverloaded=result.exhausted;
   // CODE_03B152 writes the resulting power bit back to every map word.

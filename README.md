@@ -6,7 +6,9 @@ This project reverse engineers the USA release of SimCity for Super Nintendo and
 
 Open the [GitHub Pages version](https://mysticalg.github.io/simcity-snes-native/) after deployment, or serve this directory locally with `python -m http.server 5173` and open `http://localhost:5173`.
 
-Latest Turbo update: **v0.2.37** reduces repeated photoreal building drawing in dense cities while preserving growth, lighting and pixel output. The developed-city test median frame CPU cost changed from 40.7 ms to 13.7 ms in the fully powered night/rain fixture. [Measurements and limits](research/photo-cache-v0.2.37.md).
+Latest Turbo update: **v0.2.38** fixes dense grids that lost power despite ample generation. Existing saves recalculate their power automatically. The original ROM stack limit is verified separately and retained in the reference helper. [Evidence, tests and limits](research/power-work-stack-v0.2.38.md).
+
+v0.2.37 cached shared photoreal building layers while preserving exact pixel output. [Rendering measurements](research/photo-cache-v0.2.37.md).
 
 v0.2.36 added original Town and City music and corrected articulation, fades and note releases against the executed SPC driver. [Audio evidence](research/city-music-v0.2.36.md).
 

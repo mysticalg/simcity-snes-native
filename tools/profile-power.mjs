@@ -1,0 +1,19 @@
+import fs from 'node:fs';import crypto from 'node:crypto';import {execFileSync} from 'node:child_process';import {chromium} from 'playwright';import {createPowerStressCity} from './power-stress-fixture.mjs';
+const sha=b=>crypto.createHash('sha256').update(b).digest('hex'),original=execFileSync('git',['show','9d6fb66:src/rom-power.js'],{encoding:'utf8'});
+// Same expanded bound in both cases isolates allocation cost. This variant
+// does not represent the old game's truncated result and is not shipped.
+const baseline=original.replace('extraCapacity=0}','extraCapacity=0,branchLimit=5000}').replaceAll('stack.length<5000','stack.length<branchLimit');if(!baseline.includes('branchLimit=5000')||baseline.includes('stack.length<5000'))throw Error('Baseline patch did not apply');
+const city=createPowerStressCity(),browser=await chromium.launch({executablePath:'C:/Users/drhoo/AppData/Local/ms-playwright/chromium-1248/chrome-win64/chrome.exe'});
+try{const page=await browser.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto(process.env.TEST_URL||'http://127.0.0.1:55719');await page.waitForFunction(()=>window.render_game_to_text);
+ const result=await page.evaluate(async({save,baseline})=>{
+  const app=document.querySelector('script[type=module]').src,source=await(await fetch(app)).text(),simURL=new URL(source.match(/from\s*['"]([^'"]*simulation.js[^'"]*)['"]/)[1],app),simSource=await(await fetch(simURL)).text(),{City}=await import(simURL.href),powerURL=new URL(simSource.match(/from\s*['"]([^'"]*rom-power.js[^'"]*)['"]/)[1],simURL),{traceRomPower}=await import(powerURL.href),{conductivePowerFlags}=await import(new URL(simSource.match(/from\s*['"]([^'"]*power-conductors.js[^'"]*)['"]/)[1],simURL).href),[build,table]=await Promise.all(['build','city'].map(n=>fetch('assets/tables/'+n+'.json').then(r=>r.json()))),city=City.restore(save,build,table.flags);
+  const url=URL.createObjectURL(new Blob([baseline],{type:'text/javascript'})),before=(await import(url)).traceRomPower;URL.revokeObjectURL(url);
+  const seeds=city.zones.filter(z=>z.type===33||z.type===62),flags=conductivePowerFlags(city.flags),options={branchLimit:city.powerTraversal.limit,extraSeeds:seeds.map(z=>z.i),extraCapacity:234000},run=fn=>fn(city.map,flags,city.width,city.height,options),a=run(before),b=run(traceRomPower);
+  if(a.used!==b.used||a.capacity!==b.capacity||a.exhausted!==b.exhausted||!a.power.every((v,i)=>v===b.power[i]))throw Error('Allocation comparison changed power behavior');
+  for(let i=0;i<10;i++){run(before);run(traceRomPower);}const old=[],next=[];const sample=(fn,list)=>{const t=performance.now();run(fn);list.push(performance.now()-t);};
+  for(let i=0;i<60;i++)if(i%2){sample(traceRomPower,next);sample(before,old);}else{sample(before,old);sample(traceRomPower,next);}
+  const stats=values=>{const sorted=[...values].sort((a,b)=>a-b);return{medianMs:sorted[30],p95Ms:sorted[57],samples:values};};
+  return{baseline:stats(old),candidate:stats(next),bitmapEqual:true,countersEqual:true,powered:b.power.reduce((n,v)=>n+v,0),used:b.used,capacity:b.capacity,peak:b.peak,dropped:b.dropped,branchLimit:options.branchLimit,module:powerURL.href};
+ },{save:city.serialize(),baseline});
+ const report={scope:'Local Chromium traversal CPU only, synthetic fully connected MegaCity.60 interleaved samples after10 paired warmups. Old neighbor-array implementation with the same expanded branch bound is the allocation baseline; no whole-game/display-FPS claim.',originalCommit:'9d6fb66',originalSHA256:sha(original),baselineVariantSHA256:sha(baseline),candidateSHA256:sha(fs.readFileSync('src/rom-power.js')),result,errors};if(errors.length)throw Error(errors.join());fs.writeFileSync('research/power-performance-v0.2.38.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));
+}finally{await browser.close();}
