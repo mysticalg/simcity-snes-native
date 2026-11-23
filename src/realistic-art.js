@@ -42,7 +42,9 @@ export class RealisticBuildings{
    const draw=(frame,alpha)=>{ctx.globalAlpha=alpha;ctx.drawImage(this.frame(frame),x,y,w,h);if(powered&&night){ctx.globalAlpha=alpha*night;ctx.drawImage(this.frame(frame,true),x,y,w,h);}else if(night){ctx.globalAlpha=alpha*night*.7;ctx.fillStyle='#031126';ctx.fillRect(x,y,w,h);}};
    if(compositeTransform&&(mix>=1||entry.previous===slot)&&this.composite(ctx,atlas,slot,x,y,w,h,night,powered,compositeTransform))cachedBuildings++;
    else{ctx.drawImage(this.ground(atlas,w,h),x,y,w,h);if(night){ctx.globalAlpha=night*.7;ctx.fillStyle='#031126';ctx.fillRect(x,y,w,h);ctx.globalAlpha=1;}if(mix<1&&entry.previous!==slot)draw(entry.previous,1-mix);draw(slot,mix<1&&entry.previous!==slot?mix:1);ctx.globalAlpha=1;}
-   if(powered&&night&&this.emission[slot]?.pixels){const mask=this.emission[slot];ctx.save();ctx.globalCompositeOperation='screen';ctx.globalAlpha=night*(.66+.05*Math.sin(time*.7+z.i));ctx.drawImage(this.glow(slot,w,h),x-4,y-4);ctx.restore();glowing++;windowPixels+=mask.pixels;}
+   // Only alpha and blend mode change for this glow; restore those directly
+   // instead of copying the entire Canvas state for every lit building.
+   if(powered&&night&&this.emission[slot]?.pixels){const mask=this.emission[slot],alpha=ctx.globalAlpha,operation=ctx.globalCompositeOperation;ctx.globalCompositeOperation='screen';ctx.globalAlpha=night*(.66+.05*Math.sin(time*.7+z.i));ctx.drawImage(this.glow(slot,w,h),x-4,y-4);ctx.globalAlpha=alpha;ctx.globalCompositeOperation=operation;glowing++;windowPixels+=mask.pixels;}
   }ctx.restore();return {drawn,buildings,glowing,windowPixels,cachedBuildings,compositeBuilds:this.compositeBuilds,compositeCanvases:this.composites.size};
  }
 }
