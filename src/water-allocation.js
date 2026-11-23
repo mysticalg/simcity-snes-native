@@ -1,11 +1,8 @@
 // Custom finite water allocation. Reach, source pressure and a zone's actual
 // allocation are separate: a blue pipe must not imply unlimited pump capacity.
+import {pipeTopology} from './pipe-topology.js?v=utility-work-52';
 export function allocateWater(city,nodes,pumps){
- const width=city.width||120,height=city.height||100,labels=new Int32Array(nodes.length).fill(-1),groups=[],water=new Uint8Array(nodes.length),watered=new Set(),assignments=new Map();
- for(let i=0;i<nodes.length;i++){
-  if(!nodes[i]||labels[i]>=0)continue;const id=groups.length,g={cells:[],capacity:0,generation:0,towers:[],pumps:0,requested:0,unserved:0},q=[i];groups.push(g);labels[i]=id;
-  for(let at=0;at<q.length;at++){const j=q[at];g.cells.push(j);for(const k of[j>=width?j-width:-1,j%width<width-1?j+1:-1,j+width<nodes.length?j+width:-1,j%width?j-1:-1])if(k>=0&&nodes[k]&&labels[k]<0){labels[k]=id;q.push(k);}}
- }
+ const width=city.width||120,height=city.height||100,{labels,components}=pipeTopology(city,nodes),groups=components.map(cells=>({cells:Array.from(cells),capacity:0,generation:0,towers:[],pumps:0,requested:0,unserved:0})),water=new Uint8Array(nodes.length),watered=new Set(),assignments=new Map();
  for(const p of pumps){const id=labels[p.i];if(id>=0){const g=groups[id];if(p.storage){const stored=Math.max(0,Math.min(p.storage,Number(city.civic.waterStored?.[p.i])||0));g.towers.push({i:p.i,capacity:p.storage,flow:p.flow,stored});g.capacity+=Math.min(p.flow,stored);}else{const capacity=p.capacity??5000;g.capacity+=capacity;g.generation+=capacity;g.pumps++;}}}
  for(const g of groups){const regional=city.regionalState?.waterAllocations?.get(g.cells[0]);if(regional!==undefined){g.capacity=regional+g.towers.reduce((n,t)=>n+Math.min(t.flow,t.stored),0);g.generation=regional;}g.available=g.capacity;if(g.capacity)for(const i of g.cells)water[i]=1;}
  for(const z of city.zones){

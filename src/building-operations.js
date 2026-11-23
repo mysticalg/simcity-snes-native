@@ -1,10 +1,17 @@
 import {emergencyKind,emergencyBounds} from './emergency.js?v=emergency-1';
 export const buildingOff=(city,z)=>city.disabledBuildings?.[z.i]===z.id;
-export function operationalMap(city){if(!city.disabledBuildings)return city.map;const map=city.map.slice();for(const [i,id]of Object.entries(city.disabledBuildings))if((map[i]&1023)===id)map[i]=(map[i]&0xfc00)|971;return map;}
+export function operationalMap(city){
+ if(!city.disabledBuildings)return city.map;
+ // Restored cities have an empty disabledBuildings object by default. The
+ // ordinary map is already the correct input until an actual tile is masked.
+ let map=city.map;
+ for(const [i,id]of Object.entries(city.disabledBuildings))if((map[i]&1023)===id){if(map===city.map)map=city.map.slice();map[i]=(map[i]&0xfc00)|971;}
+ return map;
+}
 export function installBuildingOperations(City){
  if(City.prototype.setBuildingEnabled)return;
  City.prototype.setBuildingEnabled=function(z,enabled){if(!z||!(emergencyKind(z.id)||[8,9,12,13,14].includes(z.type)||(z.type>=30&&z.type!==40)))return false;this.disabledBuildings??={};if(enabled)delete this.disabledBuildings[z.i];else this.disabledBuildings[z.i]=z.id;this.refresh();if(this.pendingBudget?.assessment){const pending=this.pendingBudget;try{this.pendingBudget=null;pending.assessment.requests=[...this.budget(false).requests];}finally{this.pendingBudget=pending;}}this.captureServiceInputs();this.updateCrimeField();this.updateFireField();return true;};
- const power=City.prototype.updatePower;City.prototype.updatePower=function(){const original=this.map,zones=this.zones;this.map=operationalMap(this);this.zones=zones.filter(z=>!buildingOff(this,z));try{power.call(this);for(let i=0;i<original.length;i++)original[i]=(original[i]&0x7fff)|(this.map[i]&0x8000);}finally{this.map=original;this.zones=zones;}};
+ const power=City.prototype.updatePower;City.prototype.updatePower=function(){const original=this.map,zones=this.zones;this.map=operationalMap(this);this.zones=zones.filter(z=>!buildingOff(this,z));try{power.call(this);if(this.map!==original)for(let i=0;i<original.length;i++)original[i]=(original[i]&0x7fff)|(this.map[i]&0x8000);}finally{this.map=original;this.zones=zones;}};
  for(const method of ['captureServiceInputs','setPoliceEffectiveness']){const original=City.prototype[method];City.prototype[method]=function(...args){const map=this.map;this.map=operationalMap(this);try{return original.apply(this,args);}finally{this.map=map;}};}
  const refresh=City.prototype.refresh;City.prototype.refresh=function(){for(const [i,id]of Object.entries(this.disabledBuildings||{}))if((this.map[i]&1023)!==id)delete this.disabledBuildings[i];return refresh.call(this);};
  const serialize=City.prototype.serialize;City.prototype.serialize=function(){const s=JSON.parse(serialize.call(this));s.disabledBuildings=this.disabledBuildings||{};return JSON.stringify(s);};

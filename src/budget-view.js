@@ -1,4 +1,4 @@
-import{CIVIC_TOOLS}from'./civic.js?v=bus-routing-51';import{buildingOff}from'./building-operations.js?v=education-traffic-27';
+import{CIVIC_TOOLS}from'./civic.js?v=utility-work-52';import{buildingOff}from'./building-operations.js?v=utility-work-52';
 const money=n=>(n<0?'−':'')+'$'+Math.abs(n).toLocaleString();
 export function previewBudget(city,tax=city.tax,funding=city.funding){const oldTax=city.tax,oldFunding=city.funding;try{city.tax=tax;city.funding=funding;return city.budget(false,city.pendingBudget?.taxRate??tax);}finally{city.tax=oldTax;city.funding=oldFunding;}}
 export function budgetBreakdown(city,b=city.budget(false)){

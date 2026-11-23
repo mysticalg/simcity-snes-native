@@ -1,9 +1,9 @@
 import {drawCachedSeaPollution} from './sea-pollution-art.js?v=sea-cache-33';
-import {civicForId,waterNetwork,utilityPipeStatus,pumpStatus} from './civic.js?v=bus-routing-51';
+import {pipeTopology} from './pipe-topology.js?v=utility-work-52';
+import {civicForId,waterNetwork,utilityPipeStatus,pumpStatus} from './civic.js?v=utility-work-52';
 const waterId=id=>id>=1&&id<20;
 export function sewageServices(city){
- const nodes=waterNetwork(city).nodes,labels=new Int32Array(city.map.length).fill(-1),groups=[];
- for(let i=0;i<city.map.length;i++){if(!nodes[i]||labels[i]>=0)continue;const g={cells:[],pumps:[],plants:[],sources:[],load:0},id=groups.length,q=[i];groups.push(g);labels[i]=id;for(let n=0;n<q.length;n++){const j=q[n];g.cells.push(j);for(const k of[j>=(city.width||120)?j-(city.width||120):-1,j%(city.width||120)<((city.width||120)-1)?j+1:-1,j+(city.width||120)<city.map.length?j+(city.width||120):-1,j%(city.width||120)?j-1:-1])if(k>=0&&nodes[k]&&labels[k]<0){labels[k]=id;q.push(k);}}}
+ const nodes=waterNetwork(city).nodes,{labels,components}=pipeTopology(city,nodes),groups=components.map(cells=>({cells,pumps:[],plants:[],sources:[],load:0}));
  const statuses=[];for(const z of city.zones)if([973,974].includes(z.id)){const status=utilityPipeStatus(city,z),item={z,...status};statuses.push(item);const id=labels[z.i];if(status.working&&id>=0)groups[id][z.id===973?'pumps':'plants'].push(item);}
  // Keep backed-up waste at its source location, so separate networks cannot clear it.
  const loads=new Map();for(const[key,amount]of Object.entries(city.civic.sewageDebt||{})){const i=Number(key);if(Number.isInteger(i)&&i>=0&&i<city.map.length&&Number.isFinite(amount)&&amount>0)loads.set(i,Math.ceil(amount));}

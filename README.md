@@ -6,7 +6,9 @@ This project reverse engineers the USA release of SimCity for Super Nintendo and
 
 Open the [GitHub Pages version](https://mysticalg.github.io/simcity-snes-native/), or serve this directory locally with `python scripts/serve.py --port 5173` and open `http://localhost:5173`. The bundled server supplies the correct JavaScript MIME type on Windows.
 
-Latest Turbo update: **v0.2.51** reduces repeated bus-routing work in active cities, preserving exact routes and simulation state. Controlled 16x heavy-city tests show a modest improvement; busy frames still need work. [Checks and measured limits](research/active-city-routing-v0.2.51.md).
+Latest Turbo update: **v0.2.52** reduces repeated power/map copies and shares exactly checked pipe connectivity between water and sewage. Facility switching, outages, capacity, debt and saved state are preserved. Whole-frame gains remain mixed; heavy 16x cities still need work. [Checks and measurements](research/utility-work-v0.2.52.md).
+
+v0.2.51 reduces repeated bus-routing work in active cities, preserving exact routes and simulation state. Controlled 16x heavy-city tests show a modest improvement; busy frames still need work. [Checks and measured limits](research/active-city-routing-v0.2.51.md).
 
 v0.2.50 removes GPU readbacks when extracting native building window masks, preserving exact tested pixels. Measured mask-stage spikes fell from about 20–21 ms to about 1 ms; broader long-frame work remains. [Pixel checks and measurements](research/native-window-masks-v0.2.50.md).
 
