@@ -1,0 +1,192 @@
+{
+  "version": "0.2.55",
+  "referenceCommit": "e8bc78bde93cdcd8e7951a2a046338030749ef2a",
+  "nodeTests": 552,
+  "equivalence": {
+    "referenceCommit": "e8bc78b",
+    "node": {
+      "snapshots": 380,
+      "peakTrucks": 24,
+      "pickupCountSumAcrossSnapshots": 45296,
+      "phases": [
+        {
+          "phase": "powered-small-city-and-edits",
+          "steps": 300,
+          "snapshotSHA256": "15259a56a63bb20d5405d2949fd88e481f223c83f193f9f5c044f3b506053ced"
+        },
+        {
+          "phase": "save-reload",
+          "steps": 40,
+          "snapshotSHA256": "7c226be09831ca36a01a9859d9207a75e3e316491e8630c388cdf38effdb48a0"
+        },
+        {
+          "phase": "active-utility-megacity",
+          "steps": 40,
+          "snapshotSHA256": "0620439cc029e72560411a42e349efcf7ae221f38c1f332766d9749fb985f517"
+        }
+      ]
+    },
+    "browser": {
+      "snapshots": 63,
+      "peakTrucks": 10,
+      "pixels": 72,
+      "channels": 66355200,
+      "nonBackgroundChannels": 156318,
+      "pickups": 37,
+      "photorealTrucks": 10,
+      "cityWasAdvanced": true,
+      "session": true
+    },
+    "errors": []
+  },
+  "runs": [
+    {
+      "name": "before",
+      "app": {
+        "paintedCount": 63,
+        "paintedMedianMs": 79.29999995231628,
+        "paintedP95Ms": 113.20000004768372,
+        "count": 63,
+        "medianMs": 79.29999995231628,
+        "p95Ms": 113.20000004768372,
+        "maximumPaintsPerFrame": 1
+      },
+      "fixed": {
+        "method": "Original app frame callback with fixed 60Hz inputs and actual city/visual stepping and fixed product animation clock; CPU/submission timing, not display FPS",
+        "count": 300,
+        "painted": 300,
+        "median": 18.100000023841858,
+        "p95": 79.59999990463257,
+        "baseStep": 106,
+        "visualFrame": 4800,
+        "month": 3,
+        "power": 64008,
+        "lighting": 1217,
+        "stateHash": "808f65910eec5d5d8673c8be3498576a5832ddd1ec6cf6c9fb221efa29e1393e"
+      },
+      "ordinaryGarbage": null,
+      "garbageRef": null,
+      "errors": []
+    },
+    {
+      "name": "after",
+      "app": {
+        "paintedCount": 70,
+        "paintedMedianMs": 70.40000009536743,
+        "paintedP95Ms": 106.89999997615814,
+        "count": 70,
+        "medianMs": 70.40000009536743,
+        "p95Ms": 106.89999997615814,
+        "maximumPaintsPerFrame": 1
+      },
+      "fixed": {
+        "method": "Original app frame callback with fixed 60Hz inputs and actual city/visual stepping and fixed product animation clock; CPU/submission timing, not display FPS",
+        "count": 300,
+        "painted": 300,
+        "median": 17.799999952316284,
+        "p95": 73.60000002384186,
+        "baseStep": 106,
+        "visualFrame": 4800,
+        "month": 3,
+        "power": 64008,
+        "lighting": 1217,
+        "stateHash": "808f65910eec5d5d8673c8be3498576a5832ddd1ec6cf6c9fb221efa29e1393e"
+      },
+      "ordinaryGarbage": {
+        "count": 71,
+        "median": 2.1999999284744263,
+        "p95": 2.899999976158142
+      },
+      "garbageRef": null,
+      "errors": []
+    },
+    {
+      "name": "before-2",
+      "app": {
+        "paintedCount": 58,
+        "paintedMedianMs": 82.39999997615814,
+        "paintedP95Ms": 122.79999995231628,
+        "count": 58,
+        "medianMs": 82.39999997615814,
+        "p95Ms": 122.79999995231628,
+        "maximumPaintsPerFrame": 1
+      },
+      "fixed": {
+        "method": "Original app frame callback with fixed 60Hz inputs and actual city/visual stepping and fixed product animation clock; CPU/submission timing, not display FPS",
+        "count": 300,
+        "painted": 300,
+        "median": 18.899999976158142,
+        "p95": 79.29999995231628,
+        "baseStep": 106,
+        "visualFrame": 4800,
+        "month": 3,
+        "power": 64008,
+        "lighting": 1217,
+        "stateHash": "808f65910eec5d5d8673c8be3498576a5832ddd1ec6cf6c9fb221efa29e1393e"
+      },
+      "ordinaryGarbage": {
+        "count": 59,
+        "median": 6.600000023841858,
+        "p95": 8.600000023841858
+      },
+      "garbageRef": "e8bc78b",
+      "errors": []
+    },
+    {
+      "name": "after-2",
+      "app": {
+        "paintedCount": 66,
+        "paintedMedianMs": 76.59999990463257,
+        "paintedP95Ms": 103.5,
+        "count": 66,
+        "medianMs": 76.59999990463257,
+        "p95Ms": 103.5,
+        "maximumPaintsPerFrame": 1
+      },
+      "fixed": {
+        "method": "Original app frame callback with fixed 60Hz inputs and actual city/visual stepping and fixed product animation clock; CPU/submission timing, not display FPS",
+        "count": 300,
+        "painted": 300,
+        "median": 19.299999952316284,
+        "p95": 79.5,
+        "baseStep": 106,
+        "visualFrame": 4800,
+        "month": 3,
+        "power": 64008,
+        "lighting": 1217,
+        "stateHash": "808f65910eec5d5d8673c8be3498576a5832ddd1ec6cf6c9fb221efa29e1393e"
+      },
+      "ordinaryGarbage": {
+        "count": 67,
+        "median": 2.100000023841858,
+        "p95": 2.700000047683716
+      },
+      "garbageRef": null,
+      "errors": []
+    }
+  ],
+  "sources": {
+    "src/app.js": "b8d56580d63bedef3bbda1aee92a8631713668127c12d3bf0f7d9c666f7d8406",
+    "src/garbage-visuals.js": "4b25a3d4ffa1e80515d95636c2321617a70fcfe94efb97936be3881b5f961187"
+  },
+  "nestedFixedStagesAreNotElapsedTime": true,
+  "scope": "Browser-release equivalence, Turbo extension. CPU/submission timings, not display FPS. Overall frame gains mixed.",
+  "fullPortComplete": false,
+  "browserChecks": {
+    "monthlyBottleneckAndImprovedCollection": true,
+    "incinerationRecyclingAndLandfillMass": true,
+    "mouseReleaseAndCost": true,
+    "facilitiesDisableEnable": true,
+    "savedWasteQuantities": true,
+    "mobileInspectorFit": true,
+    "requiredGameplayClient": {
+      "scenario": "PracticeCity",
+      "year": 1900,
+      "month": 2,
+      "screenshotInspected": true
+    },
+    "truckScreenshotInspected": true,
+    "errors": []
+  },
+  "firstBaselinePredatesAddedGarbageStageInstrumentation": true
+}

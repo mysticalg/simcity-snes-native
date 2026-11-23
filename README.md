@@ -6,7 +6,9 @@ This project reverse engineers the USA release of SimCity for Super Nintendo and
 
 Open the [GitHub Pages version](https://mysticalg.github.io/simcity-snes-native/), or serve this directory locally with `python scripts/serve.py --port 5173` and open `http://localhost:5173`. The bundled server supplies the correct JavaScript MIME type on Windows.
 
-Latest Turbo update: **v0.2.54** removes repeated full-map scans when capturing individual building transitions. Tested pixels and city state are preserved; controlled heavy-city long frames improve, while busy 16× cities still need work. [Pixel checks and measurements](research/building-captures-v0.2.54.md).
+Latest Turbo update: **v0.2.55** avoids rebuilding unused garbage-truck routes for complete surviving fleets. Truck motion, pickup visuals, waste quantities and saved city state are verified against the previous release. Whole-frame gains remain mixed. [Checks and measured limits](research/garbage-routing-v0.2.55.md).
+
+v0.2.54 removes repeated full-map scans when capturing individual building transitions. Tested pixels and city state are preserved; controlled heavy-city long frames improve, while busy 16× cities still need work. [Pixel checks and measurements](research/building-captures-v0.2.54.md).
 
 v0.2.53 restores the original scenario fax artwork, fade and paper feed in native JavaScript. All three outcomes match original PPU pixels and menu-state traces; records remain readable and mobile-friendly. [Reference evidence and remaining limits](research/native-fax-v0.2.53.md).
 
