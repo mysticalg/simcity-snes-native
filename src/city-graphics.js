@@ -30,7 +30,7 @@ export function cityTilePixel(gfx,word,x,y){
  return value?((word>>10)&7)*16+value:0;
 }
 export class AnimatedCityAtlas{
- constructor(base,animated,palettes,table){this.base=base;this.animated=animated;this.palettes=palettes;this.table=table;this.canvas=document.createElement('canvas');this.canvas.width=256;this.canvas.height=240;this.ctx=this.canvas.getContext('2d');this.key='';}
+ constructor(base,animated,palettes,table){this.base=base;this.animated=animated;this.palettes=palettes;this.table=table;this.canvas=document.createElement('canvas');this.canvas.width=256;this.canvas.height=240;this.ctx=this.canvas.getContext('2d');this.key='';this.groundPixels=new Uint8ClampedArray(256);this.canvas.cityGroundVersion=0;}
  image(season,state,paletteOverride=null,paletteKey=''){
   const key=[season,paletteKey,...cityAnimationTransfers(state).map(t=>t.source)].join('/');if(key===this.key)return this.canvas;
   const gfx=patchCityGraphics(this.base,this.animated,state),pal=paletteOverride||this.palettes[season],image=this.ctx.createImageData(256,240),d=image.data;
@@ -39,6 +39,10 @@ export class AnimatedCityAtlas{
    const p=(((id>>5)*8+y)*256+(id%32)*8+x)*4;
    d[p]=Math.floor((color&31)*255/31);d[p+1]=Math.floor(((color>>5)&31)*255/31);d[p+2]=Math.floor(((color>>10)&31)*255/31);d[p+3]=255;
   }
+  // Track the actual opaque ground tile while its CPU pixels are available.
+  // This avoids a GPU readback or invalidation from unrelated road animation.
+  let groundChanged=false;for(let y=0;y<8;y++)for(let byte=0;byte<32;byte++){const i=y*32+byte,value=d[y*256*4+byte];if(value!==this.groundPixels[i])groundChanged=true;this.groundPixels[i]=value;}
+  if(groundChanged)this.canvas.cityGroundVersion++;
   this.ctx.putImageData(image,0,0);this.key=key;return this.canvas;
  }
 }

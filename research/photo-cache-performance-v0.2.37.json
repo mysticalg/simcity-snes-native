@@ -1,0 +1,1631 @@
+{
+  "scope": "Local Chromium CPU/render-submission timings, synthetic city, not user-display FPS. Baseline routes original 8d43b84 photo renderer, candidate uses current native renderer. Primary fixture has 1833 complete RCI zones and45 operating power plants in separate neighborhood grids; every RCI zone is genuinely powered through the game simulation. App profiling follows1500ms unpaused warmup. Services disabled. Unpowered/fractional controls and all raw slices retained.",
+  "aligned": {
+    "baseline": {
+      "slices": {
+        "buildings-day": {
+          "medianMs": 4.899999976158142,
+          "p95Ms": 5.600000023841858
+        },
+        "buildings-night": {
+          "medianMs": 11.699999928474426,
+          "p95Ms": 110.10000002384186
+        },
+        "water": {
+          "medianMs": 0.10000002384185791,
+          "p95Ms": 0.20000004768371582
+        },
+        "weather": {
+          "medianMs": 17.399999976158142,
+          "p95Ms": 97.80000007152557
+        },
+        "without-water": {
+          "medianMs": 18.100000023841858,
+          "p95Ms": 99.29999995231628
+        },
+        "without-windows": {
+          "medianMs": 17.199999928474426,
+          "p95Ms": 64.79999995231628
+        },
+        "without-sprites": {
+          "medianMs": 12.700000047683716,
+          "p95Ms": 106.19999992847443
+        }
+      },
+      "zones": 1878,
+      "metrics": {
+        "enabled": true,
+        "spritesReady": true,
+        "weather": "rain",
+        "weatherBlend": {
+          "clear": 0,
+          "cloudy": 0,
+          "rain": 1
+        },
+        "cloudOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "night": 1,
+        "clouds": 38,
+        "cloudCoverage": 52,
+        "cloudOpacity": 0.37,
+        "atmosphericHaze": 0.26,
+        "rainParticles": 180,
+        "smokePuffs": 1482,
+        "cars": 98,
+        "litBuildings": 1521,
+        "litWindows": 563,
+        "windowPixels": 3868166,
+        "photorealBuildings": 1482,
+        "buildingCache": {
+          "drawn": 0,
+          "bakes": 0,
+          "canvases": 0
+        },
+        "smogPatches": 260,
+        "water": {
+          "cells": 12000,
+          "polluted": 8720,
+          "flowX": 0.08277623800258736,
+          "flowY": -5.068582745766405e-18,
+          "maskBuilds": 2,
+          "surfaceBuilds": 36
+        },
+        "fireTiles": 0
+      },
+      "appVersion": "http://127.0.0.1:55719/src/app.js?v=turbo-0.2.37",
+      "simulationYear": 2008,
+      "appPowerCapacity": 234000,
+      "appPowerUsed": 34647,
+      "appPowerOverloaded": false,
+      "appLighting": 1521,
+      "appZoom": 0.5000000047697187,
+      "mapWidth": 240,
+      "mapHeight": 200,
+      "overlay": "none",
+      "underground": false,
+      "artEnabled": true,
+      "appFrames": {
+        "paintedCount": 106,
+        "paintedMedianMs": 40.700000047683716,
+        "paintedP95Ms": 89,
+        "count": 110,
+        "medianMs": 40.699999928474426,
+        "p95Ms": 89,
+        "maximumPaintsPerFrame": 1
+      },
+      "appWarmupMs": 1500,
+      "fixture": "powered-developed-RCI-v3",
+      "rciZones": 1833,
+      "powerPlants": 45,
+      "powerCapacity": 234000,
+      "powerUsed": 34647,
+      "profileZoom": 0.5,
+      "photoBaseline": true,
+      "baseline": false,
+      "seaBaseline": false,
+      "cpuProfile": {
+        "durationMs": 5159.716,
+        "top": [
+          [
+            "drawImage ",
+            1470
+          ],
+          [
+            "(program) ",
+            230
+          ],
+          [
+            "(idle) ",
+            202
+          ],
+          [
+            "save ",
+            148
+          ],
+          [
+            "fillRect ",
+            88
+          ],
+          [
+            "restore ",
+            78
+          ],
+          [
+            "getImageData ",
+            51
+          ],
+          [
+            "draw realistic-art.js?v=photo-cache-37",
+            49
+          ],
+          [
+            "drawCachedSeaPollution sea-pollution-art.js?v=sea-cache-33",
+            45
+          ],
+          [
+            "(garbage collector) ",
+            27
+          ],
+          [
+            "draw weather-fx.js?v=photo-cache-37",
+            25
+          ],
+          [
+            "drawElevation elevation.js?v=megacity-1",
+            24
+          ],
+          [
+            "drawTerrainShore terrain-tools.js?v=megacity-1",
+            24
+          ],
+          [
+            "cell app.js?v=turbo-0.2.37",
+            22
+          ],
+          [
+            "renderCity app.js?v=turbo-0.2.37",
+            17
+          ],
+          [
+            "serialize simulation.js?v=mapgen-35",
+            16
+          ],
+          [
+            "image city-graphics.js?v=photo-cache-37",
+            14
+          ],
+          [
+            "sprite weather-fx.js?v=photo-cache-37",
+            13
+          ]
+        ]
+      },
+      "errors": []
+    },
+    "candidate": {
+      "slices": {
+        "buildings-day": {
+          "medianMs": 1.5,
+          "p95Ms": 5.300000071525574
+        },
+        "buildings-night": {
+          "medianMs": 6.600000023841858,
+          "p95Ms": 8.100000023841858
+        },
+        "water": {
+          "medianMs": 0.09999990463256836,
+          "p95Ms": 0.10000002384185791
+        },
+        "weather": {
+          "medianMs": 9.100000023841858,
+          "p95Ms": 13.600000023841858
+        },
+        "without-water": {
+          "medianMs": 9.100000023841858,
+          "p95Ms": 12.699999928474426
+        },
+        "without-windows": {
+          "medianMs": 9.700000047683716,
+          "p95Ms": 15.100000023841858
+        },
+        "without-sprites": {
+          "medianMs": 7.800000071525574,
+          "p95Ms": 111.5
+        }
+      },
+      "zones": 1878,
+      "metrics": {
+        "enabled": true,
+        "spritesReady": true,
+        "weather": "rain",
+        "weatherBlend": {
+          "clear": 0,
+          "cloudy": 0,
+          "rain": 1
+        },
+        "cloudOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "night": 1,
+        "clouds": 38,
+        "cloudCoverage": 52,
+        "cloudOpacity": 0.37,
+        "atmosphericHaze": 0.26,
+        "rainParticles": 180,
+        "smokePuffs": 1482,
+        "cars": 98,
+        "litBuildings": 1521,
+        "litWindows": 563,
+        "windowPixels": 3868166,
+        "photorealBuildings": 1482,
+        "buildingCache": {
+          "drawn": 1482,
+          "bakes": 0,
+          "canvases": 3
+        },
+        "smogPatches": 260,
+        "water": {
+          "cells": 12000,
+          "polluted": 8720,
+          "flowX": 0.08277623800258736,
+          "flowY": -5.068582745766405e-18,
+          "maskBuilds": 2,
+          "surfaceBuilds": 36
+        },
+        "fireTiles": 0
+      },
+      "appVersion": "http://127.0.0.1:55719/src/app.js?v=turbo-0.2.37",
+      "simulationYear": 2008,
+      "appPowerCapacity": 234000,
+      "appPowerUsed": 34647,
+      "appPowerOverloaded": false,
+      "appLighting": 1521,
+      "appZoom": 0.5000000047697187,
+      "mapWidth": 240,
+      "mapHeight": 200,
+      "overlay": "none",
+      "underground": false,
+      "artEnabled": true,
+      "appFrames": {
+        "paintedCount": 149,
+        "paintedMedianMs": 13.700000047683716,
+        "paintedP95Ms": 72,
+        "count": 162,
+        "medianMs": 13.5,
+        "p95Ms": 71,
+        "maximumPaintsPerFrame": 1
+      },
+      "appWarmupMs": 1500,
+      "fixture": "powered-developed-RCI-v3",
+      "rciZones": 1833,
+      "powerPlants": 45,
+      "powerCapacity": 234000,
+      "powerUsed": 34647,
+      "profileZoom": 0.5,
+      "photoBaseline": false,
+      "baseline": false,
+      "seaBaseline": false,
+      "cpuProfile": {
+        "durationMs": 5111.107,
+        "top": [
+          [
+            "drawImage ",
+            1336
+          ],
+          [
+            "(program) ",
+            350
+          ],
+          [
+            "restore ",
+            185
+          ],
+          [
+            "save ",
+            148
+          ],
+          [
+            "draw realistic-art.js?v=photo-cache-37",
+            56
+          ],
+          [
+            "drawCachedSeaPollution sea-pollution-art.js?v=sea-cache-33",
+            47
+          ],
+          [
+            "(idle) ",
+            46
+          ],
+          [
+            "fillRect ",
+            39
+          ],
+          [
+            "getImageData ",
+            37
+          ],
+          [
+            "drawElevation elevation.js?v=megacity-1",
+            32
+          ],
+          [
+            "cell app.js?v=turbo-0.2.37",
+            29
+          ],
+          [
+            "draw weather-fx.js?v=photo-cache-37",
+            28
+          ],
+          [
+            "composite realistic-art.js?v=photo-cache-37",
+            24
+          ],
+          [
+            "(garbage collector) ",
+            23
+          ],
+          [
+            "getBoundingClientRect ",
+            22
+          ],
+          [
+            "drawTerrainShore terrain-tools.js?v=megacity-1",
+            21
+          ],
+          [
+            "sprite weather-fx.js?v=photo-cache-37",
+            19
+          ],
+          [
+            "romGiftEffects rom-gifts.js?v=gift-workers-31",
+            17
+          ]
+        ]
+      },
+      "errors": []
+    }
+  },
+  "fractional": {
+    "baseline": {
+      "slices": {
+        "buildings-day": {
+          "medianMs": 0.8999999761581421,
+          "p95Ms": 1.2000000476837158
+        },
+        "buildings-night": {
+          "medianMs": 2,
+          "p95Ms": 2.5
+        },
+        "water": {
+          "medianMs": 0.10000002384185791,
+          "p95Ms": 0.20000004768371582
+        },
+        "weather": {
+          "medianMs": 3,
+          "p95Ms": 3.5999999046325684
+        },
+        "without-water": {
+          "medianMs": 3,
+          "p95Ms": 32.700000047683716
+        },
+        "without-windows": {
+          "medianMs": 3.200000047683716,
+          "p95Ms": 19.799999952316284
+        },
+        "without-sprites": {
+          "medianMs": 2.5,
+          "p95Ms": 32.300000071525574
+        }
+      },
+      "zones": 1833,
+      "metrics": {
+        "enabled": true,
+        "spritesReady": true,
+        "weather": "rain",
+        "weatherBlend": {
+          "clear": 0,
+          "cloudy": 0,
+          "rain": 1
+        },
+        "cloudOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "night": 1,
+        "clouds": 6,
+        "cloudCoverage": 50,
+        "cloudOpacity": 0.35519999999999996,
+        "atmosphericHaze": 0.23656666666666668,
+        "rainParticles": 180,
+        "smokePuffs": 345,
+        "cars": 17,
+        "litBuildings": 345,
+        "litWindows": 534,
+        "windowPixels": 805466,
+        "photorealBuildings": 308,
+        "buildingCache": {
+          "drawn": 0,
+          "bakes": 0,
+          "canvases": 0
+        },
+        "smogPatches": 40,
+        "water": {
+          "cells": 0,
+          "polluted": 0,
+          "flowX": 0.08277623800258736,
+          "flowY": -5.068582745766405e-18,
+          "maskBuilds": 2,
+          "surfaceBuilds": 36
+        },
+        "fireTiles": 0
+      },
+      "appVersion": "http://127.0.0.1:55719/src/app.js?v=turbo-0.2.37",
+      "simulationYear": 2008,
+      "appZoom": 1.3699999969446668,
+      "mapWidth": 240,
+      "mapHeight": 200,
+      "overlay": "none",
+      "underground": false,
+      "artEnabled": true,
+      "appFrames": {
+        "paintedCount": 262,
+        "paintedMedianMs": 4.100000023841858,
+        "paintedP95Ms": 6.699999928474426,
+        "count": 301,
+        "medianMs": 4,
+        "p95Ms": 6.799999952316284,
+        "maximumPaintsPerFrame": 1
+      },
+      "fixture": "developed-RCI-v2",
+      "profileZoom": 1.37,
+      "photoBaseline": true,
+      "baseline": false,
+      "seaBaseline": false,
+      "cpuProfile": {
+        "durationMs": 5294.752,
+        "top": [
+          [
+            "(idle) ",
+            1825
+          ],
+          [
+            "(program) ",
+            247
+          ],
+          [
+            "drawImage ",
+            146
+          ],
+          [
+            "fillRect ",
+            56
+          ],
+          [
+            "drawPowerWarnings power-warnings.js?v=amenities-gifts-29",
+            51
+          ],
+          [
+            "getBoundingClientRect ",
+            47
+          ],
+          [
+            "fill ",
+            39
+          ],
+          [
+            "romGiftEffects rom-gifts.js?v=gift-workers-31",
+            27
+          ],
+          [
+            "refresh app.js?v=turbo-0.2.37",
+            26
+          ],
+          [
+            "CanvasRenderingContext2D.fillRect ",
+            25
+          ],
+          [
+            "draw weather-fx.js?v=photo-cache-37",
+            24
+          ],
+          [
+            "renderCity app.js?v=turbo-0.2.37",
+            22
+          ],
+          [
+            "cityTilePixel city-graphics.js?v=photo-cache-37",
+            19
+          ],
+          [
+            "draw realistic-art.js?v=photo-cache-37",
+            19
+          ],
+          [
+            "image city-graphics.js?v=photo-cache-37",
+            18
+          ],
+          [
+            "serialize simulation.js?v=mapgen-35",
+            15
+          ],
+          [
+            " weather-fx.js?v=photo-cache-37",
+            15
+          ],
+          [
+            "lineTo ",
+            15
+          ]
+        ]
+      },
+      "errors": []
+    },
+    "candidate": {
+      "slices": {
+        "buildings-day": {
+          "medianMs": 0.5,
+          "p95Ms": 4.199999928474426
+        },
+        "buildings-night": {
+          "medianMs": 1.399999976158142,
+          "p95Ms": 5.600000023841858
+        },
+        "water": {
+          "medianMs": 0,
+          "p95Ms": 0.10000002384185791
+        },
+        "weather": {
+          "medianMs": 3.399999976158142,
+          "p95Ms": 6.600000023841858
+        },
+        "without-water": {
+          "medianMs": 5.200000047683716,
+          "p95Ms": 42.10000002384186
+        },
+        "without-windows": {
+          "medianMs": 1.7000000476837158,
+          "p95Ms": 6.299999952316284
+        },
+        "without-sprites": {
+          "medianMs": 2.3000000715255737,
+          "p95Ms": 32
+        }
+      },
+      "zones": 1833,
+      "metrics": {
+        "enabled": true,
+        "spritesReady": true,
+        "weather": "rain",
+        "weatherBlend": {
+          "clear": 0,
+          "cloudy": 0,
+          "rain": 1
+        },
+        "cloudOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "night": 1,
+        "clouds": 6,
+        "cloudCoverage": 50,
+        "cloudOpacity": 0.35519999999999996,
+        "atmosphericHaze": 0.23656666666666668,
+        "rainParticles": 180,
+        "smokePuffs": 345,
+        "cars": 17,
+        "litBuildings": 345,
+        "litWindows": 534,
+        "windowPixels": 805466,
+        "photorealBuildings": 308,
+        "buildingCache": {
+          "drawn": 0,
+          "bakes": 0,
+          "canvases": 0
+        },
+        "smogPatches": 40,
+        "water": {
+          "cells": 0,
+          "polluted": 0,
+          "flowX": 0.08277623800258736,
+          "flowY": -5.068582745766405e-18,
+          "maskBuilds": 2,
+          "surfaceBuilds": 36
+        },
+        "fireTiles": 0
+      },
+      "appVersion": "http://127.0.0.1:55719/src/app.js?v=turbo-0.2.37",
+      "simulationYear": 2008,
+      "appZoom": 1.3699999969446668,
+      "mapWidth": 240,
+      "mapHeight": 200,
+      "overlay": "none",
+      "underground": false,
+      "artEnabled": true,
+      "appFrames": {
+        "paintedCount": 266,
+        "paintedMedianMs": 4.100000023841858,
+        "paintedP95Ms": 7.099999904632568,
+        "count": 304,
+        "medianMs": 4,
+        "p95Ms": 7.100000023841858,
+        "maximumPaintsPerFrame": 1
+      },
+      "fixture": "developed-RCI-v2",
+      "profileZoom": 1.37,
+      "photoBaseline": false,
+      "baseline": false,
+      "seaBaseline": false,
+      "cpuProfile": {
+        "durationMs": 5296.448,
+        "top": [
+          [
+            "(idle) ",
+            1835
+          ],
+          [
+            "(program) ",
+            241
+          ],
+          [
+            "drawImage ",
+            166
+          ],
+          [
+            "fillRect ",
+            82
+          ],
+          [
+            "getBoundingClientRect ",
+            50
+          ],
+          [
+            "drawPowerWarnings power-warnings.js?v=amenities-gifts-29",
+            38
+          ],
+          [
+            "fill ",
+            37
+          ],
+          [
+            "CanvasRenderingContext2D.fillRect ",
+            26
+          ],
+          [
+            "draw realistic-art.js?v=photo-cache-37",
+            25
+          ],
+          [
+            "image city-graphics.js?v=photo-cache-37",
+            25
+          ],
+          [
+            "draw weather-fx.js?v=photo-cache-37",
+            23
+          ],
+          [
+            "refresh app.js?v=turbo-0.2.37",
+            21
+          ],
+          [
+            "renderCity app.js?v=turbo-0.2.37",
+            18
+          ],
+          [
+            "serialize simulation.js?v=mapgen-35",
+            15
+          ],
+          [
+            "cityTilePixel city-graphics.js?v=photo-cache-37",
+            15
+          ],
+          [
+            "romGiftEffects rom-gifts.js?v=gift-workers-31",
+            15
+          ],
+          [
+            "City.serialize building-operations.js?v=education-traffic-27",
+            14
+          ],
+          [
+            "scanCityTiles simulation.js?v=mapgen-35",
+            14
+          ]
+        ]
+      },
+      "errors": []
+    }
+  },
+  "pixels": {
+    "rows": [
+      {
+        "label": "view",
+        "zoom": 0.5,
+        "camera": 0,
+        "night": 0,
+        "different": 0,
+        "maximum": 0,
+        "cached": 14,
+        "builds": 14
+      },
+      {
+        "label": "view",
+        "zoom": 0.5,
+        "camera": 0,
+        "night": 0.43,
+        "different": 0,
+        "maximum": 0,
+        "cached": 14,
+        "builds": 14
+      },
+      {
+        "label": "view",
+        "zoom": 0.5,
+        "camera": 0,
+        "night": 1,
+        "different": 0,
+        "maximum": 0,
+        "cached": 14,
+        "builds": 14
+      },
+      {
+        "label": "view",
+        "zoom": 0.5,
+        "camera": 0.125,
+        "night": 0,
+        "different": 0,
+        "maximum": 0,
+        "cached": 0,
+        "builds": 0
+      },
+      {
+        "label": "view",
+        "zoom": 0.5,
+        "camera": 0.125,
+        "night": 0.43,
+        "different": 0,
+        "maximum": 0,
+        "cached": 0,
+        "builds": 0
+      },
+      {
+        "label": "view",
+        "zoom": 0.5,
+        "camera": 0.125,
+        "night": 1,
+        "different": 0,
+        "maximum": 0,
+        "cached": 0,
+        "builds": 0
+      },
+      {
+        "label": "view",
+        "zoom": 0.5,
+        "camera": 0.2,
+        "night": 0,
+        "different": 0,
+        "maximum": 0,
+        "cached": 0,
+        "builds": 0
+      },
+      {
+        "label": "view",
+        "zoom": 0.5,
+        "camera": 0.2,
+        "night": 0.43,
+        "different": 0,
+        "maximum": 0,
+        "cached": 0,
+        "builds": 0
+      },
+      {
+        "label": "view",
+        "zoom": 0.5,
+        "camera": 0.2,
+        "night": 1,
+        "different": 0,
+        "maximum": 0,
+        "cached": 0,
+        "builds": 0
+      },
+      {
+        "label": "view",
+        "zoom": 1,
+        "camera": 0,
+        "night": 0,
+        "different": 0,
+        "maximum": 0,
+        "cached": 14,
+        "builds": 14
+      },
+      {
+        "label": "view",
+        "zoom": 1,
+        "camera": 0,
+        "night": 0.43,
+        "different": 0,
+        "maximum": 0,
+        "cached": 14,
+        "builds": 14
+      },
+      {
+        "label": "view",
+        "zoom": 1,
+        "camera": 0,
+        "night": 1,
+        "different": 0,
+        "maximum": 0,
+        "cached": 14,
+        "builds": 14
+      },
+      {
+        "label": "view",
+        "zoom": 1,
+        "camera": 0.125,
+        "night": 0,
+        "different": 0,
+        "maximum": 0,
+        "cached": 14,
+        "builds": 14
+      },
+      {
+        "label": "view",
+        "zoom": 1,
+        "camera": 0.125,
+        "night": 0.43,
+        "different": 0,
+        "maximum": 0,
+        "cached": 14,
+        "builds": 14
+      },
+      {
+        "label": "view",
+        "zoom": 1,
+        "camera": 0.125,
+        "night": 1,
+        "different": 0,
+        "maximum": 0,
+        "cached": 14,
+        "builds": 14
+      },
+      {
+        "label": "view",
+        "zoom": 1,
+        "camera": 0.2,
+        "night": 0,
+        "different": 0,
+        "maximum": 0,
+        "cached": 0,
+        "builds": 0
+      },
+      {
+        "label": "view",
+        "zoom": 1,
+        "camera": 0.2,
+        "night": 0.43,
+        "different": 0,
+        "maximum": 0,
+        "cached": 0,
+        "builds": 0
+      },
+      {
+        "label": "view",
+        "zoom": 1,
+        "camera": 0.2,
+        "night": 1,
+        "different": 0,
+        "maximum": 0,
+        "cached": 0,
+        "builds": 0
+      },
+      {
+        "label": "view",
+        "zoom": 2,
+        "camera": 0,
+        "night": 0,
+        "different": 0,
+        "maximum": 0,
+        "cached": 14,
+        "builds": 14
+      },
+      {
+        "label": "view",
+        "zoom": 2,
+        "camera": 0,
+        "night": 0.43,
+        "different": 0,
+        "maximum": 0,
+        "cached": 14,
+        "builds": 14
+      },
+      {
+        "label": "view",
+        "zoom": 2,
+        "camera": 0,
+        "night": 1,
+        "different": 0,
+        "maximum": 0,
+        "cached": 14,
+        "builds": 14
+      },
+      {
+        "label": "view",
+        "zoom": 2,
+        "camera": 0.125,
+        "night": 0,
+        "different": 0,
+        "maximum": 0,
+        "cached": 14,
+        "builds": 14
+      },
+      {
+        "label": "view",
+        "zoom": 2,
+        "camera": 0.125,
+        "night": 0.43,
+        "different": 0,
+        "maximum": 0,
+        "cached": 14,
+        "builds": 14
+      },
+      {
+        "label": "view",
+        "zoom": 2,
+        "camera": 0.125,
+        "night": 1,
+        "different": 0,
+        "maximum": 0,
+        "cached": 14,
+        "builds": 14
+      },
+      {
+        "label": "view",
+        "zoom": 2,
+        "camera": 0.2,
+        "night": 0,
+        "different": 0,
+        "maximum": 0,
+        "cached": 0,
+        "builds": 0
+      },
+      {
+        "label": "view",
+        "zoom": 2,
+        "camera": 0.2,
+        "night": 0.43,
+        "different": 0,
+        "maximum": 0,
+        "cached": 0,
+        "builds": 0
+      },
+      {
+        "label": "view",
+        "zoom": 2,
+        "camera": 0.2,
+        "night": 1,
+        "different": 0,
+        "maximum": 0,
+        "cached": 0,
+        "builds": 0
+      },
+      {
+        "label": "view",
+        "zoom": 1.37,
+        "camera": 0,
+        "night": 0,
+        "different": 0,
+        "maximum": 0,
+        "cached": 0,
+        "builds": 0
+      },
+      {
+        "label": "view",
+        "zoom": 1.37,
+        "camera": 0,
+        "night": 0.43,
+        "different": 0,
+        "maximum": 0,
+        "cached": 0,
+        "builds": 0
+      },
+      {
+        "label": "view",
+        "zoom": 1.37,
+        "camera": 0,
+        "night": 1,
+        "different": 0,
+        "maximum": 0,
+        "cached": 0,
+        "builds": 0
+      },
+      {
+        "label": "view",
+        "zoom": 1.37,
+        "camera": 0.125,
+        "night": 0,
+        "different": 0,
+        "maximum": 0,
+        "cached": 0,
+        "builds": 0
+      },
+      {
+        "label": "view",
+        "zoom": 1.37,
+        "camera": 0.125,
+        "night": 0.43,
+        "different": 0,
+        "maximum": 0,
+        "cached": 0,
+        "builds": 0
+      },
+      {
+        "label": "view",
+        "zoom": 1.37,
+        "camera": 0.125,
+        "night": 1,
+        "different": 0,
+        "maximum": 0,
+        "cached": 0,
+        "builds": 0
+      },
+      {
+        "label": "view",
+        "zoom": 1.37,
+        "camera": 0.2,
+        "night": 0,
+        "different": 0,
+        "maximum": 0,
+        "cached": 0,
+        "builds": 0
+      },
+      {
+        "label": "view",
+        "zoom": 1.37,
+        "camera": 0.2,
+        "night": 0.43,
+        "different": 0,
+        "maximum": 0,
+        "cached": 0,
+        "builds": 0
+      },
+      {
+        "label": "view",
+        "zoom": 1.37,
+        "camera": 0.2,
+        "night": 1,
+        "different": 0,
+        "maximum": 0,
+        "cached": 0,
+        "builds": 0
+      },
+      {
+        "label": "high-quality sampling",
+        "zoom": 2,
+        "camera": 0,
+        "night": 1,
+        "different": 0,
+        "maximum": 0,
+        "cached": 0,
+        "builds": 0
+      },
+      {
+        "label": "growth transition",
+        "zoom": 1,
+        "camera": 0,
+        "night": 1,
+        "different": 0,
+        "maximum": 0,
+        "cached": 13,
+        "builds": 13
+      },
+      {
+        "label": "growth midpoint",
+        "zoom": 1,
+        "camera": 0,
+        "night": 1,
+        "different": 0,
+        "maximum": 0,
+        "cached": 13,
+        "builds": 13
+      },
+      {
+        "label": "growth settled",
+        "zoom": 1,
+        "camera": 0,
+        "night": 1,
+        "different": 0,
+        "maximum": 0,
+        "cached": 14,
+        "builds": 14
+      },
+      {
+        "label": "shrink transition",
+        "zoom": 1,
+        "camera": 0,
+        "night": 0.4,
+        "different": 0,
+        "maximum": 0,
+        "cached": 13,
+        "builds": 13
+      },
+      {
+        "label": "shrink midpoint",
+        "zoom": 1,
+        "camera": 0,
+        "night": 0.4,
+        "different": 0,
+        "maximum": 0,
+        "cached": 13,
+        "builds": 13
+      },
+      {
+        "label": "shrink settled",
+        "zoom": 1,
+        "camera": 0,
+        "night": 0.4,
+        "different": 0,
+        "maximum": 0,
+        "cached": 14,
+        "builds": 14
+      },
+      {
+        "label": "palette mutation",
+        "zoom": 1,
+        "camera": 0,
+        "night": 0.3,
+        "different": 0,
+        "maximum": 0,
+        "cached": 14,
+        "builds": 14
+      },
+      {
+        "label": "switched off",
+        "zoom": 1,
+        "camera": 0,
+        "night": 1,
+        "different": 0,
+        "maximum": 0,
+        "cached": 14,
+        "builds": 14
+      },
+      {
+        "label": "power loss",
+        "zoom": 1,
+        "camera": 0,
+        "night": 1,
+        "different": 0,
+        "maximum": 0,
+        "cached": 14,
+        "builds": 14
+      },
+      {
+        "label": "power restore",
+        "zoom": 1,
+        "camera": 0,
+        "night": 1,
+        "different": 0,
+        "maximum": 0,
+        "cached": 14,
+        "builds": 14
+      },
+      {
+        "label": "damaged footprint",
+        "zoom": 1,
+        "camera": 0,
+        "night": 1,
+        "different": 0,
+        "maximum": 0,
+        "cached": 13,
+        "builds": 13
+      },
+      {
+        "label": "after cache eviction",
+        "zoom": 1,
+        "camera": 0,
+        "night": 1,
+        "different": 0,
+        "maximum": 0,
+        "cached": 13,
+        "builds": 13
+      },
+      {
+        "label": "versioned atlas",
+        "zoom": 1,
+        "camera": 0,
+        "night": 1,
+        "different": 0,
+        "maximum": 0,
+        "cached": 13,
+        "builds": 13
+      },
+      {
+        "label": "versioned unchanged",
+        "zoom": 1,
+        "camera": 0,
+        "night": 1,
+        "different": 0,
+        "maximum": 0,
+        "cached": 13,
+        "builds": 0
+      },
+      {
+        "label": "versioned palette mutation",
+        "zoom": 1,
+        "camera": 0,
+        "night": 1,
+        "different": 0,
+        "maximum": 0,
+        "cached": 13,
+        "builds": 13
+      }
+    ],
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "canvases": 128,
+    "reused": true,
+    "cacheBytes": 3745828,
+    "groundChecks": 193,
+    "warmBuilds": 0
+  },
+  "previewQueue": {
+    "oldDefault": 5,
+    "oldProbe": {
+      "requested": 48,
+      "successful": 41,
+      "refused": 7
+    },
+    "newQueue": 128,
+    "newProbe": {
+      "requested": 48,
+      "successful": 48,
+      "refused": 0
+    }
+  },
+  "unpoweredControl": {
+    "baseline": {
+      "slices": {
+        "buildings-day": {
+          "medianMs": 5.200000047683716,
+          "p95Ms": 6.100000023841858
+        },
+        "buildings-night": {
+          "medianMs": 12.700000047683716,
+          "p95Ms": 128.19999992847443
+        },
+        "water": {
+          "medianMs": 0,
+          "p95Ms": 0.10000002384185791
+        },
+        "weather": {
+          "medianMs": 15.900000095367432,
+          "p95Ms": 85.10000002384186
+        },
+        "without-water": {
+          "medianMs": 18.600000023841858,
+          "p95Ms": 81.29999995231628
+        },
+        "without-windows": {
+          "medianMs": 18.5,
+          "p95Ms": 84.60000002384186
+        },
+        "without-sprites": {
+          "medianMs": 14.199999928474426,
+          "p95Ms": 84.60000002384186
+        }
+      },
+      "zones": 1833,
+      "metrics": {
+        "enabled": true,
+        "spritesReady": true,
+        "weather": "rain",
+        "weatherBlend": {
+          "clear": 0,
+          "cloudy": 0,
+          "rain": 1
+        },
+        "cloudOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "night": 1,
+        "clouds": 38,
+        "cloudCoverage": 52,
+        "cloudOpacity": 0.37,
+        "atmosphericHaze": 0.26,
+        "rainParticles": 180,
+        "smokePuffs": 1482,
+        "cars": 101,
+        "litBuildings": 1521,
+        "litWindows": 563,
+        "windowPixels": 3868166,
+        "photorealBuildings": 1482,
+        "buildingCache": {
+          "drawn": 0,
+          "bakes": 0,
+          "canvases": 0
+        },
+        "smogPatches": 260,
+        "water": {
+          "cells": 12000,
+          "polluted": 8720,
+          "flowX": 0.08277623800258736,
+          "flowY": -5.068582745766405e-18,
+          "maskBuilds": 2,
+          "surfaceBuilds": 36
+        },
+        "fireTiles": 0
+      },
+      "appVersion": "http://127.0.0.1:55719/src/app.js?v=turbo-0.2.36",
+      "simulationYear": 2008,
+      "appZoom": 0.5000000047697187,
+      "mapWidth": 240,
+      "mapHeight": 200,
+      "overlay": "none",
+      "underground": false,
+      "artEnabled": true,
+      "appFrames": {
+        "paintedCount": 150,
+        "paintedMedianMs": 13.599999904632568,
+        "paintedP95Ms": 41.89999997615814,
+        "count": 177,
+        "medianMs": 12.400000095367432,
+        "p95Ms": 41.59999990463257,
+        "maximumPaintsPerFrame": 1
+      },
+      "fixture": "developed-RCI-v2",
+      "profileZoom": 0.5,
+      "photoBaseline": true,
+      "baseline": false,
+      "seaBaseline": false,
+      "cpuProfile": {
+        "durationMs": 5414.3,
+        "top": [
+          [
+            "drawImage ",
+            1195
+          ],
+          [
+            "(idle) ",
+            573
+          ],
+          [
+            "fillRect ",
+            318
+          ],
+          [
+            "(program) ",
+            223
+          ],
+          [
+            "drawCachedSeaPollution sea-pollution-art.js?v=sea-cache-33",
+            57
+          ],
+          [
+            "draw realistic-art.js?v=amenities-gifts-29",
+            44
+          ],
+          [
+            "fill ",
+            37
+          ],
+          [
+            "getBoundingClientRect ",
+            34
+          ],
+          [
+            "cell app.js?v=turbo-0.2.36",
+            33
+          ],
+          [
+            "CanvasRenderingContext2D.fillRect ",
+            30
+          ],
+          [
+            "draw weather-fx.js?v=health-care-34",
+            26
+          ],
+          [
+            "serialize simulation.js?v=mapgen-35",
+            24
+          ],
+          [
+            "(garbage collector) ",
+            24
+          ],
+          [
+            "drawElevation elevation.js?v=megacity-1",
+            23
+          ],
+          [
+            "image city-graphics.js?v=season-1",
+            21
+          ],
+          [
+            "renderCity app.js?v=turbo-0.2.36",
+            20
+          ],
+          [
+            "drawPowerWarnings power-warnings.js?v=amenities-gifts-29",
+            17
+          ],
+          [
+            "City.serialize financial-safety.js?v=parks-23",
+            17
+          ]
+        ]
+      },
+      "errors": []
+    },
+    "candidate": {
+      "slices": {
+        "buildings-day": {
+          "medianMs": 1.6999999284744263,
+          "p95Ms": 5.700000047683716
+        },
+        "buildings-night": {
+          "medianMs": 7.600000023841858,
+          "p95Ms": 8.899999976158142
+        },
+        "water": {
+          "medianMs": 0,
+          "p95Ms": 0.10000002384185791
+        },
+        "weather": {
+          "medianMs": 9.799999952316284,
+          "p95Ms": 14.5
+        },
+        "without-water": {
+          "medianMs": 9.399999976158142,
+          "p95Ms": 15.200000047683716
+        },
+        "without-windows": {
+          "medianMs": 9.699999928474426,
+          "p95Ms": 13.600000023841858
+        },
+        "without-sprites": {
+          "medianMs": 8,
+          "p95Ms": 108.29999995231628
+        }
+      },
+      "zones": 1833,
+      "metrics": {
+        "enabled": true,
+        "spritesReady": true,
+        "weather": "rain",
+        "weatherBlend": {
+          "clear": 0,
+          "cloudy": 0,
+          "rain": 1
+        },
+        "cloudOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "night": 1,
+        "clouds": 38,
+        "cloudCoverage": 52,
+        "cloudOpacity": 0.37,
+        "atmosphericHaze": 0.26,
+        "rainParticles": 180,
+        "smokePuffs": 1482,
+        "cars": 101,
+        "litBuildings": 1521,
+        "litWindows": 563,
+        "windowPixels": 3868166,
+        "photorealBuildings": 1482,
+        "buildingCache": {
+          "drawn": 1482,
+          "bakes": 0,
+          "canvases": 3
+        },
+        "smogPatches": 260,
+        "water": {
+          "cells": 12000,
+          "polluted": 8720,
+          "flowX": 0.08277623800258736,
+          "flowY": -5.068582745766405e-18,
+          "maskBuilds": 2,
+          "surfaceBuilds": 36
+        },
+        "fireTiles": 0
+      },
+      "appVersion": "http://127.0.0.1:55719/src/app.js?v=turbo-0.2.36",
+      "simulationYear": 2008,
+      "appZoom": 0.5000000047697187,
+      "mapWidth": 240,
+      "mapHeight": 200,
+      "overlay": "none",
+      "underground": false,
+      "artEnabled": true,
+      "appFrames": {
+        "paintedCount": 185,
+        "paintedMedianMs": 10.799999952316284,
+        "paintedP95Ms": 37.90000009536743,
+        "count": 217,
+        "medianMs": 10.400000095367432,
+        "p95Ms": 37.89999997615814,
+        "maximumPaintsPerFrame": 1
+      },
+      "fixture": "developed-RCI-v2",
+      "profileZoom": 0.5,
+      "photoBaseline": false,
+      "baseline": false,
+      "seaBaseline": false,
+      "cpuProfile": {
+        "durationMs": 5244.745,
+        "top": [
+          [
+            "drawImage ",
+            1156
+          ],
+          [
+            "(idle) ",
+            458
+          ],
+          [
+            "fillRect ",
+            239
+          ],
+          [
+            "(program) ",
+            189
+          ],
+          [
+            "fill ",
+            150
+          ],
+          [
+            "drawCachedSeaPollution sea-pollution-art.js?v=sea-cache-33",
+            60
+          ],
+          [
+            "cell app.js?v=turbo-0.2.36",
+            36
+          ],
+          [
+            "getBoundingClientRect ",
+            36
+          ],
+          [
+            "drawPowerWarnings power-warnings.js?v=amenities-gifts-29",
+            35
+          ],
+          [
+            "composite realistic-art.js?v=amenities-gifts-29",
+            33
+          ],
+          [
+            "renderCity app.js?v=turbo-0.2.36",
+            26
+          ],
+          [
+            "draw realistic-art.js?v=amenities-gifts-29",
+            25
+          ],
+          [
+            "CanvasRenderingContext2D.fillRect ",
+            25
+          ],
+          [
+            "drawTerrainShore terrain-tools.js?v=megacity-1",
+            25
+          ],
+          [
+            "draw weather-fx.js?v=health-care-34",
+            24
+          ],
+          [
+            "romGiftEffects rom-gifts.js?v=gift-workers-31",
+            22
+          ],
+          [
+            "image city-graphics.js?v=season-1",
+            22
+          ],
+          [
+            "(garbage collector) ",
+            21
+          ]
+        ]
+      },
+      "errors": []
+    }
+  }
+}

@@ -19,7 +19,7 @@ import {drawUtilityFlows,pipeFlowText} from './utility-flows.js?v=health-care-34
 import {createMegacityTerrain} from './megacity.js?v=megacity-1';
 import {drawUnderground,pipeServiceArea} from './underground.js?v=health-care-34';
 import {diagnoseGrowth,growthAdviceHTML} from './growth-advisor.js?v=health-care-34';
-import {WeatherFX,DEFAULT_WEATHER_FX} from './weather-fx.js?v=health-care-34';
+import {WeatherFX,DEFAULT_WEATHER_FX} from './weather-fx.js?v=photo-cache-37';
 import {drawWindArrows,windDescription} from './climate.js?v=weather-1';
 import {socialFields} from './social-fields.js?v=health-care-34';
 const weatherRenderer=new WeatherFX();let weatherSettings={...DEFAULT_WEATHER_FX,quality:matchMedia('(max-width:900px)').matches?'low':'high'};weatherRenderer.ready.catch(()=>{});
@@ -40,7 +40,7 @@ import {setupRegions} from './region-ui.js?v=health-care-34';
 import {CIVIC_TOOLS,civicServices} from './civic.js?v=health-care-34';
 import {drawCivic,civicReport,hasAnimatedCivic} from './civic-ui.js?v=health-care-34';
 import {HISTORY_LABELS} from './rom-history.js?v=history-3';
-import {AnimatedCityAtlas,cityAnimationState,advanceCityAnimation} from './city-graphics.js?v=season-1';
+import {AnimatedCityAtlas,cityAnimationState,advanceCityAnimation} from './city-graphics.js?v=photo-cache-37';
 import {drawPowerWarnings,unpoweredBuildings} from './power-warnings.js?v=amenities-gifts-29';
 import {strokeCells,shapeCells,zoneBlockLayout} from './build-stroke.js?v=blocks-1';
 import {OVERLAYS,overlayColor} from './map-overlays.js?v=health-care-34';
