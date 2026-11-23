@@ -1,0 +1,124 @@
+{
+  "nodeChecks": 569,
+  "browser": {
+    "base": "http://127.0.0.1:55721",
+    "title": "Sim City Turbo \u00b7 v0.2.58",
+    "before": {
+      "funds": 499170
+    },
+    "selected": {
+      "i": 2541,
+      "name": "Civic plaza",
+      "operating": true,
+      "reason": "Open to residents",
+      "zones": 3,
+      "helped": 3,
+      "averageLand": 54.3,
+      "averageGrowth": 300,
+      "limited": 0,
+      "hover": "Existing plots update automatically; no re-plopping needed.",
+      "sample": [
+        {
+          "i": 2548,
+          "x": 28,
+          "y": 21,
+          "type": 6,
+          "operating": true,
+          "baseLand": 12,
+          "land": 77,
+          "totalLandBonus": 65,
+          "landPotential": 57,
+          "landAdded": 57,
+          "commercialPotential": 300,
+          "commercialAdded": 300,
+          "totalCommercial": 300,
+          "transport": true,
+          "capped": false
+        },
+        {
+          "i": 2552,
+          "x": 32,
+          "y": 21,
+          "type": 7,
+          "operating": true,
+          "baseLand": 20,
+          "land": 82,
+          "totalLandBonus": 62,
+          "landPotential": 50,
+          "landAdded": 50,
+          "commercialPotential": 0,
+          "commercialAdded": 0,
+          "totalCommercial": 0,
+          "transport": false,
+          "capped": false
+        },
+        {
+          "i": 3028,
+          "x": 28,
+          "y": 25,
+          "type": 5,
+          "operating": true,
+          "baseLand": 20,
+          "land": 85,
+          "totalLandBonus": 65,
+          "landPotential": 56,
+          "landAdded": 56,
+          "commercialPotential": 0,
+          "commercialAdded": 0,
+          "totalCommercial": 0,
+          "transport": false,
+          "capped": false
+        }
+      ]
+    },
+    "hover": "Commercial (28, 21) \u00b7 land 12 \u2192 77/250 \u00b7 all amenities +65 \u00b7 this plot +57 \u00b7 commercial score: all plazas +300, this plot +300",
+    "disabled": "Switched off",
+    "maxed": {
+      "target": 4971,
+      "value": 250,
+      "base": 96,
+      "plots": 4
+    },
+    "loaded": {
+      "i": 5082,
+      "name": "City park",
+      "operating": true,
+      "reason": "Open to residents",
+      "zones": 1,
+      "helped": 1,
+      "averageLand": 0,
+      "averageGrowth": 0,
+      "limited": 1,
+      "hover": "Existing plots update automatically; no re-plopping needed.",
+      "sample": [
+        {
+          "i": 4971,
+          "x": 51,
+          "y": 41,
+          "type": 6,
+          "operating": true,
+          "baseLand": 96,
+          "land": 250,
+          "totalLandBonus": 154,
+          "landPotential": 70,
+          "landAdded": 0,
+          "commercialPotential": 0,
+          "commercialAdded": 0,
+          "totalCommercial": 0,
+          "transport": false,
+          "capped": true
+        }
+      ]
+    },
+    "maxHover": "Commercial (51, 41) \u00b7 land 96 \u2192 250/250 \u00b7 all amenities +154 \u00b7 this plot +0 \u00b7 commercial score: all plazas +0, this plot +0 \u00b7 overlap / land cap",
+    "errors": []
+  },
+  "sourceHashes": {
+    "amenity-inspection.js": "50b97edcca67d5d7526b5b296d8cb68387d1bbc199503a18bd946db3722ec40b",
+    "app.js": "f7843d89c63e26083da969fb354c0c80f25423af11c9d33fc33d55a5d66378a2",
+    "facility-meters.js": "9724ae2c7126773f2eafdf1b4461a6b1c4c94421d360ca37cbc849a3d86e72e0",
+    "parks.js": "bf9df78a277c3cdce39b3c8e298c2de66f0a78d69cdd3922a595efaa72897a33",
+    "simulation.js": "c8a45d7bb3066060d6287bde3c96e97ffae93c2d6980e37d92fcdadc05e758f1",
+    "zone-growth.js": "73c67f5ec8b42b887d3002a27f8ec30b8e6689777c6c755bf81ce2af02a24ab1"
+  }
+}

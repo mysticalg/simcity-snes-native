@@ -1,27 +1,30 @@
 // Requested Turbo amenities; these are explicit balance rules, not ROM formulas.
-import {civicForId,civicBounds,civicRoadEntry} from './civic.js?v=approaches-56';
+import {civicForId,civicBounds} from './civic.js?v=approaches-56';
 import {buildingOff} from './building-operations.js?v=approaches-56';
 import {aggregateRomLandValue} from './rom-land-value.js';
+export const PARK_LAND_CAP=250;
 const cache=new WeakMap();
-const nativePark={kind:'park',radius:8,landBonus:10,happiness:6,size:1};
+const nativePark={name:'Park',tool:4,kind:'park',radius:8,landBonus:10,happiness:6,size:1};
 export function parkProfile(b){return {...b,radius:Math.ceil(b.radius*1.5),landBonus:b.landBonus*2};}
+export function parkTransportEntry(city,z){const b=civicBounds(z)||{width:1,height:1},reach=Math.max(2,Math.ceil(Math.max(b.width,b.height)/2)+1),w=city.width,h=city.height;for(let dy=-reach;dy<=reach;dy++)for(let dx=-reach;dx<=reach;dx++){const x=z.x+dx,y=z.y+dy;if(x>=0&&x<w&&y>=0&&y<h&&(city.flags[city.map[y*w+x]&1023]&96))return y*w+x;}return -1;}
 export function plazaGrowthBonus(city,z){return z.type===6?parkServices(city).commerce[z.i]*12:0;}
+export function parkContribution(p,x,y){const b=p.bounds,dx=Math.max(b.x-x,0,x-(b.x+b.width-1)),dy=Math.max(b.y-y,0,y-(b.y+b.height-1)),distance=Math.hypot(dx,dy);if(distance>p.radius)return {land:0,commerce:0,happiness:0};const falloff=1-distance/(p.radius+1);return {land:Math.round(p.landBonus*falloff),commerce:Math.round(p.commerce*falloff),happiness:Math.round(p.happiness*falloff)};}
 export function parkServices(city){
  const key=city.revision+':'+Object.entries(city.disabledBuildings||{}).join(';'),prior=cache.get(city);
  if(prior?.key===key)return prior.value;
- const active=city.zones.filter(z=>civicForId(z.id)?.kind==='park').map(z=>({z,b:parkProfile(civicForId(z.id)),off:buildingOff(city,z),road:civicRoadEntry(city,z)>=0}));
+ const active=city.zones.filter(z=>civicForId(z.id)?.kind==='park').map(z=>({z,b:parkProfile(civicForId(z.id)),off:buildingOff(city,z),road:parkTransportEntry(city,z)>=0}));
  // Tool 4 uses terrain tile 38, so it is absent from the zone-centre list.
  for(let i=0;i<city.map.length;i++)if((city.map[i]&1023)===38)active.push({z:{i,id:38,x:i%city.width,y:Math.floor(i/city.width)},b:parkProfile(nativePark),off:false,road:true});
  const layout=active.map(({z,off,road})=>z.i+':'+z.id+':'+Number(off)+':'+Number(road)).join(';');if(prior?.layout===layout){prior.key=key;return prior.value;}
- const w=city.width||120,h=city.height||100,land=new Uint8Array(city.map.length),happiness=new Uint8Array(city.map.length),commerce=new Uint8Array(city.map.length),facilities=[];
+ const w=city.width||120,h=city.height||100,land=new Uint8Array(city.map.length),happiness=new Uint8Array(city.map.length),commerce=new Uint8Array(city.map.length),rawLand=new Uint32Array(city.map.length),rawCommerce=new Uint32Array(city.map.length),facilities=[];
  for(const {z,b,off,road} of active){const bounds=civicBounds(z)||{x:z.x,y:z.y,width:1,height:1},operating=!off&&road;
-  facilities.push({i:z.i,operating,reason:buildingOff(city,z)?'Switched off':!operating?'Needs road access':'Open to residents',radius:b.radius,landBonus:b.landBonus,happiness:b.happiness,commerce:b.commerce||0});if(!operating)continue;
+  const facility={i:z.i,id:z.id,tool:b.tool,name:b.name,bounds,operating,reason:off?'Switched off':!operating?'Needs road or rail access':'Open to residents',radius:b.radius,landBonus:b.landBonus,happiness:b.happiness,commerce:b.commerce||0};facilities.push(facility);if(!operating)continue;
   for(let y=Math.max(0,bounds.y-b.radius);y<Math.min(h,bounds.y+bounds.height+b.radius);y++)for(let x=Math.max(0,bounds.x-b.radius);x<Math.min(w,bounds.x+bounds.width+b.radius);x++){
    const dx=Math.max(bounds.x-x,0,x-(bounds.x+bounds.width-1)),dy=Math.max(bounds.y-y,0,y-(bounds.y+bounds.height-1)),distance=Math.hypot(dx,dy);if(distance>b.radius)continue;const falloff=1-distance/(b.radius+1),i=y*w+x;
-   land[i]=Math.min(85,land[i]+Math.round(b.landBonus*falloff));happiness[i]=Math.min(50,happiness[i]+Math.round(b.happiness*falloff));commerce[i]=Math.min(60,commerce[i]+Math.round((b.commerce||0)*falloff));
+   rawLand[i]+=Math.round(b.landBonus*falloff);rawCommerce[i]+=Math.round((b.commerce||0)*falloff);land[i]=Math.min(PARK_LAND_CAP,rawLand[i]);happiness[i]=Math.min(50,happiness[i]+Math.round(b.happiness*falloff));commerce[i]=Math.min(60,rawCommerce[i]);
   }
  }
- const value={land,happiness,commerce,facilities};cache.set(city,{key,layout,value});return value;
+ const value={land,happiness,commerce,rawLand,rawCommerce,facilities};cache.set(city,{key,layout,value});return value;
 }
 export function applyParkBenefits(city,{newBase=false}={}){
  const s=parkServices(city);
