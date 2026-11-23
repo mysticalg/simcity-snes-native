@@ -1,0 +1,4 @@
+import {reshapeTerrain} from './terrain-tools.js?v=megacity-1';
+import {plantForest} from './elevation.js?v=megacity-1';
+// Player extension: four times the source free-play area in actual8px cells.
+export function createMegacityTerrain(source){if(source.length!==12000)throw Error('Expected original Free City map');const width=240,height=200,map=new Uint16Array(width*height),edited=new Uint8Array(map.length);for(let y=0;y<height;y++)for(let x=0;x<width;x++){const id=source[Math.floor(y/2)*120+Math.floor(x/2)]&1023;map[y*width+x]=id>=1&&id<20?2:id>=20&&id<38?24:0;}for(let y=0;y<height;y++)for(let x=0;x<width;x++)if(map[y*width+x]>=1&&map[y*width+x]<20)reshapeTerrain(map,edited,x,y,true,width,height);for(let y=0;y<height;y++)for(let x=0;x<width;x++)if(map[y*width+x]>=20&&map[y*width+x]<38)plantForest(map,x,y,width,height);return {map,width,height};}

@@ -1,4 +1,4 @@
-import {waterNetwork} from './civic.js?v=weather-1';
+import {waterNetwork} from './civic.js?v=megacity-1';
 const cache=new WeakMap();
 // Mirrors waterService's Chebyshev radius3; range alone does not guarantee
 // a building's demand fits the network's finite allocation.

@@ -1,33 +1,33 @@
-import {createRomUfo,stepRomUfo,startRomUfoVisit} from './rom-ufo.js';
-import {updateLocalHealth} from './social-fields.js?v=weather-1';
+import {createRomUfo,stepRomUfo,startRomUfoVisit} from './rom-ufo.js?v=megacity-1';
+import {updateLocalHealth} from './social-fields.js?v=megacity-1';
 import {createClimate,advanceClimate,combineAirPollution,windPower} from './climate.js?v=weather-1';
 import {conductivePowerFlags} from './power-conductors.js?v=terrain-1';
-import {createElevation,terrainCheck,plantForest} from './elevation.js?v=terrain-1';
-import {employmentIncome} from './employment.js?v=budget-session-1';
+import {createElevation,terrainCheck,plantForest} from './elevation.js?v=megacity-1';
+import {employmentIncome} from './employment.js?v=megacity-1';
 import {buildingOff} from './building-operations.js';
-import {updateRailFleet,advanceRailFleet,trainVehicles} from './rail-fleet.js';
-import {updateSewageMonth,sewageServices} from './sewage.js';
-import {createRomPlane,spawnRomPlane,stepRomPlane} from './rom-plane.js';
-import {createRomHelicopter,spawnRomHelicopter,stepRomHelicopter} from './rom-helicopter.js';
-import {installTerrainTools,reshapeTerrain} from './terrain-tools.js?v=terrain-1';
-import {createRomMonster,startRomMonster,stepRomMonster,monsterPollutionTarget} from './rom-monster.js';
-import {CIVIC_TOOLS,installCivicTools,civicForId,civicBounds,civicServices,updateCivicMonth,educationEffects} from './civic.js?v=weather-1';
-import {createRomTornado,startRomTornado,stepRomTornado} from './rom-tornado.js';
+import {updateRailFleet,advanceRailFleet,trainVehicles} from './rail-fleet.js?v=megacity-1';
+import {updateSewageMonth,sewageServices} from './sewage.js?v=megacity-1';
+import {createRomPlane,spawnRomPlane,stepRomPlane} from './rom-plane.js?v=megacity-1';
+import {createRomHelicopter,spawnRomHelicopter,stepRomHelicopter} from './rom-helicopter.js?v=megacity-1';
+import {installTerrainTools,reshapeTerrain} from './terrain-tools.js?v=megacity-1';
+import {createRomMonster,startRomMonster,stepRomMonster,monsterPollutionTarget} from './rom-monster.js?v=megacity-1';
+import {CIVIC_TOOLS,installCivicTools,civicForId,civicBounds,civicServices,updateCivicMonth,educationEffects} from './civic.js?v=megacity-1';
+import {createRomTornado,startRomTornado,stepRomTornado} from './rom-tornado.js?v=megacity-1';
 import {createRomSeason,changeRomSeason,advanceRomSeason} from './rom-render.js?v=season-1';
 import {romPopulation} from './rom-population.js';
 import {selectRomRandomDisaster} from './rom-random-disaster.js';
 import {romFacilityDemand,placeRomFacility,updateRomFacility} from './rom-facilities.js';
 import {createRomTrain,spawnRomTrain,stepRomTrain} from './rom-train.js';
-import {createRomShip,spawnRomShip,stepRomShip} from './rom-ship.js?v=collision-2';
-import {applyRomShipCollision,applyRomTrainCollision,burnRomZone} from './rom-collision.js?v=aircraft-1';
+import {createRomShip,spawnRomShip,stepRomShip} from './rom-ship.js?v=megacity-1';
+import {applyRomShipCollision,applyRomTrainCollision,burnRomZone} from './rom-collision.js?v=megacity-1';
 import {recordRomHistory} from './rom-history.js';
-import {romCommercialRate,commercialLocalScore,industrialLocalScore} from './rom-commercial.js';
+import {romCommercialRate,commercialLocalScore,industrialLocalScore} from './rom-commercial.js?v=megacity-1';
 import {romCityProblems,romCityScore,pollRomProblems,pollRomApproval,romAssessedValue} from './rom-evaluation.js?v=facilities-1';
 import {romTransportFunding,updateRomTransportTile} from './rom-transport.js';
 import {traceRomPower} from './rom-power.js?v=regions-1';
 import {romFieldSchedule} from './rom-schedule.js';
 import {romGiftEffects,nextCoreMilestone,enqueueRomGift} from './rom-gifts.js?v=history-3';
-import {networkCrossing} from './rom-networks.js';
+import {networkCrossing,hasRoadLayer} from './rom-networks.js?v=megacity-1';
 import {romPoliceCoverage,romFireCoverage,fireBurnoutMaximum,romServiceFunding,seedRomServicePlane,expandRomServicePlane,addRomServiceCenter} from './rom-services.js';
 import {romDensityField} from './rom-density.js';
 import {romCrimeValue,meanRomCrime} from './rom-crime.js';
@@ -36,7 +36,7 @@ import {aggregateRomLandValue,romLandValue,romTerrainField} from './rom-land-val
 import {romAnnualRevenue,allocateRomBudget} from './rom-finance.js';
 import {SIMULATION_SEED,nextSimulationWord,boundSimulationWord} from './rom-random.js';
 import {decayTraffic,addRouteTraffic} from './rom-traffic.js';
-import {applyRomMeltdown,applyRomEarthquake,startRomFire,startRomFlood,dispatchRomDisasterTile} from './rom-disasters.js?v=fire-start-1';
+import {applyRomMeltdown,applyRomEarthquake,startRomFire,startRomFlood,dispatchRomDisasterTile} from './rom-disasters.js?v=megacity-1';
 import {scenarioOutcome,SCENARIO_EVENT_COUNTS,stepScenarioEvent,stepScenarioReminder,scenarioMeltdownSite} from './rom-scenarios.js';
 import {residentialDemandScore, residentialLocalScore, residentialDensityBand, residentialGrowthBase, residentialDeclineFootprint, decideResidentialUpdate, stampZoneFootprint, placeSmallHome, mergeResidentialZone,repairMergedZone,updateCommercialFootprint,updateIndustrialFootprint,decideJobZoneUpdate,findZoneTransport,traceZoneTransport} from './rom-growth.js';
 import {accumulateRomDemand,generateRomDemand,scanRomGrowthCaps} from './rom-demand.js';
@@ -63,22 +63,23 @@ export function clamp(n,a,b){return Math.max(a,Math.min(b,n));}
 export function cityCategory(population){return LIMITS.filter(n=>population>=n).length;}
 export class City {
  constructor(map,build,flags,opts={}){
-  if(map.length!==W*H)throw Error('Invalid map length');
-  installCivicTools(build,flags);installTerrainTools(build);this.map=Uint16Array.from(map);this.build=build;this.flags=flags;this.pipes=new Uint8Array(W*H);this.busStops=new Uint8Array(W*H);this.civicLegacyLayouts={};this.terraform=new Uint8Array(W*H);this.elevation=createElevation(this.map);this.seaPollution=new Uint8Array(W*H);this.airPollution=new Float32Array(W*H);this.climate=createClimate();this.civicEnabled=opts.civicEnabled??false;this.civic={sewageEnabled:!!opts.civicEnabled,waterEnabled:!!opts.civicEnabled,garbage:0,health:100,education:0,water:100,buses:0,generatedGarbage:0,collectedGarbage:0};this.civicCapacity={};this.busRoutes=[];this.regionalState=null;this.regionalProvider=null;
-  this.name=opts.name||'New city';this.scenario=opts.scenario||'PracticeCity';this.year=opts.year||1900;this.month=1;this.season=createRomSeason(1);this.populationBaseline=0;this.netMigration=0;this.score=500;this.scoreChange=0;this.evaluation=null;this.fireCount=0;this.facilityDemand=[0,0];this.facilityCounts=[0,0];this.facilityRepairPhase=0;this.eventHistory=[];if(['PracticeCity','FreeCity'].includes(this.scenario))recordRomHistory(this.eventHistory,0,this.year,this.month);
+  this.width=opts.width??120;this.height=opts.height??100;if(![[120,100],[240,200]].some(([w,h])=>w===this.width&&h===this.height))throw Error('Unsupported city dimensions');this.coarseWidth=Math.ceil(this.width/8);this.coarseSize=this.coarseWidth*Math.ceil(this.height/8);
+  if(map.length!==this.width*this.height)throw Error('Invalid map length');
+  installCivicTools(build,flags);installTerrainTools(build);this.map=Uint16Array.from(map);this.build=build;this.flags=flags;this.pipes=new Uint8Array(this.width*this.height);this.busStops=new Uint8Array(this.width*this.height);this.civicLegacyLayouts={};this.terraform=new Uint8Array(this.width*this.height);this.elevation=createElevation(this.map);this.seaPollution=new Uint8Array(this.width*this.height);this.airPollution=new Float32Array(this.width*this.height);this.climate=createClimate();this.civicEnabled=opts.civicEnabled??false;this.civic={sewageEnabled:!!opts.civicEnabled,waterEnabled:!!opts.civicEnabled,garbage:0,health:100,education:0,water:100,buses:0,generatedGarbage:0,collectedGarbage:0};this.civicCapacity={};this.busRoutes=[];this.regionalState=null;this.regionalProvider=null;
+  this.name=opts.name||'New city';this.scenario=opts.scenario||'PracticeCity';this.year=opts.year||1900;this.month=1;this.season=createRomSeason(1);this.populationBaseline=0;this.netMigration=0;this.score=500;this.scoreChange=0;this.evaluation=null;this.fireCount=0;this.facilityDemand=[0,0];this.facilityCounts=[0,0];this.facilityRepairPhase=0;this.eventHistory=[];if(['PracticeCity','FreeCity','FreeMegacity'].includes(this.scenario))recordRomHistory(this.eventHistory,0,this.year,this.month);
   this.disastersEnabled=opts.disastersEnabled!==false;this.difficulty=clamp(Math.trunc(opts.difficulty??0),0,2);this.funds=[20000,10000,5000][this.difficulty];this.tax=7;this.funding=[100,100,100];this.serviceStrengths=[1000,1000];this.policeEffectiveness=opts.policeEffectiveness===1?1:2;this.transportStrength=32;this.ship=createRomShip();this.tornado=createRomTornado();this.monster=createRomMonster();this.plane=createRomPlane();this.helicopter=createRomHelicopter();this.helicopterNewsFrames=0;this.ufo=createRomUfo();this.ufoCampaign=null;this.ufoVisited=false;this.pollutionTarget={x:0,y:0};this.soundEvents=[];this.train=createRomTrain();this.extraTrains=[];this.nextTrainId=1;this.railSeed=0x51c17e;this.allocatedFunding=null;this.speed=1;
-  this.simulationRng=[...SIMULATION_SEED];this.rngA=0x5cd6;this.rngB=0x1238;this.population=0;this.demand=[400,200,200];this.history=[];this.taxAccumulator=opts.taxAccumulator||0;
-  this.power=new Uint8Array(W*H);this.pollution=new Uint8Array(W*H);this.crime=new Uint8Array(W*H);this.landValue=new Uint8Array(W*H);this.traffic=new Uint8Array(W*H);
-  this.baseStep=0;this.growthCaps={zoneTotal:0,suppressed:[false,false,false]};this.growthAdviceYear={};this.terrain=new Uint8Array(W*H);this.density=new Uint8Array(W*H);this.policeCoverage=new Uint16Array(W*H);this.fireCoverage=new Uint16Array(W*H);this.centerX=30;this.centerY=25;this.commercialRate=new Int16Array(195);this.fieldEpochs={};this.zones=[];this.notices=[];this.dismissedNotices=[];this.disasters=[];this.floodRemaining=0;this.quakeFrames=0;this.quakePhase=0;this.loans=[];this.elapsed=0;this.category=0;this.giftMilestones={};this.gifts=[];this.giftChoice=16;this.lastBudget=null;this.autoBudget=opts.autoBudget??false;this.pendingBudget=null;
+  this.simulationRng=[...SIMULATION_SEED];this.rngA=0x5cd6;this.rngB=0x1238;this.population=0;this.demand=[400,200,200];this.history=[];this.zoneGrowthLog={};this.taxAccumulator=opts.taxAccumulator||0;
+  this.power=new Uint8Array(this.width*this.height);this.pollution=new Uint8Array(this.width*this.height);this.crime=new Uint8Array(this.width*this.height);this.landValue=new Uint8Array(this.width*this.height);this.traffic=new Uint8Array(this.width*this.height);
+  this.baseStep=0;this.growthCaps={zoneTotal:0,suppressed:[false,false,false]};this.growthAdviceYear={};this.terrain=new Uint8Array(this.width*this.height);this.density=new Uint8Array(this.width*this.height);this.policeCoverage=new Uint16Array(this.width*this.height);this.fireCoverage=new Uint16Array(this.width*this.height);this.centerX=this.width/4;this.centerY=this.height/4;this.commercialRate=new Int16Array(this.coarseSize);this.fieldEpochs={};this.zones=[];this.notices=[];this.dismissedNotices=[];this.disasters=[];this.floodRemaining=0;this.quakeFrames=0;this.quakePhase=0;this.loans=[];this.elapsed=0;this.category=0;this.giftMilestones={};this.gifts=[];this.giftChoice=16;this.lastBudget=null;this.autoBudget=opts.autoBudget??false;this.pendingBudget=null;
   this.scenarioRemaining=SCENARIO_EVENT_COUNTS[this.scenario]||0;this.scenarioReminders=[];this.scenarioResult=null;this.scenarioDialogSeen=false;this.refresh();
  }
  // CODE_00824F: additive RNG, including carry into the second 16-bit add.
  menuRandom(){const old=this.rngA;let n=old+this.rngB;this.rngA=n&65535;this.rngB=(this.rngA+old+(n>65535?1:0))&65535;return this.rngB;}
  random(){return nextSimulationWord(this.simulationRng);}
  boundedRandom(maximum){return boundSimulationWord(this.random(),maximum);}
- id(x,y){return x>=0&&x<W&&y>=0&&y<H?this.map[y*W+x]&1023:0;}
+ id(x,y){return x>=0&&x<this.width&&y>=0&&y<this.height?this.map[y*this.width+x]&1023:0;}
  flag(i){return this.flags[this.map[i]&1023]||0;}
- neighbors(i){const x=i%W,y=Math.floor(i/W);return [x>0?i-1:-1,y>0?i-W:-1,x<W-1?i+1:-1,y<H-1?i+W:-1].filter(n=>n>=0);}
+ neighbors(i){const x=i%this.width,y=Math.floor(i/this.width);return [x>0?i-1:-1,y>0?i-this.width:-1,x<this.width-1?i+1:-1,y<this.height-1?i+this.width:-1].filter(n=>n>=0);}
  dismissNotice(text){this.notices=this.notices.filter(n=>n!==text);this.dismissedNotices=this.dismissedNotices.filter(n=>n.year===this.year);if(text&&!this.noticeIsDismissed(text))this.dismissedNotices.push({text,year:this.year});}
  noticeIsDismissed(text){return this.dismissedNotices.some(n=>n.text===text&&n.year===this.year);}
  message(text){if(this.notices[0]===text)return;this.notices=this.notices.filter(n=>n!==text);this.noticeSerial=(this.noticeSerial||0)+1;this.notices.unshift(text);this.notices.length=Math.min(8,this.notices.length);}
@@ -102,15 +103,15 @@ export class City {
   this.revision=(this.revision||0)+1;this.zones=[];this.roadCount=0;this.railCount=0;
   for(let i=0;i<this.map.length;i++){
    const id=this.map[i]&1023,f=this.flags[id]||0;
-   if(f&1)this.zones.push({i,x:i%W,y:Math.floor(i/W),id,type:this.classify(id),layout:this.civicLegacyLayouts[i]});
+   if(f&1)this.zones.push({i,x:i%this.width,y:Math.floor(i/this.width),id,type:this.classify(id),layout:this.civicLegacyLayouts[i]});
    if(f&0x20)this.railCount++;else if(f&0x40)this.roadCount+=id>=0x80||(id&15)<2?5:1;
   }
-  for(let i=0;i<this.busStops.length;i++)if(this.busStops[i]){if(this.flags[this.map[i]&1023]&64)this.zones.push({i,x:i%W,y:Math.floor(i/W),id:967,type:37});else this.busStops[i]=0;}
-  this.updatePower();this.census();this.reconcileGrowthFacilities();if(this.regionalProvider){this.regionalState=this.regionalProvider(this);this.updatePower();}if(this.civicEnabled){const services=civicServices(this);this.civicCapacity=services.capacity;this.busRoutes=services.routes;this.civicWatered=services.watered;this.waterField=services.water;if(this.civic.sewageEnabled)this.sewageFlow=sewageServices(this).flow;}updateRailFleet(this);
+  for(let i=0;i<this.busStops.length;i++)if(this.busStops[i]){if(this.flags[this.map[i]&1023]&64)this.zones.push({i,x:i%this.width,y:Math.floor(i/this.width),id:967,type:37});else this.busStops[i]=0;}
+  this.updatePower();this.census();this.reconcileGrowthFacilities();if(this.regionalProvider){this.regionalState=this.regionalProvider(this);this.updatePower();}if(this.civicEnabled){const services=civicServices(this);this.civicCapacity=services.capacity;this.busRoutes=services.routes;this.civicWatered=services.watered;this.waterField=services.water;if(this.civic.sewageEnabled)this.sewageFlow=sewageServices(this).flow;}updateRailFleet(this);for(const key of Object.keys(this.zoneGrowthLog)){const id=this.map[+key]&1023,type=this.classify(id);if(!(this.flags[id]&1)||type<5||type>7)delete this.zoneGrowthLog[key];}
  }
  updatePower(){
-  const fusionSeeds=this.zones.filter(z=>z.id===963||z.id===972).map(z=>z.i);const result=traceRomPower(this.map,conductivePowerFlags(this.flags),W,H,{extraSeeds:fusionSeeds,extraCapacity:fusionSeeds.reduce((n,i)=>n+((this.map[i]&1023)===972?windPower(this):10000),0)});
-  if(this.regionalState){for(let i=0;i<W*H;i++)if(this.regionalState.regionalPowerMask[i])result.power[i]=this.regionalState.importPower[i];result.exhausted ||=this.regionalState.powerShortfall;}
+  const fusionSeeds=this.zones.filter(z=>z.id===963||z.id===972).map(z=>z.i);const result=traceRomPower(this.map,conductivePowerFlags(this.flags),this.width,this.height,{extraSeeds:fusionSeeds,extraCapacity:fusionSeeds.reduce((n,i)=>n+((this.map[i]&1023)===972?windPower(this):10000),0)});
+  if(this.regionalState){for(let i=0;i<this.width*this.height;i++)if(this.regionalState.regionalPowerMask[i])result.power[i]=this.regionalState.importPower[i];result.exhausted ||=this.regionalState.powerShortfall;}
   this.power=result.power;this.powerCapacity=result.capacity+(this.regionalState?.powerSummary?.imported||0);this.powerUsed=this.regionalState?.powerSummary?.imported?result.power.reduce((n,v)=>n+v,0):result.used;this.powerOverloaded=result.exhausted;
   // CODE_03B152 writes the resulting power bit back to every map word.
   for(let i=0;i<this.map.length;i++)this.map[i]=(this.map[i]&0x7fff)|(this.power[i]?0x8000:0);
@@ -139,7 +140,7 @@ export class City {
    if(id===0x2a5)this.counts[12]++;
    if(id===0x129||id===0x132){this.facilityCounts[id===0x129?0:1]++;continue;}if(type<5||type>7)continue;
    this.counts[type]++;
-   this.rci[type-5]+=type===5&&id===0x84?this.adjacentSmallHomeCount({x:i%W,y:Math.floor(i/W)}):this.zonePopulation({id,type});
+   this.rci[type-5]+=type===5&&id===0x84?this.adjacentSmallHomeCount({x:i%this.width,y:Math.floor(i/this.width)}):this.zonePopulation({id,type});
    if(!this.power[i])unpowered++;
   }
   // CODE_038196: word-sized census arithmetic, population and migration.
@@ -148,15 +149,15 @@ export class City {
  footprint(tool,x,y){const b=this.build.buildings[tool];return b.tiles.map((id,i)=>({x:x+b.x[i],y:y+b.y[i],id}));}
  canBuild(tool,x,y){
   if(tool<0)return {ok:false,cost:0,reason:'Choose a construction tool.'};
-  if(tool>=46&&tool<=48)return terrainCheck(this.map,this.elevation,x,y,tool,this.funds,W,H);
-  if(tool===42||tool===43){const inside=x>=0&&x<W&&y>=0&&y<H,id=this.id(x,y),same=tool===42?id===0:id>=1&&id<20,cost=tool===42?5:10;return {ok:inside&&id<48&&!same&&this.funds>=cost,cost,reason:!inside?'Terrain must fit inside the map.':same?'This terrain is already here.':id>=48?'Clear this site before building.':'Insufficient funds.'};}
-  if(tool===37&&(this.flags[this.id(x,y)]&64)){return {ok:x>=0&&x<W&&y>=0&&y<H&&!this.busStops[y*W+x]&&this.funds>=25,cost:25,reason:this.busStops[y*W+x]?'A bus stop is already here.':'Insufficient funds.'};}
-  if(tool===40){const ok=x>=0&&x<W&&y>=0&&y<H;return {ok:ok&&!this.pipes[y*W+x]&&this.funds>=2,cost:2,reason:!ok?'Pipe must fit inside the map.':this.pipes[y*W+x]?'A pipe is already here.':'Insufficient funds.'};}
-  if(tool===0){const id=this.id(x,y);return {ok:x>=0&&x<W&&y>=0&&y<H&&id>3,cost:1,reason:'There is nothing to clear here.'};}
+  if(tool>=46&&tool<=48)return terrainCheck(this.map,this.elevation,x,y,tool,this.funds,this.width,this.height);
+  if(tool===42||tool===43){const inside=x>=0&&x<this.width&&y>=0&&y<this.height,id=this.id(x,y),same=tool===42?id===0:id>=1&&id<20,cost=tool===42?5:10;return {ok:inside&&id<48&&!same&&this.funds>=cost,cost,reason:!inside?'Terrain must fit inside the map.':same?'This terrain is already here.':id>=48?'Clear this site before building.':'Insufficient funds.'};}
+  if(tool===37&&(this.flags[this.id(x,y)]&64)){return {ok:x>=0&&x<this.width&&y>=0&&y<this.height&&!this.busStops[y*this.width+x]&&this.funds>=25,cost:25,reason:this.busStops[y*this.width+x]?'A bus stop is already here.':'Insufficient funds.'};}
+  if(tool===40){const ok=x>=0&&x<this.width&&y>=0&&y<this.height;return {ok:ok&&!this.pipes[y*this.width+x]&&this.funds>=2,cost:2,reason:!ok?'Pipe must fit inside the map.':this.pipes[y*this.width+x]?'A pipe is already here.':'Insufficient funds.'};}
+  if(tool===0){const id=this.id(x,y);return {ok:x>=0&&x<this.width&&y>=0&&y<this.height&&id>3,cost:1,reason:'There is nothing to clear here.'};}
   const cells=this.footprint(tool,x,y);let cost=this.build.costs[tool]||100;
   if(tool>=15&&tool<30){if(!this.gifts.includes(tool))return {ok:false,cost:0,reason:'This gift has not been awarded.'};cost=0;}
   for(const c of cells){
-   if(c.x<0||c.x>=W||c.y<0||c.y>=H)return {ok:false,cost,reason:'The building must fit inside the map.'};
+   if(c.x<0||c.x>=this.width||c.y<0||c.y>=this.height)return {ok:false,cost,reason:'The building must fit inside the map.'};
    const id=this.id(c.x,c.y);
    if(id===0)continue;
    if(id>=4&&id<0x26){cost++;continue;}
@@ -167,10 +168,11 @@ export class City {
   return {ok:this.funds>=cost,cost,reason:this.funds>=cost?'':'Insufficient funds.'};
  }
  replacementPlan(tool,x,y){
-  if(tool===40&&x>=0&&x<W&&y>=0&&y<H&&this.pipes[y*W+x])return {ok:this.funds>=3,cost:3,reason:this.funds>=3?'':'Insufficient funds.',map:null,cleared:[],replacedPipe:true};
+  if(tool===2&&x>=0&&x<this.width&&y>=0&&y<this.height&&hasRoadLayer(this.id(x,y),this.flags)){const i=y*this.width+x,cost=(this.build.costs[2]||20)+1;if(this.funds<cost)return {ok:false,cost,reason:'Insufficient funds.',map:null,cleared:[]};const map=this._placementShadow?this.map:this.map.slice();map[i]=0;return {ok:true,cost,reason:'',map,cleared:[i]};}
+  if(tool===40&&x>=0&&x<this.width&&y>=0&&y<this.height&&this.pipes[y*this.width+x])return {ok:this.funds>=3,cost:3,reason:this.funds>=3?'':'Insufficient funds.',map:null,cleared:[],replacedPipe:true};
   const check=this.canBuild(tool,x,y);if(check.ok||tool<=0||check.reason!=='Clear this site before building.')return {...check,map:null,cleared:[]};
   const original=this.map,candidate=Uint16Array.from(original),cleared=new Set();
-  const add=(cx,cy)=>{if(cx>=0&&cx<W&&cy>=0&&cy<H){const i=cy*W+cx;if(original[i]&1023)cleared.add(i);candidate[i]=0;}};
+  const add=(cx,cy)=>{if(cx>=0&&cx<this.width&&cy>=0&&cy<this.height){const i=cy*this.width+cx;if(original[i]&1023)cleared.add(i);candidate[i]=0;}};
   for(const c of this.footprint(tool,x,y)){
    const id=this.id(c.x,c.y);if(id<=3)continue;
    // Preserve legal network crossings and skip rebuilding an existing segment.
@@ -182,99 +184,99 @@ export class City {
   const cost=next.cost+cleared.size;return {...next,ok:next.ok&&this.funds>=cost,cost,reason:this.funds<cost?'Insufficient funds.':next.reason,map:candidate,cleared:[...cleared]};
  }
  planPlacements(tool,cells,options={}){
-  const shadow=Object.assign(Object.create(Object.getPrototypeOf(this)),this,{map:Uint16Array.from(this.map),gifts:[...this.gifts],pipes:Uint8Array.from(this.pipes),busStops:Uint8Array.from(this.busStops),terraform:Uint8Array.from(this.terraform),elevation:Int8Array.from(this.elevation),civic:{...this.civic},civicLegacyLayouts:{...this.civicLegacyLayouts},zones:[...this.zones],notices:[]});
-  if(options.ignoreFunds)shadow.funds=1000000000;const startingFunds=shadow.funds;let target=null,activeTool=tool,skipped=0;const occupied=new Set(),anchors=[];
-  shadow.refresh=()=>{shadow.zones=shadow.zones.filter(z=>(shadow.map[z.i]&1023)===z.id);if(activeTool>0)for(const c of shadow.footprint(activeTool,target.x,target.y)){const i=c.y*W+c.x,id=shadow.map[i]&1023;if((shadow.flags[id]&1)&&!shadow.zones.some(z=>z.i===i))shadow.zones.push({i,x:c.x,y:c.y,id,type:shadow.classify(id)});}};
+  const shadow=Object.assign(Object.create(Object.getPrototypeOf(this)),this,{map:Uint16Array.from(this.map),gifts:[...this.gifts],pipes:Uint8Array.from(this.pipes),busStops:Uint8Array.from(this.busStops),terraform:Uint8Array.from(this.terraform),elevation:Int8Array.from(this.elevation),civic:{...this.civic,landfillUsed:this.civic.landfillUsed?{...this.civic.landfillUsed}:undefined},civicLegacyLayouts:{...this.civicLegacyLayouts},zones:[...this.zones],notices:[]});
+  shadow._placementShadow=true;if(options.ignoreFunds)shadow.funds=1000000000;const startingFunds=shadow.funds;let target=null,activeTool=tool,skipped=0;const occupied=new Set(),anchors=[];
+  shadow.refresh=()=>{if(activeTool===40)return;shadow.zones=shadow.zones.filter(z=>(shadow.map[z.i]&1023)===z.id);if(activeTool>0)for(const c of shadow.footprint(activeTool,target.x,target.y)){const i=c.y*this.width+c.x,id=shadow.map[i]&1023;if((shadow.flags[id]&1)&&!shadow.zones.some(z=>z.i===i))shadow.zones.push({i,x:c.x,y:c.y,id,type:shadow.classify(id)});}};
   for(const c of cells){
-   activeTool=c.tool??tool;const footprint=activeTool>4?shadow.footprint(activeTool,c.x,c.y):[c];if(footprint.some(p=>occupied.has(p.y*W+p.x)))continue;
-   const id=shadow.id(c.x,c.y),bit=[0,0x40,0x20,0x10][activeTool];
-   if(activeTool>=1&&activeTool<=3&&id>=0x30&&id<0x80&&(shadow.flags[id]&bit)){skipped++;continue;}
-   target=c;if(!shadow.place(activeTool,c.x,c.y,{...options,autoDemolish:options.skipBlocked?false:options.autoDemolish})){
+   activeTool=c.tool??tool;const footprint=activeTool>4?shadow.footprint(activeTool,c.x,c.y):[c];if(footprint.some(p=>occupied.has(p.y*this.width+p.x)))continue;
+   const id=shadow.id(c.x,c.y);if(activeTool===2&&options.replaceRoadOnly&&!hasRoadLayer(id,shadow.flags)){skipped++;continue;}const bit=[0,0x40,0x20,0x10][activeTool];
+   if(activeTool>=1&&activeTool<=3&&id>=0x30&&id<0x80&&(shadow.flags[id]&bit)&&!(activeTool===2&&(options.autoDemolish||options.replaceRoadOnly)&&hasRoadLayer(id,shadow.flags))){skipped++;continue;}
+   target=c;if(!shadow.place(activeTool,c.x,c.y,{...options,autoDemolish:activeTool===2&&options.replaceRoadOnly?true:options.skipBlocked?false:options.autoDemolish})){
     if(options.skipBlocked){skipped++;continue;}
     if(shadow.notices[0]==='Insufficient funds.'&&!options.ignoreFunds){const required=this.planPlacements(tool,cells,{...options,ignoreFunds:true});return {...required,ok:false,reason:'Insufficient funds.'};}
     return {ok:false,reason:shadow.notices[0]||'This blueprint cannot be placed.',anchors,cost:startingFunds-shadow.funds};
    }
-   anchors.push(c);for(const p of footprint)occupied.add(p.y*W+p.x);
+   anchors.push(c);for(const p of footprint)occupied.add(p.y*this.width+p.x);
   }
-  return {ok:true,tool,anchors,skipped,cost:startingFunds-shadow.funds,map:shadow.map,pipes:shadow.pipes,busStops:shadow.busStops,terraform:shadow.terraform,elevation:shadow.elevation,civicLegacyLayouts:shadow.civicLegacyLayouts,civicEnabled:shadow.civicEnabled,waterEnabled:shadow.civic.waterEnabled,sewageEnabled:shadow.civic.sewageEnabled,gifts:shadow.gifts};
+  return {ok:true,tool,anchors,skipped,cost:startingFunds-shadow.funds,map:shadow.map,pipes:shadow.pipes,busStops:shadow.busStops,terraform:shadow.terraform,elevation:shadow.elevation,civicLegacyLayouts:shadow.civicLegacyLayouts,civicEnabled:shadow.civicEnabled,waterEnabled:shadow.civic.waterEnabled,sewageEnabled:shadow.civic.sewageEnabled,landfillUsed:shadow.civic.landfillUsed,gifts:shadow.gifts};
  }
 
  applyPlacementPlan(plan){
   if(!plan.ok){this.message(plan.reason);return false;}
-  this.map=plan.map;if(plan.pipes)this.pipes=plan.pipes;if(plan.busStops)this.busStops=plan.busStops;if(plan.terraform)this.terraform=plan.terraform;if(plan.elevation)this.elevation=plan.elevation;if(plan.civicLegacyLayouts)this.civicLegacyLayouts=plan.civicLegacyLayouts;this.civicEnabled ||=plan.civicEnabled;this.civic.waterEnabled ||=plan.waterEnabled;this.civic.sewageEnabled ||=plan.sewageEnabled;this.funds-=plan.cost;this.gifts=plan.gifts;this.refresh();if(plan.tool===8||plan.tool===21)this.message('Police station built. Coverage reduces crime as the simulation runs; power, roads and funding affect its strength.');return true;
+  this.map=plan.map;if(plan.pipes)this.pipes=plan.pipes;if(plan.busStops)this.busStops=plan.busStops;if(plan.terraform)this.terraform=plan.terraform;if(plan.elevation)this.elevation=plan.elevation;if(plan.civicLegacyLayouts)this.civicLegacyLayouts=plan.civicLegacyLayouts;this.civicEnabled ||=plan.civicEnabled;this.civic.waterEnabled ||=plan.waterEnabled;this.civic.sewageEnabled ||=plan.sewageEnabled;if(plan.landfillUsed)this.civic.landfillUsed=plan.landfillUsed;this.funds-=plan.cost;this.gifts=plan.gifts;this.refresh();if(plan.tool===8||plan.tool===21)this.message('Police station built. Coverage reduces crime as the simulation runs; power, roads and funding affect its strength.');return true;
  }
  place(tool,x,y,{autoDemolish=false}={}){
   const check=autoDemolish?this.replacementPlan(tool,x,y):this.canBuild(tool,x,y);if(!check.ok){this.message(check.reason);return false;}
   if(check.map)this.map=check.map;
-  this.funds-=check.cost;if(tool>=46&&tool<=48){const i=y*W+x,old=this.elevation[i];this.terraform[i]=1;if(tool===48)plantForest(this.map,x,y,W,H);else{this.elevation[i]+=tool===46?1:-1;const water=this.elevation[i]<=0;if((old<=0)!==water)reshapeTerrain(this.map,this.terraform,x,y,water,W,H);}this.refresh();return true;}if(tool===42||tool===43){this.elevation[y*W+x]=tool===43?0:1;reshapeTerrain(this.map,this.terraform,x,y,tool===43);this.refresh();return true;}
-  if(tool===37&&(this.flags[this.id(x,y)]&64)){this.busStops[y*W+x]=1;this.civicEnabled=true;this.refresh();return true;}if(tool===0&&this.busStops[y*W+x]){this.busStops[y*W+x]=0;this.refresh();return true;}if(tool>=30)this.civicEnabled=true;if(tool===44||tool===45)this.civic.sewageEnabled=true;if(tool===39||tool===40)this.civic.waterEnabled=true;if(tool===40){this.pipes[y*W+x]=1;this.refresh();return true;}
+  this.funds-=check.cost;if(tool>=46&&tool<=48){const i=y*this.width+x,old=this.elevation[i];this.terraform[i]=1;if(tool===48)plantForest(this.map,x,y,this.width,this.height);else{this.elevation[i]+=tool===46?1:-1;const water=this.elevation[i]<=0;if((old<=0)!==water)reshapeTerrain(this.map,this.terraform,x,y,water,this.width,this.height);}this.refresh();return true;}if(tool===42||tool===43){this.elevation[y*this.width+x]=tool===43?0:1;reshapeTerrain(this.map,this.terraform,x,y,tool===43,this.width,this.height);this.refresh();return true;}
+  if(tool===37&&(this.flags[this.id(x,y)]&64)){this.busStops[y*this.width+x]=1;this.civicEnabled=true;this.refresh();return true;}if(tool===0&&this.busStops[y*this.width+x]){this.busStops[y*this.width+x]=0;this.refresh();return true;}if(tool>=30)this.civicEnabled=true;if(tool===31){this.civic.landfillUsed??={};delete this.civic.landfillUsed[y*this.width+x];}if(tool===44||tool===45)this.civic.sewageEnabled=true;if(tool===39||tool===40)this.civic.waterEnabled=true;if(tool===40){this.pipes[y*this.width+x]=1;this.refresh();return true;}
   if(tool===0){
-   const custom=this.zones.find(z=>{const b=civicBounds(z);return b&&x>=b.x&&x<b.x+b.width&&y>=b.y&&y<b.y+b.height;});if(custom){const b=civicBounds(custom);delete this.civicLegacyLayouts[custom.i];for(let dy=0;dy<b.height;dy++)for(let dx=0;dx<b.width;dx++)this.map[(b.y+dy)*W+b.x+dx]=0;this.refresh();return true;}
-   const i=y*W+x,z=this.zones.find(z=>Math.abs(z.x-x)<=1&&Math.abs(z.y-y)<=1&&this.id(x,y)>=0x80);
-   if(z){const size=civicForId(z.id)?.size||([10,11,13,14].includes(z.type)?4:z.type===12?6:3),offset=size===1?0:1;for(let dy=0;dy<size;dy++)for(let dx=0;dx<size;dx++){const n=(z.y-offset+dy)*W+z.x-offset+dx;if(n>=0&&n<this.map.length)this.map[n]=0;}}
+   const custom=this.zones.find(z=>{const b=civicBounds(z);return b&&x>=b.x&&x<b.x+b.width&&y>=b.y&&y<b.y+b.height;});if(custom){const b=civicBounds(custom);if(custom.id===961&&this.civic.landfillUsed)delete this.civic.landfillUsed[custom.i];delete this.civicLegacyLayouts[custom.i];for(let dy=0;dy<b.height;dy++)for(let dx=0;dx<b.width;dx++)this.map[(b.y+dy)*this.width+b.x+dx]=0;this.refresh();return true;}
+   const i=y*this.width+x,z=this.zones.find(z=>Math.abs(z.x-x)<=1&&Math.abs(z.y-y)<=1&&this.id(x,y)>=0x80);
+   if(z){const size=civicForId(z.id)?.size||([10,11,13,14].includes(z.type)?4:z.type===12?6:3),offset=size===1?0:1;for(let dy=0;dy<size;dy++)for(let dx=0;dx<size;dx++){const n=(z.y-offset+dy)*this.width+z.x-offset+dx;if(n>=0&&n<this.map.length)this.map[n]=0;}}
    else {this.map[i]=0;this.pipes[i]=0;}
   } else {
-   for(const c of this.footprint(tool,x,y)){const i=c.y*W+c.x;this.map[i]=networkCrossing(tool,this.map[i])??c.id;if(c.id>=960&&c.id<=969)delete this.civicLegacyLayouts[i];}
+   for(const c of this.footprint(tool,x,y)){const i=c.y*this.width+c.x;this.map[i]=networkCrossing(tool,this.map[i])??c.id;if(c.id>=960&&c.id<=969)delete this.civicLegacyLayouts[i];}
    if(tool>=15&&tool<30)this.gifts.splice(this.gifts.indexOf(tool),1);
   }
   for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++)this.connect(x+dx,y+dy);
-  for(const i of check.cleared||[])for(const [dx,dy]of [[0,-1],[1,0],[0,1],[-1,0]])this.connect(i%W+dx,Math.floor(i/W)+dy);
+  for(const i of check.cleared||[])for(const [dx,dy]of [[0,-1],[1,0],[0,1],[-1,0]])this.connect(i%this.width+dx,Math.floor(i/this.width)+dy);
   this.refresh();return true;
  }
  connect(x,y){
-  if(x<0||x>=W||y<0||y>=H)return;
-  const i=y*W+x,id=this.map[i]&1023;let kind=id>=0x70&&id<=0x7c?2:id>=0x60&&id<=0x6c?3:id>=0x30&&id<=0x5c&&(id&15)<=12?1:0;
+  if(x<0||x>=this.width||y<0||y>=this.height)return;
+  const i=y*this.width+x,id=this.map[i]&1023;let kind=id>=0x70&&id<=0x7c?2:id>=0x60&&id<=0x6c?3:id>=0x30&&id<=0x5c&&(id&15)<=12?1:0;
   if(!kind)return;
   const bit=kind===1?0x40:kind===2?0x20:0x10;
   // DATA_018020, CODE_01B62F/645/65B. Bit directions follow CODE_01B6CC.
   let mask=0;[[0,-1,8],[1,0,2],[0,1,1],[-1,0,4]].forEach(([dx,dy,b])=>{if((this.flags[this.id(x+dx,y+dy)]||0)&(kind===3?0x80:bit))mask|=b;});
   const table=[2,3,2,5,2,6,2,10,3,3,4,9,7,11,8,12];this.map[i]=(kind===1?(id&0xf0):kind===2?0x70:0x60)+table[mask];
  }
- nearRoad(z){return findZoneTransport(this.map,z.x,z.y,W,H)!==null;}
+ nearRoad(z){return findZoneTransport(this.map,z.x,z.y,this.width,this.height)!==null;}
  coverage(x,y,type){let n=0;for(const z of this.zones)if(z.type===type)n=Math.max(n,clamp(1-(Math.abs(z.x-x)+Math.abs(z.y-y))/24,0,1));return n*this.funding[type===8?1:2]/100;}
  fields(){this.updateDensityField();this.updateLandPollutionField();this.updateCrimeField();this.updateFireField();}
- updateDensityField(){this.commercialRate=romCommercialRate(this.centerX,this.centerY);const spatial=romDensityField(this.map,this.flags,(id,x,y)=>id>=960?0:id>=0x376?48:id===0x84?this.adjacentSmallHomeCount({x,y}):this.zonePopulation({id,type:this.classify(id)})*(this.classify(id)===5?1:8),W,H);this.density=spatial.density;this.centerX=spatial.centerX;this.centerY=spatial.centerY;}
+ updateDensityField(){this.commercialRate=romCommercialRate(this.centerX,this.centerY,this.width,this.height);const spatial=romDensityField(this.map,this.flags,(id,x,y)=>id>=960?0:id>=0x376?48:id===0x84?this.adjacentSmallHomeCount({x,y}):this.zonePopulation({id,type:this.classify(id)})*(this.classify(id)===5?1:8),this.width,this.height);this.density=spatial.density;this.centerX=this.zones.length?spatial.centerX:this.width/4;this.centerY=this.zones.length?spatial.centerY:this.height/4;}
  updateLandPollutionField(){
   // CODE_039D50 reads old terrain $7FAB74, pollution $7F8270 and crime
   // $7F76B8 before CODE_039C75/039FA6 publishes the new planes.
-  for(let y=0;y<H;y++)for(let x=0;x<W;x++){const i=y*W+x;this.landValue[i]=romLandValue(x>>1,y>>1,this.centerX,this.centerY,this.terrain[i],this.pollution[i],this.crime[i]);}
-  this.meanLandValue=aggregateRomLandValue(this.map,this.landValue,W,H);
-  this.pollution=combineAirPollution(romPollutionField(this.map,W,H),this.airPollution);this.pollutionTarget=monsterPollutionTarget(this.pollution,this.pollutionTarget);this.terrain=romTerrainField(this.map,W,H);
+  for(let y=0;y<this.height;y++)for(let x=0;x<this.width;x++){const i=y*this.width+x;this.landValue[i]=romLandValue(x>>1,y>>1,this.centerX,this.centerY,this.terrain[i],this.pollution[i],this.crime[i]);}
+  this.meanLandValue=aggregateRomLandValue(this.map,this.landValue,this.width,this.height);
+  this.pollution=combineAirPollution(romPollutionField(this.map,this.width,this.height),this.airPollution);this.pollutionTarget=monsterPollutionTarget(this.pollution,this.pollutionTarget,this.width,this.height);this.terrain=romTerrainField(this.map,this.width,this.height);
  }
- captureServiceInputs(){this.serviceInputs={police:seedRomServicePlane(this.map,this.serviceStrengths[0]*this.policeEffectiveness,'police',W,H),fire:seedRomServicePlane(this.map,this.serviceStrengths[1],'fire',W,H)};}
- updateCrimeField(){this.giftEffects=romGiftEffects(this.map,this.flags);this.policeCoverage=this.serviceInputs?expandRomServicePlane(this.serviceInputs.police,'police',W,H):expandRomServicePlane(seedRomServicePlane(this.map,this.serviceStrengths[0]*this.policeEffectiveness,'police',W,H),'police',W,H);for(let i=0;i<W*H;i++)this.crime[i]=romCrimeValue(this.landValue[i],this.density[i],this.giftEffects.crimeModifier,this.policeCoverage[i]);if(this.civicEnabled){const factor=1-educationEffects(this.civic.education).crimeReduction;for(let i=0;i<this.crime.length;i++)this.crime[i]=Math.floor(this.crime[i]*factor);}this.meanCrime=meanRomCrime(this.crime,this.landValue,W,H);}
- updateFireField(){this.fireCoverage=this.serviceInputs?expandRomServicePlane(this.serviceInputs.fire,'fire',W,H):romFireCoverage(this.map,this.funding[2],W,H);}
+ captureServiceInputs(){this.serviceInputs={police:seedRomServicePlane(this.map,this.serviceStrengths[0]*this.policeEffectiveness,'police',this.width,this.height),fire:seedRomServicePlane(this.map,this.serviceStrengths[1],'fire',this.width,this.height)};}
+ updateCrimeField(){this.giftEffects=romGiftEffects(this.map,this.flags);this.policeCoverage=this.serviceInputs?expandRomServicePlane(this.serviceInputs.police,'police',this.width,this.height):expandRomServicePlane(seedRomServicePlane(this.map,this.serviceStrengths[0]*this.policeEffectiveness,'police',this.width,this.height),'police',this.width,this.height);for(let i=0;i<this.width*this.height;i++)this.crime[i]=romCrimeValue(this.landValue[i],this.density[i],this.giftEffects.crimeModifier,this.policeCoverage[i]);if(this.civicEnabled){const factor=1-educationEffects(this.civic.education).crimeReduction;for(let i=0;i<this.crime.length;i++)this.crime[i]=Math.floor(this.crime[i]*factor);}this.meanCrime=meanRomCrime(this.crime,this.landValue,this.width,this.height);}
+ updateFireField(){this.fireCoverage=this.serviceInputs?expandRomServicePlane(this.serviceInputs.fire,'fire',this.width,this.height):romFireCoverage(this.map,this.funding[2],this.width,this.height);}
  updateScheduledFields(){const due=romFieldSchedule(this.baseStep,this.speed);for(const [key,method]of [['landPollution','updateLandPollutionField'],['crime','updateCrimeField'],['density','updateDensityField'],['fire','updateFireField']])if(due[key]){this[method]();this.fieldEpochs[key]=this.baseStep;}}
  setPoliceEffectiveness(value){
   this.policeEffectiveness=value===1?1:2;
-  this.serviceInputs={fire:this.serviceInputs?.fire||seedRomServicePlane(this.map,this.serviceStrengths[1],'fire',W,H),police:seedRomServicePlane(this.map,this.serviceStrengths[0]*this.policeEffectiveness,'police',W,H)};
+  this.serviceInputs={fire:this.serviceInputs?.fire||seedRomServicePlane(this.map,this.serviceStrengths[1],'fire',this.width,this.height),police:seedRomServicePlane(this.map,this.serviceStrengths[0]*this.policeEffectiveness,'police',this.width,this.height)};
   this.updateCrimeField();
  }
  policeEffectAt(x,y){
-  x=clamp(Math.floor(x),0,W-1);y=clamp(Math.floor(y),0,H-1);const i=y*W+x;
+  x=clamp(Math.floor(x),0,this.width-1);y=clamp(Math.floor(y),0,this.height-1);const i=y*this.width+x;
   const station=this.zones.find(z=>(z.id===0x249||z.id===0x307)&&Math.abs(z.x-x)<=1&&Math.abs(z.y-y)<=1);
   let nextUpdate=1;while(nextUpdate<16&&!romFieldSchedule((this.baseStep+nextUpdate)&65535,this.speed).crime)nextUpdate++;
-  return {crime:this.crime[i],coverage:this.policeCoverage[i],strength:this.serviceStrengths[0],effectiveness:this.policeEffectiveness,nextUpdate,station:station?{powered:!!this.power[station.i],road:!!findZoneTransport(this.map,station.x,station.y,W,H)}:null};
+  return {crime:this.crime[i],coverage:this.policeCoverage[i],strength:this.serviceStrengths[0],effectiveness:this.policeEffectiveness,nextUpdate,station:station?{powered:!!this.power[station.i],road:!!findZoneTransport(this.map,station.x,station.y,this.width,this.height)}:null};
  }
  grow(z,direction){
   if(direction>0&&this.civicEnabled&&this.civic.waterEnabled&&!(this.civicWatered||civicServices(this).watered).has(z.i)&&!(z.type===5&&this.id(z.x,z.y)===0x84&&this.adjacentSmallHomeCount(z)<8))return false;
   if(z.type===5){
    const id=this.id(z.x,z.y),current={...z,id};
    if(direction<0){
-    if(id===0x37a||id===0x38c)return stampZoneFootprint(this.map,z.x,z.y,0x11c,W,H);
+    if(id===0x37a||id===0x38c)return stampZoneFootprint(this.map,z.x,z.y,0x11c,this.width,this.height);
     if(id===0x383||id===0x395)return false;
    }
    const population=id===0x84?this.adjacentSmallHomeCount(z):this.zonePopulation(current);
    if(direction>0&&this.pollution[z.i]>=0x81)return false;
    const density=residentialDensityBand(this.landValue[z.i]||0,this.pollution[z.i]||0);
    if(direction>0){
-    if(id===0x84){if(population<8)return placeSmallHome(this.map,z.x,z.y,density,()=>this.random(),()=>this.boundedRandom(2),W,H);if((this.landValue[z.i]||0)<0x41)return false;return stampZoneFootprint(this.map,z.x,z.y,residentialGrowthBase(8,density),W,H);}
-    if(id===0x120||population>=40)return mergeResidentialZone(this.map,z.x,z.y,W,H);return stampZoneFootprint(this.map,z.x,z.y,residentialGrowthBase(population,density),W,H);
+    if(id===0x84){if(population<8)return placeSmallHome(this.map,z.x,z.y,density,()=>this.random(),()=>this.boundedRandom(2),this.width,this.height);if((this.landValue[z.i]||0)<0x41)return false;return stampZoneFootprint(this.map,z.x,z.y,residentialGrowthBase(8,density),this.width,this.height);}
+    if(id===0x120||population>=40)return mergeResidentialZone(this.map,z.x,z.y,this.width,this.height);return stampZoneFootprint(this.map,z.x,z.y,residentialGrowthBase(population,density),this.width,this.height);
    }
-   return residentialDeclineFootprint(this.map,z.x,z.y,population,density,()=>this.boundedRandom(2),W,H);
+   return residentialDeclineFootprint(this.map,z.x,z.y,population,density,()=>this.boundedRandom(2),this.width,this.height);
   }
-  if(z.type===6)return updateCommercialFootprint(this.map,z.x,z.y,this.zonePopulation({...z,id:this.id(z.x,z.y)}),residentialDensityBand(this.landValue[z.i],this.pollution[z.i]),this.landValue[z.i],direction,W,H);
-  return updateIndustrialFootprint(this.map,z.x,z.y,this.zonePopulation({...z,id:this.id(z.x,z.y)}),direction,()=>this.random(),W,H);
+  if(z.type===6)return updateCommercialFootprint(this.map,z.x,z.y,this.zonePopulation({...z,id:this.id(z.x,z.y)}),residentialDensityBand(this.landValue[z.i],this.pollution[z.i]),this.landValue[z.i],direction,this.width,this.height);
+  return updateIndustrialFootprint(this.map,z.x,z.y,this.zonePopulation({...z,id:this.id(z.x,z.y)}),direction,()=>this.random(),this.width,this.height);
  }
  adjacentSmallHomeCount(z){
   let count=0;
@@ -284,14 +286,15 @@ export class City {
   }
   return count;
  }
+ recordZoneGrowth(z,decision,transport,changed,score=null){this.zoneGrowthLog??={};this.zoneGrowthLog[z.i]={type:z.type,tile:this.map[z.i]&1023,year:this.year,month:this.month,action:decision.action,reason:decision.reason,transport,changed:!!changed,score};}
  updateResidentialTile(z,nextRandomWord=()=>this.random()){
   const current={...z,id:this.id(z.x,z.y)};
   const population=current.id===0x84?this.adjacentSmallHomeCount(z):this.zonePopulation(current);
   let transport=1;
   if(boundSimulationWord(nextRandomWord(),35)<population){
-   const route=traceZoneTransport(this.map,z.x,z.y,5,nextRandomWord,W,H);transport=route.status;if(transport!==1&&this.regionalState?.zoneAccess.get(z.i)?.jobs>0)transport=1;
-   if(transport===-1){this.grow(current,-1);return {action:'decline',reason:'missing-transport',randomsUsed:0};}
-   if(transport===1)addRouteTraffic(this.map,this.traffic,route.path,W,H);
+   const route=traceZoneTransport(this.map,z.x,z.y,5,nextRandomWord,this.width,this.height);transport=route.status;if(transport!==1&&this.regionalState?.zoneAccess.get(z.i)?.jobs>0)transport=1;
+   if(transport===-1){const changed=this.grow(current,-1),decision={action:'decline',reason:'missing-transport',randomsUsed:0};this.recordZoneGrowth(z,decision,transport,changed);return decision;}
+   if(transport===1)addRouteTraffic(this.map,this.traffic,route.path,this.width,this.height);
   }
   const gateWord=current.id===0x84?0:nextRandomWord();
   // CODE_0399D2's 0..255 lookup planes are represented by the model's
@@ -299,9 +302,9 @@ export class City {
   const localScore=residentialLocalScore(this.landValue[z.i]||0,this.pollution[z.i]||0,transport!==0);
   const score=residentialDemandScore(this.map[z.i],localScore,this.demand[0]);
   const decision=decideResidentialUpdate({tileId:current.id,gateWord,score,population,nextRandomWord});
-  if(decision.action==='special')placeRomFacility(this.map,z.x,z.y,this.facilityDemand,W,H);else if(decision.action==='grow')this.grow(current,1);
-  else if(decision.action==='decline')this.grow(z,-1);
-  return decision;
+  let changed=false;if(decision.action==='special')changed=placeRomFacility(this.map,z.x,z.y,this.facilityDemand,this.width,this.height);else if(decision.action==='grow')changed=this.grow(current,1);
+  else if(decision.action==='decline')changed=this.grow(z,-1);
+  this.recordZoneGrowth(z,decision,transport,changed,score);return decision;
  }
  budget(apply=false,taxRate=this.tax){
   // Revenue arithmetic is ROM-derived; complete budget dialog flow remains partial.
@@ -340,7 +343,7 @@ export class City {
   this.taxAccumulator+=this.tax;
   this.traffic=this.traffic.map(decayTraffic);
   const reminder=stepScenarioReminder(this.scenario,this.year,this.scenarioReminders.length);if(reminder.yearsLeft!==null){this.scenarioReminders.push(reminder.yearsLeft);this.message('Scenario deadline: '+reminder.yearsLeft+' years remaining.');}
-  let repaired=false;for(const z of this.zones)if(repairMergedZone(this.map,z.x,z.y,W,H))repaired=true;if(repaired)this.refresh();
+  let repaired=false;for(const z of this.zones)if(repairMergedZone(this.map,z.x,z.y,this.width,this.height))repaired=true;if(repaired)this.refresh();
   if(this.regionalProvider)this.regionalState=this.regionalProvider(this);this.updatePower();
   const historyRci=this.history.at(-1)?.rci||[0,0,0];
   const generatedDemand=generateRomDemand(this.rci.map((v,i)=>v+(this.regionalState?.externalRci[i]||0)),historyRci.map((v,i)=>v+(this.regionalState?.externalRci[i]||0)),this.difficulty).scores;
@@ -350,7 +353,7 @@ export class City {
   this.updateDisasters(false);this.refresh();
   this.baseStep=(this.baseStep+1)&65535;
   if((this.baseStep&3)===0){
-   advanceClimate(this);if(this.regionalProvider)this.regionalState=this.regionalProvider(this);this.updatePower();this.pollution=combineAirPollution(romPollutionField(this.map,W,H),this.airPollution);updateCivicMonth(this);updateSewageMonth(this);updateLocalHealth(this);updateRailFleet(this,{spawn:true});if(++this.month>12){this.month=1;this.year++;}changeRomSeason(this.season,this.month);this.facilityDemand=romFacilityDemand(this.rci[0],this.facilityCounts);if(this.month===1){this.populationBaseline=displayedPopulation>>>0;this.netMigration=romPopulation(this.rci,this.populationBaseline).netMigration;this.pendingBudget={year:this.year,taxRate:Math.floor(this.taxAccumulator/48)};const assessment=this.budget(false,this.pendingBudget.taxRate);this.pendingBudget.assessment={income:assessment.income,giftIncome:assessment.giftIncome,employmentTax:assessment.employmentTax,requests:[...assessment.requests]};this.pendingBudget.evaluationInputs=this.cityEvaluationInputs();this.taxAccumulator=0;if(this.autoBudget)this.settleAnnualBudget();}
+   advanceClimate(this);if(this.regionalProvider)this.regionalState=this.regionalProvider(this);this.updatePower();this.pollution=combineAirPollution(romPollutionField(this.map,this.width,this.height),this.airPollution);updateCivicMonth(this);updateSewageMonth(this);updateLocalHealth(this);updateRailFleet(this,{spawn:true});if(++this.month>12){this.month=1;this.year++;}changeRomSeason(this.season,this.month);this.facilityDemand=romFacilityDemand(this.rci[0],this.facilityCounts);if(this.month===1){this.populationBaseline=displayedPopulation>>>0;this.netMigration=romPopulation(this.rci,this.populationBaseline).netMigration;this.pendingBudget={year:this.year,taxRate:Math.floor(this.taxAccumulator/48)};const assessment=this.budget(false,this.pendingBudget.taxRate);this.pendingBudget.assessment={income:assessment.income,giftIncome:assessment.giftIncome,employmentTax:assessment.employmentTax,requests:[...assessment.requests]};this.pendingBudget.evaluationInputs=this.cityEvaluationInputs();this.taxAccumulator=0;if(this.autoBudget)this.settleAnnualBudget();}
    this.history.push({year:this.year,month:this.month,population:this.population,rci:[...this.rci],funds:this.funds,crime:this.meanCrime||0});if(this.history.length>240)this.history.shift();
   }
   this.scanGrowthCaps();
@@ -359,31 +362,31 @@ export class City {
   this.updateScheduledFields();
   // CODE_038154 calls disaster handling after this pass's field workers.
   let scenarioTriggered=false;
-  if(this.disastersEnabled){const e=stepScenarioEvent(this.scenario,this.scenarioRemaining,this.population);this.scenarioRemaining=e.remaining;if(e.event==='Meltdown'){const site=scenarioMeltdownSite(this.map);if(site){this.disaster(e.event,site.x,site.y);scenarioTriggered=true;}}else if(e.event){const result=this.disaster(e.event);scenarioTriggered=result?.started!==false;}}
+  if(this.disastersEnabled){const e=stepScenarioEvent(this.scenario,this.scenarioRemaining,this.population);this.scenarioRemaining=e.remaining;if(e.event==='Meltdown'){const site=scenarioMeltdownSite(this.map,this.width);if(site){this.disaster(e.event,site.x,site.y);scenarioTriggered=true;}}else if(e.event){const result=this.disaster(e.event);scenarioTriggered=result?.started!==false;}}
   const pollution=this.cityEvaluationInputs().problems[1];
   const randomDisaster=selectRomRandomDisaster({disabled:!this.disastersEnabled,practice:this.scenario==='PracticeCity',difficulty:this.difficulty,pollution,messagePending:scenarioTriggered},max=>this.boundedRandom(max),()=>this.random());
   if(randomDisaster)this.disaster(randomDisaster,undefined,undefined,{randomDisaster:true});
  }
  scanCityTiles(){
   this.fireCount=0;
-  this.serviceInputs={police:new Uint16Array(195),fire:new Uint16Array(195)};
+  this.serviceInputs={police:new Uint16Array(this.coarseSize),fire:new Uint16Array(this.coarseSize)};
   for(let i=0;i<this.map.length;i++){
    if((this.map[i]&1023)===0x7f)this.fireCount++;
-   const disaster=dispatchRomDisasterTile(this.map,i,this.flags,this.fireCoverage,this.floodRemaining,()=>this.random(),max=>this.boundedRandom(max),(x,y,id)=>this.igniteZone(x,y,id),W,H);
+   const disaster=dispatchRomDisasterTile(this.map,i,this.flags,this.fireCoverage,this.floodRemaining,()=>this.random(),max=>this.boundedRandom(max),(x,y,id)=>this.igniteZone(x,y,id),this.width,this.height);
    if(disaster){this.floodRemaining=disaster.remaining;continue;}
-   const scanId=this.map[i]&1023;if(this.flags[scanId]&0x20){const wasActive=this.train.active;spawnRomTrain(this.train,scanId,i%W,Math.floor(i/W),this.quakeFrames);if(!wasActive&&this.train.active){delete this.train.id;delete this.train.passengers;this.train.trail=[];}}
-   if(scanId===0x2a5&&(this.map[i]&0x8000)){if(!this.plane.active){if((this.random()&3)===0){spawnRomPlane(this.plane,i%W,Math.floor(i/W));this.soundEvents.push({port:3,command:12});}}else if(!this.helicopter.active&&(this.random()&7)===0)spawnRomHelicopter(this.helicopter,i%W,Math.floor(i/W));}
-   if(scanId===0x26c&&(this.map[i]&0x8000)&&!this.ship.active)spawnRomShip(this.ship,this.map,max=>this.boundedRandom(max));
-   updateRomTransportTile(this.map,i,this.flags,this.transportStrength,this.traffic[i],()=>this.random(),{shipX:this.ship.x,shipY:this.ship.y},W,H);
+   const scanId=this.map[i]&1023;if(this.flags[scanId]&0x20){const wasActive=this.train.active;spawnRomTrain(this.train,scanId,i%this.width,Math.floor(i/this.width),this.quakeFrames);if(!wasActive&&this.train.active){delete this.train.id;delete this.train.passengers;this.train.trail=[];}}
+   if(scanId===0x2a5&&(this.map[i]&0x8000)){if(!this.plane.active){if((this.random()&3)===0){spawnRomPlane(this.plane,i%this.width,Math.floor(i/this.width));this.soundEvents.push({port:3,command:12});}}else if(!this.helicopter.active&&(this.random()&7)===0)spawnRomHelicopter(this.helicopter,i%this.width,Math.floor(i/this.width));}
+   if(scanId===0x26c&&(this.map[i]&0x8000)&&!this.ship.active)spawnRomShip(this.ship,this.map,max=>this.boundedRandom(max),this.width,this.height);
+   updateRomTransportTile(this.map,i,this.flags,this.transportStrength,this.traffic[i],()=>this.random(),{shipX:this.ship.x,shipY:this.ship.y},this.width,this.height);
    const id=this.map[i]&1023;if(!(this.flags[id]&1))continue;
-   if(this.disabledBuildings?.[i]===scanId)continue;addRomServiceCenter(this.serviceInputs.police,this.map,i,this.serviceStrengths[0]*this.policeEffectiveness,'police',W,H);addRomServiceCenter(this.serviceInputs.fire,this.map,i,this.serviceStrengths[1],'fire',W,H);
-   if(id===0x129||id===0x132){updateRomFacility(this.map,i%W,Math.floor(i/W),this.facilityDemand,max=>this.boundedRandom(max),{baseStep:this.baseStep,repairPhase:this.facilityRepairPhase,width:W,height:H});continue;}const z={i,x:i%W,y:Math.floor(i/W),id,type:this.classify(id)};if(z.type<5||z.type>7)continue;
+   if(this.disabledBuildings?.[i]===scanId)continue;addRomServiceCenter(this.serviceInputs.police,this.map,i,this.serviceStrengths[0]*this.policeEffectiveness,'police',this.width,this.height);addRomServiceCenter(this.serviceInputs.fire,this.map,i,this.serviceStrengths[1],'fire',this.width,this.height);
+   if(id===0x129||id===0x132){updateRomFacility(this.map,i%this.width,Math.floor(i/this.width),this.facilityDemand,max=>this.boundedRandom(max),{baseStep:this.baseStep,repairPhase:this.facilityRepairPhase,width:this.width,height:this.height});continue;}const z={i,x:i%this.width,y:Math.floor(i/this.width),id,type:this.classify(id)};if(z.type<5||z.type>7)continue;
    if(z.type===5){this.updateResidentialTile(z);continue;}
-   let transport=1;if(this.boundedRandom(5)<this.zonePopulation(z)){const route=traceZoneTransport(this.map,z.x,z.y,z.type,()=>this.random(),W,H);transport=route.status;if(transport!==1&&this.regionalState?.zoneAccess.get(z.i)?.workers>0)transport=1;if(transport===1)addRouteTraffic(this.map,this.traffic,route.path,W,H);}
-   if(transport===-1){this.grow(z,-1);continue;}
-   const decision=decideJobZoneUpdate({mapWord:this.map[z.i],demand:this.demand[z.type-5],localScore:z.type===6?commercialLocalScore(this.commercialRate,z.x,z.y,transport):industrialLocalScore(transport),gateWord:this.random(),nextRandomWord:()=>this.random()});
-   if(decision.action==='grow')this.grow(z,1);
-   else if(decision.action==='decline')this.grow(z,-1);
+   let transport=1;if(this.boundedRandom(5)<this.zonePopulation(z)){const route=traceZoneTransport(this.map,z.x,z.y,z.type,()=>this.random(),this.width,this.height);transport=route.status;if(transport!==1&&this.regionalState?.zoneAccess.get(z.i)?.workers>0)transport=1;if(transport===1)addRouteTraffic(this.map,this.traffic,route.path,this.width,this.height);}
+   if(transport===-1){const changed=this.grow(z,-1);this.recordZoneGrowth(z,{action:'decline',reason:'missing-transport'},transport,changed);continue;}
+   const localScore=z.type===6?commercialLocalScore(this.commercialRate,z.x,z.y,transport,this.width):industrialLocalScore(transport),score=residentialDemandScore(this.map[z.i],localScore,this.demand[z.type-5]);const decision=decideJobZoneUpdate({mapWord:this.map[z.i],demand:this.demand[z.type-5],localScore,gateWord:this.random(),nextRandomWord:()=>this.random()});
+   let changed=false;if(decision.action==='grow')changed=this.grow(z,1);
+   else if(decision.action==='decline')changed=this.grow(z,-1);this.recordZoneGrowth(z,decision,transport,changed,score);
   }
  }
  reconcileGrowthFacilities(){for(const[index,count,limit,text]of[[0,this.counts[10],500,'A stadium is needed for further residential growth.'],[1,this.counts[12],100,'An airport is needed for further commercial growth.'],[2,this.counts[11],70,'A seaport is needed for further industrial growth.']])if(count>0||this.rci[index]<limit){this.growthCaps.suppressed[index]=false;this.notices=this.notices.filter(n=>n!==text);}}
@@ -391,43 +394,43 @@ export class City {
  scanGrowthCaps(){const input={zones:this.counts.slice(5,8),roads:this.roadCount,rails:this.railCount,plants:this.zones.filter(z=>z.id===0x28c||z.id===0x27c).length,rci:this.rci,stadiums:this.counts[10],seaports:this.counts[11],airports:this.counts[12]};const advice=scanRomGrowthCaps(this.baseStep,input,this.growthCaps);if(advice>=6&&advice<=8&&this.growthAdviceYear[advice]!==this.year){this.growthAdviceYear[advice]=this.year;const text=['A stadium is needed for further residential growth.','A seaport is needed for further industrial growth.','An airport is needed for further commercial growth.'][advice-6];if(!this.noticeIsDismissed(text))this.message(text);}}
  checkMilestones(){const event=nextCoreMilestone({population:this.population,category:this.category,police:this.counts[8],fire:this.counts[9],rail:this.railCount,inventorySize:this.gifts.length,practice:this.scenario==='PracticeCity'},this.giftMilestones);if(event){if(event.historyId!=null)this.recordEvent(event.historyId);if(event.gift===null)this.message(event.text);if(event.gift!==null)enqueueRomGift(this.gifts,event.gift);}return event;}
  advance(ms){if(this.pendingBudget||this.ufo.request)return;this.elapsed+=ms*this.speed;while(this.elapsed>=750&&!this.pendingBudget){this.elapsed-=750;this.stepSimulation();}if(this.pendingBudget)this.elapsed=0;}
- advanceVisualFrames(frames,blocked=false,{mapView=false}={}){if(!blocked)this.civic.busFrame=(this.civic.busFrame||0)+frames;for(let n=0;n<frames;n++){advanceRomSeason(this.season);if(this.ufo.request){this.advanceUfoFrame(blocked);this.quakePhase=this.quakePhase>=23?0:this.quakePhase+1;continue;}if((this.quakePhase&3)===0){const event=stepRomPlane(this.plane,this.map,()=>this.menuRandom(),{phase:this.quakePhase,paused:blocked,mapView,disastersEnabled:this.disastersEnabled,other:this.helicopter});if(event.engine)this.soundEvents.push({port:3,command:12});if(event.crashed){applyRomShipCollision(this.map,this.flags,this.plane.x,this.plane.y,()=>this.menuRandom());this.recordEvent(9);this.soundEvents.push({port:3,command:15});this.focusRequest={x:this.plane.x,y:this.plane.y};this.message('A plane crashed.');this.refresh();}}const heliEvent=stepRomHelicopter(this.helicopter,this.map,()=>this.menuRandom(),{phase:this.quakePhase,mapView,newsBusy:this.helicopterNewsFrames>0});if(heliEvent.trafficReport){this.helicopterNewsFrames=heliEvent.messageFrames;this.focusRequest={x:heliEvent.x,y:heliEvent.y};this.message('The helicopter reports heavy traffic here.');}if(this.helicopterNewsFrames>0)this.helicopterNewsFrames--;if(this.quakeFrames){this.quakeFrames--;for(const train of trainVehicles(this))train.active=false;}if((this.quakePhase&7)===1){const event=stepRomShip(this.ship,this.map,()=>this.menuRandom(),{paused:blocked});if(event.horn){this.soundEvents.push({port:3,command:5});if(this.soundEvents.length>16)this.soundEvents.shift();}if(event.navigation==='collision'){applyRomShipCollision(this.map,this.flags,event.collision.x,event.collision.y,()=>this.menuRandom());this.recordEvent(0x10);this.message('A ship collided.');this.refresh();}}if((this.quakePhase&7)===3){const event=stepRomMonster(this.monster,this.map,this.flags,()=>this.menuRandom(),{phase:this.quakePhase,paused:blocked,onTileCross:(x,y)=>{let changed=false;if(this.ship.active&&x===this.ship.x&&y===this.ship.y){this.ship.active=false;applyRomShipCollision(this.map,this.flags,x,y,()=>this.menuRandom());this.recordEvent(0x10);this.message('A ship collided.');return true;}for(const train of trainVehicles(this))if(x===(train.x>>>3)&&y===(train.y>>>3)){train.active=false;applyRomTrainCollision(this.map,this.flags,x,y,()=>this.menuRandom());changed=true;}return changed;}});if(event.roar)this.soundEvents.push({port:3,command:1});if(event.changed)this.refresh();}if((this.quakePhase&7)===7){const event=stepRomTornado(this.tornado,this.map,this.flags,()=>this.menuRandom(),{paused:blocked});if(event.changed)this.refresh();}if(!blocked&&(this.quakePhase&7)===6)advanceRailFleet(this);this.quakePhase=this.quakePhase>=23?0:this.quakePhase+1;}}
- advanceUfoFrame(blocked=false){if(blocked)return;const s=this.ufo,event=stepRomUfo(s,this.map,this.flags,()=>this.menuRandom(),{cameraX:Math.max(0,s.targetX-16),cameraY:Math.max(0,s.targetY-14)});if(event.focus)this.focusRequest=event.focus;else if(s.focusFrames>0)s.focusFrames--;if(event.sound)this.soundEvents.push({port:3,command:event.sound});if(event.damage)this.refresh();if(!s.activeWord&&this.ufoCampaign){const campaign=this.ufoCampaign;campaign.index++;if(campaign.index<(campaign.repeat?3:9))startRomUfoVisit(s,campaign.index,max=>this.boundedRandom(max),campaign.repeat);else{s.request=0;this.ufoCampaign=null;this.recordEvent(0x14);this.message('The UFO has departed.');}}}
+ advanceVisualFrames(frames,blocked=false,{mapView=false}={}){if(!blocked)this.civic.busFrame=(this.civic.busFrame||0)+frames;for(let n=0;n<frames;n++){advanceRomSeason(this.season);if(this.ufo.request){this.advanceUfoFrame(blocked);this.quakePhase=this.quakePhase>=23?0:this.quakePhase+1;continue;}if((this.quakePhase&3)===0){const event=stepRomPlane(this.plane,this.map,()=>this.menuRandom(),{phase:this.quakePhase,width:this.width,height:this.height,paused:blocked,mapView,disastersEnabled:this.disastersEnabled,other:this.helicopter});if(event.engine)this.soundEvents.push({port:3,command:12});if(event.crashed){applyRomShipCollision(this.map,this.flags,this.plane.x,this.plane.y,()=>this.menuRandom(),this.width,this.height);this.recordEvent(9);this.soundEvents.push({port:3,command:15});this.focusRequest={x:this.plane.x,y:this.plane.y};this.message('A plane crashed.');this.refresh();}}const heliEvent=stepRomHelicopter(this.helicopter,this.map,()=>this.menuRandom(),{phase:this.quakePhase,mapView,width:this.width,height:this.height,newsBusy:this.helicopterNewsFrames>0});if(heliEvent.trafficReport){this.helicopterNewsFrames=heliEvent.messageFrames;this.focusRequest={x:heliEvent.x,y:heliEvent.y};this.message('The helicopter reports heavy traffic here.');}if(this.helicopterNewsFrames>0)this.helicopterNewsFrames--;if(this.quakeFrames){this.quakeFrames--;for(const train of trainVehicles(this))train.active=false;}if((this.quakePhase&7)===1){const event=stepRomShip(this.ship,this.map,()=>this.menuRandom(),{width:this.width,height:this.height,paused:blocked});if(event.horn){this.soundEvents.push({port:3,command:5});if(this.soundEvents.length>16)this.soundEvents.shift();}if(event.navigation==='collision'){applyRomShipCollision(this.map,this.flags,event.collision.x,event.collision.y,()=>this.menuRandom(),this.width,this.height);this.recordEvent(0x10);this.message('A ship collided.');this.refresh();}}if((this.quakePhase&7)===3){const event=stepRomMonster(this.monster,this.map,this.flags,()=>this.menuRandom(),{phase:this.quakePhase,width:this.width,height:this.height,paused:blocked,onTileCross:(x,y)=>{let changed=false;if(this.ship.active&&x===this.ship.x&&y===this.ship.y){this.ship.active=false;applyRomShipCollision(this.map,this.flags,x,y,()=>this.menuRandom(),this.width,this.height);this.recordEvent(0x10);this.message('A ship collided.');return true;}for(const train of trainVehicles(this))if(x===(train.x>>>3)&&y===(train.y>>>3)){train.active=false;applyRomTrainCollision(this.map,this.flags,x,y,()=>this.menuRandom(),this.width,this.height);changed=true;}return changed;}});if(event.roar)this.soundEvents.push({port:3,command:1});if(event.changed)this.refresh();}if((this.quakePhase&7)===7){const event=stepRomTornado(this.tornado,this.map,this.flags,()=>this.menuRandom(),{width:this.width,height:this.height,paused:blocked});if(event.changed)this.refresh();}if(!blocked&&(this.quakePhase&7)===6)advanceRailFleet(this);this.quakePhase=this.quakePhase>=23?0:this.quakePhase+1;}}
+ advanceUfoFrame(blocked=false){if(blocked)return;const s=this.ufo,event=stepRomUfo(s,this.map,this.flags,()=>this.menuRandom(),{width:this.width,height:this.height,cameraX:Math.max(0,s.targetX-16),cameraY:Math.max(0,s.targetY-14)});if(event.focus)this.focusRequest=event.focus;else if(s.focusFrames>0)s.focusFrames--;if(event.sound)this.soundEvents.push({port:3,command:event.sound});if(event.damage)this.refresh();if(!s.activeWord&&this.ufoCampaign){const campaign=this.ufoCampaign;campaign.index++;if(campaign.index<(campaign.repeat?3:9))startRomUfoVisit(s,campaign.index,max=>this.boundedRandom(max),campaign.repeat,this.width,this.height);else{s.request=0;this.ufoCampaign=null;this.recordEvent(0x14);this.message('The UFO has departed.');}}}
  recordEvent(id){recordRomHistory(this.eventHistory,id,this.year,this.month);}
  disaster(type,x=60,y=50,options={}){
   if(!this.disastersEnabled)return {started:false,disabled:true};
   if(type==='Plane crash'){if(!this.plane.active){this.message('No aircraft is currently in flight.');return {started:false};}this.plane.crashRequested=true;return {started:true};}
-  if(type==='UFO'){if(this.ufo.request)return {started:false};this.ufoCampaign={index:0,repeat:this.ufoVisited};this.ufoVisited=true;startRomUfoVisit(this.ufo,0,max=>this.boundedRandom(max),this.ufoCampaign.repeat);this.message('A UFO is approaching the city.');return {started:true};}
-  if(type==='Monster'){const started=startRomMonster(this.monster,this.pollutionTarget.x,this.pollutionTarget.y,max=>this.boundedRandom(max));if(started){this.focusRequest={x:this.monster.x,y:this.monster.y};this.recordEvent(7);this.message('A monster is crossing the city.');}return {started};}
-  if(type==='Tornado'){const started=startRomTornado(this.tornado,max=>this.boundedRandom(max));if(started){this.focusRequest={x:this.tornado.x,y:this.tornado.y};this.recordEvent(0x0a);this.soundEvents.push({port:3,command:0x22});this.message('A tornado is crossing the city.');}return {started};}
-  if(type==='Flood'){const result=startRomFlood(this.map,this.flags,max=>this.boundedRandom(max),W,H);if(result.started){this.floodRemaining=result.remaining;this.recordEvent(0x0c);this.message('Flood reported.');this.refresh();}else this.message('No vulnerable shoreline found.');return result;}
-  if(type==='Earthquake'){const result=applyRomEarthquake(this.map,this.flags,max=>this.boundedRandom(max),W,H);this.quakeFrames=result.attempts;this.recordEvent(0x0e);this.message('Earthquake reported.');this.refresh();return result;}
-  if(type==='Meltdown'){const result=applyRomMeltdown(this.map,this.flags,x,y,max=>this.boundedRandom(max),W,H);this.recordEvent(0x08);this.soundEvents.push({port:3,command:0x1e});this.message('Nuclear meltdown reported.');this.refresh();return result;}
-  if(type==='Fire'){const result=startRomFire(this.map,this.flags,max=>this.boundedRandom(max),options);if(result.started){this.fireCount=(this.fireCount+1)&65535;this.recordEvent(0x0b);this.soundEvents.push({port:3,command:0x21});this.message('Fire reported.');this.refresh();}else if(!options.randomDisaster)this.message('No vulnerable fire site found.');return result;}
+  if(type==='UFO'){if(this.ufo.request)return {started:false};this.ufoCampaign={index:0,repeat:this.ufoVisited};this.ufoVisited=true;startRomUfoVisit(this.ufo,0,max=>this.boundedRandom(max),this.ufoCampaign.repeat,this.width,this.height);this.message('A UFO is approaching the city.');return {started:true};}
+  if(type==='Monster'){const started=startRomMonster(this.monster,this.pollutionTarget.x,this.pollutionTarget.y,max=>this.boundedRandom(max),this.width,this.height);if(started){this.focusRequest={x:this.monster.x,y:this.monster.y};this.recordEvent(7);this.message('A monster is crossing the city.');}return {started};}
+  if(type==='Tornado'){const started=startRomTornado(this.tornado,max=>this.boundedRandom(max),this.width,this.height);if(started){this.focusRequest={x:this.tornado.x,y:this.tornado.y};this.recordEvent(0x0a);this.soundEvents.push({port:3,command:0x22});this.message('A tornado is crossing the city.');}return {started};}
+  if(type==='Flood'){const result=startRomFlood(this.map,this.flags,max=>this.boundedRandom(max),this.width,this.height);if(result.started){this.floodRemaining=result.remaining;this.recordEvent(0x0c);this.message('Flood reported.');this.refresh();}else this.message('No vulnerable shoreline found.');return result;}
+  if(type==='Earthquake'){const result=applyRomEarthquake(this.map,this.flags,max=>this.boundedRandom(max),this.width,this.height);this.quakeFrames=result.attempts;this.recordEvent(0x0e);this.message('Earthquake reported.');this.refresh();return result;}
+  if(type==='Meltdown'){const result=applyRomMeltdown(this.map,this.flags,x,y,max=>this.boundedRandom(max),this.width,this.height);this.recordEvent(0x08);this.soundEvents.push({port:3,command:0x1e});this.message('Nuclear meltdown reported.');this.refresh();return result;}
+  if(type==='Fire'){const result=startRomFire(this.map,this.flags,max=>this.boundedRandom(max),{...options,width:this.width,height:this.height});if(result.started){this.fireCount=(this.fireCount+1)&65535;this.recordEvent(0x0b);this.soundEvents.push({port:3,command:0x21});this.message('Fire reported.');this.refresh();}else if(!options.randomDisaster)this.message('No vulnerable fire site found.');return result;}
   this.disasters.push({type,x,y,life:type==='Earthquake'?1:16});this.message(`${type} reported. Emergency services are responding.`);
-  if(type==='Fire')this.map[y*W+x]=0x2e;
+  if(type==='Fire')this.map[y*this.width+x]=0x2e;
   this.updateDisasters();this.refresh();
 
   this.updateScenarioOutcome();
  }
- igniteZone(x,y,id){burnRomZone(this.map,y*W+x,this.flags);}
+ igniteZone(x,y,id){burnRomZone(this.map,y*this.width+x,this.flags,this.width,this.height);}
  updateDisasters(scanTiles=true){
-  if(scanTiles)for(let i=0;i<this.map.length;i++){const result=dispatchRomDisasterTile(this.map,i,this.flags,this.fireCoverage,this.floodRemaining,()=>this.random(),max=>this.boundedRandom(max),(x,y,id)=>this.igniteZone(x,y,id),W,H);if(result)this.floodRemaining=result.remaining;}
+  if(scanTiles)for(let i=0;i<this.map.length;i++){const result=dispatchRomDisasterTile(this.map,i,this.flags,this.fireCoverage,this.floodRemaining,()=>this.random(),max=>this.boundedRandom(max),(x,y,id)=>this.igniteZone(x,y,id),this.width,this.height);if(result)this.floodRemaining=result.remaining;}
   for(const d of this.disasters){
    let radius=d.type==='Earthquake'?18:d.type==='Meltdown'?8:d.type==='Flood'?4:2;
    for(let n=0;n<(d.type==='Earthquake'?100:12);n++){
-    const x=clamp(d.x+(this.random()%(radius*2+1))-radius,0,W-1),y=clamp(d.y+(this.random()%(radius*2+1))-radius,0,H-1),i=y*W+x,t=this.map[i]&1023;
+    const x=clamp(d.x+(this.random()%(radius*2+1))-radius,0,this.width-1),y=clamp(d.y+(this.random()%(radius*2+1))-radius,0,this.height-1),i=y*this.width+x,t=this.map[i]&1023;
     if(d.type==='Flood'){if(t!==0&&t<0x26)this.map[i]=1;}
     else if(t>3)this.map[i]=d.type==='Meltdown'?0x7f:d.type==='Fire'?0x2e:0x2a;
    }
-   if(d.type==='Tornado'||d.type==='Monster'||d.type==='UFO'){d.x=clamp(d.x+(this.random()%7)-3,3,W-4);d.y=clamp(d.y+(this.random()%7)-3,3,H-4);}
-   if(d.type==='Fire'&&this.boundedRandom(fireBurnoutMaximum(Math.min(255,this.fireCoverage?.[d.y*W+d.x]||0)))===0){this.map[d.y*W+d.x]=0x28;d.life=0;}
+   if(d.type==='Tornado'||d.type==='Monster'||d.type==='UFO'){d.x=clamp(d.x+(this.random()%7)-3,3,this.width-4);d.y=clamp(d.y+(this.random()%7)-3,3,this.height-4);}
+   if(d.type==='Fire'&&this.boundedRandom(fireBurnoutMaximum(Math.min(255,this.fireCoverage?.[d.y*this.width+d.x]||0)))===0){this.map[d.y*this.width+d.x]=0x28;d.life=0;}
    d.life--;
   }
   this.disasters=this.disasters.filter(d=>d.life>0);
  }
- serialize(){return JSON.stringify({version:1,civicLayoutVersion:2,civicLegacyLayouts:this.civicLegacyLayouts,civicEnabled:this.civicEnabled,civic:this.civic,pipes:Array.from(this.pipes),busStops:Array.from(this.busStops),terraform:Array.from(this.terraform),elevation:Array.from(this.elevation),seaPollution:Array.from(this.seaPollution),climate:this.climate,airPollutionQ8:Array.from(this.airPollution,n=>Math.round(n*256)),disastersEnabled:this.disastersEnabled,dismissedNotices:this.dismissedNotices,tornado:this.tornado,monster:this.monster,plane:this.plane,ufo:this.ufo,ufoCampaign:this.ufoCampaign,ufoVisited:this.ufoVisited,helicopter:this.helicopter,helicopterNewsFrames:this.helicopterNewsFrames,pollutionTarget:this.pollutionTarget,season:this.season,policeEffectiveness:this.policeEffectiveness,populationBaseline:this.populationBaseline,netMigration:this.netMigration,facilityDemand:this.facilityDemand,facilityRepairPhase:this.facilityRepairPhase,score:this.score,scoreChange:this.scoreChange,evaluation:this.evaluation,fireCount:this.fireCount,commercialRate:Array.from(this.commercialRate),eventHistory:this.eventHistory,train:this.train,extraTrains:this.extraTrains,nextTrainId:this.nextTrainId,railSeed:this.railSeed,transportStrength:this.transportStrength,ship:this.ship,floodRemaining:this.floodRemaining,disasters:this.disasters,quakeFrames:this.quakeFrames,quakePhase:this.quakePhase,autoBudget:this.autoBudget,pendingBudget:this.pendingBudget,lastBudget:this.lastBudget,serviceStrengths:this.serviceStrengths,allocatedFunding:this.allocatedFunding,serviceInputs:this.serviceInputs?{police:Array.from(this.serviceInputs.police),fire:Array.from(this.serviceInputs.fire)}:null,fieldState:Object.fromEntries(['terrain','pollution','crime','landValue','density','policeCoverage','fireCoverage'].map(k=>[k,Array.from(this[k])])),centerX:this.centerX,centerY:this.centerY,fieldEpochs:this.fieldEpochs,meanCrime:this.meanCrime,meanLandValue:this.meanLandValue,elapsed:this.elapsed,speed:this.speed,baseStep:this.baseStep,growthCaps:this.growthCaps,growthAdviceYear:this.growthAdviceYear,demand:this.demand,giftMilestones:this.giftMilestones,simulationRng:this.simulationRng,traffic:Array.from(this.traffic),scenarioRemaining:this.scenarioRemaining,scenarioResult:this.scenarioResult,scenarioReminders:this.scenarioReminders,scenarioDialogSeen:this.scenarioDialogSeen,map:Array.from(this.map),name:this.name,scenario:this.scenario,year:this.year,month:this.month,funds:this.funds,difficulty:this.difficulty,tax:this.tax,taxAccumulator:this.taxAccumulator,funding:this.funding,rngA:this.rngA,rngB:this.rngB,history:this.history,loans:this.loans,loan:this.loan,gifts:this.gifts});}
- static restore(text,build,flags){const s=JSON.parse(text);if(s.version!==1||!Array.isArray(s.map)||s.map.length!==12000||s.map.some(n=>!Number.isInteger(n)||n<0||n>65535))throw Error('This is not a supported city save.');const c=new City(s.map,build,flags,s);if(s.eventHistory===undefined)c.eventHistory=[];for(const k of ['civicEnabled','civic','climate','dismissedNotices','tornado','monster','plane','helicopter','helicopterNewsFrames','ufo','ufoCampaign','ufoVisited','pollutionTarget','season','populationBaseline','netMigration','facilityDemand','facilityRepairPhase','score','scoreChange','evaluation','fireCount','eventHistory','train','extraTrains','nextTrainId','railSeed','transportStrength','ship','floodRemaining','disasters','quakeFrames','quakePhase','autoBudget','pendingBudget','lastBudget','serviceStrengths','allocatedFunding','centerX','centerY','fieldEpochs','meanCrime','meanLandValue','elapsed','speed','baseStep','growthCaps','growthAdviceYear','demand','giftMilestones','simulationRng','scenarioRemaining','scenarioResult','scenarioReminders','scenarioDialogSeen','month','funds','tax','taxAccumulator','funding','rngA','rngB','history','gifts'])if(s[k]!==undefined)c[k]=s[k];c.civicLegacyLayouts=s.civicLegacyLayouts||{};if(s.civicLayoutVersion!==2)for(let i=0;i<c.map.length;i++)if([964,965,966,968].includes(c.map[i]&1023))c.civicLegacyLayouts[i]={width:3,height:3};if(Array.isArray(s.airPollutionQ8)&&s.airPollutionQ8.length===W*H)c.airPollution=Float32Array.from(s.airPollutionQ8,n=>clamp(Number(n)||0,0,64000)/256);if(Array.isArray(s.seaPollution)&&s.seaPollution.length===W*H)c.seaPollution=Uint8Array.from(s.seaPollution);if(Array.isArray(s.elevation)&&s.elevation.length===W*H)c.elevation=Int8Array.from(s.elevation,n=>clamp(Number(n)||0,-4,16));if(Array.isArray(s.terraform)&&s.terraform.length===W*H)c.terraform=Uint8Array.from(s.terraform);if(Array.isArray(s.busStops)&&s.busStops.length===W*H)c.busStops=Uint8Array.from(s.busStops);if(Array.isArray(s.pipes)&&s.pipes.length===W*H)c.pipes=Uint8Array.from(s.pipes);if(Array.isArray(s.traffic)&&s.traffic.length===W*H)c.traffic=Uint8Array.from(s.traffic);if(s.fieldState)for(const k of ['terrain','pollution','crime','landValue','density','policeCoverage','fireCoverage'])if(Array.isArray(s.fieldState[k])&&s.fieldState[k].length===W*H)c[k]=(k.endsWith('Coverage')?Uint16Array:Uint8Array).from(s.fieldState[k]);if(s.serviceInputs&&['police','fire'].every(k=>Array.isArray(s.serviceInputs[k])&&s.serviceInputs[k].length===195))c.serviceInputs={police:Uint16Array.from(s.serviceInputs.police),fire:Uint16Array.from(s.serviceInputs.fire)};if(Array.isArray(s.commercialRate)&&s.commercialRate.length===195)c.commercialRate=Int16Array.from(s.commercialRate);c.loans=(Array.isArray(s.loans)?s.loans:s.loan?[s.loan]:[]).slice(0,3).filter(l=>l&&Number.isInteger(l.years)&&l.years>0&&Number.isFinite(l.payment)&&l.payment>0).map(l=>({...l}));c.dismissedNotices=Array.isArray(c.dismissedNotices)?c.dismissedNotices.map(n=>typeof n==='string'?{text:n,year:c.year}:n).filter(n=>n&&typeof n.text==='string'&&Number.isInteger(n.year)):[];if(s.pollutionTarget===undefined)c.pollutionTarget=monsterPollutionTarget(c.pollution,c.pollutionTarget);c.plane={...createRomPlane(),...c.plane};c.helicopter={...createRomHelicopter(),...c.helicopter};c.ufo={...createRomUfo(),...c.ufo};c.monster={...createRomMonster(),...c.monster};c.tornado={...createRomTornado(),...c.tornado};c.ship={...createRomShip(),...c.ship};c.refresh();if(s.populationBaseline===undefined){c.populationBaseline=c.population;c.netMigration=0;}else if(s.netMigration!==undefined)c.netMigration=s.netMigration|0;if(s.policeEffectiveness===undefined)c.setPoliceEffectiveness(2);if(s.season===undefined)c.season=createRomSeason(c.month);return c;}
+ serialize(){return JSON.stringify({version:1,width:this.width,height:this.height,zoneGrowthLog:this.zoneGrowthLog,civicLayoutVersion:2,civicLegacyLayouts:this.civicLegacyLayouts,civicEnabled:this.civicEnabled,civic:this.civic,pipes:Array.from(this.pipes),busStops:Array.from(this.busStops),terraform:Array.from(this.terraform),elevation:Array.from(this.elevation),seaPollution:Array.from(this.seaPollution),climate:this.climate,airPollutionQ8:Array.from(this.airPollution,n=>Math.round(n*256)),disastersEnabled:this.disastersEnabled,dismissedNotices:this.dismissedNotices,tornado:this.tornado,monster:this.monster,plane:this.plane,ufo:this.ufo,ufoCampaign:this.ufoCampaign,ufoVisited:this.ufoVisited,helicopter:this.helicopter,helicopterNewsFrames:this.helicopterNewsFrames,pollutionTarget:this.pollutionTarget,season:this.season,policeEffectiveness:this.policeEffectiveness,populationBaseline:this.populationBaseline,netMigration:this.netMigration,facilityDemand:this.facilityDemand,facilityRepairPhase:this.facilityRepairPhase,score:this.score,scoreChange:this.scoreChange,evaluation:this.evaluation,fireCount:this.fireCount,commercialRate:Array.from(this.commercialRate),eventHistory:this.eventHistory,train:this.train,extraTrains:this.extraTrains,nextTrainId:this.nextTrainId,railSeed:this.railSeed,transportStrength:this.transportStrength,ship:this.ship,floodRemaining:this.floodRemaining,disasters:this.disasters,quakeFrames:this.quakeFrames,quakePhase:this.quakePhase,autoBudget:this.autoBudget,pendingBudget:this.pendingBudget,lastBudget:this.lastBudget,serviceStrengths:this.serviceStrengths,allocatedFunding:this.allocatedFunding,serviceInputs:this.serviceInputs?{police:Array.from(this.serviceInputs.police),fire:Array.from(this.serviceInputs.fire)}:null,fieldState:Object.fromEntries(['terrain','pollution','crime','landValue','density','policeCoverage','fireCoverage'].map(k=>[k,Array.from(this[k])])),centerX:this.centerX,centerY:this.centerY,fieldEpochs:this.fieldEpochs,meanCrime:this.meanCrime,meanLandValue:this.meanLandValue,elapsed:this.elapsed,speed:this.speed,baseStep:this.baseStep,growthCaps:this.growthCaps,growthAdviceYear:this.growthAdviceYear,demand:this.demand,giftMilestones:this.giftMilestones,simulationRng:this.simulationRng,traffic:Array.from(this.traffic),scenarioRemaining:this.scenarioRemaining,scenarioResult:this.scenarioResult,scenarioReminders:this.scenarioReminders,scenarioDialogSeen:this.scenarioDialogSeen,map:Array.from(this.map),name:this.name,scenario:this.scenario,year:this.year,month:this.month,funds:this.funds,difficulty:this.difficulty,tax:this.tax,taxAccumulator:this.taxAccumulator,funding:this.funding,rngA:this.rngA,rngB:this.rngB,history:this.history,loans:this.loans,loan:this.loan,gifts:this.gifts});}
+ static restore(text,build,flags){const s=JSON.parse(text);if(s.version!==1||!Array.isArray(s.map)||s.map.length!==(s.width??120)*(s.height??100)||s.map.some(n=>!Number.isInteger(n)||n<0||n>65535))throw Error('This is not a supported city save.');const c=new City(s.map,build,flags,s);if(s.eventHistory===undefined)c.eventHistory=[];for(const k of ['civicEnabled','civic','climate','dismissedNotices','tornado','monster','plane','helicopter','helicopterNewsFrames','ufo','ufoCampaign','ufoVisited','pollutionTarget','season','populationBaseline','netMigration','facilityDemand','facilityRepairPhase','score','scoreChange','evaluation','fireCount','eventHistory','train','extraTrains','nextTrainId','railSeed','transportStrength','ship','floodRemaining','disasters','quakeFrames','quakePhase','autoBudget','pendingBudget','lastBudget','serviceStrengths','allocatedFunding','centerX','centerY','fieldEpochs','meanCrime','meanLandValue','elapsed','speed','baseStep','growthCaps','growthAdviceYear','demand','giftMilestones','simulationRng','scenarioRemaining','scenarioResult','scenarioReminders','scenarioDialogSeen','month','funds','tax','taxAccumulator','funding','rngA','rngB','history','gifts'])if(s[k]!==undefined)c[k]=s[k];c.zoneGrowthLog=Object.fromEntries(Object.entries(s.zoneGrowthLog||{}).filter(([i,e])=>Number.isInteger(+i)&&+i>=0&&+i<c.map.length&&e&&typeof e==='object'&&[5,6,7].includes(e.type)&&Number.isInteger(e.year)&&Number.isInteger(e.month)).slice(0,6000));c.civicLegacyLayouts=s.civicLegacyLayouts||{};if(s.civicLayoutVersion!==2)for(let i=0;i<c.map.length;i++)if([964,965,966,968].includes(c.map[i]&1023))c.civicLegacyLayouts[i]={width:3,height:3};if(Array.isArray(s.airPollutionQ8)&&s.airPollutionQ8.length===c.width*c.height)c.airPollution=Float32Array.from(s.airPollutionQ8,n=>clamp(Number(n)||0,0,64000)/256);if(Array.isArray(s.seaPollution)&&s.seaPollution.length===c.width*c.height)c.seaPollution=Uint8Array.from(s.seaPollution);if(Array.isArray(s.elevation)&&s.elevation.length===c.width*c.height)c.elevation=Int8Array.from(s.elevation,n=>clamp(Number(n)||0,-4,16));if(Array.isArray(s.terraform)&&s.terraform.length===c.width*c.height)c.terraform=Uint8Array.from(s.terraform);if(Array.isArray(s.busStops)&&s.busStops.length===c.width*c.height)c.busStops=Uint8Array.from(s.busStops);if(Array.isArray(s.pipes)&&s.pipes.length===c.width*c.height)c.pipes=Uint8Array.from(s.pipes);if(Array.isArray(s.traffic)&&s.traffic.length===c.width*c.height)c.traffic=Uint8Array.from(s.traffic);if(s.fieldState)for(const k of ['terrain','pollution','crime','landValue','density','policeCoverage','fireCoverage'])if(Array.isArray(s.fieldState[k])&&s.fieldState[k].length===c.width*c.height)c[k]=(k.endsWith('Coverage')?Uint16Array:Uint8Array).from(s.fieldState[k]);if(s.serviceInputs&&['police','fire'].every(k=>Array.isArray(s.serviceInputs[k])&&s.serviceInputs[k].length===c.coarseSize))c.serviceInputs={police:Uint16Array.from(s.serviceInputs.police),fire:Uint16Array.from(s.serviceInputs.fire)};if(Array.isArray(s.commercialRate)&&s.commercialRate.length===c.coarseSize)c.commercialRate=Int16Array.from(s.commercialRate);c.loans=(Array.isArray(s.loans)?s.loans:s.loan?[s.loan]:[]).slice(0,3).filter(l=>l&&Number.isInteger(l.years)&&l.years>0&&Number.isFinite(l.payment)&&l.payment>0).map(l=>({...l}));c.dismissedNotices=Array.isArray(c.dismissedNotices)?c.dismissedNotices.map(n=>typeof n==='string'?{text:n,year:c.year}:n).filter(n=>n&&typeof n.text==='string'&&Number.isInteger(n.year)):[];if(s.pollutionTarget===undefined)c.pollutionTarget=monsterPollutionTarget(c.pollution,c.pollutionTarget,c.width,c.height);c.plane={...createRomPlane(),...c.plane};c.helicopter={...createRomHelicopter(),...c.helicopter};c.ufo={...createRomUfo(),...c.ufo};c.monster={...createRomMonster(),...c.monster};c.tornado={...createRomTornado(),...c.tornado};c.ship={...createRomShip(),...c.ship};c.refresh();if(s.populationBaseline===undefined){c.populationBaseline=c.population;c.netMigration=0;}else if(s.netMigration!==undefined)c.netMigration=s.netMigration|0;if(s.policeEffectiveness===undefined)c.setPoliceEffectiveness(2);if(s.season===undefined)c.season=createRomSeason(c.month);return c;}
 }
 
 

@@ -4,3 +4,7 @@ export function networkCrossing(tool,id){
  const targets={1:[0x3e,0x3d,0x7d,0x7e],2:[0x7e,0x7d,0x7e,0x7d,0x7e,0x7d,0x6e,0x6d],3:[0x3d,0x3e,0x4d,0x4e,0x5d,0x5e,0x6d,0x6e]};
  const i=sources[tool]?.indexOf(id&1023)??-1;return i<0?null:targets[tool][i];
 }
+
+// Visible road layer includes the cartridge road/rail crossing tiles,
+// whose classification flags identify rail as the primary network.
+export function hasRoadLayer(id,flags){id&=1023;return !!(flags[id]&64)||id===0x7d||id===0x7e;}

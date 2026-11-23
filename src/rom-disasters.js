@@ -78,7 +78,7 @@ export function dispatchRomDisasterTile(map,i,flags,coverage,remaining,nextWord,
 export function startRomFire(map,flags,nextBounded,{randomDisaster=false,width=120,height=100}={}){
  const limit=randomDisaster?20:40;
  for(let attempts=1;attempts<=limit;attempts++){
-  const x=nextBounded(119)&255,y=nextBounded(99)&255,i=y*width+x;
+  const x=nextBounded(width-1)&255,y=nextBounded(height-1)&255,i=y*width+x;
   if(i>=map.length)continue;
   const id=map[i]&1023,f=flags[id]||0;
   if((f&1)||(randomDisaster?id<0x88:!(f&4)))continue;
