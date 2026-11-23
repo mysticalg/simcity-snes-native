@@ -5,12 +5,13 @@ import {execFileSync} from 'node:child_process';
 import {City} from '../src/simulation.js';
 import {photorealSlot,spriteFootprint,intactPhotoFootprint} from '../src/realistic-art.js';
 import {stampZoneFootprint} from '../src/rom-growth.js';
+import {civicForId} from '../src/civic.js';
 const build=JSON.parse(fs.readFileSync('assets/tables/build.json'));
 const flags=JSON.parse(fs.readFileSync('assets/tables/city.json')).flags;
-const mega=process.argv.includes('--mega'),profileZoom=Number(process.env.PROFILE_ZOOM)||(mega?.5:1),width=mega?240:120,height=mega?200:100,city=new City(new Uint16Array(width*height),build,flags,{year:2008,width,height});
+const mega=process.argv.includes('--mega'),civicHeavy=process.argv.includes('--civic-heavy'),profileZoom=Number(process.env.PROFILE_ZOOM)||(mega?.5:1),width=mega?240:120,height=mega?200:100,city=new City(new Uint16Array(width*height),build,flags,{year:2008,width,height});
 city.funds=1e7;city.disastersEnabled=false;city.autoBudget=true;
 for(let y=3;y<(mega?190:70);y+=4)for(let x=3;x<(mega?158:70);x+=4){
- const slot=(x+y)%3;stampZoneFootprint(city.map,x,y,[0x11c,0x1eb,0x20f][slot],width,height);
+ const slot=(x+y)%3;if(civicHeavy&&(Math.floor((x-3)/4)+Math.floor((y-3)/4)*39)%4===0){for(const p of city.footprint(30,x-1,y-1))city.map[p.y*width+p.x]=p.id;}else stampZoneFootprint(city.map,x,y,[0x11c,0x1eb,0x20f][slot],width,height);
  for(let n=-1;n<=2;n++)city.map[(y+2)*width+x+n]=0x30;
 }
 for(let y=0;y<height;y++)for(let x=mega?160:75;x<width;x++){city.map[y*width+x]=2;city.seaPollution[y*width+x]=y>40?190:0;}
@@ -19,6 +20,7 @@ const browser=await chromium.launch({executablePath:'C:/Users/drhoo/AppData/Loca
 try{
  const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[];
  const photoBaseline=process.argv.includes('--photo-baseline'),photoRef=process.argv.find(v=>v.startsWith('--photo-ref='))?.slice(12)||(photoBaseline?'8d43b84':null);if(photoRef){const body=execFileSync('git',['show',photoRef+':src/realistic-art.js'],{encoding:'utf8'});await page.route('**/src/realistic-art.js*',route=>route.fulfill({status:200,contentType:'application/javascript',body}));}
+ const windowRef=process.argv.find(v=>v.startsWith('--window-ref='))?.slice(13)||null;if(windowRef){const body=execFileSync('git',['show',windowRef+':src/window-lights.js'],{encoding:'utf8'});await page.route('**/src/window-lights.js*',route=>route.fulfill({status:200,contentType:'application/javascript',body}));}
  const atlasRef=process.argv.find(v=>v.startsWith('--atlas-ref='))?.slice(12)||null;if(atlasRef){const body=execFileSync('git',['show',atlasRef+':src/city-graphics.js'],{encoding:'utf8'});await page.route('**/src/city-graphics.js*',route=>route.fulfill({status:200,contentType:'application/javascript',body}));const app=fs.readFileSync('src/app.js','utf8').replace('animatedAtlas.key,animatedAtlas.paletteVersion',"animatedAtlas.key,cityPaletteForMonth(city.month)+':'+city.season.source+':'+city.season.progress");await page.route('**/src/app.js*',route=>route.fulfill({status:200,contentType:'application/javascript',body:app}));}
  const canvasTiles=process.argv.includes('--canvas-tiles');if(canvasTiles){let app=fs.readFileSync('src/app.js','utf8').replace("plain:mapView==='none'",'plain:false');if(atlasRef)app=app.replace('animatedAtlas.key,animatedAtlas.paletteVersion',"animatedAtlas.key,cityPaletteForMonth(city.month)+':'+city.season.source+':'+city.season.progress");await page.route('**/src/app.js*',route=>route.fulfill({status:200,contentType:'application/javascript',body:app}));}
  const seaBaseline=process.argv.includes('--sea-baseline');if(seaBaseline){const original=execFileSync('git',['show','220f395:src/sewage.js'],{encoding:'utf8'}).match(/export function drawSeaPollution[\s\S]*$/)[0],body=fs.readFileSync('src/sewage.js','utf8').replace(/export function drawSeaPollution[\s\S]*$/,original);await page.route('**/src/sewage.js*',route=>route.fulfill({status:200,contentType:'application/javascript',body}));}
@@ -69,7 +71,7 @@ try{
  for(const n of profile.nodes){if(n.hitCount){const key=n.callFrame.functionName+' '+n.callFrame.url.replace(/.*\/src\//,'');counts.set(key,(counts.get(key)||0)+n.hitCount);}}
  const top=[...counts].sort((a,b)=>b[1]-a[1]).slice(0,18);
  result.appFrames=await page.evaluate(()=>{const sorted=[...renderTimings.frames].sort((a,b)=>a-b),painted=renderTimings.frames.filter((v,i)=>renderTimings.paints[i]>0).sort((a,b)=>a-b);return {paintedCount:painted.length,paintedMedianMs:painted[Math.floor(painted.length*.5)],paintedP95Ms:painted[Math.floor(painted.length*.95)],count:sorted.length,medianMs:sorted[Math.floor(sorted.length*.5)],p95Ms:sorted[Math.floor(sorted.length*.95)],maximumPaintsPerFrame:Math.max(...renderTimings.paints)};});result.appWarmupMs=1500;result.fixture='powered-developed-RCI-v3';result.rciZones=rci.length;result.powerPlants=city.zones.length-rci.length;result.powerCapacity=city.powerCapacity;result.powerUsed=city.powerUsed;result.profileZoom=profileZoom;result.photoBaseline=photoBaseline;result.photoRef=photoRef;result.atlasRef=atlasRef;result.canvasTiles=canvasTiles;result.baseline=baseline;result.seaBaseline=seaBaseline;
- if(process.argv.includes('--stages'))result.frameStages=await page.evaluate(()=>renderTimings.frames.map((ms,i)=>({ms,painted:renderTimings.paints[i]>0,...renderTimings.stages[i]})));
+ result.windowRef=windowRef;result.civicHeavy=civicHeavy;result.civicBuildings=city.zones.filter(z=>civicForId(z.id)&&civicForId(z.id).kind!=='power').length;result.powerPlants=city.zones.filter(z=>[13,14].includes(z.type)||civicForId(z.id)?.kind==='power').length;if(process.argv.includes('--stages'))result.frameStages=await page.evaluate(()=>renderTimings.frames.map((ms,i)=>({ms,painted:renderTimings.paints[i]>0,...renderTimings.stages[i]})));
  result.cpuProfile={durationMs:(profile.endTime-profile.startTime)/1000,top};result.errors=errors;
  fs.mkdirSync('output',{recursive:true});fs.writeFileSync(process.argv[2]||'output/render-profile.json',JSON.stringify(result,null,2));
  console.log(JSON.stringify(result,null,2));

@@ -6,7 +6,9 @@ This project reverse engineers the USA release of SimCity for Super Nintendo and
 
 Open the [GitHub Pages version](https://mysticalg.github.io/simcity-snes-native/) after deployment, or serve this directory locally with `python -m http.server 5173` and open `http://localhost:5173`.
 
-Latest Turbo update: **v0.2.42** adds the original Capital, Metropolis and Megalopolis music, with shared tempo/volume fades and complete order cycles. All six city themes now follow promotion stage. [Source evidence, playback checks and limits](research/later-city-music-v0.2.42.md).
+Latest Turbo update: **v0.2.43** shares civic window-glow pages, retaining individual windows and their fade while reducing separate bloom canvases and blur operations. [Pixel checks and rendering measurements](research/shared-window-glows-v0.2.43.md).
+
+v0.2.42 added the original Capital, Metropolis and Megalopolis music, with shared tempo/volume fades and complete order cycles. All six city themes now follow promotion stage. [Source evidence, playback checks and limits](research/later-city-music-v0.2.42.md).
 
 v0.2.41 batched terrain drawing and reused native atlas pixels, reducing heavy-city long-frame CPU cost while retaining exact tested pixels. [Rendering measurements](research/render-batching-v0.2.41.md).
 
@@ -20,4 +22,4 @@ v0.2.37 cached shared photoreal building layers while preserving exact pixel out
 
 v0.2.36 added original Town and City music and corrected articulation, fades and note releases against the executed SPC driver. [Audio evidence](research/city-music-v0.2.36.md).
 
-Recent releases also added four variants each of parks, gardens and plazas with different footprints and coverage; refreshed custom civic art; health facilities and road-bound ambulances; original numbered maps 000–999; and cached pollution/lighting rendering for heavier cities. Full original-game parity and later music themes remain in progress.
+Recent releases also added four variants each of parks, gardens and plazas with different footprints and coverage; refreshed custom civic art; health facilities and road-bound ambulances; original numbered maps 000–999; and cached pollution/lighting rendering for heavier cities. Full original-game parity, menu/event music and full DSP audio remain in progress.
