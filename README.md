@@ -6,7 +6,7 @@ This project reverse engineers the USA release of SimCity for Super Nintendo and
 
 Open the [GitHub Pages version](https://mysticalg.github.io/simcity-snes-native/) after deployment, or serve this directory locally with `python -m http.server 5173` and open `http://localhost:5173`.
 
-Latest Turbo update: **v0.2.25** automatically shows service coverage while building police, fire, health and education facilities, keeping placement controls active. [Verification notes](research/service-placement-v0.2.25.md).
+Latest Turbo update: **v0.2.26** fixes realistic buildings and water disappearing when weather effects are switched off. The two options now work independently. [Verification notes](research/independent-art-v0.2.26.md).
 
 ## Current coverage
 
