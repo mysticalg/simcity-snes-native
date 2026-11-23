@@ -167,6 +167,7 @@ export class City {
   return {ok:this.funds>=cost,cost,reason:this.funds>=cost?'':'Insufficient funds.'};
  }
  replacementPlan(tool,x,y){
+  if(tool===40&&x>=0&&x<W&&y>=0&&y<H&&this.pipes[y*W+x])return {ok:this.funds>=3,cost:3,reason:this.funds>=3?'':'Insufficient funds.',map:null,cleared:[],replacedPipe:true};
   const check=this.canBuild(tool,x,y);if(check.ok||tool<=0||check.reason!=='Clear this site before building.')return {...check,map:null,cleared:[]};
   const original=this.map,candidate=Uint16Array.from(original),cleared=new Set();
   const add=(cx,cy)=>{if(cx>=0&&cx<W&&cy>=0&&cy<H){const i=cy*W+cx;if(original[i]&1023)cleared.add(i);candidate[i]=0;}};
