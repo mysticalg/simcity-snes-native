@@ -1,9 +1,11 @@
-import {educationCoverage} from './education.js?v=education-traffic-27';
+import {AMENITY_TOOLS} from './amenities.js?v=amenities-gifts-29';
+import {educationCoverage} from './education.js?v=amenities-gifts-29';
 import {allocateWater,updateWaterStorage} from './water-allocation.js?v=education-traffic-27';
 import {landfillSites,garbageFacilities,collectGarbage,monthlyGarbageDemand} from './landfill.js?v=processing-1';
 import {buildingOff} from './building-operations.js?v=education-traffic-27';
 // Custom civic systems requested by the player. Values are game balance, not ROM-derived.
 export const CIVIC_TOOLS=[
+ ...AMENITY_TOOLS,
  {tool:8,id:977,name:"Police",icon:"🛡",cost:500,annual:0,kind:"police",size:2,nativeTool:8},
  {tool:9,id:978,name:"Fire station",icon:"🚒",cost:500,annual:0,kind:"fire",size:2,nativeTool:9},
  {tool:30,id:960,name:'Hospital',icon:'🏥',cost:1000,annual:250,kind:'health',capacity:5000},
@@ -27,10 +29,10 @@ export const CIVIC_TOOLS=[
  {tool:63,id:991,name:'Municipal airport',icon:'🛩',cost:5000,annual:500,kind:'airport',capacity:1200,cargo:0,size:4,sprite:29},
  {tool:64,id:992,name:'International airport',icon:'✈',cost:50000,annual:4000,kind:'airport',capacity:15000,cargo:5000,width:24,height:18,sprite:30},
  {tool:65,id:993,name:'Military airbase',icon:'🛫',cost:20000,annual:1500,kind:'military',capacity:6,size:8,sprite:31},
- {tool:66,id:994,name:'Pocket garden',icon:'🌷',cost:25,annual:5,kind:'park',size:1,radius:6,landBonus:8,happiness:6,sprite:32},
- {tool:67,id:995,name:'Neighbourhood park',icon:'🌳',cost:100,annual:20,kind:'park',size:2,radius:10,landBonus:16,happiness:10,sprite:33},
- {tool:68,id:996,name:'City park',icon:'🌲',cost:750,annual:80,kind:'park',size:4,radius:16,landBonus:28,happiness:18,sprite:34},
- {tool:69,id:997,name:'Civic plaza',icon:'⛲',cost:500,annual:60,kind:'park',size:3,radius:12,landBonus:22,happiness:14,sprite:35},
+ {tool:66,id:994,name:'Pocket garden',icon:'🌷',cost:25,annual:5,kind:'park',size:1,radius:12,landBonus:14,happiness:10,sprite:32},
+ {tool:67,id:995,name:'Neighbourhood park',icon:'🌳',cost:100,annual:20,kind:'park',size:2,radius:20,landBonus:24,happiness:16,sprite:33},
+ {tool:68,id:996,name:'City park',icon:'🌲',cost:750,annual:80,kind:'park',size:4,radius:32,landBonus:42,happiness:28,sprite:34},
+ {tool:69,id:997,name:'Civic plaza',icon:'⛲',cost:500,annual:60,kind:'park',size:3,radius:24,landBonus:34,happiness:20,commerce:30,sprite:35},
  {tool:41,id:972,name:'Wind turbine',icon:'🌬',cost:1000,annual:40,kind:'power',capacity:200,width:2,height:1,sprite:12,artHeight:24},
  {tool:44,id:973,name:'Sewage pump',icon:'🚰',cost:800,annual:150,kind:'sewage',capacity:8000,sprite:13},
  {tool:45,id:974,name:'Sewage treatment',icon:'♻',cost:5000,annual:800,kind:'treatment',capacity:20000,size:4,sprite:14},

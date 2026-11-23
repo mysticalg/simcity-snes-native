@@ -1,10 +1,10 @@
 import {expandServiceCoverage} from './police-range.js?v=police-area-28';
-import {educationCoverage} from './education.js?v=education-traffic-27';
-import {CIVIC_TOOLS,civicForId,civicRoadEntry,civicBounds} from './civic.js?v=education-traffic-27';
+import {educationCoverage} from './education.js?v=amenities-gifts-29';
+import {CIVIC_TOOLS,civicForId,civicRoadEntry,civicBounds} from './civic.js?v=amenities-gifts-29';
 import {seedRomServicePlane} from './rom-services.js';
 import {operationalMap,buildingOff} from './building-operations.js?v=education-traffic-27';
 import {emergencyKind,emergencyBounds} from './emergency.js?v=emergency-1';
-import {transportOverlay} from './transport-overlays.js?v=education-traffic-27';
+import {transportOverlay} from './transport-overlays.js?v=amenities-gifts-29';
 const cache=new WeakMap();
 export function placementCoverageKind(tool){if(tool===8||tool===21)return 'police';if(tool===9||tool===22)return 'fire';if([1,37,38].includes(tool))return 'traffic';if(tool===2)return 'railTraffic';if([12,63,64,65].includes(tool))return 'airTraffic';const kind=CIVIC_TOOLS.find(b=>b.tool===tool)?.kind;if(tool===4||tool===10||(tool>=15&&tool<30)||kind==='park')return 'landValue';return ['health','education'].includes(kind)?kind:null;}
 const names={police:'Police coverage',fire:'Fire coverage',health:'Health / ambulance coverage',education:'Education coverage',landValue:'Land value'};
@@ -14,7 +14,7 @@ export function placementServiceCoverage(city,tool){
  const key=city.revision+':'+city.baseStep+':'+city.serviceStrengths.join(':')+':'+city.policeEffectiveness+':'+Object.entries(city.disabledBuildings||{}).join(';'),old=cache.get(city);
  let entries=old?.key===key&&old.power===city.power?old.entries:new Map();
  if(entries.has(kind))return entries.get(kind);
- const width=city.width||120,height=city.height||100,facilities=city.zones.filter(z=>kind==='police'||kind==='fire'?emergencyKind(z.id)===kind:kind==='landValue'?civicForId(z.id)?.kind==='park'||z.type===15:civicForId(z.id)?.kind===kind);
+ const width=city.width||120,height=city.height||100,facilities=city.zones.filter(z=>kind==='police'||kind==='fire'?emergencyKind(z.id)===kind:kind==='landValue'?civicForId(z.id)?.kind==='park'||(z.type>=15&&z.type<30):civicForId(z.id)?.kind===kind);
  let field,max=(kind==='police'||kind==='fire')?255:1000;
  if(kind==='education')field=educationCoverage(city).field;else if(kind==='landValue'){field=city.landValue;max=250;}
  else if(kind==='police'||kind==='fire')field=expandServiceCoverage(seedRomServicePlane(operationalMap(city),city.serviceStrengths[kind==='police'?0:1]*(kind==='police'?city.policeEffectiveness:1),kind,width,height),kind,width,height);

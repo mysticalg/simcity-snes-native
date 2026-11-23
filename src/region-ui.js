@@ -1,6 +1,6 @@
 import {regionBorderHints,drawRegionBorders,drawRegionThumbnail,borderHintText} from './region-connections.js?v=megacity-1';
-import {civicServices} from './civic.js?v=education-traffic-27';
-import {createRegion,regionStore,regionExchange} from './regions.js?v=education-traffic-27';
+import {civicServices} from './civic.js?v=amenities-gifts-29';
+import {createRegion,regionStore,regionExchange} from './regions.js?v=amenities-gifts-29';
 export function setupRegions({getCity,setCity,City,build,flags,terrain,modal,paint}){
  let region=null,slot=null,saved=new Map(),busy=false,showConnections=true;const disconnect=()=>{if(getCity()){getCity().regionalProvider=null;getCity().regionalState=null;}};
  const $=s=>document.querySelector(s),escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));

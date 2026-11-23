@@ -1,49 +1,50 @@
-import {drawServicePlacement,placementCoverageLegend,placementServiceCoverage} from './service-placement.js?v=police-area-28';
-import {drawAviation,aviationSummary} from './aviation.js?v=education-traffic-27';
-import {drawParkCoverage} from './parks.js?v=education-traffic-27';
-import {utilityImagePath} from './utility-art.js?v=education-traffic-27';
+import {ROM_GIFTS} from './rom-gifts.js?v=amenities-gifts-29';
+import {drawServicePlacement,placementCoverageLegend,placementServiceCoverage} from './service-placement.js?v=amenities-gifts-29';
+import {drawAviation,aviationSummary} from './aviation.js?v=amenities-gifts-29';
+import {drawParkCoverage} from './parks.js?v=amenities-gifts-29';
+import {utilityImagePath} from './utility-art.js?v=amenities-gifts-29';
 import {visualFrameBudget} from './visual-clock.js';
 import {restartCity,saveRestartBackup,readRestartBackup} from './city-restart.js?v=city-restart-1';
-import {facilityMetersHTML} from './facility-meters.js?v=education-traffic-27';
-import {utilityInspectionHTML} from './utility-inspection.js?v=education-traffic-27';
+import {facilityMetersHTML} from './facility-meters.js?v=amenities-gifts-29';
+import {utilityInspectionHTML} from './utility-inspection.js?v=amenities-gifts-29';
 import {CityLayerCache} from './city-layer-cache.js?v=render-perf-1';
 const cityLayerCache=new CityLayerCache();
 import {cityGrowthRateAt} from './rom-growth-rate.js?v=job-growth-1';
 import {zoneGrowthHTML} from './zone-growth.js?v=job-growth-1';
-import {GarbageVisuals} from './garbage-visuals.js?v=education-traffic-27';
-import {drawUtilityFlows,pipeFlowText} from './utility-flows.js?v=education-traffic-27';
+import {GarbageVisuals} from './garbage-visuals.js?v=amenities-gifts-29';
+import {drawUtilityFlows,pipeFlowText} from './utility-flows.js?v=amenities-gifts-29';
 import {createMegacityTerrain} from './megacity.js?v=megacity-1';
-import {drawUnderground,pipeServiceArea} from './underground.js?v=education-traffic-27';
-import {diagnoseGrowth,growthAdviceHTML} from './growth-advisor.js?v=education-traffic-27';
-import {WeatherFX,DEFAULT_WEATHER_FX} from './weather-fx.js?v=education-traffic-27';
+import {drawUnderground,pipeServiceArea} from './underground.js?v=amenities-gifts-29';
+import {diagnoseGrowth,growthAdviceHTML} from './growth-advisor.js?v=amenities-gifts-29';
+import {WeatherFX,DEFAULT_WEATHER_FX} from './weather-fx.js?v=amenities-gifts-29';
 import {drawWindArrows,windDescription} from './climate.js?v=weather-1';
-import {socialFields} from './social-fields.js?v=education-traffic-27';
+import {socialFields} from './social-fields.js?v=amenities-gifts-29';
 const weatherRenderer=new WeatherFX();let weatherSettings={...DEFAULT_WEATHER_FX,quality:matchMedia('(max-width:900px)').matches?'low':'high'};weatherRenderer.ready.catch(()=>{});
 import {drawElevation} from './elevation.js?v=megacity-1';
 import {setupSession} from './session.js?v=budget-session-1';
 import {employmentIncome} from './employment.js?v=megacity-1';
-import {previewBudget,budgetBreakdownHTML} from './budget-view.js?v=education-traffic-27';
+import {previewBudget,budgetBreakdownHTML} from './budget-view.js?v=amenities-gifts-29';
 import {installBuildingOperations,buildingAt,buildingSummary,drawDisabledBuildings} from './building-operations.js?v=education-traffic-27';
 import {installFinancialSafety,financialStatus} from './financial-safety.js?v=parks-23';
 import {drawRailFleet,trainVehicles,railHover} from './rail-fleet.js?v=education-traffic-27';
-import {BuildingEffects} from './building-effects.js?v=education-traffic-27';
+import {BuildingEffects} from './building-effects.js?v=amenities-gifts-29';
 const buildingEffects=new BuildingEffects();
-import {drawSeaPollution} from './sewage.js?v=education-traffic-27';
-import {setupBuildPalette} from './build-palette.js?v=education-traffic-27';
+import {drawSeaPollution} from './sewage.js?v=amenities-gifts-29';
+import {setupBuildPalette} from './build-palette.js?v=amenities-gifts-29';
 import {drawTerrainShore} from './terrain-tools.js?v=megacity-1';
 import {drawWaterWarnings,unwateredBuildings} from './water-warnings.js?v=education-traffic-27';
-import {setupRegions} from './region-ui.js?v=education-traffic-27';
-import {CIVIC_TOOLS,civicServices} from './civic.js?v=education-traffic-27';
-import {drawCivic,civicReport,hasAnimatedCivic} from './civic-ui.js?v=education-traffic-27';
+import {setupRegions} from './region-ui.js?v=amenities-gifts-29';
+import {CIVIC_TOOLS,civicServices} from './civic.js?v=amenities-gifts-29';
+import {drawCivic,civicReport,hasAnimatedCivic} from './civic-ui.js?v=amenities-gifts-29';
 import {HISTORY_LABELS} from './rom-history.js?v=history-3';
 import {AnimatedCityAtlas,cityAnimationState,advanceCityAnimation} from './city-graphics.js?v=season-1';
-import {drawPowerWarnings,unpoweredBuildings} from './power-warnings.js?v=parks-23';
+import {drawPowerWarnings,unpoweredBuildings} from './power-warnings.js?v=amenities-gifts-29';
 import {strokeCells,shapeCells,zoneBlockLayout} from './build-stroke.js?v=blocks-1';
-import {OVERLAYS,overlayColor} from './map-overlays.js?v=education-traffic-27';
+import {OVERLAYS,overlayColor} from './map-overlays.js?v=amenities-gifts-29';
 import {cityPaletteForMonth,romSeasonPalette} from './rom-render.js?v=season-1';
 import {RomSampleAudio} from './rom-audio.js?v=ufo-audio-1';
 const romAudio=new RomSampleAudio();
-import{City,SCENARIOS,TOOLS,W as DEFAULT_W,H as DEFAULT_H,clamp}from'./simulation.js?v=police-area-28';
+import{City,SCENARIOS,TOOLS,W as DEFAULT_W,H as DEFAULT_H,clamp}from'./simulation.js?v=amenities-gifts-29';
 installBuildingOperations(City);
 installFinancialSafety(City);
 const $=s=>document.querySelector(s),canvas=$('#game'),ctx=canvas.getContext('2d',{alpha:false});ctx.imageSmoothingEnabled=false;const cityLayer=document.createElement('canvas');cityLayer.width=960;cityLayer.height=800;const cityLayerContext=cityLayer.getContext('2d');cityLayerContext.imageSmoothingEnabled=false;
@@ -81,9 +82,10 @@ function cityEvaluation(){
 function cityHistory(){if(!city)return;modal('City history','The ten most recent recorded events, oldest first.',city.eventHistory.length?'<ol class="event-history">'+city.eventHistory.map(e=>'<li>'+e.year+' · '+['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'][e.month-1]+' — '+(HISTORY_LABELS[e.id]||'Event '+e.id)+'</li>').join('')+'</ol>':'<p>No events recorded yet.</p>');}
 function dispatchCitySounds(){if(!city)return;for(const effect of city.soundEvents.splice(0)){if(sfxEnabled&&audioReady&&effect.port===3){const play=effect.command===28?'playOriginalUfo':effect.command===12?'playOriginalPlaneEngine':effect.command===15?'playOriginalPlaneCrash':effect.command===1?'playOriginalMonster':effect.command===5?'playOriginalShipHorn':effect.command===34?'playOriginalTornado':effect.command===33?'playOriginalFire':effect.command===30?'playOriginalMeltdown':null;if(play)romAudio[play]().catch(error=>city?.message('Audio: '+error.message));}}}
 function giftMenu(){buildPalette?.reveal(15,false);refreshGiftTray();}
-let giftTrayKey='';function refreshGiftTray(){const root=$('#giftTray');if(!root||!city)return;const category=$('[data-build-category="parks"]');if(category)category.dataset.giftCount=city.gifts.length;const key=city.gifts.join(',')+':'+selected;if(key===giftTrayKey&&root.childElementCount)return;giftTrayKey=key;root.replaceChildren();const title=document.createElement('div');title.className='section-title';title.textContent='AVAILABLE GIFTS';root.append(title);if(!city.gifts.length){const empty=document.createElement('p');empty.className='gift-empty';empty.textContent='Earn gifts as your city grows.';root.append(empty);return;}const names={15:'Mayor’s house',21:'Police headquarters',22:'Fire headquarters',29:'Rail milestone gift'},grid=document.createElement('div');grid.className='gift-grid';root.append(grid);for(const tool of [...new Set(city.gifts)]){const b=build.buildings[tool];if(!b)continue;const button=document.createElement('button');button.dataset.giftTool=tool;button.classList.toggle('selected',selected===tool);const count=city.gifts.filter(n=>n===tool).length,name=names[tool]||'Gift '+tool;button.setAttribute('aria-label',name);button.title=name+' · '+count+' available';const icon=document.createElement('canvas');icon.width=icon.height=40;icon.setAttribute('aria-hidden','true');const draw=icon.getContext('2d');draw.imageSmoothingEnabled=false;const width=Math.max(...b.x)+1,height=Math.max(...b.y)+1,scale=Math.min(40/(width*8),40/(height*8)),ox=(40-width*8*scale)/2,oy=(40-height*8*scale)/2;for(let i=0;i<b.tiles.length;i++){const tile=b.tiles[i];draw.drawImage(currentAtlas,tile%32*8,Math.floor(tile/32)*8,8,8,ox+b.x[i]*8*scale,oy+b.y[i]*8*scale,8*scale,8*scale);}const label=document.createElement('span');label.textContent=name+(count>1?' ×'+count:'');button.append(icon,label);button.onclick=()=>selectBuildTool(tool);grid.append(button);}}
+let giftTrayKey='';function refreshGiftTray(){const root=$('#giftTray');if(!root||!city)return;const category=$('[data-build-category="parks"]');if(category)category.dataset.giftCount=city.gifts.length;const key=city.gifts.join(',')+':'+selected;if(key===giftTrayKey&&root.childElementCount)return;giftTrayKey=key;root.replaceChildren();const title=document.createElement('div');title.className='section-title';title.textContent='AVAILABLE GIFTS';root.append(title);if(!city.gifts.length){const empty=document.createElement('p');empty.className='gift-empty';empty.textContent='Earn gifts as your city grows.';root.append(empty);return;}const names=ROM_GIFTS,grid=document.createElement('div');grid.className='gift-grid';root.append(grid);for(const tool of [...new Set(city.gifts.flatMap(tool=>tool===17||tool===19?[17,19]:[tool]))]){const b=build.buildings[tool];if(!b)continue;const button=document.createElement('button');button.dataset.giftTool=tool;button.classList.toggle('selected',selected===tool);const choice=tool===17||tool===19,count=city.gifts.filter(n=>choice?(n===17||n===19):n===tool).length,name=names[tool]||'Gift '+tool;button.setAttribute('aria-label',name);button.title=name+' · '+count+' available'+(choice?' · choose one per reward':'');const icon=document.createElement('canvas');icon.width=icon.height=40;icon.setAttribute('aria-hidden','true');const draw=icon.getContext('2d');draw.imageSmoothingEnabled=false;const width=Math.max(...b.x)+1,height=Math.max(...b.y)+1,scale=Math.min(40/(width*8),40/(height*8)),ox=(40-width*8*scale)/2,oy=(40-height*8*scale)/2;for(let i=0;i<b.tiles.length;i++){const tile=b.tiles[i];draw.drawImage(currentAtlas,tile%32*8,Math.floor(tile/32)*8,8,8,ox+b.x[i]*8*scale,oy+b.y[i]*8*scale,8*scale,8*scale);}if(tool===20){draw.fillStyle='#157bb5';draw.fillRect(2,2,36,36);draw.fillStyle='#d4b875';draw.fillRect(10,10,22,22);draw.strokeStyle='#ecf3c7';draw.strokeRect(10.5,10.5,21,21);}const label=document.createElement('span');label.textContent=name+(count>1?' ×'+count:'')+(choice?' · choose one':'');button.append(icon,label);button.onclick=()=>{if(choice&&!city.chooseGift(tool))return;selectBuildTool(tool);};grid.append(button);}}
 function cityInformation(){
  const backup=readRestartBackup(localStorage);modal('City information','Your city grows when zones connect to roads, power is available, and demand is positive.','<p>Residential, commercial, and industrial zones need roads and electricity.</p>'+(backup?'<button id="restoreRestartBackup">RESTORE PRE-RESTART CITY</button>':''));if(backup)$('#restoreRestartBackup').onclick=()=>modal('Restore pre-restart city?','This will replace the current city with your saved pre-restart city.','<p>The pre-restart backup remains available.</p>','RESTORE CITY',()=>applyCityRecovery(backup));
+if(city.giftMilestones.capitalModel){const title=document.createElement('h3');title.textContent='City scale model';const model=document.createElement('canvas');model.width=240;model.height=200;model.style.cssText='display:block;width:100%;max-width:480px;image-rendering:pixelated;border:1px solid #56796b';model.setAttribute('aria-label','Scale model of the entire city');const draw=model.getContext('2d'),scale=240/W;draw.fillStyle='#c5ac73';draw.fillRect(0,0,240,200);for(let i=0;i<city.map.length;i++){const tile=city.map[i]&1023;draw.drawImage(currentAtlas,tile%32*8,Math.floor(tile/32)*8,8,8,i%W*scale,Math.floor(i/W)*scale,scale,scale);}$('#modalBody').append(title,model);}
 }
 async function applyCityRecovery(record){
  const previous=city,previousRegion=regionManager?.session;try{const recovered=City.restore(record.city,build,flags);if(previousRegion)await regionManager.save();if(previousRegion&&!record.region)regionManager.detach();city=recovered;syncMapDimensions();if(record.region&&!(await regionManager.resumeSession(record.region,city)))throw Error('The saved region is no longer available.');camera={x:0,y:0};animation=cityAnimationState();animationRemainder=0;stroke=null;paused=true;$('#pause').textContent='▶ RESUME';$('#modal').classList.add('hidden');selectBuildTool(1,{rememberCategory:false});sessionStore?.save();paint();}catch(error){city=previous;syncMapDimensions();if(previousRegion)try{await regionManager.resumeSession(previousRegion,city);}catch{}modal('City could not be restored',error.message);}

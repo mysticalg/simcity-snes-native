@@ -1,0 +1,222 @@
+{
+  "tool": "Built-in ImageGen",
+  "packaging": "Original masters preserved; lossless WebP max252px, alpha preserved; no retouching.",
+  "assets": [
+    {
+      "name": "playground-park",
+      "sprite": 48,
+      "master": "playground-park-v1.png",
+      "runtime": "playground-park-v1.webp",
+      "width": 252,
+      "height": 252,
+      "masterSHA256": "15d69ba896a5db6cd4f374151229577026961da9f291b235a1a15942581979a3",
+      "runtimeSHA256": "4532c71eca51a1f370eb0d6cae94dd2430650c03c1d9abae178259428b3f92bc",
+      "bytes": 91182,
+      "cornerAlpha": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "generation": "exec-ee8c77e5-8cee-4bb4-acf5-474c97b81551.png"
+    },
+    {
+      "name": "sports-park",
+      "sprite": 49,
+      "master": "sports-park-v1.png",
+      "runtime": "sports-park-v1.webp",
+      "width": 252,
+      "height": 252,
+      "masterSHA256": "6fb5f8590d9d250a9298a939184c9e74e8147fd151ed248dea526a65b8b98dc7",
+      "runtimeSHA256": "e5216cc251bf0c0a6fe5cecd55efb08e5922891df2deee570926a9499782d5e1",
+      "bytes": 82538,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "generation": "exec-66742af9-3aff-44e3-b834-7e8608f1ff1b.png"
+    },
+    {
+      "name": "woodland-park",
+      "sprite": 50,
+      "master": "woodland-park-v1.png",
+      "runtime": "woodland-park-v1.webp",
+      "width": 252,
+      "height": 252,
+      "masterSHA256": "b7195aeaece490bf97077b7a349a20e297a848888f20f5c147bd67ae13359f19",
+      "runtimeSHA256": "627af3d9b960d2dd423d488c1ed5f08441edff2f762ae61d2f16846ebe580790",
+      "bytes": 110808,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "generation": "exec-38268f07-5abe-4264-8b23-2384e3d1054c.png"
+    },
+    {
+      "name": "metropolitan-park",
+      "sprite": 51,
+      "master": "metropolitan-park-v1.png",
+      "runtime": "metropolitan-park-v1.webp",
+      "width": 252,
+      "height": 252,
+      "masterSHA256": "8560da795b0d7ea632604ddfb432b7b54ecfebd7e5cb1550fdb0833bc10e1ece",
+      "runtimeSHA256": "83fd4933cfc1912522197934890d780294fa1072ab5691ef39645a01e64e5122",
+      "bytes": 110944,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "generation": "exec-79b68cfb-7e7c-4aa0-8cd9-0af6e28d9398.png"
+    },
+    {
+      "name": "flower-garden",
+      "sprite": 52,
+      "master": "flower-garden-v1.png",
+      "runtime": "flower-garden-v1.webp",
+      "width": 252,
+      "height": 252,
+      "masterSHA256": "4b3353725dbc9e03f685f352d99231d14b48dd3a2b338cf1ea460d63956df284",
+      "runtimeSHA256": "78236c94c37d8d4d3c4e7b4a2bf83d3905b46f20063f9f9ef6ca15b70e6f4d3f",
+      "bytes": 106768,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "generation": "exec-9f14aa4d-e088-437b-893a-357784c3d7f5.png"
+    },
+    {
+      "name": "community-garden",
+      "sprite": 53,
+      "master": "community-garden-v1.png",
+      "runtime": "community-garden-v1.webp",
+      "width": 252,
+      "height": 252,
+      "masterSHA256": "3eebae40570bded73d9950fe269ae996b8e4e14d3b6dba789cca0bd348c400cb",
+      "runtimeSHA256": "517f69abddab8750f8a2ca7f43436e01b7763dfcc285ddd7b6b39805a0028f4b",
+      "bytes": 104448,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "generation": "exec-39b088e9-fbcc-4f45-b145-db6b50be4051.png"
+    },
+    {
+      "name": "japanese-garden",
+      "sprite": 54,
+      "master": "japanese-garden-v1.png",
+      "runtime": "japanese-garden-v1.webp",
+      "width": 252,
+      "height": 252,
+      "masterSHA256": "e4b8f427799edb2028637577efb2365bb6812e61731af587290975fbe859b145",
+      "runtimeSHA256": "7d4b45a629634468efc51ca64067b2d7bef7bd624ffd07d3a2f198eb48755a9c",
+      "bytes": 103902,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "generation": "exec-f70d6e7a-8144-423f-b853-63770f42736d.png"
+    },
+    {
+      "name": "botanical-garden",
+      "sprite": 55,
+      "master": "botanical-garden-v1.png",
+      "runtime": "botanical-garden-v1.webp",
+      "width": 252,
+      "height": 252,
+      "masterSHA256": "c165edfa0c9d18562ba57f93410b1d3944bf0ae059f333161d6a371a0a6cc1e3",
+      "runtimeSHA256": "55e8ec65a9123f2f04d37a275e25e28f5ae36d94e8f5b14e0d446ba78e2c3f3d",
+      "bytes": 109376,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "generation": "exec-a66bc89f-f0f6-4395-a427-6c5c5f421e69.png"
+    },
+    {
+      "name": "market-plaza",
+      "sprite": 56,
+      "master": "market-plaza-v1.png",
+      "runtime": "market-plaza-v1.webp",
+      "width": 252,
+      "height": 252,
+      "masterSHA256": "d377b8a4b77011564bbaf84f12f7156a78861bc906e2076322b340342681fec7",
+      "runtimeSHA256": "7b904e2361bdb23a9282fbe0bfd41ef9102ff97efa57eead344885acca0c3df5",
+      "bytes": 94312,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "generation": "exec-c509e42d-f81e-47ec-932c-4af6a604392a.png"
+    },
+    {
+      "name": "cafe-plaza",
+      "sprite": 57,
+      "master": "cafe-plaza-v2.png",
+      "runtime": "cafe-plaza-v2.webp",
+      "width": 168,
+      "height": 252,
+      "masterSHA256": "910d94b6115caa95a5400a1f9b375c1ffc37a0fb06dab66542c8696128158029",
+      "runtimeSHA256": "c08ef46d105675ad23f6b09e44fbfefef6861b70feb9ce4c09cea7b46edd7bd2",
+      "bytes": 53066,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "generation": "exec-4e5e76a0-1f14-4de8-9f59-2d9927fefcb1.png"
+    },
+    {
+      "name": "civic-square",
+      "sprite": 58,
+      "master": "civic-square-v1.png",
+      "runtime": "civic-square-v1.webp",
+      "width": 252,
+      "height": 252,
+      "masterSHA256": "f25cd1b76e004feb6d61f4ac168463640c078d5e13b83a40400ce83038fc58a3",
+      "runtimeSHA256": "64cd6dda22140d924c2f8813c8f63b14bcd7f9c4ebaacd017ba4681bd074bf8e",
+      "bytes": 93716,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "generation": "exec-70029e1a-1de8-4221-a393-7e7770c0dec5.png"
+    },
+    {
+      "name": "festival-plaza",
+      "sprite": 59,
+      "master": "festival-plaza-v1.png",
+      "runtime": "festival-plaza-v1.webp",
+      "width": 252,
+      "height": 252,
+      "masterSHA256": "5c0cba30b9a2d6ceead95e288e65ddb4a169f9699f301b8566ed7c27aeb1e22a",
+      "runtimeSHA256": "b20ae5b51eee5d39a8623defcb5ce926666b32c7777253982851f39bfbb45a7a",
+      "bytes": 103524,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "generation": "exec-0e6c47ea-6c0c-40f1-967c-164e2f7df485.png"
+    }
+  ]
+}

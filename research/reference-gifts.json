@@ -1,0 +1,7199 @@
+{
+  "routines": [
+    "CODE_03C0AD",
+    "CODE_03C0FA",
+    "CODE_03C131..03C424"
+  ],
+  "scope": "Controlled gift-dispatch calls: message ID and all20 progress fields. UI gift-choice completion and construction not included.",
+  "romSHA256": "e9c0bc05511e05a0d7c3e7cc42e761e1e8e532d46f59b9854b6902e1a2e9dd0a",
+  "mesenSHA256": "d2eb03c2590c648bf329f127ebcfefd70130e7690a9e2ccdba8616faea1fe96b",
+  "cases": [
+    {
+      "name": "amusementRoads stage0 -1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 299,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "amusementRoads": 0
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "amusementRoads": 0
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "amusementRoads stage0 0",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 300,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "amusementRoads": 0
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "amusementRoads": 1
+      },
+      "message": 13,
+      "gift": 17
+    },
+    {
+      "name": "amusementRoads stage0 1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 301,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "amusementRoads": 0
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "amusementRoads": 1
+      },
+      "message": 13,
+      "gift": 17
+    },
+    {
+      "name": "amusementRoads stage1 -1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 399,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "amusementRoads": 1
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "amusementRoads": 1
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "amusementRoads stage1 0",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 400,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "amusementRoads": 1
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "amusementRoads": 2
+      },
+      "message": 13,
+      "gift": 17
+    },
+    {
+      "name": "amusementRoads stage1 1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 401,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "amusementRoads": 1
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "amusementRoads": 2
+      },
+      "message": 13,
+      "gift": 17
+    },
+    {
+      "name": "amusementRoads stage2 -1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 499,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "amusementRoads": 2
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "amusementRoads": 2
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "amusementRoads stage2 0",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 500,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "amusementRoads": 2
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "amusementRoads": 3
+      },
+      "message": 13,
+      "gift": 17
+    },
+    {
+      "name": "amusementRoads stage2 1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 501,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "amusementRoads": 2
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "amusementRoads": 3
+      },
+      "message": 13,
+      "gift": 17
+    },
+    {
+      "name": "amusementFacilities stage0 -1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 5,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "amusementFacilities": 0,
+        "library": 3
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "amusementFacilities": 0,
+        "library": 3
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "amusementFacilities stage0 0",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 6,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "amusementFacilities": 0,
+        "library": 3
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "amusementFacilities": 1,
+        "library": 3
+      },
+      "message": 13,
+      "gift": 17
+    },
+    {
+      "name": "amusementFacilities stage0 1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 7,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "amusementFacilities": 0,
+        "library": 3
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "amusementFacilities": 1,
+        "library": 3
+      },
+      "message": 13,
+      "gift": 17
+    },
+    {
+      "name": "amusementFacilities stage1 -1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 9,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "amusementFacilities": 1,
+        "library": 3
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "amusementFacilities": 1,
+        "library": 3
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "amusementFacilities stage1 0",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 10,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "amusementFacilities": 1,
+        "library": 3
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "amusementFacilities": 2,
+        "library": 3
+      },
+      "message": 13,
+      "gift": 17
+    },
+    {
+      "name": "amusementFacilities stage1 1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 11,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "amusementFacilities": 1,
+        "library": 3
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "amusementFacilities": 2,
+        "library": 3
+      },
+      "message": 13,
+      "gift": 17
+    },
+    {
+      "name": "police stage0 -1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 5,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "police": 0
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "police": 0
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "police stage0 0",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 6,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "police": 0
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "police": 1
+      },
+      "message": 17,
+      "gift": 21
+    },
+    {
+      "name": "police stage0 1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 7,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "police": 0
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "police": 1
+      },
+      "message": 17,
+      "gift": 21
+    },
+    {
+      "name": "police stage1 -1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 11,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "police": 1
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "police": 1
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "police stage1 0",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 12,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "police": 1
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "police": 2
+      },
+      "message": 17,
+      "gift": 21
+    },
+    {
+      "name": "police stage1 1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 13,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "police": 1
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "police": 2
+      },
+      "message": 17,
+      "gift": 21
+    },
+    {
+      "name": "police stage2 -1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 17,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "police": 2
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "police": 2
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "police stage2 0",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 18,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "police": 2
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "police": 3
+      },
+      "message": 17,
+      "gift": 21
+    },
+    {
+      "name": "police stage2 1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 19,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "police": 2
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "police": 3
+      },
+      "message": 17,
+      "gift": 21
+    },
+    {
+      "name": "fire stage0 -1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 5,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "fire": 0
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "fire": 0
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "fire stage0 0",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 6,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "fire": 0
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "fire": 1
+      },
+      "message": 18,
+      "gift": 22
+    },
+    {
+      "name": "fire stage0 1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 7,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "fire": 0
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "fire": 1
+      },
+      "message": 18,
+      "gift": 22
+    },
+    {
+      "name": "fire stage1 -1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 11,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "fire": 1
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "fire": 1
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "fire stage1 0",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 12,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "fire": 1
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "fire": 2
+      },
+      "message": 18,
+      "gift": 22
+    },
+    {
+      "name": "fire stage1 1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 13,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "fire": 1
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "fire": 2
+      },
+      "message": 18,
+      "gift": 22
+    },
+    {
+      "name": "fire stage2 -1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 17,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "fire": 2
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "fire": 2
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "fire stage2 0",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 18,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "fire": 2
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "fire": 3
+      },
+      "message": 18,
+      "gift": 22
+    },
+    {
+      "name": "fire stage2 1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 19,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "fire": 2
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "fire": 3
+      },
+      "message": 18,
+      "gift": 22
+    },
+    {
+      "name": "library stage0 -1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 2,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "library": 0,
+        "amusementFacilities": 2
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "library": 0,
+        "amusementFacilities": 2
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "library stage0 0",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 3,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "library": 0,
+        "amusementFacilities": 2
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "library": 1,
+        "amusementFacilities": 2
+      },
+      "message": 24,
+      "gift": 27
+    },
+    {
+      "name": "library stage0 1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 4,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "library": 0,
+        "amusementFacilities": 2
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "library": 1,
+        "amusementFacilities": 2
+      },
+      "message": 24,
+      "gift": 27
+    },
+    {
+      "name": "library stage1 -1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 5,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "library": 1,
+        "amusementFacilities": 2
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "library": 1,
+        "amusementFacilities": 2
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "library stage1 0",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 6,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "library": 1,
+        "amusementFacilities": 2
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "library": 2,
+        "amusementFacilities": 2
+      },
+      "message": 24,
+      "gift": 27
+    },
+    {
+      "name": "library stage1 1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 7,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "library": 1,
+        "amusementFacilities": 2
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "library": 2,
+        "amusementFacilities": 2
+      },
+      "message": 24,
+      "gift": 27
+    },
+    {
+      "name": "library stage2 -1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 8,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "library": 2,
+        "amusementFacilities": 2
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "library": 2,
+        "amusementFacilities": 2
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "library stage2 0",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 9,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "library": 2,
+        "amusementFacilities": 2
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "library": 3,
+        "amusementFacilities": 2
+      },
+      "message": 24,
+      "gift": 27
+    },
+    {
+      "name": "library stage2 1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 10,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "library": 2,
+        "amusementFacilities": 2
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "library": 3,
+        "amusementFacilities": 2
+      },
+      "message": 24,
+      "gift": 27
+    },
+    {
+      "name": "cityPark stage0 -1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 299,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "cityPark": 0
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "cityPark": 0
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "cityPark stage0 0",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 300,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "cityPark": 0
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "cityPark": 1
+      },
+      "message": 25,
+      "gift": 28
+    },
+    {
+      "name": "cityPark stage0 1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 301,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "cityPark": 0
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "cityPark": 1
+      },
+      "message": 25,
+      "gift": 28
+    },
+    {
+      "name": "cityPark stage1 -1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 599,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "cityPark": 1
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "cityPark": 1
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "cityPark stage1 0",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 600,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "cityPark": 1
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "cityPark": 2
+      },
+      "message": 25,
+      "gift": 28
+    },
+    {
+      "name": "cityPark stage1 1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 601,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "cityPark": 1
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "cityPark": 2
+      },
+      "message": 25,
+      "gift": 28
+    },
+    {
+      "name": "cityPark stage2 -1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 899,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "cityPark": 2
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "cityPark": 2
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "cityPark stage2 0",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 900,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "cityPark": 2
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "cityPark": 3
+      },
+      "message": 25,
+      "gift": 28
+    },
+    {
+      "name": "cityPark stage2 1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 901,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "cityPark": 2
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "cityPark": 3
+      },
+      "message": 25,
+      "gift": 28
+    },
+    {
+      "name": "rail stage0 -1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 499,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "rail": 0
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "rail": 0
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "rail stage0 0",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 500,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "rail": 0
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "rail": 1
+      },
+      "message": 26,
+      "gift": 29
+    },
+    {
+      "name": "rail stage0 1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 501,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "rail": 0
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "rail": 1
+      },
+      "message": 26,
+      "gift": 29
+    },
+    {
+      "name": "rail stage1 -1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 1999,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "rail": 1
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "rail": 1
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "rail stage1 0",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 2000,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "rail": 1
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "rail": 2
+      },
+      "message": 26,
+      "gift": 29
+    },
+    {
+      "name": "rail stage1 1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 2001,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "rail": 1
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "rail": 2
+      },
+      "message": 26,
+      "gift": 29
+    },
+    {
+      "name": "windmill stage0 -1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 149,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "windmill": 0
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "windmill": 0
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "windmill stage0 0",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 150,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "windmill": 0
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "windmill": 1
+      },
+      "message": 23,
+      "gift": 26
+    },
+    {
+      "name": "windmill stage0 1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 151,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "windmill": 0
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "windmill": 1
+      },
+      "message": 23,
+      "gift": 26
+    },
+    {
+      "name": "windmill stage1 -1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 499,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "windmill": 1
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "windmill": 1
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "windmill stage1 0",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 500,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "windmill": 1
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "windmill": 2
+      },
+      "message": 23,
+      "gift": 26
+    },
+    {
+      "name": "windmill stage1 1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 501,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "windmill": 1
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "windmill": 2
+      },
+      "message": 23,
+      "gift": 26
+    },
+    {
+      "name": "reclaim empty stage0 0",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 0,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillSpace": 0
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillSpace": 0
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "reclaim empty stage0 149",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 149,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillSpace": 0
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillSpace": 1
+      },
+      "message": 16,
+      "gift": 20
+    },
+    {
+      "name": "reclaim empty stage0 150",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 150,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillSpace": 0
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillSpace": 0
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "reclaim empty stage0 151",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 151,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillSpace": 0
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillSpace": 0
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "reclaim empty stage1 0",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 0,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillSpace": 1
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillSpace": 1
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "reclaim empty stage1 99",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 99,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillSpace": 1
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillSpace": 2
+      },
+      "message": 16,
+      "gift": 20
+    },
+    {
+      "name": "reclaim empty stage1 100",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 100,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillSpace": 1
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillSpace": 1
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "reclaim empty stage1 101",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 101,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillSpace": 1
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillSpace": 1
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "reclaim empty stage2 0",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 0,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillSpace": 2
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillSpace": 2
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "reclaim empty stage2 49",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 49,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillSpace": 2
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillSpace": 3
+      },
+      "message": 16,
+      "gift": 20
+    },
+    {
+      "name": "reclaim empty stage2 50",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 50,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillSpace": 2
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillSpace": 2
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "reclaim empty stage2 51",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 51,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillSpace": 2
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillSpace": 2
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "reclaim empty stage3 0",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 0,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillSpace": 3
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillSpace": 3
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "reclaim empty stage3 29",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 29,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillSpace": 3
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillSpace": 4
+      },
+      "message": 16,
+      "gift": 20
+    },
+    {
+      "name": "reclaim empty stage3 30",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 30,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillSpace": 3
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillSpace": 3
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "reclaim empty stage3 31",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 31,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillSpace": 3
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillSpace": 3
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "reclaim population stage0 -1",
+      "input": {
+        "population": 199999,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillPopulation": 0
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillPopulation": 0
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "reclaim population stage0 0",
+      "input": {
+        "population": 200000,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillPopulation": 0
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillPopulation": 1
+      },
+      "message": 16,
+      "gift": 20
+    },
+    {
+      "name": "reclaim population stage0 1",
+      "input": {
+        "population": 200001,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillPopulation": 0
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillPopulation": 1
+      },
+      "message": 16,
+      "gift": 20
+    },
+    {
+      "name": "reclaim population stage1 -1",
+      "input": {
+        "population": 249999,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillPopulation": 1
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillPopulation": 1
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "reclaim population stage1 0",
+      "input": {
+        "population": 250000,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillPopulation": 1
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillPopulation": 2
+      },
+      "message": 16,
+      "gift": 20
+    },
+    {
+      "name": "reclaim population stage1 1",
+      "input": {
+        "population": 250001,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillPopulation": 1
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillPopulation": 2
+      },
+      "message": 16,
+      "gift": 20
+    },
+    {
+      "name": "reclaim population stage2 -1",
+      "input": {
+        "population": 299999,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillPopulation": 2
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillPopulation": 2
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "reclaim population stage2 0",
+      "input": {
+        "population": 300000,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillPopulation": 2
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillPopulation": 3
+      },
+      "message": 16,
+      "gift": 20
+    },
+    {
+      "name": "reclaim population stage2 1",
+      "input": {
+        "population": 300001,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillPopulation": 2
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillPopulation": 3
+      },
+      "message": 16,
+      "gift": 20
+    },
+    {
+      "name": "reclaim population stage3 -1",
+      "input": {
+        "population": 399999,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillPopulation": 3
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillPopulation": 3
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "reclaim population stage3 0",
+      "input": {
+        "population": 400000,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillPopulation": 3
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillPopulation": 4
+      },
+      "message": 16,
+      "gift": 20
+    },
+    {
+      "name": "reclaim population stage3 1",
+      "input": {
+        "population": 400001,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillPopulation": 3
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillPopulation": 4
+      },
+      "message": 16,
+      "gift": 20
+    },
+    {
+      "name": "reclaim population stage4 -1",
+      "input": {
+        "population": 449999,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillPopulation": 4
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillPopulation": 4
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "reclaim population stage4 0",
+      "input": {
+        "population": 450000,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillPopulation": 4
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillPopulation": 5
+      },
+      "message": 16,
+      "gift": 20
+    },
+    {
+      "name": "reclaim population stage4 1",
+      "input": {
+        "population": 450001,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillPopulation": 4
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "landfillPopulation": 5
+      },
+      "message": 16,
+      "gift": 20
+    },
+    {
+      "name": "bank 0/1999",
+      "input": {
+        "population": 0,
+        "category": 0,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 1999,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "bank 0/2000",
+      "input": {
+        "population": 0,
+        "category": 0,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 2000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "bank 0/2001",
+      "input": {
+        "population": 0,
+        "category": 0,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 2001,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "bank 1/1999",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 1999,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "bank 1/2000",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 2000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "bank 1/2001",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 2001,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "bank 2/1999",
+      "input": {
+        "population": 0,
+        "category": 2,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 1999,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "bank": 1
+      },
+      "message": 11,
+      "gift": 16
+    },
+    {
+      "name": "bank 2/2000",
+      "input": {
+        "population": 0,
+        "category": 2,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 2000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "bank 2/2001",
+      "input": {
+        "population": 0,
+        "category": 2,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 2001,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "bank followup 0",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "bank": 1
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "bank": 1
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "bank followup 1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 1,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "bank": 1
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "bank": 2
+      },
+      "message": 31,
+      "gift": null
+    },
+    {
+      "name": "zoo start 0/0",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 0
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 0
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "zoo start 0/1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 1
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 1
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "zoo start 0/2",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 2
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 2
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "zoo start 1/0",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 1,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 0
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 1,
+        "zooDelay": 24
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "zoo start 1/1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 1,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 1
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 1
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "zoo start 1/2",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 1,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 2
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 2
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "zoo start 2/0",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 2,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 0
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 1,
+        "zooDelay": 24
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "zoo start 2/1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 2,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 1
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 1
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "zoo start 2/2",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 2,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 2
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 2
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "zoo start 3/0",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 3,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 0
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 1,
+        "zooDelay": 24
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "zoo start 3/1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 3,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 1
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 2,
+        "zooDelay": 24
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "zoo start 3/2",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 3,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 2
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 2
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "zoo countdown 24/false",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 1,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 1,
+        "zooDelay": 24
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 1,
+        "zooDelay": 23
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "zoo countdown 24/true",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 4,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 1,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 1,
+        "zooDelay": 24
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 1,
+        "zooDelay": 24
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "zoo countdown 2/false",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 1,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 1,
+        "zooDelay": 2
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 1,
+        "zooDelay": 1
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "zoo countdown 2/true",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 4,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 1,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 1,
+        "zooDelay": 2
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 1,
+        "zooDelay": 2
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "zoo countdown 1/false",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 1,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 1,
+        "zooDelay": 1
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 1,
+        "zooDelay": 0
+      },
+      "message": 14,
+      "gift": 18
+    },
+    {
+      "name": "zoo countdown 1/true",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 4,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 1,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 1,
+        "zooDelay": 1
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "zoo": 1,
+        "zooDelay": 1
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "capacity 0/0",
+      "input": {
+        "population": 0,
+        "category": 0,
+        "police": 6,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "police": 1
+      },
+      "message": 17,
+      "gift": 21
+    },
+    {
+      "name": "capacity 0/3",
+      "input": {
+        "population": 0,
+        "category": 0,
+        "police": 6,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 3,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "capacity 0/4",
+      "input": {
+        "population": 0,
+        "category": 0,
+        "police": 6,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 4,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "capacity 1/0",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 6,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "police": 1
+      },
+      "message": 17,
+      "gift": 21
+    },
+    {
+      "name": "capacity 1/3",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 6,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 3,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "police": 1
+      },
+      "message": 17,
+      "gift": 21
+    },
+    {
+      "name": "capacity 1/4",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 6,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 4,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "capacity 2/0",
+      "input": {
+        "population": 0,
+        "category": 2,
+        "police": 6,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "police": 1
+      },
+      "message": 17,
+      "gift": 21
+    },
+    {
+      "name": "capacity 2/3",
+      "input": {
+        "population": 0,
+        "category": 2,
+        "police": 6,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 3,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "police": 1
+      },
+      "message": 17,
+      "gift": 21
+    },
+    {
+      "name": "capacity 2/4",
+      "input": {
+        "population": 0,
+        "category": 2,
+        "police": 6,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 4,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "capacity 3/0",
+      "input": {
+        "population": 0,
+        "category": 3,
+        "police": 6,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "police": 1
+      },
+      "message": 17,
+      "gift": 21
+    },
+    {
+      "name": "capacity 3/3",
+      "input": {
+        "population": 0,
+        "category": 3,
+        "police": 6,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 3,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "police": 1
+      },
+      "message": 17,
+      "gift": 21
+    },
+    {
+      "name": "capacity 3/4",
+      "input": {
+        "population": 0,
+        "category": 3,
+        "police": 6,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 4,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "capacity 4/0",
+      "input": {
+        "population": 0,
+        "category": 4,
+        "police": 6,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "police": 1
+      },
+      "message": 17,
+      "gift": 21
+    },
+    {
+      "name": "capacity 4/3",
+      "input": {
+        "population": 0,
+        "category": 4,
+        "police": 6,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 3,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "police": 1
+      },
+      "message": 17,
+      "gift": 21
+    },
+    {
+      "name": "capacity 4/4",
+      "input": {
+        "population": 0,
+        "category": 4,
+        "police": 6,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 4,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "capacity 5/0",
+      "input": {
+        "population": 0,
+        "category": 5,
+        "police": 6,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "police": 1
+      },
+      "message": 17,
+      "gift": 21
+    },
+    {
+      "name": "capacity 5/3",
+      "input": {
+        "population": 0,
+        "category": 5,
+        "police": 6,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 3,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "police": 1
+      },
+      "message": 17,
+      "gift": 21
+    },
+    {
+      "name": "capacity 5/4",
+      "input": {
+        "population": 0,
+        "category": 5,
+        "police": 6,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 4,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "expo 1/0/0",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "expo 1/0/1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 1,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "expo 1/1/0",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 1,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "expo 1/1/1",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 1,
+        "seaports": 1,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "expo 2/0/0",
+      "input": {
+        "population": 0,
+        "category": 2,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "expo 2/0/1",
+      "input": {
+        "population": 0,
+        "category": 2,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 1,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "expo 2/1/0",
+      "input": {
+        "population": 0,
+        "category": 2,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 1,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "expo 2/1/1",
+      "input": {
+        "population": 0,
+        "category": 2,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 1,
+        "seaports": 1,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "exposition": true
+      },
+      "message": 22,
+      "gift": 25
+    },
+    {
+      "name": "expo 5/0/0",
+      "input": {
+        "population": 0,
+        "category": 5,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "mario": true
+      },
+      "message": 20,
+      "gift": 24
+    },
+    {
+      "name": "expo 5/0/1",
+      "input": {
+        "population": 0,
+        "category": 5,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 1,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "mario": true
+      },
+      "message": 20,
+      "gift": 24
+    },
+    {
+      "name": "expo 5/1/0",
+      "input": {
+        "population": 0,
+        "category": 5,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 1,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "mario": true
+      },
+      "message": 20,
+      "gift": 24
+    },
+    {
+      "name": "expo 5/1/1",
+      "input": {
+        "population": 0,
+        "category": 5,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 1,
+        "seaports": 1,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "mario": true
+      },
+      "message": 20,
+      "gift": 24
+    },
+    {
+      "name": "fountain 1949",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1949
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "fountain 1950",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1950
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "fountain": true
+      },
+      "message": 19,
+      "gift": 23
+    },
+    {
+      "name": "fountain 1951",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1951
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "fountain": true
+      },
+      "message": 19,
+      "gift": 23
+    },
+    {
+      "name": "capital model 2/false",
+      "input": {
+        "population": 0,
+        "category": 2,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": false,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": false,
+        "highPopulation": true
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "capital model 2/true",
+      "input": {
+        "population": 0,
+        "category": 2,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 4,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": false,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": false,
+        "highPopulation": true
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "capital model 3/false",
+      "input": {
+        "population": 0,
+        "category": 3,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": false,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 12,
+      "gift": null
+    },
+    {
+      "name": "capital model 3/true",
+      "input": {
+        "population": 0,
+        "category": 3,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 4,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": false,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 12,
+      "gift": null
+    },
+    {
+      "name": "high population false/99999",
+      "input": {
+        "population": 99999,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 4,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900,
+        "practice": false
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": false
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": false
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "high population false/100000",
+      "input": {
+        "population": 100000,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 4,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900,
+        "practice": false
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": false
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": false
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "high population false/599999",
+      "input": {
+        "population": 599999,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 4,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900,
+        "practice": false
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": false
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": false
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "high population false/600000",
+      "input": {
+        "population": 600000,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 4,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900,
+        "practice": false
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": false
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 47,
+      "gift": null
+    },
+    {
+      "name": "high population true/99999",
+      "input": {
+        "population": 99999,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 4,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900,
+        "practice": true
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": false
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": false
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "high population true/100000",
+      "input": {
+        "population": 100000,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 4,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900,
+        "practice": true
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": false
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 49,
+      "gift": null
+    },
+    {
+      "name": "high population true/599999",
+      "input": {
+        "population": 599999,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 4,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900,
+        "practice": true
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": false
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 49,
+      "gift": null
+    },
+    {
+      "name": "high population true/600000",
+      "input": {
+        "population": 600000,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 4,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900,
+        "practice": true
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": false
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 49,
+      "gift": null
+    },
+    {
+      "name": "scenario mode false",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 6,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900,
+        "scriptedScenario": false
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "police": 1
+      },
+      "message": 17,
+      "gift": 21
+    },
+    {
+      "name": "scenario mode true",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 6,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900,
+        "scriptedScenario": true
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "promotion 0/-1",
+      "input": {
+        "population": 1999,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 4,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 0,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 0,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "promotion 0/0",
+      "input": {
+        "population": 2000,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 4,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 0,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 1,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 1,
+      "gift": null
+    },
+    {
+      "name": "promotion 0/1",
+      "input": {
+        "population": 2001,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 4,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 0,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 1,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 1,
+      "gift": null
+    },
+    {
+      "name": "promotion 1/-1",
+      "input": {
+        "population": 9999,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 4,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 1,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 1,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "promotion 1/0",
+      "input": {
+        "population": 10000,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 4,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 1,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 2,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 2,
+      "gift": null
+    },
+    {
+      "name": "promotion 1/1",
+      "input": {
+        "population": 10001,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 4,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 1,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 2,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 2,
+      "gift": null
+    },
+    {
+      "name": "promotion 2/-1",
+      "input": {
+        "population": 49999,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 4,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 2,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 2,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "promotion 2/0",
+      "input": {
+        "population": 50000,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 4,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 2,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 3,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 3,
+      "gift": null
+    },
+    {
+      "name": "promotion 2/1",
+      "input": {
+        "population": 50001,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 4,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 2,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 3,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 3,
+      "gift": null
+    },
+    {
+      "name": "promotion 3/-1",
+      "input": {
+        "population": 99999,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 4,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 3,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 3,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "promotion 3/0",
+      "input": {
+        "population": 100000,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 4,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 3,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 4,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 4,
+      "gift": null
+    },
+    {
+      "name": "promotion 3/1",
+      "input": {
+        "population": 100001,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 4,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 3,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 4,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 4,
+      "gift": null
+    },
+    {
+      "name": "promotion 4/-1",
+      "input": {
+        "population": 499999,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 4,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 4,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 4,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "promotion 4/0",
+      "input": {
+        "population": 500000,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 4,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 4,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 5,
+      "gift": null
+    },
+    {
+      "name": "promotion 4/1",
+      "input": {
+        "population": 500001,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 4,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 4,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 5,
+      "gift": null
+    },
+    {
+      "name": "mayor house",
+      "input": {
+        "population": 0,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 5,
+        "mayorHouse": false,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "after": {
+        "population": 5,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true
+      },
+      "message": 44,
+      "gift": 15
+    }
+  ],
+  "exitCode": 0
+}

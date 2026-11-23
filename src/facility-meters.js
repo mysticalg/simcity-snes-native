@@ -1,9 +1,9 @@
-import {educationCoverage} from './education.js?v=education-traffic-27';
-import {aviationTraffic} from './aviation.js?v=education-traffic-27';
-import {parkServices} from './parks.js?v=education-traffic-27';
-import {civicServices,civicForId,civicRoadEntry,pumpStatus,educationEffects} from './civic.js?v=education-traffic-27';
+import {educationCoverage} from './education.js?v=amenities-gifts-29';
+import {aviationTraffic} from './aviation.js?v=amenities-gifts-29';
+import {parkServices} from './parks.js?v=amenities-gifts-29';
+import {civicServices,civicForId,civicRoadEntry,pumpStatus,educationEffects} from './civic.js?v=amenities-gifts-29';
 import {windPower} from './climate.js?v=weather-1';
-import {sewageServices} from './sewage.js?v=education-traffic-27';
+import {sewageServices} from './sewage.js?v=amenities-gifts-29';
 import {collectGarbage,monthlyGarbageDemand} from './landfill.js?v=processing-1';
 import {employmentIncome} from './employment.js';
 import {emergencyKind} from './emergency.js';
@@ -25,7 +25,7 @@ export function processingMeters(city,z){
  }else if([13,14,33,41,62].includes(z.type)){
   add('Power grid load',city.powerUsed,city.powerCapacity,'tiles');notes.push('Shared grid · output contribution '+fmt(off?0:z.type===13?2000:z.type===14?700:z.id===972?windPower(city):custom?.capacity));status=off?'Switched off':city.powerOverloaded?'Grid overloaded':'Generating';
  }else if((custom&&['airport','military'].includes(custom.kind))||z.id===0x2a5){const p=aviationTraffic(city).facilities.find(p=>p.i===z.i),b=p.building,s=city.civic.aviation?.stats?.[z.i];status=p.operating&&p.wanted>p.capacity?'Operating · flight congestion':p.reason;add('Flight demand / slots',p.wanted,p.capacity,'simultaneous flights');notes.push(p.active+' aircraft active · flights increase with population and jobs');if(b.kind==='military'){add('Fighter sorties this month',s?.sorties||0,b.capacity,'sorties');notes.push('Operating base adds 15% industrial-contract tax and +120 industrial demand; multiple bases do not stack.');}else{add('Passengers this month',s?.passengers||0,b.capacity,'people/month');if(b.cargo)add('Cargo moved this month',s?.cargo||0,b.cargo,'units/month');notes.push('Completed flight movements · '+(s?.arrivals||0)+' arrivals / '+(s?.departures||0)+' departures','Cargo handling estimates · commodity inventory trade is separate.');}if(p.wanted>p.capacity)notes.push('Add airport capacity to reduce delays and commercial/industrial growth penalties.');notes.push('Needs power, road access and water when the water system is enabled.');
- }else if(custom?.kind==='park'){const p=parkServices(city).facilities.find(p=>p.i===z.i);status=p.reason;add('Local land-value benefit',p.operating?custom.landBonus:0,custom.landBonus,'points',{fullIsNormal:true});add('Local happiness benefit',p.operating?custom.happiness:0,custom.happiness,'points',{fullIsNormal:true});add('City happiness',city.civic.happiness||50,100,'%',{fullIsNormal:true});notes.push('Coverage '+custom.radius+' tiles from the plot edge · benefit tapers with distance','No electricity or water required · road access required');
+ }else if(custom?.kind==='park'){const p=parkServices(city).facilities.find(p=>p.i===z.i);status=p.reason;add('Local land-value benefit',p.operating?custom.landBonus:0,custom.landBonus,'points',{fullIsNormal:true});add('Local happiness benefit',p.operating?custom.happiness:0,custom.happiness,'points',{fullIsNormal:true});if(custom.commerce){add('Local commercial appeal',p.operating?custom.commerce:0,custom.commerce,'points',{fullIsNormal:true});add('Commercial demand bonus',Math.round((city.civic.plazaCommerce||0)*4),240,'points',{fullIsNormal:true});notes.push('Commercial districts in range receive a distance-weighted demand boost.');}add('City happiness',city.civic.happiness||50,100,'%',{fullIsNormal:true});notes.push('Coverage '+custom.radius+' tiles from the plot edge · benefit tapers with distance','No electricity or water required · road access required');
  }else if(z.type===5){
   const h=employmentIncome(city).homes.get(z.i);add('Residents',h?.residents||0,(z.id>=0x376?48:40)*20,'people',{fullIsNormal:true});add('Employed residents',h?.employed||0,h?.workers||0,'workers',{fullIsNormal:true});status=h?.workers?(h.employed===h.workers?'All workers employed':'Residents need jobs'):'Vacant';
  }else if(z.type===6||z.type===7){

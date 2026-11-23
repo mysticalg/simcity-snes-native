@@ -1,4 +1,4 @@
-import {civicServices,civicRoadEntry} from './civic.js?v=education-traffic-27';
+import {civicServices,civicRoadEntry} from './civic.js?v=amenities-gifts-29';
 const hash=n=>{n=Math.imul(n^(n>>>16),0x45d9f3b);return((n^(n>>>16))>>>0)/4294967296;};
 export class GarbageVisuals{
  constructor(){this.states=new WeakMap();}
