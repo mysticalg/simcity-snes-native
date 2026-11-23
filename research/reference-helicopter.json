@@ -8637,6 +8637,50 @@
     },
     {
       "before": {
+        "active": true,
+        "x": 60,
+        "y": 50,
+        "offsetX": 7,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "id": 80,
+      "opts": {
+        "seedB": 4660
+      },
+      "expected": {
+        "active": true,
+        "x": 61,
+        "y": 50,
+        "offsetX": 0,
+        "offsetY": 0,
+        "direction": 2,
+        "targetX": 80,
+        "targetY": 70,
+        "targetDirection": 0,
+        "turn": 0,
+        "rotor": 0
+      },
+      "result": {
+        "trafficReport": true,
+        "x": 61,
+        "y": 50,
+        "focusFrames": 192,
+        "message": 28,
+        "messageFrames": 300
+      },
+      "rng": [
+        28426,
+        52192
+      ]
+    },
+    {
+      "before": {
         "active": false,
         "x": 60,
         "y": 50,
