@@ -1,0 +1,1047 @@
+{
+  "routines": [
+    "CODE_038CE8..038D24",
+    "CODE_03B6BD",
+    "CODE_03B6F7"
+  ],
+  "fixture": {
+    "directPage": 6144,
+    "dataBank": 3,
+    "stack": 7935,
+    "status": 4,
+    "interrupts": false
+  },
+  "romSHA256": "e9c0bc05511e05a0d7c3e7cc42e761e1e8e532d46f59b9854b6902e1a2e9dd0a",
+  "mesenSHA256": "d2eb03c2590c648bf329f127ebcfefd70130e7690a9e2ccdba8616faea1fe96b",
+  "cases": [
+    {
+      "kind": "quota",
+      "rci": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0
+      ],
+      "expected": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        1,
+        1
+      ],
+      "expected": [
+        -1,
+        -1
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        127,
+        128
+      ],
+      "expected": [
+        -1,
+        -1
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        254,
+        255
+      ],
+      "expected": [
+        -1,
+        -1
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        256,
+        65535
+      ],
+      "expected": [
+        -1,
+        -1
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        1,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0
+      ],
+      "expected": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        1,
+        0,
+        0
+      ],
+      "counts": [
+        1,
+        1
+      ],
+      "expected": [
+        -1,
+        -1
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        1,
+        0,
+        0
+      ],
+      "counts": [
+        127,
+        128
+      ],
+      "expected": [
+        -1,
+        -1
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        1,
+        0,
+        0
+      ],
+      "counts": [
+        254,
+        255
+      ],
+      "expected": [
+        -1,
+        -1
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        1,
+        0,
+        0
+      ],
+      "counts": [
+        256,
+        65535
+      ],
+      "expected": [
+        -1,
+        -1
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        255,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0
+      ],
+      "expected": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        255,
+        0,
+        0
+      ],
+      "counts": [
+        1,
+        1
+      ],
+      "expected": [
+        -1,
+        -1
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        255,
+        0,
+        0
+      ],
+      "counts": [
+        127,
+        128
+      ],
+      "expected": [
+        -1,
+        -1
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        255,
+        0,
+        0
+      ],
+      "counts": [
+        254,
+        255
+      ],
+      "expected": [
+        -1,
+        -1
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        255,
+        0,
+        0
+      ],
+      "counts": [
+        256,
+        65535
+      ],
+      "expected": [
+        -1,
+        -1
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        256,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0
+      ],
+      "expected": [
+        1,
+        1
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        256,
+        0,
+        0
+      ],
+      "counts": [
+        1,
+        1
+      ],
+      "expected": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        256,
+        0,
+        0
+      ],
+      "counts": [
+        127,
+        128
+      ],
+      "expected": [
+        -1,
+        -1
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        256,
+        0,
+        0
+      ],
+      "counts": [
+        254,
+        255
+      ],
+      "expected": [
+        -1,
+        -1
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        256,
+        0,
+        0
+      ],
+      "counts": [
+        256,
+        65535
+      ],
+      "expected": [
+        -1,
+        -1
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        257,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0
+      ],
+      "expected": [
+        1,
+        1
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        257,
+        0,
+        0
+      ],
+      "counts": [
+        1,
+        1
+      ],
+      "expected": [
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        257,
+        0,
+        0
+      ],
+      "counts": [
+        127,
+        128
+      ],
+      "expected": [
+        -1,
+        -1
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        257,
+        0,
+        0
+      ],
+      "counts": [
+        254,
+        255
+      ],
+      "expected": [
+        -1,
+        -1
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        257,
+        0,
+        0
+      ],
+      "counts": [
+        256,
+        65535
+      ],
+      "expected": [
+        -1,
+        -1
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        32767,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0
+      ],
+      "expected": [
+        1,
+        1
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        32767,
+        0,
+        0
+      ],
+      "counts": [
+        1,
+        1
+      ],
+      "expected": [
+        1,
+        1
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        32767,
+        0,
+        0
+      ],
+      "counts": [
+        127,
+        128
+      ],
+      "expected": [
+        0,
+        -1
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        32767,
+        0,
+        0
+      ],
+      "counts": [
+        254,
+        255
+      ],
+      "expected": [
+        -1,
+        -1
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        32767,
+        0,
+        0
+      ],
+      "counts": [
+        256,
+        65535
+      ],
+      "expected": [
+        -1,
+        -1
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        65280,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0
+      ],
+      "expected": [
+        1,
+        1
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        65280,
+        0,
+        0
+      ],
+      "counts": [
+        1,
+        1
+      ],
+      "expected": [
+        1,
+        1
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        65280,
+        0,
+        0
+      ],
+      "counts": [
+        127,
+        128
+      ],
+      "expected": [
+        1,
+        1
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        65280,
+        0,
+        0
+      ],
+      "counts": [
+        254,
+        255
+      ],
+      "expected": [
+        1,
+        0
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        65280,
+        0,
+        0
+      ],
+      "counts": [
+        256,
+        65535
+      ],
+      "expected": [
+        -1,
+        -1
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        65535,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0
+      ],
+      "expected": [
+        1,
+        1
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        65535,
+        0,
+        0
+      ],
+      "counts": [
+        1,
+        1
+      ],
+      "expected": [
+        1,
+        1
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        65535,
+        0,
+        0
+      ],
+      "counts": [
+        127,
+        128
+      ],
+      "expected": [
+        1,
+        1
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        65535,
+        0,
+        0
+      ],
+      "counts": [
+        254,
+        255
+      ],
+      "expected": [
+        1,
+        0
+      ]
+    },
+    {
+      "kind": "quota",
+      "rci": [
+        65535,
+        0,
+        0
+      ],
+      "counts": [
+        256,
+        65535
+      ],
+      "expected": [
+        -1,
+        -1
+      ]
+    },
+    {
+      "kind": "unemployment",
+      "rci": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0
+      ],
+      "expected": [
+        0
+      ]
+    },
+    {
+      "kind": "unemployment",
+      "rci": [
+        200,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0
+      ],
+      "expected": [
+        0
+      ]
+    },
+    {
+      "kind": "unemployment",
+      "rci": [
+        80,
+        10,
+        0
+      ],
+      "counts": [
+        0,
+        0
+      ],
+      "expected": [
+        0
+      ]
+    },
+    {
+      "kind": "unemployment",
+      "rci": [
+        81,
+        10,
+        0
+      ],
+      "counts": [
+        0,
+        0
+      ],
+      "expected": [
+        3
+      ]
+    },
+    {
+      "kind": "unemployment",
+      "rci": [
+        100,
+        10,
+        0
+      ],
+      "counts": [
+        0,
+        0
+      ],
+      "expected": [
+        64
+      ]
+    },
+    {
+      "kind": "unemployment",
+      "rci": [
+        160,
+        10,
+        0
+      ],
+      "counts": [
+        0,
+        0
+      ],
+      "expected": [
+        255
+      ]
+    },
+    {
+      "kind": "unemployment",
+      "rci": [
+        200,
+        10,
+        0
+      ],
+      "counts": [
+        0,
+        0
+      ],
+      "expected": [
+        255
+      ]
+    },
+    {
+      "kind": "unemployment",
+      "rci": [
+        65535,
+        8191,
+        0
+      ],
+      "counts": [
+        0,
+        0
+      ],
+      "expected": [
+        0
+      ]
+    },
+    {
+      "kind": "unemployment",
+      "rci": [
+        65535,
+        8192,
+        0
+      ],
+      "counts": [
+        0,
+        0
+      ],
+      "expected": [
+        255
+      ]
+    },
+    {
+      "kind": "unemployment",
+      "rci": [
+        1,
+        8192,
+        0
+      ],
+      "counts": [
+        0,
+        0
+      ],
+      "expected": [
+        255
+      ]
+    },
+    {
+      "kind": "unemployment",
+      "rci": [
+        65535,
+        65535,
+        1
+      ],
+      "counts": [
+        0,
+        0
+      ],
+      "expected": [
+        0
+      ]
+    },
+    {
+      "kind": "unemployment",
+      "rci": [
+        65535,
+        65535,
+        65535
+      ],
+      "counts": [
+        0,
+        0
+      ],
+      "expected": [
+        0
+      ]
+    },
+    {
+      "kind": "fire",
+      "rci": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0
+      ],
+      "fires": 0,
+      "expected": [
+        0
+      ]
+    },
+    {
+      "kind": "fire",
+      "rci": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0
+      ],
+      "fires": 1,
+      "expected": [
+        5
+      ]
+    },
+    {
+      "kind": "fire",
+      "rci": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0
+      ],
+      "fires": 50,
+      "expected": [
+        250
+      ]
+    },
+    {
+      "kind": "fire",
+      "rci": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0
+      ],
+      "fires": 51,
+      "expected": [
+        255
+      ]
+    },
+    {
+      "kind": "fire",
+      "rci": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0
+      ],
+      "fires": 52,
+      "expected": [
+        255
+      ]
+    },
+    {
+      "kind": "fire",
+      "rci": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0
+      ],
+      "fires": 12000,
+      "expected": [
+        255
+      ]
+    },
+    {
+      "kind": "fire",
+      "rci": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0
+      ],
+      "fires": 13107,
+      "expected": [
+        255
+      ]
+    },
+    {
+      "kind": "fire",
+      "rci": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0
+      ],
+      "fires": 13108,
+      "expected": [
+        4
+      ]
+    },
+    {
+      "kind": "fire",
+      "rci": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0
+      ],
+      "fires": 16384,
+      "expected": [
+        255
+      ]
+    },
+    {
+      "kind": "fire",
+      "rci": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0
+      ],
+      "fires": 26214,
+      "expected": [
+        255
+      ]
+    },
+    {
+      "kind": "fire",
+      "rci": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0
+      ],
+      "fires": 32768,
+      "expected": [
+        255
+      ]
+    },
+    {
+      "kind": "fire",
+      "rci": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0
+      ],
+      "fires": 48000,
+      "expected": [
+        255
+      ]
+    },
+    {
+      "kind": "fire",
+      "rci": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0
+      ],
+      "fires": 65535,
+      "expected": [
+        255
+      ]
+    }
+  ],
+  "exitCode": 0
+}

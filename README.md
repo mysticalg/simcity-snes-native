@@ -6,7 +6,9 @@ This project reverse engineers the USA release of SimCity for Super Nintendo and
 
 Open the [GitHub Pages version](https://mysticalg.github.io/simcity-snes-native/) after deployment, or serve this directory locally with `python -m http.server 5173` and open `http://localhost:5173`.
 
-Latest Turbo update: **v0.2.39** fixes population wrap on dense megacity maps and repairs old wrapped census saves. Native-size arithmetic remains verified against the original ROM. [Evidence, tests and limits](research/megacity-census-v0.2.39.md).
+Latest Turbo update: **v0.2.40** fixes large-city and linked-region demand overflow, native facility quota rollover and megacity evaluation sampling. Original-size arithmetic remains source verified. [Evidence, tests and limits](research/megacity-demand-v0.2.40.md).
+
+v0.2.39 fixed dense megacity population and repaired old wrapped census saves. [Population evidence](research/megacity-census-v0.2.39.md).
 
 v0.2.38 fixed dense grids losing power despite ample generation. [Power evidence](research/power-work-stack-v0.2.38.md).
 

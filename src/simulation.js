@@ -22,15 +22,16 @@ import {createRomMonster,startRomMonster,stepRomMonster,monsterPollutionTarget} 
 import {CIVIC_TOOLS,installCivicTools,civicForId,civicBounds,civicServices,civicAnnualCost,updateCivicMonth,educationEffects} from './civic.js?v=health-care-34';
 import {createRomTornado,startRomTornado,stepRomTornado} from './rom-tornado.js?v=emergency-1';
 import {createRomSeason,changeRomSeason,advanceRomSeason} from './rom-render.js?v=season-1';
+import {generateCityDemand,cityFacilityDemand,cityProblems} from './turbo-demand.js?v=wide-demand-40';
 import {cityPopulation,usesWideCensus} from './turbo-population.js?v=wide-census-39';
 import {selectRomRandomDisaster} from './rom-random-disaster.js';
-import {romFacilityDemand,placeRomFacility,updateRomFacility} from './rom-facilities.js?v=gift-workers-31';
+import {placeRomFacility,updateRomFacility} from './rom-facilities.js?v=gift-workers-31';
 import {createRomTrain,spawnRomTrain,stepRomTrain} from './rom-train.js';
 import {createRomShip,spawnRomShip,stepRomShip} from './rom-ship.js?v=megacity-1';
 import {applyRomShipCollision,applyRomTrainCollision,burnRomZone} from './rom-collision.js?v=emergency-1';
 import {recordRomHistory} from './rom-history.js';
 import {romCommercialRate,commercialLocalScore,industrialLocalScore} from './rom-commercial.js?v=megacity-1';
-import {romCityProblems,romCityScore,pollRomProblems,pollRomApproval,romAssessedValue} from './rom-evaluation.js?v=facilities-1';
+import {romCityScore,pollRomProblems,pollRomApproval,romAssessedValue} from './rom-evaluation.js?v=facilities-1';
 import {romTransportFunding,updateRomTransportTile} from './rom-transport.js';
 import {traceRomPower} from './rom-power.js?v=power-work-38';
 import {romFieldSchedule} from './rom-schedule.js';
@@ -47,7 +48,7 @@ import {decayTraffic,addRouteTraffic} from './rom-traffic.js';
 import {applyRomMeltdown,applyRomEarthquake,startRomFire,startRomFlood,dispatchRomDisasterTile} from './rom-disasters.js?v=megacity-1';
 import {scenarioOutcome,SCENARIO_EVENT_COUNTS,stepScenarioEvent,stepScenarioReminder,scenarioMeltdownSite} from './rom-scenarios.js';
 import {residentialDemandScore, residentialLocalScore, residentialDensityBand, residentialGrowthBase, residentialDeclineFootprint, decideResidentialUpdate, stampZoneFootprint, placeSmallHome, mergeResidentialZone,repairMergedZone,updateCommercialFootprint,updateIndustrialFootprint,decideJobZoneUpdate,findZoneTransport,traceZoneTransport} from './rom-growth.js?v=processing-1';
-import {accumulateRomDemand,generateRomDemand,scanRomGrowthCaps} from './rom-demand.js?v=processing-1';
+import {accumulateRomDemand,scanRomGrowthCaps} from './rom-demand.js?v=processing-1';
 // Native simulation model. ROM-backed tables and direct translations are marked.
 // Monthly growth, coverage and disasters are provisional reconstructions, not yet
 // instruction-for-instruction ports of the SNES simulation (see research/STATUS.md).
@@ -369,7 +370,7 @@ export class City {
  }
  get loan(){return this.loans[0]??null;}
  takeLoan(amount=100000){amount=Number(amount);if(!Number.isInteger(amount)||amount<1000||amount>100000||amount%1000){this.message('Choose a loan from $1,000 to $100,000 in $1,000 increments.');return false;}if(this.loans.length>=3){this.message('The bank allows up to three active loans.');return false;}if(this.funds+amount>TREASURY_CAP){this.message('This loan would exceed the city funds limit.');return false;}const payment=amount/20;this.loans.push({principal:amount,years:21,payment});this.funds+=amount;this.message(`Bank loan received: $${amount.toLocaleString()}; 21 annual payments of $${payment.toLocaleString()}.`);return true;}
- cityEvaluationInputs(){return {assessedValue:romAssessedValue({roads:this.roadCount,rails:this.railCount,facilityA:this.facilityCounts[0],police:this.counts[8],fire:this.counts[9],stadiums:this.counts[10],coal:this.zones.filter(z=>z.id===0x28c).length,seaports:this.counts[11],nuclear:this.zones.filter(z=>z.id===0x27c).length,airports:this.counts[12]}),population:this.population,problems:romCityProblems({crime:this.meanCrime||0,landValue:this.meanLandValue||0,pollution:this.pollution,traffic:this.traffic,landValues:this.landValue,tax:this.tax,rci:this.rci,fires:this.fireCount}),caps:[...this.growthCaps.suppressed],demand:[...this.demand]};}
+ cityEvaluationInputs(){return {assessedValue:romAssessedValue({roads:this.roadCount,rails:this.railCount,facilityA:this.facilityCounts[0],police:this.counts[8],fire:this.counts[9],stadiums:this.counts[10],coal:this.zones.filter(z=>z.id===0x28c).length,seaports:this.counts[11],nuclear:this.zones.filter(z=>z.id===0x27c).length,airports:this.counts[12]}),population:this.population,problems:cityProblems({crime:this.meanCrime||0,landValue:this.meanLandValue||0,pollution:this.pollution,traffic:this.traffic,landValues:this.landValue,tax:this.tax,rci:this.rci,fires:this.fireCount},this.width,this.height),caps:[...this.growthCaps.suppressed],demand:[...this.demand]};}
  evaluateCity(inputs=this.cityEvaluationInputs()){
   if(!inputs.population){this.netMigration=0;this.score=500;this.scoreChange=0;this.evaluation={year:this.year,score:500,change:0,assessedValue:0,problems:Array(7).fill(0),survey:null,approval:{approve:0,disapprove:0}};return this.evaluation;}
   const problems=inputs.problems;
@@ -389,14 +390,14 @@ export class City {
   const reminder=stepScenarioReminder(this.scenario,this.year,this.scenarioReminders.length);if(reminder.yearsLeft!==null){this.scenarioReminders.push(reminder.yearsLeft);this.message('Scenario deadline: '+reminder.yearsLeft+' years remaining.');}
   if(this.regionalProvider)this.regionalState=this.regionalProvider(this);this.updatePower();
   const historyRci=this.history.at(-1)?.rci||[0,0,0];
-  const generatedDemand=generateRomDemand(this.rci.map((v,i)=>v+(this.regionalState?.externalRci[i]||0)),historyRci.map((v,i)=>v+(this.regionalState?.externalRci[i]||0)),this.difficulty).scores;
+  const generatedDemand=generateCityDemand(this.rci.map((v,i)=>v+(this.regionalState?.externalRci[i]||0)),historyRci.map((v,i)=>v+(this.regionalState?.externalRci[i]||0)),this.difficulty,this.map.length,{regional:!!this.regionalState?.externalRci?.some(n=>n>0)}).scores;
   this.demand=generatedDemand.map((value,i)=>accumulateRomDemand(this.demand[i],value,this.tax,this.difficulty,i===0?2000:1500,{suppressPositive:this.growthCaps.suppressed[i]}));
   const services=this.civicEnabled?civicServices(this):null;this.civicWatered=services?.watered;if(services){const flight=aviationBenefits(this);this.demand[1]=Math.max(-1500,this.demand[1]-flight.commercialPenalty);this.demand[2]=Math.max(-1500,Math.min(1500,this.demand[2]+flight.industrialDemand-flight.industrialPenalty));this.demand[0]=Math.min(2000,this.demand[0]+Math.round((this.civic.parkHappiness||0)*3));this.demand[1]=Math.min(1500,this.demand[1]+Math.floor(this.civic.education)+Math.round((this.civic.plazaCommerce||0)*4));this.demand[2]=Math.min(1500,this.demand[2]+Math.floor(this.civic.education));for(let i=0;i<this.traffic.length;i++)if(services.busCoverage[i])this.traffic[i]=Math.floor(this.traffic[i]*.8);if(this.civic.garbage>this.civic.generatedGarbage*3)this.demand[0]=Math.max(-2000,this.demand[0]-100);}
   const displayedPopulation=this.population;this.scanCityTiles();
   this.updateDisasters(false);this.refresh();
   this.baseStep=(this.baseStep+1)&65535;
   if((this.baseStep&3)===0){
-   advanceClimate(this);if(this.regionalProvider)this.regionalState=this.regionalProvider(this);this.updatePower();this.pollution=combineAirPollution(romPollutionField(this.map,this.width,this.height),this.airPollution);updateCivicMonth(this);updateSewageMonth(this);updateLocalHealth(this);updateRailFleet(this,{spawn:true});if(++this.month>12){this.month=1;this.year++;}changeRomSeason(this.season,this.month);this.facilityDemand=romFacilityDemand(this.rci[0],this.facilityCounts);if(this.month===1){this.populationBaseline=displayedPopulation>>>0;this.netMigration=this.populationStats().netMigration;this.pendingBudget={year:this.year,taxRate:Math.floor(this.taxAccumulator/48)};const assessment=this.budget(false,this.pendingBudget.taxRate);this.pendingBudget.assessment={income:assessment.income,giftIncome:assessment.giftIncome,employmentTax:assessment.employmentTax,militaryIndustryIncome:assessment.militaryIndustryIncome,requests:[...assessment.requests]};this.pendingBudget.evaluationInputs=this.cityEvaluationInputs();this.taxAccumulator=0;if(this.autoBudget)this.settleAnnualBudget();}
+   advanceClimate(this);if(this.regionalProvider)this.regionalState=this.regionalProvider(this);this.updatePower();this.pollution=combineAirPollution(romPollutionField(this.map,this.width,this.height),this.airPollution);updateCivicMonth(this);updateSewageMonth(this);updateLocalHealth(this);updateRailFleet(this,{spawn:true});if(++this.month>12){this.month=1;this.year++;}changeRomSeason(this.season,this.month);this.facilityDemand=cityFacilityDemand(this.rci[0],this.facilityCounts,this.map.length);if(this.month===1){this.populationBaseline=displayedPopulation>>>0;this.netMigration=this.populationStats().netMigration;this.pendingBudget={year:this.year,taxRate:Math.floor(this.taxAccumulator/48)};const assessment=this.budget(false,this.pendingBudget.taxRate);this.pendingBudget.assessment={income:assessment.income,giftIncome:assessment.giftIncome,employmentTax:assessment.employmentTax,militaryIndustryIncome:assessment.militaryIndustryIncome,requests:[...assessment.requests]};this.pendingBudget.evaluationInputs=this.cityEvaluationInputs();this.taxAccumulator=0;if(this.autoBudget)this.settleAnnualBudget();}
    this.history.push({year:this.year,month:this.month,population:this.population,rci:[...this.rci],funds:this.funds,crime:this.meanCrime||0});if(this.history.length>240)this.history.shift();
   }
   this.scanGrowthCaps();
