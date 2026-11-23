@@ -6,7 +6,9 @@ This project reverse engineers the USA release of SimCity for Super Nintendo and
 
 Open the [GitHub Pages version](https://mysticalg.github.io/simcity-snes-native/), or serve this directory locally with `python scripts/serve.py --port 5173` and open `http://localhost:5173`. The bundled server supplies the correct JavaScript MIME type on Windows.
 
-Latest Turbo update: **v0.2.55** avoids rebuilding unused garbage-truck routes for complete surviving fleets. Truck motion, pickup visuals, waste quantities and saved city state are verified against the previous release. Whole-frame gains remain mixed. [Checks and measured limits](research/garbage-routing-v0.2.55.md).
+Latest Turbo update: **v0.2.56** replaces the constant aircraft line with slower four-engine heavy jets, spaced flights, arrivals from all four edges, holding circuits and runway separation. Existing queues migrate automatically while airport totals and saved flight progress are preserved. [Behavior and checks](research/aviation-approaches-v0.2.56.md).
+
+v0.2.55 avoids rebuilding unused garbage-truck routes for complete surviving fleets. Truck motion, pickup visuals, waste quantities and saved city state are verified against the previous release. Whole-frame gains remain mixed. [Checks and measured limits](research/garbage-routing-v0.2.55.md).
 
 v0.2.54 removes repeated full-map scans when capturing individual building transitions. Tested pixels and city state are preserved; controlled heavy-city long frames improve, while busy 16× cities still need work. [Pixel checks and measurements](research/building-captures-v0.2.54.md).
 

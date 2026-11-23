@@ -1,7 +1,7 @@
 import {windPower} from './climate.js?v=weather-1';
 import {conductivePowerFlags} from './power-conductors.js?v=power-work-38';
-import {buildingOff} from './building-operations.js?v=patch-work-54';
-import {civicForId,pumpStatus,waterNetwork} from './civic.js?v=patch-work-54';
+import {buildingOff} from './building-operations.js?v=approaches-56';
+import {civicForId,pumpStatus,waterNetwork} from './civic.js?v=approaches-56';
 const analysisCache=new WeakMap();
 // Player-requested regional extension; not a SNES simulation routine.
 export const REGION_SIZES=[4,8,16];

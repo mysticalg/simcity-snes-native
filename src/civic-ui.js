@@ -1,9 +1,9 @@
 import {utilityImagePath} from './utility-art.js?v=health-care-34';
 import {compactEmergencySprite} from './emergency.js?v=emergency-1';
 import {drawLandfill,drawLandfillLayer} from './landfill.js?v=health-care-34';
-import {buildingOff} from './building-operations.js?v=patch-work-54';
-import {sewageServices} from './sewage.js?v=patch-work-54';
-import {CIVIC_TOOLS,civicForId,civicBounds,civicServices,educationEffects} from './civic.js?v=patch-work-54';
+import {buildingOff} from './building-operations.js?v=approaches-56';
+import {sewageServices} from './sewage.js?v=approaches-56';
+import {CIVIC_TOOLS,civicForId,civicBounds,civicServices,educationEffects} from './civic.js?v=approaches-56';
 const civicSprites=Array.from({length:62},(_,n)=>{const image=new Image();image.src=utilityImagePath(n)||'assets/custom/civic-'+(n<17?n:0)+'.png';return image;});
 const spriteCache=new WeakMap();
 function smallCivicSprite(image,limit=128){if(!image?.complete||!image.naturalWidth||Math.max(image.naturalWidth,image.naturalHeight)<=limit)return image;let cached=spriteCache.get(image),small=cached?.limit===limit?cached.canvas:null;if(!small){small=document.createElement('canvas');const factor=limit/Math.max(image.naturalWidth,image.naturalHeight);small.width=Math.round(image.naturalWidth*factor);small.height=Math.round(image.naturalHeight*factor);small.getContext('2d').drawImage(image,0,0,small.width,small.height);spriteCache.set(image,{limit,canvas:small});}return small;}

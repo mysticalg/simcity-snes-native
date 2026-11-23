@@ -1,10 +1,10 @@
 import {expandServiceCoverage} from './police-range.js?v=police-area-28';
-import {educationCoverage} from './education.js?v=patch-work-54';
-import {CIVIC_TOOLS,civicForId,civicRoadEntry,civicBounds} from './civic.js?v=patch-work-54';
+import {educationCoverage} from './education.js?v=approaches-56';
+import {CIVIC_TOOLS,civicForId,civicRoadEntry,civicBounds} from './civic.js?v=approaches-56';
 import {seedRomServicePlane} from './rom-services.js';
-import {operationalMap,buildingOff} from './building-operations.js?v=patch-work-54';
+import {operationalMap,buildingOff} from './building-operations.js?v=approaches-56';
 import {emergencyKind,emergencyBounds} from './emergency.js?v=emergency-1';
-import {transportOverlay} from './transport-overlays.js?v=patch-work-54';
+import {transportOverlay} from './transport-overlays.js?v=approaches-56';
 const cache=new WeakMap();
 export function placementCoverageKind(tool){if(tool===8||tool===21)return 'police';if(tool===9||tool===22)return 'fire';if([1,37,38].includes(tool))return 'traffic';if(tool===2)return 'railTraffic';if([12,63,64,65].includes(tool))return 'airTraffic';const kind=CIVIC_TOOLS.find(b=>b.tool===tool)?.kind;if(tool===4||tool===10||(tool>=15&&tool<30)||kind==='park')return 'landValue';return ['health','education'].includes(kind)?kind:null;}
 const names={police:'Police coverage',fire:'Fire coverage',health:'Health / ambulance coverage',education:'Education coverage',landValue:'Land value'};
@@ -25,7 +25,7 @@ export function placementServiceCoverage(city,tool){
  }
  const value={kind,name:names[kind],field,max,facilities,width,height,canvas:null,goodHigh:true};entries.set(kind,value);cache.set(city,{key,power:city.power,entries});return value;
 }
-export function placementCoverageLegend(city,tool,x,y){const s=placementServiceCoverage(city,tool);if(!s)return '';const raw=s.field[y*s.width+x]||0;if(s.kind==='landValue')return `Land value · ${raw}/250 here · green high / red low`;if(s.kind==='traffic')return `Road traffic · ${raw}/240 here · green flowing / red congested`;if(s.kind==='railTraffic')return `Rail traffic · ${raw}% demand / seats · ${city.railStats?.waiting||0} passengers waiting · green spare / red full`;if(s.kind==='airTraffic')return `Air traffic · ${s.traffic.active}/${s.traffic.capacity} active flight slots · ${s.traffic.requested} flights wanted · green spare / red congested`;return `${s.name} · ${Math.round(Math.min(1,raw/s.max)*100)}% here · ${s.facilities.length} existing · green strong / amber partial / red none`;}
+export function placementCoverageLegend(city,tool,x,y){const s=placementServiceCoverage(city,tool);if(!s)return '';const raw=s.field[y*s.width+x]||0;if(s.kind==='landValue')return `Land value · ${raw}/250 here · green high / red low`;if(s.kind==='traffic')return `Road traffic · ${raw}/240 here · green flowing / red congested`;if(s.kind==='railTraffic')return `Rail traffic · ${raw}% demand / seats · ${city.railStats?.waiting||0} passengers waiting · green spare / red full`;if(s.kind==='airTraffic')return `Air traffic · ${s.traffic.active} aircraft · ${s.traffic.requested} flight demand · green spare / red congested`;return `${s.name} · ${Math.round(Math.min(1,raw/s.max)*100)}% here · ${s.facilities.length} existing · green strong / amber partial / red none`;}
 export function drawServicePlacement(ctx,city,tool,view){const s=placementServiceCoverage(city,tool);if(!s)return;
  if(!s.canvas){const canvas=document.createElement('canvas');canvas.width=s.width;canvas.height=s.height;const c=canvas.getContext('2d'),data=c.createImageData(s.width,s.height);for(let i=0;i<s.field.length;i++){const id=city.map[i]&1023;if((!s.includeWater&&id>0&&id<20)||(s.mask&&!s.mask[i]))continue;const level=Math.min(1,s.field[i]/s.max),t=s.goodHigh===false?1-level:level,p=i*4;data.data[p]=Math.round(224-165*t);data.data[p+1]=Math.round(65+165*t);data.data[p+2]=75;data.data[p+3]=s.mask||s.field[i]>0?100:35;}c.putImageData(data,0,0);s.canvas=canvas;}
  ctx.save();ctx.imageSmoothingEnabled=false;ctx.drawImage(s.canvas,0,0,s.width*8,s.height*8);ctx.lineWidth=.8;

@@ -1,6 +1,6 @@
 import {CIVIC_ART_EXTRAS} from './civic-textures.js?v=health-care-34';
 const truckArt=typeof Image==='undefined'?null:new Image();if(truckArt)truckArt.src=CIVIC_ART_EXTRAS.garbageTruck;
-import {civicServices,civicRoadEntry} from './civic.js?v=patch-work-54';
+import {civicServices,civicRoadEntry} from './civic.js?v=approaches-56';
 const hash=n=>{n=Math.imul(n^(n>>>16),0x45d9f3b);return((n^(n>>>16))>>>0)/4294967296;};
 // Retain and validate every live route before deciding whether a fleet needs
 // replacement trucks. A complete surviving fleet does not consume a new BFS.

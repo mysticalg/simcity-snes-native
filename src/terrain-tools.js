@@ -1,4 +1,4 @@
-import {tileDrawBounds} from './tile-draw-bounds.js?v=patch-work-54';
+import {tileDrawBounds} from './tile-draw-bounds.js?v=approaches-56';
 // Player-requested terrain editing. Coast geometry uses the original shore tiles.
 const SHORE={8:5,1:10,4:7,2:8,12:4,10:6,5:9,3:11};
 export function installTerrainTools(build){for(const tool of[42,43,46,47,48]){build.buildings[tool]={id:tool,tiles:[0],x:[0],y:[0]};build.costs[tool]=tool===43?10:5;}}

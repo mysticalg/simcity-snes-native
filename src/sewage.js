@@ -1,6 +1,6 @@
-import {drawCachedSeaPollution} from './sea-pollution-art.js?v=patch-work-54';
-import {pipeTopology} from './pipe-topology.js?v=patch-work-54';
-import {civicForId,waterNetwork,utilityPipeStatus,pumpStatus} from './civic.js?v=patch-work-54';
+import {drawCachedSeaPollution} from './sea-pollution-art.js?v=approaches-56';
+import {pipeTopology} from './pipe-topology.js?v=approaches-56';
+import {civicForId,waterNetwork,utilityPipeStatus,pumpStatus} from './civic.js?v=approaches-56';
 const waterId=id=>id>=1&&id<20;
 export function sewageServices(city){
  const nodes=waterNetwork(city).nodes,{labels,components}=pipeTopology(city,nodes),groups=components.map(cells=>({cells,pumps:[],plants:[],sources:[],load:0}));

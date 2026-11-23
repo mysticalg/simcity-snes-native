@@ -1,4 +1,4 @@
-import {tileDrawBounds} from './tile-draw-bounds.js?v=patch-work-54';
+import {tileDrawBounds} from './tile-draw-bounds.js?v=approaches-56';
 // Pollution changes with simulated months, not animation frames. Retain one
 // pixel per map cell and upload only changed data; inspect mutable arrays so
 // terraforming, save restores and direct pollution edits cannot leave stale art.

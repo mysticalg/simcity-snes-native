@@ -1,4 +1,4 @@
-import {tileDrawBounds} from './tile-draw-bounds.js?v=patch-work-54';
+import {tileDrawBounds} from './tile-draw-bounds.js?v=approaches-56';
 // Persistent player terrain heights; original shore and forest tile graphics remain in use.
 export function createElevation(map){return Int8Array.from(map,id=>{id&=1023;return id>=1&&id<20?0:1;});}
 export function terrainCheck(map,elevation,x,y,tool,funds,width=120,height=100){const i=y*width+x,id=map[i]&1023,inside=x>=0&&x<width&&y>=0&&y<height,cost=5,h=elevation[i]??1;let reason='';if(!inside)reason='Terrain must fit inside the map.';else if(tool===48){if(id>=20&&id<38)reason='Forest is already here.';else if(id!==0)reason=id>=1&&id<20?'Create land before planting forest.':'Clear this site before planting forest.';}else if(id>=48)reason='Clear this site before changing elevation.';else if(tool===46&&h>=16)reason='Maximum terrain height reached.';else if(tool===47&&h<=-4)reason='Minimum terrain depth reached.';if(!reason&&funds<cost)reason='Insufficient funds.';return{ok:!reason,cost,reason};}

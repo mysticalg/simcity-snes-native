@@ -1,0 +1,84 @@
+{
+  "version": "0.2.56",
+  "base": "c854b8a6bf5ab760e49cee044c5c4aea760bc522",
+  "nodeTests": 555,
+  "nodePerFrameTest": 36000,
+  "browser": {
+    "version": "0.2.56",
+    "migration": {
+      "version": 2,
+      "planes": 0,
+      "arrivals": 8,
+      "nextId": 41
+    },
+    "holding": {
+      "id": 45,
+      "x": 234.81044545657795,
+      "y": 33.74611417832927,
+      "heading": -1.5138760879068478,
+      "phase": "holding",
+      "aircraft": 3
+    },
+    "motion": {
+      "distance": 2.9816907045885244,
+      "headingChange": 0.7000000000000028
+    },
+    "traffic": {
+      "peak": 4,
+      "seen": 28,
+      "sides": [
+        "south",
+        "west",
+        "north",
+        "east"
+      ],
+      "stats": {
+        "month": 25153,
+        "arrivals": 21,
+        "departures": 18,
+        "passengers": 11200,
+        "cargo": 2750,
+        "sorties": 0
+      }
+    },
+    "pause": true,
+    "savedFlightResume": true,
+    "errors": []
+  },
+  "sources": {
+    "src/app.js": "b4960c2f166b81d6c91e38a616b23f544660698b2a7497d936ed5fb52d164898",
+    "src/aviation.js": "9a13d38e9c54e77dc496ea8488802521f250c9038cb60726c8d8a89c8de94b3a",
+    "src/budget-view.js": "28be1b4d23478e2cad42685103459db6fa60b94849e818ea3a162a60a6c93a13",
+    "src/building-effects.js": "c6d6ac6671595d26df99a018fc8fc589d5ba50327a8527d0f7bb28b8f2122bc1",
+    "src/civic-ui.js": "6cbb83cb53debb2be9ec66ae5f8fe628fe2cb2e4555300672c8a763efdd7f066",
+    "src/civic.js": "55307ca7dc2d4621243f0e45682f1b704ae882f145044fd1bdd5e74675c55e0f",
+    "src/education.js": "74465cc0edd11d4a13e9281f244bed168d51482b4c5e6dc53417475232cadb66",
+    "src/elevation.js": "ca346a464c82a2811eee7d9791f9da40677ae67e5554b7b743307f4a4ee395d6",
+    "src/facility-meters.js": "6e23e5d1ddfded9da1fa0786f744582952511377ff2588b954c0637f4fee4452",
+    "src/garbage-visuals.js": "36dc6abc84a4485112331aa037ae513e0b6d82e61b1664de73966ca3ad841f23",
+    "src/growth-advisor.js": "cef89a4533b9c6f3b0e64f108cd19696ae403f082d0fc33479a4cef4199a0690",
+    "src/health-care.js": "e3007d584de46498378f1c54bf695d818494bbb93cce488cbfb25d5b2147631c",
+    "src/map-overlays.js": "4b2669bec36dda2a2db72ada9bb73bdeebbd15774a61103298a3316ef61a3004",
+    "src/megacity.js": "62539fec873f06b042180bca3cd96caf587d11828864a8fd5c57ea0dcedcd095",
+    "src/parks.js": "712b66e8ab29239645f5b5a8ee2f9bb579833987e2b3ad10a2514dbb3ae89e50",
+    "src/realistic-art.js": "b88d610e39b309c464222a0a674914fc3b5ef400217e4f8bcc35a6b415100d55",
+    "src/region-ui.js": "8d138026e1c89facf3431cea08bf236c5d8846baade97d3b5fcc86db896d3517",
+    "src/regions.js": "db46772229649e8ad1baede9608a18a587d94b19580186fcba276138a4b10cff",
+    "src/sea-pollution-art.js": "3f03ae9eb52242a853bcf5ec1b0bb63013e14605ec7bfde2eb94ca439169a468",
+    "src/service-placement.js": "0c134730f58ea136f1946d5c0189bdfe068bc1d3f3bc35cd8f3f07acdd514ee3",
+    "src/sewage.js": "2c5ff29163667dfc122538f0f79fb39ffee5ed65c91b839e380c23ba1dc1e12b",
+    "src/simulation.js": "d011c95c40a283a668eba1667aa0d979940fe6df05a0667d1305fe9d59995dd9",
+    "src/social-fields.js": "a25904663810c5681c522e276871885ef3cfb58748ad7cf6547eb8b5e69d30e6",
+    "src/terrain-tools.js": "006393f8c9246fee833b9122f96ff752ac24b4e4ae94cdcee18b3610d14b479a",
+    "src/transport-overlays.js": "7a2c355adf28d67b1241339c18295939741107a4b0f52958c83d288c0698b7e7",
+    "src/underground.js": "558db80f1c6fb1346a26d8d0ead0c3c7b4e58ba39ad8ca936cfe29366e31bf4f",
+    "src/utility-flows.js": "05b1eb7609791a56d545258ecc0818882151e54bf48ce3e9250dc32b091c7ed0",
+    "src/utility-inspection.js": "af6f71b0c8d9b52e6fd8f56742df04e3935551df66e342cb87e2c6b8df102540",
+    "src/water-allocation.js": "0d578f3825ecd821d7bc8a7ba9c569f90644b1121e4b76bd43d7a22afdc21ef1",
+    "src/weather-fx.js": "a4cab574284e5f868ff829b0a74b85723ae57cd5316054a3a06697401a4cfbd9",
+    "src/window-lights.js": "98629210fa624fcffc31ebd334fd2efbd751179e5c45a153e5e3aee4a9a1834c",
+    "src/flight-routes.js": "a193586d4a8f0f5f91f730968d2bf4928330d67dc2dd66043b335fdc7e4d167d"
+  },
+  "screenshotsInspected": true,
+  "scope": "Targeted Turbo aircraft behavior and artwork. Native SNES aircraft worker preserved; full-port completion not claimed."
+}
