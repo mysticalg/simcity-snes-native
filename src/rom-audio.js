@@ -1,9 +1,10 @@
-import {spcClockSeconds} from './rom-music-clock.js?v=music-global-42';
+import {planOriginalEndingTrack} from './rom-variable-track.js?v=ending-music-49';
+import {spcClockSeconds} from './rom-music-clock.js?v=ending-music-49';
 import {planTrackOneLead,planTrackOneOpening} from './rom-sequence.js?v=city-music-36';
 import {spcTickSeconds} from './rom-sequence.js?v=city-music-36';
-import {planOriginalCityTrack} from './rom-track.js?v=music-global-42';
+import {planOriginalCityTrack} from './rom-track.js?v=ending-music-49';
 import {renderSpcEnvelope} from './rom-envelope.js?v=horn-1';
-import {planSpcVibrato} from './rom-vibrato.js?v=music-global-42';
+import {planSpcVibrato} from './rom-vibrato.js?v=ending-music-49';
 import {planOriginalShipHorn,planOriginalTornado,planOriginalFire,planOriginalMeltdown,planOriginalMonster,planOriginalPlaneEngine,planOriginalPlaneCrash,planOriginalUfo} from './rom-sfx.js?v=city-music-36';
 // Native BRR voices with supported original sequence/envelope scheduling.
 // Full DSP behavior and hardware voice arbitration remain incomplete.
@@ -37,17 +38,21 @@ export class RomSampleAudio {
   for(const event of plan.voices){const voice=await this.voice(event.sample,{kind:'effect',generation,pitch:event.pitch,pitchAutomation:event.pitchAutomation,volume:.5,stereo:[event.left/128,event.right/128],stereoAutomation:event.stereoAutomation||[],envelope:event.envelope,counterPhase:Math.round(event.seconds*32000)%30720,duration:event.gateDuration,when:origin+event.seconds});if(voice)this.hornVoices.add(voice);}return plan;
  }
  async playOriginalTrackOne(options){return this.playOriginalCityTrack(1,options);}
- async playOriginalCityTrack(trackId,{offline=false,offlineSeconds=Infinity}={}){
+ async playOriginalCityTrack(trackId,options){return this.playOriginalMusic(trackId,planOriginalCityTrack,options);}
+ async playOriginalEndingTrack(trackId,options){return this.playOriginalMusic(trackId,planOriginalEndingTrack,options);}
+ async playOriginalMusic(trackId,planner,{offline=false,offlineSeconds=Infinity}={}){
   this.stopMusic();const generation=this.musicGeneration;await this.start();if(generation!==this.musicGeneration)return null;const response=await fetch(new URL('../assets/audio/aram.bin',import.meta.url));if(!response.ok)throw Error('Music data unavailable');
-  const aram=this.aram=new Uint8Array(await response.arrayBuffer()),plan=planOriginalCityTrack(aram,trackId);
+  const aram=this.aram=new Uint8Array(await response.arrayBuffer()),plan=planner(aram,trackId);
   await Promise.all([...new Set(plan.events.map(e=>e.sample))].map(i=>this.load(i)));const origin=this.context.currentTime+.05;
   if(generation!==this.musicGeneration)return null;
   const tickSeconds=(tick,tempo)=>plan.clock?spcClockSeconds(plan.clock,tick):spcTickSeconds(tick,tempo);
   const play=(event,shift=0)=>{const seconds=tickSeconds(event.tick+shift,event.tempo),gate=tickSeconds(event.gateEndTick+shift,event.tempo)-seconds;return this.voice(event.sample,{kind:'music',generation,pitch:event.pitch,pitchAutomation:planSpcVibrato(aram,event,shift,plan.clock),volume:.5,envelope:event.envelope,counterPhase:Math.round(seconds*32000)%30720,stereo:[event.dspVolumes.left/128,event.dspVolumes.right/128],stereoAutomation:event.mixAutomation.map(p=>({offset:tickSeconds(p.tick+shift,event.tempo)-seconds,gains:[p.left/128,p.right/128]})),duration:gate,when:origin+seconds});};
   if(offline){for(const event of plan.events){if(event.seconds>=offlineSeconds)break;await play(event);}return plan;}
-  const loop=plan.loop||plan.patterns.at(-1),loopIndex=plan.events.findIndex(e=>e.tick>=loop.startTick);let index=0,shift=0;
-  this.music={track:trackId,scheduled:0,cycles:0};
-  const schedule=()=>{while(this.music){const event=plan.events[index],when=origin+tickSeconds(event.tick+shift,event.tempo);if(when>this.context.currentTime+1)break;play(event,shift).catch(error=>{this.lastError=error.message;this.stopMusic();});this.music.scheduled++;if(++index===plan.events.length){index=loopIndex;shift+=loop.endTick-loop.startTick;this.music.cycles++;}}};
+  const loop=plan.finite?null:plan.loop||plan.patterns.at(-1),loopIndex=loop?plan.events.findIndex(e=>e.tick>=loop.startTick):-1;let index=0,shift=0;
+  this.music={track:trackId,scheduled:0,cycles:0,finite:!!plan.finite,ended:false};
+  const schedule=()=>{if(generation!==this.musicGeneration)return;while(this.music&&index<plan.events.length){const event=plan.events[index],when=origin+tickSeconds(event.tick+shift,event.tempo);if(when>this.context.currentTime+1)break;play(event,shift).catch(error=>{this.lastError=error.message;this.stopMusic();});this.music.scheduled++;if(++index===plan.events.length&&loop){index=loopIndex;shift+=loop.endTick-loop.startTick;this.music.cycles++;}}
+   if(this.music&&plan.finite&&this.context.currentTime>=origin+plan.duration){this.music.ended=true;clearInterval(this.musicTimer);this.musicTimer=null;}
+  };
   schedule();this.musicTimer=setInterval(schedule,100);return plan;
  }
  async playOriginalLead(){

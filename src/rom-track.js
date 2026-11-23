@@ -1,4 +1,4 @@
-import {planVariableCityTrack} from './rom-variable-track.js?v=music-global-42';
+import {planVariableCityTrack} from './rom-variable-track.js?v=ending-music-49';
 import {decodeSpcOrders,decodeSpcChannel,spcPitch,spcTickSeconds,spcFadeVolume} from './rom-sequence.js?v=city-music-36';
 import {spcVoiceVolumes} from './rom-mix.js?v=horn-1';
 import {instrumentEnvelope} from './rom-envelope.js?v=horn-1';

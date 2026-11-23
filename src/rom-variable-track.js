@@ -1,19 +1,19 @@
 import {decodeSpcOrders,decodeSpcChannel,spcPitchQ8} from './rom-sequence.js?v=music-global-42';
 import {spcVoiceVolumes} from './rom-mix.js?v=horn-1';
 import {instrumentEnvelope} from './rom-envelope.js?v=horn-1';
-import {createSpcGlobals,applySpcGlobal,stepSpcGlobals,createSpcClock,spcClockSeconds} from './rom-music-clock.js?v=music-global-42';
+import {createSpcGlobals,applySpcGlobal,stepSpcGlobals,createSpcClock,createSpcFiniteClock,spcClockSeconds} from './rom-music-clock.js?v=ending-music-49';
 
-// The verified city order lists replace all streams when channel zero ends.
+// City loops and finite ending lists replace all streams when channel zero ends.
 // Decode bounded local streams, then execute global commands in channel order
 // and advance their shared fades at the original end-of-tick point.
-export function planVariableCityTrack(aram,trackId,{maxPatterns=trackId===6?12:3}={}){
- if(![4,5,6].includes(trackId))throw Error('Unsupported variable city theme');
+export function planVariableCityTrack(aram,trackId,{maxPatterns=trackId===6?12:3,finite=false}={}){
+ if(!(finite?[17,18]:[4,5,6]).includes(trackId))throw Error('Unsupported variable music command');
  const orders=decodeSpcOrders(aram,trackId,{maxPatterns});if(orders.patterns.some(p=>p.suppressed))throw Error('Untranslated music channel suppression');
  const states=Array.from({length:8},()=>({})),patterns=[],entries=new Map(),commands=new Map(),events=[];let startTick=0;
  for(const [patternIndex,pattern]of orders.patterns.entries()){
   const lead=decodeSpcChannel(aram,pattern.channels[0],{maxEvents:4096,state:states[0],startTick,globalCommands:[],percussion:true});
   if(!lead.ended||lead.unsupported||!lead.events.length)throw Error('Untranslated variable-theme lead');
-  const endTick=lead.events.at(-1).tick+lead.events.at(-1).length;if(endTick<=startTick)throw Error('Empty city pattern');
+  const endTick=lead.events.at(-1).tick+lead.events.at(-1).length;if(endTick<=startTick)throw Error('Empty music pattern');
   patterns.push({pattern:pattern.pattern,order:pattern.address,startTick,endTick,activeMask:pattern.channels.reduce((mask,p,ch)=>mask|((p>>>8)?1<<ch:0),0)});
   for(let channel=0;channel<8;channel++){
    if(!pattern.channels[channel])continue;const global=[];
@@ -33,8 +33,8 @@ export function planVariableCityTrack(aram,trackId,{maxPatterns=trackId===6?12:3
  }
  const seen=new Map();let period=null;
  for(let i=0;i<patterns.length;i++){const address=patterns[i].order;if(seen.has(address)){period=i-seen.get(address);break;}seen.set(address,i);}
- if(!period||patterns.length<period*2)throw Error('Complete repeated city order cycle required');
- const loop={startTick:patterns[patterns.length-period].startTick,endTick:startTick},tempos=new Uint8Array(startTick),masters=new Uint8Array(startTick),globalState=new Uint16Array(startTick*4),globals=createSpcGlobals(),current=Array(8).fill(null),voices=Array(8).fill(null),instruments=Array(8).fill(0),volumes=Array.from({length:8},()=>({...createSpcGlobals(),masterQ8:255*256}));
+ if(finite?!orders.ended:(!period||patterns.length<period*2))throw Error(finite?'Complete finite order list required':'Complete repeated city order cycle required');
+ const loop=finite?null:{startTick:patterns[patterns.length-period].startTick,endTick:startTick},tempos=new Uint8Array(startTick),masters=new Uint8Array(startTick),globalState=new Uint16Array(startTick*4),globals=createSpcGlobals(),current=Array(8).fill(null),voices=Array(8).fill(null),instruments=Array(8).fill(0),volumes=Array.from({length:8},()=>({...createSpcGlobals(),masterQ8:255*256}));
  const empty=[],noteDirty=new Uint8Array(8);let currentPattern=0;
  for(let tick=0;tick<startTick;tick++){
   while(tick>=patterns[currentPattern].endTick)currentPattern++;const activeMask=patterns[currentPattern].activeMask;
@@ -52,7 +52,9 @@ export function planVariableCityTrack(aram,trackId,{maxPatterns=trackId===6?12:3
    else if(mix.left!==voice.lastMix.left||mix.right!==voice.lastMix.right){voice.mixAutomation.push({tick,left:mix.left,right:mix.right});voice.lastMix=mix;}
   }
  }
- const clock=createSpcClock(tempos,loop);
+ const clock=finite?createSpcFiniteClock(tempos):createSpcClock(tempos,loop);
  for(const e of events){delete e.lastMix;e.seconds=spcClockSeconds(clock,e.tick);e.duration=spcClockSeconds(clock,Math.min(patterns[e.patternIndex].endTick,e.tick+e.length))-e.seconds;e.gateDuration=spcClockSeconds(clock,e.gateEndTick)-e.seconds;}
- return {trackId,events:events.sort((a,b)=>a.tick-b.tick||a.channel-b.channel),patterns,loop,clock,tempos,masters,globalState,duration:spcClockSeconds(clock,startTick),globalCommands:[...commands.values()].flat().sort((a,b)=>a.tick-b.tick||a.channel-b.channel)};
+ return {trackId,finite,events:events.sort((a,b)=>a.tick-b.tick||a.channel-b.channel),patterns,loop,clock,tempos,masters,globalState,duration:spcClockSeconds(clock,startTick),globalCommands:[...commands.values()].flat().sort((a,b)=>a.tick-b.tick||a.channel-b.channel)};
 }
+
+export function planOriginalEndingTrack(aram,trackId){return planVariableCityTrack(aram,trackId,{maxPatterns:32,finite:true});}

@@ -1,0 +1,195 @@
+{
+  "version": "0.2.49",
+  "nodeTests": 530,
+  "originalActiveLogicalTicks": 792,
+  "originalTerminalTicks": 2,
+  "originalNoteSnapshots": 133,
+  "originalTimerPulses": 7768,
+  "browser": {
+    "originalLogicalTicks": 792,
+    "originalNoteSnapshots": 133,
+    "originalTimerPulses": 7768,
+    "scope": "Original SPC command/register timing plus native dry Web Audio PCM; echo/FIR/noise/absolute startup phase and full DSP waveform not matched.",
+    "pcm": [
+      {
+        "id": 17,
+        "events": 59,
+        "duration": 7.6080000000000005,
+        "finite": true,
+        "energy": 773.9338992850462,
+        "peak": 0.2385183721780777,
+        "tail": 0,
+        "voiceSchedule": true
+      },
+      {
+        "id": 18,
+        "events": 74,
+        "duration": 7.928,
+        "finite": true,
+        "energy": 1008.8775984663135,
+        "peak": 0.3110351264476776,
+        "tail": 0,
+        "voiceSchedule": true
+      }
+    ],
+    "mutedPCM": true,
+    "liveVictory": {
+      "rms": 0.01873242720871994,
+      "state": "running",
+      "scheduled": 16
+    },
+    "liveFailure": {
+      "rms": 0.021478217781323843,
+      "state": "running",
+      "scheduled": 14
+    },
+    "finiteLiveStop": {
+      "track": 17,
+      "events": 59,
+      "cycles": 0,
+      "timer": null,
+      "starts": 1
+    },
+    "closeResumesCity": true,
+    "earlyCloseCancelsEnding": true,
+    "separateToggles": true,
+    "sessionGestureResumeWithoutReplay": true,
+    "mobileTouch": true,
+    "errors": []
+  },
+  "cityThemeRegression": {
+    "pcm": [
+      {
+        "id": 2,
+        "renderedSeconds": 12,
+        "events": 1120,
+        "duration": 98.816,
+        "finite": true,
+        "energies": [
+          20.657627281418492,
+          391.31527817773434,
+          406.119464401765
+        ]
+      },
+      {
+        "id": 3,
+        "renderedSeconds": 12,
+        "events": 1801,
+        "duration": 115.678,
+        "finite": true,
+        "energies": [
+          13.467184368280034,
+          237.70011971009217,
+          243.24274317604315
+        ]
+      },
+      {
+        "id": 4,
+        "renderedSeconds": 12,
+        "events": 1375,
+        "duration": 140.172,
+        "finite": true,
+        "energies": [
+          0.93902797266415,
+          16.898809713047605,
+          56.65098133283161
+        ]
+      },
+      {
+        "id": 5,
+        "renderedSeconds": 12,
+        "events": 1636,
+        "duration": 99.774,
+        "finite": true,
+        "energies": [
+          8.996731620205992,
+          214.4694424349914,
+          228.31406030031246
+        ]
+      },
+      {
+        "id": 6,
+        "renderedSeconds": 36,
+        "events": 3624,
+        "duration": 241.762,
+        "finite": true,
+        "energies": [
+          16.89357396973334,
+          127.99370358317607,
+          349.74921379095946,
+          45.38154171081684
+        ]
+      }
+    ],
+    "loops": [
+      {
+        "id": 2,
+        "cycles": 3,
+        "firstLoop": true,
+        "voiceAndMixSchedule": true
+      },
+      {
+        "id": 3,
+        "cycles": 3,
+        "firstLoop": true,
+        "voiceAndMixSchedule": true
+      },
+      {
+        "id": 4,
+        "cycles": 3,
+        "firstLoop": true,
+        "voiceAndMixSchedule": true
+      },
+      {
+        "id": 5,
+        "cycles": 3,
+        "firstLoop": true,
+        "voiceAndMixSchedule": true
+      },
+      {
+        "id": 6,
+        "cycles": 3,
+        "firstLoop": true,
+        "voiceAndMixSchedule": true
+      }
+    ],
+    "livePCM": {
+      "rms": 0.026034015386421173,
+      "state": "running",
+      "voices": 15,
+      "scheduled": 15
+    },
+    "mutePcm": [
+      542.3709934744513,
+      0
+    ],
+    "cancelled": true,
+    "categoryTracks": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "separateToggles": true,
+    "errors": []
+  },
+  "sources": {
+    "src/app.js": "d926419e30ed8f2f5c0092890d9f34197b37d9c350d26dd4a26661b95fce0030",
+    "src/rom-audio.js": "ca73f2ec3aa7b31ff678543892f2bf0bf666d7b53d7295b96b3add9531795dc7",
+    "src/rom-music-clock.js": "924afb620b2729dbb4d138c605fcbb061b39059364192628d1a43f7ce6b97417",
+    "src/rom-track.js": "d80bcd7731197e43e3519427d50ddc2c6237b3c566d401a884ba70df01f5a996",
+    "src/rom-variable-track.js": "3198e18463b6e9ac29afd142c6396fe0a5503562343e13b51ca91e0b7d971616",
+    "src/rom-vibrato.js": "21daf4a0bde66c24d77c0baafb63af44a2d42b80e5aea5dbadf2cefda4c1033b"
+  },
+  "wavCaptures": {
+    "sampleRate": 32000,
+    "channels": 2,
+    "seconds": 11,
+    "format": "pcm_f32le",
+    "fullDecode": true
+  },
+  "screenshotsInspected": true,
+  "fullPortComplete": false
+}

@@ -20,6 +20,9 @@ export function createSpcClock(tempos,loop){
  if(!loop||loop.endTick!==end||loop.startTick>=end)throw Error('A complete SPC loop is required');
  const initial=base.phases[end];return {...base,tempos:Uint8Array.from(tempos),loop:{...loop},prefixes:new Map(),loopPhases:[initial],loopPulses:[0],seen:new Map([[initial,0]]),cycle:null};
 }
+// An order-list zero terminates music (CODE_1453 -> CODE_13AD), rather than
+// restarting the last pattern. Keep its final phase for the exact end time.
+export function createSpcFiniteClock(tempos){if(!tempos.length)throw Error('Empty SPC music');return {...segment(tempos,0),tempos:Uint8Array.from(tempos),loop:null};}
 function prefix(clock,phase){let p=clock.prefixes.get(phase);if(!p){p=segment(clock.tempos.subarray(clock.loop.startTick,clock.loop.endTick),phase);clock.prefixes.set(phase,p);}return p;}
 function boundary(clock,n){
  while(clock.loopPhases.length<=n&&!clock.cycle){const i=clock.loopPhases.length-1,p=prefix(clock,clock.loopPhases[i]),last=p.phases.at(-1),next=i+1;clock.loopPhases.push(last);clock.loopPulses.push(clock.loopPulses[i]+p.pulses.at(-1));if(clock.seen.has(last))clock.cycle={start:clock.seen.get(last),end:next};else clock.seen.set(last,next);}
@@ -31,6 +34,7 @@ function boundary(clock,n){
 export function spcClockPosition(clock,tick){
  if(!Number.isSafeInteger(tick)||tick<0)throw Error('Invalid SPC tick');const end=clock.tempos.length;
  if(tick<end)return {pulses:clock.pulses[tick],phase:clock.phases[tick],tempo:clock.tempos[tick]};
+ if(!clock.loop){if(tick!==end)throw Error('SPC tick beyond finite music');return {pulses:clock.pulses[end],phase:clock.phases[end],tempo:0};}
  const delta=tick-end,length=clock.loop.endTick-clock.loop.startTick,b=boundary(clock,Math.floor(delta/length)),i=delta%length,p=prefix(clock,b.phase);
  return {pulses:clock.pulses[end]+b.pulses+p.pulses[i],phase:p.phases[i],tempo:clock.tempos[clock.loop.startTick+i]};
 }
