@@ -1,3 +1,4 @@
+import {nativeWindowPixels} from './native-window-pixels.js?v=native-windows-50';
 import {utilityImagePath} from './utility-art.js?v=health-care-34';
 import {compactEmergencySprite} from './emergency.js?v=emergency-1';
 import {civicForId,civicBounds} from './civic.js?v=health-care-34';
@@ -37,11 +38,12 @@ export class WindowLights{
  mask(city,z,atlas){
   const custom=civicForId(z.id);if(custom&&[961,967,972,970,990].includes(z.id))return null;const b=custom?civicBounds(z):footprint(city,z);if(!b)return null;
   const w=b.width*8,h=custom?.artHeight||b.height*8,key=custom?'civic:'+z.id+':'+w+':'+h:b.width+','+b.height+':'+Array.from({length:b.width*b.height},(_,n)=>city.id(b.x+n%b.width,b.y+Math.floor(n/b.width))).join(',');let mask=this.masks.get(key);
-  if(!mask){const canvas=document.createElement('canvas');canvas.width=w;canvas.height=h;const ctx=canvas.getContext('2d',{willReadFrequently:true});ctx.imageSmoothingEnabled=false;
+  if(!mask){let pixels=!custom?nativeWindowPixels(city,b,atlas):null;if(!pixels){const canvas=document.createElement('canvas');canvas.width=w;canvas.height=h;const ctx=canvas.getContext('2d',{willReadFrequently:true});ctx.imageSmoothingEnabled=false;
    if(custom){const im=custom.nativeTool&&custom.sprite!==60?compactEmergencySprite(city,z.id,atlas):this.art[custom.sprite??custom.tool-30];if(!im||(!(im instanceof HTMLCanvasElement)&&(!im.complete||!im.naturalWidth)))return null;ctx.drawImage(im,0,0,w,h);}
    else{if(!atlas)return null;for(let yy=0;yy<b.height;yy++)for(let xx=0;xx<b.width;xx++){const id=city.id(b.x+xx,b.y+yy);ctx.drawImage(atlas,id%32*8,(id>>5)*8,8,8,xx*8,yy*8,8,8);}}
-   mask=extractWindowPixels(ctx.getImageData(0,0,w,h).data,w,h,{allowBright:!!custom||z.type===7});
-   if(!custom&&z.type===8){const data=ctx.getImageData(0,0,w,h).data;mask=[];for(const yy of [16,18])for(let xx=2;xx<w-2;xx++){if(yy===16&&xx>=8&&xx<=12||yy===18&&xx>=8&&xx<=15)continue;const at=(yy*w+xx)*4;if(data[at]>115&&data[at+1]>120&&data[at+2]>135)mask.push({kind:'window',pixels:[{x:xx,y:yy}]});}}
+   pixels=ctx.getImageData(0,0,w,h);}
+   mask=extractWindowPixels(pixels.data,w,h,{allowBright:!!custom||z.type===7});
+   if(!custom&&z.type===8){const data=pixels.data;mask=[];for(const yy of [16,18])for(let xx=2;xx<w-2;xx++){if(yy===16&&xx>=8&&xx<=12||yy===18&&xx>=8&&xx<=15)continue;const at=(yy*w+xx)*4;if(data[at]>115&&data[at+1]>120&&data[at+2]>135)mask.push({kind:'window',pixels:[{x:xx,y:yy}]});}}
    if(!custom&&z.id===0x1ef){mask=[];for(let yy=10;yy<=20;yy+=2){const left=yy/2-3;for(let xx=left;xx<left+14;xx+=3)mask.push({kind:'window',pixels:[{x:xx,y:yy},{x:Math.min(left+13,xx+1),y:yy}]});}}this.masks.set(key,mask);if(this.masks.size>512)this.masks.delete(this.masks.keys().next().value);
   }return {x:b.x*8,y:b.y*8,windows:mask};
  }

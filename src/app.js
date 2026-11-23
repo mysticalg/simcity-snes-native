@@ -23,7 +23,7 @@ import {drawUtilityFlows,pipeFlowText} from './utility-flows.js?v=health-care-34
 import {createMegacityTerrain} from './megacity.js?v=megacity-1';
 import {drawUnderground,pipeServiceArea} from './underground.js?v=health-care-34';
 import {diagnoseGrowth,growthAdviceHTML} from './growth-advisor.js?v=health-care-34';
-import {WeatherFX,DEFAULT_WEATHER_FX} from './weather-fx.js?v=photo-glows-47';
+import {WeatherFX,DEFAULT_WEATHER_FX} from './weather-fx.js?v=native-windows-50';
 import {drawWindArrows,windDescription} from './climate.js?v=weather-1';
 import {socialFields} from './social-fields.js?v=health-care-34';
 const weatherRenderer=new WeatherFX();let weatherSettings={...DEFAULT_WEATHER_FX,quality:matchMedia('(max-width:900px)').matches?'low':'high'};weatherRenderer.ready.catch(()=>{});
