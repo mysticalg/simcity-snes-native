@@ -1,4 +1,4 @@
-import {civicForId,waterNetwork,utilityPipeStatus,pumpStatus} from './civic.js?v=utilities-22';
+import {civicForId,waterNetwork,utilityPipeStatus,pumpStatus} from './civic.js?v=parks-23';
 const waterId=id=>id>=1&&id<20;
 export function sewageServices(city){
  const nodes=waterNetwork(city).nodes,labels=new Int32Array(city.map.length).fill(-1),groups=[];

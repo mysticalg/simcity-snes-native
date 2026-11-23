@@ -1,7 +1,8 @@
-import {utilityImagePath} from './utility-art.js?v=utilities-22';
+import {drawParkCoverage} from './parks.js?v=parks-23';
+import {utilityImagePath} from './utility-art.js?v=parks-23';
 import {visualFrameBudget} from './visual-clock.js';
 import {restartCity,saveRestartBackup,readRestartBackup} from './city-restart.js?v=city-restart-1';
-import {facilityMetersHTML} from './facility-meters.js?v=utilities-22';
+import {facilityMetersHTML} from './facility-meters.js?v=parks-23';
 import {utilityInspectionHTML} from './utility-inspection.js?v=utilities-22';
 import {CityLayerCache} from './city-layer-cache.js?v=render-perf-1';
 const cityLayerCache=new CityLayerCache();
@@ -21,26 +22,26 @@ import {setupSession} from './session.js?v=budget-session-1';
 import {employmentIncome} from './employment.js?v=megacity-1';
 import {previewBudget,budgetBreakdownHTML} from './budget-view.js?v=water-capacity-1';
 import {installBuildingOperations,buildingAt,buildingSummary,drawDisabledBuildings} from './building-operations.js?v=utilities-22';
-import {installFinancialSafety,financialStatus} from './financial-safety.js?v=waste-utilities-1';
+import {installFinancialSafety,financialStatus} from './financial-safety.js?v=parks-23';
 import {drawRailFleet,trainVehicles,railHover} from './rail-fleet.js?v=megacity-1';
 import {BuildingEffects} from './building-effects.js?v=water-capacity-1';
 const buildingEffects=new BuildingEffects();
 import {drawSeaPollution} from './sewage.js?v=utilities-22';
-import {setupBuildPalette} from './build-palette.js?v=utilities-22';
+import {setupBuildPalette} from './build-palette.js?v=parks-23';
 import {drawTerrainShore} from './terrain-tools.js?v=megacity-1';
 import {drawWaterWarnings,unwateredBuildings} from './water-warnings.js?v=civic-revisions-1';
 import {setupRegions} from './region-ui.js?v=water-capacity-1';
-import {CIVIC_TOOLS,civicServices} from './civic.js?v=utilities-22';
-import {drawCivic,civicReport,hasAnimatedCivic} from './civic-ui.js?v=utilities-22';
+import {CIVIC_TOOLS,civicServices} from './civic.js?v=parks-23';
+import {drawCivic,civicReport,hasAnimatedCivic} from './civic-ui.js?v=parks-23';
 import {HISTORY_LABELS} from './rom-history.js?v=history-3';
 import {AnimatedCityAtlas,cityAnimationState,advanceCityAnimation} from './city-graphics.js?v=season-1';
-import {drawPowerWarnings,unpoweredBuildings} from './power-warnings.js?v=utilities-22';
+import {drawPowerWarnings,unpoweredBuildings} from './power-warnings.js?v=parks-23';
 import {strokeCells,shapeCells,zoneBlockLayout} from './build-stroke.js?v=blocks-1';
 import {OVERLAYS,overlayColor} from './map-overlays.js?v=water-capacity-1';
 import {cityPaletteForMonth,romSeasonPalette} from './rom-render.js?v=season-1';
 import {RomSampleAudio} from './rom-audio.js?v=ufo-audio-1';
 const romAudio=new RomSampleAudio();
-import{City,SCENARIOS,TOOLS,W as DEFAULT_W,H as DEFAULT_H,clamp}from'./simulation.js?v=utilities-22';
+import{City,SCENARIOS,TOOLS,W as DEFAULT_W,H as DEFAULT_H,clamp}from'./simulation.js?v=parks-23';
 installBuildingOperations(City);
 installFinancialSafety(City);
 const $=s=>document.querySelector(s),canvas=$('#game'),ctx=canvas.getContext('2d',{alpha:false});ctx.imageSmoothingEnabled=false;const cityLayer=document.createElement('canvas');cityLayer.width=960;cityLayer.height=800;const cityLayerContext=cityLayer.getContext('2d');cityLayerContext.imageSmoothingEnabled=false;
@@ -126,7 +127,7 @@ if(city.helicopter.active){const h=city.helicopter;ctx.drawImage(helicopterImage
 if(city.plane.active){const s=city.plane,attributes=[0x38,0x78,0x78,0xf8,0xb8,0xb8,0x38,0x38][s.direction&7],flipX=!!(attributes&64),flipY=!!(attributes&128);ctx.save();ctx.translate(s.x*8+s.offsetX-16+(flipX?32:0),s.y*8+s.offsetY-16+(flipY?32:0));ctx.scale(flipX?-1:1,flipY?-1:1);ctx.drawImage(planeImage,s.frame*32,0,32,32,0,0,32,32);ctx.restore();}
 if(city.monster.active)ctx.drawImage(monsterImage,(city.monster.frame/2)*32,city.monster.surface?32:0,32,32,city.monster.x*8+city.monster.offsetX-16,city.monster.y*8+city.monster.offsetY-8,32,32);
 if(city.tornado.active)ctx.drawImage(tornadoImage,city.tornado.frame*32,city.tornado.surface*32,32,32,city.tornado.x*8+city.tornado.offsetX-24,city.tornado.y*8+city.tornado.offsetY-16,32,32);
-drawRailFleet(ctx,trainImage,city);
+drawRailFleet(ctx,trainImage,city);if(mapView==='none'&&CIVIC_TOOLS.find(b=>b.tool===selected)?.kind==='park'){const z=city.zones.find(z=>z.type===selected&&cursor.x===z.x&&cursor.y===z.y);if(z)drawParkCoverage(ctx,city,z);}
 if(stroke){stroke.plan=planStroke();ctx.fillStyle=stroke.plan.ok?'#55d9ff66':'#ff333399';ctx.strokeStyle=stroke.plan.ok?'#8beaff':'#ff6666';ctx.lineWidth=.5;const occupied=new Set();for(const c of ((fillAvailable||(stroke.tool===2&&replaceRoadOnly))?stroke.plan.anchors:strokePreview())){
  const tool=c.tool??stroke.tool,footprint=tool>4?city.footprint(tool,c.x,c.y):[c];if(footprint.some(p=>occupied.has(p.y*W+p.x)))continue;
  for(const p of footprint){if(p.x<0||p.x>=W||p.y<0||p.y>=H)continue;occupied.add(p.y*W+p.x);ctx.fillRect(p.x*8,p.y*8,8,8);ctx.strokeRect(p.x*8+.25,p.y*8+.25,7.5,7.5);}

@@ -46,6 +46,50 @@
       "runtime": "solar-v1.webp",
       "runtimeSHA256": "00505aeb9191cad635f91e8ee8f347889e5e7984b6906402672e29bd031981fb",
       "bytes": 82604
+    },
+    {
+      "name": "garden",
+      "sprite": 32,
+      "master": "garden-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "masterSHA256": "5110c53c5867f6df9604574f34149fb8f7019097e0d612a7f1a1a2c858bf1584",
+      "runtime": "garden-v1.webp",
+      "runtimeSHA256": "8d592f90205c315e16a297f0fc1ceb22429de1b2ea1d74a384da1723be9c415e",
+      "bytes": 96804
+    },
+    {
+      "name": "park",
+      "sprite": 33,
+      "master": "park-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "masterSHA256": "28c2f1bff109bd405533f64a25a6a9d94d0064d91dd9f0541608be2ea1f32490",
+      "runtime": "park-v1.webp",
+      "runtimeSHA256": "4ddc380c96acd0d0ec3a641a2066536a45d5c375fe6370d56e8f1e70d0e705e4",
+      "bytes": 91132
+    },
+    {
+      "name": "city-park",
+      "sprite": 34,
+      "master": "city-park-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "masterSHA256": "af70338a8fd4d72d002438f5593bd46f72ebfe128f982041e399d693c03d39ea",
+      "runtime": "city-park-v1.webp",
+      "runtimeSHA256": "75cc44dc77a1c82358e250498001137391933ccb4904f2ebee473a43568217fe",
+      "bytes": 101452
+    },
+    {
+      "name": "plaza",
+      "sprite": 35,
+      "master": "plaza-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "masterSHA256": "d6a91d0549d1ff2e8492d0bd5f557c6946cc27ec54fc2f35e6fd79e5794d8a35",
+      "runtime": "plaza-v1.webp",
+      "runtimeSHA256": "d55f2f8e0548eaec369b056a3ec89dd339a730960bcb4b9d85097232f59ff424",
+      "bytes": 90262
     }
   ]
 }

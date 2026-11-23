@@ -6,7 +6,7 @@ This project reverse engineers the USA release of SimCity for Super Nintendo and
 
 Open the [GitHub Pages version](https://mysticalg.github.io/simcity-snes-native/) after deployment, or serve this directory locally with `python -m http.server 5173` and open `http://localhost:5173`.
 
-Latest Turbo update: **v0.2.22** adds a 1×2 water tower, 2×2 pump, triple-output 3×3 heavy pump and 2×2 solar array. Animation speed and bulk-demolition fixes are also live. [Verification notes](research/utilities-v0.2.22.md).
+Latest Turbo update: **v0.2.23** adds four park/plaza sizes with land-value and happiness benefits, and a **$1 trillion** treasury cap. [Verification notes](research/parks-treasury-v0.2.23.md).
 
 ## Current coverage
 

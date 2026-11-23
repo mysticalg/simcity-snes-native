@@ -1,5 +1,5 @@
 import {regionBorderHints,drawRegionBorders,drawRegionThumbnail,borderHintText} from './region-connections.js?v=megacity-1';
-import {civicServices} from './civic.js?v=utilities-22';
+import {civicServices} from './civic.js?v=parks-23';
 import {createRegion,regionStore,regionExchange} from './regions.js?v=utilities-22';
 export function setupRegions({getCity,setCity,City,build,flags,terrain,modal,paint}){
  let region=null,slot=null,saved=new Map(),busy=false,showConnections=true;const disconnect=()=>{if(getCity()){getCity().regionalProvider=null;getCity().regionalState=null;}};

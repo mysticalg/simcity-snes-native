@@ -1,4 +1,5 @@
-import {civicServices,civicForId,civicRoadEntry,pumpStatus,educationEffects} from './civic.js?v=utilities-22';
+import {parkServices} from './parks.js?v=parks-23';
+import {civicServices,civicForId,civicRoadEntry,pumpStatus,educationEffects} from './civic.js?v=parks-23';
 import {windPower} from './climate.js?v=weather-1';
 import {sewageServices} from './sewage.js?v=utilities-22';
 import {collectGarbage,monthlyGarbageDemand} from './landfill.js?v=processing-1';
@@ -21,6 +22,7 @@ export function processingMeters(city,z){
   const s=pumpStatus(city,z),network=civicServices(city).waterNetworks.find(g=>g.cells.includes(z.i));status=s.reason;add('Water network demand',network?.requested||0,network?.capacity||custom.capacity,'/month');if(network?.shortfall)notes.push('Supply shortage '+fmt(network.shortfall)+'/month · add working pumps to this network');notes.push('Shared network · this pump adds '+fmt(s.working?custom.capacity:0)+'/month');
  }else if([13,14,33,41,62].includes(z.type)){
   add('Power grid load',city.powerUsed,city.powerCapacity,'tiles');notes.push('Shared grid · output contribution '+fmt(off?0:z.type===13?2000:z.type===14?700:z.id===972?windPower(city):custom?.capacity));status=off?'Switched off':city.powerOverloaded?'Grid overloaded':'Generating';
+ }else if(custom?.kind==='park'){const p=parkServices(city).facilities.find(p=>p.i===z.i);status=p.reason;add('Local land-value benefit',p.operating?custom.landBonus:0,custom.landBonus,'points',{fullIsNormal:true});add('Local happiness benefit',p.operating?custom.happiness:0,custom.happiness,'points',{fullIsNormal:true});add('City happiness',city.civic.happiness||50,100,'%',{fullIsNormal:true});notes.push('Coverage '+custom.radius+' tiles from the plot edge · benefit tapers with distance','No electricity or water required · road access required');
  }else if(z.type===5){
   const h=employmentIncome(city).homes.get(z.i);add('Residents',h?.residents||0,(z.id>=0x376?48:40)*20,'people',{fullIsNormal:true});add('Employed residents',h?.employed||0,h?.workers||0,'workers',{fullIsNormal:true});status=h?.workers?(h.employed===h.workers?'All workers employed':'Residents need jobs'):'Vacant';
  }else if(z.type===6||z.type===7){

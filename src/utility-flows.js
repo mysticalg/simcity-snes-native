@@ -1,4 +1,4 @@
-import {waterNetwork,civicServices,civicForId,pumpStatus,utilityPipeStatus} from './civic.js?v=utilities-22';
+import {waterNetwork,civicServices,civicForId,pumpStatus,utilityPipeStatus} from './civic.js?v=parks-23';
 import {sewageServices} from './sewage.js?v=utilities-22';
 const cache=new WeakMap(),neighbors=(i,w,n)=>[i>=w?i-w:-1,i%w<w-1?i+1:-1,i+w<n?i+w:-1,i%w?i-1:-1].filter(i=>i>=0);
 function forest(nodes,seeds,width){const parent=new Int32Array(nodes.length).fill(-1),root=new Int32Array(nodes.length).fill(-1),q=[];for(const seed of seeds)if(nodes[seed.i]&&parent[seed.i]<0){parent[seed.i]=seed.i;root[seed.i]=seed.i;q.push(seed.i);}for(let n=0;n<q.length;n++)for(const i of neighbors(q[n],width,nodes.length))if(nodes[i]&&parent[i]<0){parent[i]=q[n];root[i]=root[q[n]];q.push(i);}return {parent,root};}

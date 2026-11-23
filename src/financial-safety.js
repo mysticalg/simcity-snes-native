@@ -1,9 +1,10 @@
+import {TREASURY_CAP} from './treasury.js?v=parks-23';
 // Player-requested financial safety stop; separate from ROM simulation rules.
 export function financialStatus(city){
  const pending=city.pendingBudget;let b;
  try{city.pendingBudget=null;b=city.budget(false);}finally{city.pendingBudget=pending;}
  const annual=b.income-b.desired.reduce((sum,n)=>sum+n,0)-b.payment-b.civicExpense;
- return {annual,canResume:city.infiniteMoney||city.funds>0||annual>=0,loanAvailable:!city.infiniteMoney&&city.loans.length<3&&city.funds+1000<=999999};
+ return {annual,canResume:city.infiniteMoney||city.funds>0||annual>=0,loanAvailable:!city.infiniteMoney&&city.loans.length<3&&city.funds+1000<=TREASURY_CAP};
 }
 export function installFinancialSafety(City){
  if(City.prototype.checkFinancialEmergency)return;
