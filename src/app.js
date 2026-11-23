@@ -21,7 +21,7 @@ import {OVERLAYS,overlayColor} from './map-overlays.js?v=civic-revisions-1';
 import {cityPaletteForMonth,romSeasonPalette} from './rom-render.js?v=season-1';
 import {RomSampleAudio} from './rom-audio.js?v=aircraft-1';
 const romAudio=new RomSampleAudio();
-import{City,SCENARIOS,TOOLS,W,H,clamp}from'./simulation.js?v=budget-session-1';
+import{City,SCENARIOS,TOOLS,W,H,clamp}from'./simulation.js?v=warnings-1';
 installBuildingOperations(City);
 installFinancialSafety(City);
 const $=s=>document.querySelector(s),canvas=$('#game'),ctx=canvas.getContext('2d',{alpha:false});ctx.imageSmoothingEnabled=false;
@@ -216,7 +216,7 @@ function overlayLegend(){
 }
 
 
-function refreshCityWarning(){const message=city.notices[0]||'',warning=$('#cityWarning');warning.hidden=!showWarnings||!message||city.noticeIsDismissed(message);$('#cityWarningText').textContent=message;if(warning.hidden){clearTimeout(warningTimer);warningTimer=null;warningToken=null;return;}if(warningToken?.city===city&&warningToken.year===city.year&&warningToken.message===message)return;clearTimeout(warningTimer);const token={city,year:city.year,message};warningToken=token;warningTimer=setTimeout(()=>{if(warningToken!==token)return;if(city===token.city&&city.year===token.year){city.dismissNotice(token.message);warning.hidden=true;}warningToken=null;warningTimer=null;},3000);}
+function refreshCityWarning(){const message=city.notices[0]||'',warning=$('#cityWarning');warning.hidden=!showWarnings||!message||city.noticeIsDismissed(message);$('#cityWarningText').textContent=message;if(warning.hidden){clearTimeout(warningTimer);warningTimer=null;warningToken=null;return;}if(warningToken?.city===city&&warningToken.message===message)return;clearTimeout(warningTimer);const token={city,message};warningToken=token;warningTimer=setTimeout(()=>{if(warningToken!==token)return;if(city===token.city){city.dismissNotice(token.message);warning.hidden=true;}warningToken=null;warningTimer=null;},3000);}
 
 
 function panBlueprintAtEdge(dt){

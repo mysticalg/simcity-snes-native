@@ -73,9 +73,9 @@ export class City {
  id(x,y){return x>=0&&x<W&&y>=0&&y<H?this.map[y*W+x]&1023:0;}
  flag(i){return this.flags[this.map[i]&1023]||0;}
  neighbors(i){const x=i%W,y=Math.floor(i/W);return [x>0?i-1:-1,y>0?i-W:-1,x<W-1?i+1:-1,y<H-1?i+W:-1].filter(n=>n>=0);}
- dismissNotice(text){this.dismissedNotices=this.dismissedNotices.filter(n=>n.year===this.year);if(text&&!this.noticeIsDismissed(text))this.dismissedNotices.push({text,year:this.year});}
+ dismissNotice(text){this.notices=this.notices.filter(n=>n!==text);this.dismissedNotices=this.dismissedNotices.filter(n=>n.year===this.year);if(text&&!this.noticeIsDismissed(text))this.dismissedNotices.push({text,year:this.year});}
  noticeIsDismissed(text){return this.dismissedNotices.some(n=>n.text===text&&n.year===this.year);}
- message(text){this.noticeSerial=(this.noticeSerial||0)+1;this.notices.unshift(text);this.notices.length=Math.min(8,this.notices.length);}
+ message(text){if(this.notices[0]===text)return;this.notices=this.notices.filter(n=>n!==text);this.noticeSerial=(this.noticeSerial||0)+1;this.notices.unshift(text);this.notices.length=Math.min(8,this.notices.length);}
  classify(id){
   const custom=civicForId(id);if(custom)return custom.tool;
   if(id>=0x376&&id<0x39a)return 5;
