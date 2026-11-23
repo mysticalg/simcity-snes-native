@@ -1,4 +1,4 @@
-import {drawServicePlacement,placementCoverageLegend,placementServiceCoverage} from './service-placement.js?v=education-traffic-27';
+import {drawServicePlacement,placementCoverageLegend,placementServiceCoverage} from './service-placement.js?v=police-area-28';
 import {drawAviation,aviationSummary} from './aviation.js?v=education-traffic-27';
 import {drawParkCoverage} from './parks.js?v=education-traffic-27';
 import {utilityImagePath} from './utility-art.js?v=education-traffic-27';
@@ -43,7 +43,7 @@ import {OVERLAYS,overlayColor} from './map-overlays.js?v=education-traffic-27';
 import {cityPaletteForMonth,romSeasonPalette} from './rom-render.js?v=season-1';
 import {RomSampleAudio} from './rom-audio.js?v=ufo-audio-1';
 const romAudio=new RomSampleAudio();
-import{City,SCENARIOS,TOOLS,W as DEFAULT_W,H as DEFAULT_H,clamp}from'./simulation.js?v=education-traffic-27';
+import{City,SCENARIOS,TOOLS,W as DEFAULT_W,H as DEFAULT_H,clamp}from'./simulation.js?v=police-area-28';
 installBuildingOperations(City);
 installFinancialSafety(City);
 const $=s=>document.querySelector(s),canvas=$('#game'),ctx=canvas.getContext('2d',{alpha:false});ctx.imageSmoothingEnabled=false;const cityLayer=document.createElement('canvas');cityLayer.width=960;cityLayer.height=800;const cityLayerContext=cityLayer.getContext('2d');cityLayerContext.imageSmoothingEnabled=false;

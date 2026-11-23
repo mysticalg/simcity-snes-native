@@ -1,6 +1,7 @@
+import {expandServiceCoverage} from './police-range.js?v=police-area-28';
 import {educationCoverage} from './education.js?v=education-traffic-27';
 import {CIVIC_TOOLS,civicForId,civicRoadEntry,civicBounds} from './civic.js?v=education-traffic-27';
-import {seedRomServicePlane,expandRomServicePlane} from './rom-services.js';
+import {seedRomServicePlane} from './rom-services.js';
 import {operationalMap,buildingOff} from './building-operations.js?v=education-traffic-27';
 import {emergencyKind,emergencyBounds} from './emergency.js?v=emergency-1';
 import {transportOverlay} from './transport-overlays.js?v=education-traffic-27';
@@ -16,7 +17,7 @@ export function placementServiceCoverage(city,tool){
  const width=city.width||120,height=city.height||100,facilities=city.zones.filter(z=>kind==='police'||kind==='fire'?emergencyKind(z.id)===kind:kind==='landValue'?civicForId(z.id)?.kind==='park'||z.type===15:civicForId(z.id)?.kind===kind);
  let field,max=(kind==='police'||kind==='fire')?255:1000;
  if(kind==='education')field=educationCoverage(city).field;else if(kind==='landValue'){field=city.landValue;max=250;}
- else if(kind==='police'||kind==='fire')field=expandRomServicePlane(seedRomServicePlane(operationalMap(city),city.serviceStrengths[kind==='police'?0:1]*(kind==='police'?city.policeEffectiveness:1),kind,width,height),kind,width,height);
+ else if(kind==='police'||kind==='fire')field=expandServiceCoverage(seedRomServicePlane(operationalMap(city),city.serviceStrengths[kind==='police'?0:1]*(kind==='police'?city.policeEffectiveness:1),kind,width,height),kind,width,height);
  else{field=new Uint16Array(city.map.length);const homes=city.zones.filter(z=>z.type===5).map(z=>({...z,residents:(z.id===0x84?city.adjacentSmallHomeCount(z):city.zonePopulation(z))*20}));
   for(const z of facilities){const b=civicForId(z.id);if(buildingOff(city,z)||!city.power[z.i]||civicRoadEntry(city,z)<0)continue;const radius=b.radius||(kind==='health'?24:z.id===964?12:z.id===965?20:28),load=homes.reduce((n,h)=>n+(Math.abs(h.x-z.x)+Math.abs(h.y-z.y)<radius?h.residents:0),0),factor=Math.min(1,b.capacity/Math.max(1,load));
    for(let y=Math.max(0,z.y-radius);y<=Math.min(height-1,z.y+radius);y++)for(let x=Math.max(0,z.x-radius);x<=Math.min(width-1,z.x+radius);x++){const influence=Math.max(0,1-(Math.abs(x-z.x)+Math.abs(y-z.y))/radius)*factor,i=y*width+x;field[i]=Math.min(1000,field[i]+Math.round(influence*1000));}

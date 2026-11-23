@@ -6,7 +6,9 @@ This project reverse engineers the USA release of SimCity for Super Nintendo and
 
 Open the [GitHub Pages version](https://mysticalg.github.io/simcity-snes-native/) after deployment, or serve this directory locally with `python -m http.server 5173` and open `http://localhost:5173`.
 
-Latest Turbo update: **v0.2.27** expands education, adds park/gift and transport build overlays, and scales airport flights with city growth and congestion. [Verification notes](research/education-traffic-v0.2.27.md).
+Latest Turbo update: **v0.2.28** doubles police service reach on both axes for approximately four times the area, in both actual crime reduction and the build coverage overlay.
+
+Previous update: **v0.2.27** expands education, adds park/gift and transport build overlays, and scales airport flights with city growth and congestion. [Verification notes](research/education-traffic-v0.2.27.md).
 
 ## Current coverage
 
