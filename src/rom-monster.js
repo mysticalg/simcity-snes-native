@@ -1,4 +1,4 @@
-import {damageRomCollisionTile} from './rom-collision.js?v=megacity-1';
+import {damageRomCollisionTile} from './rom-collision.js?v=emergency-1';
 export function createRomMonster(){return {active:false,departing:false,x:0,y:0,targetX:0,targetY:0,offsetX:0,offsetY:0,direction:0,walk:0,frame:0,surface:0};}
 export function startRomMonster(s,targetX,targetY,nextBounded,width=120,height=100){if(s.active)return false;s.x=nextBounded(width-20)+10;s.y=nextBounded(height-10)+5;s.targetX=targetX&65535;s.targetY=targetY&65535;s.active=true;s.departing=false;s.walk=0;s.offsetX=s.offsetY=0;const dy=(s.targetY-s.y)&65535,dx=(s.targetX-s.x)&65535;s.direction=dx>=dy?(s.targetX>=s.x?2:3):(s.targetY>=s.y?1:0);return true;}
 // CODE_00AB92..00ACE8. All source motion/animation fields are bytes.

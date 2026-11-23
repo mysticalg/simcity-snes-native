@@ -1,3 +1,4 @@
+import {compactEmergencyId,emergencyTransport} from './emergency.js?v=emergency-1';
 import {findZoneTransport} from './rom-growth.js?v=residential-1';
 // CODE_038F78/038FAF: allocated<<8 / requested, multiply1000,
 // then read the product at byte offset1. Zero request defaults to1000.
@@ -9,9 +10,9 @@ export function seedRomServicePlane(map,strength,kind,width=120,height=100){
  return field;
 }
 export function addRomServiceCenter(field,map,i,strength,kind,width=120,height=100){
- const id=map[i]&1023,station=kind==='fire'?0x252:0x249,hq=kind==='fire'?0x310:0x307;if(id!==station&&id!==hq)return;
+ const rawId=map[i]&1023,id=compactEmergencyId(rawId),station=kind==='fire'?0x252:0x249,hq=kind==='fire'?0x310:0x307;if(id!==station&&id!==hq)return;
  const x=i%width,y=Math.floor(i/width),w=Math.ceil(width/8);let value=id===hq?(strength*2)&65535:strength;
- if(!(map[i]&0x8000))value>>=1;if(!findZoneTransport(map,x,y,width,height))value>>=1;
+ if(!(map[i]&0x8000))value>>=1;if(!(rawId>=977?emergencyTransport(map,x,y,rawId,width,height):findZoneTransport(map,x,y,width,height)))value>>=1;
  const p=(y>>3)*w+(x>>3);field[p]=(field[p]+value)&65535;
 }
 // CODE_03A14D/03A1CC: neighbor sum wraps; second LSR supplies carry
@@ -24,7 +25,7 @@ export function smoothRomServicePlane(raw,width=120,height=100){
  return field;
 }
 export function expandRomServicePlane(raw,kind,width=120,height=100){const field=smoothRomServicePlane(raw,width,height),w=Math.ceil(width/8);return Uint16Array.from({length:width*height},(_,i)=>Math.min(kind==='fire'?255:65535,field[(Math.floor(i/width)>>3)*w+((i%width)>>3)]));}
-function coverage(map,percent,kind,width,height){const ids=kind==='fire'?[0x252,0x310]:[0x249,0x307],requested=Math.min(9999,map.reduce((n,id)=>n+(ids.includes(id&1023)?100:0),0)),allocated=Math.round(requested*percent/100);return expandRomServicePlane(seedRomServicePlane(map,romServiceFunding(allocated,requested),kind,width,height),kind,width,height);}
+function coverage(map,percent,kind,width,height){const ids=kind==='fire'?[0x252,0x310]:[0x249,0x307],requested=Math.min(9999,map.reduce((n,id)=>n+(ids.includes(compactEmergencyId(id&1023))?100:0),0)),allocated=Math.round(requested*percent/100);return expandRomServicePlane(seedRomServicePlane(map,romServiceFunding(allocated,requested),kind,width,height),kind,width,height);}
 export function romPoliceCoverage(map,percent,width=120,height=100){return coverage(map,percent,'police',width,height);}
 export function romFireCoverage(map,percent,width=120,height=100){return coverage(map,percent,'fire',width,height);}
 // CODE_03A881: coverage selects inclusive random maximum10/3/2/1.

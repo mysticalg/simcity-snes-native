@@ -1,26 +1,27 @@
+import {compactEmergencyId,emergencyBounds,emergencyTransport} from './emergency.js?v=emergency-1';
 import {addRomGrowthRate,decayRomGrowthRate} from './rom-growth-rate.js?v=job-growth-1';
-import {createRomUfo,stepRomUfo,startRomUfoVisit} from './rom-ufo.js?v=megacity-1';
-import {updateLocalHealth} from './social-fields.js?v=waste-utilities-1';
+import {createRomUfo,stepRomUfo,startRomUfoVisit} from './rom-ufo.js?v=emergency-1';
+import {updateLocalHealth} from './social-fields.js?v=emergency-1';
 import {createClimate,advanceClimate,combineAirPollution,windPower} from './climate.js?v=weather-1';
 import {conductivePowerFlags} from './power-conductors.js?v=terrain-1';
 import {createElevation,terrainCheck,plantForest} from './elevation.js?v=megacity-1';
 import {employmentIncome} from './employment.js?v=megacity-1';
-import {buildingOff} from './building-operations.js';
+import {buildingOff} from './building-operations.js?v=emergency-1';
 import {updateRailFleet,advanceRailFleet,trainVehicles} from './rail-fleet.js?v=megacity-1';
-import {updateSewageMonth,sewageServices} from './sewage.js?v=waste-utilities-1';
-import {createRomPlane,spawnRomPlane,stepRomPlane} from './rom-plane.js?v=megacity-1';
-import {createRomHelicopter,spawnRomHelicopter,stepRomHelicopter} from './rom-helicopter.js?v=megacity-1';
+import {updateSewageMonth,sewageServices} from './sewage.js?v=emergency-1';
+import {createRomPlane,spawnRomPlane,stepRomPlane} from './rom-plane.js?v=emergency-1';
+import {createRomHelicopter,spawnRomHelicopter,stepRomHelicopter} from './rom-helicopter.js?v=emergency-1';
 import {installTerrainTools,reshapeTerrain} from './terrain-tools.js?v=megacity-1';
-import {createRomMonster,startRomMonster,stepRomMonster,monsterPollutionTarget} from './rom-monster.js?v=megacity-1';
-import {CIVIC_TOOLS,installCivicTools,civicForId,civicBounds,civicServices,civicAnnualCost,updateCivicMonth,educationEffects} from './civic.js?v=waste-utilities-1';
-import {createRomTornado,startRomTornado,stepRomTornado} from './rom-tornado.js?v=megacity-1';
+import {createRomMonster,startRomMonster,stepRomMonster,monsterPollutionTarget} from './rom-monster.js?v=emergency-1';
+import {CIVIC_TOOLS,installCivicTools,civicForId,civicBounds,civicServices,civicAnnualCost,updateCivicMonth,educationEffects} from './civic.js?v=emergency-1';
+import {createRomTornado,startRomTornado,stepRomTornado} from './rom-tornado.js?v=emergency-1';
 import {createRomSeason,changeRomSeason,advanceRomSeason} from './rom-render.js?v=season-1';
 import {romPopulation} from './rom-population.js';
 import {selectRomRandomDisaster} from './rom-random-disaster.js';
 import {romFacilityDemand,placeRomFacility,updateRomFacility} from './rom-facilities.js?v=residential-1';
 import {createRomTrain,spawnRomTrain,stepRomTrain} from './rom-train.js';
 import {createRomShip,spawnRomShip,stepRomShip} from './rom-ship.js?v=megacity-1';
-import {applyRomShipCollision,applyRomTrainCollision,burnRomZone} from './rom-collision.js?v=megacity-1';
+import {applyRomShipCollision,applyRomTrainCollision,burnRomZone} from './rom-collision.js?v=emergency-1';
 import {recordRomHistory} from './rom-history.js';
 import {romCommercialRate,commercialLocalScore,industrialLocalScore} from './rom-commercial.js?v=megacity-1';
 import {romCityProblems,romCityScore,pollRomProblems,pollRomApproval,romAssessedValue} from './rom-evaluation.js?v=facilities-1';
@@ -29,7 +30,7 @@ import {traceRomPower} from './rom-power.js?v=regions-1';
 import {romFieldSchedule} from './rom-schedule.js';
 import {romGiftEffects,nextCoreMilestone,enqueueRomGift} from './rom-gifts.js?v=history-3';
 import {networkCrossing,hasRoadLayer} from './rom-networks.js?v=megacity-1';
-import {romPoliceCoverage,romFireCoverage,fireBurnoutMaximum,romServiceFunding,seedRomServicePlane,expandRomServicePlane,addRomServiceCenter} from './rom-services.js?v=residential-1';
+import {romPoliceCoverage,romFireCoverage,fireBurnoutMaximum,romServiceFunding,seedRomServicePlane,expandRomServicePlane,addRomServiceCenter} from './rom-services.js?v=emergency-1';
 import {romDensityField} from './rom-density.js';
 import {romCrimeValue,meanRomCrime} from './rom-crime.js';
 import {romPollutionField} from './rom-pollution.js';
@@ -134,8 +135,8 @@ export class City {
    const id=this.map[i]&1023,type=this.classify(id);
    // CODE_038297 dispatches only entries whose ROM tile flag has bit 0 set.
    if(!(this.flags[id]&1))continue;
-   if(id===0x249||id===0x307)this.counts[8]++;
-   if(id===0x252||id===0x310)this.counts[9]++;
+   if([0x249,0x307].includes(compactEmergencyId(id)))this.counts[8]++;
+   if([0x252,0x310].includes(compactEmergencyId(id)))this.counts[9]++;
    if(id===0x25c||id===0x36b)this.counts[10]++;
    if(id===0x26c)this.counts[11]++;
    if(id===0x2a5)this.counts[12]++;
@@ -260,9 +261,9 @@ export class City {
  }
  policeEffectAt(x,y){
   x=clamp(Math.floor(x),0,this.width-1);y=clamp(Math.floor(y),0,this.height-1);const i=y*this.width+x;
-  const station=this.zones.find(z=>(z.id===0x249||z.id===0x307)&&Math.abs(z.x-x)<=1&&Math.abs(z.y-y)<=1);
+  const station=this.zones.find(z=>[0x249,0x307].includes(compactEmergencyId(z.id))&&(()=>{const b=emergencyBounds(z);return x>=b.x&&x<b.x+b.width&&y>=b.y&&y<b.y+b.height;})());
   let nextUpdate=1;while(nextUpdate<16&&!romFieldSchedule((this.baseStep+nextUpdate)&65535,this.speed).crime)nextUpdate++;
-  return {crime:this.crime[i],coverage:this.policeCoverage[i],strength:this.serviceStrengths[0],effectiveness:this.policeEffectiveness,nextUpdate,station:station?{powered:!!this.power[station.i],road:!!findZoneTransport(this.map,station.x,station.y,this.width,this.height)}:null};
+  return {crime:this.crime[i],coverage:this.policeCoverage[i],strength:this.serviceStrengths[0],effectiveness:this.policeEffectiveness,nextUpdate,station:station?{powered:!!this.power[station.i],road:!!(station.id>=977?emergencyTransport(this.map,station.x,station.y,station.id,this.width,this.height):findZoneTransport(this.map,station.x,station.y,this.width,this.height))}:null};
  }
  grow(z,direction){
   if(direction>0&&this.civicEnabled&&this.civic.waterEnabled&&!(this.civicWatered||civicServices(this).watered).has(z.i)&&!(z.type===5&&this.id(z.x,z.y)===0x84&&this.adjacentSmallHomeCount(z)<8))return false;
@@ -329,7 +330,7 @@ export class City {
   const productivity=this.civicEnabled?educationEffects(this.civic.education).productivity:1;let propertyIncome=Math.floor(romAnnualRevenue(units,meanLandValue,taxRate,this.difficulty)*productivity),employmentTax=employmentIncome(this,taxRate).incomeTax,income=propertyIncome+giftIncome+employmentTax;
   // CODE_038E39 scales road + double rail count by a Q8 factor indexed by difficulty.
   const transportFactor=[0x00b3,0x00e6,0x0133][this.difficulty];
-  let requests=[Math.min(9999,Math.floor((this.roadCount+2*this.railCount)*transportFactor/256)),Math.min(9999,Math.max(0,this.counts[8]-this.zones.filter(z=>[0x249,0x307].includes(z.id)&&buildingOff(this,z)).length)*100),Math.min(9999,Math.max(0,this.counts[9]-this.zones.filter(z=>[0x252,0x310].includes(z.id)&&buildingOff(this,z)).length)*100)];
+  let requests=[Math.min(9999,Math.floor((this.roadCount+2*this.railCount)*transportFactor/256)),Math.min(9999,Math.max(0,this.counts[8]-this.zones.filter(z=>[0x249,0x307].includes(compactEmergencyId(z.id))&&buildingOff(this,z)).length)*100),Math.min(9999,Math.max(0,this.counts[9]-this.zones.filter(z=>[0x252,0x310].includes(compactEmergencyId(z.id))&&buildingOff(this,z)).length)*100)];
   if(this.pendingBudget?.assessment){({income,giftIncome}=this.pendingBudget.assessment);employmentTax=this.pendingBudget.assessment.employmentTax||0;propertyIncome=income-giftIncome-employmentTax;requests=[...this.pendingBudget.assessment.requests];}
   const payment=this.loans.reduce((sum,loan)=>sum+loan.payment,0);
   const allocation=allocateRomBudget(requests,this.funding,this.spendingFunds+income,payment),expenses=allocation.expenses;

@@ -1,4 +1,5 @@
-import {civicForId,civicBounds} from './civic.js?v=waste-utilities-1';
+import {compactEmergencySprite} from './emergency.js?v=emergency-1';
+import {civicForId,civicBounds} from './civic.js?v=emergency-1';
 const hash=n=>{n=Math.imul(n^(n>>>16),0x45d9f3b);return ((n^(n>>>16))>>>0)/4294967296;};
 // Conservative sprite-pixel masks: small glazing or inset apertures, with
 // surrounding wall pixels. Large roofs, ground patches and tanks are rejected.
@@ -29,7 +30,7 @@ export class WindowLights{
   const custom=civicForId(z.id);if(custom&&[961,967,972,970].includes(z.id))return null;const b=custom?civicBounds(z):footprint(city,z);if(!b)return null;
   const w=b.width*8,h=custom?.artHeight||b.height*8,key=custom?'civic:'+z.id+':'+w+':'+h:b.width+','+b.height+':'+Array.from({length:b.width*b.height},(_,n)=>city.id(b.x+n%b.width,b.y+Math.floor(n/b.width))).join(',');let mask=this.masks.get(key);
   if(!mask){const canvas=document.createElement('canvas');canvas.width=w;canvas.height=h;const ctx=canvas.getContext('2d',{willReadFrequently:true});ctx.imageSmoothingEnabled=false;
-   if(custom){const im=this.art[custom.sprite??custom.tool-30];if(!im?.complete||!im.naturalWidth)return null;ctx.drawImage(im,0,0,w,h);}
+   if(custom){const im=custom.nativeTool?compactEmergencySprite(city,z.id,atlas):this.art[custom.sprite??custom.tool-30];if(!im||(!(im instanceof HTMLCanvasElement)&&(!im.complete||!im.naturalWidth)))return null;ctx.drawImage(im,0,0,w,h);}
    else{if(!atlas)return null;for(let yy=0;yy<b.height;yy++)for(let xx=0;xx<b.width;xx++){const id=city.id(b.x+xx,b.y+yy);ctx.drawImage(atlas,id%32*8,(id>>5)*8,8,8,xx*8,yy*8,8,8);}}
    mask=extractWindowPixels(ctx.getImageData(0,0,w,h).data,w,h,{allowBright:!!custom||z.type===7});
    if(!custom&&z.type===8){const data=ctx.getImageData(0,0,w,h).data;mask=[];for(const yy of [16,18])for(let xx=2;xx<w-2;xx++){if(yy===16&&xx>=8&&xx<=12||yy===18&&xx>=8&&xx<=15)continue;const at=(yy*w+xx)*4;if(data[at]>115&&data[at+1]>120&&data[at+2]>135)mask.push({kind:'window',pixels:[{x:xx,y:yy}]});}}

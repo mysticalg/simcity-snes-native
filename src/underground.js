@@ -1,6 +1,6 @@
 const layerCache=new WeakMap();
 export function undergroundRenderStats(city){const s=layerCache.get(city);return s?{builds:s.builds,revision:s.revision,width:s.canvas.width,height:s.canvas.height}:{builds:0};}
-import {waterNetwork} from './civic.js?v=waste-utilities-1';
+import {waterNetwork} from './civic.js?v=emergency-1';
 const cache=new WeakMap();
 // Mirrors waterService's Chebyshev radius3; range alone does not guarantee
 // a building's demand fits the network's finite allocation.

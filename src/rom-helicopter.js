@@ -1,4 +1,4 @@
-import {moveRomTornado} from './rom-tornado.js?v=megacity-1';
+import {moveRomTornado} from './rom-tornado.js?v=emergency-1';
 const TURN=[0,1,1,1,1,-1,-1,-1];
 export function createRomHelicopter(){return {active:false,x:0,y:0,offsetX:0,offsetY:0,direction:0,targetX:0,targetY:0,targetDirection:0,turn:0,rotor:0};}
 // CODE_03AC32: airport scanner coordinates are incremented in both axes.

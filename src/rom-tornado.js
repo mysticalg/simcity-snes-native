@@ -1,4 +1,4 @@
-import {damageRomCollisionTile} from './rom-collision.js?v=megacity-1';
+import {damageRomCollisionTile} from './rom-collision.js?v=emergency-1';
 export function createRomTornado(){return {active:false,initializing:false,x:0,y:0,targetX:0,targetY:0,offsetX:0,offsetY:0,direction:0,frame:0,surface:0};}
 // CODE_03B9DB deliberately uses alternating100/90 bounds in this order.
 export function startRomTornado(state,nextBounded,width=120,height=100){

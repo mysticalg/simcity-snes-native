@@ -1,4 +1,4 @@
-import {moveRomTornado} from './rom-tornado.js?v=megacity-1';
+import {moveRomTornado} from './rom-tornado.js?v=emergency-1';
 export function createRomPlane(){return {active:false,x:0,y:0,offsetX:0,offsetY:0,direction:0,targetX:0,targetY:0,targetDirection:0,turn:0,turnPhase:0,taxi:0,frame:0,crashRequested:false};}
 const SPRITE=[1,2,0,2,1,2,0,2,3,4,5],TURN=[0,1,1,1,1,-1,-1,-1];
 export function spawnRomPlane(s,x,y){if(s.active)return false;s.active=true;s.taxi++;s.direction=6;s.targetX=(x-1)&65535;s.x=(x+2)&65535;s.offsetX=0;s.y=y;s.targetY=y;return true;}
