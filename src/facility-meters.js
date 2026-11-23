@@ -3,7 +3,7 @@ import {aviationTraffic} from './aviation.js?v=civic-refresh-30';
 import {parkServices} from './parks.js?v=civic-refresh-30';
 import {civicServices,civicForId,civicRoadEntry,pumpStatus,educationEffects} from './civic.js?v=civic-refresh-30';
 import {windPower} from './climate.js?v=weather-1';
-import {sewageServices} from './sewage.js?v=civic-refresh-30';
+import {sewageServices} from './sewage.js?v=sea-cache-33';
 import {collectGarbage,monthlyGarbageDemand} from './landfill.js?v=civic-refresh-30';
 import {employmentIncome} from './employment.js';
 import {emergencyKind} from './emergency.js';

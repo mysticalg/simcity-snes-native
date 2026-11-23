@@ -17,6 +17,7 @@ city.refresh();city.power.fill(1);city.airPollution.fill(90);if(mega&&city.zones
 const browser=await chromium.launch({executablePath:'C:/Users/drhoo/AppData/Local/ms-playwright/chromium-1248/chrome-win64/chrome.exe'});
 try{
  const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[];
+ const seaBaseline=process.argv.includes('--sea-baseline');if(seaBaseline){const original=execFileSync('git',['show','220f395:src/sewage.js'],{encoding:'utf8'}).match(/export function drawSeaPollution[\s\S]*$/)[0],body=fs.readFileSync('src/sewage.js','utf8').replace(/export function drawSeaPollution[\s\S]*$/,original);await page.route('**/src/sewage.js*',route=>route.fulfill({status:200,contentType:'application/javascript',body}));}
  const baseline=process.argv.includes('--baseline');if(process.argv.includes('--ground-baseline')){const body=execFileSync('git',['show','63397b1:src/realistic-art.js'],{encoding:'utf8'});await page.route('**/src/realistic-art.js*',route=>route.fulfill({status:200,contentType:'application/javascript',body}));}
  if(baseline){for(const name of ['app','realistic-art','window-lights','water-surface']){const body=execFileSync('git',['show','339f219:src/'+name+'.js'],{encoding:'utf8'});await page.route('**/src/'+name+'.js*',route=>route.fulfill({status:200,contentType:'application/javascript',body}));}}
  await page.addInitScript(()=>{
@@ -47,7 +48,7 @@ try{
   for(const name of ['water','windows']){const original=renderer[name].draw;renderer[name].draw=()=>({cells:0,polluted:0,buildings:0,windows:0,pixels:0});slices['without-'+name]=measure(draw,12);renderer[name].draw=original;}
   const originalSprite=renderer.sprite;renderer.sprite=()=>{};slices['without-sprites']=measure(draw,12);renderer.sprite=originalSprite;
   const state=JSON.parse(render_game_to_text());
-  return {slices,zones:city.zones.length,metrics:renderer.describe(city),appVersion:document.querySelector('script[type=module]').src,simulationYear:state.year,appZoom:state.zoom,mapWidth:city.width,mapHeight:city.height};
+  return {slices,zones:city.zones.length,metrics:renderer.describe(city),appVersion:document.querySelector('script[type=module]').src,simulationYear:state.year,appZoom:state.zoom,mapWidth:city.width,mapHeight:city.height,overlay:state.overlay,underground:state.underground,artEnabled:state.weatherSettings.realisticArt};
  },city.serialize());
  await page.evaluate(()=>{renderTimings.frames=[];renderTimings.paints=[];});
  const cdp=await page.context().newCDPSession(page);await cdp.send('Profiler.enable');await cdp.send('Profiler.start');
@@ -55,7 +56,7 @@ try{
  const {profile}=await cdp.send('Profiler.stop'),counts=new Map();
  for(const n of profile.nodes){if(n.hitCount){const key=n.callFrame.functionName+' '+n.callFrame.url.replace(/.*\/src\//,'');counts.set(key,(counts.get(key)||0)+n.hitCount);}}
  const top=[...counts].sort((a,b)=>b[1]-a[1]).slice(0,18);
- result.appFrames=await page.evaluate(()=>{const sorted=[...renderTimings.frames].sort((a,b)=>a-b);return {count:sorted.length,medianMs:sorted[Math.floor(sorted.length*.5)],p95Ms:sorted[Math.floor(sorted.length*.95)],maximumPaintsPerFrame:Math.max(...renderTimings.paints)};});result.baseline=baseline;
+ result.appFrames=await page.evaluate(()=>{const sorted=[...renderTimings.frames].sort((a,b)=>a-b),painted=renderTimings.frames.filter((v,i)=>renderTimings.paints[i]>0).sort((a,b)=>a-b);return {paintedCount:painted.length,paintedMedianMs:painted[Math.floor(painted.length*.5)],paintedP95Ms:painted[Math.floor(painted.length*.95)],count:sorted.length,medianMs:sorted[Math.floor(sorted.length*.5)],p95Ms:sorted[Math.floor(sorted.length*.95)],maximumPaintsPerFrame:Math.max(...renderTimings.paints)};});result.baseline=baseline;result.seaBaseline=seaBaseline;
  result.cpuProfile={durationMs:(profile.endTime-profile.startTime)/1000,top};result.errors=errors;
  fs.mkdirSync('output',{recursive:true});fs.writeFileSync(process.argv[2]||'output/render-profile.json',JSON.stringify(result,null,2));
  console.log(JSON.stringify(result,null,2));

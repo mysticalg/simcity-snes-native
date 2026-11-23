@@ -2,7 +2,7 @@ import {utilityImagePath} from './utility-art.js?v=civic-refresh-30';
 import {compactEmergencySprite} from './emergency.js?v=emergency-1';
 import {drawLandfill,drawLandfillLayer} from './landfill.js?v=civic-refresh-30';
 import {buildingOff} from './building-operations.js?v=education-traffic-27';
-import {sewageServices} from './sewage.js?v=civic-refresh-30';
+import {sewageServices} from './sewage.js?v=sea-cache-33';
 import {CIVIC_TOOLS,civicForId,civicBounds,civicServices,educationEffects} from './civic.js?v=civic-refresh-30';
 const civicSprites=Array.from({length:62},(_,n)=>{const image=new Image();image.src=utilityImagePath(n)||'assets/custom/civic-'+(n<17?n:0)+'.png';return image;});
 const spriteCache=new WeakMap();
