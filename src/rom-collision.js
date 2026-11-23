@@ -22,3 +22,6 @@ export function applyRomShipCollision(map,flags,x,y,nextMenuWord){
  const points=[[0,0],[-1,-1],[1,-1],[-1,1],[1,1]];
  return points.map(([dx,dy])=>damageRomCollisionTile(map,flags,x+dx,y+dy,nextMenuWord));
 }
+
+// CODE_00ADEE -> CODE_00AE2E: Monster already damaged the center.
+export function applyRomTrainCollision(map,flags,x,y,nextMenuWord){return [[-1,-1],[1,-1],[-1,1],[1,1]].map(([dx,dy])=>damageRomCollisionTile(map,flags,x+dx,y+dy,nextMenuWord));}
