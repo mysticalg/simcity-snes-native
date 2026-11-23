@@ -1,5 +1,5 @@
 import {AMENITY_TOOLS} from './amenities.js?v=amenities-gifts-29';
-import {educationCoverage} from './education.js?v=health-care-34';
+import {educationCoverage} from './education.js?v=bus-routing-51';
 import {allocateWater,updateWaterStorage} from './water-allocation.js?v=education-traffic-27';
 import {landfillSites,garbageFacilities,collectGarbage,monthlyGarbageDemand} from './landfill.js?v=health-care-34';
 import {buildingOff} from './building-operations.js?v=education-traffic-27';
@@ -57,7 +57,38 @@ export function civicServices(city){const landfills=landfillSites(city),garbage=
  return {garbageFacilities:garbage,pumpStatuses:city.zones.filter(z=>['water','waterStorage'].includes(civicForId(z.id)?.kind)).map(z=>({x:z.x,y:z.y,...pumpStatus(city,z)})),capacity,annual,fusion,water,watered,waterNetworks,waterAssignments,busCoverage,routes,buses:stations.length?Math.min(stops.length+stations.length,Math.ceil(capacity.bus/500)):0};}
 export function updateCivicMonth(city){if(!city.civicEnabled)return;const s=civicServices(city);updateWaterStorage(city,s.waterNetworks);city.civicWatered=s.watered;city.waterField=s.water;city.waterAssignments=s.waterAssignments;city.waterNetworks=s.waterNetworks;const external=city.regionalState||{},effects=educationEffects(city.civic.education),demand=monthlyGarbageDemand(city,effects.wasteReduction);city.civicCapacity=s.capacity;collectGarbage(city,demand,s.garbageFacilities);const healthCap=s.capacity.health+(external.health||0);city.civic.health=city.population?Math.min(100,Math.round(healthCap/city.population*100+100*effects.sicknessReduction)):100;city.civic.sickness=100-city.civic.health;const educationTarget=educationCoverage(city).target;city.civic.educationTarget=educationTarget;city.civic.education=Math.max(0,Math.min(100,city.civic.education+(educationTarget-city.civic.education)/12));const zones=city.zones.filter(z=>z.type>=5&&z.type<=7);city.civic.water=zones.length?Math.round(zones.filter(z=>s.watered.has(z.i)).length/zones.length*100):100;city.busRoutes=s.routes;city.civic.buses=s.routes.length;city.civic.generatedGarbage=demand;}
 // Buses use actual road paths between a powered depot and road-connected stops.
-export function busRoutes(city,stations,stops){const road=i=>i>=0&&i<city.map.length&&(city.flags[city.map[i]&1023]&64),entry=z=>civicRoadEntry(city,z),routes=[];for(const station of stations){const root=entry(station);if(root<0)continue;const parent=new Int32Array(city.map.length).fill(-1),queue=[root];parent[root]=root;for(let n=0;n<queue.length;n++){const i=queue[n];for(const j of [i>=(city.width||120)?i-(city.width||120):-1,i%(city.width||120)<((city.width||120)-1)?i+1:-1,i+(city.width||120)<city.map.length?i+(city.width||120):-1,i%(city.width||120)?i-1:-1])if(road(j)&&parent[j]<0){parent[j]=i;queue.push(j);}}for(const stop of stops){const end=entry(stop);if(end<0||parent[end]<0)continue;const path=[end];while(path.at(-1)!==root)path.push(parent[path.at(-1)]);if(path.length>1)routes.push([...path,...path.slice(1,-1).reverse()]);if(routes.length>=32)return routes;}}return routes;}
+export function busRoutes(city,stations,stops){
+ const width=city.width||120,length=city.map.length,routes=[];
+ if(!stations.length||!stops.length)return routes;
+ // Entry order and N/E/S/W discovery order determine the original routes.
+ // Once all stops have parents, the rest of the component cannot change
+ // their paths. An unreachable stop still requires the complete search.
+ const ends=stops.map(z=>civicRoadEntry(city,z)),targets=new Set(ends.filter(i=>i>=0));
+ if(!targets.size)return routes;
+ for(const station of stations){
+  const root=civicRoadEntry(city,station);if(root<0)continue;
+  const parent=new Int32Array(length).fill(-1),queue=[root];parent[root]=root;
+  let remaining=targets.size-Number(targets.has(root));
+  const visit=(from,to)=>{
+   if(to<0||parent[to]>=0||!(city.flags[city.map[to]&1023]&64))return;
+   parent[to]=from;queue.push(to);if(targets.has(to))remaining--;
+  };
+  for(let at=0;at<queue.length&&remaining>0;at++){
+   const i=queue[at];
+   visit(i,i>=width?i-width:-1);
+   visit(i,i%width<width-1?i+1:-1);
+   visit(i,i+width<length?i+width:-1);
+   visit(i,i%width?i-1:-1);
+  }
+  for(const end of ends){
+   if(end<0||parent[end]<0)continue;
+   const path=[end];while(path.at(-1)!==root)path.push(parent[path.at(-1)]);
+   if(path.length>1)routes.push([...path,...path.slice(1,-1).reverse()]);
+   if(routes.length>=32)return routes;
+  }
+ }
+ return routes;
+}
 
 export function waterService(city,pumps){return allocateWater(city,waterNetwork(city).nodes,pumps);}
 

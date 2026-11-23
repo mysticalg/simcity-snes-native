@@ -1,5 +1,5 @@
 // Requested Turbo aviation. Native SNES aircraft remain on their ROM actor path.
-import {civicForId,civicBounds} from './civic.js?v=health-care-34';
+import {civicForId,civicBounds} from './civic.js?v=bus-routing-51';
 import {buildingOff} from './building-operations.js?v=education-traffic-27';
 export const AIRCRAFT={light:{name:'Light aircraft',speed:12,passengers:4,cargo:0,length:9,span:10},private:{name:'Private jet',speed:20,passengers:12,cargo:0,length:12,span:9},regional:{name:'Regional passenger jet',speed:20,passengers:100,cargo:0,length:16,span:14},jumbo:{name:'Super-jumbo jet',speed:18,passengers:500,cargo:0,length:25,span:22},cargo:{name:'Cargo aircraft',speed:18,passengers:0,cargo:250,length:23,span:20},fighter:{name:'Jet fighter',speed:36,passengers:0,cargo:0,length:13,span:9}};
 export function airfieldBounds(city,z){const custom=civicBounds(z);if(custom)return custom;const b=city.build.buildings[12],center=b.tiles.indexOf(z.id);return {x:z.x-b.x[center],y:z.y-b.y[center],width:Math.max(...b.x)+1,height:Math.max(...b.y)+1};}
