@@ -1,0 +1,713 @@
+{
+  "date": "2026-11-23",
+  "referenceCommit": "5089a92dbf2ba57e87b930c9f3bf74f1d3e523f9",
+  "candidateVersion": "0.2.16",
+  "privacy": "Private city map/save not included; measurements and aggregate counts only.",
+  "affectedCity": {
+    "sewagePumps": 4,
+    "landfillTiles": 1748,
+    "pipeTiles": 556,
+    "normalViewBefore": {
+      "baseline": true,
+      "speed": 8,
+      "method": "Same saved city with sea pollution unchanged vs zero; CPU/submission times, not display FPS",
+      "results": [
+        {
+          "variant": "original",
+          "medianMs": 58.09999990463257,
+          "p95Ms": 137.10000002384186,
+          "top": [
+            [
+              "fillRect ",
+              568
+            ],
+            [
+              "drawLandfill landfill.js?v=megacity-1",
+              158
+            ],
+            [
+              "drawImage ",
+              84
+            ],
+            [
+              "refresh app.js?v=turbo-0.2.15",
+              9
+            ],
+            [
+              "getBoundingClientRect ",
+              8
+            ],
+            [
+              "(program) ",
+              5
+            ],
+            [
+              "draw weather-fx.js?v=render-perf-1",
+              5
+            ],
+            [
+              "drawCivic civic-ui.js?v=megacity-1",
+              5
+            ],
+            [
+              "fill ",
+              5
+            ],
+            [
+              "waterService civic.js?v=megacity-1",
+              5
+            ],
+            [
+              "(garbage collector) ",
+              5
+            ],
+            [
+              "stroke ",
+              3
+            ],
+            [
+              "save ",
+              3
+            ],
+            [
+              "garbageFacilities landfill.js?v=megacity-1",
+              3
+            ],
+            [
+              "landfillTileVisual landfill.js?v=megacity-1",
+              2
+            ],
+            [
+              "(idle) ",
+              2
+            ]
+          ],
+          "running": {
+            "count": 65,
+            "medianMs": 46,
+            "p95Ms": 99.89999997615814
+          }
+        },
+        {
+          "variant": "clean-sea",
+          "medianMs": 61.89999997615814,
+          "p95Ms": 125.39999997615814,
+          "top": [
+            [
+              "fillRect ",
+              737
+            ],
+            [
+              "drawLandfill landfill.js?v=megacity-1",
+              152
+            ],
+            [
+              "(program) ",
+              50
+            ],
+            [
+              "drawImage ",
+              22
+            ],
+            [
+              "draw weather-fx.js?v=render-perf-1",
+              9
+            ],
+            [
+              "getBoundingClientRect ",
+              9
+            ],
+            [
+              "fill ",
+              7
+            ],
+            [
+              "drawCivic civic-ui.js?v=megacity-1",
+              5
+            ],
+            [
+              "refresh app.js?v=turbo-0.2.15",
+              4
+            ],
+            [
+              "civicServices civic.js?v=megacity-1",
+              4
+            ],
+            [
+              "roundRect ",
+              3
+            ],
+            [
+              "stroke ",
+              2
+            ],
+            [
+              "sprite weather-fx.js?v=render-perf-1",
+              2
+            ],
+            [
+              "budget simulation.js?v=job-growth-1",
+              2
+            ],
+            [
+              "waterService civic.js?v=megacity-1",
+              2
+            ],
+            [
+              "cell app.js?v=turbo-0.2.15",
+              2
+            ]
+          ],
+          "running": {
+            "count": 71,
+            "medianMs": 41.800000071525574,
+            "p95Ms": 89.79999995231628
+          }
+        }
+      ],
+      "errors": []
+    },
+    "normalViewAfter": {
+      "baseline": false,
+      "speed": 8,
+      "method": "Same saved city with sea pollution unchanged vs zero; CPU/submission times, not display FPS",
+      "results": [
+        {
+          "variant": "original",
+          "medianMs": 10.899999976158142,
+          "p95Ms": 16,
+          "top": [
+            [
+              "drawImage ",
+              60
+            ],
+            [
+              "fillRect ",
+              17
+            ],
+            [
+              "draw weather-fx.js?v=waste-utilities-1",
+              11
+            ],
+            [
+              "getBoundingClientRect ",
+              11
+            ],
+            [
+              "restore ",
+              8
+            ],
+            [
+              "fill ",
+              8
+            ],
+            [
+              "(program) ",
+              7
+            ],
+            [
+              "refresh app.js?v=turbo-0.2.16",
+              3
+            ],
+            [
+              "drawTerrainShore terrain-tools.js?v=megacity-1",
+              2
+            ],
+            [
+              " ",
+              2
+            ],
+            [
+              "drawCivic civic-ui.js?v=waste-utilities-1",
+              2
+            ],
+            [
+              "landfillTileVisual landfill.js?v=waste-utilities-1",
+              2
+            ],
+            [
+              "landfillSpriteKey landfill.js?v=waste-utilities-1",
+              2
+            ],
+            [
+              "draw realistic-art.js?v=render-perf-1",
+              2
+            ],
+            [
+              "save ",
+              2
+            ],
+            [
+              "budget simulation.js?v=waste-utilities-1",
+              2
+            ]
+          ],
+          "running": {
+            "count": 138,
+            "medianMs": 18.199999928474426,
+            "p95Ms": 51
+          }
+        },
+        {
+          "variant": "clean-sea",
+          "medianMs": 10,
+          "p95Ms": 14.699999928474426,
+          "top": [
+            [
+              "drawImage ",
+              37
+            ],
+            [
+              "fillRect ",
+              22
+            ],
+            [
+              "draw weather-fx.js?v=waste-utilities-1",
+              7
+            ],
+            [
+              "fill ",
+              7
+            ],
+            [
+              "getBoundingClientRect ",
+              7
+            ],
+            [
+              "save ",
+              5
+            ],
+            [
+              "(idle) ",
+              4
+            ],
+            [
+              "renderCity app.js?v=turbo-0.2.16",
+              4
+            ],
+            [
+              "drawLandfillLayer landfill.js?v=waste-utilities-1",
+              4
+            ],
+            [
+              "landfillSpriteKey landfill.js?v=waste-utilities-1",
+              4
+            ],
+            [
+              "drawTerrainShore terrain-tools.js?v=megacity-1",
+              4
+            ],
+            [
+              "restore ",
+              3
+            ],
+            [
+              "refresh app.js?v=turbo-0.2.16",
+              3
+            ],
+            [
+              "(program) ",
+              2
+            ],
+            [
+              "draw realistic-art.js?v=render-perf-1",
+              2
+            ],
+            [
+              " weather-fx.js?v=waste-utilities-1",
+              2
+            ]
+          ],
+          "running": {
+            "count": 129,
+            "medianMs": 16.699999928474426,
+            "p95Ms": 51.199999928474426
+          }
+        }
+      ],
+      "errors": []
+    }
+  },
+  "densePipeFixture": {
+    "before": {
+      "pumps": 32,
+      "zones": 546,
+      "pipes": 12000,
+      "results": [
+        {
+          "overlay": "none",
+          "medianMs": 7.699999928474426,
+          "p95Ms": 10.799999952316284,
+          "top": [
+            [
+              "drawImage ",
+              57
+            ],
+            [
+              "fillRect ",
+              6
+            ],
+            [
+              "save ",
+              4
+            ],
+            [
+              "drawWaterWarnings water-warnings.js?v=civic-revisions-1",
+              4
+            ],
+            [
+              "fill ",
+              4
+            ],
+            [
+              "civicForId civic.js?v=megacity-1",
+              4
+            ],
+            [
+              "waterService civic.js?v=megacity-1",
+              3
+            ],
+            [
+              "(program) ",
+              2
+            ],
+            [
+              " ",
+              2
+            ],
+            [
+              "renderCity app.js?v=turbo-0.2.15",
+              2
+            ],
+            [
+              "rotate ",
+              2
+            ],
+            [
+              "civicServices civic.js?v=megacity-1",
+              2
+            ]
+          ]
+        },
+        {
+          "overlay": "water",
+          "medianMs": 170,
+          "p95Ms": 347.5,
+          "top": [
+            [
+              "stroke ",
+              1127
+            ],
+            [
+              "fillRect ",
+              902
+            ],
+            [
+              "strokeRect ",
+              118
+            ],
+            [
+              "drawUnderground underground.js?v=megacity-1",
+              71
+            ],
+            [
+              "drawImage ",
+              70
+            ],
+            [
+              "drawCivic civic-ui.js?v=megacity-1",
+              8
+            ],
+            [
+              "getBoundingClientRect ",
+              7
+            ],
+            [
+              "lineTo ",
+              6
+            ],
+            [
+              "waterService civic.js?v=megacity-1",
+              5
+            ],
+            [
+              "renderCity app.js?v=turbo-0.2.15",
+              4
+            ],
+            [
+              "(program) ",
+              3
+            ],
+            [
+              "waterNetwork civic.js?v=megacity-1",
+              3
+            ]
+          ]
+        }
+      ],
+      "errors": [],
+      "method": "Paused app forced draw CPU/submission timing, not presentation FPS"
+    },
+    "after": {
+      "pumps": 32,
+      "zones": 546,
+      "pipes": 12000,
+      "results": [
+        {
+          "overlay": "none",
+          "medianMs": 8,
+          "p95Ms": 9.099999904632568,
+          "top": [
+            [
+              "drawImage ",
+              62
+            ],
+            [
+              "fill ",
+              6
+            ],
+            [
+              "fillRect ",
+              4
+            ],
+            [
+              "refresh app.js?v=turbo-0.2.15",
+              4
+            ],
+            [
+              "draw realistic-art.js?v=render-perf-1",
+              3
+            ],
+            [
+              "save ",
+              3
+            ],
+            [
+              "drawWaterWarnings water-warnings.js?v=civic-revisions-1",
+              3
+            ],
+            [
+              "getBoundingClientRect ",
+              3
+            ],
+            [
+              "(program) ",
+              2
+            ],
+            [
+              "rotate ",
+              2
+            ],
+            [
+              "renderCity app.js?v=turbo-0.2.15",
+              1
+            ],
+            [
+              "restore ",
+              1
+            ]
+          ]
+        },
+        {
+          "overlay": "water",
+          "medianMs": 1.2999999523162842,
+          "p95Ms": 3.8000000715255737,
+          "top": [
+            [
+              "fillRect ",
+              4
+            ],
+            [
+              "getBoundingClientRect ",
+              3
+            ],
+            [
+              "(program) ",
+              2
+            ],
+            [
+              "drawWaterWarnings water-warnings.js?v=civic-revisions-1",
+              2
+            ],
+            [
+              "fill ",
+              2
+            ],
+            [
+              " civic.js?v=megacity-1",
+              2
+            ],
+            [
+              "overlayColor map-overlays.js?v=job-growth-1",
+              2
+            ],
+            [
+              "refresh app.js?v=turbo-0.2.15",
+              1
+            ],
+            [
+              "budget simulation.js?v=job-growth-1",
+              1
+            ],
+            [
+              "closePath ",
+              1
+            ],
+            [
+              "moveTo ",
+              1
+            ],
+            [
+              "unpoweredBuildings power-warnings.js?v=pump-fix-1",
+              1
+            ]
+          ]
+        }
+      ],
+      "errors": [],
+      "method": "Paused app forced draw CPU/submission timing, not presentation FPS"
+    }
+  },
+  "algorithmMeasurements": {
+    "before": {
+      "results": [
+        {
+          "pumps": 0,
+          "zones": 514,
+          "pipes": 12000,
+          "services": {
+            "medianMs": 1.9039000000000215,
+            "p95Ms": 2.961800000000011
+          },
+          "sewage": {
+            "medianMs": 1.5279000000000167,
+            "p95Ms": 2.010900000000021
+          },
+          "budget": {
+            "medianMs": 1.9920999999999935,
+            "p95Ms": 3.018100000000004
+          },
+          "flow": {
+            "medianMs": 0.0004000000000132786,
+            "p95Ms": 0.0013999999999896318
+          },
+          "pure": true
+        },
+        {
+          "pumps": 8,
+          "zones": 522,
+          "pipes": 12000,
+          "services": {
+            "medianMs": 0.7708000000000084,
+            "p95Ms": 1.483699999999999
+          },
+          "sewage": {
+            "medianMs": 1.3961999999999648,
+            "p95Ms": 2.234700000000032
+          },
+          "budget": {
+            "medianMs": 1.630899999999997,
+            "p95Ms": 2.1575000000000273
+          },
+          "flow": {
+            "medianMs": 0.00029999999998153726,
+            "p95Ms": 0.0014999999999645297
+          },
+          "pure": true
+        },
+        {
+          "pumps": 32,
+          "zones": 546,
+          "pipes": 12000,
+          "services": {
+            "medianMs": 0.8994000000000142,
+            "p95Ms": 1.3558000000000447
+          },
+          "sewage": {
+            "medianMs": 0.9194999999999709,
+            "p95Ms": 1.844000000000051
+          },
+          "budget": {
+            "medianMs": 0.9675999999999476,
+            "p95Ms": 1.4395999999999276
+          },
+          "flow": {
+            "medianMs": 0.00020000000006348273,
+            "p95Ms": 0.0014000000001033186
+          },
+          "pure": true
+        }
+      ]
+    },
+    "after": {
+      "results": [
+        {
+          "pumps": 0,
+          "zones": 514,
+          "pipes": 12000,
+          "services": {
+            "medianMs": 0.9377999999999957,
+            "p95Ms": 1.7104999999999961
+          },
+          "sewage": {
+            "medianMs": 0.8884000000000185,
+            "p95Ms": 2.6835000000000093
+          },
+          "budget": {
+            "medianMs": 0.08629999999999427,
+            "p95Ms": 0.5197000000000003
+          },
+          "flow": {
+            "medianMs": 0.0002000000000066393,
+            "p95Ms": 0.00380000000001246
+          },
+          "pure": true
+        },
+        {
+          "pumps": 8,
+          "zones": 522,
+          "pipes": 12000,
+          "services": {
+            "medianMs": 0.5612999999999886,
+            "p95Ms": 0.7804000000000144
+          },
+          "sewage": {
+            "medianMs": 0.9996000000000151,
+            "p95Ms": 2.0305000000000177
+          },
+          "budget": {
+            "medianMs": 0.055499999999995,
+            "p95Ms": 0.07099999999999795
+          },
+          "flow": {
+            "medianMs": 0.0002000000000066393,
+            "p95Ms": 0.0006999999999948159
+          },
+          "pure": true
+        },
+        {
+          "pumps": 32,
+          "zones": 546,
+          "pipes": 12000,
+          "services": {
+            "medianMs": 0.5110000000000241,
+            "p95Ms": 2.8974000000000046
+          },
+          "sewage": {
+            "medianMs": 0.8187000000000353,
+            "p95Ms": 1.0568999999999846
+          },
+          "budget": {
+            "medianMs": 0.05259999999998399,
+            "p95Ms": 0.055399999999963256
+          },
+          "flow": {
+            "medianMs": 0.00010000000003174137,
+            "p95Ms": 0.0007999999999697138
+          },
+          "pure": true
+        }
+      ]
+    }
+  }
+}
