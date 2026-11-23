@@ -1,0 +1,99 @@
+{
+  "nodeChecks": 562,
+  "browser": {
+    "base": "http://127.0.0.1:55721",
+    "title": "Sim City Turbo \u00c2\u00b7 v0.2.57",
+    "before": {
+      "land": 8,
+      "mean": 8
+    },
+    "placed": {
+      "id": 38,
+      "land": 25,
+      "mean": 23,
+      "parks": 1
+    },
+    "overlay": {
+      "kind": "fire",
+      "facilities": 1,
+      "local": 69,
+      "max": 255
+    },
+    "reload": 38,
+    "mechanics": {
+      "plazaBonus": 300,
+      "open": {
+        "type": 6,
+        "tile": 459,
+        "year": 1900,
+        "month": 1,
+        "action": "grow",
+        "reason": "positive-demand",
+        "transport": 1,
+        "changed": true,
+        "score": -200
+      },
+      "closed": {
+        "type": 6,
+        "tile": 315,
+        "year": 1900,
+        "month": 1,
+        "action": "decline",
+        "reason": "negative-demand",
+        "transport": 1,
+        "changed": false,
+        "score": -500
+      },
+      "fieldTripled": true,
+      "previewMatches": true,
+      "profile": {
+        "i": 2541,
+        "operating": true,
+        "reason": "Open to residents",
+        "radius": 36,
+        "landBonus": 68,
+        "happiness": 20,
+        "commerce": 30
+      },
+      "explanation": {
+        "headline": "Growth is currently limited",
+        "blockers": [
+          "Connect electricity; the unpowered-zone score prevents normal positive growth."
+        ],
+        "support": [
+          "Road/rail access present; a tested route must still reach a suitable destination.",
+          "Nearby plazas: +300 local commercial growth score with transport access."
+        ],
+        "pressures": [
+          "Demand -500 \u00c2\u00b7 tax 7%. Demand is weak; improve the citywide balance and review tax.",
+          "Recent development index +32 for this 8\u00c3\u20148 area (includes development attempts).",
+          "Land value 57/250 \u00c2\u00b7 pollution 0/255 \u00c2\u00b7 crime 0/255."
+        ],
+        "last": {
+          "type": 6,
+          "tile": 459,
+          "year": 1900,
+          "month": 1,
+          "action": "grow",
+          "reason": "positive-demand",
+          "transport": 1,
+          "changed": true,
+          "score": -200
+        },
+        "lastText": "Last scan 1/1900: growth applied. The demand/desirability growth comparison passed. Last combined score -200 allowed a positive-growth test; random and density checks still apply."
+      }
+    },
+    "errors": []
+  },
+  "sourceHashes": {
+    "app.js": "4e048ecbe2f7403b9af98c815fa5daf29b8749ca98dccd2d164f241bbc567c05",
+    "facility-meters.js": "14a6900df2dd4459969cbd05297bb664b67c219c7b3a476670c1b40641a7a0be",
+    "fire-effectiveness.js": "d5e28625659d8ad2e4b5f4f40bd96dbe669fff880c6c14a5b97e8f6b1cc98f65",
+    "map-overlays.js": "d46f2f32b09b598a535b8bd76066bdc401966ab0ca1ee8d447eab97d4555d8f2",
+    "parks.js": "96afb72a9ff1d5dbdaa03ffdccd0f0300076b90481ee3ae1f6fed24aec220bfc",
+    "police-range.js": "f3257b5d07afc363d21230e34e69832465683927a71c604b68647320716ad302",
+    "service-placement.js": "fce4986e85d1585b3b33384860629ace8c1456e55a70ed33f908843ad760153b",
+    "simulation.js": "ef32398a5de1accb33b5eef751a5a8c6e2d38714b1d2634d61f3166860e0764a",
+    "zone-growth.js": "7aaa000e6c10549dabc92b05c6d118ac19196f4b359df538263450d4bf8509be"
+  }
+}
