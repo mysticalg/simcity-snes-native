@@ -1,0 +1,66 @@
+{
+  "tool": "Built-in ImageGen",
+  "packaging": "Preserved alpha PNG masters, max252px long-edge lossless runtime WebP. Preschool v2 is an ImageGen background cleanup; v1 preserved but not used.",
+  "assets": [
+    {
+      "name": "nursery-v1",
+      "sprite": 43,
+      "tool": 77,
+      "master": "nursery-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "fafe2647077af84be1902a09855a0ece7d93521fa3afcaf9ec2fef380815aa8a",
+      "runtime": "nursery-v1.webp",
+      "runtimeSha256": "c65b288495573f60fd99e469448daf2137d6fc7a2ab9970c6f0d2af529b8c185",
+      "bytes": 77910
+    },
+    {
+      "name": "preschool-v2",
+      "sprite": 44,
+      "tool": 78,
+      "master": "preschool-v2.png",
+      "width": 887,
+      "height": 1774,
+      "sha256": "9f6be0b8fa9d869b5e565ba8d8468412c6925f85db2d91c9969104d864f7bb31",
+      "runtime": "preschool-v2.webp",
+      "runtimeSha256": "d0dfc305370c106c58c3c1f4a1b166ca71ea2cbffb868636ce86bd49e43e7eb0",
+      "bytes": 44120
+    },
+    {
+      "name": "library-v1",
+      "sprite": 45,
+      "tool": 79,
+      "master": "library-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "877f92a7be6c210de9cedb1ff2698ed72969d3e871b082e2684d0c026932067c",
+      "runtime": "library-v1.webp",
+      "runtimeSha256": "85468c1ab85822a9ceddfe8b8b268cd886b47b61ed96d0485cafb9481884b99b",
+      "bytes": 81348
+    },
+    {
+      "name": "private-school-v1",
+      "sprite": 46,
+      "tool": 80,
+      "master": "private-school-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "bc8a54fbf6cf36f2ad9a27d804a60a7cac90d91212a70afdbb9fc956296078cb",
+      "runtime": "private-school-v1.webp",
+      "runtimeSha256": "408e755f341165bace96fb48bf199f1556aabfb1f34d3606cef0cfeac8e5ed8d",
+      "bytes": 88486
+    },
+    {
+      "name": "special-school-v1",
+      "sprite": 47,
+      "tool": 81,
+      "master": "special-school-v1.png",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "1860cd5b5530318890b9106971fa5fb1ae44cfb30ddead024fd242efe3f51456",
+      "runtime": "special-school-v1.webp",
+      "runtimeSha256": "db05bfd573d3fb9fce08025f30d6d6b7b64cd4738033a4a0801fe1953a82b7de",
+      "bytes": 60438
+    }
+  ]
+}

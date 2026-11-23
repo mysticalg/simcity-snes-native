@@ -1,7 +1,7 @@
-import {RealisticBuildings} from './realistic-art.js?v=emergency-1';
+import {RealisticBuildings} from './realistic-art.js?v=education-traffic-27';
 import {WaterSurface} from './water-surface.js?v=render-perf-1';
-import {WindowLights} from './window-lights.js?v=aviation-24';
-import{windVector}from'./climate.js?v=weather-1';import{buildingOff}from'./building-operations.js?v=utilities-22';
+import {WindowLights} from './window-lights.js?v=education-traffic-27';
+import{windVector}from'./climate.js?v=weather-1';import{buildingOff}from'./building-operations.js?v=education-traffic-27';
 export const DEFAULT_WEATHER_FX={enabled:true,realisticArt:true,timeMode:'auto',weatherMode:'auto',quality:'high'};const mod=(n,d)=>(n%d+d)%d,hash=n=>{n=Math.imul(n^(n>>>16),0x45d9f3b);n=Math.imul(n^(n>>>16),0x45d9f3b);return((n^(n>>>16))>>>0)/4294967296;};
 export class WeatherFX{
  constructor(){this.images=Array.from({length:16},(_,i)=>{const image=new Image();image.src='assets/weather/fx-'+i+'.png';return image;});this.realistic=new RealisticBuildings();this.water=new WaterSurface();this.windows=new WindowLights();this.ready=Promise.all([...this.images.map(i=>i.decode()),this.realistic.ready,this.water.ready,this.windows.ready]);this.states=new WeakMap();}

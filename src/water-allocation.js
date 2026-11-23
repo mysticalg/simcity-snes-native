@@ -9,7 +9,7 @@ export function allocateWater(city,nodes,pumps){
  for(const p of pumps){const id=labels[p.i];if(id>=0){const g=groups[id];if(p.storage){const stored=Math.max(0,Math.min(p.storage,Number(city.civic.waterStored?.[p.i])||0));g.towers.push({i:p.i,capacity:p.storage,flow:p.flow,stored});g.capacity+=Math.min(p.flow,stored);}else{const capacity=p.capacity??5000;g.capacity+=capacity;g.generation+=capacity;g.pumps++;}}}
  for(const g of groups){const regional=city.regionalState?.waterAllocations?.get(g.cells[0]);if(regional!==undefined){g.capacity=regional+g.towers.reduce((n,t)=>n+Math.min(t.flow,t.stored),0);g.generation=regional;}g.available=g.capacity;if(g.capacity)for(const i of g.cells)water[i]=1;}
  for(const z of city.zones){
-  if(!((z.type>=5&&z.type<=14)||[30,32,33,34,35,36,38,51,52,53,54,63,64,65].includes(z.type)))continue;
+  if(!((z.type>=5&&z.type<=14)||[30,32,33,34,35,36,38,51,52,53,54,63,64,65,77,78,79,80,81].includes(z.type)))continue;
   const need=Math.max(20,(z.id===0x84?city.adjacentSmallHomeCount(z):city.zonePopulation(z))*20),nearby=new Set();
   for(let dy=-3;dy<=3;dy++)for(let dx=-3;dx<=3;dx++){const x=z.x+dx,y=z.y+dy;if(x>=0&&x<width&&y>=0&&y<height&&labels[y*width+x]>=0)nearby.add(labels[y*width+x]);}
   const options=[...nearby],id=options.find(id=>groups[id].capacity>=need)??options.find(id=>groups[id].available>0)??options[0];

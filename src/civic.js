@@ -1,6 +1,7 @@
-import {allocateWater,updateWaterStorage} from './water-allocation.js?v=aviation-24';
+import {educationCoverage} from './education.js?v=education-traffic-27';
+import {allocateWater,updateWaterStorage} from './water-allocation.js?v=education-traffic-27';
 import {landfillSites,garbageFacilities,collectGarbage,monthlyGarbageDemand} from './landfill.js?v=processing-1';
-import {buildingOff} from './building-operations.js?v=utilities-22';
+import {buildingOff} from './building-operations.js?v=education-traffic-27';
 // Custom civic systems requested by the player. Values are game balance, not ROM-derived.
 export const CIVIC_TOOLS=[
  {tool:8,id:977,name:"Police",icon:"🛡",cost:500,annual:0,kind:"police",size:2,nativeTool:8},
@@ -9,9 +10,14 @@ export const CIVIC_TOOLS=[
  {tool:31,id:961,name:'Landfill tile',icon:'🗑',cost:50,annual:10,kind:'garbage',capacity:1000,size:1},
  {tool:32,id:962,name:'Incinerator',icon:'♨',cost:3000,annual:400,kind:'garbage',capacity:6000},
  {tool:33,id:963,name:'Fusion plant',icon:'⚛',cost:50000,annual:1000,kind:'power',capacity:10000},
- {tool:34,id:964,name:'School',icon:'🏫',cost:500,annual:150,kind:'education',capacity:3000,size:1},
- {tool:35,id:965,name:'College',icon:'🎓',cost:2000,annual:300,kind:'education',capacity:6000,width:2,height:1},
- {tool:36,id:966,name:'University',icon:'🏛',cost:5000,annual:600,kind:'education',capacity:10000,size:4},
+ {tool:34,id:964,name:'School',icon:'🏫',cost:500,annual:150,kind:'education',capacity:6000,radius:20,strength:1,size:1},
+ {tool:35,id:965,name:'College',icon:'🎓',cost:2000,annual:300,kind:'education',capacity:12000,radius:32,strength:1,width:2,height:1},
+ {tool:36,id:966,name:'University',icon:'🏛',cost:5000,annual:600,kind:'education',capacity:25000,radius:48,strength:1,size:4},
+ {tool:77,id:1005,name:'Nursery',icon:'🧸',cost:200,annual:60,kind:'education',capacity:1500,radius:14,strength:.45,size:1,sprite:43},
+ {tool:78,id:1006,name:'Preschool',icon:'🧩',cost:350,annual:100,kind:'education',capacity:3000,radius:20,strength:.65,width:1,height:2,sprite:44},
+ {tool:79,id:1007,name:'Library',icon:'📚',cost:700,annual:140,kind:'education',capacity:6000,radius:30,strength:.7,size:2,sprite:45},
+ {tool:80,id:1008,name:'Private school',icon:'🏫',cost:1500,annual:300,kind:'education',capacity:10000,radius:32,strength:1.15,size:2,sprite:46},
+ {tool:81,id:1009,name:'Special school',icon:'🏫',cost:1200,annual:250,kind:'education',capacity:5000,radius:28,strength:1.1,width:2,height:3,sprite:47},
  {tool:37,id:967,name:'Bus stop',icon:'🚏',cost:25,annual:5,kind:'bus',capacity:500,size:1},
  {tool:38,id:968,name:'Bus station',icon:'🚌',cost:1000,annual:200,kind:'bus',capacity:5000,size:1},
  {tool:39,id:969,name:'Water pump',icon:'💧',cost:500,annual:100,kind:'water',capacity:5000,size:2},
@@ -20,7 +26,7 @@ export const CIVIC_TOOLS=[
  {tool:62,id:990,name:'Solar power array',icon:'☀',cost:5000,annual:100,kind:'power',capacity:1000,size:2,sprite:28},
  {tool:63,id:991,name:'Municipal airport',icon:'🛩',cost:5000,annual:500,kind:'airport',capacity:1200,cargo:0,size:4,sprite:29},
  {tool:64,id:992,name:'International airport',icon:'✈',cost:50000,annual:4000,kind:'airport',capacity:15000,cargo:5000,width:24,height:18,sprite:30},
- {tool:65,id:993,name:'Military airbase',icon:'🛫',cost:20000,annual:1500,kind:'military',capacity:4,size:8,sprite:31},
+ {tool:65,id:993,name:'Military airbase',icon:'🛫',cost:20000,annual:1500,kind:'military',capacity:6,size:8,sprite:31},
  {tool:66,id:994,name:'Pocket garden',icon:'🌷',cost:25,annual:5,kind:'park',size:1,radius:6,landBonus:8,happiness:6,sprite:32},
  {tool:67,id:995,name:'Neighbourhood park',icon:'🌳',cost:100,annual:20,kind:'park',size:2,radius:10,landBonus:16,happiness:10,sprite:33},
  {tool:68,id:996,name:'City park',icon:'🌲',cost:750,annual:80,kind:'park',size:4,radius:16,landBonus:28,happiness:18,sprite:34},
@@ -42,7 +48,7 @@ export function civicServices(city){const landfills=landfillSites(city),garbage=
 
  const routes=busRoutes(city,stations,stops),served=new Set(routes.flat());const busCoverage=new Uint8Array(city.map.length);if(routes.length)for(const stop of [...stops,...stations].filter(z=>[...served].some(i=>Math.abs(i%(city.width||120)-z.x)+Math.abs(Math.floor(i/(city.width||120))-z.y)<=3)))for(let dy=-8;dy<=8;dy++)for(let dx=-8;dx<=8;dx++){const x=stop.x+dx,y=stop.y+dy;if(x>=0&&x<(city.width||120)&&y>=0&&y<(city.height||100)&&Math.abs(dx)+Math.abs(dy)<=8)busCoverage[y*(city.width||120)+x]=1;}
  return {garbageFacilities:garbage,pumpStatuses:city.zones.filter(z=>['water','waterStorage'].includes(civicForId(z.id)?.kind)).map(z=>({x:z.x,y:z.y,...pumpStatus(city,z)})),capacity,annual,fusion,water,watered,waterNetworks,waterAssignments,busCoverage,routes,buses:stations.length?Math.min(stops.length+stations.length,Math.ceil(capacity.bus/500)):0};}
-export function updateCivicMonth(city){if(!city.civicEnabled)return;const s=civicServices(city);updateWaterStorage(city,s.waterNetworks);city.civicWatered=s.watered;city.waterField=s.water;city.waterAssignments=s.waterAssignments;city.waterNetworks=s.waterNetworks;const external=city.regionalState||{},effects=educationEffects(city.civic.education),demand=monthlyGarbageDemand(city,effects.wasteReduction);city.civicCapacity=s.capacity;collectGarbage(city,demand,s.garbageFacilities);const healthCap=s.capacity.health+(external.health||0);city.civic.health=city.population?Math.min(100,Math.round(healthCap/city.population*100+100*effects.sicknessReduction)):100;city.civic.sickness=100-city.civic.health;const educationTarget=city.population?Math.min(100,s.capacity.education/city.population*100):0;city.civic.education=Math.max(0,Math.min(100,city.civic.education+(educationTarget-city.civic.education)/24));const zones=city.zones.filter(z=>z.type>=5&&z.type<=7);city.civic.water=zones.length?Math.round(zones.filter(z=>s.watered.has(z.i)).length/zones.length*100):100;city.busRoutes=s.routes;city.civic.buses=s.routes.length;city.civic.generatedGarbage=demand;}
+export function updateCivicMonth(city){if(!city.civicEnabled)return;const s=civicServices(city);updateWaterStorage(city,s.waterNetworks);city.civicWatered=s.watered;city.waterField=s.water;city.waterAssignments=s.waterAssignments;city.waterNetworks=s.waterNetworks;const external=city.regionalState||{},effects=educationEffects(city.civic.education),demand=monthlyGarbageDemand(city,effects.wasteReduction);city.civicCapacity=s.capacity;collectGarbage(city,demand,s.garbageFacilities);const healthCap=s.capacity.health+(external.health||0);city.civic.health=city.population?Math.min(100,Math.round(healthCap/city.population*100+100*effects.sicknessReduction)):100;city.civic.sickness=100-city.civic.health;const educationTarget=educationCoverage(city).target;city.civic.educationTarget=educationTarget;city.civic.education=Math.max(0,Math.min(100,city.civic.education+(educationTarget-city.civic.education)/12));const zones=city.zones.filter(z=>z.type>=5&&z.type<=7);city.civic.water=zones.length?Math.round(zones.filter(z=>s.watered.has(z.i)).length/zones.length*100):100;city.busRoutes=s.routes;city.civic.buses=s.routes.length;city.civic.generatedGarbage=demand;}
 // Buses use actual road paths between a powered depot and road-connected stops.
 export function busRoutes(city,stations,stops){const road=i=>i>=0&&i<city.map.length&&(city.flags[city.map[i]&1023]&64),entry=z=>civicRoadEntry(city,z),routes=[];for(const station of stations){const root=entry(station);if(root<0)continue;const parent=new Int32Array(city.map.length).fill(-1),queue=[root];parent[root]=root;for(let n=0;n<queue.length;n++){const i=queue[n];for(const j of [i>=(city.width||120)?i-(city.width||120):-1,i%(city.width||120)<((city.width||120)-1)?i+1:-1,i+(city.width||120)<city.map.length?i+(city.width||120):-1,i%(city.width||120)?i-1:-1])if(road(j)&&parent[j]<0){parent[j]=i;queue.push(j);}}for(const stop of stops){const end=entry(stop);if(end<0||parent[end]<0)continue;const path=[end];while(path.at(-1)!==root)path.push(parent[path.at(-1)]);if(path.length>1)routes.push([...path,...path.slice(1,-1).reverse()]);if(routes.length>=32)return routes;}}return routes;}
 
