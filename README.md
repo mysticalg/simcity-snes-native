@@ -6,7 +6,7 @@ This project reverse engineers the USA release of SimCity for Super Nintendo and
 
 Open the [GitHub Pages version](https://mysticalg.github.io/simcity-snes-native/) after deployment, or serve this directory locally with `python -m http.server 5173` and open `http://localhost:5173`.
 
-Latest Turbo update: **v0.2.18** adds compact processing/capacity meters, visible utility pipe connectors and correct sewage treatment status; full-scan census now matches 60 controlled ROM executions. [Verification notes](research/processing-census-v0.2.18.md).
+Latest Turbo update: **v0.2.19** distinguishes pipe reach from actual water supply, shows exact demand/capacity shortages, and marks supplied/shortage plots. [Verification notes](research/water-capacity-v0.2.19.md).
 
 ## Current coverage
 

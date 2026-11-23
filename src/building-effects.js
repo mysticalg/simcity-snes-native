@@ -1,8 +1,8 @@
 const roadShape=id=>id>=0x30&&id<0x60?0x30|(id&15):id;
 import {drawElevation} from './elevation.js?v=megacity-1';
-import {drawSeaPollution} from './sewage.js?v=processing-1';
+import {drawSeaPollution} from './sewage.js?v=water-capacity-1';
 import {drawTerrainShore} from './terrain-tools.js?v=megacity-1';
-import{civicBounds,civicForId}from'./civic.js?v=processing-1';import{drawCivic}from'./civic-ui.js?v=processing-1';
+import{civicBounds,civicForId}from'./civic.js?v=water-capacity-1';import{drawCivic}from'./civic-ui.js?v=water-capacity-1';
 function bounds(city,z){const custom=civicBounds(z);if(custom)return custom;for(const b of city.build.buildings){if(!b)continue;const index=b.tiles.indexOf(z.id);if(index>=0)return{x:z.x-b.x[index],y:z.y-b.y[index],width:Math.max(...b.x)+1,height:Math.max(...b.y)+1};}return{x:z.x-1,y:z.y-1,width:3,height:3};}
 function expanded(b,...zones){const extra=Math.max(0,...zones.filter(Boolean).map(z=>{const meta=civicForId(z.id),foot=civicBounds(z);return meta&&foot?Math.ceil(Math.max(0,(meta.artHeight||0)-foot.height*8)/8):0;}));return {...b,y:b.y-extra,height:b.height+extra};}
 const intersects=(a,b)=>a.x<b.x+b.width&&a.x+a.width>b.x&&a.y<b.y+b.height&&a.y+a.height>b.y;

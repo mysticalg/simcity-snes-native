@@ -1,6 +1,6 @@
-import {civicServices,civicForId,civicRoadEntry,pumpStatus,educationEffects} from './civic.js?v=processing-1';
+import {civicServices,civicForId,civicRoadEntry,pumpStatus,educationEffects} from './civic.js?v=water-capacity-1';
 import {windPower} from './climate.js?v=weather-1';
-import {sewageServices} from './sewage.js?v=processing-1';
+import {sewageServices} from './sewage.js?v=water-capacity-1';
 import {collectGarbage,monthlyGarbageDemand} from './landfill.js?v=processing-1';
 import {employmentIncome} from './employment.js';
 import {emergencyKind} from './emergency.js';
@@ -17,7 +17,7 @@ export function processingMeters(city,z){
   if(z.id===961){const site=services.sites.find(s=>s.tiles.some(t=>t.i===z.i));add('Rubbish stored · this tile',city.civic.landfillUsed?.[z.i]||0,10000);if(site)add('Connected landfill site',site.used,site.capacity);notes.push('Storage · shared site');}
   else{add(z.id===962?'Rubbish burned':z.id===975?'Rubbish recycled':'Extra rubbish pickup',usage.processed,{962:6000,975:4000,976:12000}[z.id],'/month');notes.push('Current monthly allocation');if(z.id===976)notes.push('Adds pickup after municipal collection; needs disposal capacity.');}
  }else if(z.id===969){
-  const s=pumpStatus(city,z),network=civicServices(city).waterNetworks.find(g=>g.cells.includes(z.i));status=s.reason;add('Water network allocation',network?.used||0,network?.capacity||5000,'/month');notes.push('Shared network · this pump adds '+(s.working?'5,000':'0')+'/month');
+  const s=pumpStatus(city,z),network=civicServices(city).waterNetworks.find(g=>g.cells.includes(z.i));status=s.reason;add('Water network demand',network?.requested||0,network?.capacity||5000,'/month');if(network?.shortfall)notes.push('Supply shortage '+fmt(network.shortfall)+'/month · add working pumps to this network');notes.push('Shared network · this pump adds '+(s.working?'5,000':'0')+'/month');
  }else if([13,14,33,41].includes(z.type)){
   add('Power grid load',city.powerUsed,city.powerCapacity,'tiles');notes.push('Shared grid · output contribution '+fmt(off?0:z.type===13?2000:z.type===14?700:z.id===972?windPower(city):custom?.capacity));status=off?'Switched off':city.powerOverloaded?'Grid overloaded':'Generating';
  }else if(z.type===5){
@@ -29,6 +29,7 @@ export function processingMeters(city,z){
  }else if(custom&&['health','education','bus'].includes(custom.kind)){
   const service=civicServices(city),capacity=service.capacity[custom.kind],operating=!off&&(city.power[z.i]||z.id===967)&&civicRoadEntry(city,z)>=0;add('Citywide '+custom.kind+' capacity',Math.min(city.population,capacity),capacity,'people');add(custom.kind==='health'?'City health':custom.kind==='education'?'City education':'City bus routes',custom.kind==='health'?city.civic.health:custom.kind==='education'?city.civic.education:city.busRoutes.length,custom.kind==='bus'?32:100,custom.kind==='bus'?'routes':'%',{fullIsNormal:true});notes.push('Shared city service · this facility contributes '+fmt(operating?custom.capacity:0));status=off?'Switched off':!city.power[z.i]&&z.id!==967?'Needs electricity':!operating?'Needs road access':'Serving the city';
  }else notes.push('No material-processing role');
+ const water=city.civic.waterEnabled?city.waterAssignments?.get(z.i):null;if(water){add('Water allocated',water.supplied?water.need:0,water.need,'/month',{fullIsNormal:true});notes.push(water.reason);if(!water.supplied){status='Needs water';if(water.network!==null)add('Water network demand',water.networkDemand,water.capacity,'/month');}}
  return {status:off?'Switched off':status,meters,notes};
 }
 export function meterHTML(m){

@@ -1,5 +1,5 @@
-import {pumpStatus} from './civic.js?v=processing-1';
-import {sewageServices} from './sewage.js?v=processing-1';
+import {pumpStatus} from './civic.js?v=water-capacity-1';
+import {sewageServices} from './sewage.js?v=water-capacity-1';
 export function utilityInspectionHTML(city,z){
  if(![969,973,974].includes(z.id))return '';
  const s=z.id===969?pumpStatus(city,z):sewageServices(city).statuses.find(p=>p.i===z.i);

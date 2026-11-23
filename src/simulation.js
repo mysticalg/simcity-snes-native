@@ -1,19 +1,19 @@
 import {compactEmergencyId,emergencyBounds,emergencyTransport} from './emergency.js?v=emergency-1';
 import {addRomGrowthRate,decayRomGrowthRate} from './rom-growth-rate.js?v=job-growth-1';
 import {createRomUfo,stepRomUfo,startRomUfoVisit} from './rom-ufo.js?v=emergency-1';
-import {updateLocalHealth} from './social-fields.js?v=processing-1';
+import {updateLocalHealth} from './social-fields.js?v=water-capacity-1';
 import {createClimate,advanceClimate,combineAirPollution,windPower} from './climate.js?v=weather-1';
 import {conductivePowerFlags} from './power-conductors.js?v=terrain-1';
 import {createElevation,terrainCheck,plantForest} from './elevation.js?v=megacity-1';
 import {employmentIncome} from './employment.js?v=megacity-1';
 import {buildingOff} from './building-operations.js?v=emergency-1';
 import {updateRailFleet,advanceRailFleet,trainVehicles} from './rail-fleet.js?v=megacity-1';
-import {updateSewageMonth,sewageServices} from './sewage.js?v=processing-1';
+import {updateSewageMonth,sewageServices} from './sewage.js?v=water-capacity-1';
 import {createRomPlane,spawnRomPlane,stepRomPlane} from './rom-plane.js?v=emergency-1';
 import {createRomHelicopter,spawnRomHelicopter,stepRomHelicopter} from './rom-helicopter.js?v=emergency-1';
 import {installTerrainTools,reshapeTerrain} from './terrain-tools.js?v=megacity-1';
 import {createRomMonster,startRomMonster,stepRomMonster,monsterPollutionTarget} from './rom-monster.js?v=emergency-1';
-import {CIVIC_TOOLS,installCivicTools,civicForId,civicBounds,civicServices,civicAnnualCost,updateCivicMonth,educationEffects} from './civic.js?v=processing-1';
+import {CIVIC_TOOLS,installCivicTools,civicForId,civicBounds,civicServices,civicAnnualCost,updateCivicMonth,educationEffects} from './civic.js?v=water-capacity-1';
 import {createRomTornado,startRomTornado,stepRomTornado} from './rom-tornado.js?v=emergency-1';
 import {createRomSeason,changeRomSeason,advanceRomSeason} from './rom-render.js?v=season-1';
 import {romPopulation} from './rom-population.js';
@@ -109,7 +109,7 @@ export class City {
    if(f&0x20)this.railCount++;else if(f&0x40)this.roadCount+=id>=0x80||(id&15)<2?5:1;
   }
   for(let i=0;i<this.busStops.length;i++)if(this.busStops[i]){if(this.flags[this.map[i]&1023]&64)this.zones.push({i,x:i%this.width,y:Math.floor(i/this.width),id:967,type:37});else this.busStops[i]=0;}
-  this.updatePower();this.census();this.reconcileGrowthFacilities();if(this.regionalProvider){this.regionalState=this.regionalProvider(this);this.updatePower();}if(this.civicEnabled){const services=civicServices(this);this.civicCapacity=services.capacity;this.busRoutes=services.routes;this.civicWatered=services.watered;this.waterField=services.water;if(this.civic.sewageEnabled)this.sewageFlow=sewageServices(this).flow;}updateRailFleet(this);for(const key of Object.keys(this.zoneGrowthLog)){const id=this.map[+key]&1023,type=this.classify(id);if(!(this.flags[id]&1)||type<5||type>7)delete this.zoneGrowthLog[key];}
+  this.updatePower();this.census();this.reconcileGrowthFacilities();if(this.regionalProvider){this.regionalState=this.regionalProvider(this);this.updatePower();}if(this.civicEnabled){const services=civicServices(this);this.civicCapacity=services.capacity;this.busRoutes=services.routes;this.civicWatered=services.watered;this.waterField=services.water;this.waterAssignments=services.waterAssignments;this.waterNetworks=services.waterNetworks;if(this.civic.sewageEnabled)this.sewageFlow=sewageServices(this).flow;}updateRailFleet(this);for(const key of Object.keys(this.zoneGrowthLog)){const id=this.map[+key]&1023,type=this.classify(id);if(!(this.flags[id]&1)||type<5||type>7)delete this.zoneGrowthLog[key];}
  }
  updatePower(){
   const fusionSeeds=this.zones.filter(z=>z.id===963||z.id===972).map(z=>z.i);const result=traceRomPower(this.map,conductivePowerFlags(this.flags),this.width,this.height,{extraSeeds:fusionSeeds,extraCapacity:fusionSeeds.reduce((n,i)=>n+((this.map[i]&1023)===972?windPower(this):10000),0)});
