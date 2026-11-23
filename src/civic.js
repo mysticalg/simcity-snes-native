@@ -1,8 +1,8 @@
 import {AMENITY_TOOLS} from './amenities.js?v=amenities-gifts-29';
-import {educationCoverage} from './education.js?v=utility-work-52';
-import {allocateWater,updateWaterStorage} from './water-allocation.js?v=utility-work-52';
+import {educationCoverage} from './education.js?v=patch-work-54';
+import {allocateWater,updateWaterStorage} from './water-allocation.js?v=patch-work-54';
 import {landfillSites,garbageFacilities,collectGarbage,monthlyGarbageDemand} from './landfill.js?v=health-care-34';
-import {buildingOff} from './building-operations.js?v=utility-work-52';
+import {buildingOff} from './building-operations.js?v=patch-work-54';
 // Custom civic systems requested by the player. Values are game balance, not ROM-derived.
 export const CIVIC_TOOLS=[
  ...AMENITY_TOOLS,

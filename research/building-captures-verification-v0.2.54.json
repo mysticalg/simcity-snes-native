@@ -1,0 +1,531 @@
+{
+  "version": "0.2.54",
+  "referenceCommit": "5da6f43f0d2da8aac75ff5453c13a73a067fa6af",
+  "nodeTests": 549,
+  "pixels": {
+    "captures": 312,
+    "patches": 1294,
+    "patchChannels": 2981376,
+    "rounds": [
+      {
+        "step": 1,
+        "events": 82
+      },
+      {
+        "step": 2,
+        "events": 76
+      },
+      {
+        "step": 3,
+        "events": 74
+      },
+      {
+        "step": 4,
+        "events": 73
+      },
+      {
+        "step": 5,
+        "events": 76
+      },
+      {
+        "step": 6,
+        "events": 90
+      },
+      {
+        "step": 7,
+        "events": 83
+      },
+      {
+        "step": 8,
+        "events": 93
+      }
+    ],
+    "simulationUnchangedByRendering": true,
+    "perf": {
+      "before": {
+        "medianMs": 104.80000007152557,
+        "p95Ms": 107.30000007152557,
+        "events": 96
+      },
+      "after": {
+        "medianMs": 8.5,
+        "p95Ms": 9.5,
+        "events": 96
+      }
+    },
+    "errors": []
+  },
+  "runs": [
+    {
+      "name": "before",
+      "app": {
+        "paintedCount": 47,
+        "paintedMedianMs": 109,
+        "paintedP95Ms": 156.20000004768372,
+        "count": 47,
+        "medianMs": 109,
+        "p95Ms": 156.20000004768372,
+        "maximumPaintsPerFrame": 1
+      },
+      "fixed": {
+        "method": "Original app frame callback with fixed 60Hz inputs and actual city/visual stepping and fixed product animation clock; CPU/submission timing, not display FPS",
+        "count": 300,
+        "painted": 300,
+        "median": 18.100000023841858,
+        "p95": 97.70000004768372,
+        "baseStep": 106,
+        "visualFrame": 4800,
+        "month": 3,
+        "power": 64008,
+        "lighting": 1217,
+        "stateHash": "808f65910eec5d5d8673c8be3498576a5832ddd1ec6cf6c9fb221efa29e1393e"
+      },
+      "cpu": {
+        "durationMs": 5239.241,
+        "top": [
+          [
+            "drawImage ",
+            370
+          ],
+          [
+            "drawCachedSeaPollution sea-pollution-art.js?v=sea-cache-33",
+            252
+          ],
+          [
+            "scanCityTiles simulation.js?v=utility-work-52",
+            143
+          ],
+          [
+            "(garbage collector) ",
+            132
+          ],
+          [
+            "drawElevation elevation.js?v=megacity-1",
+            129
+          ],
+          [
+            "drawTerrainShore terrain-tools.js?v=megacity-1",
+            114
+          ],
+          [
+            "update garbage-visuals.js?v=utility-work-52",
+            100
+          ],
+          [
+            "busRoutes civic.js?v=utility-work-52",
+            76
+          ],
+          [
+            "(program) ",
+            69
+          ],
+          [
+            "traceRomPower rom-power.js?v=power-work-38",
+            68
+          ],
+          [
+            "allocateWater water-allocation.js?v=utility-work-52",
+            66
+          ],
+          [
+            "civicServices civic.js?v=utility-work-52",
+            61
+          ],
+          [
+            "patch building-effects.js?v=utility-work-52",
+            49
+          ],
+          [
+            "getContext ",
+            49
+          ],
+          [
+            "civicForId civic.js?v=utility-work-52",
+            48
+          ],
+          [
+            "sewageServices sewage.js?v=utility-work-52",
+            44
+          ],
+          [
+            "romPollutionField rom-pollution.js",
+            44
+          ],
+          [
+            "fillRect ",
+            40
+          ]
+        ]
+      },
+      "patchRef": null,
+      "errors": []
+    },
+    {
+      "name": "after",
+      "app": {
+        "paintedCount": 61,
+        "paintedMedianMs": 81.60000002384186,
+        "paintedP95Ms": 104.30000007152557,
+        "count": 61,
+        "medianMs": 81.60000002384186,
+        "p95Ms": 104.30000007152557,
+        "maximumPaintsPerFrame": 1
+      },
+      "fixed": {
+        "method": "Original app frame callback with fixed 60Hz inputs and actual city/visual stepping and fixed product animation clock; CPU/submission timing, not display FPS",
+        "count": 300,
+        "painted": 300,
+        "median": 19.100000023841858,
+        "p95": 84.29999995231628,
+        "baseStep": 106,
+        "visualFrame": 4800,
+        "month": 3,
+        "power": 64008,
+        "lighting": 1217,
+        "stateHash": "808f65910eec5d5d8673c8be3498576a5832ddd1ec6cf6c9fb221efa29e1393e"
+      },
+      "cpu": {
+        "durationMs": 5109.725,
+        "top": [
+          [
+            "drawImage ",
+            476
+          ],
+          [
+            "scanCityTiles simulation.js?v=patch-work-54",
+            157
+          ],
+          [
+            "update garbage-visuals.js?v=patch-work-54",
+            132
+          ],
+          [
+            "busRoutes civic.js?v=patch-work-54",
+            108
+          ],
+          [
+            "(garbage collector) ",
+            106
+          ],
+          [
+            "patch building-effects.js?v=patch-work-54",
+            83
+          ],
+          [
+            "traceRomPower rom-power.js?v=power-work-38",
+            77
+          ],
+          [
+            "allocateWater water-allocation.js?v=patch-work-54",
+            74
+          ],
+          [
+            "(program) ",
+            71
+          ],
+          [
+            "civicServices civic.js?v=patch-work-54",
+            70
+          ],
+          [
+            "fillRect ",
+            61
+          ],
+          [
+            "sync building-effects.js?v=patch-work-54",
+            55
+          ],
+          [
+            "romPollutionField rom-pollution.js",
+            54
+          ],
+          [
+            "getContext ",
+            53
+          ],
+          [
+            "sewageServices sewage.js?v=patch-work-54",
+            50
+          ],
+          [
+            "civicForId civic.js?v=patch-work-54",
+            44
+          ],
+          [
+            "employment employment.js?v=megacity-1",
+            42
+          ],
+          [
+            "socialFields social-fields.js?v=patch-work-54",
+            41
+          ]
+        ]
+      },
+      "patchRef": null,
+      "errors": []
+    },
+    {
+      "name": "after-2",
+      "app": {
+        "paintedCount": 60,
+        "paintedMedianMs": 81.40000009536743,
+        "paintedP95Ms": 115.79999995231628,
+        "count": 60,
+        "medianMs": 81.40000009536743,
+        "p95Ms": 115.79999995231628,
+        "maximumPaintsPerFrame": 1
+      },
+      "fixed": {
+        "method": "Original app frame callback with fixed 60Hz inputs and actual city/visual stepping and fixed product animation clock; CPU/submission timing, not display FPS",
+        "count": 300,
+        "painted": 300,
+        "median": 18.200000047683716,
+        "p95": 78.80000007152557,
+        "baseStep": 106,
+        "visualFrame": 4800,
+        "month": 3,
+        "power": 64008,
+        "lighting": 1217,
+        "stateHash": "808f65910eec5d5d8673c8be3498576a5832ddd1ec6cf6c9fb221efa29e1393e"
+      },
+      "cpu": {
+        "durationMs": 5117.133,
+        "top": [
+          [
+            "drawImage ",
+            470
+          ],
+          [
+            "scanCityTiles simulation.js?v=patch-work-54",
+            160
+          ],
+          [
+            "(garbage collector) ",
+            140
+          ],
+          [
+            "update garbage-visuals.js?v=patch-work-54",
+            138
+          ],
+          [
+            "busRoutes civic.js?v=patch-work-54",
+            99
+          ],
+          [
+            "allocateWater water-allocation.js?v=patch-work-54",
+            84
+          ],
+          [
+            "(program) ",
+            71
+          ],
+          [
+            "traceRomPower rom-power.js?v=power-work-38",
+            70
+          ],
+          [
+            " building-effects.js?v=patch-work-54",
+            62
+          ],
+          [
+            "civicServices civic.js?v=patch-work-54",
+            60
+          ],
+          [
+            "patch building-effects.js?v=patch-work-54",
+            55
+          ],
+          [
+            "sewageServices sewage.js?v=patch-work-54",
+            54
+          ],
+          [
+            "sync building-effects.js?v=patch-work-54",
+            54
+          ],
+          [
+            "civicForId civic.js?v=patch-work-54",
+            52
+          ],
+          [
+            "romPollutionField rom-pollution.js",
+            47
+          ],
+          [
+            "getContext ",
+            47
+          ],
+          [
+            "socialFields social-fields.js?v=patch-work-54",
+            43
+          ],
+          [
+            "expanded building-effects.js?v=patch-work-54",
+            41
+          ]
+        ]
+      },
+      "patchRef": null,
+      "errors": []
+    },
+    {
+      "name": "before-2",
+      "app": {
+        "paintedCount": 46,
+        "paintedMedianMs": 112.19999992847443,
+        "paintedP95Ms": 146.30000007152557,
+        "count": 46,
+        "medianMs": 112.19999992847443,
+        "p95Ms": 146.30000007152557,
+        "maximumPaintsPerFrame": 1
+      },
+      "fixed": {
+        "method": "Original app frame callback with fixed 60Hz inputs and actual city/visual stepping and fixed product animation clock; CPU/submission timing, not display FPS",
+        "count": 300,
+        "painted": 300,
+        "median": 17.800000071525574,
+        "p95": 95.39999997615814,
+        "baseStep": 106,
+        "visualFrame": 4800,
+        "month": 3,
+        "power": 64008,
+        "lighting": 1217,
+        "stateHash": "808f65910eec5d5d8673c8be3498576a5832ddd1ec6cf6c9fb221efa29e1393e"
+      },
+      "cpu": {
+        "durationMs": 5254.88,
+        "top": [
+          [
+            "drawImage ",
+            392
+          ],
+          [
+            "drawCachedSeaPollution sea-pollution-art.js?v=patch-work-54",
+            268
+          ],
+          [
+            "scanCityTiles simulation.js?v=patch-work-54",
+            129
+          ],
+          [
+            "(garbage collector) ",
+            121
+          ],
+          [
+            "drawElevation elevation.js?v=patch-work-54",
+            120
+          ],
+          [
+            "drawTerrainShore terrain-tools.js?v=patch-work-54",
+            106
+          ],
+          [
+            "update garbage-visuals.js?v=patch-work-54",
+            97
+          ],
+          [
+            "busRoutes civic.js?v=patch-work-54",
+            83
+          ],
+          [
+            " building-effects.js?v=patch-work-54",
+            73
+          ],
+          [
+            "allocateWater water-allocation.js?v=patch-work-54",
+            70
+          ],
+          [
+            "traceRomPower rom-power.js?v=power-work-38",
+            61
+          ],
+          [
+            "getContext ",
+            60
+          ],
+          [
+            "civicServices civic.js?v=patch-work-54",
+            59
+          ],
+          [
+            "(program) ",
+            56
+          ],
+          [
+            "romPollutionField rom-pollution.js",
+            52
+          ],
+          [
+            "sewageServices sewage.js?v=patch-work-54",
+            43
+          ],
+          [
+            "patch building-effects.js?v=patch-work-54",
+            42
+          ],
+          [
+            "sync building-effects.js?v=patch-work-54",
+            41
+          ]
+        ]
+      },
+      "patchRef": "5da6f43",
+      "errors": []
+    }
+  ],
+  "sources": {
+    "src/app.js": "cfb8ac8d10b541b3982d43adbfa1a80a5fd422b17f32d1aac29488c86fc32399",
+    "src/aviation.js": "31fd0c7930a4e0fa62b16f7f00b9e6bcae51f73fe5d98f678157127eae8ea13d",
+    "src/budget-view.js": "4bdd56aee9dd172fc2301334f8cdffff69e33fa82a1a9059c3d910f0823747ea",
+    "src/building-effects.js": "b7feaefe8c7906471a8ded8f36e1fc1fda62b9597accd5d47cbd253e14c17753",
+    "src/civic-ui.js": "cd562481719e7dd207e2296939a9cd18ec4113813f61d316207e30fbd0a6eb48",
+    "src/civic.js": "9fb4ab5379be785fe409c9cd93141ee4b7943eb79f9e0dbb73f043aec4d24d23",
+    "src/education.js": "436549dae437076dea0f7924af12a71acdfff062b83b05e89b23f955bf885db4",
+    "src/elevation.js": "6742fc7c64dd67445f4be5a377b6d30ccf9f28798d99d5ccb5f8dac941add172",
+    "src/facility-meters.js": "e546bd8b3cd9fdb27bc0e3061952ea5fadb1118ba91199ee9c399f67cecf1e6d",
+    "src/garbage-visuals.js": "d202368e2c304ab0be5210019d15b4c0e1925d364af638c18bf6b07edb3253a4",
+    "src/growth-advisor.js": "2322f45581d8c4adba123027923142a65d0cae58a2390fe341abec63e0493df0",
+    "src/health-care.js": "5187a1a7219b7300649cc4bed361ce11d929a6aa27e72ff39dfc36494384a0f3",
+    "src/map-overlays.js": "ce6d0112e5f9c1b262c718dca2e8acbecdfac90bc6c1fbf41fe6a8cce175987d",
+    "src/megacity.js": "c16823b6e8b9a1c1cf8bb7f74aaa4cd87d05516afa5b8fde68a78df19b075d07",
+    "src/parks.js": "6d7cf1051c99d6ebbd9dffba8b2419d82606e01326c881d432582ef7eb718c07",
+    "src/realistic-art.js": "93233c75b7082568e4ed079f280f12cc5a1e46a9276a0b74390b68fc19c7b660",
+    "src/region-ui.js": "15489b16108ea407456159eddaa178727fd8739327df83cab138dfae4769728e",
+    "src/regions.js": "0c44726ba3cb88ff5ac78aec6e4e1697c4b2c0ba10d5fbcb7d88626abb0ccbf8",
+    "src/sea-pollution-art.js": "5d24957ba1eadb1eb3b4a2102063b9812a0314b961bc942b5f47dae48b00405b",
+    "src/service-placement.js": "eeb28d2fe19c71a19274d97f3c65f2270ea242dfaff053ad7555c185377dbf11",
+    "src/sewage.js": "9a43e858e131f4a5fa666e10b7fcdbc7717b279dc6987127db7e4b92ac55ea9d",
+    "src/simulation.js": "a9d8e505b90ab55d0532274c46790fea610879536c4696a967a82c8a8acb8dcb",
+    "src/social-fields.js": "eb45d58f438a9e681ffc1cfc3ea17dfd4cd122401f5c91e5fc9e408bcb38bdf8",
+    "src/terrain-tools.js": "6d3816840debdf5a3e3c7379de65478219bab0e3a92f7b1ed4a9439fd972d312",
+    "src/transport-overlays.js": "d16c626bb154dc0b14bb49329a9b9826ba30d2ab4ddf0a1f1bb5a9da1db3d74d",
+    "src/underground.js": "2c6a27dc34dee29c2c972c332095344af28891db37754ec8c0a61d7bafb6f268",
+    "src/utility-flows.js": "af7a36c9e1d39798b581bae0a01db53cbf85b9e8fdf006f306fa709b0baec627",
+    "src/utility-inspection.js": "a786daf049c166da3a1ab2dc5d5f740aca49809a66aebf083ba76555a51c41cc",
+    "src/water-allocation.js": "6c25ef7c9e923f4cb0fc36c7c2ac4d690929c6d1165b3f8d8b7d009e0c067ddc",
+    "src/weather-fx.js": "079636203b01e485263880c3249d302c54a8b72d24eaa81aa191abad9b29181c",
+    "src/window-lights.js": "719b10411bd018ebdc2e33bf727cae7b636e158d74676b55e9bd0f7983b2f8cd",
+    "src/tile-draw-bounds.js": "b1f1be4d05c68f6fab7b3397a7f4707852475cf09e31905f51a785822d495ff4"
+  },
+  "scope": "CPU/render-submission timings; not user-display FPS. Pixel comparisons are against the previous browser release.",
+  "fullPortComplete": false,
+  "browserChecks": {
+    "buildingGrowthShrinkAndRemoval": true,
+    "coalescingAndExpiry": true,
+    "windOverhangPauseAndDisabled": true,
+    "trafficPowerAndOffscreenInvariants": true,
+    "photorealDayNightWindowsAndPower": true,
+    "waterShorePollutionAndAnimation": true,
+    "weatherAndSocialOverlays": true,
+    "activePowerWaterSewageEditsAndRoutes": true,
+    "sessionReload": true,
+    "requiredGameplayClient": {
+      "scenario": "PracticeCity",
+      "year": 1900,
+      "month": 2,
+      "baseStep": 6,
+      "screenshotInspected": true
+    },
+    "errors": []
+  }
+}

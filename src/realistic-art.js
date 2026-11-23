@@ -1,5 +1,5 @@
 import {PhotoGlowBatch} from './photo-glow-batch.js?v=photo-glows-47';
-import {buildingOff} from './building-operations.js?v=utility-work-52';
+import {buildingOff} from './building-operations.js?v=patch-work-54';
 const image=src=>{const i=new Image();i.src=src;return i;};
 export function photorealSlot(city,z){
  if(z.type===5){if([0x84,0x129,0x132].includes(z.id))return -1;const population=city.zonePopulation(z);if(population<=0)return -1;if(population<=24)return 0;if(population<=32)return 1;return Math.min(4,1+Math.floor(Math.max(0,z.id-0x99)/36));}

@@ -1,6 +1,6 @@
 // Custom finite water allocation. Reach, source pressure and a zone's actual
 // allocation are separate: a blue pipe must not imply unlimited pump capacity.
-import {pipeTopology} from './pipe-topology.js?v=utility-work-52';
+import {pipeTopology} from './pipe-topology.js?v=patch-work-54';
 export function allocateWater(city,nodes,pumps){
  const width=city.width||120,height=city.height||100,{labels,components}=pipeTopology(city,nodes),groups=components.map(cells=>({cells:Array.from(cells),capacity:0,generation:0,towers:[],pumps:0,requested:0,unserved:0})),water=new Uint8Array(nodes.length),watered=new Set(),assignments=new Map();
  for(const p of pumps){const id=labels[p.i];if(id>=0){const g=groups[id];if(p.storage){const stored=Math.max(0,Math.min(p.storage,Number(city.civic.waterStored?.[p.i])||0));g.towers.push({i:p.i,capacity:p.storage,flow:p.flow,stored});g.capacity+=Math.min(p.flow,stored);}else{const capacity=p.capacity??5000;g.capacity+=capacity;g.generation+=capacity;g.pumps++;}}}

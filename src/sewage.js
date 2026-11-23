@@ -1,6 +1,6 @@
-import {drawCachedSeaPollution} from './sea-pollution-art.js?v=sea-cache-33';
-import {pipeTopology} from './pipe-topology.js?v=utility-work-52';
-import {civicForId,waterNetwork,utilityPipeStatus,pumpStatus} from './civic.js?v=utility-work-52';
+import {drawCachedSeaPollution} from './sea-pollution-art.js?v=patch-work-54';
+import {pipeTopology} from './pipe-topology.js?v=patch-work-54';
+import {civicForId,waterNetwork,utilityPipeStatus,pumpStatus} from './civic.js?v=patch-work-54';
 const waterId=id=>id>=1&&id<20;
 export function sewageServices(city){
  const nodes=waterNetwork(city).nodes,{labels,components}=pipeTopology(city,nodes),groups=components.map(cells=>({cells,pumps:[],plants:[],sources:[],load:0}));
@@ -16,4 +16,4 @@ export function sewageServices(city){
  return {flow,generated,collected,treated,dumped,backlog:Object.values(debt).reduce((a,b)=>a+b,0),debt,discharges,statuses:statuses.map(p=>({i:p.z.i,id:p.z.id,x:p.z.x,y:p.z.y,reason:p.reason,powered:p.powered,connected:p.connected,capacity:p.capacity??(p.z.id===974?20000:8000),treated:p.treated||0,collected:p.collected||0})),unconnected};
 }
 export function updateSewageMonth(city){if(!city.civic.sewageEnabled)return;const s=sewageServices(city);city.sewageFlow=s.flow;const old=city.seaPollution,next=new Uint8Array(city.map.length);for(let i=0;i<city.map.length;i++){if(!waterId(city.map[i]&1023))continue;let diff=0;for(const k of[i>=(city.width||120)?i-(city.width||120):-1,i%(city.width||120)<((city.width||120)-1)?i+1:-1,i+(city.width||120)<city.map.length?i+(city.width||120):-1,i%(city.width||120)?i-1:-1])if(k>=0&&waterId(city.map[k]&1023))diff+=old[k]-old[i];next[i]=Math.max(0,Math.min(255,Math.floor(old[i]+diff*.12-1)));}for(const d of s.discharges){const dose=Math.max(8,Math.min(120,Math.ceil(d.amount/100)));for(const i of d.points)next[i]=Math.min(255,next[i]+dose);}city.seaPollution=next;Object.assign(city.civic,{sewageDebt:s.debt,sewageGenerated:s.generated,sewageCollected:s.collected,sewageTreated:s.treated,sewageDumped:s.dumped,sewageBacklog:s.backlog});let intake=0;for(const z of city.zones)if(civicForId(z.id)?.kind==='water'&&pumpStatus(city,z).working)for(const i of utilityPipeStatus(city,z).waterPoints)intake=Math.max(intake,next[i]);city.civic.waterPollution=intake;const penalty=Math.min(25,s.generated?s.backlog/s.generated*5:0)+Math.round(intake/255*30);city.civic.health=Math.max(0,city.civic.health-penalty);city.civic.sickness=100-city.civic.health;}
-export function drawSeaPollution(ctx,city){return drawCachedSeaPollution(ctx,city);}
+export function drawSeaPollution(ctx,city,bounds){return drawCachedSeaPollution(ctx,city,bounds);}

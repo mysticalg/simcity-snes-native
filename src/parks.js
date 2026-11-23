@@ -1,6 +1,6 @@
 // Requested Turbo amenities; these are explicit balance rules, not ROM formulas.
-import {civicForId,civicBounds,civicRoadEntry} from './civic.js?v=utility-work-52';
-import {buildingOff} from './building-operations.js?v=utility-work-52';
+import {civicForId,civicBounds,civicRoadEntry} from './civic.js?v=patch-work-54';
+import {buildingOff} from './building-operations.js?v=patch-work-54';
 const cache=new WeakMap();
 export function parkServices(city){
  const key=city.revision+':'+Object.entries(city.disabledBuildings||{}).join(';'),prior=cache.get(city);

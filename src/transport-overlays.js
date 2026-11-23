@@ -1,4 +1,4 @@
-import {aviationTraffic} from './aviation.js?v=utility-work-52';
+import {aviationTraffic} from './aviation.js?v=patch-work-54';
 const cache=new WeakMap();
 export function transportOverlay(city,kind){
  const frame=kind==='airTraffic'?Math.floor((city.civic.aviation?.frames||0)/60):0,entries=cache.get(city)||new Map();cache.set(city,entries);const prior=entries.get(kind);if(prior&&prior.revision===city.revision&&prior.step===city.baseStep&&prior.frame===frame&&prior.population===city.population&&prior.commercial===city.rci[1]&&prior.industrial===city.rci[2])return prior.value;
