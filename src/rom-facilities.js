@@ -1,3 +1,4 @@
+import {repairRomFootprint} from './rom-maintenance.js?v=gift-workers-31';
 import {stampZoneFootprint} from './rom-growth.js?v=processing-1';
 // CODE_038CE8..038D24: compare residential census units>>8 to each count.
 export function romFacilityDemand(residential,counts){const quota=(residential&65535)>>>8;return counts.map(count=>quota===(count&65535)?0:quota>(count&65535)?1:-1);}
@@ -11,8 +12,7 @@ export function placeRomFacility(map,x,y,demand,width=120,height=100){
 // exposed as repairPhase rather than silently treating it as the city tick.
 export function updateRomFacility(map,x,y,demand,nextBounded,{baseStep=0,repairPhase=0,width=120,height=100}={}){
  const i=y*width+x,center=map[i],id=center&1023,index=id===0x129?0:id===0x132?1:-1;if(index<0)return null;
- let repaired=0;
- if(!(repairPhase&15)&&!(baseStep&7))for(let n=0;n<9;n++){const cx=x+n%3-1,cy=y+Math.floor(n/3)-1;if(cx<0||cx>=width||cy<0||cy>=height)continue;const target=cy*width+cx;if((map[target]&1023)===0){map[target]=(center-4+n)&65535;repaired++;}}
+ const repaired=!(repairPhase&15)?repairRomFootprint(map,x,y,center,3,baseStep,width,height):0;
  const retired=demand[index]<0&&nextBounded(20)===0&&stampZoneFootprint(map,x,y,0x80,width,height);
  return {index,repaired,retired};
 }

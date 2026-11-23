@@ -28,7 +28,7 @@ function reward(message,gift,text=ROM_GIFTS[gift]+' is available.'){return {mess
 // UI adaption: the amusement/casino choice is an inline pair, with one slot.
 export function nextCoreMilestone({population=0,category=0,police=0,fire=0,rail=0,inventorySize=0,practice=false,scriptedScenario=false,funds=Infinity,roads=0,hospitals=0,schools=0,stadiums=0,emptyLand=Infinity,parks=0,developedZones=0,banks=0,airports=0,seaports=0,year=1900},progress){
  const thresholds=[2000,10000,50000,100000,500000],promotion=stage(progress,'population');
- if(promotion<thresholds.length&&population>=thresholds[promotion]){progress.population=promotion+1;return {message:promotion+1,historyId:promotion+2,text:'Population milestone: '+thresholds[promotion].toLocaleString()+'.',gift:null};}
+ if(promotion<thresholds.length&&population>=thresholds[promotion]){progress.population=promotion+1;progress.mayorUpgradePending=((Number(progress.mayorUpgradePending)||0)+1)&65535;return {message:promotion+1,historyId:promotion+2,text:'Population milestone: '+thresholds[promotion].toLocaleString()+'.',gift:null};}
  if(!progress.highPopulation&&population>=(practice?100000:600000)){progress.highPopulation=true;return {message:practice?0x31:0x2f,historyId:practice?null:0x13,text:'Population milestone: '+(practice?100000:600000).toLocaleString()+'.',gift:null};}
  // Scenario mode3 returns after promotion/high-population checks.
  if(scriptedScenario)return null;

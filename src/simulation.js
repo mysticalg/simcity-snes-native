@@ -1,3 +1,4 @@
+import {isRomGiftCenter,updateRomGiftCenter} from './rom-gift-worker.js?v=gift-workers-31';
 import {expandServiceCoverage} from './police-range.js?v=police-area-28';
 import {reconcileAviation,advanceAviation,aviationBenefits} from './aviation.js?v=civic-refresh-30';
 import {TREASURY_CAP,treasuryAmount} from './treasury.js?v=parks-23';
@@ -22,7 +23,7 @@ import {createRomTornado,startRomTornado,stepRomTornado} from './rom-tornado.js?
 import {createRomSeason,changeRomSeason,advanceRomSeason} from './rom-render.js?v=season-1';
 import {romPopulation} from './rom-population.js';
 import {selectRomRandomDisaster} from './rom-random-disaster.js';
-import {romFacilityDemand,placeRomFacility,updateRomFacility} from './rom-facilities.js?v=processing-1';
+import {romFacilityDemand,placeRomFacility,updateRomFacility} from './rom-facilities.js?v=gift-workers-31';
 import {createRomTrain,spawnRomTrain,stepRomTrain} from './rom-train.js';
 import {createRomShip,spawnRomShip,stepRomShip} from './rom-ship.js?v=megacity-1';
 import {applyRomShipCollision,applyRomTrainCollision,burnRomZone} from './rom-collision.js?v=emergency-1';
@@ -32,7 +33,7 @@ import {romCityProblems,romCityScore,pollRomProblems,pollRomApproval,romAssessed
 import {romTransportFunding,updateRomTransportTile} from './rom-transport.js';
 import {traceRomPower} from './rom-power.js?v=regions-1';
 import {romFieldSchedule} from './rom-schedule.js';
-import {romGiftEffects,nextCoreMilestone,enqueueRomGift,ROM_GIFTS,giftToolForId} from './rom-gifts.js?v=amenities-gifts-29';
+import {romGiftEffects,nextCoreMilestone,enqueueRomGift,ROM_GIFTS,giftToolForId} from './rom-gifts.js?v=gift-workers-31';
 import {networkCrossing,hasRoadLayer} from './rom-networks.js?v=megacity-1';
 import {romPoliceCoverage,romFireCoverage,fireBurnoutMaximum,romServiceFunding,seedRomServicePlane,expandRomServicePlane,addRomServiceCenter} from './rom-services.js?v=processing-1';
 import {romDensityField} from './rom-density.js';
@@ -422,6 +423,7 @@ export class City {
    // CODE_0390C5 repairs this merged half now, retaining $0B89 for its worker.
    repairMergedZone(this.map,i%this.width,Math.floor(i/this.width),this.width,this.height);
    this.countCensusTile(census,i,id,this.classify(id));
+   if(isRomGiftCenter(id)){const gift=updateRomGiftCenter(this.map,i%this.width,Math.floor(i/this.width),this.giftMilestones.mayorUpgradePending||0,{baseStep:this.baseStep,width:this.width,height:this.height});if(gift.pending!==((this.giftMilestones.mayorUpgradePending||0)&65535))this.giftMilestones.mayorUpgradePending=gift.pending;}
    if(this.disabledBuildings?.[i]===scanId)continue;addRomServiceCenter(this.serviceInputs.police,this.map,i,this.serviceStrengths[0]*this.policeEffectiveness,'police',this.width,this.height);addRomServiceCenter(this.serviceInputs.fire,this.map,i,this.serviceStrengths[1],'fire',this.width,this.height);
    if(id===0x129||id===0x132){updateRomFacility(this.map,i%this.width,Math.floor(i/this.width),this.facilityDemand,max=>this.boundedRandom(max),{baseStep:this.baseStep,repairPhase:this.facilityRepairPhase,width:this.width,height:this.height});continue;}const z={i,x:i%this.width,y:Math.floor(i/this.width),id,scanId:id,type:this.classify(id)};if(z.type<5||z.type>7)continue;
    if(z.type===5){this.updateResidentialTile(z);continue;}

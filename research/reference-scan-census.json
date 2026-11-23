@@ -5,7 +5,7 @@
     "CODE_0390C5",
     "CODE_038196"
   ],
-  "scope": "Controlled complete 120x100 scan: pre-worker RCI totals, R/C/I zone counts, population, final seven-word RNG and all 12000 map words including per-visit merge repair and redraw markers. No natural calendar/actor or custom utility parity claim.",
+  "scope": "Controlled complete 120x100 scan: pre-worker RCI totals, R/C/I zone counts, population, final seven-word RNG and all 12000 map words including per-visit merge repair, gift footprint repair, Mayor upgrades and redraw markers. Also compares gift-stat counters and the pending promotion word. No natural calendar/actor or custom utility parity claim.",
   "romSHA256": "e9c0bc05511e05a0d7c3e7cc42e761e1e8e532d46f59b9854b6902e1a2e9dd0a",
   "mesenSHA256": "d2eb03c2590c648bf329f127ebcfefd70130e7690a9e2ccdba8616faea1fe96b",
   "cases": [
@@ -186,6 +186,14 @@
         1,
         1
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11973,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0
+      },
       "post": [
         0,
         0,
@@ -528,6 +536,14 @@
         1,
         1
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11973,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0
+      },
       "post": [
         0,
         0,
@@ -870,6 +886,14 @@
         1,
         1
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11973,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0
+      },
       "post": [
         0,
         0,
@@ -1212,6 +1236,14 @@
         1,
         1
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11973,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0
+      },
       "post": [
         0,
         0,
@@ -1554,6 +1586,14 @@
         1,
         1
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11973,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0
+      },
       "post": [
         0,
         0,
@@ -1896,6 +1936,14 @@
         1,
         1
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11973,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0
+      },
       "post": [
         0,
         0,
@@ -2238,6 +2286,14 @@
         1,
         1
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11973,
+        "parks": 0,
+        "developedZones": 3,
+        "banks": 0
+      },
       "post": [
         8,
         0,
@@ -2576,6 +2632,14 @@
         1,
         1
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11973,
+        "parks": 0,
+        "developedZones": 3,
+        "banks": 0
+      },
       "post": [
         8,
         0,
@@ -2914,6 +2978,14 @@
         1,
         1
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11973,
+        "parks": 0,
+        "developedZones": 3,
+        "banks": 0
+      },
       "post": [
         8,
         0,
@@ -3240,6 +3312,14 @@
         1,
         1
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11973,
+        "parks": 0,
+        "developedZones": 3,
+        "banks": 0
+      },
       "post": [
         8,
         0,
@@ -3566,6 +3646,14 @@
         1,
         1
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11973,
+        "parks": 0,
+        "developedZones": 3,
+        "banks": 0
+      },
       "post": [
         8,
         0,
@@ -3892,6 +3980,14 @@
         1,
         1
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11973,
+        "parks": 0,
+        "developedZones": 3,
+        "banks": 0
+      },
       "post": [
         8,
         0,
@@ -4218,6 +4314,14 @@
         1,
         1
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11973,
+        "parks": 0,
+        "developedZones": 3,
+        "banks": 0
+      },
       "post": [
         32,
         4,
@@ -4560,6 +4664,14 @@
         1,
         1
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11973,
+        "parks": 0,
+        "developedZones": 3,
+        "banks": 0
+      },
       "post": [
         32,
         4,
@@ -4902,6 +5014,14 @@
         1,
         1
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11973,
+        "parks": 0,
+        "developedZones": 3,
+        "banks": 0
+      },
       "post": [
         32,
         4,
@@ -5244,6 +5364,14 @@
         1,
         1
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11973,
+        "parks": 0,
+        "developedZones": 3,
+        "banks": 0
+      },
       "post": [
         32,
         4,
@@ -5586,6 +5714,14 @@
         1,
         1
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11973,
+        "parks": 0,
+        "developedZones": 3,
+        "banks": 0
+      },
       "post": [
         32,
         4,
@@ -5928,6 +6064,14 @@
         1,
         1
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11973,
+        "parks": 0,
+        "developedZones": 3,
+        "banks": 0
+      },
       "post": [
         32,
         4,
@@ -6174,6 +6318,14 @@
         0,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11991,
+        "parks": 0,
+        "developedZones": 1,
+        "banks": 0
+      },
       "post": [
         8,
         0,
@@ -6324,6 +6476,14 @@
         0,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11991,
+        "parks": 0,
+        "developedZones": 1,
+        "banks": 0
+      },
       "post": [
         8,
         0,
@@ -6474,6 +6634,14 @@
         0,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11991,
+        "parks": 0,
+        "developedZones": 1,
+        "banks": 0
+      },
       "post": [
         8,
         0,
@@ -6624,6 +6792,14 @@
         0,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11991,
+        "parks": 0,
+        "developedZones": 1,
+        "banks": 0
+      },
       "post": [
         8,
         0,
@@ -6774,6 +6950,14 @@
         0,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11991,
+        "parks": 0,
+        "developedZones": 1,
+        "banks": 0
+      },
       "post": [
         8,
         0,
@@ -6924,6 +7108,14 @@
         0,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11991,
+        "parks": 0,
+        "developedZones": 1,
+        "banks": 0
+      },
       "post": [
         8,
         0,
@@ -7110,6 +7302,14 @@
         0,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 2,
+        "banks": 0
+      },
       "post": [
         80,
         0,
@@ -7332,6 +7532,14 @@
         0,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 2,
+        "banks": 0
+      },
       "post": [
         80,
         0,
@@ -7554,6 +7762,14 @@
         0,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 2,
+        "banks": 0
+      },
       "post": [
         80,
         0,
@@ -7776,6 +7992,14 @@
         0,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 2,
+        "banks": 0
+      },
       "post": [
         80,
         0,
@@ -7998,6 +8222,14 @@
         0,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 2,
+        "banks": 0
+      },
       "post": [
         80,
         0,
@@ -8220,6 +8452,14 @@
         0,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 2,
+        "banks": 0
+      },
       "post": [
         80,
         0,
@@ -8442,6 +8682,14 @@
         2,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 2,
+        "banks": 0
+      },
       "post": [
         0,
         10,
@@ -8664,6 +8912,14 @@
         2,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 2,
+        "banks": 0
+      },
       "post": [
         0,
         10,
@@ -8886,6 +9142,14 @@
         2,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 2,
+        "banks": 0
+      },
       "post": [
         0,
         10,
@@ -9108,6 +9372,14 @@
         2,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 2,
+        "banks": 0
+      },
       "post": [
         0,
         10,
@@ -9330,6 +9602,14 @@
         2,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 2,
+        "banks": 0
+      },
       "post": [
         0,
         10,
@@ -9552,6 +9832,14 @@
         2,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 2,
+        "banks": 0
+      },
       "post": [
         0,
         10,
@@ -9786,6 +10074,14 @@
         0,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 2,
+        "banks": 0
+      },
       "post": [
         80,
         0,
@@ -10032,6 +10328,14 @@
         0,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 2,
+        "banks": 0
+      },
       "post": [
         80,
         0,
@@ -10278,6 +10582,14 @@
         0,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 2,
+        "banks": 0
+      },
       "post": [
         80,
         0,
@@ -10524,6 +10836,14 @@
         0,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 2,
+        "banks": 0
+      },
       "post": [
         80,
         0,
@@ -10770,6 +11090,14 @@
         0,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 2,
+        "banks": 0
+      },
       "post": [
         80,
         0,
@@ -11016,6 +11344,14 @@
         0,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 2,
+        "banks": 0
+      },
       "post": [
         80,
         0,
@@ -11262,6 +11598,14 @@
         2,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 2,
+        "banks": 0
+      },
       "post": [
         0,
         10,
@@ -11508,6 +11852,14 @@
         2,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 2,
+        "banks": 0
+      },
       "post": [
         0,
         10,
@@ -11754,6 +12106,14 @@
         2,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 2,
+        "banks": 0
+      },
       "post": [
         0,
         10,
@@ -12000,6 +12360,14 @@
         2,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 2,
+        "banks": 0
+      },
       "post": [
         0,
         10,
@@ -12246,6 +12614,14 @@
         2,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 2,
+        "banks": 0
+      },
       "post": [
         0,
         10,
@@ -12492,6 +12868,14 @@
         2,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 2,
+        "banks": 0
+      },
       "post": [
         0,
         10,
@@ -12842,6 +13226,14 @@
         1,
         1
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11929,
+        "parks": 0,
+        "developedZones": 4,
+        "banks": 0
+      },
       "post": [
         64,
         5,
@@ -13296,6 +13688,14 @@
         1,
         1
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11929,
+        "parks": 0,
+        "developedZones": 4,
+        "banks": 0
+      },
       "post": [
         64,
         5,
@@ -13750,6 +14150,14 @@
         1,
         1
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11929,
+        "parks": 0,
+        "developedZones": 4,
+        "banks": 0
+      },
       "post": [
         56,
         5,
@@ -14204,6 +14612,14 @@
         1,
         1
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11929,
+        "parks": 0,
+        "developedZones": 4,
+        "banks": 0
+      },
       "post": [
         56,
         5,
@@ -14658,6 +15074,14 @@
         1,
         1
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11929,
+        "parks": 0,
+        "developedZones": 4,
+        "banks": 0
+      },
       "post": [
         56,
         5,
@@ -15112,6 +15536,14 @@
         1,
         1
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11929,
+        "parks": 0,
+        "developedZones": 4,
+        "banks": 0
+      },
       "post": [
         56,
         5,
@@ -15458,6 +15890,14 @@
         1,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 2,
+        "banks": 0
+      },
       "post": [
         32,
         4,
@@ -15696,6 +16136,14 @@
         1,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 2,
+        "banks": 0
+      },
       "post": [
         32,
         4,
@@ -15934,6 +16382,14 @@
         1,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 2,
+        "banks": 0
+      },
       "post": [
         32,
         4,
@@ -16172,6 +16628,14 @@
         1,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 2,
+        "banks": 0
+      },
       "post": [
         32,
         4,
@@ -16410,6 +16874,14 @@
         1,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 2,
+        "banks": 0
+      },
       "post": [
         32,
         4,
@@ -16648,6 +17120,14 @@
         1,
         0
       ],
+      "giftPending": 0,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 2,
+        "banks": 0
+      },
       "post": [
         32,
         4,
@@ -16754,6 +17234,5382 @@
       "rng": [
         1,
         0,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535
+      ]
+    },
+    {
+      "name": "mayor promotion first stage",
+      "demand": -1500,
+      "seed": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ],
+      "input": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33467
+        ],
+        [
+          1,
+          33468
+        ],
+        [
+          1,
+          33469
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33470
+        ],
+        [
+          1,
+          33471
+        ],
+        [
+          1,
+          33472
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33473
+        ],
+        [
+          1,
+          33474
+        ],
+        [
+          1,
+          49859
+        ],
+        [
+          5828,
+          0
+        ]
+      ],
+      "initial": [
+        0,
+        0,
+        0
+      ],
+      "visit": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0,
+        0
+      ],
+      "giftPending": 1,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11991,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0
+      },
+      "post": [
+        0,
+        0,
+        0
+      ],
+      "expected": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33476
+        ],
+        [
+          1,
+          33477
+        ],
+        [
+          1,
+          33478
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33479
+        ],
+        [
+          1,
+          33480
+        ],
+        [
+          1,
+          33481
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33482
+        ],
+        [
+          1,
+          33483
+        ],
+        [
+          1,
+          49868
+        ],
+        [
+          5828,
+          0
+        ]
+      ],
+      "rng": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ]
+    },
+    {
+      "name": "mayor promotion first stage",
+      "demand": 1500,
+      "seed": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ],
+      "input": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33467
+        ],
+        [
+          1,
+          33468
+        ],
+        [
+          1,
+          33469
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33470
+        ],
+        [
+          1,
+          33471
+        ],
+        [
+          1,
+          33472
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33473
+        ],
+        [
+          1,
+          33474
+        ],
+        [
+          1,
+          49859
+        ],
+        [
+          5828,
+          0
+        ]
+      ],
+      "initial": [
+        0,
+        0,
+        0
+      ],
+      "visit": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0,
+        0
+      ],
+      "giftPending": 1,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11991,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0
+      },
+      "post": [
+        0,
+        0,
+        0
+      ],
+      "expected": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33476
+        ],
+        [
+          1,
+          33477
+        ],
+        [
+          1,
+          33478
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33479
+        ],
+        [
+          1,
+          33480
+        ],
+        [
+          1,
+          33481
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33482
+        ],
+        [
+          1,
+          33483
+        ],
+        [
+          1,
+          49868
+        ],
+        [
+          5828,
+          0
+        ]
+      ],
+      "rng": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ]
+    },
+    {
+      "name": "mayor promotion first stage",
+      "demand": -1500,
+      "seed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "input": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33467
+        ],
+        [
+          1,
+          33468
+        ],
+        [
+          1,
+          33469
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33470
+        ],
+        [
+          1,
+          33471
+        ],
+        [
+          1,
+          33472
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33473
+        ],
+        [
+          1,
+          33474
+        ],
+        [
+          1,
+          49859
+        ],
+        [
+          5828,
+          0
+        ]
+      ],
+      "initial": [
+        0,
+        0,
+        0
+      ],
+      "visit": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0,
+        0
+      ],
+      "giftPending": 1,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11991,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0
+      },
+      "post": [
+        0,
+        0,
+        0
+      ],
+      "expected": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33476
+        ],
+        [
+          1,
+          33477
+        ],
+        [
+          1,
+          33478
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33479
+        ],
+        [
+          1,
+          33480
+        ],
+        [
+          1,
+          33481
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33482
+        ],
+        [
+          1,
+          33483
+        ],
+        [
+          1,
+          49868
+        ],
+        [
+          5828,
+          0
+        ]
+      ],
+      "rng": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "mayor promotion first stage",
+      "demand": 1500,
+      "seed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "input": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33467
+        ],
+        [
+          1,
+          33468
+        ],
+        [
+          1,
+          33469
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33470
+        ],
+        [
+          1,
+          33471
+        ],
+        [
+          1,
+          33472
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33473
+        ],
+        [
+          1,
+          33474
+        ],
+        [
+          1,
+          49859
+        ],
+        [
+          5828,
+          0
+        ]
+      ],
+      "initial": [
+        0,
+        0,
+        0
+      ],
+      "visit": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0,
+        0
+      ],
+      "giftPending": 1,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11991,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0
+      },
+      "post": [
+        0,
+        0,
+        0
+      ],
+      "expected": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33476
+        ],
+        [
+          1,
+          33477
+        ],
+        [
+          1,
+          33478
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33479
+        ],
+        [
+          1,
+          33480
+        ],
+        [
+          1,
+          33481
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33482
+        ],
+        [
+          1,
+          33483
+        ],
+        [
+          1,
+          49868
+        ],
+        [
+          5828,
+          0
+        ]
+      ],
+      "rng": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "mayor promotion first stage",
+      "demand": -1500,
+      "seed": [
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535
+      ],
+      "input": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33467
+        ],
+        [
+          1,
+          33468
+        ],
+        [
+          1,
+          33469
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33470
+        ],
+        [
+          1,
+          33471
+        ],
+        [
+          1,
+          33472
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33473
+        ],
+        [
+          1,
+          33474
+        ],
+        [
+          1,
+          49859
+        ],
+        [
+          5828,
+          0
+        ]
+      ],
+      "initial": [
+        0,
+        0,
+        0
+      ],
+      "visit": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0,
+        0
+      ],
+      "giftPending": 1,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11991,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0
+      },
+      "post": [
+        0,
+        0,
+        0
+      ],
+      "expected": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33476
+        ],
+        [
+          1,
+          33477
+        ],
+        [
+          1,
+          33478
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33479
+        ],
+        [
+          1,
+          33480
+        ],
+        [
+          1,
+          33481
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33482
+        ],
+        [
+          1,
+          33483
+        ],
+        [
+          1,
+          49868
+        ],
+        [
+          5828,
+          0
+        ]
+      ],
+      "rng": [
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535
+      ]
+    },
+    {
+      "name": "mayor promotion first stage",
+      "demand": 1500,
+      "seed": [
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535
+      ],
+      "input": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33467
+        ],
+        [
+          1,
+          33468
+        ],
+        [
+          1,
+          33469
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33470
+        ],
+        [
+          1,
+          33471
+        ],
+        [
+          1,
+          33472
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33473
+        ],
+        [
+          1,
+          33474
+        ],
+        [
+          1,
+          49859
+        ],
+        [
+          5828,
+          0
+        ]
+      ],
+      "initial": [
+        0,
+        0,
+        0
+      ],
+      "visit": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0,
+        0
+      ],
+      "giftPending": 1,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11991,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0
+      },
+      "post": [
+        0,
+        0,
+        0
+      ],
+      "expected": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33476
+        ],
+        [
+          1,
+          33477
+        ],
+        [
+          1,
+          33478
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33479
+        ],
+        [
+          1,
+          33480
+        ],
+        [
+          1,
+          33481
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33482
+        ],
+        [
+          1,
+          33483
+        ],
+        [
+          1,
+          49868
+        ],
+        [
+          5828,
+          0
+        ]
+      ],
+      "rng": [
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535
+      ]
+    },
+    {
+      "name": "two mayor houses one pending word",
+      "demand": -1500,
+      "seed": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ],
+      "input": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33476
+        ],
+        [
+          1,
+          33477
+        ],
+        [
+          1,
+          33478
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33485
+        ],
+        [
+          1,
+          33486
+        ],
+        [
+          1,
+          33487
+        ],
+        [
+          107,
+          0
+        ],
+        [
+          1,
+          33479
+        ],
+        [
+          1,
+          33480
+        ],
+        [
+          1,
+          33481
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33488
+        ],
+        [
+          1,
+          33489
+        ],
+        [
+          1,
+          33490
+        ],
+        [
+          107,
+          0
+        ],
+        [
+          1,
+          33482
+        ],
+        [
+          1,
+          33483
+        ],
+        [
+          1,
+          49868
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33491
+        ],
+        [
+          1,
+          33492
+        ],
+        [
+          1,
+          49877
+        ],
+        [
+          5818,
+          0
+        ]
+      ],
+      "initial": [
+        0,
+        0,
+        0
+      ],
+      "visit": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0,
+        0
+      ],
+      "giftPending": 4,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0
+      },
+      "post": [
+        0,
+        0,
+        0
+      ],
+      "expected": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33485
+        ],
+        [
+          1,
+          33486
+        ],
+        [
+          1,
+          33487
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33485
+        ],
+        [
+          1,
+          33486
+        ],
+        [
+          1,
+          33487
+        ],
+        [
+          107,
+          0
+        ],
+        [
+          1,
+          33488
+        ],
+        [
+          1,
+          33489
+        ],
+        [
+          1,
+          33490
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33488
+        ],
+        [
+          1,
+          33489
+        ],
+        [
+          1,
+          33490
+        ],
+        [
+          107,
+          0
+        ],
+        [
+          1,
+          33491
+        ],
+        [
+          1,
+          33492
+        ],
+        [
+          1,
+          49877
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33491
+        ],
+        [
+          1,
+          33492
+        ],
+        [
+          1,
+          49877
+        ],
+        [
+          5818,
+          0
+        ]
+      ],
+      "rng": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ]
+    },
+    {
+      "name": "two mayor houses one pending word",
+      "demand": 1500,
+      "seed": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ],
+      "input": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33476
+        ],
+        [
+          1,
+          33477
+        ],
+        [
+          1,
+          33478
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33485
+        ],
+        [
+          1,
+          33486
+        ],
+        [
+          1,
+          33487
+        ],
+        [
+          107,
+          0
+        ],
+        [
+          1,
+          33479
+        ],
+        [
+          1,
+          33480
+        ],
+        [
+          1,
+          33481
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33488
+        ],
+        [
+          1,
+          33489
+        ],
+        [
+          1,
+          33490
+        ],
+        [
+          107,
+          0
+        ],
+        [
+          1,
+          33482
+        ],
+        [
+          1,
+          33483
+        ],
+        [
+          1,
+          49868
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33491
+        ],
+        [
+          1,
+          33492
+        ],
+        [
+          1,
+          49877
+        ],
+        [
+          5818,
+          0
+        ]
+      ],
+      "initial": [
+        0,
+        0,
+        0
+      ],
+      "visit": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0,
+        0
+      ],
+      "giftPending": 4,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0
+      },
+      "post": [
+        0,
+        0,
+        0
+      ],
+      "expected": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33485
+        ],
+        [
+          1,
+          33486
+        ],
+        [
+          1,
+          33487
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33485
+        ],
+        [
+          1,
+          33486
+        ],
+        [
+          1,
+          33487
+        ],
+        [
+          107,
+          0
+        ],
+        [
+          1,
+          33488
+        ],
+        [
+          1,
+          33489
+        ],
+        [
+          1,
+          33490
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33488
+        ],
+        [
+          1,
+          33489
+        ],
+        [
+          1,
+          33490
+        ],
+        [
+          107,
+          0
+        ],
+        [
+          1,
+          33491
+        ],
+        [
+          1,
+          33492
+        ],
+        [
+          1,
+          49877
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33491
+        ],
+        [
+          1,
+          33492
+        ],
+        [
+          1,
+          49877
+        ],
+        [
+          5818,
+          0
+        ]
+      ],
+      "rng": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ]
+    },
+    {
+      "name": "two mayor houses one pending word",
+      "demand": -1500,
+      "seed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "input": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33476
+        ],
+        [
+          1,
+          33477
+        ],
+        [
+          1,
+          33478
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33485
+        ],
+        [
+          1,
+          33486
+        ],
+        [
+          1,
+          33487
+        ],
+        [
+          107,
+          0
+        ],
+        [
+          1,
+          33479
+        ],
+        [
+          1,
+          33480
+        ],
+        [
+          1,
+          33481
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33488
+        ],
+        [
+          1,
+          33489
+        ],
+        [
+          1,
+          33490
+        ],
+        [
+          107,
+          0
+        ],
+        [
+          1,
+          33482
+        ],
+        [
+          1,
+          33483
+        ],
+        [
+          1,
+          49868
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33491
+        ],
+        [
+          1,
+          33492
+        ],
+        [
+          1,
+          49877
+        ],
+        [
+          5818,
+          0
+        ]
+      ],
+      "initial": [
+        0,
+        0,
+        0
+      ],
+      "visit": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0,
+        0
+      ],
+      "giftPending": 4,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0
+      },
+      "post": [
+        0,
+        0,
+        0
+      ],
+      "expected": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33485
+        ],
+        [
+          1,
+          33486
+        ],
+        [
+          1,
+          33487
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33485
+        ],
+        [
+          1,
+          33486
+        ],
+        [
+          1,
+          33487
+        ],
+        [
+          107,
+          0
+        ],
+        [
+          1,
+          33488
+        ],
+        [
+          1,
+          33489
+        ],
+        [
+          1,
+          33490
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33488
+        ],
+        [
+          1,
+          33489
+        ],
+        [
+          1,
+          33490
+        ],
+        [
+          107,
+          0
+        ],
+        [
+          1,
+          33491
+        ],
+        [
+          1,
+          33492
+        ],
+        [
+          1,
+          49877
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33491
+        ],
+        [
+          1,
+          33492
+        ],
+        [
+          1,
+          49877
+        ],
+        [
+          5818,
+          0
+        ]
+      ],
+      "rng": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "two mayor houses one pending word",
+      "demand": 1500,
+      "seed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "input": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33476
+        ],
+        [
+          1,
+          33477
+        ],
+        [
+          1,
+          33478
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33485
+        ],
+        [
+          1,
+          33486
+        ],
+        [
+          1,
+          33487
+        ],
+        [
+          107,
+          0
+        ],
+        [
+          1,
+          33479
+        ],
+        [
+          1,
+          33480
+        ],
+        [
+          1,
+          33481
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33488
+        ],
+        [
+          1,
+          33489
+        ],
+        [
+          1,
+          33490
+        ],
+        [
+          107,
+          0
+        ],
+        [
+          1,
+          33482
+        ],
+        [
+          1,
+          33483
+        ],
+        [
+          1,
+          49868
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33491
+        ],
+        [
+          1,
+          33492
+        ],
+        [
+          1,
+          49877
+        ],
+        [
+          5818,
+          0
+        ]
+      ],
+      "initial": [
+        0,
+        0,
+        0
+      ],
+      "visit": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0,
+        0
+      ],
+      "giftPending": 4,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0
+      },
+      "post": [
+        0,
+        0,
+        0
+      ],
+      "expected": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33485
+        ],
+        [
+          1,
+          33486
+        ],
+        [
+          1,
+          33487
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33485
+        ],
+        [
+          1,
+          33486
+        ],
+        [
+          1,
+          33487
+        ],
+        [
+          107,
+          0
+        ],
+        [
+          1,
+          33488
+        ],
+        [
+          1,
+          33489
+        ],
+        [
+          1,
+          33490
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33488
+        ],
+        [
+          1,
+          33489
+        ],
+        [
+          1,
+          33490
+        ],
+        [
+          107,
+          0
+        ],
+        [
+          1,
+          33491
+        ],
+        [
+          1,
+          33492
+        ],
+        [
+          1,
+          49877
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33491
+        ],
+        [
+          1,
+          33492
+        ],
+        [
+          1,
+          49877
+        ],
+        [
+          5818,
+          0
+        ]
+      ],
+      "rng": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "two mayor houses one pending word",
+      "demand": -1500,
+      "seed": [
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535
+      ],
+      "input": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33476
+        ],
+        [
+          1,
+          33477
+        ],
+        [
+          1,
+          33478
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33485
+        ],
+        [
+          1,
+          33486
+        ],
+        [
+          1,
+          33487
+        ],
+        [
+          107,
+          0
+        ],
+        [
+          1,
+          33479
+        ],
+        [
+          1,
+          33480
+        ],
+        [
+          1,
+          33481
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33488
+        ],
+        [
+          1,
+          33489
+        ],
+        [
+          1,
+          33490
+        ],
+        [
+          107,
+          0
+        ],
+        [
+          1,
+          33482
+        ],
+        [
+          1,
+          33483
+        ],
+        [
+          1,
+          49868
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33491
+        ],
+        [
+          1,
+          33492
+        ],
+        [
+          1,
+          49877
+        ],
+        [
+          5818,
+          0
+        ]
+      ],
+      "initial": [
+        0,
+        0,
+        0
+      ],
+      "visit": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0,
+        0
+      ],
+      "giftPending": 4,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0
+      },
+      "post": [
+        0,
+        0,
+        0
+      ],
+      "expected": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33485
+        ],
+        [
+          1,
+          33486
+        ],
+        [
+          1,
+          33487
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33485
+        ],
+        [
+          1,
+          33486
+        ],
+        [
+          1,
+          33487
+        ],
+        [
+          107,
+          0
+        ],
+        [
+          1,
+          33488
+        ],
+        [
+          1,
+          33489
+        ],
+        [
+          1,
+          33490
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33488
+        ],
+        [
+          1,
+          33489
+        ],
+        [
+          1,
+          33490
+        ],
+        [
+          107,
+          0
+        ],
+        [
+          1,
+          33491
+        ],
+        [
+          1,
+          33492
+        ],
+        [
+          1,
+          49877
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33491
+        ],
+        [
+          1,
+          33492
+        ],
+        [
+          1,
+          49877
+        ],
+        [
+          5818,
+          0
+        ]
+      ],
+      "rng": [
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535
+      ]
+    },
+    {
+      "name": "two mayor houses one pending word",
+      "demand": 1500,
+      "seed": [
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535
+      ],
+      "input": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33476
+        ],
+        [
+          1,
+          33477
+        ],
+        [
+          1,
+          33478
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33485
+        ],
+        [
+          1,
+          33486
+        ],
+        [
+          1,
+          33487
+        ],
+        [
+          107,
+          0
+        ],
+        [
+          1,
+          33479
+        ],
+        [
+          1,
+          33480
+        ],
+        [
+          1,
+          33481
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33488
+        ],
+        [
+          1,
+          33489
+        ],
+        [
+          1,
+          33490
+        ],
+        [
+          107,
+          0
+        ],
+        [
+          1,
+          33482
+        ],
+        [
+          1,
+          33483
+        ],
+        [
+          1,
+          49868
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33491
+        ],
+        [
+          1,
+          33492
+        ],
+        [
+          1,
+          49877
+        ],
+        [
+          5818,
+          0
+        ]
+      ],
+      "initial": [
+        0,
+        0,
+        0
+      ],
+      "visit": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0,
+        0
+      ],
+      "giftPending": 4,
+      "giftRemaining": 0,
+      "giftStats": {
+        "emptyLand": 11982,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0
+      },
+      "post": [
+        0,
+        0,
+        0
+      ],
+      "expected": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33485
+        ],
+        [
+          1,
+          33486
+        ],
+        [
+          1,
+          33487
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33485
+        ],
+        [
+          1,
+          33486
+        ],
+        [
+          1,
+          33487
+        ],
+        [
+          107,
+          0
+        ],
+        [
+          1,
+          33488
+        ],
+        [
+          1,
+          33489
+        ],
+        [
+          1,
+          33490
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33488
+        ],
+        [
+          1,
+          33489
+        ],
+        [
+          1,
+          33490
+        ],
+        [
+          107,
+          0
+        ],
+        [
+          1,
+          33491
+        ],
+        [
+          1,
+          33492
+        ],
+        [
+          1,
+          49877
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          1,
+          33491
+        ],
+        [
+          1,
+          33492
+        ],
+        [
+          1,
+          49877
+        ],
+        [
+          5818,
+          0
+        ]
+      ],
+      "rng": [
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535
+      ]
+    },
+    {
+      "name": "gift bank casino and repair scars",
+      "demand": -1500,
+      "seed": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ],
+      "input": [
+        [
+          5900,
+          0
+        ],
+        [
+          1,
+          33504
+        ],
+        [
+          1,
+          33505
+        ],
+        [
+          18,
+          0
+        ],
+        [
+          1,
+          33531
+        ],
+        [
+          1,
+          33532
+        ],
+        [
+          18,
+          0
+        ],
+        [
+          1,
+          33585
+        ],
+        [
+          1,
+          33586
+        ],
+        [
+          77,
+          0
+        ],
+        [
+          1,
+          33506
+        ],
+        [
+          1,
+          33507
+        ],
+        [
+          1,
+          33508
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33533
+        ],
+        [
+          1,
+          33534
+        ],
+        [
+          1,
+          33535
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33587
+        ],
+        [
+          1,
+          33588
+        ],
+        [
+          1,
+          33589
+        ],
+        [
+          77,
+          0
+        ],
+        [
+          1,
+          33509
+        ],
+        [
+          1,
+          33510
+        ],
+        [
+          18,
+          0
+        ],
+        [
+          1,
+          33536
+        ],
+        [
+          1,
+          33537
+        ],
+        [
+          18,
+          0
+        ],
+        [
+          1,
+          33590
+        ],
+        [
+          1,
+          33591
+        ],
+        [
+          5819,
+          0
+        ]
+      ],
+      "initial": [
+        0,
+        0,
+        0
+      ],
+      "visit": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0,
+        0
+      ],
+      "giftPending": 65535,
+      "giftRemaining": 65535,
+      "giftStats": {
+        "emptyLand": 11976,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 1
+      },
+      "post": [
+        0,
+        0,
+        0
+      ],
+      "expected": [
+        [
+          5899,
+          0
+        ],
+        [
+          1,
+          33503
+        ],
+        [
+          1,
+          33504
+        ],
+        [
+          1,
+          33505
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33530
+        ],
+        [
+          1,
+          33531
+        ],
+        [
+          1,
+          33532
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33584
+        ],
+        [
+          1,
+          33585
+        ],
+        [
+          1,
+          33586
+        ],
+        [
+          77,
+          0
+        ],
+        [
+          1,
+          33506
+        ],
+        [
+          1,
+          33507
+        ],
+        [
+          1,
+          33508
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33533
+        ],
+        [
+          1,
+          33534
+        ],
+        [
+          1,
+          33535
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33587
+        ],
+        [
+          1,
+          33588
+        ],
+        [
+          1,
+          33589
+        ],
+        [
+          77,
+          0
+        ],
+        [
+          1,
+          33509
+        ],
+        [
+          1,
+          33510
+        ],
+        [
+          1,
+          33511
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33536
+        ],
+        [
+          1,
+          33537
+        ],
+        [
+          1,
+          33538
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33590
+        ],
+        [
+          1,
+          33591
+        ],
+        [
+          1,
+          33592
+        ],
+        [
+          5818,
+          0
+        ]
+      ],
+      "rng": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ]
+    },
+    {
+      "name": "gift bank casino and repair scars",
+      "demand": 1500,
+      "seed": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ],
+      "input": [
+        [
+          5900,
+          0
+        ],
+        [
+          1,
+          33504
+        ],
+        [
+          1,
+          33505
+        ],
+        [
+          18,
+          0
+        ],
+        [
+          1,
+          33531
+        ],
+        [
+          1,
+          33532
+        ],
+        [
+          18,
+          0
+        ],
+        [
+          1,
+          33585
+        ],
+        [
+          1,
+          33586
+        ],
+        [
+          77,
+          0
+        ],
+        [
+          1,
+          33506
+        ],
+        [
+          1,
+          33507
+        ],
+        [
+          1,
+          33508
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33533
+        ],
+        [
+          1,
+          33534
+        ],
+        [
+          1,
+          33535
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33587
+        ],
+        [
+          1,
+          33588
+        ],
+        [
+          1,
+          33589
+        ],
+        [
+          77,
+          0
+        ],
+        [
+          1,
+          33509
+        ],
+        [
+          1,
+          33510
+        ],
+        [
+          18,
+          0
+        ],
+        [
+          1,
+          33536
+        ],
+        [
+          1,
+          33537
+        ],
+        [
+          18,
+          0
+        ],
+        [
+          1,
+          33590
+        ],
+        [
+          1,
+          33591
+        ],
+        [
+          5819,
+          0
+        ]
+      ],
+      "initial": [
+        0,
+        0,
+        0
+      ],
+      "visit": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0,
+        0
+      ],
+      "giftPending": 65535,
+      "giftRemaining": 65535,
+      "giftStats": {
+        "emptyLand": 11976,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 1
+      },
+      "post": [
+        0,
+        0,
+        0
+      ],
+      "expected": [
+        [
+          5899,
+          0
+        ],
+        [
+          1,
+          33503
+        ],
+        [
+          1,
+          33504
+        ],
+        [
+          1,
+          33505
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33530
+        ],
+        [
+          1,
+          33531
+        ],
+        [
+          1,
+          33532
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33584
+        ],
+        [
+          1,
+          33585
+        ],
+        [
+          1,
+          33586
+        ],
+        [
+          77,
+          0
+        ],
+        [
+          1,
+          33506
+        ],
+        [
+          1,
+          33507
+        ],
+        [
+          1,
+          33508
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33533
+        ],
+        [
+          1,
+          33534
+        ],
+        [
+          1,
+          33535
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33587
+        ],
+        [
+          1,
+          33588
+        ],
+        [
+          1,
+          33589
+        ],
+        [
+          77,
+          0
+        ],
+        [
+          1,
+          33509
+        ],
+        [
+          1,
+          33510
+        ],
+        [
+          1,
+          33511
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33536
+        ],
+        [
+          1,
+          33537
+        ],
+        [
+          1,
+          33538
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33590
+        ],
+        [
+          1,
+          33591
+        ],
+        [
+          1,
+          33592
+        ],
+        [
+          5818,
+          0
+        ]
+      ],
+      "rng": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ]
+    },
+    {
+      "name": "gift bank casino and repair scars",
+      "demand": -1500,
+      "seed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "input": [
+        [
+          5900,
+          0
+        ],
+        [
+          1,
+          33504
+        ],
+        [
+          1,
+          33505
+        ],
+        [
+          18,
+          0
+        ],
+        [
+          1,
+          33531
+        ],
+        [
+          1,
+          33532
+        ],
+        [
+          18,
+          0
+        ],
+        [
+          1,
+          33585
+        ],
+        [
+          1,
+          33586
+        ],
+        [
+          77,
+          0
+        ],
+        [
+          1,
+          33506
+        ],
+        [
+          1,
+          33507
+        ],
+        [
+          1,
+          33508
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33533
+        ],
+        [
+          1,
+          33534
+        ],
+        [
+          1,
+          33535
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33587
+        ],
+        [
+          1,
+          33588
+        ],
+        [
+          1,
+          33589
+        ],
+        [
+          77,
+          0
+        ],
+        [
+          1,
+          33509
+        ],
+        [
+          1,
+          33510
+        ],
+        [
+          18,
+          0
+        ],
+        [
+          1,
+          33536
+        ],
+        [
+          1,
+          33537
+        ],
+        [
+          18,
+          0
+        ],
+        [
+          1,
+          33590
+        ],
+        [
+          1,
+          33591
+        ],
+        [
+          5819,
+          0
+        ]
+      ],
+      "initial": [
+        0,
+        0,
+        0
+      ],
+      "visit": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0,
+        0
+      ],
+      "giftPending": 65535,
+      "giftRemaining": 65535,
+      "giftStats": {
+        "emptyLand": 11976,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 1
+      },
+      "post": [
+        0,
+        0,
+        0
+      ],
+      "expected": [
+        [
+          5899,
+          0
+        ],
+        [
+          1,
+          33503
+        ],
+        [
+          1,
+          33504
+        ],
+        [
+          1,
+          33505
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33530
+        ],
+        [
+          1,
+          33531
+        ],
+        [
+          1,
+          33532
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33584
+        ],
+        [
+          1,
+          33585
+        ],
+        [
+          1,
+          33586
+        ],
+        [
+          77,
+          0
+        ],
+        [
+          1,
+          33506
+        ],
+        [
+          1,
+          33507
+        ],
+        [
+          1,
+          33508
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33533
+        ],
+        [
+          1,
+          33534
+        ],
+        [
+          1,
+          33535
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33587
+        ],
+        [
+          1,
+          33588
+        ],
+        [
+          1,
+          33589
+        ],
+        [
+          77,
+          0
+        ],
+        [
+          1,
+          33509
+        ],
+        [
+          1,
+          33510
+        ],
+        [
+          1,
+          33511
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33536
+        ],
+        [
+          1,
+          33537
+        ],
+        [
+          1,
+          33538
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33590
+        ],
+        [
+          1,
+          33591
+        ],
+        [
+          1,
+          33592
+        ],
+        [
+          5818,
+          0
+        ]
+      ],
+      "rng": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "gift bank casino and repair scars",
+      "demand": 1500,
+      "seed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "input": [
+        [
+          5900,
+          0
+        ],
+        [
+          1,
+          33504
+        ],
+        [
+          1,
+          33505
+        ],
+        [
+          18,
+          0
+        ],
+        [
+          1,
+          33531
+        ],
+        [
+          1,
+          33532
+        ],
+        [
+          18,
+          0
+        ],
+        [
+          1,
+          33585
+        ],
+        [
+          1,
+          33586
+        ],
+        [
+          77,
+          0
+        ],
+        [
+          1,
+          33506
+        ],
+        [
+          1,
+          33507
+        ],
+        [
+          1,
+          33508
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33533
+        ],
+        [
+          1,
+          33534
+        ],
+        [
+          1,
+          33535
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33587
+        ],
+        [
+          1,
+          33588
+        ],
+        [
+          1,
+          33589
+        ],
+        [
+          77,
+          0
+        ],
+        [
+          1,
+          33509
+        ],
+        [
+          1,
+          33510
+        ],
+        [
+          18,
+          0
+        ],
+        [
+          1,
+          33536
+        ],
+        [
+          1,
+          33537
+        ],
+        [
+          18,
+          0
+        ],
+        [
+          1,
+          33590
+        ],
+        [
+          1,
+          33591
+        ],
+        [
+          5819,
+          0
+        ]
+      ],
+      "initial": [
+        0,
+        0,
+        0
+      ],
+      "visit": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0,
+        0
+      ],
+      "giftPending": 65535,
+      "giftRemaining": 65535,
+      "giftStats": {
+        "emptyLand": 11976,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 1
+      },
+      "post": [
+        0,
+        0,
+        0
+      ],
+      "expected": [
+        [
+          5899,
+          0
+        ],
+        [
+          1,
+          33503
+        ],
+        [
+          1,
+          33504
+        ],
+        [
+          1,
+          33505
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33530
+        ],
+        [
+          1,
+          33531
+        ],
+        [
+          1,
+          33532
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33584
+        ],
+        [
+          1,
+          33585
+        ],
+        [
+          1,
+          33586
+        ],
+        [
+          77,
+          0
+        ],
+        [
+          1,
+          33506
+        ],
+        [
+          1,
+          33507
+        ],
+        [
+          1,
+          33508
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33533
+        ],
+        [
+          1,
+          33534
+        ],
+        [
+          1,
+          33535
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33587
+        ],
+        [
+          1,
+          33588
+        ],
+        [
+          1,
+          33589
+        ],
+        [
+          77,
+          0
+        ],
+        [
+          1,
+          33509
+        ],
+        [
+          1,
+          33510
+        ],
+        [
+          1,
+          33511
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33536
+        ],
+        [
+          1,
+          33537
+        ],
+        [
+          1,
+          33538
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33590
+        ],
+        [
+          1,
+          33591
+        ],
+        [
+          1,
+          33592
+        ],
+        [
+          5818,
+          0
+        ]
+      ],
+      "rng": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "gift bank casino and repair scars",
+      "demand": -1500,
+      "seed": [
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535
+      ],
+      "input": [
+        [
+          5900,
+          0
+        ],
+        [
+          1,
+          33504
+        ],
+        [
+          1,
+          33505
+        ],
+        [
+          18,
+          0
+        ],
+        [
+          1,
+          33531
+        ],
+        [
+          1,
+          33532
+        ],
+        [
+          18,
+          0
+        ],
+        [
+          1,
+          33585
+        ],
+        [
+          1,
+          33586
+        ],
+        [
+          77,
+          0
+        ],
+        [
+          1,
+          33506
+        ],
+        [
+          1,
+          33507
+        ],
+        [
+          1,
+          33508
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33533
+        ],
+        [
+          1,
+          33534
+        ],
+        [
+          1,
+          33535
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33587
+        ],
+        [
+          1,
+          33588
+        ],
+        [
+          1,
+          33589
+        ],
+        [
+          77,
+          0
+        ],
+        [
+          1,
+          33509
+        ],
+        [
+          1,
+          33510
+        ],
+        [
+          18,
+          0
+        ],
+        [
+          1,
+          33536
+        ],
+        [
+          1,
+          33537
+        ],
+        [
+          18,
+          0
+        ],
+        [
+          1,
+          33590
+        ],
+        [
+          1,
+          33591
+        ],
+        [
+          5819,
+          0
+        ]
+      ],
+      "initial": [
+        0,
+        0,
+        0
+      ],
+      "visit": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0,
+        0
+      ],
+      "giftPending": 65535,
+      "giftRemaining": 65535,
+      "giftStats": {
+        "emptyLand": 11976,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 1
+      },
+      "post": [
+        0,
+        0,
+        0
+      ],
+      "expected": [
+        [
+          5899,
+          0
+        ],
+        [
+          1,
+          33503
+        ],
+        [
+          1,
+          33504
+        ],
+        [
+          1,
+          33505
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33530
+        ],
+        [
+          1,
+          33531
+        ],
+        [
+          1,
+          33532
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33584
+        ],
+        [
+          1,
+          33585
+        ],
+        [
+          1,
+          33586
+        ],
+        [
+          77,
+          0
+        ],
+        [
+          1,
+          33506
+        ],
+        [
+          1,
+          33507
+        ],
+        [
+          1,
+          33508
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33533
+        ],
+        [
+          1,
+          33534
+        ],
+        [
+          1,
+          33535
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33587
+        ],
+        [
+          1,
+          33588
+        ],
+        [
+          1,
+          33589
+        ],
+        [
+          77,
+          0
+        ],
+        [
+          1,
+          33509
+        ],
+        [
+          1,
+          33510
+        ],
+        [
+          1,
+          33511
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33536
+        ],
+        [
+          1,
+          33537
+        ],
+        [
+          1,
+          33538
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33590
+        ],
+        [
+          1,
+          33591
+        ],
+        [
+          1,
+          33592
+        ],
+        [
+          5818,
+          0
+        ]
+      ],
+      "rng": [
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535
+      ]
+    },
+    {
+      "name": "gift bank casino and repair scars",
+      "demand": 1500,
+      "seed": [
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535
+      ],
+      "input": [
+        [
+          5900,
+          0
+        ],
+        [
+          1,
+          33504
+        ],
+        [
+          1,
+          33505
+        ],
+        [
+          18,
+          0
+        ],
+        [
+          1,
+          33531
+        ],
+        [
+          1,
+          33532
+        ],
+        [
+          18,
+          0
+        ],
+        [
+          1,
+          33585
+        ],
+        [
+          1,
+          33586
+        ],
+        [
+          77,
+          0
+        ],
+        [
+          1,
+          33506
+        ],
+        [
+          1,
+          33507
+        ],
+        [
+          1,
+          33508
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33533
+        ],
+        [
+          1,
+          33534
+        ],
+        [
+          1,
+          33535
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33587
+        ],
+        [
+          1,
+          33588
+        ],
+        [
+          1,
+          33589
+        ],
+        [
+          77,
+          0
+        ],
+        [
+          1,
+          33509
+        ],
+        [
+          1,
+          33510
+        ],
+        [
+          18,
+          0
+        ],
+        [
+          1,
+          33536
+        ],
+        [
+          1,
+          33537
+        ],
+        [
+          18,
+          0
+        ],
+        [
+          1,
+          33590
+        ],
+        [
+          1,
+          33591
+        ],
+        [
+          5819,
+          0
+        ]
+      ],
+      "initial": [
+        0,
+        0,
+        0
+      ],
+      "visit": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0,
+        0
+      ],
+      "giftPending": 65535,
+      "giftRemaining": 65535,
+      "giftStats": {
+        "emptyLand": 11976,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 1
+      },
+      "post": [
+        0,
+        0,
+        0
+      ],
+      "expected": [
+        [
+          5899,
+          0
+        ],
+        [
+          1,
+          33503
+        ],
+        [
+          1,
+          33504
+        ],
+        [
+          1,
+          33505
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33530
+        ],
+        [
+          1,
+          33531
+        ],
+        [
+          1,
+          33532
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33584
+        ],
+        [
+          1,
+          33585
+        ],
+        [
+          1,
+          33586
+        ],
+        [
+          77,
+          0
+        ],
+        [
+          1,
+          33506
+        ],
+        [
+          1,
+          33507
+        ],
+        [
+          1,
+          33508
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33533
+        ],
+        [
+          1,
+          33534
+        ],
+        [
+          1,
+          33535
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33587
+        ],
+        [
+          1,
+          33588
+        ],
+        [
+          1,
+          33589
+        ],
+        [
+          77,
+          0
+        ],
+        [
+          1,
+          33509
+        ],
+        [
+          1,
+          33510
+        ],
+        [
+          1,
+          33511
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33536
+        ],
+        [
+          1,
+          33537
+        ],
+        [
+          1,
+          33538
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          1,
+          33590
+        ],
+        [
+          1,
+          33591
+        ],
+        [
+          1,
+          33592
+        ],
+        [
+          5818,
+          0
+        ]
+      ],
+      "rng": [
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535
+      ]
+    },
+    {
+      "name": "final mayor house retains promotion",
+      "demand": -1500,
+      "seed": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ],
+      "input": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33494
+        ],
+        [
+          1,
+          33495
+        ],
+        [
+          1,
+          33496
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33497
+        ],
+        [
+          1,
+          33498
+        ],
+        [
+          1,
+          33499
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33500
+        ],
+        [
+          1,
+          33501
+        ],
+        [
+          1,
+          49886
+        ],
+        [
+          5828,
+          0
+        ]
+      ],
+      "initial": [
+        0,
+        0,
+        0
+      ],
+      "visit": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0,
+        0
+      ],
+      "giftPending": 1,
+      "giftRemaining": 1,
+      "giftStats": {
+        "emptyLand": 11991,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0
+      },
+      "post": [
+        0,
+        0,
+        0
+      ],
+      "expected": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33494
+        ],
+        [
+          1,
+          33495
+        ],
+        [
+          1,
+          33496
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33497
+        ],
+        [
+          1,
+          33498
+        ],
+        [
+          1,
+          33499
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33500
+        ],
+        [
+          1,
+          33501
+        ],
+        [
+          1,
+          49886
+        ],
+        [
+          5828,
+          0
+        ]
+      ],
+      "rng": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ]
+    },
+    {
+      "name": "final mayor house retains promotion",
+      "demand": 1500,
+      "seed": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ],
+      "input": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33494
+        ],
+        [
+          1,
+          33495
+        ],
+        [
+          1,
+          33496
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33497
+        ],
+        [
+          1,
+          33498
+        ],
+        [
+          1,
+          33499
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33500
+        ],
+        [
+          1,
+          33501
+        ],
+        [
+          1,
+          49886
+        ],
+        [
+          5828,
+          0
+        ]
+      ],
+      "initial": [
+        0,
+        0,
+        0
+      ],
+      "visit": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0,
+        0
+      ],
+      "giftPending": 1,
+      "giftRemaining": 1,
+      "giftStats": {
+        "emptyLand": 11991,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0
+      },
+      "post": [
+        0,
+        0,
+        0
+      ],
+      "expected": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33494
+        ],
+        [
+          1,
+          33495
+        ],
+        [
+          1,
+          33496
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33497
+        ],
+        [
+          1,
+          33498
+        ],
+        [
+          1,
+          33499
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33500
+        ],
+        [
+          1,
+          33501
+        ],
+        [
+          1,
+          49886
+        ],
+        [
+          5828,
+          0
+        ]
+      ],
+      "rng": [
+        1018,
+        4521,
+        202,
+        65117,
+        3,
+        39848,
+        468
+      ]
+    },
+    {
+      "name": "final mayor house retains promotion",
+      "demand": -1500,
+      "seed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "input": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33494
+        ],
+        [
+          1,
+          33495
+        ],
+        [
+          1,
+          33496
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33497
+        ],
+        [
+          1,
+          33498
+        ],
+        [
+          1,
+          33499
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33500
+        ],
+        [
+          1,
+          33501
+        ],
+        [
+          1,
+          49886
+        ],
+        [
+          5828,
+          0
+        ]
+      ],
+      "initial": [
+        0,
+        0,
+        0
+      ],
+      "visit": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0,
+        0
+      ],
+      "giftPending": 1,
+      "giftRemaining": 1,
+      "giftStats": {
+        "emptyLand": 11991,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0
+      },
+      "post": [
+        0,
+        0,
+        0
+      ],
+      "expected": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33494
+        ],
+        [
+          1,
+          33495
+        ],
+        [
+          1,
+          33496
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33497
+        ],
+        [
+          1,
+          33498
+        ],
+        [
+          1,
+          33499
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33500
+        ],
+        [
+          1,
+          33501
+        ],
+        [
+          1,
+          49886
+        ],
+        [
+          5828,
+          0
+        ]
+      ],
+      "rng": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "final mayor house retains promotion",
+      "demand": 1500,
+      "seed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "input": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33494
+        ],
+        [
+          1,
+          33495
+        ],
+        [
+          1,
+          33496
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33497
+        ],
+        [
+          1,
+          33498
+        ],
+        [
+          1,
+          33499
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33500
+        ],
+        [
+          1,
+          33501
+        ],
+        [
+          1,
+          49886
+        ],
+        [
+          5828,
+          0
+        ]
+      ],
+      "initial": [
+        0,
+        0,
+        0
+      ],
+      "visit": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0,
+        0
+      ],
+      "giftPending": 1,
+      "giftRemaining": 1,
+      "giftStats": {
+        "emptyLand": 11991,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0
+      },
+      "post": [
+        0,
+        0,
+        0
+      ],
+      "expected": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33494
+        ],
+        [
+          1,
+          33495
+        ],
+        [
+          1,
+          33496
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33497
+        ],
+        [
+          1,
+          33498
+        ],
+        [
+          1,
+          33499
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33500
+        ],
+        [
+          1,
+          33501
+        ],
+        [
+          1,
+          49886
+        ],
+        [
+          5828,
+          0
+        ]
+      ],
+      "rng": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "final mayor house retains promotion",
+      "demand": -1500,
+      "seed": [
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535
+      ],
+      "input": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33494
+        ],
+        [
+          1,
+          33495
+        ],
+        [
+          1,
+          33496
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33497
+        ],
+        [
+          1,
+          33498
+        ],
+        [
+          1,
+          33499
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33500
+        ],
+        [
+          1,
+          33501
+        ],
+        [
+          1,
+          49886
+        ],
+        [
+          5828,
+          0
+        ]
+      ],
+      "initial": [
+        0,
+        0,
+        0
+      ],
+      "visit": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0,
+        0
+      ],
+      "giftPending": 1,
+      "giftRemaining": 1,
+      "giftStats": {
+        "emptyLand": 11991,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0
+      },
+      "post": [
+        0,
+        0,
+        0
+      ],
+      "expected": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33494
+        ],
+        [
+          1,
+          33495
+        ],
+        [
+          1,
+          33496
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33497
+        ],
+        [
+          1,
+          33498
+        ],
+        [
+          1,
+          33499
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33500
+        ],
+        [
+          1,
+          33501
+        ],
+        [
+          1,
+          49886
+        ],
+        [
+          5828,
+          0
+        ]
+      ],
+      "rng": [
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535
+      ]
+    },
+    {
+      "name": "final mayor house retains promotion",
+      "demand": 1500,
+      "seed": [
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535,
+        65535
+      ],
+      "input": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33494
+        ],
+        [
+          1,
+          33495
+        ],
+        [
+          1,
+          33496
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33497
+        ],
+        [
+          1,
+          33498
+        ],
+        [
+          1,
+          33499
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33500
+        ],
+        [
+          1,
+          33501
+        ],
+        [
+          1,
+          49886
+        ],
+        [
+          5828,
+          0
+        ]
+      ],
+      "initial": [
+        0,
+        0,
+        0
+      ],
+      "visit": [
+        0,
+        0,
+        0
+      ],
+      "counts": [
+        0,
+        0,
+        0
+      ],
+      "giftPending": 1,
+      "giftRemaining": 1,
+      "giftStats": {
+        "emptyLand": 11991,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0
+      },
+      "post": [
+        0,
+        0,
+        0
+      ],
+      "expected": [
+        [
+          5929,
+          0
+        ],
+        [
+          1,
+          33494
+        ],
+        [
+          1,
+          33495
+        ],
+        [
+          1,
+          33496
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33497
+        ],
+        [
+          1,
+          33498
+        ],
+        [
+          1,
+          33499
+        ],
+        [
+          117,
+          0
+        ],
+        [
+          1,
+          33500
+        ],
+        [
+          1,
+          33501
+        ],
+        [
+          1,
+          49886
+        ],
+        [
+          5828,
+          0
+        ]
+      ],
+      "rng": [
+        65535,
+        65535,
         65535,
         65535,
         65535,

@@ -4,7 +4,7 @@
     "CODE_03C0FA",
     "CODE_03C131..03C424"
   ],
-  "scope": "Controlled gift-dispatch calls: message ID and all20 progress fields. UI gift-choice completion and construction not included.",
+  "scope": "Controlled gift-dispatch calls: message ID and all21 progress fields. UI gift-choice completion and construction not included.",
   "romSHA256": "e9c0bc05511e05a0d7c3e7cc42e761e1e8e532d46f59b9854b6902e1a2e9dd0a",
   "mesenSHA256": "d2eb03c2590c648bf329f127ebcfefd70130e7690a9e2ccdba8616faea1fe96b",
   "cases": [
@@ -6671,7 +6671,8 @@
         "population": 1,
         "mayorHouse": true,
         "capitalModel": true,
-        "highPopulation": true
+        "highPopulation": true,
+        "mayorUpgradePending": 1
       },
       "message": 1,
       "gift": null
@@ -6708,7 +6709,8 @@
         "population": 1,
         "mayorHouse": true,
         "capitalModel": true,
-        "highPopulation": true
+        "highPopulation": true,
+        "mayorUpgradePending": 1
       },
       "message": 1,
       "gift": null
@@ -6782,7 +6784,8 @@
         "population": 2,
         "mayorHouse": true,
         "capitalModel": true,
-        "highPopulation": true
+        "highPopulation": true,
+        "mayorUpgradePending": 1
       },
       "message": 2,
       "gift": null
@@ -6819,7 +6822,8 @@
         "population": 2,
         "mayorHouse": true,
         "capitalModel": true,
-        "highPopulation": true
+        "highPopulation": true,
+        "mayorUpgradePending": 1
       },
       "message": 2,
       "gift": null
@@ -6893,7 +6897,8 @@
         "population": 3,
         "mayorHouse": true,
         "capitalModel": true,
-        "highPopulation": true
+        "highPopulation": true,
+        "mayorUpgradePending": 1
       },
       "message": 3,
       "gift": null
@@ -6930,7 +6935,8 @@
         "population": 3,
         "mayorHouse": true,
         "capitalModel": true,
-        "highPopulation": true
+        "highPopulation": true,
+        "mayorUpgradePending": 1
       },
       "message": 3,
       "gift": null
@@ -7004,7 +7010,8 @@
         "population": 4,
         "mayorHouse": true,
         "capitalModel": true,
-        "highPopulation": true
+        "highPopulation": true,
+        "mayorUpgradePending": 1
       },
       "message": 4,
       "gift": null
@@ -7041,7 +7048,8 @@
         "population": 4,
         "mayorHouse": true,
         "capitalModel": true,
-        "highPopulation": true
+        "highPopulation": true,
+        "mayorUpgradePending": 1
       },
       "message": 4,
       "gift": null
@@ -7115,7 +7123,8 @@
         "population": 5,
         "mayorHouse": true,
         "capitalModel": true,
-        "highPopulation": true
+        "highPopulation": true,
+        "mayorUpgradePending": 1
       },
       "message": 5,
       "gift": null
@@ -7152,9 +7161,244 @@
         "population": 5,
         "mayorHouse": true,
         "capitalModel": true,
-        "highPopulation": true
+        "highPopulation": true,
+        "mayorUpgradePending": 1
       },
       "message": 5,
+      "gift": null
+    },
+    {
+      "name": "promotion carry 0/1999",
+      "input": {
+        "population": 1999,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 0,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "mayorUpgradePending": 0
+      },
+      "after": {
+        "population": 0,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "mayorUpgradePending": 0
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "promotion carry 0/2000",
+      "input": {
+        "population": 2000,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 0,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "mayorUpgradePending": 0
+      },
+      "after": {
+        "population": 1,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "mayorUpgradePending": 1
+      },
+      "message": 1,
+      "gift": null
+    },
+    {
+      "name": "promotion carry 1/1999",
+      "input": {
+        "population": 1999,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 0,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "mayorUpgradePending": 1
+      },
+      "after": {
+        "population": 0,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "mayorUpgradePending": 1
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "promotion carry 1/2000",
+      "input": {
+        "population": 2000,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 0,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "mayorUpgradePending": 1
+      },
+      "after": {
+        "population": 1,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "mayorUpgradePending": 2
+      },
+      "message": 1,
+      "gift": null
+    },
+    {
+      "name": "promotion carry 65535/1999",
+      "input": {
+        "population": 1999,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 0,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "mayorUpgradePending": 65535
+      },
+      "after": {
+        "population": 0,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "mayorUpgradePending": 65535
+      },
+      "message": 0,
+      "gift": null
+    },
+    {
+      "name": "promotion carry 65535/2000",
+      "input": {
+        "population": 2000,
+        "category": 1,
+        "police": 0,
+        "fire": 0,
+        "rail": 0,
+        "inventorySize": 0,
+        "funds": 20000,
+        "roads": 0,
+        "hospitals": 0,
+        "schools": 0,
+        "stadiums": 0,
+        "emptyLand": 12000,
+        "parks": 0,
+        "developedZones": 0,
+        "banks": 0,
+        "airports": 0,
+        "seaports": 0,
+        "year": 1900
+      },
+      "before": {
+        "population": 0,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "mayorUpgradePending": 65535
+      },
+      "after": {
+        "population": 1,
+        "mayorHouse": true,
+        "capitalModel": true,
+        "highPopulation": true,
+        "mayorUpgradePending": 0
+      },
+      "message": 1,
       "gift": null
     },
     {

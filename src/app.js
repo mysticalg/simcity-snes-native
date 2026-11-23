@@ -1,4 +1,4 @@
-import {ROM_GIFTS} from './rom-gifts.js?v=amenities-gifts-29';
+import {ROM_GIFTS} from './rom-gifts.js?v=gift-workers-31';
 import {drawServicePlacement,placementCoverageLegend,placementServiceCoverage} from './service-placement.js?v=civic-refresh-30';
 import {drawAviation,aviationSummary} from './aviation.js?v=civic-refresh-30';
 import {drawParkCoverage} from './parks.js?v=civic-refresh-30';
@@ -44,7 +44,7 @@ import {OVERLAYS,overlayColor} from './map-overlays.js?v=civic-refresh-30';
 import {cityPaletteForMonth,romSeasonPalette} from './rom-render.js?v=season-1';
 import {RomSampleAudio} from './rom-audio.js?v=ufo-audio-1';
 const romAudio=new RomSampleAudio();
-import{City,SCENARIOS,TOOLS,W as DEFAULT_W,H as DEFAULT_H,clamp}from'./simulation.js?v=civic-refresh-30';
+import{City,SCENARIOS,TOOLS,W as DEFAULT_W,H as DEFAULT_H,clamp}from'./simulation.js?v=gift-workers-31';
 installBuildingOperations(City);
 installFinancialSafety(City);
 const $=s=>document.querySelector(s),canvas=$('#game'),ctx=canvas.getContext('2d',{alpha:false});ctx.imageSmoothingEnabled=false;const cityLayer=document.createElement('canvas');cityLayer.width=960;cityLayer.height=800;const cityLayerContext=cityLayer.getContext('2d');cityLayerContext.imageSmoothingEnabled=false;
