@@ -1,0 +1,64 @@
+{
+  "version": "0.2.45",
+  "scope": "Controlled original scenario-calendar and event-dispatch workers plus real browser save/budget/outcome/card flows. Not natural full-ROM scenario playthroughs or map-effect comparison.",
+  "original": {
+    "progressCases": 427,
+    "eventCases": 392,
+    "outputsCompared": 2065,
+    "tableWords": 25,
+    "report": "research/reference-scenario-lifecycle.json"
+  },
+  "nodeTests": 508,
+  "browser": {
+    "originalProgressCases": 427,
+    "originalEventCases": 392,
+    "scope": "Controlled real browser scenarios and original worker dispatch fixtures, not natural full-ROM playthroughs or disaster-effect comparison.",
+    "realPoweredResidentialZones": 150,
+    "population": 120000,
+    "power": {
+      "capacity": 3500,
+      "used": 3199,
+      "overloaded": false
+    },
+    "objectiveCards": [
+      "SanFrancicso",
+      "Bern",
+      "Tokyo",
+      "Detroit",
+      "Boston",
+      "RioDeJaneiro",
+      "LasVegas"
+    ],
+    "lateStages": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "decisionStage": 6,
+    "recordedWin": true,
+    "noDuplicateDialog": true,
+    "session": true,
+    "pendingBudgetReload": true,
+    "actualApplyBudget": true,
+    "crimeBoundaryLoss": true,
+    "downloadReload": true,
+    "mobile": {
+      "width": 366,
+      "viewport": 390,
+      "overflow": 0
+    },
+    "mobileTouch": true,
+    "legacyStageMigration": true,
+    "errors": []
+  },
+  "normalizedLFSourceSHA256": {
+    "src/rom-scenarios.js": "96f5cd9376c3b14c6bea4f3cafa1b977a8360038b143f1df60f67370af8c6de0",
+    "src/simulation.js": "f3aa37693ce82c2a0ed733c7da30df50a6b58d7e00fd244a018324a872a9fd02",
+    "src/scenario-info.js": "06a373f88b2b92f2621b60a1b84a4009d8834d406b3cdc73c1279757631d6f1c",
+    "src/app.js": "808669153eebc294814fa278683211563810b65642f4e7fc5a314a8d499f259e",
+    "src/style.css": "9d2abb58d81d735cbce3b3f22c400b5022e77bb756f04b811511def374e50905"
+  },
+  "fullPortComplete": false
+}

@@ -27,7 +27,7 @@ test('annual assessment counts original infrastructure and excludes second facil
  assert.equal(c.evaluateCity().assessedValue,4410);const saved=City.restore(c.serialize(),build,flags);assert.equal(saved.evaluation.assessedValue,4410);assert.deepEqual(saved.facilityDemand,c.facilityDemand);
 });
 test('annual evaluation settles once before score-dependent scenario outcome',()=>{
- const c=new City(Array(W*H).fill(0),build,flags,{scenario:'Boston',year:2015});c.population=100000;c.category=4;c.rci=[1000,100,100];c.score=499;c.pendingBudget={year:2015,taxRate:7,assessment:{income:0,giftIncome:0,requests:[0,0,0]}};
+ const c=new City(Array(W*H).fill(0),build,flags,{scenario:'Boston',year:2015});c.scenarioStage=5;c.population=100000;c.category=4;c.rci=[1000,100,100];c.score=499;c.pendingBudget={year:2015,taxRate:7,assessment:{income:0,giftIncome:0,requests:[0,0,0]}};
  c.updateScenarioOutcome();assert.equal(c.scenarioResult,null);c.settleAnnualBudget();assert.equal(c.score,713);assert.equal(c.scenarioResult,'won');assert.equal(c.evaluation.year,2015);const score=c.score;
  assert.equal(c.settleAnnualBudget(),null);assert.equal(c.score,score);c.refresh();assert.equal(c.score,score);
  const saved=City.restore(c.serialize(),build,flags);assert.equal(saved.score,score);assert.deepEqual(saved.evaluation,c.evaluation);
@@ -41,7 +41,7 @@ test('pending annual budget retains evaluation inputs across later field updates
  const saved=City.restore(c.serialize(),build,flags);saved.settleAnnualBudget();assert.equal(saved.score,714);assert.deepEqual(saved.evaluation.problems,[0,0,0,70,0,0,0]);
 });
 test('Bern checks original evaluated traffic metric rather than the most congested tile',()=>{
- const c=new City(Array(W*H).fill(0),build,flags,{scenario:'Bern',year:1975});c.population=100000;c.category=4;c.rci=[1000,100,100];
+ const c=new City(Array(W*H).fill(0),build,flags,{scenario:'Bern',year:1975});c.scenarioStage=5;c.population=100000;c.category=4;c.rci=[1000,100,100];
  for(let x=0;x<48;x+=2)c.landValue[x]=100;c.traffic[0]=240;c.evaluateCity();assert.equal(c.evaluation.problems[4],23);c.updateScenarioOutcome();assert.equal(c.scenarioResult,'won');
 });
 test('annual approval survey saves its RNG result and empty-city review consumes no draws',()=>{
