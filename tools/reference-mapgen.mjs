@@ -1,0 +1,22 @@
+import fs from 'node:fs';import path from 'node:path';import crypto from 'node:crypto';import {spawn} from 'node:child_process';import {generateRomMap,seedRomMap} from '../src/rom-mapgen.js';
+const root=path.resolve(import.meta.dirname,'..'),work=path.resolve(root,'../../work/tools/mesen2'),exe=path.join(work,'app/Mesen.exe'),rom=path.resolve(root,'../../work/extracted/SimCity (USA).sfc'),hash=b=>crypto.createHash('sha256').update(b).digest('hex'),romHash=hash(fs.readFileSync(rom));if(romHash!==JSON.parse(fs.readFileSync('assets/manifest.json')).romSHA256)throw Error('Wrong ROM');
+const start=Number(process.env.MAP_START||0),count=Number(process.env.MAP_COUNT||0),numbers=process.env.MAP_NUMBERS?process.env.MAP_NUMBERS.split(',').map(Number):count?Array.from({length:count},(_,i)=>start+i):[0,1,5,7,9,10,19,21,23,42,99,100,101,123,255,499,500,555,666,777,888,900,990,999],previous=process.env.MAP_PREVIOUS===undefined?[255,0,9]:[Number(process.env.MAP_PREVIOUS)],cases=[];
+const rle=map=>{const out=[];for(const v of map)if(out.at(-1)?.[1]===v)out.at(-1)[0]++;else out.push([1,v]);return out;};
+for(const number of numbers)for(const previousOnes of previous){const r=generateRomMap(number,{previousOnes}),bytes=Buffer.alloc(24000);r.map.forEach((v,i)=>bytes.writeUInt16LE(v,i*2));cases.push({...r,map:undefined,expected:rle(r.map),mapSHA256:hash(bytes)});}
+const fixtures=cases.map(c=>`{number=${c.number},previous=${c.previousOnes},seed={${seedRomMap(c.number,c.previousOnes).state}},rng={${c.rng}},calls=${c.randomCalls},expected={${c.expected.map(r=>'{'+r+'}')}}}`).join(',');
+const script=`local cases={${fixtures}};local mem=emu.memType.snesWorkRam;local n=0;local injected=false;local calls=0
+local function setup(index)
+ for at=0,0x1ffff do emu.write(at,0,mem)end;local c=cases[index];local s=emu.getState();s['cpu.emulationMode']=false;s['cpu.pc']=0xd834;s['cpu.k']=3;s['cpu.d']=0;s['cpu.dbr']=3;s['cpu.sp']=0x1eff;s['cpu.ps']=4;s['cpu.needNmi']=false;s['cpu.stopState']=0;emu.setState(s)
+ emu.write(0xb27,c.number%10,mem);emu.write(0xb28,math.floor(c.number/10)%10,mem);emu.write(0xb29,math.floor(c.number/100),mem);emu.write(0xb2a,c.previous,mem);emu.write(0x4200,0,emu.memType.snesMemory);calls=0
+end
+emu.addMemoryCallback(function()if not injected then return end;local c=cases[n];for j,v in ipairs(c.seed)do local actual=emu.read16(0x59+(j-1)*2,mem);if actual~=v then emu.stop((4+j)*100000000+n*65536+actual);return end end end,emu.callbackType.exec,0x01f1ed,0x01f1ed)
+emu.addMemoryCallback(function()if injected then calls=calls+1 end end,emu.callbackType.exec,0x00824f,0x00824f)
+emu.addMemoryCallback(function()
+ if not injected then return end;local c=cases[n];local at=0;for _,run in ipairs(c.expected)do for j=1,run[1]do if emu.read16(0x10200+at*2,mem)~=run[2]then emu.stop(100000000+n*65536+at);return end;at=at+1 end end
+ for j,v in ipairs(c.rng)do if emu.read16(0x59+(j-1)*2,mem)~=v then emu.stop(200000000+n*65536+j);return end end;if calls~=c.calls then emu.stop(300000000+n*65536+calls);return end
+ if n==#cases then emu.stop(0);return end;n=n+1;setup(n)
+end,emu.callbackType.exec,0x03d86d,0x03d86d)
+emu.addMemoryCallback(function()if injected then return end;n=1;injected=true;setup(n)end,emu.callbackType.exec,0,0xffffff)
+`;
+const file=path.join(work,'mapgen-fixtures.lua');fs.writeFileSync(file,script);const started=Date.now(),code=await new Promise((resolve,reject)=>{const p=spawn(exe,['--testRunner','--timeout=50',file,rom],{windowsHide:true,stdio:'ignore'}),timer=setTimeout(()=>{p.kill();reject(Error('Map reference exceeded55seconds'));},55000);p.on('error',e=>{clearTimeout(timer);reject(e);});p.on('exit',code=>{clearTimeout(timer);resolve(code);});});
+const group=Math.floor((code||0)/100000000),rest=(code||0)%100000000,index=Math.floor(rest/65536);console.log({cases:cases.length,exitCode:code,elapsedMs:Date.now()-started,diagnostic:code?{group,index,value:rest%65536,number:cases[index-1]?.number,previous:cases[index-1]?.previousOnes}:null});if(code)process.exitCode=1;else fs.writeFileSync(process.env.MAP_REPORT||'research/reference-mapgen.json',JSON.stringify({routines:['CODE_03D834','CODE_00824F','CODE_01F1F1..01F923'],scope:'Original numbered-map seeding and complete terrain generation, stopped before preview VRAM update. Every12000 map word, final three RNG words and random call count compared. Hashes use little-endian words.',romSHA256:romHash,mesenSHA256:hash(fs.readFileSync(exe)),cases:cases.map(({expected,...c})=>c),exitCode:code},null,2)+'\n');

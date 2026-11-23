@@ -1,0 +1,877 @@
+{
+  "routines": [
+    "CODE_03D834",
+    "CODE_00824F",
+    "CODE_01F1F1..01F923"
+  ],
+  "scope": "Original numbered-map seeding and complete terrain generation, stopped before preview VRAM update. Every12000 map word, final three RNG words and random call count compared. Hashes use little-endian words.",
+  "romSHA256": "e9c0bc05511e05a0d7c3e7cc42e761e1e8e532d46f59b9854b6902e1a2e9dd0a",
+  "mesenSHA256": "d2eb03c2590c648bf329f127ebcfefd70130e7690a9e2ccdba8616faea1fe96b",
+  "exitCode": 0,
+  "cases": [
+    {
+      "number": 0,
+      "previousOnes": 255,
+      "kind": "river",
+      "rng": [
+        11716,
+        34160,
+        22443
+      ],
+      "randomCalls": 12993,
+      "mapSHA256": "cd47e89d673565f417bd1c65a0ba096ecbc12770dbdf09d198c36bfd9c961201"
+    },
+    {
+      "number": 0,
+      "previousOnes": 0,
+      "kind": "river",
+      "rng": [
+        46509,
+        22127,
+        41154
+      ],
+      "randomCalls": 20728,
+      "mapSHA256": "47f0f68224c3dd0520b9840daf091ce17e3bf1e457fb304c96b8c6f14babb68a"
+    },
+    {
+      "number": 0,
+      "previousOnes": 9,
+      "kind": "river",
+      "rng": [
+        46509,
+        22127,
+        41154
+      ],
+      "randomCalls": 20728,
+      "mapSHA256": "47f0f68224c3dd0520b9840daf091ce17e3bf1e457fb304c96b8c6f14babb68a"
+    },
+    {
+      "number": 1,
+      "previousOnes": 255,
+      "kind": "river",
+      "rng": [
+        18419,
+        51662,
+        33242
+      ],
+      "randomCalls": 23573,
+      "mapSHA256": "738ac03aa7d2432e7edfbcec0940e7e68239821a6bb191a09684743433eaa31d"
+    },
+    {
+      "number": 1,
+      "previousOnes": 0,
+      "kind": "river",
+      "rng": [
+        21687,
+        17967,
+        61815
+      ],
+      "randomCalls": 15613,
+      "mapSHA256": "738e6b852ef74cee5911e1a0f938da21c9e0a245f30312e6982cc9202f2cdfc9"
+    },
+    {
+      "number": 1,
+      "previousOnes": 9,
+      "kind": "river",
+      "rng": [
+        21687,
+        17967,
+        61815
+      ],
+      "randomCalls": 15613,
+      "mapSHA256": "738e6b852ef74cee5911e1a0f938da21c9e0a245f30312e6982cc9202f2cdfc9"
+    },
+    {
+      "number": 5,
+      "previousOnes": 255,
+      "kind": "island",
+      "rng": [
+        9724,
+        60858,
+        51133
+      ],
+      "randomCalls": 17786,
+      "mapSHA256": "a7efc1ff79935b0ed5d41ea5e6c4919a02edb2f4be4fc3a9eb546992c1fffcfc"
+    },
+    {
+      "number": 5,
+      "previousOnes": 0,
+      "kind": "river",
+      "rng": [
+        55473,
+        40584,
+        50647
+      ],
+      "randomCalls": 24436,
+      "mapSHA256": "f1640963f0e8499d794a2f2d04fc5e8ca8c1407d25b30e42f8134edb6a499240"
+    },
+    {
+      "number": 5,
+      "previousOnes": 9,
+      "kind": "river",
+      "rng": [
+        55473,
+        40584,
+        50647
+      ],
+      "randomCalls": 24436,
+      "mapSHA256": "f1640963f0e8499d794a2f2d04fc5e8ca8c1407d25b30e42f8134edb6a499240"
+    },
+    {
+      "number": 7,
+      "previousOnes": 255,
+      "kind": "island",
+      "rng": [
+        59236,
+        17890,
+        24190
+      ],
+      "randomCalls": 14303,
+      "mapSHA256": "386aca1ddceb2f5cc6ecc6a12bc566763eb9ba9ca869caa4802790367a28a689"
+    },
+    {
+      "number": 7,
+      "previousOnes": 0,
+      "kind": "river",
+      "rng": [
+        45650,
+        52946,
+        7296
+      ],
+      "randomCalls": 23417,
+      "mapSHA256": "8c337c37330191d3e7eac046acb88e0a10b4b50a92ca8763eba18849d5cd74aa"
+    },
+    {
+      "number": 7,
+      "previousOnes": 9,
+      "kind": "river",
+      "rng": [
+        45650,
+        52946,
+        7296
+      ],
+      "randomCalls": 23417,
+      "mapSHA256": "8c337c37330191d3e7eac046acb88e0a10b4b50a92ca8763eba18849d5cd74aa"
+    },
+    {
+      "number": 9,
+      "previousOnes": 255,
+      "kind": "river",
+      "rng": [
+        48372,
+        37363,
+        54526
+      ],
+      "randomCalls": 24582,
+      "mapSHA256": "d6299b697432874ea3fd38915563f8edb2b92a62f4967ed7568d57b4005be360"
+    },
+    {
+      "number": 9,
+      "previousOnes": 0,
+      "kind": "river",
+      "rng": [
+        31115,
+        5349,
+        39769
+      ],
+      "randomCalls": 20971,
+      "mapSHA256": "f2c930b88f185a5f87153db2acd2fd86e43e36c646d0e115140a9c5ee829b952"
+    },
+    {
+      "number": 9,
+      "previousOnes": 9,
+      "kind": "river",
+      "rng": [
+        31115,
+        5349,
+        39769
+      ],
+      "randomCalls": 20971,
+      "mapSHA256": "f2c930b88f185a5f87153db2acd2fd86e43e36c646d0e115140a9c5ee829b952"
+    },
+    {
+      "number": 10,
+      "previousOnes": 255,
+      "kind": "river",
+      "rng": [
+        58772,
+        15042,
+        21806
+      ],
+      "randomCalls": 11401,
+      "mapSHA256": "4d670deba04c82d0167b4630314a227ace33214b2deb3bd9fe25bec7c02e1c7d"
+    },
+    {
+      "number": 10,
+      "previousOnes": 0,
+      "kind": "river",
+      "rng": [
+        12804,
+        5478,
+        58209
+      ],
+      "randomCalls": 19318,
+      "mapSHA256": "0b749d9755e4b0caaa9a17ceb5bb87db6c294f876f396c39266f8628ce3f53ce"
+    },
+    {
+      "number": 10,
+      "previousOnes": 9,
+      "kind": "river",
+      "rng": [
+        12804,
+        5478,
+        58209
+      ],
+      "randomCalls": 19318,
+      "mapSHA256": "0b749d9755e4b0caaa9a17ceb5bb87db6c294f876f396c39266f8628ce3f53ce"
+    },
+    {
+      "number": 19,
+      "previousOnes": 255,
+      "kind": "island",
+      "rng": [
+        41107,
+        33230,
+        57658
+      ],
+      "randomCalls": 18304,
+      "mapSHA256": "6e7603e7d5f48501230bb03e65451ed3a3f6ee01e9aae87f2fb6a342a3b89c0b"
+    },
+    {
+      "number": 19,
+      "previousOnes": 0,
+      "kind": "river",
+      "rng": [
+        58786,
+        63695,
+        4909
+      ],
+      "randomCalls": 22990,
+      "mapSHA256": "a04ac153c0a0b41f34c3a9b64fe7b45af68b7f5608c882103afff796737698ae"
+    },
+    {
+      "number": 19,
+      "previousOnes": 9,
+      "kind": "river",
+      "rng": [
+        58786,
+        63695,
+        4909
+      ],
+      "randomCalls": 22990,
+      "mapSHA256": "a04ac153c0a0b41f34c3a9b64fe7b45af68b7f5608c882103afff796737698ae"
+    },
+    {
+      "number": 21,
+      "previousOnes": 255,
+      "kind": "island",
+      "rng": [
+        60655,
+        64097,
+        3442
+      ],
+      "randomCalls": 9418,
+      "mapSHA256": "36bf7fbf7ec267d5c77cf224e84250ae9d5e49629cf61cbd1bdba388a55cf990"
+    },
+    {
+      "number": 21,
+      "previousOnes": 0,
+      "kind": "river",
+      "rng": [
+        38834,
+        40856,
+        2022
+      ],
+      "randomCalls": 22657,
+      "mapSHA256": "6ca25878e8e7aa60ad37274f08a6202779307fbbfc2a0e6168ecf5ccdc302063"
+    },
+    {
+      "number": 21,
+      "previousOnes": 9,
+      "kind": "river",
+      "rng": [
+        38834,
+        40856,
+        2022
+      ],
+      "randomCalls": 22657,
+      "mapSHA256": "6ca25878e8e7aa60ad37274f08a6202779307fbbfc2a0e6168ecf5ccdc302063"
+    },
+    {
+      "number": 23,
+      "previousOnes": 255,
+      "kind": "island",
+      "rng": [
+        46182,
+        5332,
+        24686
+      ],
+      "randomCalls": 13198,
+      "mapSHA256": "3449765c4ef582ac5bfdf280421595be5c65ca75a8592dca8e0d136c2f851d35"
+    },
+    {
+      "number": 23,
+      "previousOnes": 0,
+      "kind": "island",
+      "rng": [
+        18698,
+        890,
+        47727
+      ],
+      "randomCalls": 12854,
+      "mapSHA256": "a2772066fa76757076834f46eb10de0cfd55c512bd728c357097bdc8c0b16103"
+    },
+    {
+      "number": 23,
+      "previousOnes": 9,
+      "kind": "island",
+      "rng": [
+        18698,
+        890,
+        47727
+      ],
+      "randomCalls": 12854,
+      "mapSHA256": "a2772066fa76757076834f46eb10de0cfd55c512bd728c357097bdc8c0b16103"
+    },
+    {
+      "number": 42,
+      "previousOnes": 255,
+      "kind": "island",
+      "rng": [
+        16367,
+        50920,
+        34552
+      ],
+      "randomCalls": 13051,
+      "mapSHA256": "b919387fc640792fbf5f00518ec47f8ff4edf76a3dc0872bccb2aab122101f0a"
+    },
+    {
+      "number": 42,
+      "previousOnes": 0,
+      "kind": "river",
+      "rng": [
+        1361,
+        56095,
+        54733
+      ],
+      "randomCalls": 12516,
+      "mapSHA256": "252dc2deb5a34dd4e2c4ca249ed69dd9f49554b8a77e6e8e889f13646d99c0aa"
+    },
+    {
+      "number": 42,
+      "previousOnes": 9,
+      "kind": "river",
+      "rng": [
+        1361,
+        56095,
+        54733
+      ],
+      "randomCalls": 12516,
+      "mapSHA256": "252dc2deb5a34dd4e2c4ca249ed69dd9f49554b8a77e6e8e889f13646d99c0aa"
+    },
+    {
+      "number": 99,
+      "previousOnes": 255,
+      "kind": "river",
+      "rng": [
+        64620,
+        28734,
+        29650
+      ],
+      "randomCalls": 26000,
+      "mapSHA256": "c4ced6e4174355bb5da07482374af022e2484a53855ca03d17570c39345360d8"
+    },
+    {
+      "number": 99,
+      "previousOnes": 0,
+      "kind": "river",
+      "rng": [
+        56780,
+        20776,
+        29532
+      ],
+      "randomCalls": 15617,
+      "mapSHA256": "f69338eb52e66994b1cbf567d5807ca4db35251ee31ac577d1d182c871a364ce"
+    },
+    {
+      "number": 99,
+      "previousOnes": 9,
+      "kind": "river",
+      "rng": [
+        56780,
+        20776,
+        29532
+      ],
+      "randomCalls": 15617,
+      "mapSHA256": "f69338eb52e66994b1cbf567d5807ca4db35251ee31ac577d1d182c871a364ce"
+    },
+    {
+      "number": 100,
+      "previousOnes": 255,
+      "kind": "river",
+      "rng": [
+        60051,
+        59129,
+        64613
+      ],
+      "randomCalls": 23064,
+      "mapSHA256": "91f8c6fd484d22b9f38574497d8a48bf7e76b29d8f462dc989999188f2bc90d2"
+    },
+    {
+      "number": 100,
+      "previousOnes": 0,
+      "kind": "river",
+      "rng": [
+        44218,
+        9551,
+        30869
+      ],
+      "randomCalls": 21711,
+      "mapSHA256": "5176e08b3b7615be977a0d98180eebe75e2bbddb8473554fbc0ad9c35dbfaaa2"
+    },
+    {
+      "number": 100,
+      "previousOnes": 9,
+      "kind": "river",
+      "rng": [
+        44218,
+        9551,
+        30869
+      ],
+      "randomCalls": 21711,
+      "mapSHA256": "5176e08b3b7615be977a0d98180eebe75e2bbddb8473554fbc0ad9c35dbfaaa2"
+    },
+    {
+      "number": 101,
+      "previousOnes": 255,
+      "kind": "island",
+      "rng": [
+        58985,
+        48910,
+        55461
+      ],
+      "randomCalls": 15213,
+      "mapSHA256": "ee2e0ed552d9e830e1f1a457a49acf056bd762b08a78c0f6b1aedf488326b25b"
+    },
+    {
+      "number": 101,
+      "previousOnes": 0,
+      "kind": "river",
+      "rng": [
+        54365,
+        14024,
+        25195
+      ],
+      "randomCalls": 21194,
+      "mapSHA256": "33c3f48ee036a76c0b37c38c75a8ed2f6806079d0befaea6f9a1db52fb882113"
+    },
+    {
+      "number": 101,
+      "previousOnes": 9,
+      "kind": "river",
+      "rng": [
+        54365,
+        14024,
+        25195
+      ],
+      "randomCalls": 21194,
+      "mapSHA256": "33c3f48ee036a76c0b37c38c75a8ed2f6806079d0befaea6f9a1db52fb882113"
+    },
+    {
+      "number": 123,
+      "previousOnes": 255,
+      "kind": "river",
+      "rng": [
+        50721,
+        48688,
+        63502
+      ],
+      "randomCalls": 14440,
+      "mapSHA256": "a0743e2536fd06dbff6cb35e4e38ca88564072f0fd868076b27c945c72a70597"
+    },
+    {
+      "number": 123,
+      "previousOnes": 0,
+      "kind": "island",
+      "rng": [
+        54577,
+        43937,
+        54895
+      ],
+      "randomCalls": 13474,
+      "mapSHA256": "c9659f0c85ff71b6e43bf49fe5b9f34502e897a7d4e8915de018ad92a5fb2088"
+    },
+    {
+      "number": 123,
+      "previousOnes": 9,
+      "kind": "island",
+      "rng": [
+        54577,
+        43937,
+        54895
+      ],
+      "randomCalls": 13474,
+      "mapSHA256": "c9659f0c85ff71b6e43bf49fe5b9f34502e897a7d4e8915de018ad92a5fb2088"
+    },
+    {
+      "number": 255,
+      "previousOnes": 255,
+      "kind": "island",
+      "rng": [
+        9527,
+        15234,
+        5707
+      ],
+      "randomCalls": 15275,
+      "mapSHA256": "ae5ceb474bd2e2329d4169ea736a3505e017b18ada1575d5a13f5b954601b766"
+    },
+    {
+      "number": 255,
+      "previousOnes": 0,
+      "kind": "river",
+      "rng": [
+        60072,
+        15331,
+        20795
+      ],
+      "randomCalls": 23818,
+      "mapSHA256": "7d8c626eaaa9d9e1dcd885ff3f85ddb36682e4c2ff548f42723ba8c040e35059"
+    },
+    {
+      "number": 255,
+      "previousOnes": 9,
+      "kind": "river",
+      "rng": [
+        60072,
+        15331,
+        20795
+      ],
+      "randomCalls": 23818,
+      "mapSHA256": "7d8c626eaaa9d9e1dcd885ff3f85ddb36682e4c2ff548f42723ba8c040e35059"
+    },
+    {
+      "number": 499,
+      "previousOnes": 255,
+      "kind": "river",
+      "rng": [
+        27594,
+        34161,
+        6567
+      ],
+      "randomCalls": 22264,
+      "mapSHA256": "f35423fd6abe095d5a11df49b9cf574884c696bfd4f95793a4bc185a8177b7d0"
+    },
+    {
+      "number": 499,
+      "previousOnes": 0,
+      "kind": "island",
+      "rng": [
+        42238,
+        63410,
+        21172
+      ],
+      "randomCalls": 22598,
+      "mapSHA256": "9183ea8644560cc24c0724b06ea01dcae77fbc61992a7579bb3243614633bdbf"
+    },
+    {
+      "number": 499,
+      "previousOnes": 9,
+      "kind": "island",
+      "rng": [
+        42238,
+        63410,
+        21172
+      ],
+      "randomCalls": 22598,
+      "mapSHA256": "9183ea8644560cc24c0724b06ea01dcae77fbc61992a7579bb3243614633bdbf"
+    },
+    {
+      "number": 500,
+      "previousOnes": 255,
+      "kind": "river",
+      "rng": [
+        59462,
+        10708,
+        16782
+      ],
+      "randomCalls": 16414,
+      "mapSHA256": "bbba2aedfcf0a5c693fae0f448ce9522f35906da7de9511a0a393dfd48f4319d"
+    },
+    {
+      "number": 500,
+      "previousOnes": 0,
+      "kind": "island",
+      "rng": [
+        2381,
+        8852,
+        6470
+      ],
+      "randomCalls": 11123,
+      "mapSHA256": "f48e1e4f8f84cb179354b09eecf2196112103c10835e96065029e2ea2b7d28f6"
+    },
+    {
+      "number": 500,
+      "previousOnes": 9,
+      "kind": "island",
+      "rng": [
+        2381,
+        8852,
+        6470
+      ],
+      "randomCalls": 11123,
+      "mapSHA256": "f48e1e4f8f84cb179354b09eecf2196112103c10835e96065029e2ea2b7d28f6"
+    },
+    {
+      "number": 555,
+      "previousOnes": 255,
+      "kind": "river",
+      "rng": [
+        32819,
+        46365,
+        13546
+      ],
+      "randomCalls": 23889,
+      "mapSHA256": "74a08c028eb99186ffff0f47167143069a4ddb7cd841aacaf6a58b94ae6c2883"
+    },
+    {
+      "number": 555,
+      "previousOnes": 0,
+      "kind": "island",
+      "rng": [
+        63625,
+        43383,
+        45294
+      ],
+      "randomCalls": 19655,
+      "mapSHA256": "698e75491086f2bc03d665a62e6a9e3863de4abaf7eed2f6ccb6ef6d8e7a0b0a"
+    },
+    {
+      "number": 555,
+      "previousOnes": 9,
+      "kind": "island",
+      "rng": [
+        63625,
+        43383,
+        45294
+      ],
+      "randomCalls": 19655,
+      "mapSHA256": "698e75491086f2bc03d665a62e6a9e3863de4abaf7eed2f6ccb6ef6d8e7a0b0a"
+    },
+    {
+      "number": 666,
+      "previousOnes": 255,
+      "kind": "island",
+      "rng": [
+        49008,
+        50102,
+        1094
+      ],
+      "randomCalls": 11018,
+      "mapSHA256": "ca33435e4de7718f8e12f82b8ce63c3db568a7cab16b0a8311e9cfb9d7a31058"
+    },
+    {
+      "number": 666,
+      "previousOnes": 0,
+      "kind": "river",
+      "rng": [
+        21646,
+        58291,
+        36644
+      ],
+      "randomCalls": 10791,
+      "mapSHA256": "5832568948c620db22d165fdb3f3a2c6661044a52c3357b7615b9c06b39445be"
+    },
+    {
+      "number": 666,
+      "previousOnes": 9,
+      "kind": "river",
+      "rng": [
+        21646,
+        58291,
+        36644
+      ],
+      "randomCalls": 10791,
+      "mapSHA256": "5832568948c620db22d165fdb3f3a2c6661044a52c3357b7615b9c06b39445be"
+    },
+    {
+      "number": 777,
+      "previousOnes": 255,
+      "kind": "river",
+      "rng": [
+        24413,
+        9254,
+        50376
+      ],
+      "randomCalls": 16984,
+      "mapSHA256": "9bb40e5b140889ccd7cc3ac6bbe08613901c6410781e87af0f996717c164c42d"
+    },
+    {
+      "number": 777,
+      "previousOnes": 0,
+      "kind": "river",
+      "rng": [
+        64657,
+        58575,
+        59454
+      ],
+      "randomCalls": 22255,
+      "mapSHA256": "cecc44127b40e3c4d81a1197493ed608b0efde3b92c2b3f3b963fa2b16989aee"
+    },
+    {
+      "number": 777,
+      "previousOnes": 9,
+      "kind": "river",
+      "rng": [
+        64657,
+        58575,
+        59454
+      ],
+      "randomCalls": 22255,
+      "mapSHA256": "cecc44127b40e3c4d81a1197493ed608b0efde3b92c2b3f3b963fa2b16989aee"
+    },
+    {
+      "number": 888,
+      "previousOnes": 255,
+      "kind": "river",
+      "rng": [
+        9150,
+        24832,
+        15681
+      ],
+      "randomCalls": 21683,
+      "mapSHA256": "a01936f3c961b54a5865fb18632f5901214c9eae9df1b46649ef4d6503ea785f"
+    },
+    {
+      "number": 888,
+      "previousOnes": 0,
+      "kind": "river",
+      "rng": [
+        11276,
+        7137,
+        61396
+      ],
+      "randomCalls": 22405,
+      "mapSHA256": "7918d3b67e7863341c540dcc71234d87a4db9e0acac2c4426f09591cb7b6e28b"
+    },
+    {
+      "number": 888,
+      "previousOnes": 9,
+      "kind": "river",
+      "rng": [
+        11276,
+        7137,
+        61396
+      ],
+      "randomCalls": 22405,
+      "mapSHA256": "7918d3b67e7863341c540dcc71234d87a4db9e0acac2c4426f09591cb7b6e28b"
+    },
+    {
+      "number": 900,
+      "previousOnes": 255,
+      "kind": "river",
+      "rng": [
+        3897,
+        23457,
+        19559
+      ],
+      "randomCalls": 10988,
+      "mapSHA256": "151590cd9deed8becb040b629ec1f72d8b1167e3d773d08527bc8bd06523f3e8"
+    },
+    {
+      "number": 900,
+      "previousOnes": 0,
+      "kind": "island",
+      "rng": [
+        25535,
+        46261,
+        20726
+      ],
+      "randomCalls": 11078,
+      "mapSHA256": "1c57114cec551d9a6a7972963104afcc7b2221960afdfa3a9e5190042a22e21d"
+    },
+    {
+      "number": 900,
+      "previousOnes": 9,
+      "kind": "island",
+      "rng": [
+        25535,
+        46261,
+        20726
+      ],
+      "randomCalls": 11078,
+      "mapSHA256": "1c57114cec551d9a6a7972963104afcc7b2221960afdfa3a9e5190042a22e21d"
+    },
+    {
+      "number": 990,
+      "previousOnes": 255,
+      "kind": "river",
+      "rng": [
+        47972,
+        12189,
+        29753
+      ],
+      "randomCalls": 17964,
+      "mapSHA256": "bf40474b189438fae1c8bb2c1f6e9c1ac22636e633dbfcb9a1d6d65474bce9d8"
+    },
+    {
+      "number": 990,
+      "previousOnes": 0,
+      "kind": "river",
+      "rng": [
+        45074,
+        46286,
+        1212
+      ],
+      "randomCalls": 21519,
+      "mapSHA256": "75973b75358bdec7be03dbde16e78bfcefb58986488853cadc94b13efc4404ed"
+    },
+    {
+      "number": 990,
+      "previousOnes": 9,
+      "kind": "river",
+      "rng": [
+        45074,
+        46286,
+        1212
+      ],
+      "randomCalls": 21519,
+      "mapSHA256": "75973b75358bdec7be03dbde16e78bfcefb58986488853cadc94b13efc4404ed"
+    },
+    {
+      "number": 999,
+      "previousOnes": 255,
+      "kind": "river",
+      "rng": [
+        31154,
+        19535,
+        53916
+      ],
+      "randomCalls": 12578,
+      "mapSHA256": "58c627c20b279710465fdb4c7ecbddeece5421ba92da8224ef1842288447957f"
+    },
+    {
+      "number": 999,
+      "previousOnes": 0,
+      "kind": "island",
+      "rng": [
+        19447,
+        48870,
+        29422
+      ],
+      "randomCalls": 18565,
+      "mapSHA256": "94e32e3d61de3db869019fdf9ad9cfbf8f5639ebff75f4fccb5ad41204b5cd65"
+    },
+    {
+      "number": 999,
+      "previousOnes": 9,
+      "kind": "island",
+      "rng": [
+        19447,
+        48870,
+        29422
+      ],
+      "randomCalls": 18565,
+      "mapSHA256": "94e32e3d61de3db869019fdf9ad9cfbf8f5639ebff75f4fccb5ad41204b5cd65"
+    }
+  ]
+}

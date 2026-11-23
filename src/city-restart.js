@@ -1,7 +1,7 @@
 // Player-requested bankruptcy recovery. Preserve geography; remove the city.
 export function restartCity(previous,City,build=previous.build,flags=previous.flags){
  const terrain=Uint16Array.from(previous.map,word=>{const id=word&1023;return id>0&&id<40?id:0;});
- const city=new City(terrain,build,flags,{name:previous.name,scenario:previous.width===240?'FreeMegacity':'FreeCity',width:previous.width,height:previous.height,year:1900,difficulty:previous.difficulty,autoBudget:previous.autoBudget,disastersEnabled:previous.disastersEnabled,civicEnabled:previous.civicEnabled});
+ const city=new City(terrain,build,flags,{name:previous.name,terrainSource:previous.terrainSource,scenario:previous.width===240?'FreeMegacity':'FreeCity',width:previous.width,height:previous.height,year:1900,difficulty:previous.difficulty,autoBudget:previous.autoBudget,disastersEnabled:previous.disastersEnabled,civicEnabled:previous.civicEnabled});
  city.elevation=Int8Array.from(previous.elevation);city.terraform=Uint8Array.from(previous.terraform);city.climate=structuredClone(previous.climate);city.refresh();return city;
 }
 export const RESTART_BACKUP_KEY='simcity.restartBackup.v1';
