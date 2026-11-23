@@ -1,0 +1,13 @@
+{
+  "source": "OpenAI built-in ImageGen",
+  "date": "2026-11-23",
+  "original": "../custom/weather-imagegen-original.png",
+  "originalSHA256": "54d08654cd5a9809b1d109227bccd36c44dd9885a11e1e77651428b978845fa2",
+  "selectedEdit": "../custom/weather-imagegen-clean.png",
+  "selectedSHA256": "918e48e774824febff62c9d6e94cd6f584efa66ebf182009edf6d0cc5da7eecc",
+  "description": "Single4x4 atlas of clouds, smoke, sun/moon halos, four fire frames, rain streaks, wind curl, headlight cone and lit windows. SNES-style pixel art with semitransparent glows. Edited with ImageGen to remove background haze and retain completely transparent gutters.",
+  "preparation": "16 equal relative cells cropped and nearest-neighbor resampled to64x64 via tools/prepare-weather-atlas.mjs. Alpha retained unchanged; no color-key background removal. Both generated source versions preserved.",
+  "clearAlphaSamples": 34492,
+  "partialAlphaSamples": 31033,
+  "opaqueAlphaSamples": 11
+}

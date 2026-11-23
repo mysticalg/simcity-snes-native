@@ -1,0 +1,28 @@
+{
+  "width": 1254,
+  "height": 1254,
+  "clear": 34492,
+  "partial": 31033,
+  "opaque": 11,
+  "columns": 4,
+  "rows": 4,
+  "cellSize": 64,
+  "subjects": [
+    "Fair cloud",
+    "Wisp cloud",
+    "Rain cloud",
+    "Mist cloud",
+    "Gray smoke",
+    "Dark smoke",
+    "Sun halo",
+    "Moon halo",
+    "Fire frame1",
+    "Fire frame2",
+    "Fire frame3",
+    "Fire frame4",
+    "Rain streaks",
+    "Wind curl",
+    "Headlight cone",
+    "Window glow"
+  ]
+}
