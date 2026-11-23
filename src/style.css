@@ -74,3 +74,5 @@ body{display:block;padding:8px 8px 80px}.frame{margin:auto;overflow:visible}.top
 #placementTooltip{white-space:pre-line}footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:8px 12px;color:var(--muted);font:10px monospace;border-top:1px solid var(--line)}@media(max-width:900px){#buildCategories{grid-template-columns:repeat(2,minmax(0,1fr))}#buildCategories button{font-size:8px;overflow-wrap:anywhere;padding:5px 2px}#buildCategories button span{display:block;font-size:16px}}
 
 #buildCategories #inspectTool{grid-column:1/-1}
+
+#railHover{position:absolute;right:6px;bottom:6px;background:#10251fef;color:#e8efc5;border:1px solid #688776;padding:6px;font:11px monospace;pointer-events:none}#railHover[hidden]{display:none}
