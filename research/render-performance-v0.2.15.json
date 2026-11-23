@@ -1,0 +1,316 @@
+{
+  "date": "2026-11-23",
+  "method": "Local Chromium CPU/render-submission benchmark; not user-display FPS",
+  "referenceCommit": "339f2193554dbb5083f31b4e9e28026f4bdab7bb",
+  "candidateVersion": "0.2.15",
+  "before": {
+    "slices": {
+      "buildings-day": {
+        "medianMs": 7.5,
+        "p95Ms": 12.300000071525574
+      },
+      "buildings-night": {
+        "medianMs": 12.400000095367432,
+        "p95Ms": 222.69999992847443
+      },
+      "water": {
+        "medianMs": 0.7000000476837158,
+        "p95Ms": 0.8999999761581421
+      },
+      "weather": {
+        "medianMs": 220,
+        "p95Ms": 620.7999999523163
+      },
+      "without-water": {
+        "medianMs": 279.40000009536743,
+        "p95Ms": 564.6000000238419
+      },
+      "without-windows": {
+        "medianMs": 14.399999976158142,
+        "p95Ms": 296.8000000715256
+      },
+      "without-sprites": {
+        "medianMs": 213.79999995231628,
+        "p95Ms": 410.40000009536743
+      }
+    },
+    "zones": 289,
+    "metrics": {
+      "enabled": true,
+      "spritesReady": true,
+      "weather": "rain",
+      "weatherBlend": {
+        "clear": 0,
+        "cloudy": 0,
+        "rain": 1
+      },
+      "cloudOffset": {
+        "x": 0,
+        "y": 0
+      },
+      "night": 1,
+      "clouds": 45,
+      "cloudCoverage": 52,
+      "cloudOpacity": 0.37,
+      "atmosphericHaze": 0.26,
+      "rainParticles": 180,
+      "smokePuffs": 288,
+      "cars": 128,
+      "litBuildings": 289,
+      "litWindows": 1696,
+      "windowPixels": 575941,
+      "photorealBuildings": 193,
+      "smogPatches": 70,
+      "water": {
+        "cells": 3375,
+        "polluted": 1530,
+        "flowX": 0.08277623800258736,
+        "flowY": -5.068582745766405e-18
+      },
+      "fireTiles": 0
+    },
+    "appVersion": "http://localhost:5198/src/app.js?v=turbo-0.2.15",
+    "simulationYear": 2008,
+    "appFrames": {
+      "count": 141,
+      "medianMs": 39.299999952316284,
+      "p95Ms": 62.10000002384186,
+      "maximumPaintsPerFrame": 3
+    },
+    "baseline": true,
+    "cpuProfile": {
+      "durationMs": 5890.81,
+      "top": [
+        [
+          "drawImage ",
+          2214
+        ],
+        [
+          "(idle) ",
+          473
+        ],
+        [
+          "(program) ",
+          238
+        ],
+        [
+          "fillRect ",
+          47
+        ],
+        [
+          "getBoundingClientRect ",
+          35
+        ],
+        [
+          "draw weather-fx.js?v=job-growth-1",
+          30
+        ],
+        [
+          "draw realistic-art.js?v=render-perf-1",
+          21
+        ],
+        [
+          "drawSeaPollution sewage.js?v=megacity-1",
+          20
+        ],
+        [
+          "refresh app.js?v=turbo-0.2.15",
+          19
+        ],
+        [
+          "CanvasRenderingContext2D.fillRect ",
+          18
+        ],
+        [
+          "image city-graphics.js?v=season-1",
+          16
+        ],
+        [
+          "cell app.js?v=turbo-0.2.15",
+          14
+        ],
+        [
+          "fill ",
+          14
+        ],
+        [
+          "paint app.js?v=turbo-0.2.15",
+          12
+        ],
+        [
+          "draw water-surface.js?v=render-perf-1",
+          9
+        ],
+        [
+          "getContext ",
+          9
+        ],
+        [
+          "drawPowerWarnings power-warnings.js?v=pump-fix-1",
+          9
+        ],
+        [
+          "(garbage collector) ",
+          8
+        ]
+      ]
+    },
+    "errors": []
+  },
+  "after": {
+    "slices": {
+      "buildings-day": {
+        "medianMs": 5.100000023841858,
+        "p95Ms": 5.700000047683716
+      },
+      "buildings-night": {
+        "medianMs": 5.5,
+        "p95Ms": 6.299999952316284
+      },
+      "water": {
+        "medianMs": 0,
+        "p95Ms": 0.10000002384185791
+      },
+      "weather": {
+        "medianMs": 6.700000047683716,
+        "p95Ms": 9.600000023841858
+      },
+      "without-water": {
+        "medianMs": 6.5,
+        "p95Ms": 62.299999952316284
+      },
+      "without-windows": {
+        "medianMs": 6.299999952316284,
+        "p95Ms": 35.89999997615814
+      },
+      "without-sprites": {
+        "medianMs": 6.299999952316284,
+        "p95Ms": 7.200000047683716
+      }
+    },
+    "zones": 289,
+    "metrics": {
+      "enabled": true,
+      "spritesReady": true,
+      "weather": "rain",
+      "weatherBlend": {
+        "clear": 0,
+        "cloudy": 0,
+        "rain": 1
+      },
+      "cloudOffset": {
+        "x": 0,
+        "y": 0
+      },
+      "night": 1,
+      "clouds": 45,
+      "cloudCoverage": 52,
+      "cloudOpacity": 0.37,
+      "atmosphericHaze": 0.26,
+      "rainParticles": 180,
+      "smokePuffs": 288,
+      "cars": 128,
+      "litBuildings": 289,
+      "litWindows": 1696,
+      "windowPixels": 575941,
+      "photorealBuildings": 193,
+      "smogPatches": 70,
+      "water": {
+        "cells": 3375,
+        "polluted": 1530,
+        "flowX": 0.08277623800258736,
+        "flowY": -5.068582745766405e-18,
+        "maskBuilds": 2,
+        "surfaceBuilds": 36
+      },
+      "fireTiles": 0
+    },
+    "appVersion": "http://localhost:5198/src/app.js?v=turbo-0.2.15",
+    "simulationYear": 2008,
+    "appFrames": {
+      "count": 304,
+      "medianMs": 3.200000047683716,
+      "p95Ms": 12,
+      "maximumPaintsPerFrame": 1
+    },
+    "baseline": false,
+    "cpuProfile": {
+      "durationMs": 5153.653,
+      "top": [
+        [
+          "(idle) ",
+          1503
+        ],
+        [
+          "(program) ",
+          529
+        ],
+        [
+          "drawImage ",
+          488
+        ],
+        [
+          "getBoundingClientRect ",
+          48
+        ],
+        [
+          "fillRect ",
+          43
+        ],
+        [
+          "drawSeaPollution sewage.js?v=megacity-1",
+          26
+        ],
+        [
+          "draw weather-fx.js?v=render-perf-1",
+          23
+        ],
+        [
+          "image city-graphics.js?v=season-1",
+          21
+        ],
+        [
+          "refresh app.js?v=turbo-0.2.15",
+          17
+        ],
+        [
+          "fill ",
+          16
+        ],
+        [
+          "CanvasRenderingContext2D.fillRect ",
+          15
+        ],
+        [
+          "(garbage collector) ",
+          14
+        ],
+        [
+          "renderCity app.js?v=turbo-0.2.15",
+          12
+        ],
+        [
+          "draw realistic-art.js?v=render-perf-1",
+          12
+        ],
+        [
+          "cityTilePixel city-graphics.js?v=season-1",
+          12
+        ],
+        [
+          "cell app.js?v=turbo-0.2.15",
+          11
+        ],
+        [
+          "drawPowerWarnings power-warnings.js?v=pump-fix-1",
+          8
+        ],
+        [
+          "frame app.js?v=turbo-0.2.15",
+          7
+        ]
+      ]
+    },
+    "errors": []
+  }
+}

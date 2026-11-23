@@ -24,7 +24,7 @@ export function extractWindowPixels(data,width,height,options={}){
 export function windowBrightness(seed,time){const phase=Math.floor(time/45),blend=Math.min(1,(time%45)/3),value=n=>hash(seed+n*977)>.27?.55+hash(seed+n*173+11)*.45:0;return value(phase-1)*(1-blend)+value(phase)*blend;}
 function footprint(city,z){for(const b of city.build.buildings){if(!b)continue;const n=b.tiles.indexOf(z.id);if(n>=0)return {x:z.x-b.x[n],y:z.y-b.y[n],width:Math.max(...b.x)+1,height:Math.max(...b.y)+1};}return {x:z.x-1,y:z.y-1,width:3,height:3};}
 export class WindowLights{
- constructor(){this.art=Array.from({length:15},(_,i)=>{const image=new Image();image.src='assets/custom/civic-'+i+'.png';return image;});this.ready=Promise.all(this.art.map(i=>i.decode()));this.masks=new Map();}
+ constructor(){this.art=Array.from({length:15},(_,i)=>{const image=new Image();image.src='assets/custom/civic-'+i+'.png';return image;});this.ready=Promise.all(this.art.map(i=>i.decode()));this.masks=new Map();this.states=new WeakMap();}
  mask(city,z,atlas){
   const custom=civicForId(z.id);if(custom&&[961,967,972,970].includes(z.id))return null;const b=custom?civicBounds(z):footprint(city,z);if(!b)return null;
   const w=b.width*8,h=custom?.artHeight||b.height*8,key=custom?'civic:'+z.id+':'+w+':'+h:b.width+','+b.height+':'+Array.from({length:b.width*b.height},(_,n)=>city.id(b.x+n%b.width,b.y+Math.floor(n/b.width))).join(',');let mask=this.masks.get(key);
@@ -36,5 +36,32 @@ export class WindowLights{
    if(!custom&&z.id===0x1ef){mask=[];for(let yy=10;yy<=20;yy+=2){const left=yy/2-3;for(let xx=left;xx<left+14;xx+=3)mask.push({kind:'window',pixels:[{x:xx,y:yy},{x:Math.min(left+13,xx+1),y:yy}]});}}this.masks.set(key,mask);if(this.masks.size>512)this.masks.delete(this.masks.keys().next().value);
   }return {x:b.x*8,y:b.y*8,windows:mask};
  }
- draw(ctx,city,zones,atlas,view,night,time){let buildings=0,windows=0,pixels=0;ctx.save();ctx.globalCompositeOperation='screen';for(const z of zones){if(z.x<view.x-6||z.x>view.x+view.width+6||z.y<view.y-6||z.y>view.y+view.height+6)continue;const mask=this.mask(city,z,atlas);if(!mask)continue;let lit=false;for(const [n,window]of mask.windows.entries()){const amount=windowBrightness(z.i*97+n*31,time)*night;if(amount<.03)continue;const cool=hash(z.i+n*7)>.83;ctx.fillStyle=cool?'#b7dfff':'#ffdb89';ctx.shadowColor=cool?'#aad9ff':'#ffc969';ctx.shadowBlur=2*(view.zoom||1);ctx.globalAlpha=amount*.95;for(const p of window.pixels){ctx.fillRect(mask.x+p.x,mask.y+p.y,1,1);pixels++;}windows++;lit=true;}if(lit)buildings++;}ctx.restore();return {buildings,windows,pixels};}
+ draw(ctx,city,zones,atlas,view,night,time){
+  let buildings=0,windows=0,pixels=0,state=this.states.get(city);
+  if(!state||state.revision!==city.revision){state={revision:city.revision,entries:new Map()};this.states.set(city,state);}
+  // Only the three-second fade changes the individual window mask. Bake its
+  // bloom once per building/fade step, rather than running a shadow filter for
+  // every window pixel on the main canvas on every frame.
+  const phase=Math.floor(time/45),fade=Math.min(16,Math.floor((time%45)/3*16)),key=phase+':'+fade;
+  ctx.save();ctx.globalCompositeOperation='screen';ctx.globalAlpha=night;
+  for(const z of zones){
+   if(z.x<view.x-6||z.x>view.x+view.width+6||z.y<view.y-6||z.y>view.y+view.height+6)continue;
+   let entry=state.entries.get(z.i);
+   if(!entry){const mask=this.mask(city,z,atlas);if(!mask)continue;entry={mask,key:null};state.entries.set(z.i,entry);}
+   if(entry.key!==key){
+    const mask=entry.mask,points=mask.windows.flatMap(w=>w.pixels),w=Math.max(1,...points.map(p=>p.x+1)),h=Math.max(1,...points.map(p=>p.y+1));
+    const source=document.createElement('canvas');source.width=w;source.height=h;const sc=source.getContext('2d');let litWindows=0,litPixels=0;
+    const sampleTime=phase*45+fade*3/16;
+    for(const [n,window]of mask.windows.entries()){
+     const amount=windowBrightness(z.i*97+n*31,sampleTime);if(amount<.03)continue;
+     sc.fillStyle=hash(z.i+n*7)>.83?'#b7dfff':'#ffdb89';sc.globalAlpha=amount*.95;
+     for(const p of window.pixels){sc.fillRect(p.x,p.y,1,1);litPixels++;}litWindows++;
+    }
+    const glow=document.createElement('canvas');glow.width=w+8;glow.height=h+8;const gc=glow.getContext('2d');gc.shadowColor='#ffc969';gc.shadowBlur=2;gc.drawImage(source,4,4);
+    Object.assign(entry,{key,canvas:glow,windows:litWindows,pixels:litPixels});
+   }
+   if(entry.windows){ctx.drawImage(entry.canvas,entry.mask.x-4,entry.mask.y-4);buildings++;windows+=entry.windows;pixels+=entry.pixels;}
+  }
+  ctx.restore();return {buildings,windows,pixels};
+ }
 }
