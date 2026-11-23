@@ -6,7 +6,9 @@ This project reverse engineers the USA release of SimCity for Super Nintendo and
 
 Open the [GitHub Pages version](https://mysticalg.github.io/simcity-snes-native/) after deployment, or serve this directory locally with `python -m http.server 5173` and open `http://localhost:5173`.
 
-Latest Turbo update: **v0.2.38** fixes dense grids that lost power despite ample generation. Existing saves recalculate their power automatically. The original ROM stack limit is verified separately and retained in the reference helper. [Evidence, tests and limits](research/power-work-stack-v0.2.38.md).
+Latest Turbo update: **v0.2.39** fixes population wrap on dense megacity maps and repairs old wrapped census saves. Native-size arithmetic remains verified against the original ROM. [Evidence, tests and limits](research/megacity-census-v0.2.39.md).
+
+v0.2.38 fixed dense grids losing power despite ample generation. [Power evidence](research/power-work-stack-v0.2.38.md).
 
 v0.2.37 cached shared photoreal building layers while preserving exact pixel output. [Rendering measurements](research/photo-cache-v0.2.37.md).
 
