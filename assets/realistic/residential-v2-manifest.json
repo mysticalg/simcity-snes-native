@@ -1,0 +1,108 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-11-24",
+  "layout": {
+    "standalone": {
+      "columns": 4,
+      "rows": 4,
+      "models": 16
+    },
+    "merged": {
+      "horizontal": [
+        0,
+        0,
+        0.6666666666666666,
+        0.5
+      ],
+      "vertical": [
+        0.6666666666666666,
+        0,
+        0.3333333333333333,
+        1
+      ]
+    },
+    "commercial": {
+      "columns": 5,
+      "rows": 4,
+      "models": 20
+    },
+    "industrial": {
+      "columns": 4,
+      "rows": 2,
+      "models": 8
+    }
+  },
+  "assets": [
+    {
+      "file": "residential-day-v2.png",
+      "generation": "exec-5d4459fa-c259-471f-a8d7-89e9c67c5920",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "849ad9c3165a33addb1aec051da2680c9e81ac5794dcbbd26a7b48aacb8a530a",
+      "cornerAlpha": 0
+    },
+    {
+      "file": "residential-night-v2.png",
+      "generation": "exec-2bf35dd0-9aa7-44f1-98f4-d5e7812f8eef",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "e5d13d9048c686e6a5e82720ebfa5086b11b23c27428c79f150e0dce058c2681",
+      "cornerAlpha": 0
+    },
+    {
+      "file": "residential-merged-day-v2.png",
+      "generation": "exec-43965670-b9a7-4378-8339-cc045035a7a7",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "d52fa1b942c41e8216825de4cc5e2b0c8a72b0758d5a48c64cf2a9c1ba4a74bf",
+      "cornerAlpha": 0
+    },
+    {
+      "file": "residential-merged-night-v2.png",
+      "generation": "exec-4635fb5d-6d24-4c22-8a21-b4727552555b",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "48bed1613c61ec46f32beae85df818069e1fa4e38a604b7912edb6fa6ca94d28",
+      "cornerAlpha": 0
+    },
+    {
+      "file": "commercial-day-v2.png",
+      "generation": "exec-1d6fc1b9-b074-448d-a78f-bc6070dd4fb9",
+      "width": 1402,
+      "height": 1122,
+      "sha256": "a2abebeb64e1aef100b7c68cc9c14774b15d816cebd2d4def47a94224bb88d39",
+      "cornerAlpha": 0
+    },
+    {
+      "file": "commercial-night-v2.png",
+      "generation": "exec-27003453-14b6-4410-9626-549ef64eed67",
+      "width": 1402,
+      "height": 1122,
+      "sha256": "a3507c748bf5e80b1ba6a812f1409e31578d974194b2f74468934663b1c313c9",
+      "cornerAlpha": 0
+    },
+    {
+      "file": "industrial-day-v2.png",
+      "generation": "exec-318d8b2d-1de4-42c8-9e97-e702cb582eb6",
+      "width": 1774,
+      "height": 887,
+      "sha256": "40a30774fb9f8c46e5f6963dddc92508940cd8ea0585272eaca35df56948efbf",
+      "cornerAlpha": 0
+    },
+    {
+      "file": "industrial-night-v2.png",
+      "generation": "exec-9d865cd1-138e-4326-bb64-61f7b4b28085",
+      "width": 1774,
+      "height": 887,
+      "sha256": "ea6fd856dc1eea5a1afe7485fcb931a4be0ea965120617d7422b9e47080e459a",
+      "cornerAlpha": 0
+    }
+  ],
+  "models": {
+    "residential": 16,
+    "commercial": 20,
+    "industrial": 8,
+    "mergedResidential": 2,
+    "mergedCommercial": "two composed orientations"
+  }
+}

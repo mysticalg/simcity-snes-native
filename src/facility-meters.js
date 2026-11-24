@@ -1,4 +1,4 @@
-import {healthFleetStatus} from './health-care.js?v=transit-59';
+import {healthFleetStatus} from './health-care.js?v=growth-60';
 import {educationCoverage} from './education.js?v=approaches-56';
 import {aviationTraffic} from './aviation.js?v=approaches-56';
 import {parkServices} from './parks.js?v=amenity-58';
@@ -6,7 +6,7 @@ import {civicServices,civicForId,civicRoadEntry,pumpStatus,educationEffects} fro
 import {windPower} from './climate.js?v=weather-1';
 import {sewageServices} from './sewage.js?v=approaches-56';
 import {collectGarbage,monthlyGarbageDemand} from './landfill.js?v=health-care-34';
-import {employmentIncome} from './employment.js?v=transit-59';
+import {employmentIncome} from './employment.js?v=growth-60';
 import {emergencyKind} from './emergency.js';
 const fmt=n=>Math.round(Number(n)||0).toLocaleString();
 export function processingMeters(city,z){

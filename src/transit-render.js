@@ -1,5 +1,5 @@
 import {TRANSIT_TOOLS,transitTool} from './transit-tools.js?v=transit-59';
-import {layerBit,neighbors,transitNetwork,transitStationPowered} from './transit-network.js?v=transit-59';
+import {layerBit,neighbors,transitNetwork,transitStationPowered} from './transit-network.js?v=growth-60';
 const COLORS={1:'#50c9f4',2:'#dbd6b3',3:'#f5d35c'};
 export function subwayView(tool,overlay){return overlay==='subway'||overlay==='none'&&[97,98,101,103].includes(tool);}
 function joins(city,i,layer){const bit=layerBit(layer),w=city.width;return neighbors(i,w,city.height).filter(j=>city.transitTracks[j]&bit).map(j=>({x:(j%w-i%w)*4,y:(Math.floor(j/w)-Math.floor(i/w))*4}));}

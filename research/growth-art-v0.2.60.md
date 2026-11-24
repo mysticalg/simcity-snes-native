@@ -1,0 +1,27 @@
+# v0.2.60 — stable connected growth and complete developed RCI artwork
+
+Scoped user reports: zones shrink/rebuild repeatedly at maximum density even at0%tax; skyscrapers never appear; realistic art collapses many models and misses merged residential towers. This is a Turbo gameplay/graphics fix, not a resumption or completion claim for the paused full-ROM project.
+
+## Verified causes and behavior
+
+The original random road walk is limited to30 steps. A fully developed R zone checks transport more often than lower-density blocks (population40 exceeds the35 random threshold). Failed random walks set residential local score to-3000, so even maximum+2000 demand leaves-1000 and allows decline. Tax cannot overcome that transport penalty. A genuine powered road fixture with occupied jobs58 network steps away reproduced an old40→32 decline at0%tax despite an intact connection.
+
+Turbo now checks cached, multi-source connected routes to occupied destinations before using that random walk. Road/rail/station/grade graph connections are explicit; jobs must be powered and occupied, path cells and destination remain validated against destruction during the current tile scan. Fields are shared across all zones and reused while topology/destination sets stay unchanged. Actual routes produce congestion along real surface segments. Native random comparisons, demand, utility restrictions, pollution gates and population ceilings remain. Truly unserved or undesirable zones can still decline.
+
+Full zones in a lower land-value building family were locked at that family’s ceiling. Positive growth checks can now upgrade a full R40 or C5 block’s architecture when local desirability improves, without changing occupancy. They never wrap into hospital/school IDs. Highest standalone blocks hold their stage or merge with eligible neighbours. Water/pollution restrictions still apply. Inspection now records previous/current occupancy, verified commute distance, and decline conditions. Existing city saves use the fixes after refresh; no rebuilding is required.
+
+Pure ROM helpers and saved original-runtime fixtures are unchanged. The nativeGrowthRules reference flag explicitly retains original growth behavior for the187 residential and260 job-worker comparisons and their reference capture tools; production cities default to the connected Turbo policy. This flag is an internal verifier setting, not an exposed game option or a claim of full native-ROM parity.
+
+## Realistic models
+
+Added8 ImageGen PNG atlases, copied into assets/realistic; originals and the previously approved v1 atlases remain preserved. All16 developed residential centres,20 commercial centres and8 industrial centres now map to44 distinct family/stage frames. Actual individual small houses, vacant plots and special facilities/landmarks can still use their native or existing civic artwork; this update does not claim a unique new photo for every game tile.
+
+Merged R/C complexes now occupy one6×3 or3×6 photo footprint. Both original zone centres are marked covered, so the second half does not draw again or acquire duplicate native window lights. Dedicated horizontal/vertical residential skyscraper art uses matching2:1/1:2 source crops, never rotated/squashed square images. Commercial merged footprints compose two highest-stage office frames without aspect distortion. Orphaned/damaged merged sites retain native fallback rather than covering another structure or fire. Crossfade is skipped across incompatible aspect ratios. Native population/job accounting remains unchanged.
+
+Matched night atlases light actual facade windows. Frame-cache keys use the expanded slot count, avoiding old day/night index collisions. Runtime bakes compact frames and emission masks once, then removes raw atlas image sources to release their decoder references; it does not resample the full atlases per building/frame. Glow and composite batching remain enabled. Asset hashes/layout metadata: assets/realistic/residential-v2-manifest.json. Exact prompt set and built-in tool provenance: research/realistic-zone-prompts-v0.2.60.json.
+
+## Verification
+
+594 Node checks pass. New regressions reproduce0%tax40→32 false decline, prove a real58-step route, maintain a well-served tower for288 natural city ticks/six years, upgrade full lower-tier R/C to skyscrapers without occupant loss, preserve real utility/pollution gates and reject disconnected/stale destroyed paths. Original ROM worker comparisons continue passing in reference policy.
+
+Actual Chromium game modules reproduced old decline versus fixed40occupancy/+5000score. An actual6year city run started from lower-tier full R/C buildings and reached1906 at0%tax with minimum R40/C5, no empty resets, max residential/commercial model indices30/54 and land250. Saved-session reload and the in-game inspector showed the verified58-step commute. Renderer gallery drew48 complexes across52 centres (44 unique standalone models+4 merged groups); all48 had real lit-window emission at night (44,986 mask pixels). Both merge aspect ratios and released source-image references were checked. Day/night gallery, actual game city and inspector screenshots were inspected; browser errors:none. Required gameplay client reached Practice City; the v59 transport mouse/build/commute/fleet/save flow was rerun successfully against this version. These are bounded verified cases, not a guarantee against legitimate decline in every city. Public deployment verification follows in the private output ledger.

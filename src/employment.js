@@ -1,4 +1,4 @@
-import {transitNetwork} from './transit-network.js?v=transit-59';
+import {transitNetwork} from './transit-network.js?v=growth-60';
 // Player-requested household earnings. Annual wage units are game balance, not ROM rules.
 const cache=new WeakMap(),taxCache=new WeakMap(),PERIMETER=[[-1,-2],[0,-2],[1,-2],[2,-1],[2,0],[2,1],[1,2],[0,2],[-1,2],[-2,1],[-2,0],[-2,-1]];
 export const ANNUAL_WAGES={commercial:20,industrial:16};

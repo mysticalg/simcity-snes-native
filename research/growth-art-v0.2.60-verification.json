@@ -1,0 +1,106 @@
+{
+  "nodeChecks": 594,
+  "browser": {
+    "reproduced": {
+      "tax": 0,
+      "nativeWalk": 0,
+      "verifiedDistance": 58,
+      "oldAction": "decline",
+      "oldPopulation": 32,
+      "newAction": "none",
+      "newPopulation": 40,
+      "newScore": 5000
+    },
+    "years": {
+      "year": 1906,
+      "tax": 0,
+      "minResidents": 40,
+      "minJobs": 5,
+      "emptyResets": 0,
+      "residentialTile": 288,
+      "commercialTile": 495,
+      "residentialModel": 30,
+      "commercialModel": 54,
+      "last": {
+        "type": 5,
+        "tile": 288,
+        "previousTile": 288,
+        "previousPopulation": 40,
+        "population": 40,
+        "year": 1905,
+        "month": 12,
+        "action": "none",
+        "reason": "gate",
+        "transport": 1,
+        "changed": false,
+        "score": 4900,
+        "connectedRoute": true,
+        "commuteDistance": 58,
+        "routeTarget": 2721,
+        "powered": true,
+        "landValue": 250,
+        "pollution": 6,
+        "demand": 1900
+      }
+    },
+    "gallery": {
+      "zones": 52,
+      "models": 44,
+      "buildings": 48,
+      "coveredCentres": 52,
+      "slotCount": 63,
+      "frameShapes": [
+        {
+          "slot": 31,
+          "width": 256,
+          "height": 128
+        },
+        {
+          "slot": 32,
+          "width": 128,
+          "height": 256
+        },
+        {
+          "slot": 33,
+          "width": 256,
+          "height": 128
+        },
+        {
+          "slot": 34,
+          "width": 128,
+          "height": 256
+        }
+      ],
+      "sourcesReleased": true,
+      "night": {
+        "buildings": 48,
+        "glowing": 48,
+        "windowPixels": 44986,
+        "covered": 52
+      }
+    },
+    "inspector": "\u25cf All workers employed\nResidents\n100%\n800\n/ 800 people\nEmployed residents\n100%\n400\n/ 400 workers\nBuild $100\nUpkeep $0/yr\nTax $0/yr\nCosts, income and connection details\nEligible for growth checks\n\nLast scan 12/1905: no footprint change. Waiting: this scan did not select the zone for its 1-in-8 growth check. Verified connected commute (58 network steps). Last combined score 4900 allowed a positive-growth test; random and density checks still apply.\n\nSupporting growth\nElectricity connected.\nRoad/rail access present; a tested route must still reach a suitable destination.\nLocal conditions\nMaximum standalone residential density; an eligible adjacent high-density zone permits a merge.\nDemand +1900 \u00b7 tax 0%. Demand favours growth; update checks still apply.\nRecent development index +0 for this 8\u00d78 area (includes development attempts).\nLand value 250/250 \u00b7 pollution 6/255 \u00b7 crime 100/255.\n\nPositive demand allows growth checks; it does not guarantee an upgrade every scan.",
+    "errors": [],
+    "base": "http://127.0.0.1:55721",
+    "title": "Sim City Turbo \u00b7 v0.2.60"
+  },
+  "sourceHashes": {
+    "app.js": "f803f2ffff78627dac9267562dee5e8f3a29ff2a7a5c4f54b38bab28231f06aa",
+    "employment.js": "271f39e951bff31e422caae1099a61fb9536c1a1ba68c99b71234b78431216cf",
+    "facility-meters.js": "4fd996252f88a80c7272d57ea2cdda3512e2957720bc5125180db10e04b6e75a",
+    "growth-advisor.js": "7f4b4233f03c528cfacd2ade8fa995cb7e09dd33f0ad2e194b2122f71aa52284",
+    "health-care.js": "341434869dbabb67b61115062bfa2eb169fad08a0eec1ffa7f30f1c0a1352e05",
+    "map-overlays.js": "bf961d6ba4c585adf594b0ff0e147c2bed895ae6c47995cb947fdeb5d9703ca0",
+    "realistic-art.js": "817b4d37b6ca033ede0572e2b3519efca1213f15f361d43d8667e03a8fddaf00",
+    "service-placement.js": "91f75afaf8976e301ff64df5823f668ba0985593b9b7f9574f479b6bfb28be4f",
+    "simulation.js": "73266baac87451297858dabb69563d558b7d4ac93bbe184e459817ba47b72817",
+    "social-fields.js": "6f713f6b2d5cac2678f58a8939e3351ebf0958ec8fce5a0191565007111ad4fc",
+    "transit-network.js": "3ee8979dd302bb59cb19581d2e708add79288ce1ae1223aae402aa7ce613aa5c",
+    "transit-render.js": "36201ab0be6885fe74a0eaeb5d650a1393f605d275bedb493f5dd36abe3669de",
+    "weather-fx.js": "8ef06975220298d1bbea3df4fb6a9703545f09ad21894fbd25ed83302be074d7",
+    "zone-growth.js": "7f6c04bd3cdd09f559a108c2f2d9ec070da337ef3a012a77c578949ff57a4ca7",
+    "zone-progression.js": "77afae05afe10d70518cdbd3a6473cb069b89e8142c0b511a95e561ca6c5781f"
+  },
+  "assetManifest": "assets/realistic/residential-v2-manifest.json",
+  "promptSet": "research/realistic-zone-prompts-v0.2.60.json"
+}

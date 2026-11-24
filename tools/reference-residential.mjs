@@ -2,7 +2,7 @@ import fs from 'node:fs';import path from 'node:path';import crypto from 'node:c
 import {City} from '../src/simulation.js';
 const root=path.resolve(import.meta.dirname,'..'),work=process.env.REFERENCE_WORK||path.resolve(root,'../../work/tools/mesen2'),exe=process.env.MESEN_EXE||path.join(work,'app/Mesen.exe'),rom=process.env.SIMCITY_ROM||path.resolve(root,'../../work/extracted/SimCity (USA).sfc'),sha=b=>crypto.createHash('sha256').update(b).digest('hex'),romHash=sha(fs.readFileSync(rom));
 if(romHash!==JSON.parse(fs.readFileSync(path.join(root,'assets/manifest.json'))).romSHA256)throw Error('Wrong ROM');
-const build=JSON.parse(fs.readFileSync(path.join(root,'assets/tables/build.json'))),flags=JSON.parse(fs.readFileSync(path.join(root,'assets/tables/city.json'))).flags,c=new City(new Uint16Array(12000),build,flags),x=60,y=50,i=y*120+x;
+const build=JSON.parse(fs.readFileSync(path.join(root,'assets/tables/build.json'))),flags=JSON.parse(fs.readFileSync(path.join(root,'assets/tables/city.json'))).flags,c=new City(new Uint16Array(12000),build,flags,{nativeGrowthRules:true}),x=60,y=50,i=y*120+x;
 const rle=map=>{const out=[];for(const n of map){if(out.at(-1)?.[1]===n)out.at(-1)[0]++;else out.push([1,n]);}return out;};
 const configs=[
  {name:'empty homes',tile:0x84,homes:0},{name:'one home',tile:0x84,homes:1},{name:'house preference coordinate',tile:0x84,homes:0,scoreObstacle:true},{name:'full homes low density high value',tile:0x84,homes:8,density:64},
