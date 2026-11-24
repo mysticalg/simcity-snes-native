@@ -296,7 +296,7 @@ test('whole-map zone block plans keep corridors empty or build shared perimeter 
 });
 
 test('calendar starts a seasonal fade and partial palette state survives save/reload',()=>{
- const c=new City(Array(W*H).fill(0),build,flags);c.month=2;c.baseStep=7;c.stepSimulation();assert.equal(c.month,3);assert.deepEqual(c.season,{source:0,progress:0,next:0,active:true});c.advanceVisualFrames(26,true);assert.equal(c.season.progress,125);const saved=City.restore(c.serialize(),build,flags);assert.deepEqual(saved.season,c.season);saved.advanceVisualFrames(26,true);assert.equal(saved.season.progress,255);assert.equal(saved.season.active,false);const legacy=JSON.parse(c.serialize());delete legacy.season;const old=City.restore(JSON.stringify(legacy),build,flags);assert.deepEqual(old.season,{source:0,progress:255,next:260,active:false});
+ const c=new City(Array(W*H).fill(0),build,flags);c.month=2;c.baseStep=7;c.stepSimulation();assert.equal(c.month,3);assert.deepEqual(c.season,{source:0,progress:0,next:0,active:true});c.advanceVisualFrames(26,true);assert.equal(c.season.progress,0);c.advanceVisualFrames(26);assert.equal(c.season.progress,125);const saved=City.restore(c.serialize(),build,flags);assert.deepEqual(saved.season,c.season);saved.advanceVisualFrames(26,true);assert.equal(saved.season.progress,125);saved.advanceVisualFrames(26);assert.equal(saved.season.progress,255);assert.equal(saved.season.active,false);const legacy=JSON.parse(c.serialize());delete legacy.season;const old=City.restore(JSON.stringify(legacy),build,flags);assert.deepEqual(old.season,{source:0,progress:255,next:260,active:false});
 });
 
 test('Tornado menu event uses original moving entity, one history record and deterministic save continuation',()=>{

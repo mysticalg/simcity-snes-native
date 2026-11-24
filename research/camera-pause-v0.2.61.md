@@ -1,0 +1,9 @@
+# v0.2.61: advisor focus and pause
+
+Helicopter congestion reports used to assign a camera focus request without consulting the advisor preference. The application now consumes tagged traffic focus requests through one helper. Disabled advisors discard the request; a current build stroke or pan gesture also discards it, even with advisors enabled. Suppressed requests are never deferred. Other focus requests, including disaster focus, keep their existing behavior.
+
+The city visual worker now returns immediately when paused or blocked by a modal. The original plane and helicopter workers previously continued some movement even when passed the pause flag. The wrapper now freezes actors, vehicle clocks, season transitions, random state and pending collisions. Pure ROM workers and their original execution fixtures remain unchanged; Turbo intentionally offers a stronger pause behavior.
+
+Verification: 599 Node checks pass. The actual Chromium app, using a saved city with an operating airport, native train, helicopter and 48 rendered road vehicles, preserves actor/car state exactly across four seconds of requested paused time plus real elapsed frames. Resume moves each vehicle class. An injected fixture sets the real helicopter worker at its report boundary; it does not bypass the report handler or camera consumption. Actual mouse-held six-tile blueprints remain valid, fixed in place, and commit for $60 after reports with advisors both off and on. Enabled idle reports still focus the reported tile; disabled preference survives reload. Browser errors: none. Required game client smoke check and screenshots inspected.
+
+Private reproducible browser probe: output/verify-focus-pause-v61.mjs. Local structured result: output/focus-local-v61.json. This is a scoped Turbo usability correction; broader original-game reconstruction remains paused.

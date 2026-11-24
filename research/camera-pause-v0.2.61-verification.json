@@ -1,0 +1,47 @@
+{
+  "base": "http://127.0.0.1:55721",
+  "title": "Sim City Turbo · v0.2.61",
+  "pausedActors": {
+    "cars": 48,
+    "aircraft": 1,
+    "train": true
+  },
+  "exactPause": true,
+  "resumed": true,
+  "offDrag": {
+    "camera": {
+      "x": 0,
+      "y": 0
+    },
+    "blueprint": {
+      "valid": true,
+      "cost": 60,
+      "reason": "",
+      "cells": 6,
+      "placements": 6,
+      "skipped": 0,
+      "blocks": 0
+    }
+  },
+  "onDrag": {
+    "camera": {
+      "x": 0,
+      "y": 0
+    },
+    "blueprint": {
+      "valid": true,
+      "cost": 60,
+      "reason": "",
+      "cells": 6,
+      "placements": 6,
+      "skipped": 0,
+      "blocks": 0
+    }
+  },
+  "idleEnabledFocus": {
+    "x": 100,
+    "y": 80
+  },
+  "preferenceSurvivedReload": true,
+  "errors": []
+}
