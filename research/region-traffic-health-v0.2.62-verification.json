@@ -1,0 +1,50 @@
+{
+  "base": "http://127.0.0.1:55721",
+  "title": "Sim City Turbo · v0.2.62",
+  "speedFrames": [
+    {
+      "speed": 1,
+      "frames": 6
+    },
+    {
+      "speed": 4,
+      "frames": 24
+    },
+    {
+      "speed": 8,
+      "frames": 48
+    },
+    {
+      "speed": 16,
+      "frames": 96
+    }
+  ],
+  "independentTraffic": true,
+  "sharingControls": true,
+  "refresh": true,
+  "hospitalCoverage": {
+    "kind": "health",
+    "facilities": 1,
+    "local": 1000,
+    "max": 1000
+  },
+  "hospitalHealth": 100,
+  "depotButtonHeight": 34,
+  "stocks": {
+    "0": {
+      "stock": 220,
+      "funds": 452610,
+      "year": 1900,
+      "month": 1
+    },
+    "1": {
+      "stock": 180,
+      "funds": 435100,
+      "year": 1900,
+      "month": 2
+    }
+  },
+  "tradeUnits": 180,
+  "touchHeight": 50,
+  "errors": []
+}

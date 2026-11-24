@@ -3,9 +3,9 @@ import {stampZoneFootprint} from '../src/rom-growth.js';
 import {employmentIncome} from '../src/employment.js';
 installHealthCare(City);const build=JSON.parse(fs.readFileSync('assets/tables/build.json')),flags=JSON.parse(fs.readFileSync('assets/tables/city.json')).flags;
 const fresh=()=>{const c=new City(new Uint16Array(12000),structuredClone(build),[...flags],{civicEnabled:true});c.funds=200000;c.civic.waterEnabled=false;return c;};
-function routeFixture(){const c=fresh();c.place(33,5,10);c.place(30,10,10);c.place(5,40,10);c.map[11*120+41]=0x99;for(let x=6;x<=42;x++)c.map[13*120+x]=0x32;c.refresh();c.pollution=new Uint8Array(c.map.length).fill(100);dispatchHealthCare(c);return c;}
+function routeFixture(){const c=fresh();c.place(33,5,10);c.place(30,10,10);c.place(5,40,10);c.map[11*120+41]=0x99;for(let x=6;x<=42;x++)c.map[13*120+x]=0x32;c.refresh();c.pollution=new Uint8Array(c.map.length).fill(150);dispatchHealthCare(c);return c;}
 test('all requested health plot sizes build, serve capacity and demolish with exact bounds',()=>{
- for(const [tool,w,h,capacity]of[[51,1,1,500],[54,1,2,1500],[52,2,2,2500],[53,2,3,3500],[30,3,3,5000]]){const c=fresh();assert.ok(c.place(tool,20,20));const z=c.zones.find(z=>z.type===tool);assert.equal(c.footprint(tool,20,20).length,w*h);assert.deepEqual(civicBounds(z),{x:20,y:20,width:w,height:h});for(let x=19;x<=24;x++)c.map[19*120+x]=0x32;c.refresh();c.power.fill(1);assert.equal(civicServices(c).capacity.health,capacity);c.map[20*120+20+w]=44;assert.ok(c.place(0,20,20));assert.equal(c.id(20+w,20),44);for(let y=20;y<20+h;y++)for(let x=20;x<20+w;x++)assert.equal(c.id(x,y),0);}
+ for(const [tool,w,h,capacity]of[[51,1,1,2000],[54,1,2,6000],[52,2,2,10000],[53,2,3,14000],[30,3,3,20000]]){const c=fresh();assert.ok(c.place(tool,20,20));const z=c.zones.find(z=>z.type===tool);assert.equal(c.footprint(tool,20,20).length,w*h);assert.deepEqual(civicBounds(z),{x:20,y:20,width:w,height:h});for(let x=19;x<=24;x++)c.map[19*120+x]=0x32;c.refresh();c.power.fill(1);assert.equal(civicServices(c).capacity.health,capacity);c.map[20*120+20+w]=44;assert.ok(c.place(0,20,20));assert.equal(c.id(20+w,20),44);for(let y=20;y<20+h;y++)for(let x=20;x<20+w;x++)assert.equal(c.id(x,y),0);}
 });
 test('ambulances take connected roads to unhealthy homes and apply care only upon arrival',()=>{
  const c=routeFixture(),home=c.zones.find(z=>z.type===5),hospital=c.zones.find(z=>z.type===30),before=socialFields(c).health[home.i];assert.equal(c.civic.ambulances.length,1);const v=c.civic.ambulances[0];assert.equal(v.target,home.i);assert.ok(v.path.every(i=>c.flags[c.map[i]&1023]&64));assert.equal(healthFleetStatus(c,hospital).served,0);const paused=JSON.stringify(c.civic.ambulances);advanceHealthCare(c,600,true);assert.equal(JSON.stringify(c.civic.ambulances),paused);advanceHealthCare(c,1000);assert.ok(healthFleetStatus(c,hospital).served>0);assert.ok(socialFields(c).health[home.i]>before);assert.ok(c.civic.healthVisits[home.i]>0);
@@ -31,7 +31,7 @@ test('nearby busy facilities fall back to another reachable fleet without exceed
 
 test('a pharmacy conserves its monthly patient capacity and opens again next month',()=>{
  const c=fresh();c.place(33,5,10);c.place(51,15,12);c.place(5,40,10);stampZoneFootprint(c.map,41,11,0x11c);for(let x=6;x<=43;x++)c.map[13*120+x]=0x32;c.pollution.fill(255);c.refresh();const pharmacy=c.zones.find(z=>z.type===51);
- for(let n=0;n<20;n++)advanceHealthCare(c,3000);const served=healthFleetStatus(c,pharmacy);assert.equal(served.served,25);assert.equal(served.active,0);assert.equal(served.calls,4);c.month=2;dispatchHealthCare(c);assert.equal(healthFleetStatus(c,pharmacy).served,0);assert.equal(healthFleetStatus(c,pharmacy).active,1);
+ for(let n=0;n<20;n++)advanceHealthCare(c,3000);const served=healthFleetStatus(c,pharmacy);assert.equal(served.served,100);assert.equal(served.active,0);assert.equal(served.calls,13);c.month=2;dispatchHealthCare(c);assert.equal(healthFleetStatus(c,pharmacy).served,0);assert.equal(healthFleetStatus(c,pharmacy).active,1);
 });
 
 test('previous care decays next month even after the last health facility is demolished',()=>{

@@ -1,11 +1,12 @@
+import {healthCoverage} from './health-coverage.js?v=region-traffic-62';
 import {transitOverlay} from './transit-render.js?v=growth-60';
 import {expandServiceCoverage} from './police-range.js?v=services-57';
-import {educationCoverage} from './education.js?v=approaches-56';
-import {CIVIC_TOOLS,civicForId,civicRoadEntry,civicBounds} from './civic.js?v=approaches-56';
+import {educationCoverage} from './education.js?v=region-traffic-62';
+import {CIVIC_TOOLS,civicForId,civicRoadEntry,civicBounds} from './civic.js?v=region-traffic-62';
 import {seedRomServicePlane} from './rom-services.js';
 import {operationalMap,buildingOff} from './building-operations.js?v=approaches-56';
 import {emergencyKind,emergencyBounds} from './emergency.js?v=emergency-1';
-import {transportOverlay} from './transport-overlays.js?v=transit-59';
+import {transportOverlay} from './transport-overlays.js?v=region-traffic-62';
 const cache=new WeakMap();
 export function placementCoverageKind(tool){if(tool===8||tool===21)return 'police';if(tool===9||tool===22)return 'fire';if([1,37,38].includes(tool))return 'traffic';if(tool===2)return 'railTraffic';if(tool===94)return 'traffic';if(tool>=95&&tool<=103)return [97,98,101,103].includes(tool)?'subway':'raisedTransit';if([12,63,64,65].includes(tool))return 'airTraffic';const kind=CIVIC_TOOLS.find(b=>b.tool===tool)?.kind;if(tool===4||tool===10||(tool>=15&&tool<30)||kind==='park')return 'landValue';return ['health','education'].includes(kind)?kind:null;}
 const names={police:'Police coverage',fire:'Fire coverage',health:'Health / ambulance coverage',education:'Education coverage',landValue:'Land value'};
@@ -17,7 +18,7 @@ export function placementServiceCoverage(city,tool){
  if(entries.has(kind))return entries.get(kind);
  const width=city.width||120,height=city.height||100,facilities=city.zones.filter(z=>kind==='police'||kind==='fire'?emergencyKind(z.id)===kind:kind==='landValue'?civicForId(z.id)?.kind==='park'||(z.type>=15&&z.type<30):civicForId(z.id)?.kind===kind);
  let field,max=(kind==='police'||kind==='fire')?255:1000;
- if(kind==='education')field=educationCoverage(city).field;else if(kind==='landValue'){field=city.landValue;max=250;}
+ if(kind==='health')field=healthCoverage(city).field;else if(kind==='education')field=educationCoverage(city).field;else if(kind==='landValue'){field=city.landValue;max=250;}
  else if(kind==='police'||kind==='fire')field=expandServiceCoverage(seedRomServicePlane(operationalMap(city),city.serviceStrengths[kind==='police'?0:1]*(kind==='police'?city.policeEffectiveness:1),kind,width,height),kind,width,height);
  else{field=new Uint16Array(city.map.length);const homes=city.zones.filter(z=>z.type===5).map(z=>({...z,residents:(z.id===0x84?city.adjacentSmallHomeCount(z):city.zonePopulation(z))*20}));
   for(const z of facilities){const b=civicForId(z.id);if(buildingOff(city,z)||!city.power[z.i]||civicRoadEntry(city,z)<0)continue;const radius=b.healthRadius||b.radius||(kind==='health'?24:z.id===964?12:z.id===965?20:28),load=homes.reduce((n,h)=>n+(Math.abs(h.x-z.x)+Math.abs(h.y-z.y)<radius?h.residents:0),0),factor=Math.min(1,b.capacity/Math.max(1,load));

@@ -1,8 +1,8 @@
 import {drawAmbulanceSprite} from './ambulance-art.js?v=health-care-34';
 export {ambulanceArtStats} from './ambulance-art.js?v=health-care-34';
-import {civicForId,civicRoadEntry} from './civic.js?v=approaches-56';
+import {civicForId,civicRoadEntry} from './civic.js?v=region-traffic-62';
 import {buildingOff} from './building-operations.js?v=approaches-56';
-import {socialFields,updateLocalHealth} from './social-fields.js?v=growth-60';
+import {socialFields,updateLocalHealth} from './social-fields.js?v=region-traffic-62';
 const dispatchCache=new WeakMap();
 const roadCache=new WeakMap();
 const period=city=>city.year*12+city.month;
