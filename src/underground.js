@@ -1,7 +1,7 @@
-import {waterConsumerBounds} from './water-allocation.js?v=approaches-56';
+import {waterConsumerBounds} from './water-allocation.js?v=production-63';
 const layerCache=new WeakMap();
 export function undergroundRenderStats(city){const s=layerCache.get(city);return s?{builds:s.builds,revision:s.revision,width:s.canvas.width,height:s.canvas.height}:{builds:0};}
-import {waterNetwork,utilityPipeStatus,civicBounds} from './civic.js?v=region-traffic-62';
+import {waterNetwork,utilityPipeStatus,civicBounds} from './civic.js?v=production-63';
 const cache=new WeakMap();
 // Mirrors waterService's Chebyshev radius3; range alone does not guarantee
 // a building's demand fits the network's finite allocation.

@@ -1,13 +1,14 @@
+import {industrySpec} from './industry-tools.js?v=production-63';
 // Custom finite water allocation. Reach, source pressure and a zone's actual
 // allocation are separate: a blue pipe must not imply unlimited pump capacity.
 import {pipeTopology} from './pipe-topology.js?v=approaches-56';
 export function allocateWater(city,nodes,pumps){
  const width=city.width||120,height=city.height||100,{labels,components}=pipeTopology(city,nodes),groups=components.map(cells=>({cells:Array.from(cells),capacity:0,generation:0,towers:[],pumps:0,requested:0,unserved:0})),water=new Uint8Array(nodes.length),watered=new Set(),assignments=new Map();
- for(const p of pumps){const id=labels[p.i];if(id>=0){const g=groups[id];if(p.storage){const stored=Math.max(0,Math.min(p.storage,Number(city.civic.waterStored?.[p.i])||0));g.towers.push({i:p.i,capacity:p.storage,flow:p.flow,stored});g.capacity+=Math.min(p.flow,stored);}else{const capacity=p.capacity??5000;g.capacity+=capacity;g.generation+=capacity;g.pumps++;}}}
+ for(const p of pumps){const id=labels[p.i];if(id>=0){const g=groups[id];if(p.storage){const stored=Math.max(0,Math.min(p.storage,Number(city.civic.waterStored?.[p.i])||0));g.towers.push({i:p.i,capacity:p.storage,flow:p.flow,stored});g.capacity+=Math.min(p.flow,stored);}else{const capacity=p.capacity??20000;g.capacity+=capacity;g.generation+=capacity;g.pumps++;}}}
  for(const g of groups){const regional=city.regionalState?.waterAllocations?.get(g.cells[0]);if(regional!==undefined){g.capacity=regional+g.towers.reduce((n,t)=>n+Math.min(t.flow,t.stored),0);g.generation=regional;}g.available=g.capacity;if(g.capacity)for(const i of g.cells)water[i]=1;}
  for(const z of city.zones){
-  if(!((z.type>=5&&z.type<=14)||[30,32,33,34,35,36,38,51,52,53,54,63,64,65,77,78,79,80,81].includes(z.type)))continue;
-  const need=Math.max(20,(z.id===0x84?city.adjacentSmallHomeCount(z):city.zonePopulation(z))*20),nearby=new Set();
+  const custom=industrySpec(z.id);if(!(custom?.waterNeed||(z.type>=5&&z.type<=14)||[30,32,33,34,35,36,38,51,52,53,54,63,64,65,77,78,79,80,81].includes(z.type)))continue;
+  const need=custom?.waterNeed||Math.max(20,(z.id===0x84?city.adjacentSmallHomeCount(z):city.zonePopulation(z))*20),nearby=new Set();
   for(let dy=-3;dy<=3;dy++)for(let dx=-3;dx<=3;dx++){const x=z.x+dx,y=z.y+dy;if(x>=0&&x<width&&y>=0&&y<height&&labels[y*width+x]>=0)nearby.add(labels[y*width+x]);}
   const options=[...nearby],id=options.find(id=>groups[id].capacity>=need)??options.find(id=>groups[id].available>0)??options[0];
   if(id===undefined){assignments.set(z.i,{need,supplied:false,code:'out-of-range',reason:'Outside the three-tile pipe service radius',network:null});continue;}
@@ -15,7 +16,7 @@ export function allocateWater(city,nodes,pumps){
   assignments.set(z.i,{need,supplied,code:supplied?'supplied':g.available?'capacity':'no-source',reason:supplied?'Water supplied':g.available?'Insufficient pumping capacity':'This pipe network has no working water supply',network:id});
  }
  const networks=groups.map(g=>({cells:g.cells,capacity:g.available,generation:g.generation,towers:g.towers,used:g.available-g.capacity,requested:g.requested,unserved:g.unserved,shortfall:Math.max(0,g.requested-g.available),pumps:g.pumps}));
- for(const a of assignments.values())if(a.network!==null){const n=networks[a.network];a.capacity=n.capacity;a.networkDemand=n.requested;a.shortfall=n.shortfall;if(a.code==='capacity')a.reason=`Insufficient pumping capacity: network needs ${n.requested.toLocaleString()}/month; supply ${n.capacity.toLocaleString()}/month. Add ${Math.max(1,Math.ceil(n.shortfall/5000))} working water pump${n.shortfall>5000?'s':''} on this network.`;}
+ for(const a of assignments.values())if(a.network!==null){const n=networks[a.network];a.capacity=n.capacity;a.networkDemand=n.requested;a.shortfall=n.shortfall;if(a.code==='capacity')a.reason=`Insufficient pumping capacity: network needs ${n.requested.toLocaleString()}/month; supply ${n.capacity.toLocaleString()}/month. Add ${Math.max(1,Math.ceil(n.shortfall/20000))} working water pump${n.shortfall>20000?'s':''} on this network.`;}
  return {water,watered,networks,assignments};
 }
 // Allocation previews are pure. Storage changes once per simulated month only.

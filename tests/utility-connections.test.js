@@ -14,5 +14,5 @@ test('treatment accepts a pipe underneath any tile or beside any edge without dr
  }
 });
 test('connected treatment reports its real processing allocation and missing power/pipe',()=>{
- const c=fresh();c.place(44,20,20);c.place(45,30,20);c.place(5,25,25);c.map[26*120+26]=0x99;for(let x=21;x<35;x++)c.pipes[23*120+x]=1;c.refresh();c.power.fill(1);const z=c.zones.find(z=>z.id===974);let s=sewageServices(c),p=s.statuses.find(p=>p.i===z.i);assert.equal(p.treated,320);assert.equal(p.capacity,20000);assert.equal(p.reason,'Treating sewage');assert.equal(s.dumped,0);c.power[z.i]=0;assert.match(utilityInspectionHTML(c,z),/Needs electricity/);c.power[z.i]=1;c.pipes.fill(0);assert.match(utilityInspectionHTML(c,z),/Connect a pipe/);
+ const c=fresh();c.place(44,20,20);c.place(45,30,20);c.place(5,25,25);c.map[26*120+26]=0x99;for(let x=21;x<35;x++)c.pipes[23*120+x]=1;c.refresh();c.power.fill(1);const z=c.zones.find(z=>z.id===974);let s=sewageServices(c),p=s.statuses.find(p=>p.i===z.i);assert.equal(p.treated,320);assert.equal(p.capacity,80000);assert.equal(p.reason,'Treating sewage');assert.equal(s.dumped,0);c.power[z.i]=0;assert.match(utilityInspectionHTML(c,z),/Needs electricity/);c.power[z.i]=1;c.pipes.fill(0);assert.match(utilityInspectionHTML(c,z),/Connect a pipe/);
 });

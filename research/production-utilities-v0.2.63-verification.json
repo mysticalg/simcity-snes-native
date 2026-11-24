@@ -1,0 +1,72 @@
+{
+  "industry": {
+    "base": "http://127.0.0.1:55721",
+    "title": "Sim City Turbo \u00b7 v0.2.63",
+    "resourceOverlayPixels": {
+      "plain": [
+        189,
+        172,
+        123,
+        255
+      ],
+      "resource": [
+        125,
+        102,
+        78,
+        255
+      ]
+    },
+    "blueprint": {
+      "valid": true,
+      "cost": 4000,
+      "reason": "",
+      "cells": 1,
+      "placements": 1,
+      "skipped": 0,
+      "blocks": 0
+    },
+    "wrongDeposit": "Needs an undepleted metals deposit beneath this site. Check the Resources map.",
+    "sourceProduced": {
+      "oil": 240,
+      "drugs": 0,
+      "plastics": 160,
+      "metals": 0,
+      "fertilizers": 0,
+      "components": 0,
+      "gold": 0,
+      "diamonds": 0,
+      "uranium": 0,
+      "contraband": 0,
+      "weapons": 0
+    },
+    "sourceExported": 200,
+    "remaining": 568,
+    "received": {
+      "oil": 40,
+      "plastics": 160
+    },
+    "manufactured": {
+      "drugs": 40,
+      "remainingPlastics": 140
+    },
+    "recipeAndShutdownReload": true,
+    "distinctNewRegionSeed": 3649443107,
+    "errors": []
+  },
+  "utilities": {
+    "base": "http://127.0.0.1:55721",
+    "waterPump": 20000,
+    "heavyPump": 60000,
+    "sewagePump": 32000,
+    "treatmentPlant": 80000,
+    "treated": 80000,
+    "remaining": 40000,
+    "errors": []
+  },
+  "nodeChecks": 626,
+  "regressions": [
+    "regional sharing/depot trades/traffic speed/independent traffic/health/mobile",
+    "pause and advisor camera during drag"
+  ],
+  "browserErrors": []
+}

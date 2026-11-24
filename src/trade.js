@@ -1,3 +1,4 @@
+import {advanceProductionMonth} from './industry.js?v=production-63';
 import {COMMODITIES,emptyInventory} from './commodities.js?v=region-traffic-62';
 import {tradeDepots,depotEdges} from './trade-tools.js?v=region-traffic-62';
 import {sharingEnabled} from './regional-policy.js?v=region-traffic-62';
@@ -8,8 +9,8 @@ export function tradePrices(cities){const states=cities.map(tradeState);return O
 export function externalDepot(city,depot){if(!depot.operating)return false;if(depot.mode==='sea'||depot.mode==='air')return true;const bit=depot.mode==='road'?64:32,w=city.width||120,h=city.height||100,queue=depotEdges(city,depot).filter(i=>city.flags[city.map[i]&1023]&bit),seen=new Set(queue);for(let at=0;at<queue.length;at++){const i=queue[at],x=i%w,y=Math.floor(i/w);if(!x||x===w-1||!y||y===h-1)return true;for(const n of[i-w,i+1,i+w,i-1])if(n>=0&&n<w*h&&!seen.has(n)&&(city.flags[city.map[n]&1023]&bit)){seen.add(n);queue.push(n);}}return false;}
 export function tradeSummary(city){const e=tradeState(city),depots=tradeDepots(city).map(z=>({...z,external:externalDepot(city,z)}));return{inventory:{...e.inventory},orders:structuredClone(e.orders),external:e.external,last:e.last||null,depots,capacity:depots.filter(d=>d.operating).reduce((n,d)=>n+d.capacity,0),regionalPartners:[...new Set((city.regionalState?.goodsLinks||[]).map(l=>l.slot))]};}
 export function advanceTradeMonth(city,{region=null,slot=null,saved=new Map()}={}){
- if(!city.zones.some(z=>z.type>=104&&z.type<=107)&&!city.civic.economy)return [];
- const local=tradeState(city),month=city.year*12+city.month;if(local.lastMonth===month)return [];local.lastMonth=month;
+ if(!city.zones.some(z=>z.type>=104&&z.type<=113)&&!city.civic.economy)return [];
+ const local=tradeState(city);advanceProductionMonth(city);const month=city.year*12+city.month;if(local.lastMonth===month)return [];local.lastMonth=month;
  const partners=new Map([...saved].filter(([s])=>String(s)!==String(slot))),prices=tradePrices([city,...partners.values()]);local.prices=prices;
  const changed=new Set(),remaining=new Map(),regionalUsed=new Map(),ledger={year:city.year,month:city.month,imported:0,exported:0,spent:0,earned:0,regional:0,external:0,depots:{},items:[]};
  const facilities=c=>tradeDepots(c).filter(d=>d.operating),all=new Map([[city,facilities(city)],...[...partners.values()].map(c=>[c,facilities(c)])]);

@@ -1,12 +1,12 @@
-import {healthCoverage} from './health-coverage.js?v=region-traffic-62';
+import {healthCoverage} from './health-coverage.js?v=production-63';
 import {transitOverlay} from './transit-render.js?v=growth-60';
 import {expandServiceCoverage} from './police-range.js?v=services-57';
-import {educationCoverage} from './education.js?v=region-traffic-62';
-import {CIVIC_TOOLS,civicForId,civicRoadEntry,civicBounds} from './civic.js?v=region-traffic-62';
+import {educationCoverage} from './education.js?v=production-63';
+import {CIVIC_TOOLS,civicForId,civicRoadEntry,civicBounds} from './civic.js?v=production-63';
 import {seedRomServicePlane} from './rom-services.js';
 import {operationalMap,buildingOff} from './building-operations.js?v=approaches-56';
 import {emergencyKind,emergencyBounds} from './emergency.js?v=emergency-1';
-import {transportOverlay} from './transport-overlays.js?v=region-traffic-62';
+import {transportOverlay} from './transport-overlays.js?v=production-63';
 const cache=new WeakMap();
 export function placementCoverageKind(tool){if(tool===8||tool===21)return 'police';if(tool===9||tool===22)return 'fire';if([1,37,38].includes(tool))return 'traffic';if(tool===2)return 'railTraffic';if(tool===94)return 'traffic';if(tool>=95&&tool<=103)return [97,98,101,103].includes(tool)?'subway':'raisedTransit';if([12,63,64,65].includes(tool))return 'airTraffic';const kind=CIVIC_TOOLS.find(b=>b.tool===tool)?.kind;if(tool===4||tool===10||(tool>=15&&tool<30)||kind==='park')return 'landValue';return ['health','education'].includes(kind)?kind:null;}
 const names={police:'Police coverage',fire:'Fire coverage',health:'Health / ambulance coverage',education:'Education coverage',landValue:'Land value'};

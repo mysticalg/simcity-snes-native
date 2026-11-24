@@ -1,5 +1,5 @@
 import {hasRoadLayer} from './rom-networks.js?v=megacity-1';
-import{CIVIC_TOOLS}from'./civic.js?v=region-traffic-62';import{buildingOff}from'./building-operations.js?v=approaches-56';
+import{CIVIC_TOOLS}from'./civic.js?v=production-63';import{buildingOff}from'./building-operations.js?v=approaches-56';
 const money=n=>(n<0?'−':'')+'$'+Math.abs(n).toLocaleString();
 export function previewBudget(city,tax=city.tax,funding=city.funding){const oldTax=city.tax,oldFunding=city.funding;try{city.tax=tax;city.funding=funding;return city.budget(false,city.pendingBudget?.taxRate??tax);}finally{city.tax=oldTax;city.funding=oldFunding;}}
 export function budgetBreakdown(city,b=city.budget(false)){

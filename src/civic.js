@@ -1,12 +1,13 @@
+import {INDUSTRY_TOOLS} from './industry-tools.js?v=production-63';
 import {DEPOT_TOOLS} from './trade-tools.js?v=region-traffic-62';
 import {AMENITY_TOOLS} from './amenities.js?v=amenities-gifts-29';
-import {educationCoverage} from './education.js?v=region-traffic-62';
-import {allocateWater,updateWaterStorage} from './water-allocation.js?v=approaches-56';
+import {educationCoverage} from './education.js?v=production-63';
+import {allocateWater,updateWaterStorage} from './water-allocation.js?v=production-63';
 import {landfillSites,garbageFacilities,collectGarbage,monthlyGarbageDemand} from './landfill.js?v=health-care-34';
 import {buildingOff} from './building-operations.js?v=approaches-56';
 // Custom civic systems requested by the player. Values are game balance, not ROM-derived.
 export const CIVIC_TOOLS=[
- ...AMENITY_TOOLS, ...DEPOT_TOOLS,
+ ...AMENITY_TOOLS, ...DEPOT_TOOLS, ...INDUSTRY_TOOLS,
  {tool:8,id:977,name:"Police",icon:"🛡",cost:500,annual:0,kind:"police",size:2,nativeTool:8},
  {tool:9,id:978,name:"Fire station",icon:"🚒",sprite:60,cost:500,annual:0,kind:"fire",size:2,nativeTool:9},
  {tool:30,id:960,name:'Hospital',icon:'🏥',cost:1000,annual:250,kind:'health',capacity:20000,healthStrength:4,healthRadius:72,ambulances:3},
@@ -23,9 +24,9 @@ export const CIVIC_TOOLS=[
  {tool:81,id:1009,name:'Special school',icon:'🏫',cost:1200,annual:250,kind:'education',capacity:5000,radius:28,strength:1.1,width:2,height:3,sprite:47},
  {tool:37,id:967,name:'Bus stop',icon:'🚏',cost:25,annual:5,kind:'bus',capacity:500,size:1},
  {tool:38,id:968,name:'Bus station',icon:'🚌',cost:1000,annual:200,kind:'bus',capacity:5000,size:1},
- {tool:39,id:969,name:'Water pump',icon:'💧',cost:500,annual:100,kind:'water',capacity:5000,size:2},
+ {tool:39,id:969,name:'Water pump',icon:'💧',cost:500,annual:100,kind:'water',capacity:20000,size:2},
  {tool:60,id:988,name:'Water tower',icon:'🗼',cost:1000,annual:50,kind:'waterStorage',capacity:20000,flow:5000,width:1,height:2,sprite:26},
- {tool:61,id:989,name:'Heavy water pump',icon:'💦',cost:1500,annual:250,kind:'water',capacity:15000,size:3,sprite:27},
+ {tool:61,id:989,name:'Heavy water pump',icon:'💦',cost:1500,annual:250,kind:'water',capacity:60000,size:3,sprite:27},
  {tool:62,id:990,name:'Solar power array',icon:'☀',cost:5000,annual:100,kind:'power',capacity:1000,size:2,sprite:28},
  {tool:63,id:991,name:'Municipal airport',icon:'🛩',cost:5000,annual:500,kind:'airport',capacity:1200,cargo:0,size:4,sprite:29},
  {tool:64,id:992,name:'International airport',icon:'✈',cost:50000,annual:4000,kind:'airport',capacity:15000,cargo:5000,width:24,height:18,sprite:30},
@@ -35,8 +36,8 @@ export const CIVIC_TOOLS=[
  {tool:68,id:996,name:'City park',icon:'🌲',cost:750,annual:80,kind:'park',size:4,radius:32,landBonus:42,happiness:28,sprite:34},
  {tool:69,id:997,name:'Civic plaza',icon:'⛲',cost:500,annual:60,kind:'park',size:3,radius:24,landBonus:34,happiness:20,commerce:30,sprite:35},
  {tool:41,id:972,name:'Wind turbine',icon:'🌬',cost:1000,annual:40,kind:'power',capacity:200,width:2,height:1,sprite:12,artHeight:24},
- {tool:44,id:973,name:'Sewage pump',icon:'🚰',cost:800,annual:150,kind:'sewage',capacity:8000,sprite:13},
- {tool:45,id:974,name:'Sewage treatment',icon:'♻',cost:5000,annual:800,kind:'treatment',capacity:20000,size:4,sprite:14},
+ {tool:44,id:973,name:'Sewage pump',icon:'🚰',cost:800,annual:150,kind:'sewage',capacity:32000,sprite:13},
+ {tool:45,id:974,name:'Sewage treatment',icon:'♻',cost:5000,annual:800,kind:'treatment',capacity:80000,size:4,sprite:14},
  {tool:49,id:975,name:'Recycling centre',icon:'♻',cost:2000,annual:250,kind:'garbage',capacity:4000,size:2,sprite:15},
  {tool:50,id:976,name:'Garbage collection depot',icon:'🚛',cost:1000,annual:150,kind:'collection',capacity:12000,size:2,sprite:16},
  {tool:51,id:979,name:'Pharmacy',icon:'⚕',cost:200,annual:50,kind:'health',capacity:2000,healthStrength:4,size:1,sprite:17,healthRadius:12,ambulances:1},
