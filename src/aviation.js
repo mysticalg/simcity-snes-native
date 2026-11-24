@@ -1,7 +1,7 @@
 import {flightMission,travelFlight,flightRandom} from './flight-routes.js?v=approaches-56';
 // Requested Turbo aviation. Native SNES aircraft remain on their ROM actor path.
-import {civicForId,civicBounds} from './civic.js?v=production-63';
-import {buildingOff} from './building-operations.js?v=approaches-56';
+import {civicForId,civicBounds} from './civic.js?v=background-64';
+import {buildingOff} from './building-operations.js?v=background-64';
 export const AIRCRAFT={light:{name:'Light aircraft',speed:2.8,passengers:4,cargo:0,length:9,span:10},private:{name:'Private jet',speed:5.2,passengers:12,cargo:0,length:12,span:9},regional:{name:'Regional passenger jet',speed:4.5,passengers:100,cargo:0,length:16,span:14},jumbo:{name:'Boeing-style heavy passenger jet',speed:3.6,passengers:500,cargo:0,length:39,span:35},cargo:{name:'Heavy cargo jet',speed:3.8,passengers:0,cargo:250,length:37,span:34},fighter:{name:'Jet fighter',speed:10,passengers:0,cargo:0,length:13,span:9}};
 export function airfieldBounds(city,z){const custom=civicBounds(z);if(custom)return custom;const b=city.build.buildings[12],center=b.tiles.indexOf(z.id);return {x:z.x-b.x[center],y:z.y-b.y[center],width:Math.max(...b.x)+1,height:Math.max(...b.y)+1};}
 export function aviationRoadEntry(city,z){const b=airfieldBounds(city,z),w=city.width||120,h=city.height||100;for(let y=b.y-1;y<=b.y+b.height;y++)for(let x=b.x-1;x<=b.x+b.width;x++){if(x<0||x>=w||y<0||y>=h)continue;if((x===b.x-1||x===b.x+b.width)&&(y===b.y-1||y===b.y+b.height))continue;if(x>=b.x&&x<b.x+b.width&&y>=b.y&&y<b.y+b.height)continue;const i=y*w+x;if(city.flags[city.map[i]&1023]&64)return i;}return -1;}

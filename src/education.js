@@ -1,6 +1,6 @@
 // Turbo education: displayed reach and monthly education use the same service field.
-import {civicForId,civicRoadEntry} from './civic.js?v=production-63';
-import {buildingOff} from './building-operations.js?v=approaches-56';
+import {civicForId,civicRoadEntry} from './civic.js?v=background-64';
+import {buildingOff} from './building-operations.js?v=background-64';
 const cache=new WeakMap();
 export function educationCoverage(city){const key=city.revision+':'+Object.entries(city.disabledBuildings||{}).join(';'),old=cache.get(city);if(old?.key===key&&old.power===city.power)return old.value;
  const width=city.width||120,height=city.height||100,field=new Uint16Array(city.map.length),homes=city.zones.filter(z=>z.type===5).map(z=>({...z,residents:(z.id===0x84?city.adjacentSmallHomeCount(z):city.zonePopulation(z))*20})),facilities=[];

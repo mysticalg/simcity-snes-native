@@ -1,8 +1,8 @@
 import {updateRoadCars,drawRoadCars} from './road-traffic.js?v=region-traffic-62';
-import {RealisticBuildings} from './realistic-art.js?v=growth-60';
+import {RealisticBuildings} from './realistic-art.js?v=background-64';
 import {WaterSurface} from './water-surface.js?v=render-perf-1';
-import {WindowLights} from './window-lights.js?v=production-63';
-import{windVector}from'./climate.js?v=weather-1';import{buildingOff}from'./building-operations.js?v=approaches-56';
+import {WindowLights} from './window-lights.js?v=background-64';
+import{windVector}from'./climate.js?v=weather-1';import{buildingOff}from'./building-operations.js?v=background-64';
 export const DEFAULT_WEATHER_FX={enabled:true,realisticTraffic:true,realisticArt:true,timeMode:'auto',weatherMode:'auto',quality:'high'};const mod=(n,d)=>(n%d+d)%d,hash=n=>{n=Math.imul(n^(n>>>16),0x45d9f3b);n=Math.imul(n^(n>>>16),0x45d9f3b);return((n^(n>>>16))>>>0)/4294967296;};
 export class WeatherFX{
  constructor(){this.images=Array.from({length:16},(_,i)=>{const image=new Image();image.src='assets/weather/fx-'+i+'.png';return image;});this.realistic=new RealisticBuildings();this.water=new WaterSurface();this.windows=new WindowLights();this.ready=Promise.all([...this.images.map(i=>i.decode()),this.realistic.ready,this.water.ready,this.windows.ready]);this.states=new WeakMap();}

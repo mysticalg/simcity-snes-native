@@ -1,10 +1,10 @@
 import {INDUSTRY_TOOLS} from './industry-tools.js?v=production-63';
-import {DEPOT_TOOLS} from './trade-tools.js?v=region-traffic-62';
+import {DEPOT_TOOLS} from './trade-tools.js?v=background-64';
 import {AMENITY_TOOLS} from './amenities.js?v=amenities-gifts-29';
-import {educationCoverage} from './education.js?v=production-63';
+import {educationCoverage} from './education.js?v=background-64';
 import {allocateWater,updateWaterStorage} from './water-allocation.js?v=production-63';
 import {landfillSites,garbageFacilities,collectGarbage,monthlyGarbageDemand} from './landfill.js?v=health-care-34';
-import {buildingOff} from './building-operations.js?v=approaches-56';
+import {buildingOff} from './building-operations.js?v=background-64';
 // Custom civic systems requested by the player. Values are game balance, not ROM-derived.
 export const CIVIC_TOOLS=[
  ...AMENITY_TOOLS, ...DEPOT_TOOLS, ...INDUSTRY_TOOLS,

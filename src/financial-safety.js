@@ -13,6 +13,5 @@ export function installFinancialSafety(City){
  for(const name of ['advance','stepSimulation']){const original=City.prototype[name];City.prototype[name]=function(...args){if(this.checkFinancialEmergency())return false;return original.apply(this,args);};}
  // Recovery demolition remains possible without taking the treasury below zero.
  const canBuild=City.prototype.canBuild;City.prototype.canBuild=function(tool,...args){const result=canBuild.call(this,tool,...args);if(tool===0&&this.funds<=0&&!this.infiniteMoney)result.cost=0;return result;};
- const serialize=City.prototype.serialize;City.prototype.serialize=function(){const saved=JSON.parse(serialize.call(this));saved.financialClearedAtZero=!!this.financialClearedAtZero;saved.financialEmergency=!!this.financialEmergency;return JSON.stringify(saved);};
  const restore=City.restore;City.restore=function(text,...args){const city=restore.call(this,text,...args);city.financialClearedAtZero=!!JSON.parse(text).financialClearedAtZero;city.financialEmergency=!city.infiniteMoney&&(!!JSON.parse(text).financialEmergency||(city.funds<=0&&!city.financialClearedAtZero));return city;};
 }

@@ -1,5 +1,5 @@
 import {PhotoGlowBatch} from './photo-glow-batch.js?v=photo-glows-47';
-import {buildingOff} from './building-operations.js?v=approaches-56';
+import {buildingOff} from './building-operations.js?v=background-64';
 const image=src=>{const i=new Image();i.src=src;return i;};
 export const PHOTO_SLOT_COUNT=63;
 const mergedRules={0x37a:[3,0,0x383,31],0x383:[-3,0,0x37a,31],0x38c:[0,3,0x395,32],0x395:[0,-3,0x38c,32],0x39e:[3,0,0x3a7,33],0x3a7:[-3,0,0x39e,33],0x3b0:[0,3,0x3b9,34],0x3b9:[0,-3,0x3b0,34]};

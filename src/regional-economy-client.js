@@ -1,0 +1,11 @@
+// Worker messages are ordered; retained journals let session reload replay an interrupted round exactly once.
+export class RegionalEconomyClient{
+ constructor({onRound=()=>{},onIdle=()=>{},onError=()=>{}}={}){this.worker=new Worker(new URL('./regional-economy-worker.js?v=background-64',import.meta.url),{type:'module'});this.requests=new Map();this.ticks=new Map();this.patches=new Map();this.tasks=new Set();this.sequence=0;this.busy=0;this.stats={completedTick:0,backgroundCities:0};this.onRound=onRound;this.onIdle=onIdle;this.onError=onError;this.worker.onmessage=({data})=>{const q=this.requests.get(data.id);if(!q)return;this.requests.delete(data.id);data.error?q.reject(Error(data.error)):q.resolve(data.result);};this.worker.onerror=e=>{const error=Error(e.message||'Regional worker failed');for(const q of this.requests.values())q.reject(error);this.requests.clear();this.onError(error);};}
+ request(type,data={}){const id=++this.sequence;return new Promise((resolve,reject)=>{this.requests.set(id,{resolve,reject});this.worker.postMessage({id,type,data});});}
+ async init(region,build,flags){const r=await this.request('init',{region,build,flags});this.stats.completedTick=r.state.completedEconomyTick||0;return r;}
+ tick(payload){const key=payload.tick;this.ticks.set(key,payload);this.busy++;const task=this.request('tick',payload).then(r=>{this.ticks.delete(key);this.stats={...this.stats,...r};this.onRound(r);return r;}).catch(e=>{this.onError(e);throw e;}).finally(()=>{this.busy--;this.tasks.delete(task);if(!this.busy)this.onIdle();});this.tasks.add(task);return task;}
+ patch(patches){if(!patches.length)return Promise.resolve();const key=++this.sequence;this.patches.set(key,patches);return this.request('patch',{patches}).then(r=>{this.patches.delete(key);return r;});}
+ async drain(){while(this.tasks.size)await Promise.all([...this.tasks]);return this.request('flush');}
+ get journal(){return{pendingTicks:[...this.ticks.values()].map(t=>({...t,geometry:t.geometry?{...t.geometry,map:Array.from(t.geometry.map),pipes:Array.from(t.geometry.pipes),power:Array.from(t.geometry.power)}:undefined})),pendingPatches:[...this.patches.values()].flat()};}
+ close(){this.worker.terminate();}
+}

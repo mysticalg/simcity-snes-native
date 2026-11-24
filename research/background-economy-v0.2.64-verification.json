@@ -1,0 +1,82 @@
+{
+  "version": "0.2.64",
+  "nodeChecks": 632,
+  "backgroundBrowser": {
+    "base": "http://127.0.0.1:55721",
+    "title": "Sim City Turbo \u00c2\u00b7 v0.2.64",
+    "sequence": [
+      {
+        "tick": 1,
+        "drugs": 0,
+        "pending": 0
+      },
+      {
+        "tick": 2,
+        "drugs": 40,
+        "pending": 0
+      },
+      {
+        "tick": 3,
+        "drugs": 80,
+        "pending": 0
+      },
+      {
+        "tick": 4,
+        "drugs": 120,
+        "pending": 0
+      }
+    ],
+    "savedInactiveCalendars": [
+      1,
+      1
+    ],
+    "depletionAfterFour": 960,
+    "cityOptOut": true,
+    "globalOptOut": true,
+    "pause": true,
+    "interruptedJournal": 1,
+    "replayedOnce": true,
+    "replayTick": 9,
+    "finalDepletion": 1920,
+    "burstRounds": 3,
+    "workerMs": 6.899999976158142,
+    "errors": []
+  },
+  "performance": {
+    "fixture": {
+      "zones": 647,
+      "population": 154560,
+      "cities": 4
+    },
+    "baselineMonthMs": [
+      79,
+      70.19999992847443,
+      69.5,
+      63.200000047683716
+    ],
+    "candidateMonthMs": [
+      35.39999997615814,
+      33.39999997615814,
+      32.39999997615814,
+      28.399999976158142
+    ],
+    "baselineMedianMs": 69.84999996423721,
+    "candidateMedianMs": 32.89999997615814,
+    "medianReductionPercent": 52.9,
+    "scope": "Headless Chromium synthetic fixture; timings include main-thread tick and repaint; not a measurement of a user save or every device."
+  },
+  "legacyUpgrade": {
+    "indexedDB": "v1 to v2",
+    "nativeFieldsPreserved": true,
+    "atomicEconomicOverlay": true,
+    "compaction": true,
+    "otherRegionUnaffected": true
+  },
+  "regression": {
+    "pauseAndHelicopterDrag": true,
+    "regionalPolicyAndTrade": true,
+    "speedScaledTraffic": true,
+    "utilityCapacity": true,
+    "browserErrors": []
+  }
+}
